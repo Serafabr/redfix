@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin="anonymous"
+  >
+</head>
+<body class="container w-50 text-justify">
+
+<h1 class="text-center pt-5 font-weight-bold">Papéis de usuários</h1>
+
+<hr/>
+
+<p>
+  Cada usuário é enquadrado em um dentre os seguintes papéis:
+</p>
+
+<p>
+  <ul>
+    <li><code>administrator</code></li>
+    <li><code>coordinator</code></li>
+    <li><code>supervisor</code></li>
+    <li><code>inspector</code></li>
+    <li><code>employee</code></li>
+    <li><code>visitor</code></li>
+  </ul>
+</p>
+
+<p>
+  <h4><code>administrator</code></h4>
+  <ul>
+    <li>
+      Quem: servidores do SEPLAG.
+    </li> 
+    <li>
+      Permissões: todas do papel <code>coordinator</code>, além de
+      poder realizar ações administrativas no sistema, como ler logs,
+      realizar migrações no banco de dados, corrigir bugs etc.
+    </li>
+  </ul>
+</p>
+
+<p>
+  <h4><code>coordinator</code></h4>
+  <ul>
+    <li>
+      Quem: titular do SEDACOPE.
+    </li> 
+    <li>
+      Permissões: todas do papel <code>supervisor</code>, além de
+      poder criar e modificar especificações técnicas.
+    </li>
+  </ul>
+</p>
+
+<p>
+  <h4><code>supervisor</code></h4>
+  <ul>
+    <li>
+      Quem: servidores efetivos da SINFRA.
+    </li> 
+    <li>
+      Permissões: todas do papel <code>inspector</code>, além de
+      poder criar equipes e cadastrar usuários.
+    </li>
+  </ul>
+</p>
+
+<p>
+  <h4><code>inspector</code></h4>
+  <ul>
+    <li>
+      Quem: terceirizados da SINFRA que trabalham na fiscalização.
+    </li> 
+    <li>
+      Permissões: todas do papel <code>employee</code>, além de
+      poder criar e modificar estoques e suprimentos.
+    </li>
+  </ul>
+</p>
+
+<p>
+  <h4><code>employee</code></h4>
+  <ul>
+    <li>
+      Quem: terceirizados dos contratos de manutenção.
+    </li> 
+    <li>
+      Permissões: todas do papel <code>visitor</code>, além de
+      poder criar e modificar tarefas e ativos.
+    </li>
+  </ul>
+</p>
+
+<p>
+  <h4><code>visitor</code></h4>
+  <ul>
+    <li>
+      Quem: qualquer pessoa não cadastrada no sistema.
+    </li> 
+    <li>
+      Permissões: somente visualização.
+    </li>
+  </ul>
+</p>
+
+</body>
+</html>

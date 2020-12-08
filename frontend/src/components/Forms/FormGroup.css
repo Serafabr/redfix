@@ -1,0 +1,26 @@
+.form-group__title {
+  background: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-left: 5px solid green;
+  border-radius: 8px;
+  padding: 15px 25px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #424242;
+}
+
+.form-group__input-field {
+  margin: 20px 30px 30px 30px;
+}
+
+.input-label {
+  font-weight: 600;
+}
+
+.legend-correction {
+  -webkit-font-smoothing: antialiased;
+}
+
+.legend-correction legend {
+  width: auto;
+}

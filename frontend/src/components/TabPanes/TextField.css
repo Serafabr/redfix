@@ -1,0 +1,22 @@
+.asset-info-single-container {
+  margin-top: 10px;
+}
+
+.desc-sub {
+  font-weight: 600;
+  color: #a59f9f;
+  /* #3e5c7b */
+  font-size: 1.1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 3px;
+}
+
+.asset-info-content-data {
+  /* border-left: 2px solid #4dbd74; */
+  /* border: 1px solid gainsboro; */
+  padding: 0px 10px 3px 10px;
+  margin: 1px 0;
+  /* border-bottom: 1px solid #e6e6e6; */
+}

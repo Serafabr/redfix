@@ -1,0 +1,42 @@
+.table-body__cell {
+  padding: 6px;
+  height: 52px;
+  overflow: hidden;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.table-body__cell--clickable {
+  cursor: pointer;
+}
+
+.table-body__cell--center {
+  justify-content: center;
+  text-align: center;
+}
+
+.table-body__cell--justify {
+  justify-content: flex-start;
+  text-align: justify;
+}
+
+.table-body__cell--nowrap {
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.table-body__cell__value {
+  display: block;
+  padding: 0 4px;
+  font-size: 0.8rem;
+}
+
+.table-body__cell__sub-value {
+  color: #73818f;
+  font-size: 0.7rem;
+  font-weight: 400;
+  padding: 1px 4px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

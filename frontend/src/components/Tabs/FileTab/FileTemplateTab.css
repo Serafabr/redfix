@@ -1,0 +1,18 @@
+.download-button {
+  color: #20a8d8 !important;
+}
+
+.download-button:hover {
+  color: #167495 !important;
+  cursor: pointer !important;
+}
+
+.tabpane-container {
+  margin: 10px -30px;
+}
+
+.tabpane__content {
+  margin: 10px 30px 30px 30px;
+}
+
+

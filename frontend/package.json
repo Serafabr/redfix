@@ -1,0 +1,127 @@
+{
+  "name": "sf-sinfra-cmms",
+  "version": "0.1.0",
+  "description": "CMMS SINFRA - Senado Federal",
+  "author": "",
+  "contributors": [
+    {
+      "name": "Pedro Henrique Serafim",
+      "url": "https://github.com/Serafabr"
+    },
+    {
+      "name": "Henrique Zaidan Lopes",
+      "url": "https://github.com/hzlopes"
+    }
+  ],
+  "homepage": "http://sinfra.s3-website.us-east-2.amazonaws.com",
+  "copyright": "Copyright 2019 Senado Federal",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Serafabr/cmms-web-app"
+  },
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "@coreui/coreui": "^2.1.9",
+    "@coreui/coreui-plugin-chartjs-custom-tooltips": "^1.3.0",
+    "@coreui/icons": "0.3.0",
+    "@coreui/react": "^2.1.7",
+    "@date-io/date-fns": "^1.3.13",
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/lab": "^4.0.0-alpha.40",
+    "@material-ui/pickers": "^3.2.10",
+    "@svgr/core": "^5.2.0",
+    "amazon-cognito-identity-js": "^3.0.12",
+    "apollo-boost": "^0.4.4",
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.6.4",
+    "apollo-link": "^1.2.12",
+    "apollo-link-http": "^1.5.15",
+    "apollo-link-ws": "^1.0.19",
+    "apollo-upload-client": "^11.0.0",
+    "aws-sdk": "^2.455.0",
+    "babel-polyfill": "^6.26.0",
+    "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
+    "classnames": "^2.2.6",
+    "core-js": "^2.6.5",
+    "date-fns": "^2.9.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.0",
+    "flag-icon-css": "^3.2.1",
+    "font-awesome": "^4.7.0",
+    "graphql": "^14.5.4",
+    "graphql-tag": "^2.10.1",
+    "history": "^4.9.0",
+    "jquery": "1.9.1",
+    "jss": "^10.0.4",
+    "lodash": "^4.17.15",
+    "markdown-to-jsx": "^6.11.4",
+    "moment": "^2.27.0",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-animate-height": "^2.0.21",
+    "react-apollo": "^3.1.5",
+    "react-app-polyfill": "^0.2.2",
+    "react-calendar": "^2.19.0",
+    "react-chartjs-2": "2.7.4",
+    "react-datepicker": "^3.1.3",
+    "react-dom": "^16.8.6",
+    "react-dropzone": "^10.2.1",
+    "react-loadable": "^5.5.0",
+    "react-number-format": "^4.4.1",
+    "react-redux": "^7.0.3",
+    "react-router-config": "^4.4.0-beta.8",
+    "react-router-dom": "^4.3.1",
+    "react-select": "^3.1.0",
+    "react-test-renderer": "^16.8.6",
+    "react-text-mask": "^5.4.3",
+    "react-virtualized": "^9.21.1",
+    "react-window": "^1.8.5",
+    "react-window-infinite-loader": "^1.0.5",
+    "reactstrap": "^7.1.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "simple-line-icons": "^2.4.1",
+    "subscriptions-transport-ws": "^0.9.16",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^5.2.0",
+    "react-scripts": "^3.4.0"
+  },
+  "scripts": {
+    "build-and-mv": "npm run build && mv build/* ../backend/public/",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:cov": "react-scripts test --coverage",
+    "test:debug": "react-scripts --inspect-brk test --runInBand",
+    "eject": "react-scripts eject",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
+  },
+  "bugs": {
+    "url": "https://github.com/coreui/coreui-free-react-admin-template/issues"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 9",
+    "not op_mini all"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/*index.js",
+      "!src/serviceWorker.js",
+      "!src/polyfill.js"
+    ]
+  }
+}

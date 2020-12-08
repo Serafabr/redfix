@@ -1,0 +1,65 @@
+.card-search-container {
+  display: flex;
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 2px;
+  background: #fafafa;
+  height: 80px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.card-search-form {
+  padding: 1px;
+  margin: auto 0;
+}
+
+.search-form__input {
+  height: 35px;
+  border: 1px solid #c7c7c7;
+}
+
+.search-form__search-image {
+  height: 35px;
+  border: 1px solid #c7c7c7;
+  
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  border-left: 2px solid #d8d8d8;
+  padding: 0 15px;
+  height: 60%;
+}
+
+.search-filter ol {
+  color: #5c5c5c;
+  /* font-weight: bold; */
+  list-style: none;
+  padding: 0 10px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.search-filter li {
+  margin: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-search-title {
+  font-size: 14px;
+  color: #9c9c9c;
+  margin: 0;
+  font-weight: 600;
+}
+
+.search-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search-filter-button {
+  margin: 0 10px;
+}

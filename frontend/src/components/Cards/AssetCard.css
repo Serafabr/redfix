@@ -1,0 +1,16 @@
+.ghost-button {
+  background-color: #f5f5f5;
+  border-color: #b7bcbf;
+  color: #5f5f5f;
+}
+
+.ghost-button:hover {
+  background-color: #ced4da;
+  border-color: #a0a0a0;
+  color: #5f5f5f;
+}
+
+.container-left {
+  display: flex;
+  align-items: center;
+}

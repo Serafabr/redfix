@@ -1,0 +1,5 @@
+# test.sql file
+tests/*
+!tests/.gitkeep
+samples/csv_files/*
+!samples/csv_files/.gitkeep

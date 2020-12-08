@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+    crossorigin="anonymous"
+  >
+</head>
+<body class="container w-50 text-justify">
+
+<h1 class="text-center pt-5 font-weight-bold">📁 backend</h1>
+
+<hr/>
+  
+<p>
+  O servidor web, desenvolvido em <a href="https://nodejs.org/en/">Node.js</a>,
+  é uma camada intermediária entre o banco de dados e a interface do usuário.
+  Suas principais responsabilidades são:
+</p>
+
+<ul>
+  <li>
+    fornecer os artefatos que compõem a UI (HTML, CSS, JavaScript etc.) ao cliente (browser do usuário que acessa o sistema);
+  </li>
+  <li>
+    realizar a lógica de autenticação e geração dos cookies de sessão de usuário;
+  </li>
+  <li>
+    expor a API para as operações de leitura e escrita do banco de dados (queries e mutations GraphQL);
+  </li>
+  <li>
+    executar rotinas periódicas (e.g. backups, rotação de logs);
+  </li>
+  <li>
+    manter os uploads dos usuários (e.g. manuais de equipamentos, fotos de edifícios, plantas arquitetônicas para uma tarefa etc.)
+  </li>
+</ul>
+
+<p>
+  Algumas das bibliotecas utilizadas e suas respectivas funções no sistema:
+</p>
+<ul>
+  <li>
+    <a href="http://expressjs.com/">Express</a>, como framework web para Node.js;
+  </li>
+  <li>
+    <a href="http://www.passportjs.org/">Passport</a>, para autenticação de usuários;
+  </li>
+  <li>
+    <a href="https://www.npmjs.com/package/cookie-session">Cookie-Session</a>, para gerar e gerenciar cookies de sessão de usuários;
+  </li>
+  <li>
+    <a href="https://www.graphile.org/">PostGraphile</a>, que expõe as queries e mutations da API em um só endpoint;
+  </li>
+  <li>
+    <a href="https://www.npmjs.com/package/morgan">Morgan</a>, para log das requisições HTTP;
+  </li>
+  <li>
+    <a href="https://www.npmjs.com/package/cron">Cron</a>, para executar rotinas periódicas necessárias ao back-end;
+  </li>
+  <li>
+    <a href="https://www.npmjs.com/package/graphql-upload">GraphQL-Upload</a>, para leitura de arquivos enviados em uploads;
+  </li>
+  <li>
+    <a href="https://node-postgres.com/">Node-Postgres</a>, para acesso ao banco de dados.
+  </li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+.logs__date {
+    font-weight: bold;
+    padding-bottom: 4px;
+    margin-top: 4px;
+    border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.logs__date--hidden {
+    display: none;
+    font-weight: bold;
+    padding-bottom: 4px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.logs__date span {
+    font-weight: normal;
+}
+
+.logs__items {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 8px;
+}
+
+.logs__items:hover{
+    background-color: rgba(0, 0, 0, 0.075);
+    border-radius: 3px;
+    /* box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5); */
+}
+
+.logs__icon {
+    display: inline-flex;
+    background-color: rgb(20, 54, 94);
+    border: 3px solid rgb(20, 54, 94);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logs__initials {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.logs__occurence {
+    padding-left: 20px;
+    vertical-align: middle;
+    height: auto;
+}
+
+/* .logs__occurence ul {
+    list-style-type: disc;
+} */
+
+.logs__creator,
+.logs__description {
+    display: inline-block;
+    padding: 0 6px;
+}
+
+.logs__creator {
+    padding: 0;
+    font-weight: bold;
+}

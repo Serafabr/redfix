@@ -1,0 +1,81 @@
+.filter-header {
+  padding: 15px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid #c8ced3;
+}
+
+.filter-header,
+.filter-footer {
+  background: #f0f3f5;
+}
+
+.create-filter-container {
+  margin: 40px 0;
+  min-height: 100px;
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 15px;
+}
+
+.filter-container-title {
+  margin-top: -10px;
+  margin-left: 15px;
+}
+
+.filter-title {
+  display: inline-block;
+  padding: 0 8px;
+  background: white;
+  font-weight: 700;
+}
+
+.filter-container-body {
+  padding: 10px 20px;
+}
+
+.filter-apply-table {
+  padding: 1px 0;
+  max-height: 225.9px;
+  overflow-y: auto;
+  border-radius: 6px;
+  border: 1px solid #d0d0d0;
+}
+
+.filter-apply-table button {
+  outline: none;
+}
+
+.filter-selected-item {
+  text-decoration: none;
+  background-color: #f0f3f5;
+}
+
+.filter-active-filter {
+  border-left: 7px solid rgb(138, 209, 138);
+  padding-left: -7px;
+}
+
+.remove-input {
+  display: none;
+}
+
+.result-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.result-box,
+.logic-box {
+  background: #eaeaea;
+  border: 1px solid #c1c1c1;
+  border-radius: 6px;
+  padding: 5px 20px;
+  margin: 3px;
+  color: black;
+  font-size: 14px;
+}
+
+.logic-box {
+  background: #edffed;
+  border: 1px solid #a0c7a0;
+}
