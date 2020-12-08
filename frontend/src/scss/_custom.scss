@@ -1,0 +1,260 @@
+// Here you can add other styles
+
+.date-input {
+  border-radius: 5px;
+  min-width: 100px;
+  width: 50%;
+}
+
+.widget-title {
+  font-weight: 600;
+  padding-right: 0px;
+  overflow: hidden;
+}
+
+.widget-container {
+  border-left-width: 8px;
+  border-left-color: #9796a5;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  min-width: 200px;
+  height: 110px;
+}
+
+.widget-container:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.widget-body {
+  padding-top: 8px;
+  padding-bottom: 12px;
+  overflow: hidden;
+}
+
+.widget-image {
+  width: 100%;
+  min-width: 60px;
+  padding: 4px;
+  max-width: 70px;
+  max-height: 80px;
+}
+
+.widget-container-image {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.widget-container-text {
+  height: 100%;
+  overflow: hidden;
+}
+
+.dash-subtitle {
+  font-size: 80%;
+  font-weight: 400;
+  color: #73818f;
+}
+
+h4 {
+  margin: 0;
+}
+
+.dash-title-info {
+  font-size: 90%;
+  font-weight: 400;
+  color: #73818f !important;
+}
+
+.widget-container-center,
+.table-container {
+  display: flex;
+  flex-flow: column;
+}
+
+.dash-title {
+  float: left;
+  padding-right: 15px;
+  margin-right: 15px;
+  border-right: 1.5px solid #acb5b9;
+}
+
+.widget-division {
+  padding-left: 4px;
+  float: left;
+  border-left: 2px solid #acb5b9;
+}
+
+.col-widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container-left {
+  display: flex;
+  justify-content: flex-end;
+}
+
+th.sub-1-table {
+  padding-left: 30px;
+  font-size: 0.9em;
+}
+
+th.sub-2-table {
+  padding-left: 60px;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.hover-line:hover {
+  background-color: #e8e8c7;
+}
+
+tr.main-table {
+  background-color: #e6e6e6;
+}
+
+.header-table {
+  background-color: #d3d3d4;
+}
+
+td.main-table {
+  font-weight: 700;
+}
+
+td.sub-1-table {
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+td.sub-2-table {
+  padding-left: 20px;
+}
+
+.container-demand {
+  border-left: 3px solid gray;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.container-old-demand {
+  border-left: 3px solid gray;
+  padding-left: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.demand-new {
+  font-size: 2.5em;
+  font-weight: 300;
+}
+
+.demand-value {
+  font-size: 1.5em;
+  font-weight: 200;
+}
+
+.demand-subtitle {
+  font-size: 0.8em;
+  color: #8c8282;
+}
+
+.calc-title {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+.calc-subtitle {
+  font-size: 0.8em;
+  color: #73818f;
+}
+
+th {
+  white-space: nowrap;
+}
+
+.center-button-container {
+  align-items: center;
+  height: 100%;
+}
+
+.button-calc {
+  margin-bottom: 0px;
+  margin-right: 20px;
+  font-weight: 400;
+  color: #848484;
+}
+
+.dropdown-toggle {
+  background: #dadada;
+}
+
+.dropdown-menu {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  // Width of vertical scroll bar
+  width: 8px;
+  // Height of horizontal scroll bar
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #c2c9d2;
+  /* border-right: 4px solid #fff; */
+  /* border-radius-right: 2px; */
+  //    margin-right: 4px;
+  /* border-radius: 8px -5px -5px 8px
+  width: 5px;
+  height: 5px; */
+}
+
+.table-container .table-responsive {
+  overflow-y: auto;
+  max-height: -webkit-fill-available;
+  padding: 0px 10px;
+  height: 80%;
+}
+
+.center tr {
+  text-align: center;
+}
+
+.fixed-height {
+  height: 100%;
+}
+
+.body-scroll {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.label-form {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  margin: 0px 20px;
+}
+
+.input-meters {
+  width: 60%;
+  border-radius: 5px;
+}
+
+.nav-dropdown-items > .nav-item > .nav-link {
+  padding-left: 30px;
+}
+
+.blackbox {
+  border: 1px solid black;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}

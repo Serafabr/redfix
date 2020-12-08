@@ -1,0 +1,30 @@
+# Public directory
+public/*
+# Exceptions inside 'public' directory
+!public/images/test.jpeg
+!public/docs
+
+# Files directory
+files/*
+# Exceptions inside 'files' directory
+!files/de741848-5e90-4c5e-8699-78aca9b37aba
+!files/ee8da299-1b61-2b55-9898-99ccc11b2def
+
+# Environment variables
+.env
+!.sample-env
+
+# Database dumps
+dumps/*
+!dumps/.gitkeep
+
+# Logs directory
+logs/*
+!logs/.gitkeep
+
+# Windows service files
+daemon/*
+
+# dependencies
+node_modules
+package-lock.json

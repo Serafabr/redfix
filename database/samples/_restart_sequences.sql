@@ -1,0 +1,9 @@
+alter sequence assets_asset_id_seq restart with 10001;
+alter sequence depots_depot_id_seq restart with 10001;
+alter sequence persons_person_id_seq restart with 10001;
+alter sequence projects_project_id_seq restart with 10001;
+alter sequence requests_request_id_seq restart with 10001;
+alter sequence specs_spec_id_seq restart with 10001;
+alter sequence supplies_supply_id_seq restart with 10001;
+alter sequence tasks_task_id_seq restart with 10001;
+alter sequence teams_team_id_seq restart with 10001;

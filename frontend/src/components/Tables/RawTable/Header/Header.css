@@ -1,0 +1,29 @@
+.header-container {
+  background-color: #14365E;
+  color: white;
+  padding: 6px 2px;
+  font-weight: 700;
+  height: 50px;
+  font-size: 0.9rem;
+}
+
+.header-container--center{
+  text-align: center;
+}
+
+.header-container--justify {
+  text-align: justify;
+}
+
+.header-container__checkbox {
+  display: flex;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+.header-container__head-value {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 6px;
+}

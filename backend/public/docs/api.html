@@ -1,0 +1,31 @@
+<h1>webSINFRA</h1>
+
+<hr/>
+
+<h2>API</h2>
+
+<hr/>
+
+<p>
+  As funcionalidades básicas da aplicação são interações com dados,
+  i.e., visualização, criação, edição e remoção de informações
+  armazenadas no banco de dados.
+</p>
+
+<p>
+  Tais ações são possibilitadas por uma API exposta ao usuário em um endpoint
+  <a href="https://graphql.org/">GraphQL</a> no servidor web.
+</p>
+
+<p>
+  As Queries e Mutations que compõem a API são geradas pelo middleware
+  <a href="https://www.graphile.org/postgraphile/introduction/">PostGraphile</a>,
+  e correspondem a views e funções contidas no schema
+  <code>api</code> do banco de dados.
+</p>
+
+<p>
+  Detalhes adicionais acerca de cada uma das Queries e Mutations,
+  seus inputs, data types etc. podem ser visualizados na ferramenta
+  <a href="http://localhost:3001/graphiql">GraphiQL</a>.
+</p>

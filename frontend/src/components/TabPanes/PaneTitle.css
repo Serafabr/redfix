@@ -1,0 +1,19 @@
+.action-container {
+  display: flex;
+  justify-content: space-between;
+  background: #fcfcfc;
+  border-left: 5px solid #7b99b1;
+  /*border-left: 5px solid #26a726;*/
+  padding: 15px;
+  box-shadow: 1px 1px 0 2px #efefef;
+}
+
+.action__text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #5f5f5f;
+}
+
+.action__buttons {
+  margin-right: 10px;
+}

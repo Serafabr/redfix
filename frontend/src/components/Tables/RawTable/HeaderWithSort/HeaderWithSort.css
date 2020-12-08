@@ -1,0 +1,30 @@
+.header__head-arrow {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+  margin-left: 3px;
+  transform: translateY(2px);
+  transition: transform 0.2s ease-in-out 0s;
+}
+
+.header__head-arrow img {
+  height: 100%;
+  width: 100%;
+}
+
+.header__head-arrow--rotated {
+  transform: rotate(180deg);
+}
+
+.header__head-button {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header__head-nobutton {
+  display: inline-flex;
+  align-items: center;
+  cursor: default;
+}

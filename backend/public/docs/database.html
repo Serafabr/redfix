@@ -1,0 +1,262 @@
+<h1>webSINFRA</h1>
+
+<hr/>
+
+<h2>📁 database</h2>
+
+<hr/>
+
+<p>O sistema gerenciador de banco de dados relacional (RDBMS) é o <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
+
+<h3>Extensões</h3>
+
+<p>A extensão <a href="https://www.postgresql.org/docs/12/pgcrypto.html">pgcrypto</a> é utilizada para encriptar as senhas dos usuários na tabela <code>private.accounts</code>.</p>
+
+<h3>Schemas</h3>
+
+<p>São utilizados 4 schemas ("namespaces"):</p>
+<ul>
+  <li><strong>public</strong> é o default utilizado pelo PostgreSQL e onde estão a maioria dos objetos do banco de dados (tabelas das entidades, views, types e funções auxiliares).</li>
+  <li><strong>private</strong> contém dados que somente podem ser acessados pelos administradores (tabela com hash de senhas e 'roles' dos usuários, tabela com logs/audit trails etc.).</li>
+  <li><strong>api</strong> é a interface exposta (via PostGraphile, em GraphQL) aos usuários da aplicação, contendo os objetos (views e funções) que traduzem as funcionalidades e requisitos definidos para o sistema.</li>
+  <li><strong>web</strong> contém funções a serem executadas pelo web server (em rotinas periódicas ou por </li>
+</ul>
+
+<p>
+  As informações a serem armazenadas no sistema são modeladas conforme abordagem sugerida no <a href="https://www.amazon.com.br/dp/1634622340/?coliid=I2OLVBO8NUF66A&colid=3M0OC5P4N6S4S&psc=1&ref_=lv_ov_lig_dp_it">DMBOK</a>.
+</p>
+
+
+<p>Há ainda outras tabelas, que fazem parte do schema <code>private</code> (as explicações sobre os schemas são dadas posteriormente neste documento):</p>
+<table>
+  <thead>
+    <tr>
+      <th>Nome da tabela</th>
+      <th>Conteúdo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>accounts</code></td>
+      <td>Dados referentes a contas dos usuários do sistema (e.g., hash das senhas*, papéis etc.).</td>
+    </tr>
+    <tr>
+      <td><code>audit_trails</code></td>
+      <td>Registros de modificações realizadas no banco de dados pelos usuários do sistema (operações de <code>INSERT</code>, <code>UPDATE</code> e <code>DELETE</code>.)</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  (*) Observação: o hash das senhas é gerado com uma função de criptografia proveniente da extensão <a href="https://www.postgresql.org/docs/12/pgcrypto.html"><code>pgcrypto</code></a>.
+</p>
+
+
+<p>
+  EXPLICAÇÃO DA RELAÇÃO ENTRE OS ATIVOS
+</p>
+
+
+<p>
+  Convenções e estratégias utilizadas:
+</p>
+
+<ol>
+  <li>Índices e chaves primárias
+    <p>Todas as entidades possuem um atributo de 'identidade', definido automaticamente pelo RDBMS como um número inteiro sequencial (e.g.: coluna <code>asset_id</code> da tabela <code>assets</code>). Tais atributos são as chaves primárias de suas respectivas tabelas e, por isso, indexados. A indexação permite que uma query que busca uma entidade específica do banco de dados retorne resultados mais rapidamente (essas queries são as que ocorrem, por exemplo, quando um usuário usa o sistema para visualizar uma determinada tarefa). A convenção para os nomes dessas colunas é utilizar a terminação <code>_id</code></p>
+    <p>A exceção desta regra é a tabela de papéis (grupos), <b>person_roles</b>, em que que a chave primária é a própria palavra que define o papel. Esta exceção é justificada pelo fato de que o comando <code>CREATE ROLE</code> não aceita números como nome do papel (o nome do papel deve ser uma palavra com caracteres alfanuméricos iniciada por uma letra).</p>
+    <p>Algumas entidades possuem um outro atributo de identidade, correspondente a uma coluna definida com a restrição <code>UNIQUE</code>. Os valores a serem inseridos nessas colunas devem ser códigos amigáveis, que, ao contrário dos números sequenciais, fazem sentido para a aplicação e seus usuários. Exemplo: coluna <code>asset_sf</code> na tabela <code>assets</code>. A convenção para os nomes dessas colunas é utilizar a terminação <code>_sf</code> (de Senado Federal).</p>
+    <p>O uso de dois identificadores dá flexibilidade ao modelo de dados, pois, dessa maneira, o usuário pode alterar livremente os códigos <code>_sf</code> das entidades, com a única restrição de que escolha um código distinto dos códigos já existentes. Já a alteração das chaves primárias, operação proibida pelo RDBMS, torna-se desnecessária para os fins da aplicação.</p>
+    <p>EXPLICAÇÃO DE CHAVES COM MÚLTIPLAS COLUNAS</p>
+  </li>
+  <li>Schemas
+    
+      <table>
+        <thead>
+          <tr>
+            <th>Funcionalidade / User story</th>
+            <th>Objeto do schema api</th>
+            <th>Tipo da operação em GraphQL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>O usuário deseja visualizar todas as informações referentes a uma determinada tarefa</td>
+            <td>View <code>api.task_data</code>, que compila, com <code>JOIN</code>s e views e funções auxiliares, todos os dados de uma tarefa e todas entidades a ela relacionadas (ativos, suprimentos etc.)</td>
+            <td>Query</td>
+          </tr>
+          <tr>
+            <td>O usuário deseja poder cadastrar um novo contrato e seus respectivos materiais e serviços</td>
+            <td>Função <code>api.insert_contract</code>, cujos inputs são fornecidos pelo usuário (via formulário da UI) e executa os <code>INSERT</code>s necessários nas tabelas de contratos e suprimentos</td>
+            <td>Mutation</td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+  </li>
+  <li>Funções
+    <ul>
+      <li>Nomes das funções: padronizar e diferenciar em relação</li>
+      <li>Operações realizadas pelas funções: correspondem às operações disponibilizadas na interface ao usuário</li>
+      <li>Business rules e checagens necessárias para integridade dos dados triggers</li>
+    </ul>
+    <p>
+      Algumas das funções:
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome da função</th>
+          <th>Descrição</th>
+          <th>Momento da execução</th>
+          <th>Operações realizadas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            insert_task
+          </td>
+          <td>
+            Função que cria uma tarefa.
+          </td>
+          <td>
+            Quando o usuário envia os dados inseridos no formulário de cadastro de uma nova tarefa.
+          </td>
+          <td>
+            Cria novas linhas nas tabelas que são afetadas (tasks e outras a ela relacionadas, por exemplo, task_assets e task_supplies).
+          </td>
+        </tr>
+        <tr>
+          <td>
+            modify_task
+          </td>
+          <td>
+            Função que altera uma tarefa.
+          </td>
+          <td>
+            Quando o usuário envia os dados inseridos no formulário de edição de uma tarefa previamente criada.
+          </td>
+          <td>
+            Atualiza linhas das tabelas que são afetadas (tasks e outras a ela relacionadas, por exemplo, task_assets e task_supplies).
+          </td>
+        </tr>
+        <tr>
+          <td>
+            check_task_supply
+          </td>
+          <td>
+            Trigger que verifica se o suprimento pode ser vinculado a uma tarefa.
+          </td>
+          <td>
+            Antes da inserção (ou atualização) de uma linha na tabela task_supplies.
+          </td>
+          <td>
+            Somente permite a inserção (ou atualização) da tabela task_supplies caso as três verificações sejam realizadas com sucesso: (1) existe saldo suficiente para o suprimento; (2) os valores decimais da quantidade selecionada para o suprimento não estão em desacordo com a sua especificação técnica (há suprimentos que somente permitem valores inteiros); e (3) o contrato vinculado à tarefa é o mesmo que contém o suprimento em questão.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            log_change
+          </td>
+          <td>
+            Trigger que registra uma modificação no banco de dados.
+          </td>
+          <td>
+            Após a inserção (ou atualização) de qualquer linha de qualquer tabela do banco de dados.
+          </td>
+          <td>
+            Registra: (1) a id do usuário que realizou a modificação; (2) data e hora da modificação; (3) operação realizada (INSERT, UPDATE ou DELETE); (4) nome da tabela modificada; (5) valores antigos da linha modificada, caso exista, em formato JSON; e (6) valores novos da linha modificada, caso exista, em formato JSON.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Os testes das rotinas que permitem os usuários realizarem alterações no banco de dados 
+      (por exemplo, criação ou atualização de uma tarefa) e seus respectivos triggers de checagem são encontrados em <a href="./backend/tests">/backend/tests.</a>
+    </p>
+  </li>
+  <li>Tipos customizados
+    <p>
+      O tipo customizado <b>file_metadata</b> é utilizado para aglutinar três das colunas das tabelas associativas referentes a arquivos de upload (<code>filename</code>,
+      <code>uuid</code> e <code>size</code>) em um único objeto.
+    </p>
+    <p>
+      Isto permite a simplificação das strings das mutations GraphQL que incluem o upload de arquivos: utiliza-se uma única variável (com o tipo <code>FileMetadatumInput</code>) em vez de três variáveis.
+    </p>
+  </li>
+</ol>
+
+<h4>Conexão, autenticação, roles (papéis) e Row-Level Security (RLS)</h4>
+
+<p>
+  Detalhes sobre conexão, autenticação e gerenciamento de sessões são tratados no back-end (ver adiante neste documento).
+</p>
+<p>
+  No que diz respeito ao banco de dados, o processo de autenticação usa a função (<code>api.authenticate</code>), que basicamente compara o hash da senha informada no login com o hash da senha registrado na tabela <code>private.accounts</code>. Em caso de correção das informações fornecidas, a função retorna uma string com o formato <code>x-role</code>, em que <code>x</code> é o número do usuário cadastrado no sistema (<code>person_id</code> nas tabelas <code>persons</code> e <code>private.accounts</code>) e <code>role</code> é o respectivo papel (<code>person_role</code> na tabela <code>private.accounts</code>). O back-end é responsável por colocar a string num cookie e passá-lo ao cliente. A partir deste momento, as transações feitas pelo usuário logado carregam sempre esse cookie em suas requisições HTTP. O PostGraphile passa as informações contidas no cookie para o RDBMS por meio da função <a href="https://www.graphile.org/postgraphile/usage-library/#pgsettings-function"><code>pgSettings</code></a>. Durante as transações realizadas durante a sessão do usuário em questão, <code>x</code> e <code>role</code> são acessíveis, respectivamente, pela função <code>get_current_person_id()</code> e pela função (built-in) <code>current_role</code> (ou <code>current_user</code>).
+</p>
+<p>
+  Os papéis (roles) no banco de dados correspondem aos seguintes grupos de usuários:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Grupo de usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>administrator</td>
+      <td>Servidores lotados no SEPLAG</td>
+    </tr>
+    <tr>
+      <td>supervisor</td>
+      <td>Servidores efetivos da SINFRA</td>
+    </tr>
+    <tr>
+      <td>inspector</td>
+      <td>Terceirizados que atuam na fiscalização</td>
+    </tr>
+    <tr>
+      <td>employee</td>
+      <td>Terceirizados que atuam no âmbito dos contratos de manutenção</td>
+    </tr>
+    <tr>
+      <td>visitor</td>
+      <td>Pessoas externas ao sistema, sem conta cadastrada no CMMS</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  A distribuição de permissões entre os grupos de usuários (roles) é dada conforme a tabela a seguir:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Permissão para...</th>
+      <th>administrator</th>
+      <th>supervisor</th>
+      <th>inspector</th>
+      <th>employee</th>
+      <th>visitor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>...visualizar tarefa</td>
+      <td>:heavy_check_mark:</td>
+      <td>:heavy_check_mark:</td>
+      <td>:heavy_check_mark:</td>
+      <td>:heavy_check_mark:</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>...criar tarefa</td>
+      <td>:heavy_check_mark:</td>
+      <td>:heavy_check_mark:</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body class="container w-50 text-justify">
+  <h1 class="text-center pt-5 font-weight-bold">webSINFRA</h1>
+  <p class="text-center">Sistema de Gestão de Manutenção da COEMANT</p>
+  <hr/>
+  <p><h3>Visão geral</h3></p>
+  <p>
+    O webSINFRA é o sistema de gestão de manutenção em desenvolvimento pelo SEPLAG.
+    Nesse projeto, o objetivo é prover a COEMANT com uma aplicação web
+    para visualização e registro de todos os dados de manutenção.
+  </p>
+  <p>
+    Busca-se uma interface moderna, intuitiva, fácil de utilizar
+    e acessível por todos os colaboradores do Senado Federal envolvidos
+    na manutenção: terceirizados, servidores efetivos e
+    comissionados da SINFRA.
+  </p>
+  <br/>
+
+  <p><h3>Motivação</h3></p>
+  <p>
+    As aplicações mais intensivamente utilizadas para registro
+    dos dados de manutenção são, atualmente, o Redmine e o Excel.
+  </p>
+  <p>
+    Diversas iniciativas da SINFRA têm ampliado as
+    possibilidades de uso do Redmine, destacando-se as seguintes:
+    <ul>
+      <li>
+        o acréscimo de campos customizados nos formulários (e.g., campo 'endereçamento'
+        no formulário para criar uma 'tarefa'); e
+      </li>
+      <li>
+        a importação e a criação de conteúdo (wikis, tabelas)
+        por meio de scripts que interagem com a API REST do Redmine
+      </li>
+    </ul>
+    Essas ações agregam bastante valor à ferramenta Redmine. Com elas,
+    hoje é possível verificar saldos de materiais e serviços de alguns dos
+    contratos de manutenção, bem como buscar quais tarefas foram realizadas
+    em determinado endereçamento.
+    Além disso, as Diretrizes de Arquitetura e Engenharia compiladas pelo SEDACOPE
+    — incluindo aproximadamente mil especificações técnicas —,
+    podem ser acessadas pelos usuários do Redmine que estejam elaborando
+    termos de referência de futuras contratações.
+    Assim, essa ferramenta entrega hoje muito mais valor e utilidade à SINFRA
+    do que no início do uso desse software, quando apenas funcionava como
+    repositório de solicitações de serviços.
+  </p>
+  <p>
+    O Excel é a escolha natural para se trabalhar com tabelas,
+    e todos os contratos com fiscalização realizada pela SINFRA (ou suas unidades
+    subordinadas) possuem pelo menos uma planilha de controle,
+    usualmente para gerenciar saldos de materiais e serviços,
+    quantidades utilizadas em cada tarefa, preços etc.
+    Geralmente cada contrato possui tabelas próprias,
+    mantidas por um grupo restrito de colaboradores (raramente mais do que duas pessoas).
+  </p>
+  <p>
+    Assim, é certo que a dupla Redmine + Excel atende às necessidades do
+    dia a dia da fiscalização de contratos. Com esse modelo, contudo,
+    não é possível:
+    <ul>
+      <li>
+        <p>
+          obter informações agregadas de maneira rápida e confiável.
+        </p>
+        <p>
+          Hoje, obter respostas às seguintes questões pode ser bastante difícil e
+          demorado (ou mesmo impossível) sem a atuação de colaboradores específicos:
+          <ul>
+            <li>"Quantas tarefas foram concluídas com atraso no último ano?"</li>
+            <li>"Quais materiais estão quase se esgotando?"</li>
+            <li>"Qual o saldo de determinado material, considerando todos os contratos e ARPs?"</li>
+            <li>"Qual o custo médio de uma tarefa executada pelo Contrato X?"</li>
+            <li>"Quais foram as últimas manutenções realizadas na sala Y?"</li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          obter um histórico confiável dos serviços realizados em cada ativo.
+        </p>
+        <p>
+          O preenchimento de campos customizados do formulário de uma
+          'tarefa' é opcional e, por isso, a existência e correção de dados
+          inseridos nesses campos é totalmente dependente dos procedimentos
+          executados pelo usuário.
+        </p>
+      </li>
+      <li>
+        <p>
+          garantir a aplicação de regras na inserção de dados.
+        </p>
+        <p>
+          A maioria das planilhas de controle de saldos de contratos
+          não realiza verificações dos dados, o que
+          pode levar o sistema a um estado inconsistente (por exemplo, com saldo negativo
+          de material). Embutir essas regras em uma planilha pode
+          evitar esses problemas, mas esse trabalho tem que ser refeito
+          para contratos (ou planilhas) novos.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Dito isso, o SEPLAG definiu que as funcionalidades mínimas do webSINFRA
+    englobam tudo aquilo que se consegue realizar hoje com o Redmine e
+    tabelas do Excel, e, adicionalmente, soluciona os problemas listados acima.
+  </p>
+  <br/>
+
+  <p><h3>Glossário</h3></p>
+  <p>
+    Para entender as funcionalidades do webSINFRA,
+    é necessário destacar e definir alguns termos que possuem significados especiais
+    dentro do contexto dessa aplicação:
+  </p>
+  <ul>
+    <li><b>Tarefa: </b>
+      um serviço de manutenção sob responsabilidade da COEMANT.
+    </li>
+    <br/>
+    <li><b>Projeto: </b>
+      uma ação de manutenção que depende da execução coordenada de várias <b>tarefas</b>.
+    </li>
+    <br/>
+    <li><b>Ativo: </b>
+      imóvel, área, dependência, sala, sistema, subsistema ou equipamento que pode ser
+      objeto de manutenção.
+    </li>
+    <br/>
+    <li><b>Estoque: </b>
+      uma fonte de <b>suprimentos</b> (e.g., contrato, ARP, termo de referência,
+      nota fiscal etc.) potencialmente utilizáveis na manutenção.
+    </li>
+    <br/>
+    <li><b>Suprimento: </b>
+      Material ou serviço pertencente a algum <b>estoque</b>.
+    </li>
+    <br/>
+    <li><b>Especificação Técnica: </b>
+      detalhamento das características intrínsecas de um <b>suprimento</b>.
+    </li>
+    <br/>
+    <li><b>Solicitação: </b>
+      requisição de serviço de manutenção criada via formulário próprio na
+      Central de Serviços Administrativos da intranet.
+    </li>
+    <br/>
+    <li><b>Equipe: </b>
+      conjunto de <b>usuários</b> do webSINFRA responsável por uma atividade
+      específica no fluxo da manutenção (e.g., equipe de manutenção de elevadores,
+      equipe de manutenção elétrica do Anexo 2 etc.).
+    </li>
+    <br/>
+    <li><b>Usuário: </b>
+      colaborador do Senado Federal (efetivo, comissionado ou terceirizado)
+      cadastrado no webSINFRA.
+    </li>
+    <br/>
+    <li><b>Nível de acesso: </b>
+      cada uma das 5 categorias de <b>usuários</b> (administrador, supervisor,
+      inspetor, mantenedor, visitante), com permissões diferenciadas
+      de acordo com seu respectivo papel no fluxo da manutenção e no uso do
+      webSINFRA.
+    </li>
+    <br/>
+  </ul>
+  <br/>
+
+  <p><h3>Funcionalidades básicas</h3></p>
+  <p>
+    Como dito, pretende-se oferecer as mesmas capacidades das ferramentas utilizadas
+    atualmente.
+  </p>
+  <ul>
+    <li>Cadastrar nova tarefa</li>
+    <li>Editar dados de uma tarefa existente</li>
+    <li>Vincular (ou desvincular) um ativo a uma tarefa</li>
+    <li>Vincular (ou desvincular) um suprimento (e respectiva quantidade utilizada) a uma tarefa</li>
+    <li>Tramitar tarefas entre equipes</li>
+    <li>Fazer upload de arquivos relacionados a uma tarefa</li>
+    <li>Adicionar comentários a uma tarefa</li>
+    <li>Alterar o status de uma tarefa</li>
+  </ul>
+  <br/>
+
+  <p><h3>Possibilidades de evolução</h3></p>
+  <p>
+    A arquitetura do webSINFRA foca na sua modularidade,
+    o que facilita a adição de novas funcionalidades.
+    A lista a seguir contém ideias de possíveis evoluções
+    para o sistema:
+  </p>
+  <h6><b>Cadastro de ativos de maneira hierarquizada</b></h6>
+  <p>
+    O cadastro de ativos é feito com a indicação de sua localização e
+    de seus "pais", permitindo ao usuário indicar dependências entre equipamentos
+    e subsistemas (e.g., a página de um quadro elétrico lista quais
+    salas e equipamentos são alimentados por ele).
+  </p>
+  <h6><b>Diferenciação entre níveis de acesso</b></h6>
+  <p>
+    Algumas funcionalidades devem estar disponíveis somente para determinados
+    grupos de usuários (e.g., criação de equipes).
+  </p>
+  <h6><b>Apresentação de dados de maneira visual</b></h6>
+  <p>
+    Os dados podem ser agregados em somatórios e médias,
+    e apresentados em gráficos num painel informativo
+    com um "retrato" da situação atual da manutenção.
+  </p>
+  <h6><b>Integração com solicitações</b></h6>
+  <p>
+    As solicitações de serviços podem ser integradas,
+    seja em banco de dados diverso (mantendo a separação atual)
+    ou mesmo como uma migração para a base do webSINFRA,
+    sem perda do histórico.
+  </p>
+  <h6><b>Integração com wiki de Diretrizes de Arquitetura e Engenharia (DARQENG)</b></h6>
+  <p>
+    A base de dados mantida pelo SEDACOPE na wiki DARQENG foi
+    estudada, e o webSINFRA tem sido construído com essa integração
+    em mente.
+  </p>
+  <h6><b>Emissão de relatórios personalizados</b></h6>
+  <p>
+    Conforme as necessidades identificadas para um determinado
+    contrato ou setor da SINFRA.
+  </p>
+  <h6><b>Monitor de consumo de água e energia elétrica</b></h6>
+  <p>
+    Pode ser construída uma ferramenta para simples consulta das faturas
+    de energia elerica e água (CEB e CAESB), ou mesmo geração automática
+    de gráficos para o período indicado pelo usuário, permitindo identificar
+    tendências e variações sazonais.
+  </p>
+  <h6><b>Relatórios para faturamento</b></h6>
+  <p>
+    As tarefas marcadas como "concluídas" no mês anterior
+    podem ser compiladas de maneira automática para efeito
+    de cálculo do valor correto a ser faturado.
+  </p>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</body>
+</html>

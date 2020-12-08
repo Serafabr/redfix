@@ -1,0 +1,51 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "production-on": "npm link node-windows && node windows-service-install.js",
+    "production-off": "node windows-service-uninstall.js",
+    "start": "nodemon --require dotenv/config server.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphile/pg-pubsub": "^4.7.0",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "graphql-upload": "^10.0.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "postgraphile": "^4.7.0"
+  },
+  "devDependencies": {
+    "form-data": "^3.0.0",
+    "got": "^11.1.0",
+    "jest": "^24.9.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "tests/*",
+      "windows-service-*"
+    ]
+  },
+  "jest": {
+    "//": "Comment goes here",
+    "bail": 1,
+    "displayName": {
+      "name": "BACKEND",
+      "color": "blue"
+    },
+    "extraGlobals": [
+      "JSON"
+    ],
+    "testEnvironment": "node",
+    "verbose": true
+  }
+}

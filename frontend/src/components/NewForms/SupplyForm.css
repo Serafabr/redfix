@@ -1,0 +1,148 @@
+.miniform-container {
+  margin: 30px;
+  padding: 15px 25px;
+  background: #fafafa;
+  border: 1px solid #eaeaea;
+  border-radius: 2px;
+}
+
+.miniform-disabled {
+  display: none;
+}
+
+.miniform__box__item {
+  width: 100%;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 10px 0;
+}
+
+.miniform__field {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.miniform__field:not(:first-child) {
+  margin-top: 12px;
+}
+
+.miniform__info__label {
+  color: #5d5d5d;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.miniform__info__value {
+  color: #5d5d5d;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.miniform__field__label {
+  color: #5d5d5d;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 2px;
+  line-height: 1.3;
+}
+
+.miniform__field__sub-label {
+  color: #5d5d5d;
+  font-size: 11px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  padding: 0 2px;
+}
+
+.miniform__field__input__container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.miniform__field__input-half {
+  width: 47%;
+}
+
+.miniform__field__remove-container {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}
+
+.miniform__field__remove-button {
+  text-align: center;
+  color: #2684ff;
+  background-color: red;
+  padding: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.miniform__field__remove-button:hover {
+  color: blue;
+}
+
+.miniform__field__button {
+  display: flex;
+  align-items: center;
+  justify-content: justify-end;
+}
+
+.miniform__field__input {
+  width: 100%;
+}
+
+.miniform__field__item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.miniform__field__item__value {
+  border: 1px solid #c8ced3;
+  border-radius: 2px;
+  background-color: white;
+  color: #5d5d5d;
+  padding: 3px 10px;
+  margin: 0 5px;
+}
+
+.miniform__field__edit-supply {
+  padding: 0 5px;
+}
+
+.miniform__field__textarea {
+  width: 100%;
+  color: hsl(0, 0%, 20%);
+}
+
+.miniform__field__textarea:hover {
+  border-color: hsl(0, 0%, 70%);
+  color: hsl(0, 0%, 20%);
+}
+
+.miniform__field__textarea:focus {
+  border-color: #2684ff;
+  outline: none;
+  box-shadow: none;
+  color: hsl(0, 0%, 20%);
+}
+
+.miniform__field__textarea:focus:hover {
+  box-shadow: 0px 0px 0px 1px #2684ff;
+  color: hsl(0, 0%, 20%);
+}
+
+.miniform__buttons {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 20px;
+}

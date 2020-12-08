@@ -1,0 +1,11 @@
+.asset-info-container {
+  padding: 20px 0;
+}
+
+.asset-info-content + .asset-info-title {
+  margin-top: 40px;
+}
+
+.asset-info-content {
+  padding: 10px;
+}
