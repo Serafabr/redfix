@@ -14,7 +14,7 @@ const svc = new Service({
   // scriptOptions: [],
   env: [
     { name: 'NODE_ENV',     value: 'production' },
-    { name: 'HTTP_PORT',    value: '3001' },
+    { name: 'PORT',    value: '3001' },
     { name: 'PGUSER',       value: 'postgres' },
     { name: 'PGHOST',       value: 'localhost' },
     { name: 'PGDATABASE',   value: 'db_dev' },

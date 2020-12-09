@@ -4,7 +4,7 @@
 NODE_ENV=development
 
 # HTTP port:
-HTTP_PORT=3001
+PORT=3001
 
 # Database connection:
 PGUSER=postgres
