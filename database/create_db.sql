@@ -62,7 +62,7 @@ begin transaction;
 -- create tables
 \i schema/reference_tables.sql
 \i schema/tables.sql
-\i schema/monitor.sql
+\i schema/utilities.sql
 
 -- create functions
 \i functions/authenticate.sql
@@ -107,12 +107,12 @@ begin transaction;
 \i api/depot/modify_depot.sql
 \i api/depot/modify_supply.sql
 \i api/depot/remove_supply.sql
--- monitor
-\i api/monitor/caesb_data.sql
-\i api/monitor/ceb_data.sql
-\i api/monitor/insert_ceb_bill_note.sql
-\i api/monitor/insert_ceb_bill.sql
-\i api/monitor/upsert_caesb_bill.sql
+-- utilities
+\i api/utilities/caesb_data.sql
+\i api/utilities/ceb_data.sql
+\i api/utilities/insert_ceb_bill_note.sql
+\i api/utilities/insert_ceb_bill.sql
+\i api/utilities/upsert_caesb_bill.sql
 -- options
 \i api/options/asset_options.sql
 \i api/options/depot_options.sql
