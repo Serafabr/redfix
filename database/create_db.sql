@@ -128,8 +128,12 @@ begin transaction;
 \i api/plan/insert_bundle_asset.sql
 \i api/plan/insert_bundle_plan.sql
 \i api/plan/insert_bundle.sql
+\i api/plan/insert_monitor_read.sql
+\i api/plan/insert_monitor.sql
 \i api/plan/insert_plan.sql
 \i api/plan/modify_bundle.sql
+\i api/plan/modify_monitor_read.sql
+\i api/plan/modify_monitor.sql
 \i api/plan/modify_plan.sql
 \i api/plan/remove_bundle_asset.sql
 -- project
