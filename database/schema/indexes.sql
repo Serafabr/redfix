@@ -5,6 +5,8 @@ create index on boxes (depot_id);
 create index on bundle_assets (asset_id);
 create index on bundle_plans (plan_id);
 -- create index on depots (depot_category_id);
+create index on monitors (asset_id);
+create index on monitor_reads (monitor_id);
 create index on prices (spec_id);
 -- create index on specs (spec_category_id);
 -- create index on specs (spec_subcategory_id);

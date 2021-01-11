@@ -2,6 +2,7 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
+  in monitor_id integer,
   in read_at timestamptz,
   in read_value numeric,
   in note text,
@@ -12,6 +13,7 @@ create or replace function :function_name (
     begin
       insert into monitor_reads values (
         default,
+        monitor_id,
         read_at,
         read_value,
         note
@@ -22,6 +24,7 @@ create or replace function :function_name (
 
 comment on function :function_name is E'
 Mandatory input(s):\n
+* `monitorId`\n
 * `readAt`\n
 * `readValue`\n
 \n

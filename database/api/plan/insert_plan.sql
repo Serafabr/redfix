@@ -10,6 +10,10 @@ create or replace function :function_name (
     begin
       insert into plans values (
         default,
+        now(),
+        now(),
+        get_person_id(),
+        get_person_id(),
         attributes.name,
         attributes.description,
         attributes.periodicity_id,

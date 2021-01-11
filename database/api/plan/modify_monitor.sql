@@ -12,6 +12,10 @@ create or replace function :function_name (
   language plpgsql
   strict
   as $$
+    declare
+      new_name alias for name;
+      new_unit alias for unit;
+      new_description alias for description;
     begin
       update monitors set (
         updated_at,
@@ -23,9 +27,9 @@ create or replace function :function_name (
       ) = (
         default,
         default,
-        name,
-        description,
-        unit,
+        new_name,
+        new_description,
+        new_unit,
         "assetId"
       ) where monitor_id = "monitorId";
       id = "monitorId";

@@ -10,6 +10,8 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
+    declare
+      new_note alias for note;
     begin
       update monitor_reads set (
         read_at,
@@ -18,7 +20,7 @@ create or replace function :function_name (
       ) = (
         "readAt",
         "readValue",
-        note
+        new_note
       ) where monitor_read_id = "monitorReadId";
       id = "monitorReadId";
     end;
