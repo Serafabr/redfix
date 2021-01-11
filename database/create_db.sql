@@ -136,6 +136,7 @@ begin transaction;
 \i api/plan/modify_monitor.sql
 \i api/plan/modify_plan.sql
 \i api/plan/remove_bundle_asset.sql
+\i api/plan/remove_bundle_plan.sql
 -- project
 \i api/project/activate_project.sql
 \i api/project/add_task_to_project.sql
