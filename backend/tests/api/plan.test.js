@@ -1,11 +1,14 @@
 const got = require('got');
 
-describe('Asset tests', () => {
+describe('Plan tests', () => {
 
   const url = 'http://localhost:3001/api';
   let bundleId;
   let planId;
   let assetId = 102;
+  let monitorId;
+  let monitorReadId;
+  let executedPlanId;
 
   test('Insert plan', async () => {
     const reqBody = {
@@ -153,7 +156,6 @@ describe('Asset tests', () => {
       variables: { planId, bundleId },
     };
     const response = await got.post(url, { json: reqBody, responseType: 'json' });
-    planId = response.body.data.tested.id;
     expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
   });
 
@@ -175,7 +177,6 @@ describe('Asset tests', () => {
       variables: { bundleId, assetId, },
     };
     const response = await got.post(url, { json: reqBody, responseType: 'json' });
-    planId = response.body.data.tested.id;
     expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
   });
 
@@ -317,6 +318,86 @@ describe('Asset tests', () => {
         readAt: '2021-01-31T09:15:00',
         readValue: 101.25,
       }
+    };
+    const response = await got.post(url, { json: reqBody, responseType: 'json' });
+    expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
+  });
+
+  test('Insert executed plan', async () => {
+    const reqBody = {
+      query: `mutation (
+        $planId: Int!,
+        $startedAt: Datetime!,
+        $finishedAt: Datetime,
+        $note: String
+      ){
+        tested: insertExecutedPlan(
+          input: {
+            planId: $planId,
+            startedAt: $startedAt,
+            finishedAt: $finishedAt,
+            note: $note
+          }
+        ) {
+          id
+        }
+      }`,
+      variables: {
+        planId: planId,
+        note: "notas",
+        startedAt: '2021-01-31T09:15:00',
+        finishedAt: null,
+      }
+    };
+    const response = await got.post(url, { json: reqBody, responseType: 'json' });
+    executedPlanId = response.body.data.tested.id;
+    expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
+  });
+
+  test('Modify executed plan', async () => {
+    const reqBody = {
+      query: `mutation (
+        $executedPlanId: Int!,
+        $startedAt: Datetime!,
+        $finishedAt: Datetime,
+        $note: String
+      ){
+        tested: modifyExecutedPlan(
+          input: {
+            executedPlanId: $executedPlanId,
+            startedAt: $startedAt,
+            finishedAt: $finishedAt,
+            note: $note
+          }
+        ) {
+          id
+        }
+      }`,
+      variables: {
+        executedPlanId: executedPlanId,
+        note: "notas novas",
+        startedAt: '2021-02-28T09:15:00',
+        finishedAt: '2021-02-28T09:19:11',
+      }
+    };
+    const response = await got.post(url, { json: reqBody, responseType: 'json' });
+    expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
+  });
+
+  test('Remove executed plan', async () => {
+    const reqBody = {
+      query: `mutation (
+        $executedPlanId: Int!
+      ){
+        tested: removeExecutedPlan(
+          input: {
+            executedPlanId: $executedPlanId
+          }
+        ) {
+          id
+        }
+      }`,
+      variables: { executedPlanId }
     };
     const response = await got.post(url, { json: reqBody, responseType: 'json' });
     expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
