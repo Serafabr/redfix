@@ -1,6 +1,7 @@
 # Public directory
-public/*
+public/**/*
 # Exceptions inside 'public' directory
+!public/images
 !public/images/test.jpeg
 !public/docs
 
