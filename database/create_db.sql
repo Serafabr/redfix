@@ -107,12 +107,6 @@ begin transaction;
 \i api/depot/modify_depot.sql
 \i api/depot/modify_supply.sql
 \i api/depot/remove_supply.sql
--- utilities
-\i api/utilities/caesb_data.sql
-\i api/utilities/ceb_data.sql
-\i api/utilities/insert_ceb_bill_note.sql
-\i api/utilities/insert_ceb_bill.sql
-\i api/utilities/upsert_caesb_bill.sql
 -- options
 \i api/options/asset_options.sql
 \i api/options/depot_options.sql
@@ -194,6 +188,12 @@ begin transaction;
 \i api/team/person_data.sql
 \i api/team/remove_team_person.sql
 \i api/team/team_data.sql
+-- utilities
+\i api/utilities/caesb_data.sql
+\i api/utilities/ceb_data.sql
+\i api/utilities/insert_ceb_bill_note.sql
+\i api/utilities/insert_ceb_bill.sql
+\i api/utilities/upsert_caesb_bill.sql
 
 -- create and login with fake user for initial inserts
 insert into persons values (0, 'admin', '00000000000', 'admin@admin.com', 'Administrator', '0000', null, crypt('123456', gen_salt('bf', 10)), true, 'administrator');
