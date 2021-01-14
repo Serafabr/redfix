@@ -9,7 +9,7 @@ describe('Uploads tests', () => {
   test('Insert task files', async () => {
     let form = new FormData();
     form.append('operations', JSON.stringify({
-      query: "mutation ($filesMetadata: [FileMetadatumInput]!, $taskId: Int!) {  tested: insertTaskFiles(    input: { taskId: $taskId, filesMetadata: $filesMetadata }   ) {    id  }}",
+      query: "mutation ($filesMetadata: [FileInput]!, $taskId: Int!) {  tested: insertTaskFiles(    input: { taskId: $taskId, filesMetadata: $filesMetadata }   ) {    id  }}",
       variables: {
         taskId: 1,
         files: [null],

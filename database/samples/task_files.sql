@@ -6,5 +6,5 @@ select api.insert_task_files (
     50,
     null,
     null
-  )]::file_metadata[]
+  )]::files[]
 );

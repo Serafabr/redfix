@@ -14,7 +14,7 @@ create or replace function :function_name (
     begin
       fileuuid = "uuid";
       delete from spec_files where spec_id = "specId" and uuid = fileuuid;
-      delete from file_metadata where uuid = fileuuid;
+      delete from files where uuid = fileuuid;
       id = "specId";
     end;
   $$

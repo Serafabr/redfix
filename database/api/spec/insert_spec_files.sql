@@ -3,14 +3,14 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "specId" integer,
-  in files_metadata file_metadata[],
+  in files_metadata files[],
   out id integer
 )
   language plpgsql
   strict
   as $$
     begin
-      insert into file_metadata
+      insert into files
         select  f.uuid,
                 f.filename,
                 f.size,

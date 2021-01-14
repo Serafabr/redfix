@@ -14,7 +14,7 @@ create or replace function :function_name (
     begin
       fileuuid = "uuid";
       delete from task_files where task_id = "taskId" and uuid = fileuuid;
-      delete from file_metadata where uuid = fileuuid;
+      delete from files where uuid = fileuuid;
       id = "taskId";
     end;
   $$

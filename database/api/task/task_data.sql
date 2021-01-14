@@ -95,7 +95,7 @@ create or replace view api.task_data as
               'personName', p.name
             ) order by fm.filename) as files
     from task_files as tf
-    inner join file_metadata as fm using (uuid)
+    inner join files as fm using (uuid)
     inner join persons as p using (person_id)
     group by tf.task_id
   ) as f using (task_id)
