@@ -1,3 +1,6 @@
+-- alter public schema ownership
+alter schema public owner to administrator;
+
 -- revoke privileges on database and schemas
 revoke all on database :new_db_name from public;
 revoke all on schema public from public;
