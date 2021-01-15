@@ -1,8 +1,7 @@
-\set function_name api.remove_task_file
+\set function_name api.remove_file
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "taskId" integer,
   in "uuid" uuid,
   out id integer
 )
@@ -10,22 +9,19 @@ create or replace function :function_name (
   strict
   as $$
     declare
-      fileuuid uuid;
+      uuid_to_remove alias for "uuid";
     begin
-      fileuuid = "uuid";
-      delete from task_files where task_id = "taskId" and uuid = fileuuid;
-      delete from files where uuid = fileuuid;
-      id = "taskId";
+      delete from files as f where f.uuid = uuid_to_remove;
+      id = 1;
     end;
   $$
 ;
 
 comment on function :function_name is E'
 Mandatory input(s):\n
-* `taskId`\n
 * `uuid`\n
 \n
-Output `id`: the same as `taskId` input
+Output `id`: 1
 ';
 
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;

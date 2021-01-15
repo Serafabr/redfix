@@ -8,30 +8,30 @@ create table files (
 
 create table task_files (
   task_id integer not null references tasks (task_id),
-  uuid uuid not null references files (uuid)
+  uuid uuid not null references files (uuid) on delete cascade
 );
 
 create table spec_files (
   spec_id integer not null references specs (spec_id),
-  uuid uuid not null references files (uuid)
+  uuid uuid not null references files (uuid) on delete cascade
 );
 
 create table asset_files (
   asset_id integer not null references assets (asset_id),
-  uuid uuid not null references files (uuid)
+  uuid uuid not null references files (uuid) on delete cascade
 );
 
 create table depot_files (
   depot_id integer not null references depots (depot_id),
-  uuid uuid not null references files (uuid)
+  uuid uuid not null references files (uuid) on delete cascade
 );
 
 create table plan_files (
   plan_id integer not null references plans (plan_id),
-  uuid uuid not null references files (uuid)
+  uuid uuid not null references files (uuid) on delete cascade
 );
 
 create table project_files (
   project_id integer not null references projects (project_id),
-  uuid uuid not null references files (uuid)
+  uuid uuid not null references files (uuid) on delete cascade
 );

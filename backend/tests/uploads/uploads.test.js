@@ -5,7 +5,8 @@ const FormData = require('form-data');
 describe('Uploads tests', () => {
 
   const url = 'http://localhost:3001/api';
-  
+  const uuid = "aaaaaaaa-5e90-4c5e-8699-78aca9b3" + (Math.random()*1000000000).toString().substr(0,4);
+
   test('Insert task files', async () => {
     let form = new FormData();
     form.append('operations', JSON.stringify({
@@ -15,7 +16,7 @@ describe('Uploads tests', () => {
         files: [null],
         filesMetadata: [{
           filename: "file_from_test.txt",
-          uuid: "aaaaaaaa-5e90-4c5e-8699-78aca9b3" + (Math.random()*1000000000).toString().substr(0,4),
+          uuid: uuid,
           size: 50
         }]
       }
@@ -24,6 +25,23 @@ describe('Uploads tests', () => {
     form.append('0', fs.createReadStream(__dirname + '/_test.txt'));
     const response = await got.post(url, { body: form, responseType: 'json' });
     expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
+  });
+
+  test('Remove file', async () => {
+    const reqBody = {
+      query: `mutation (
+        $uuid: UUID!
+      ){
+        tested: removeFile(input: {
+          uuid: $uuid
+        }) {
+          id
+        }
+      }`,
+      variables: { uuid }
+    };
+    const response = await got.post(url, { json: reqBody, responseType: 'json' });
+    expect(response.body.data.tested).toMatchObject({ id: 1 });
   });
 
   // TODO: add query and image file

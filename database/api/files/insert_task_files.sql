@@ -10,13 +10,7 @@ create or replace function :function_name (
   strict
   as $$
     begin
-      insert into files
-        select  f.uuid,
-                f.filename,
-                f.size,
-                now(),
-                get_person_id()
-        from unnest(files_metadata) as f;
+      perform insert_files(files_metadata);
       insert into task_files
         select  "taskId",
                 f.uuid

@@ -70,6 +70,7 @@ begin transaction;
 \i functions/get_all_files_uuids.sql
 \i functions/get_api_docs.sql
 \i functions/get_exception_message.sql
+\i functions/insert_files.sql
 \i functions/refresh_all_materialized_views.sql
 \i functions/update_dashboard.sql
 
@@ -108,6 +109,10 @@ begin transaction;
 \i api/depot/modify_depot.sql
 \i api/depot/modify_supply.sql
 \i api/depot/remove_supply.sql
+-- files
+\i api/files/insert_spec_files.sql
+\i api/files/insert_task_files.sql
+\i api/files/remove_file.sql
 -- options
 \i api/options/asset_options.sql
 \i api/options/depot_options.sql
@@ -146,19 +151,16 @@ begin transaction;
 \i api/project/remove_task_from_project.sql
 -- spec
 \i api/spec/insert_price.sql
-\i api/spec/insert_spec_files.sql
 \i api/spec/insert_spec_version.sql
 \i api/spec/insert_spec.sql
 \i api/spec/modify_price.sql
 \i api/spec/modify_spec_version.sql
-\i api/spec/remove_spec_file.sql
 \i api/spec/spec_data.sql
 -- task
 \i api/task/cancel_send_task.sql
 \i api/task/clone_task.sql
 \i api/task/insert_task.sql
 \i api/task/insert_task_asset.sql
-\i api/task/insert_task_files.sql
 \i api/task/insert_task_note.sql
 \i api/task/insert_task_supply.sql
 \i api/task/modify_task.sql
@@ -168,7 +170,6 @@ begin transaction;
 \i api/task/move_task.sql
 \i api/task/receive_task.sql
 \i api/task/remove_task_asset.sql
-\i api/task/remove_task_file.sql
 \i api/task/remove_task_note.sql
 \i api/task/remove_task_supply.sql
 \i api/task/send_task.sql
