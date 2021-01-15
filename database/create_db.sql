@@ -110,6 +110,10 @@ begin transaction;
 \i api/depot/modify_supply.sql
 \i api/depot/remove_supply.sql
 -- files
+\i api/files/insert_asset_files.sql
+\i api/files/insert_depot_files.sql
+\i api/files/insert_plan_files.sql
+\i api/files/insert_project_files.sql
 \i api/files/insert_spec_files.sql
 \i api/files/insert_task_files.sql
 \i api/files/remove_file.sql

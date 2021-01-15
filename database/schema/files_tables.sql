@@ -6,16 +6,6 @@ create table files (
   person_id integer not null references persons (person_id) default get_person_id()
 );
 
-create table task_files (
-  task_id integer not null references tasks (task_id),
-  uuid uuid not null references files (uuid) on delete cascade
-);
-
-create table spec_files (
-  spec_id integer not null references specs (spec_id),
-  uuid uuid not null references files (uuid) on delete cascade
-);
-
 create table asset_files (
   asset_id integer not null references assets (asset_id),
   uuid uuid not null references files (uuid) on delete cascade
@@ -33,5 +23,15 @@ create table plan_files (
 
 create table project_files (
   project_id integer not null references projects (project_id),
+  uuid uuid not null references files (uuid) on delete cascade
+);
+
+create table spec_files (
+  spec_id integer not null references specs (spec_id),
+  uuid uuid not null references files (uuid) on delete cascade
+);
+
+create table task_files (
+  task_id integer not null references tasks (task_id),
   uuid uuid not null references files (uuid) on delete cascade
 );
