@@ -88,14 +88,14 @@ create or replace view api.task_data as
   left join (
     select  tf.task_id,
             jsonb_agg(jsonb_build_object(
-              'uuid', fm.uuid,
-              'filename', fm.filename,
-              'size', fm.size,
-              'createdAt', fm.created_at,
+              'uuid', f.uuid,
+              'filename', f.filename,
+              'size', f.size,
+              'uploadedAt', f.uploaded_at,
               'personName', p.name
-            ) order by fm.filename) as files
+            ) order by f.filename) as files
     from task_files as tf
-    inner join files as fm using (uuid)
+    inner join files as f using (uuid)
     inner join persons as p using (person_id)
     group by tf.task_id
   ) as f using (task_id)
