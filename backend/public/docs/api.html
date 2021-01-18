@@ -185,7 +185,24 @@
   <code>insert_plan</code> e
   <code>modify_plan</code>
   para criar e editar um plano de manutenção.
-  <code>insert_bundle_plan</code> serve para vincular um plano a um grupo de ativos.
+  <code>insert_bundle_plan</code>/
+  <code>remove_bundle_plan</code>
+  servem para vincular/desvincular um plano de manutenção a/de um grupo de ativos.
+  Sempre que for necessário registrar que as ações previstas em um plano de manutenção
+  foram executadas deverão ser usadas as mutations
+  <code>insert_executed_plan</code>, <code>modify_executed_plan</code> e
+  <code>remove_executed_plan</code>.
+</p>
+
+<p>
+  <h4>Monitores</h4>
+  Um monitor é uma entidade que agrega as medições periódicas de um determinado
+  parâmetro de um determinado ativo da manutenção.
+  A definição de um monitor é dada com a mutation <code>insert_monitor</code>
+  (editável com <code>modify_monitor</code>). Pode ser criado, por exemplo,
+  um monitor para a corrente medida em quadro elétrico específico. A inserção dos dados
+  das leituras periódicas é feita com <code>insert_monitor_read</code>, que podem ser
+  corrigidas com <code>modify_monitor_read</code>.
 </p>
 
 <h3 class="text-center font-weight-bold">Dashboard</h3>
