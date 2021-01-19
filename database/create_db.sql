@@ -75,6 +75,7 @@ begin transaction;
 \i functions/update_dashboard.sql
 
 -- create views
+\i schema/views/api_privileges.sql
 \i schema/views/quantities.sql
 
 -- create api schema objects
