@@ -160,6 +160,7 @@ begin transaction;
 \i api/spec/insert_spec.sql
 \i api/spec/modify_price.sql
 \i api/spec/modify_spec_version.sql
+\i api/spec/remove_price.sql
 \i api/spec/spec_data.sql
 -- task
 \i api/task/cancel_send_task.sql

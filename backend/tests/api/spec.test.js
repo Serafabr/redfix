@@ -159,4 +159,21 @@ describe('Spec tests', () => {
     expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
   });
 
+  test('Remove price', async () => {
+    const reqBody = {
+      query: `mutation (
+        $priceId: Int!
+      ){
+        tested: removePrice(input: {
+          priceId: $priceId
+        }) {
+          id
+        }
+      }`,
+      variables: { priceId },
+    };
+    const response = await got.post(url, { json: reqBody, responseType: 'json' });
+    expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
+  });
+
 });
