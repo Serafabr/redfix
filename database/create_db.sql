@@ -57,7 +57,7 @@ begin transaction;
 \i functions/get_person_id.sql
 
 -- create types
--- (currently not used)
+\i schema/types.sql
 
 -- create tables
 \i schema/reference_tables.sql
