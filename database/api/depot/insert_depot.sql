@@ -26,6 +26,16 @@ create or replace function :function_name (
         attributes.url,
         attributes.sigad
       ) returning depot_id into id;
+      /*
+      insert into depot_events values (
+        default,
+        "depotId",
+        'insert'::depot_event_enum,
+        now(),
+        get_person_id(),
+        'Criação do estoque'
+      );
+      */
     end;
   $$
 ;

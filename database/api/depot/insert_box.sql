@@ -35,6 +35,16 @@ create or replace function :function_name (
           ss.price
         from supplies as ss where ss.box_id = "boxId";
       end if;
+      /*
+      insert into depot_events values (
+        default,
+        "depotId",
+        'new_box'::depot_event_enum,
+        now(),
+        get_person_id(),
+        "note"
+      );
+      */
     end;
   $$
 ;
