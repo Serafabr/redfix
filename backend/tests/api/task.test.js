@@ -334,4 +334,38 @@ describe('Task tests', () => {
     expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
   });
 
+  test('Follow task', async () => {
+    const reqBody = {
+      query: `mutation (
+        $taskId: Int!
+      ){
+        tested: followTask(input: {
+          taskId: $taskId
+        }) {
+          id
+        }
+      }`,
+      variables: { taskId },
+    };
+    const response = await got.post(url, { json: reqBody, responseType: 'json' });
+    expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
+  });
+
+  test('Unfollow task', async () => {
+    const reqBody = {
+      query: `mutation (
+        $taskId: Int!
+      ){
+        tested: unfollowTask(input: {
+          taskId: $taskId
+        }) {
+          id
+        }
+      }`,
+      variables: { taskId },
+    };
+    const response = await got.post(url, { json: reqBody, responseType: 'json' });
+    expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
+  });
+
 });
