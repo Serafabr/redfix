@@ -293,3 +293,9 @@ create table monitor_reads (
   read_value numeric not null,
   note text
 );
+
+create table person_tasks (
+  person_id integer not null references persons (person_id),
+  task_id integer not null references tasks (task_id),
+  primary key (person_id, task_id)
+);

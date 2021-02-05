@@ -165,6 +165,7 @@ begin transaction;
 -- task
 \i api/task/cancel_send_task.sql
 \i api/task/clone_task.sql
+\i api/task/follow_task.sql
 \i api/task/insert_task.sql
 \i api/task/insert_task_asset.sql
 \i api/task/insert_task_note.sql
@@ -180,6 +181,7 @@ begin transaction;
 \i api/task/remove_task_supply.sql
 \i api/task/send_task.sql
 \i api/task/task_data.sql
+\i api/task/unfollow_task.sql
 -- team
 \i api/team/activate_person.sql
 \i api/team/activate_team.sql
