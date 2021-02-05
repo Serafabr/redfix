@@ -9,9 +9,9 @@
 \set asset_category_air       '3'
 \set asset_category_hydro     '4'
 \set insert_ceb_data          false
-set cookie.session.person_id to '0';
-set plpgsql.extra_warnings to 'all';
-set plpgsql.extra_errors to 'all';
 \pset null ' NULL '
 \encoding 'utf8'
 \c postgresql://administrator:123456@localhost:5432/:DBNAME
+set cookie.session.person_id to '0';
+set plpgsql.extra_warnings to 'all';
+set plpgsql.extra_errors to 'all';
