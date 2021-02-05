@@ -105,9 +105,11 @@ begin transaction;
 \i api/depot/depot_data.sql
 \i api/depot/insert_box.sql
 \i api/depot/insert_depot.sql
+\i api/depot/insert_firm.sql
 \i api/depot/insert_supply.sql
 \i api/depot/modify_box.sql
 \i api/depot/modify_depot.sql
+\i api/depot/modify_firm.sql
 \i api/depot/modify_supply.sql
 \i api/depot/remove_supply.sql
 -- files
