@@ -5,7 +5,7 @@ select api.insert_firm (
 );
 
 select api.insert_firm (
-  'Empresa b',
+  'Empresa B',
   'Razão Social da Empresa B Ltda.',
   '12345678904321'
 );
