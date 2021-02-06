@@ -28,7 +28,7 @@ create or replace function :function_name (
       ) returning depot_id into id;
       insert into depot_events values (
         default,
-        "depotId",
+        id,
         'insert_depot'::depot_event_enum,
         now(),
         get_person_id(),

@@ -2,10 +2,10 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
+  in "firmId" integer,
   in "name" text,
   in "nameRs" text,
   in "cnpj" text,
-  in "firmId" integer,
   out id integer
 )
   language plpgsql

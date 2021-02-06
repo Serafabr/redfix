@@ -18,7 +18,7 @@ create or replace function :function_name (
         date_pub,
         date_start,
         date_end,
-        company,
+        firm_id,
         title,
         description,
         url,

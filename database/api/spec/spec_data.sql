@@ -13,7 +13,6 @@ create or replace view api.spec_data as
                 'boxSf', b.box_sf,
                 'depotId', d.depot_id,
                 'depotSf', d.depot_sf,
-                'company', d.company,
                 'title', d.title,
                 'qtyInitial', q.qty_initial,
                 'qtyBlocked', q.qty_blocked,

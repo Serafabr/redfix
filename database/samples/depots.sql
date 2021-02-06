@@ -12,7 +12,7 @@ select api.insert_depot (
     '2019-12-31',-- date_pub
     '2020-03-01',-- date_start
     '2020-12-31',-- date_end
-    'Exemplo Manutanção Ltda.',-- company
+    null,-- firm_id
     'Manutenção do sistema elétrico',-- title
     'Manutenção de todo o sistema elétrico do SF',-- description
     null,-- url

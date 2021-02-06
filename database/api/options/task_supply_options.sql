@@ -34,7 +34,6 @@ create or replace view api.task_supply_options as
             'depotId', d.depot_id,
             'depotSf', d.depot_sf,
             'title', d.title,
-            'company', d.company,
             'boxes', bl.boxes
           )), jsonb_build_array()) as supply_options
   from boxes_list as bl

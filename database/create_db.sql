@@ -105,11 +105,9 @@ begin transaction;
 \i api/depot/depot_data.sql
 \i api/depot/insert_box.sql
 \i api/depot/insert_depot.sql
-\i api/depot/insert_firm.sql
 \i api/depot/insert_supply.sql
 \i api/depot/modify_box.sql
 \i api/depot/modify_depot.sql
-\i api/depot/modify_firm.sql
 \i api/depot/modify_supply.sql
 \i api/depot/remove_supply.sql
 -- files
@@ -238,6 +236,8 @@ set local cookie.session.person_id to 0;
 
 \i samples/projects.sql
 \i samples/specs.sql
+
+\i samples/firms.sql
 
 \i samples/depots.sql
 \i samples/boxes.sql

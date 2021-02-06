@@ -38,7 +38,7 @@ create or replace function :function_name (
         'insert_box'::depot_event_enum,
         now(),
         get_person_id(),
-        'Criação da caixa ' || "boxSf"
+        "note"
       );
     end;
   $$

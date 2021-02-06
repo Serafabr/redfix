@@ -71,7 +71,6 @@ create or replace view api.task_data as
               'boxSf', b.box_sf,
               'depotId', d.depot_id,
               'depotSf', d.depot_sf,
-              'company', d.company,
               'qty', ts.qty,
               'price', s.price,
               'totalPrice', ts.qty * s.price,

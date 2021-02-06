@@ -3,7 +3,7 @@ select api.insert_box (
   1,
   null,
   'Original',
-  'Primeira versão do contrato'
+  'Primeira caixa do contrato'
 );
 
 select api.activate_box (1);
