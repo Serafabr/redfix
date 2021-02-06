@@ -16,7 +16,7 @@ create or replace function check_insert_task_event ()
           from tasks as t
         where t.task_id = new.task_id
       )
-      select  case new.event_name
+      select  case new.task_event_name
                 when 'insert' then (true)
                 when 'modify' then (true)
                 when 'send' then (

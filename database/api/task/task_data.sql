@@ -102,7 +102,7 @@ create or replace view api.task_data as
     select  te.task_id,
             jsonb_agg(jsonb_build_object(
               'taskEventId', te.task_event_id,
-              'eventName', te.event_name,
+              'taskEventName', te.task_event_name,
               'createdAt', te.created_at,
               'personId', te.person_id,
               'personName', p.name,

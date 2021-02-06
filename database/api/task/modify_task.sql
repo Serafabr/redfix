@@ -50,7 +50,7 @@ create or replace function :function_name (
           attributes.team_id,
           null,
           null,
-          'Alteração da tarefa.',
+          'Alteração da tarefa',
           null,
           null,
           true

@@ -56,7 +56,7 @@ create or replace function :function_name (
         attributes.team_id,
         attributes.team_id,
         task_initial_status,
-        'Criação da tarefa.',
+        'Criação da tarefa',
         null,
         null,
         true
