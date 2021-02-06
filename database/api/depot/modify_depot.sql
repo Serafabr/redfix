@@ -32,13 +32,21 @@ create or replace function :function_name (
         attributes.date_pub,
         attributes.date_start,
         attributes.date_end,
-        attributes.company,
+        attributes.firm_id,
         attributes.title,
         attributes.description,
         attributes.url,
         attributes.sigad
-      ) where d.depot_id = attributes.depot_id
-      returning d.depot_id into id;
+      ) where d.depot_id = attributes.depot_id;
+      insert into depot_events values (
+        default,
+        attributes.depot_id,
+        'modify_depot'::depot_event_enum,
+        now(),
+        get_person_id(),
+        'Modificação do estoque'
+      );
+      id = attributes.depot_id;
     end;
   $$
 ;
@@ -48,7 +56,6 @@ Mandatory input(s):\n
 * `attributes.depotId`\n
 * `attributes.depotSf`\n
 * `attributes.depotCategoryId`\n
-* `attributes.company`\n
 * `attributes.title`\n
 * `attributes.description`\n
 \n

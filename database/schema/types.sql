@@ -1,7 +1,9 @@
 create type depot_event_enum as enum (
-  'insert',
-  'new_box',
-  'category_change'
+  'insert_depot',
+  'insert_box',
+  'modify_depot',
+  'modify_box',
+  'change_category'
 );
 
 create type task_event_enum as enum (

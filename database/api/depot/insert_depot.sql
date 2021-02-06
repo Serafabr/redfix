@@ -20,22 +20,20 @@ create or replace function :function_name (
         attributes.date_pub,
         attributes.date_start,
         attributes.date_end,
-        attributes.company,
+        attributes.firm_id,
         attributes.title,
         attributes.description,
         attributes.url,
         attributes.sigad
       ) returning depot_id into id;
-      /*
       insert into depot_events values (
         default,
         "depotId",
-        'insert'::depot_event_enum,
+        'insert_depot'::depot_event_enum,
         now(),
         get_person_id(),
         'Criação do estoque'
       );
-      */
     end;
   $$
 ;
@@ -44,7 +42,6 @@ comment on function :function_name is E'
 Mandatory input(s):\n
 * `attributes.depotSf`\n
 * `attributes.depotCategoryId`\n
-* `attributes.company`\n
 * `attributes.title`\n
 * `attributes.description`\n
 \n

@@ -14,10 +14,7 @@ create or replace function :function_name (
       insert into boxes as b values (
         default,
         "boxSf",
-        "depotId",
-        now(),
-        get_person_id(),
-        "note"
+        "depotId"
       ) returning b.box_id into id;
       if "boxId" is not null then
         insert into supplies as s (
@@ -35,16 +32,14 @@ create or replace function :function_name (
           ss.price
         from supplies as ss where ss.box_id = "boxId";
       end if;
-      /*
       insert into depot_events values (
         default,
         "depotId",
-        'new_box'::depot_event_enum,
+        'insert_box'::depot_event_enum,
         now(),
         get_person_id(),
-        "note"
+        'Criação da caixa ' || "boxSf"
       );
-      */
     end;
   $$
 ;

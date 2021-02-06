@@ -120,6 +120,9 @@ begin transaction;
 \i api/files/insert_spec_files.sql
 \i api/files/insert_task_files.sql
 \i api/files/remove_file.sql
+-- firm
+\i api/firm/insert_firm.sql
+\i api/firm/modify_firm.sql
 -- options
 \i api/options/asset_options.sql
 \i api/options/depot_options.sql
