@@ -16,6 +16,11 @@ create table depot_files (
   uuid uuid not null references files (uuid) on delete cascade
 );
 
+create table person_files (
+  person_id integer not null references persons (person_id),
+  uuid uuid not null references files (uuid) on delete cascade
+);
+
 create table plan_files (
   plan_id integer not null references plans (plan_id),
   uuid uuid not null references files (uuid) on delete cascade

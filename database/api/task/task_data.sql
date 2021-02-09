@@ -33,10 +33,10 @@ create or replace view api.task_data as
           a.assets,
           e.events,
           coalesce(s.supplies, jsonb_build_array()) as supplies,
-          coalesce(f.files, jsonb_build_array()) as files,
-          so.send_options,
-          mo.move_options,
-          aa.asset_options
+          coalesce(f.files, jsonb_build_array()) as files
+          -- so.send_options,
+          -- mo.move_options,
+          -- aa.asset_options
   from tasks as t
   inner join task_statuses as ts using (task_status_id)
   inner join task_priorities as tp using (task_priority_id)
@@ -124,33 +124,33 @@ create or replace view api.task_data as
     left join task_statuses as ts using (task_status_id)
     group by te.task_id
   ) as e using (task_id)
-  left join (
-    select  t.task_id,
-            jsonb_agg(jsonb_build_object(
-              'taskStatusId', s.task_status_id,
-              'taskStatusText', s.task_status_text
-            ) order by s.task_status_text) as move_options
-    from task_statuses as s
-    inner join tasks as t on (t.task_status_id <> s.task_status_id)
-    group by t.task_id
-  ) as mo using (task_id)
-  left join (
-    select  t.task_id,
-            jsonb_agg(jsonb_build_object(
-              'teamId', q.team_id,
-              'name', q.name
-            ) order by q.name) as send_options
-    from teams as q
-    inner join tasks as t on (t.team_id <> q.team_id)
-    where q.is_active and t.next_team_id is null
-    group by t.task_id
-  ) as so using (task_id)
-  cross join (
-    select  jsonb_agg(jsonb_build_object(
-              'assetId', a.asset_id,
-              'assetSf', a.asset_sf,
-              'name', a.name
-            ) order by a.asset_sf) as asset_options
-    from assets as a
-  ) as aa
+  -- left join (
+  --   select  t.task_id,
+  --           jsonb_agg(jsonb_build_object(
+  --             'taskStatusId', s.task_status_id,
+  --             'taskStatusText', s.task_status_text
+  --           ) order by s.task_status_text) as move_options
+  --   from task_statuses as s
+  --   inner join tasks as t on (t.task_status_id <> s.task_status_id)
+  --   group by t.task_id
+  -- ) as mo using (task_id)
+  -- left join (
+  --   select  t.task_id,
+  --           jsonb_agg(jsonb_build_object(
+  --             'teamId', q.team_id,
+  --             'name', q.name
+  --           ) order by q.name) as send_options
+  --   from teams as q
+  --   inner join tasks as t on (t.team_id <> q.team_id)
+  --   where q.is_active and t.next_team_id is null
+  --   group by t.task_id
+  -- ) as so using (task_id)
+  -- cross join (
+  --   select  jsonb_agg(jsonb_build_object(
+  --             'assetId', a.asset_id,
+  --             'assetSf', a.asset_sf,
+  --             'name', a.name
+  --           ) order by a.asset_sf) as asset_options
+  --   from assets as a
+  -- ) as aa
 ;

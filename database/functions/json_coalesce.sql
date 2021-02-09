@@ -1,4 +1,4 @@
-\set function_name listify
+\set function_name json_coalesce
 
 drop function if exists :function_name;
 create or replace function :function_name (
@@ -6,9 +6,10 @@ create or replace function :function_name (
   out json_output jsonb
 )
   language sql
+  stable
   as $$
     -- returns empty json array if input is null
-    select coalesce(json_input, jsonb_build_array()) as json_output;
+    select coalesce(json_input, '[]'::jsonb) as json_output;
   $$
 ;
 

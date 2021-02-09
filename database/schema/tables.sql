@@ -9,6 +9,7 @@ create table persons (
   password_hash text not null default '',
   is_active boolean not null default true,
   person_role text not null references person_roles (person_role) default 'visitor'
+  avatar_uuid uuid references files (uuid) on delete set null
 );
 
 create table firms (
