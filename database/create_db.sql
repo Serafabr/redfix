@@ -11,6 +11,10 @@ rollback;
 \set asset_category_hydro     '4'
 \set insert_ceb_data          false
 
+-- set pg_settings variables
+-- "login" to allow inserts (mandatory person_id in some columns)
+set local cookie.session.person_id to 1;
+
 -- set ON_ERROR_STOP to off
 \set ON_ERROR_STOP off
 
@@ -71,14 +75,22 @@ begin transaction;
 \i functions/get_api_docs.sql
 \i functions/get_exception_message.sql
 \i functions/insert_files.sql
+\i functions/json_coalesce.sql
 \i functions/refresh_all_materialized_views.sql
 \i functions/update_dashboard.sql
 
 -- create views
 \i schema/views/api_privileges.sql
+\i schema/views/assets_of_task.sql
 \i schema/views/quantities.sql
 
 -- create api schema objects
+-- json_lists
+\i api/json_lists/get_assets_of_task.sql
+\i api/json_lists/get_events_of_task.sql
+\i api/json_lists/get_files_of_task.sql
+\i api/json_lists/get_supplies_of_task.sql
+
 -- asset
 \i api/asset/asset_data.sql
 \i api/asset/appliance_data.sql
@@ -117,6 +129,8 @@ begin transaction;
 \i api/files/insert_project_files.sql
 \i api/files/insert_spec_files.sql
 \i api/files/insert_task_files.sql
+\i api/files/modify_avatar.sql
+\i api/files/remove_avatar.sql
 \i api/files/remove_file.sql
 -- firm
 \i api/firm/insert_firm.sql
@@ -208,70 +222,39 @@ begin transaction;
 \i api/utilities/insert_ceb_bill.sql
 \i api/utilities/upsert_caesb_bill.sql
 
--- create and login with fake user for initial inserts
-insert into persons values (0, 'admin', '00000000000', 'admin@admin.com', 'Administrator', '0000', null, crypt('123456', gen_salt('bf', 10)), true, 'administrator');
-set local cookie.session.person_id to 0;
-
 -- create triggers before populate tables
 \i triggers/check_delete_supply.sql
+\i triggers/check_insert_active_box.sql
 \i triggers/check_insert_task_event.sql
 \i triggers/check_update_task_event.sql
 \i triggers/check_task_project.sql
 \i triggers/check_task_supply.sql
 -- \i triggers/insert_audit_trail.sql
+-- \i triggers/publish_to_channel.sql
 
 -- create rls policies
 -- (currently not used)
 
--- populate tables with sample data
+-- insert assets that represent categories and facilities
+\i samples/administrators.sql
 \i samples/asset_categories.sql
 \i samples/facilities.sql
 \i samples/asset_parents.sql
-\i samples/appliances.sql
-\i samples/tags.sql
-
-\i samples/persons.sql
-\i samples/teams.sql
-\i samples/team_persons.sql
-
-\i samples/projects.sql
 \i samples/specs.sql
+alter sequence assets_asset_id_seq restart with 5001;
 
-\i samples/firms.sql
-
-\i samples/depots.sql
-\i samples/boxes.sql
-\i samples/supplies.sql
-
-\i samples/tasks.sql
-\i samples/task_supplies.sql
-\i samples/task_files.sql
-
-\i samples/ceb_meters.sql
-\if :insert_ceb_data
-  \i samples/ceb_bills.sql
-\endif 
-
--- restart sequences
-\i functions/restart_sequences.sql
-
--- create triggers after populate tables
+-- create triggers after asset categories
 \i triggers/check_asset_location.sql
 \i triggers/check_asset_parent.sql
-\i triggers/check_insert_active_box.sql
--- \i triggers/publish_to_channel.sql
 
 -- commit transaction
 commit transaction;
 
--- set ON_ERROR_STOP to off
-\set ON_ERROR_STOP off
-
--- refresh materialized views
-select web.refresh_all_materialized_views();
-
 -- create extra indexes
 \i schema/indexes.sql
+
+-- set ON_ERROR_STOP to off
+\set ON_ERROR_STOP off
 
 -- print message
 \echo :new_db_name CREATED SUCCESSFULLY.

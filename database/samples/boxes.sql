@@ -4,6 +4,6 @@ select api.insert_box (
   null,
   'Original',
   'Primeira caixa do contrato'
-);
+) as last_id \gset
 
-select api.activate_box (1);
+select api.activate_box (:'last_id'::integer);

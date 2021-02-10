@@ -1,11 +1,7 @@
--- restart asset_id sequence
-alter sequence assets_asset_id_seq restart with 5001;
-
--- asset_id = 5001
 select api.insert_asset(
   (
     null,
-    'ELET-ET-0000',
+    'ELET-ET-' || substr(gen_random_uuid()::text,1,8),
     'Estações Transformadoras',
     'Engloba todas as estações transformadoras do Senado Federal',
     :'asset_category_electric'::integer,
@@ -18,12 +14,12 @@ select api.insert_asset(
     null,
     null
   )
-);
+) as asset_1 \gset
 
 select api.insert_asset (
   (
     null,
-    'ELET-ET-0001',
+    'ELET-ET-' || substr(gen_random_uuid()::text,1,8),
     'Estação Transformadora 01 - Blocos de Apoio',
     'Capacidade X, Transformadores A, B, C',
     :'asset_category_electric'::integer,
@@ -36,12 +32,12 @@ select api.insert_asset (
     null,
     null
   )
-);
+) as asset_2 \gset
 
 select api.insert_asset (
   (
     null,
-    'ELET-ET-TR01',
+    'ELET-ET-TR-' || substr(gen_random_uuid()::text,1,4),
     'Estação Transformadora 01 - Blocos de Apoio - Transformador A',
     'Capacidade 700 kVA',
     :'asset_category_electric'::integer,
@@ -54,7 +50,7 @@ select api.insert_asset (
     null,
     null
   )
-);
+) as asset_3 \gset
 
-select api.insert_asset_child(5001, 5002);
-select api.insert_asset_child(5002, 5003);
+select api.insert_asset_child(:'asset_1'::integer, :'asset_2'::integer);
+select api.insert_asset_child(:'asset_2'::integer, :'asset_3'::integer);

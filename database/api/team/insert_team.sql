@@ -2,7 +2,8 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes teams,
+  in "name" text,
+  in "description" text,
   out id integer
 )
   language plpgsql
@@ -11,8 +12,8 @@ create or replace function :function_name (
     begin
       insert into teams values (
         default,
-        attributes.name,
-        attributes.description,
+        "name",
+        "description",
         true
       ) returning team_id into id;
     end;
@@ -21,7 +22,7 @@ create or replace function :function_name (
 
 comment on function :function_name is E'
 Mandatory inputs(s):\n
-* `attributes.name`\n
+* `name`\n
 \n
 Output `id`: `teamId` of the new team
 ';

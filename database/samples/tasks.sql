@@ -1,4 +1,3 @@
--- task_event_id = 1
 select api.insert_task(
   (
     null,-- task_id
@@ -17,9 +16,20 @@ select api.insert_task(
     null,-- date_start
     null,-- date_end
     null,-- request_id
-    1,-- team_id
+    :'team_id'::integer,-- team_id
     null,-- next_team_id
     null-- task_status_id
   ),
   array[104,105,106]
+) as task_id \gset
+
+select api.insert_task_files (
+  :'task_id'::integer,
+  array[(
+    gen_random_uuid(),
+    'test.txt',
+    50,
+    null,
+    null
+  )]::files[]
 );

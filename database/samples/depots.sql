@@ -1,4 +1,3 @@
--- depot_id = 1
 select api.insert_depot (
   (
     null,-- depot_id
@@ -17,5 +16,25 @@ select api.insert_depot (
     'Manutenção de todo o sistema elétrico do SF',-- description
     null,-- url
     '00200.012345/2019-00'-- sigad
+  )
+) as depot_id \gset
+
+select api.insert_box (
+  :'depot_id'::integer,
+  null,
+  'Original',
+  'Primeira caixa do contrato'
+) as box_id \gset
+
+select api.activate_box (:'box_id'::integer);
+
+select api.insert_supply (
+  (
+    null,-- supply_id
+    'M-01',-- supply_sf
+    :'box_id'::integer,-- box_id
+    376,-- spec_id
+    100,-- qty_initial
+    99.99-- price
   )
 );

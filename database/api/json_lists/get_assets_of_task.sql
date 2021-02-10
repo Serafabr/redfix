@@ -9,7 +9,7 @@ create or replace function :function_name (
   strict
   stable
   as $$
-    select listify_null(j.l) as list from (
+    select json_coalesce(j.l) as list from (
       select
         jsonb_agg(jsonb_build_object(
             'assetId', a.asset_id,
