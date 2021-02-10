@@ -198,13 +198,14 @@ insert into spec_compositions values
 
 create table depot_categories (
   depot_category_id integer primary key,
-  depot_category_text text not null
+  depot_category_text text not null,
+  is_activatable boolean not null
 );
 
 insert into depot_categories values
-  (1, 'Processo de licitação'),
-  (2, 'Contrato'),
-  (3, 'ARP')
+  (1, 'Processo de licitação', false),
+  (2, 'Contrato', true),
+  (3, 'ARP', true)
 ;
 
 create table periodicities (
