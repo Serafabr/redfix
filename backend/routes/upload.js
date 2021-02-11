@@ -7,10 +7,11 @@ const fs = require('fs');
 const paths = require('../paths');
 
 async function decideUploadDestination(req, res, next){
-  const { files, image, cebFile } = req.body && req.body.variables ? req.body.variables : {};
-  if (!files && !image && !cebFile) next();   // no uploads
+  const { files, image, avatar, cebFile } = req.body && req.body.variables ? req.body.variables : {};
+  if (!files && !image && !avatar && !cebFile) next();   // no uploads
   if (files) saveFiles(req, res, next);       // regular uploads
-  if (image) saveImage(req, res, next);       // images
+  if (image) saveImage(req, res, next);       // image
+  if (avatar) saveAvatar(req, res, next);     // avatar
   if (cebFile) insertCebData(req, res, next); // CEB csv files
 }
 
@@ -51,6 +52,22 @@ async function saveImage(req, res, next){
   const stream = createReadStream();
   const imagePath = path.join(process.cwd(), paths.images, imageMetadata.uuid);
   saveLocal(stream, imagePath)
+  .then(() => {
+    next();
+  })
+  .catch(error => {
+    console.log(error);
+    res.status(500).end();
+  });
+}
+
+async function saveAvatar(req, res, next){
+  const { avatar, avatarMetadata } = req.body.variables;
+  const resolvedAvatar = await avatar.promise;
+  const { filename, mimetype, encoding, createReadStream } = resolvedAvatar;
+  const stream = createReadStream();
+  const avatarPath = path.join(process.cwd(), paths.images, avatarMetadata.uuid);
+  saveLocal(stream, avatarPath)
   .then(() => {
     next();
   })

@@ -59,6 +59,32 @@ describe('Uploads tests', () => {
   //   expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
   // });
 
+  test('Modify avatar', async () => {
+    let form = new FormData();
+    form.append('operations', JSON.stringify({
+      query:  `mutation (
+        $avatarMetadata: FileInput!
+      ){
+        tested: modifyAvatar(input: {
+          avatarMetadata: $avatarMetadata
+        }) {
+          id
+        }
+      }`,
+      variables: {
+        avatarMetadata: {
+          filename: "image_from_test.jpeg",
+          uuid: uuid,
+          size: 50
+        },
+        avatar: null,
+      }
+    }));
+    form.append('map', JSON.stringify({0: ["variables.avatar"]}));
+    form.append('0', fs.createReadStream(__dirname + '/test.jpeg'));
+    const response = await got.post(url, { body: form, responseType: 'json' });
+    expect(response.body.data.tested).toMatchObject({ id: expect.any(Number) });
+  });
 
   test('Upload CEB file', async () => {
     let form = new FormData();

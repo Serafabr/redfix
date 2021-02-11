@@ -10,11 +10,11 @@ create or replace function :function_name (
   as $$
     begin
       id = get_person_id();
-      perform insert_files(array[avatar_metadata]);
-      update persons set avatar_uuid = avatar_metadata.uuid where person_id = id;
       with x as (
         select avatar_uuid from persons where person_id = id
       ) delete from files using x where uuid = x.avatar_uuid;
+      perform insert_files(array[avatar_metadata]);
+      update persons set avatar_uuid = avatar_metadata.uuid where person_id = id;
     end;
   $$
 ;
