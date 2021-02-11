@@ -9,16 +9,16 @@ describe('Team tests', () => {
   test('Insert team', async () => {
     const reqBody = {
       query: `mutation (
-        $name: String!
+        $name: String
       ){
-        tested: insertTeam(input: {attributes: {
+        tested: insertTeam(input: {
           name: $name
-        }}) {
+        }) {
           id
         }
       }`,
       variables: {
-        name: "Equipe nova" + Math.random().toString(),
+        name: `Equipe nova ${Math.random().toString()}`,
       },
     };
     const response = await got.post(url, { json: reqBody, responseType: 'json' });
