@@ -19,7 +19,7 @@ create or replace function :function_name (
         "taskId",
         "supplyId",
         "qtyAllowed"
-      ) on conflict on constraint task_supplies_pkey do
+      ) on conflict (task_id, supply_id) do
       update set qty_allowed = "qtyAllowed" where ts.task_id = "taskId" and ts.supply_id = "supplyId";
       id = "taskId";
     end;
