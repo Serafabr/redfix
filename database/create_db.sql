@@ -208,6 +208,11 @@ begin transaction;
 \i api/task/allow_planned_task_supplies.sql
 -- \i api/task/finish_task.sql
 -- \i api/task/reopen_task.sql
+\i api/invoice/insert_invoice.sql
+\i api/invoice/modify_invoice.sql
+\i api/invoice/insert_invoice_tasks.sql
+\i api/invoice/remove_invoice_task.sql
+\i api/invoice/remove_invoice.sql
 ---------
 
 -- team
