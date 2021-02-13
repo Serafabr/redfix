@@ -19,9 +19,10 @@ create or replace function :function_name (
           'boxSf', b.box_sf,
           'depotId', d.depot_id,
           'depotSf', d.depot_sf,
-          'qty', ts.qty,
+          'qtyPlanned', ts.qty_planned,
+          'qtyAllowed', ts.qty_allowed,
+          'qtyUsed', ts.qty_used,
           'price', s.price,
-          'totalPrice', ts.qty * s.price,
           'name', z.name,
           'unit', z.unit
         ) order by d.depot_sf, b.box_sf, s.supply_sf) as l

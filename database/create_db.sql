@@ -82,14 +82,14 @@ begin transaction;
 -- create views
 \i schema/views/api_privileges.sql
 \i schema/views/assets_of_task.sql
--- \i schema/views/quantities.sql
+\i schema/views/quantities.sql
 
 -- create api schema objects
 -- json_lists
 \i api/json_lists/get_assets_of_task.sql
 \i api/json_lists/get_events_of_task.sql
 \i api/json_lists/get_files_of_task.sql
--- \i api/json_lists/get_supplies_of_task.sql
+\i api/json_lists/get_supplies_of_task.sql
 
 -- asset
 \i api/asset/asset_data.sql
@@ -114,7 +114,7 @@ begin transaction;
 -- depot
 \i api/depot/activate_box.sql
 \i api/depot/deactivate_box.sql
--- \i api/depot/depot_data.sql
+\i api/depot/depot_data.sql
 \i api/depot/insert_box.sql
 \i api/depot/insert_depot.sql
 \i api/depot/insert_supply.sql
@@ -142,9 +142,9 @@ begin transaction;
 \i api/options/person_options.sql
 \i api/options/project_options.sql
 \i api/options/spec_options.sql
--- \i api/options/supply_options.sql
+\i api/options/supply_options.sql
 \i api/options/task_options.sql
--- \i api/options/task_supply_options.sql
+\i api/options/task_supply_options.sql
 \i api/options/team_options.sql
 -- plan
 \i api/plan/insert_bundle_asset.sql
@@ -178,7 +178,7 @@ begin transaction;
 \i api/spec/modify_price.sql
 \i api/spec/modify_spec_version.sql
 \i api/spec/remove_price.sql
--- \i api/spec/spec_data.sql
+\i api/spec/spec_data.sql
 -- task
 \i api/task/cancel_send_task.sql
 \i api/task/clone_task.sql
@@ -186,22 +186,19 @@ begin transaction;
 \i api/task/insert_task.sql
 \i api/task/insert_task_asset.sql
 \i api/task/insert_task_note.sql
--- \i api/task/insert_task_supply.sql
 \i api/task/modify_task.sql
 \i api/task/modify_task_note.sql
--- \i api/task/modify_task_supplies.sql
--- \i api/task/modify_task_supply.sql
 \i api/task/move_task.sql
 \i api/task/receive_task.sql
 \i api/task/remove_task_asset.sql
 \i api/task/remove_task_note.sql
 \i api/task/remove_task_supply.sql
 \i api/task/send_task.sql
--- \i api/task/task_data.sql
+\i api/task/task_data.sql
 \i api/task/unfollow_task.sql
 
 
-
+-- NEW API:
 ---------
 \i api/task/plan_task_supply.sql
 \i api/task/allow_task_supply.sql

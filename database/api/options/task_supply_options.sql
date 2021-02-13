@@ -8,7 +8,7 @@ create or replace view api.task_supply_options as
               'price', s.price,
               'qtyInitial', s.qty_initial,
               'qtyBlocked', q.qty_blocked,
-              'qtyConsumed', q.qty_consumed,
+              'qtyUsed', q.qty_used,
               'qtyAvailable', q.qty_available,
               'name', z.name,
               'unit', z.unit

@@ -13,7 +13,7 @@ create or replace view api.depot_data as
               z.unit,
               s.qty_initial,
               s.price,
-              q.qty_consumed,
+              q.qty_used,
               q.qty_blocked,
               q.qty_available
         from supplies as s
@@ -34,7 +34,7 @@ create or replace view api.depot_data as
                 'unit', os.unit,
                 'qtyInitial', os.qty_initial,
                 'price', os.price,
-                'qtyConsumed', os.qty_consumed,
+                'qtyUsed', os.qty_used,
                 'qtyBlocked', os.qty_blocked,
                 'qtyAvailable', os.qty_available
               )) as supplies
