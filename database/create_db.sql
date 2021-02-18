@@ -271,5 +271,8 @@ commit transaction;
 -- set ON_ERROR_STOP to off
 \set ON_ERROR_STOP off
 
+-- update comments
+\i update_comments.sql
+
 -- print message
 \echo :new_db_name CREATED SUCCESSFULLY.
