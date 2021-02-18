@@ -71,6 +71,7 @@ begin transaction;
 
 -- create functions
 \i functions/authenticate.sql
+\i functions/generate_api_documentation.sql
 \i functions/get_all_files_uuids.sql
 \i functions/get_api_docs.sql
 \i functions/get_exception_message.sql
@@ -80,7 +81,7 @@ begin transaction;
 \i functions/update_dashboard.sql
 
 -- create views
-\i schema/views/api_privileges.sql
+\i schema/views/api_docs.sql
 \i schema/views/assets_of_task.sql
 \i schema/views/quantities.sql
 
@@ -271,8 +272,8 @@ commit transaction;
 -- set ON_ERROR_STOP to off
 \set ON_ERROR_STOP off
 
--- update comments
-\i update_comments.sql
+-- update api docs
+\i update_api_docs.sql
 
 -- print message
 \echo :new_db_name CREATED SUCCESSFULLY.
