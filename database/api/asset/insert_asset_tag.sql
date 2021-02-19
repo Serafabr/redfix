@@ -2,28 +2,22 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in asset_id integer,
-  in tag_id integer,
+  in "assetId" integer,
+  in "tagId" integer,
   out id integer
 )
   language plpgsql
   strict
   as $$
     begin
-      insert into asset_tags as a values (
-        asset_id,
-        tag_id
-      ) returning a.asset_id into id;
+      insert into asset_tags as a values ("assetId", "tagId");
+      id = "assetId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `assetId`\n
-* `tagId`\n
-\n
-Output `id`: the same as `assetId` input
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: the same as `assetId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

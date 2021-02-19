@@ -11,21 +11,14 @@ create or replace function :function_name (
   as $$
     declare
     begin
-      delete from asset_tags as a
-      where
-        a.asset_id = "assetId" and
-        a.tag_id = "tagId"
-      returning a.asset_id into id;
+      delete from asset_tags where asset_id = "assetId" and tag_id = "tagId";
+      id = "assetId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `assetId`\n
-* `tagId`\n
-\n
-Output `id`: the same as `assetId` input
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: the same as `assetId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

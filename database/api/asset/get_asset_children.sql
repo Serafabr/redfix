@@ -23,11 +23,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `assetId`\n
-\n
-Output `children`: a list of assets that are children of the asset identified by `assetId`
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee, visitor;
+
+select generate_api_documentation(:'function_name',E'Output `children`: a list of assets that are children of the asset identified by `assetId\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
