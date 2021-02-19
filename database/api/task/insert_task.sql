@@ -66,7 +66,10 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
+grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(
+  :'function_name', E'
 Mandatory inputs(s):\n
 * `attributes.title`\n
 * `attributes.taskPriorityId`\n
@@ -75,6 +78,4 @@ Mandatory inputs(s):\n
 * `assets`\n
 \n
 Output `id`: `taskId` of the new task
-';
-
-grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+');
