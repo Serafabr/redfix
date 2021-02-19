@@ -3,12 +3,13 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "depotId" integer,
-  in "boxId" integer, -- id of the box to copy supplies from
   in "boxSf" text,
-  in "note" text,
+  in "boxId" integer default null, -- id of the box to copy supplies from
+  in "note" text default null
   out id integer
 )
   language plpgsql
+  strict
   as $$
     begin
       insert into boxes as b values (
@@ -44,13 +45,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `depotId`\n
-* `boxSf`\n
-\n
-`boxId` is the id of the box to copy supplies from.
-Output `id`: `boxId` of the new box
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `boxId` of the new box\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

@@ -9,16 +9,14 @@ create or replace function :function_name (
   strict
   as $$
     begin
-      delete from supplies as s where s.supply_id = "supplyId" returning s.box_id into id;
+      delete from supplies as s where s.supply_id = "supplyId";
+      id = "supplyId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `supplyId`\n
-\n
-Output `id`: `boxId` of the deleted supply
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `boxId` of the deleted supply\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

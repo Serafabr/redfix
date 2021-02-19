@@ -2,7 +2,18 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes depots,
+  in "depotId" integer,
+  in "depotSf" text,
+  in "depotCategoryId" integer,
+  in "title" text,
+  in "description" text,
+  in "dateSign" date default null,
+  in "datePub" date default null,
+  in "dateStart" date default null,
+  in "dateEnd" date default null,
+  in "firmId" integer default null,
+  in "url" text default null,
+  in "sigad" text default null
   out id integer
 )
   language plpgsql
@@ -24,42 +35,35 @@ create or replace function :function_name (
         url,
         sigad
       ) = (
-        attributes.depot_sf,
+        "depotSf",
         now(),
         get_person_id(),
-        attributes.depot_category_id,
-        attributes.date_sign,
-        attributes.date_pub,
-        attributes.date_start,
-        attributes.date_end,
-        attributes.firm_id,
-        attributes.title,
-        attributes.description,
-        attributes.url,
-        attributes.sigad
-      ) where d.depot_id = attributes.depot_id;
+        "depotCategoryId",
+        "dateSign",
+        "datePub",
+        "dateStart",
+        "dateEnd",
+        "firmId",
+        "title",
+        "description",
+        "url",
+        "sigad"
+      ) where d.depot_id = "depotId";
       insert into depot_events values (
         default,
-        attributes.depot_id,
+        "depotId",
         'modify_depot'::depot_event_enum,
         now(),
         get_person_id(),
         'Modificação do estoque'
       );
-      id = attributes.depot_id;
+      id = "depotId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `attributes.depotId`\n
-* `attributes.depotSf`\n
-* `attributes.depotCategoryId`\n
-* `attributes.title`\n
-* `attributes.description`\n
-\n
-Output `id`: `depotId` of the modified depot
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `depotId` of the modified depot\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
