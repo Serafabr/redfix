@@ -2,7 +2,19 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes tasks,
+  in "taskId" integer,
+  in "title" text,
+  in "description" text,
+  in "taskPriorityId" integer,
+  in "taskCategoryId" integer,
+  in "teamId" integer,
+  in "projectId" integer default null,
+  in "place" text default null,
+  in "progress" integer default null,
+  in "dateLimit" date default null,
+  in "dateStart" date default null,
+  in "dateEnd" date default null,
+  in "requestId" integer default null,
   out id integer
 )
   language plpgsql
@@ -27,27 +39,26 @@ create or replace function :function_name (
         ) = (
           now(),
           get_person_id(),
-          attributes.task_priority_id,
-          attributes.task_category_id,
-          attributes.project_id,
-          attributes.title,
-          attributes.description,
-          attributes.place,
-          attributes.progress,
-          attributes.date_limit,
-          attributes.date_start,
-          attributes.date_end,
-          attributes.request_id
-        ) where t.task_id = attributes.task_id
-        returning t.task_id into id;
+          "taskPriorityId",
+          "taskCategoryId",
+          "projectId",
+          "title",
+          "description",
+          "place",
+          "progress",
+          "dateLimit",
+          "dateStart",
+          "dateEnd",
+          "requestId"
+        ) where t.task_id = "taskId";
 
         insert into task_events values (
           default,
-          id,
+          "taskId",
           'modify',
           now(),
           get_person_id(),
-          attributes.team_id,
+          "teamId",
           null,
           null,
           'Alteração da tarefa',
@@ -56,19 +67,14 @@ create or replace function :function_name (
           true
         );
 
+        id = "taskId";
+
     end;
   $$
 ;
 
-
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `attributes.title`\n
-* `attributes.taskPriorityId`\n
-* `attributes.taskCategoryId`\n
-* `attributes.teamId`\n
-\n
-Output `id`: `taskId` of the modified task
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

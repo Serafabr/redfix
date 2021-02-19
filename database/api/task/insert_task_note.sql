@@ -4,11 +4,12 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "taskId" integer,
   in "teamId" integer,
-  in "replyTo" integer,
   in "note" text,
+  in "replyTo" integer default null,
   out id integer
 )
   language plpgsql
+  strict
   as $$
     begin
       insert into task_events values (
@@ -29,13 +30,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `taskId`\n
-* `teamId`\n
-* `note`\n
-\n
-Output `id`: `taskEventId` of the new event
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `taskEventId` of the new event\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

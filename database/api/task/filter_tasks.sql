@@ -17,11 +17,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `[no mandatory inoputs]`\n
-\n
-Output: taskData
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee, visitor;
+
+select generate_api_documentation(:'function_name',E'Output: taskData\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

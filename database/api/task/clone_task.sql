@@ -83,12 +83,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `taskId`\n
-* `teamId`\n
-\n
-Output `id`: `taskId` of the new task
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `taskId` of the new task\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

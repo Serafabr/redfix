@@ -18,18 +18,14 @@ create or replace function :function_name (
       ) = (
         new_note,
         now()
-      ) where te.task_event_id = "taskEventId"
-      returning te.task_event_id into id;
+      ) where te.task_event_id = "taskEventId";
+      id = "taskEventId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `taskEventId`\n
-* `note`\n
-\n
-Output `id`: `taskEventId` of the modified event
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `taskEventId` of the modified event\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
