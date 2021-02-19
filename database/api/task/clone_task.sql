@@ -7,7 +7,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     declare
       task_initial_status integer;

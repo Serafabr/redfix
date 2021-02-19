@@ -6,7 +6,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       update task_events set is_visible = false where task_event_id = "taskEventId";

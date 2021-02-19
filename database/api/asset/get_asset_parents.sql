@@ -8,7 +8,6 @@ create or replace function :function_name (
 )
   language sql
   stable
-  strict
   as $$
     select  coalesce(
               jsonb_agg(jsonb_build_object(

@@ -7,7 +7,6 @@ create or replace function :function_name (
 )
   language plpgsql
   security definer
-  strict
   as $$
     begin
       update persons set is_active = true where person_id = "personId";

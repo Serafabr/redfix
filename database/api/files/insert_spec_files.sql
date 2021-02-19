@@ -7,7 +7,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       perform insert_files(files_metadata);

@@ -6,7 +6,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       delete from active_boxes where box_id = "boxId";

@@ -10,7 +10,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     declare
       new_name alias for "name";

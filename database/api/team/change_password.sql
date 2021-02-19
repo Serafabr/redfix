@@ -7,7 +7,6 @@ create or replace function api.change_password (
 )
   language plpgsql
   security definer
-  strict
   as $$
     begin
       update persons

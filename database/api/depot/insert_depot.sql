@@ -16,7 +16,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       insert into depots values (
@@ -24,8 +23,8 @@ create or replace function :function_name (
         "depotSf",
         now(),
         now(),
-        get_person_id(),
-        get_person_id(),
+        1,
+        1,
         "depotCategoryId",
         "dateSign",
         "datePub",

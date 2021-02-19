@@ -24,6 +24,7 @@ module.exports = postgraphile(
     watchPg: NODE_ENV !== 'production',
     retryOnInitFail: NODE_ENV === 'production',
     enableCors: false,
+    graphileBuildOptions: { pgStrictFunctions: true },
     graphqlRoute: paths.api,
     graphiql: NODE_ENV !== 'production',
     graphiqlRoute: paths.graphiql,

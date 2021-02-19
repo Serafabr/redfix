@@ -7,7 +7,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       delete from bundle_assets where bundle_id = "bundleId" and asset_id = "assetId";

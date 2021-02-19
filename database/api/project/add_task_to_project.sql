@@ -7,7 +7,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       update tasks set project_id = "projectId" where task_id = "taskId";

@@ -7,7 +7,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       update task_supplies as ts set qty_allowed = qty_planned where ts.task_id = "taskId" and ts.supply_id in (select unnest("suppliesIds"));

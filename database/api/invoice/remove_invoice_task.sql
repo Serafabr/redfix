@@ -7,7 +7,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       delete from invoice_tasks where invoice_id = "invoiceId" and task_id = "taskId";

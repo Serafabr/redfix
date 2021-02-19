@@ -13,7 +13,6 @@ create or replace function :function_name (
 )
   language plpgsql
   security definer
-  strict
   as $$
     begin
       insert into persons values (

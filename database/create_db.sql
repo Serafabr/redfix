@@ -13,7 +13,7 @@ rollback;
 
 -- set pg_settings variables
 -- "login" to allow inserts (mandatory person_id in some columns)
-set local cookie.session.person_id to 1;
+set cookie.session.person_id to 1;
 
 -- set ON_ERROR_STOP to off
 \set ON_ERROR_STOP off

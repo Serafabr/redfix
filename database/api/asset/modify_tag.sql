@@ -7,7 +7,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       update tags as t set tag_text = "tagText" where t.tag_id = "tagId";

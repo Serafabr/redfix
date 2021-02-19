@@ -6,7 +6,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       insert into tags as t values (default, "tagText") returning t.tag_id into id;

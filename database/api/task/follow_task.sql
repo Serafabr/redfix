@@ -6,7 +6,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       -- 'on conflict do nothing' to avoid error in case the task was previously inserted
