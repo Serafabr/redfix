@@ -27,6 +27,15 @@ insert into task_statuses values
   (5, 'Em análise', true),
   (6, 'Cancelada', true),
   (7, 'Concluída', true)
+
+  -- PROPOSTA DE STATUS:
+  -- pendente
+  -- autorizada
+  -- suspensa
+  -- cancelada
+  -- concluída
+  -- verificada
+
 ;
 
 -- task priorities
