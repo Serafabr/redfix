@@ -2,7 +2,11 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes prices,
+  in "specId" integer,
+  in "date" date,
+  in "price" numeric,
+  in "priceSourceTypeId" integer,
+  in "source" text,
   out id integer
 )
   language plpgsql
@@ -11,26 +15,19 @@ create or replace function :function_name (
     begin
       insert into prices values (
         default,
-        attributes.spec_id,
-        attributes.date,
-        attributes.price,
-        attributes.price_source_type_id,
-        attributes.source,
+        "specId",
+        "date",
+        "price",
+        "priceSourceTypeId",
+        "source",
         true
       ) returning price_id into id;
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `attributes.specId`\n
-* `attributes.date`\n
-* `attributes.price`\n
-* `attributes.priceSourceTypeId`\n
-* `attributes.source`\n
-\n
-Output `id`: `priceId` of the new price
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `priceId` of the new price\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

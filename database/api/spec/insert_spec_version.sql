@@ -81,13 +81,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `specId`\n
-* `version`\n
-\n
-`specId` is the id of the spec to copy data from.
-Output `id`: `specId` of the new spec
-';
-
 grant execute on function :function_name to coordinator;
+
+select generate_api_documentation(:'function_name',E'`specId` of the new spec version\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
