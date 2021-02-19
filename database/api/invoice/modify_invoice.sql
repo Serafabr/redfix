@@ -5,9 +5,9 @@ create or replace function :function_name (
   in "invoiceId" integer,
   in "depotId" integer,
   in "description" text,
-  in "dateStart" date,
-  in "dateEnd" date,
-  in "note" text,
+  in "dateStart" date default null,
+  in "dateEnd" date default null,
+  in "note" text default null,
   out id integer
 )
   language plpgsql
@@ -32,13 +32,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `invoiceId`\n
-* `depotId`\n
-* `description`\n
-\n
-Output `id`: `invoiceId` of the new invoice
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'Output `id`: the same as `invoiceId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

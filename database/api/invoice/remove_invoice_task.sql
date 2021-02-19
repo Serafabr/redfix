@@ -16,12 +16,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `invoiceId`\n
-* `taskId`\n
-\n
-Output `id`: the same as `invoiceId` input
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'Output `id`: the same as `invoiceId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
