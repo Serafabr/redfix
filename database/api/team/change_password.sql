@@ -2,7 +2,7 @@
 
 drop function if exists api.change_password;
 create or replace function api.change_password (
-  in password text,
+  in new_password text,
   out id integer
 )
   language plpgsql
@@ -11,18 +11,15 @@ create or replace function api.change_password (
   as $$
     begin
       update persons
-        set password_hash = crypt(password, gen_salt('bf', 10))
+        set password_hash = crypt(new_password, gen_salt('bf', 10))
       where person_id = get_person_id()
       returning person_id into id;
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `password`\n
-\n
-Output `id`: `personId` of the modified person/account
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `personId` of the modified person/account\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

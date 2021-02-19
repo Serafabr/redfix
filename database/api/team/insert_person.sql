@@ -2,7 +2,13 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes persons,
+  in "username" text,
+  in "cpf" text,
+  in "email" text,
+  in "name" text,
+  in "phone" text,
+  in "personRole" text,
+  in "cellphone" text default null,
   out id integer
 )
   language plpgsql
@@ -12,30 +18,22 @@ create or replace function :function_name (
     begin
       insert into persons values (
         default,
-        attributes.username,
-        attributes.cpf,
-        attributes.email,
-        attributes.name,
-        attributes.phone,
-        attributes.cellphone,
+        "username",
+        "cpf",
+        "email",
+        "name",
+        "phone",
+        "cellphone",
         crypt('123456', gen_salt('bf', 10)), 
         true,
-        attributes.person_role
+        "personRole"
       ) returning person_id into id;
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `attributes.username`\n
-* `attributes.cpf`\n
-* `attributes.email`\n
-* `attributes.name`\n
-* `attributes.phone`\n
-* `attributes.personRole`\n
-\n
-Output `id`: `personId` of the new person/account
-';
-
 grant execute on function :function_name to coordinator, supervisor;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `personId` of the new person/account\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

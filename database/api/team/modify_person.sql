@@ -2,7 +2,14 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes persons,
+  in "personId" integer,
+  in "username" text,
+  in "cpf" text,
+  in "email" text,
+  in "name" text,
+  in "phone" text,
+  in "personRole" text,
+  in "cellphone" text default null,
   out id integer
 )
   language plpgsql
@@ -19,15 +26,15 @@ create or replace function :function_name (
         cellphone,
         person_role
       ) = (
-        attributes.username,
-        attributes.cpf,
-        attributes.email,
-        attributes.name,
-        attributes.phone,
-        attributes.cellphone,
-        attributes.person_role
-      ) where person_id = attributes.person_id
-      returning person_id into id;
+        "username",
+        "cpf",
+        "email",
+        "name",
+        "phone",
+        "cellphone",
+        "personRole"
+      ) where person_id = "personId";
+      id = "personId";
     end;
   $$
 ;
@@ -42,7 +49,11 @@ Mandatory inputs(s):\n
 * `attributes.phone`\n
 * `attributes.personRole`\n
 \n
-Output `id`: `personId` of the modified person
+
 ';
 
 grant execute on function :function_name to coordinator, supervisor;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `personId` of the modified person\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
