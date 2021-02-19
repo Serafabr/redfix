@@ -2,7 +2,7 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in full_operation_name text, -- 'full': schema-qualified name
+  in operation text, -- operation is the schema-qualified name of the function
   in first_part text,
   out output_text text
 )
@@ -10,12 +10,9 @@ create or replace function :function_name (
   strict
   as $$
     declare
-      operation_name text = split_part(full_operation_name,'.',2);
+      operation_name alias for operation;
     begin
-      insert into pg_description select
-        x.objoid,
-        x.classoid,
-        x.objsubid,
+      select
         first_part ||
         E'\nGranted to: \n' ||
         case when x.administrator then E'* administrator\n' else '' end ||
@@ -24,11 +21,9 @@ create or replace function :function_name (
         case when x.inspector then E'* inspector\n' else '' end ||
         case when x.employee then E'* employee\n' else '' end ||
         case when x.visitor then E'* visitor\n' else '' end
+      into output_text 
       from api_docs as x
-      where x.operation = operation_name
-      returning (
-        'Documentation for ' || full_operation_name || ' was successfully generated'
-      ) into output_text;
+      where x.operation = operation_name;
     end;
   $$
 ;

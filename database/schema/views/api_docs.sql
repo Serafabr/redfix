@@ -2,7 +2,8 @@ drop view if exists api_docs;
 create or replace view api_docs as
   with ops as (
     select
-      routine_name::text as operation,
+      routine_schema::text as op_schema,
+      routine_name::text as op_name,
       bool_or(case grantee::text when 'administrator' then true else false end) as administrator,
       bool_or(case grantee::text when 'coordinator' then true else false end) as coordinator,
       bool_or(case grantee::text when 'supervisor' then true else false end) as supervisor,
@@ -11,13 +12,13 @@ create or replace view api_docs as
       bool_or(case grantee::text when 'visitor' then true else false end) as visitor
     from information_schema.routine_privileges
     where routine_schema::text = 'api'
-    group by operation
+    group by op_schema, op_name
   )
   select
     coalesce(d.objoid,p.oid) as objoid,
     coalesce(d.classoid,c.oid) as classoid,
     coalesce(d.objsubid,0) as objsubid,
-    o.operation,
+    o.op_schema || '.' || op_name as operation,
     o.administrator,
     o.coordinator,
     o.supervisor,
@@ -26,7 +27,7 @@ create or replace view api_docs as
     o.visitor,
     coalesce(d.description,'') as description
   from ops as o
-  inner join pg_catalog.pg_proc as p on (p.proname::text = o.operation)
+  inner join pg_catalog.pg_proc as p on (p.proname::text = o.op_name)
   inner join pg_catalog.pg_class as c on (c.relname::text = 'pg_proc')
   -- left join: necessary because only routines with descriptions ("comments")
   -- will be in pg_catalog.pg_description table
