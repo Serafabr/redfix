@@ -20,14 +20,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `specId`\n
-* `filesMetadata.filename`\n
-* `filesMetadata.uuid`\n
-* `filesMetadata.size`\n
-\n
-Output `id`: the same as `specId` input
-';
-
 grant execute on function :function_name to coordinator;
+
+select generate_api_documentation(:'function_name',E'Output `id`: the same as `specId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

@@ -17,11 +17,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `uuid`\n
-\n
-Output `id`: 1
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: the number 1\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
