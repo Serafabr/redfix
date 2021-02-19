@@ -6,7 +6,7 @@ create or replace function :function_name (
   in "boxId" integer,
   in "specId" integer,
   in "qtyInitial" numeric,
-  in "price" numeric
+  in "price" numeric,
   out id integer
 )
   language plpgsql

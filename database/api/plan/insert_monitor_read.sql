@@ -14,9 +14,9 @@ create or replace function :function_name (
     begin
       insert into monitor_reads values (
         default,
-        "monitorId"
-        "readAt"
-        "readvalue"
+        "monitorId",
+        "readAt",
+        "readvalue",
         "note"
       ) returning monitor_read_id into id;
     end;

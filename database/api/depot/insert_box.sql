@@ -5,7 +5,7 @@ create or replace function :function_name (
   in "depotId" integer,
   in "boxSf" text,
   in "boxId" integer default null, -- id of the box to copy supplies from
-  in "note" text default null
+  in "note" text default null,
   out id integer
 )
   language plpgsql

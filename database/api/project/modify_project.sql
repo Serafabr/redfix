@@ -7,7 +7,7 @@ create or replace function :function_name (
   -- in "isActive" boolean,
   in "description" text default null,
   in "dateStart" date default null,
-  in "dateEnd" date default null
+  in "dateEnd" date default null,
   out id integer
 )
   language plpgsql

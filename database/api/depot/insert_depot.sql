@@ -12,7 +12,7 @@ create or replace function :function_name (
   in "dateEnd" date default null,
   in "firmId" integer default null,
   in "url" text default null,
-  in "sigad" text default null
+  in "sigad" text default null,
   out id integer
 )
   language plpgsql
