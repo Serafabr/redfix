@@ -5,10 +5,11 @@ create or replace function :function_name (
   in "monitorReadId" integer,
   in "readAt" timestamptz,
   in "readValue" numeric,
-  in note text,
+  in note text default null,
   out id integer
 )
   language plpgsql
+  strict
   as $$
     declare
       new_note alias for note;
@@ -27,13 +28,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `monitorReadId`\n
-* `readAt`\n
-* `readValue`\n
-\n
-Output `id`: `planId` of the new plan
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: the same as `monitorReadId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

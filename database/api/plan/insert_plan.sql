@@ -2,10 +2,15 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes plans,
+  in "name" text,
+  in "description" text,
+  in "periodicityId" integer default null,
+  in "dateStart" date default null,
+  in "isActive" boolean default true,
   out id integer
 )
   language plpgsql
+  strict
   as $$
     begin
       insert into plans values (
@@ -14,22 +19,18 @@ create or replace function :function_name (
         now(),
         get_person_id(),
         get_person_id(),
-        attributes.name,
-        attributes.description,
-        attributes.periodicity_id,
-        attributes.date_start,
-        attributes.is_active
+        "name",
+        "description",
+        "periodicityId",
+        "dateStart",
+        "isActive"
       ) returning plan_id into id;
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `attributes.name`\n
-* `attributes.description`\n
-\n
-Output `id`: `planId` of the new plan
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `planId` of the new plan\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

@@ -19,12 +19,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `taskStatusText`\n
-* `isLocked`\n
-\n
-Output `id`: `taskStatusId` of the new task status
-';
-
 grant execute on function :function_name to coordinator, supervisor;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `taskStatusId` of the new task status\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

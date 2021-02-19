@@ -5,10 +5,11 @@ create or replace function :function_name (
   in "planId" integer,
   in "startedAt" timestamptz,
   in "finishedAt" timestamptz,
-  in "note" text,
+  in "note" text default null,
   out id integer
 )
   language plpgsql
+  strict
   as $$
     begin
       insert into executed_plans values (
@@ -22,13 +23,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `planId`\n
-* `startedAt`\n
-* `finishedAt`\n
-\n
-Output `id`: `executedPlanId` of the new executed plan
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `executedPlanId` of the new executed plan\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

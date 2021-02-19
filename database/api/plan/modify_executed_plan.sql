@@ -5,10 +5,11 @@ create or replace function :function_name (
   in "executedPlanId" integer,
   in "startedAt" timestamptz,
   in "finishedAt" timestamptz,
-  in "note" text,
+  in "note" text default null,
   out id integer
 )
   language plpgsql
+  strict
   as $$
     declare
       new_note alias for "note";
@@ -27,13 +28,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `executedPlanId`\n
-* `startedAt`\n
-* `finishedAt`\n
-\n
-Output `id`: the same as `executedPlanId` input
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+
+select generate_api_documentation(:'function_name',E'Output `id`: the same as `executedPlanId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

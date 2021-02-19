@@ -3,9 +3,9 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "monitorId" integer,
-  in name text,
-  in description text,
-  in unit text,
+  in "name" text,
+  in "description" text,
+  in "unit" text,
   in "assetId" integer,
   out id integer
 )
@@ -13,9 +13,9 @@ create or replace function :function_name (
   strict
   as $$
     declare
-      new_name alias for name;
-      new_unit alias for unit;
-      new_description alias for description;
+      new_name alias for "name";
+      new_unit alias for "unit";
+      new_description alias for "description";
     begin
       update monitors set (
         updated_at,
@@ -37,15 +37,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `monitorId`\n
-* `name`\n
-* `description`\n
-* `unit`\n
-* `assetId`\n
-\n
-Output `id`: `monitorId` of the modified monitor
-';
-
 grant execute on function :function_name to coordinator, supervisor;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `monitorId` of the modified monitor\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
