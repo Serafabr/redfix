@@ -3,11 +3,12 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "name" text,
-  in "nameRs" text,
   in "cnpj" text,
+  in "nameRs" text default null,
   out id integer
 )
   language plpgsql
+  strict
   as $$
     begin
       insert into firms values (
@@ -20,12 +21,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `name`\n
-* `cnpj`\n
-\n
-Output `id`: `firmId` of the new firm
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `firmId` of the new firm\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
