@@ -2,7 +2,11 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes projects,
+  in "name" text,
+  in "isActive" boolean,
+  in "description" text default null,
+  in "dateStart" date default null,
+  in "dateEnd" date default null
   out id integer
 )
   language plpgsql
@@ -11,21 +15,18 @@ create or replace function :function_name (
     begin
       insert into projects values (
         default,
-        attributes.name,
-        attributes.description,
-        attributes.date_start,
-        attributes.date_end,
-        true
+        "name",
+        "description",
+        "dateStart",
+        "dateEnd",
+        "isActive"
       ) returning project_id into id;
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `attributes.name`\n
-\n
-Output `id`: `projectId` of the new project
-';
-
 grant execute on function :function_name to coordinator, supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'Output `id`: `projectId` of the new project\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
