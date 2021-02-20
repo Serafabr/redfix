@@ -9,7 +9,6 @@ rollback;
 \set asset_category_electric  '2'
 \set asset_category_air       '3'
 \set asset_category_hydro     '4'
-\set insert_ceb_data          false
 
 -- set pg_settings variables
 -- "login" to allow inserts (mandatory person_id in some columns)
