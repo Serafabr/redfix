@@ -5,8 +5,8 @@ create or replace function :function_name (
   in "invoiceId" integer,
   in "depotId" integer,
   in "description" text,
-  in "dateStart" date default null,
-  in "dateEnd" date default null,
+  in "invoiceStart" date default null,
+  in "invoiceEnd" date default null,
   in "note" text default null,
   out id integer
 )
@@ -23,8 +23,8 @@ create or replace function :function_name (
         note
       ) = (
         new_description,
-        "dateStart",
-        "dateEnd",
+        "invoiceStart",
+        "invoiceEnd",
         new_note
       );
       id = "invoiceId";

@@ -203,6 +203,7 @@ begin transaction;
 \i api/invoice/remove_invoice.sql
 \i api/plan/insert_task_template.sql
 \i api/plan/generate_plan_tasks.sql
+\i api/invoice/bind_tasks_to_invoice.sql
 ---------
 
 -- team

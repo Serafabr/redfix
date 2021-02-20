@@ -4,8 +4,8 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "depotId" integer,
   in "description" text,
-  in "dateStart" date default null,
-  in "dateEnd" date default null,
+  in "invoiceStart" date default null,
+  in "invoiceEnd" date default null,
   in "note" text default null,
   out id integer
 )
@@ -16,8 +16,9 @@ create or replace function :function_name (
         default,
         "depotId",
         "description",
-        "dateStart",
-        "dateEnd",
+        false,
+        "invoiceStart",
+        "invoiceEnd",
         "note"
       ) returning invoice into id;
     end;
