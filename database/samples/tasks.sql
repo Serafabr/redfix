@@ -7,6 +7,7 @@ select api.insert_task(
     null,-- updated_by
     1,-- task_priority_id
     1,-- task_category_id
+    null,-- plan_id
     null,-- project_id
     'Manutenção no subsolo do Edifício Principal',-- title
     'Troca de eletrodutos e lâmpadas queimadas',-- description

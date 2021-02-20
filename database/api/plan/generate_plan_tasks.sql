@@ -1,4 +1,4 @@
-\set function_name api.execute_plan
+\set function_name api.generate_plan_tasks
 
 drop function if exists :function_name;
 create or replace function :function_name (
@@ -25,7 +25,8 @@ create or replace function :function_name (
           tt.description,
           tt.task_priority_id,
           tt.task_category_id,
-          "teamId"
+          "teamId",
+          "planId"
         );
       end loop;
       id = 1;

@@ -148,21 +148,12 @@ begin transaction;
 \i api/options/task_supply_options.sql
 \i api/options/team_options.sql
 -- plan
-\i api/plan/insert_bundle_asset.sql
-\i api/plan/insert_bundle_plan.sql
-\i api/plan/insert_bundle.sql
-\i api/plan/insert_executed_plan.sql
 \i api/plan/insert_monitor_read.sql
 \i api/plan/insert_monitor.sql
 \i api/plan/insert_plan.sql
-\i api/plan/modify_bundle.sql
-\i api/plan/modify_executed_plan.sql
 \i api/plan/modify_monitor_read.sql
 \i api/plan/modify_monitor.sql
 \i api/plan/modify_plan.sql
-\i api/plan/remove_bundle_asset.sql
-\i api/plan/remove_bundle_plan.sql
-\i api/plan/remove_executed_plan.sql
 -- project
 \i api/project/activate_project.sql
 \i api/project/add_task_to_project.sql
@@ -212,7 +203,7 @@ begin transaction;
 \i api/invoice/remove_invoice_task.sql
 \i api/invoice/remove_invoice.sql
 \i api/plan/insert_task_template.sql
-\i api/plan/execute_plan.sql
+\i api/plan/generate_plan_tasks.sql
 ---------
 
 -- team

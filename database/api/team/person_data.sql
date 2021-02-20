@@ -4,6 +4,7 @@ create or replace view api.person_data as
           p.username,
           p.cpf,
           p.email,
+          -- p.team_id,
           p.name,
           p.phone,
           p.cellphone,

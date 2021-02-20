@@ -6,6 +6,7 @@ create or replace function :function_name (
   in "username" text,
   in "cpf" text,
   in "email" text,
+  -- in "teamId" integer,
   in "name" text,
   in "phone" text,
   in "personRole" text,
@@ -28,6 +29,7 @@ create or replace function :function_name (
         "username",
         "cpf",
         "email",
+        -- "teamId",
         "name",
         "phone",
         "cellphone",
@@ -37,19 +39,6 @@ create or replace function :function_name (
     end;
   $$
 ;
-
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `attributes.personId`\n
-* `attributes.username`\n
-* `attributes.cpf`\n
-* `attributes.email`\n
-* `attributes.name`\n
-* `attributes.phone`\n
-* `attributes.personRole`\n
-\n
-
-';
 
 grant execute on function :function_name to coordinator, supervisor;
 
