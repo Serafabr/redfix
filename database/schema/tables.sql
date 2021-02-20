@@ -275,14 +275,15 @@ create table invoices (
   depot_id integer not null references depots (depot_id),
   description text not null,
   paid boolean not null,
-  invoice_start date,
-  invoice_end date,
+  invoice_start date not null,
+  invoice_end date not null,
   note text
 );
 
 create table invoice_tasks (
   invoice_id integer not null references invoices (invoice_id) on delete cascade,
-  task_id integer not null references tasks (task_id)
+  task_id integer not null references tasks (task_id),
+  primary key (invoice_id, task_id)
 );
 
 create table prices (

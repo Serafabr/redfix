@@ -260,7 +260,7 @@ alter sequence specs_spec_id_seq restart with 5001;
 commit transaction;
 
 -- create extra indexes
-\i schema/indexes.sql
+-- \i schema/indexes.sql
 
 -- set ON_ERROR_STOP to off
 \set ON_ERROR_STOP off

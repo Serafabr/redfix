@@ -18,8 +18,8 @@ create or replace function :function_name (
     begin
       update invoices set (
         description,
-        date_start,
-        date_end,
+        invoice_start,
+        invoice_end,
         note
       ) = (
         new_description,
