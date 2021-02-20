@@ -4,10 +4,8 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "planId" integer,
   in "name" text,
-  in "isActive" boolean,
   in "description" text,
   in "periodicityId" integer default null,
-  in "dateStart" date default null,
   out id integer
 )
   language plpgsql
@@ -16,15 +14,11 @@ create or replace function :function_name (
       update plans set (
         name,
         description,
-        periodicity_id,
-        date_start,
-        is_active
+        periodicity_id
       ) = (
         "name",
         "description",
-        "periodicityId",
-        "dateStart",
-        "isActive"
+        "periodicityId"
       ) where plan_id = "planId";
       id = "planId";
     end;

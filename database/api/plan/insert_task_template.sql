@@ -3,11 +3,11 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "assets" integer[],
-  in "planId" integer,
   in "title" text,
   in "description" text,
   in "taskPriorityId" integer,
   in "taskCategoryId" integer,
+  in "planId" integer,
   out id integer
 )
   language plpgsql
@@ -18,11 +18,11 @@ create or replace function :function_name (
       end if;
       insert into task_templates values (
         default,
-        "planId",
         "title",
         "description",
         "taskCategoryId",
-        "taskPriorityId"
+        "taskPriorityId",
+        "planId"
       ) returning task_template_id into id;
 
       insert into task_template_assets select id, unnest("assets");

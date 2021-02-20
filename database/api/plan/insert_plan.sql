@@ -4,9 +4,8 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "name" text,
   in "description" text,
+  in "depotId" integer,
   in "periodicityId" integer default null,
-  in "dateStart" date default null,
-  in "isActive" boolean default true,
   out id integer
 )
   language plpgsql
@@ -20,9 +19,8 @@ create or replace function :function_name (
         get_person_id(),
         "name",
         "description",
-        "periodicityId",
-        "dateStart",
-        "isActive"
+        "depotId",
+        "periodicityId"
       ) returning plan_id into id;
     end;
   $$
