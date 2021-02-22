@@ -9,6 +9,7 @@ create or replace function :function_name (
   language plpgsql
   as $$
     declare
+      new_task_id integer;
       assets integer[];
       task_template record;
     begin
@@ -27,7 +28,13 @@ create or replace function :function_name (
           tt.task_category_id,
           "teamId",
           "planId"
-        );
+        ) into new_task_id;
+        -- select api.send_task(
+        --   new_task_id,
+        --   "teamId",
+        --   tt.next_team_id,
+        --   'MENSAGEM'
+        -- );
       end loop;
       id = 1;
     end;

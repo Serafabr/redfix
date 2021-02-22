@@ -242,6 +242,7 @@ create table task_templates as (
   task_category_id text not null,
   task_priority_id text not null,
   plan_id integer not null references plans (plan_id)
+  -- next_team_id integer not null references teams (team_id)
 );
 
 create table task_template_assets as (
