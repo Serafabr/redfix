@@ -10,6 +10,8 @@ create or replace function :function_name (
   as $$
     declare
       tt record;
+      assets integer[];
+      new_task_id integer;
     begin
       select * into tt from task_templates where task_template_id = "taskTemplateId";
       select array_agg(tta.asset_id) into assets

@@ -145,10 +145,20 @@ begin transaction;
 \i api/options/task_options.sql
 \i api/options/task_supply_options.sql
 \i api/options/team_options.sql
+-- invoice
+\i api/invoice/bind_tasks_to_invoice.sql
+\i api/invoice/insert_invoice.sql
+\i api/invoice/modify_invoice.sql
+\i api/invoice/insert_invoice_tasks.sql
+\i api/invoice/remove_invoice_task.sql
+\i api/invoice/remove_invoice.sql
 -- plan
+\i api/plan/generate_plan_task.sql
+\i api/plan/generate_plan_tasks.sql
 \i api/plan/insert_monitor_read.sql
 \i api/plan/insert_monitor.sql
 \i api/plan/insert_plan.sql
+\i api/plan/insert_task_template.sql
 \i api/plan/modify_monitor_read.sql
 \i api/plan/modify_monitor.sql
 \i api/plan/modify_plan.sql
@@ -170,6 +180,8 @@ begin transaction;
 \i api/spec/remove_price.sql
 \i api/spec/spec_data.sql
 -- task
+\i api/task/approve_proposed_task_supplies.sql
+\i api/task/approve_task_supply.sql
 \i api/task/cancel_send_task.sql
 \i api/task/clone_task.sql
 \i api/task/follow_task.sql
@@ -179,6 +191,7 @@ begin transaction;
 \i api/task/modify_task.sql
 \i api/task/modify_task_note.sql
 \i api/task/move_task.sql
+\i api/task/propose_task_supply.sql
 \i api/task/receive_task.sql
 \i api/task/remove_task_asset.sql
 \i api/task/remove_task_note.sql
@@ -186,25 +199,6 @@ begin transaction;
 \i api/task/send_task.sql
 \i api/task/task_data.sql
 \i api/task/unfollow_task.sql
-
-
--- NEW API:
----------
-\i api/task/plan_task_supply.sql
-\i api/task/allow_task_supply.sql
-\i api/task/allow_planned_task_supplies.sql
--- \i api/task/finish_task.sql
--- \i api/task/reopen_task.sql
-\i api/invoice/insert_invoice.sql
-\i api/invoice/modify_invoice.sql
-\i api/invoice/insert_invoice_tasks.sql
-\i api/invoice/remove_invoice_task.sql
-\i api/invoice/remove_invoice.sql
-\i api/plan/insert_task_template.sql
-\i api/plan/generate_plan_tasks.sql
-\i api/invoice/bind_tasks_to_invoice.sql
----------
-
 -- team
 \i api/team/activate_person.sql
 \i api/team/activate_team.sql
