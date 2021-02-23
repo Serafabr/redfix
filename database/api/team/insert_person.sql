@@ -35,6 +35,6 @@ create or replace function :function_name (
 
 grant execute on function :function_name to coordinator, supervisor;
 
-select generate_api_documentation(:'function_name',E'Output `id`: `personId` of the new person/account\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'`personId` of the new person/account\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';

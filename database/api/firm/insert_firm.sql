@@ -22,6 +22,6 @@ create or replace function :function_name (
 
 grant execute on function :function_name to coordinator, supervisor, inspector;
 
-select generate_api_documentation(:'function_name',E'Output `id`: `firmId` of the new firm\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'`firmId` of the new firm\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';

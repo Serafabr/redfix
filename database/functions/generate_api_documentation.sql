@@ -2,28 +2,27 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in operation text, -- operation is the schema-qualified name of the function
-  in first_part text,
-  out output_text text
+  in operation_name text, -- operation is the schema-qualified name of the function
+  in output_description text,
+  out documentation text
 )
   language plpgsql
   strict
   as $$
-    declare
-      operation_name alias for operation;
     begin
-      select
-        first_part ||
+      -- build a string describing output and authorized roles of the operation
+      select (
+        'Output `id`: ' || output_description ||
         E'\nGranted to: \n' ||
-        case when x.administrator then E'* administrator\n' else '' end ||
-        case when x.coordinator then E'* coordinator\n' else '' end ||
-        case when x.supervisor then E'* supervisor\n' else '' end ||
-        case when x.inspector then E'* inspector\n' else '' end ||
-        case when x.employee then E'* employee\n' else '' end ||
-        case when x.visitor then E'* visitor\n' else '' end
-      into output_text 
-      from api_docs as x
-      where x.operation = operation_name;
+        case when ad.administrator then E'* administrator\n' else '' end ||
+        case when ad.coordinator then E'* coordinator\n' else '' end ||
+        case when ad.supervisor then E'* supervisor\n' else '' end ||
+        case when ad.inspector then E'* inspector\n' else '' end ||
+        case when ad.employee then E'* employee\n' else '' end ||
+        case when ad.visitor then E'* visitor\n' else '' end
+      ) into documentation
+      from api_docs as ad
+      where ad.operation = operation_name;
     end;
   $$
 ;

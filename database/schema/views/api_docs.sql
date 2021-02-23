@@ -15,10 +15,10 @@ create or replace view api_docs as
     group by op_schema, op_name
   )
   select
-    coalesce(d.objoid,p.oid) as objoid,
-    coalesce(d.classoid,c.oid) as classoid,
+    p.oid as objoid,
+    c.oid as classoid,
     coalesce(d.objsubid,0) as objsubid,
-    o.op_schema || '.' || op_name as operation,
+    o.op_schema || '.' || o.op_name as operation,
     o.administrator,
     o.coordinator,
     o.supervisor,
@@ -29,7 +29,6 @@ create or replace view api_docs as
   from ops as o
   inner join pg_catalog.pg_proc as p on (p.proname::text = o.op_name)
   inner join pg_catalog.pg_class as c on (c.relname::text = 'pg_proc')
-  -- left join: necessary because only routines with descriptions ("comments")
-  -- will be in pg_catalog.pg_description table
+  -- left join: necessary because only routines with descriptions ("comments") exist in pg_description table
   left join pg_catalog.pg_description as d on (d.objoid = p.oid)
 ;
