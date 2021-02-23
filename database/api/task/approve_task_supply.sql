@@ -1,10 +1,10 @@
-\set function_name api.plan_task_supply
+\set function_name api.approve_task_supply
 
 drop function if exists :function_name;
 create or replace function :function_name (
   in "taskId" integer,
   in "supplyId" integer,
-  in "qtyPlanned" numeric,
+  in "qtyAllowed" numeric,
   out id integer
 )
   language plpgsql
@@ -13,19 +13,19 @@ create or replace function :function_name (
       insert into task_supplies as ts (
         task_id,
         supply_id,
-        qty_planned
+        qty_approved
       ) values (
         "taskId",
         "supplyId",
-        "qtyPlanned"
+        "qtyApproved"
       ) on conflict (task_id, supply_id) do
-      update set qty_planned = "qtyPlanned" where ts.task_id = "taskId" and ts.supply_id = "supplyId";
+      update set qty_approved = "qtyApproved" where ts.task_id = "taskId" and ts.supply_id = "supplyId";
       id = "taskId";
     end;
   $$
 ;
 
-grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+grant execute on function :function_name to coordinator, supervisor, inspector;
 
 select generate_api_documentation(:'function_name',E'the same as `taskId` input\n') as new_comment \gset
 

@@ -1,4 +1,4 @@
-\set function_name api.allow_planned_task_supplies
+\set function_name api.approve_proposed_task_supplies
 
 drop function if exists :function_name;
 create or replace function :function_name (
@@ -9,7 +9,7 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update task_supplies as ts set qty_allowed = qty_planned where ts.task_id = "taskId" and ts.supply_id in (select unnest("suppliesIds"));
+      update task_supplies as ts set qty_approved = qty_proposed where ts.task_id = "taskId" and ts.supply_id in (select unnest("suppliesIds"));
       id = "taskId";
     end;
   $$

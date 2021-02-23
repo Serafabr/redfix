@@ -19,9 +19,9 @@ create or replace function :function_name (
           'boxSf', b.box_sf,
           'depotId', d.depot_id,
           'depotSf', d.depot_sf,
-          'qtyPlanned', ts.qty_planned,
-          'qtyAllowed', ts.qty_allowed,
-          'qtyUsed', ts.qty_used,
+          'qtyProposed', ts.qty_proposed,
+          'qtyApproved', ts.qty_approved,
+          'qtyConsumed', ts.qty_consumed,
           'price', s.price,
           'name', z.name,
           'unit', z.unit

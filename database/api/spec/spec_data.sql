@@ -16,7 +16,7 @@ create or replace view api.spec_data as
                 'title', d.title,
                 'qtyInitial', q.qty_initial,
                 'qtyBlocked', q.qty_blocked,
-                'qtyUsed', q.qty_used,
+                'qtyConsumed', q.qty_consumed,
                 'qtyAvailable', q.qty_available
               )) as supplies
         from specs as z

@@ -201,9 +201,9 @@ create table supplies (
 create table task_supplies (
   task_id integer not null references tasks (task_id),
   supply_id integer not null references supplies (supply_id) on delete cascade,
-  qty_planned numeric,
-  qty_allowed numeric,
-  qty_used numeric,
+  qty_proposed numeric,
+  qty_approved numeric,
+  qty_consumed numeric,
   primary key (task_id, supply_id)
 );
 
