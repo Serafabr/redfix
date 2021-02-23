@@ -16,10 +16,10 @@ create or replace function :function_name (
       for tt in
         select * from task_templates where plan_id = "planId"
       loop
-        select array_agg(asset_id) into assets
+        select array_agg(tta.asset_id) into assets
           from task_template_assets as tta
-        where tta.task_template_id = tt.task_template_id
-        group by tta.task_category_id;
+          where tta.task_template_id = tt.task_template_id
+        group by tta.task_template_id;
         select api.insert_task(
           assets,
           tt.title,
