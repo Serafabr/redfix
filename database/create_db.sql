@@ -241,9 +241,9 @@ begin transaction;
 \i samples/facilities.sql
 \i samples/asset_parents.sql
 \i samples/specs.sql
-alter sequence persons_person_id_seq restart with 3;
-alter sequence assets_asset_id_seq restart with 5001;
-alter sequence specs_spec_id_seq restart with 5001;
+alter sequence persons_person_id_seq restart with 10001;
+alter sequence assets_asset_id_seq restart with 10001;
+alter sequence specs_spec_id_seq restart with 10001;
 
 -- create triggers after asset categories
 \i triggers/check_asset_location.sql
