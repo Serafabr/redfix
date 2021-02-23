@@ -18,7 +18,11 @@ create or replace view api_docs as
     p.oid as objoid,
     c.oid as classoid,
     coalesce(d.objsubid,0) as objsubid,
-    o.op_schema || '.' || o.op_name as operation,
+    case p.provolatile
+      when 'v' then 'mutation'
+      else 'query'
+    end as graphql_operation_type,
+    o.op_schema || '.' || o.op_name as operation_name,
     o.administrator,
     o.coordinator,
     o.supervisor,

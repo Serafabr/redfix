@@ -2,7 +2,7 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in operation_name text, -- operation is the schema-qualified name of the function
+  in op_name text, -- op_name is the schema-qualified name of the function
   in output_description text,
   out documentation text
 )
@@ -22,7 +22,7 @@ create or replace function :function_name (
         case when ad.visitor then E'* visitor\n' else '' end
       ) into documentation
       from api_docs as ad
-      where ad.operation = operation_name;
+      where ad.operation_name = op_name;
     end;
   $$
 ;
