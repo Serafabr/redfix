@@ -9,11 +9,7 @@ create or replace function :function_name (
   language sql
   stable
   as $$
-    select * from api.task_data
-    where
-      created_at >= filter_start and
-      created_at <= filter_end
-    ;
+    select * from api.task_data where created_at >= filter_start and created_at <= filter_end;
   $$
 ;
 

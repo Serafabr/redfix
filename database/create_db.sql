@@ -72,7 +72,6 @@ begin transaction;
 \i functions/authenticate.sql
 \i functions/generate_api_documentation.sql
 \i functions/get_all_files_uuids.sql
-\i functions/get_api_docs.sql
 \i functions/get_exception_message.sql
 \i functions/insert_files.sql
 \i functions/json_coalesce.sql
