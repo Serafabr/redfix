@@ -3,8 +3,6 @@ rollback;
 
 -- set psql variables
 \set new_db_name              'db_dev'
-\set task_initial_status      '1'
-\set task_status_threshold    '6'
 \set asset_category_facility  '1'
 \set asset_category_electric  '2'
 \set asset_category_air       '3'
@@ -37,9 +35,9 @@ create extension if not exists pgcrypto;
 
 -- create additional schemas
 create schema api;
-comment on schema api is 'Contains views and functions that turn into the queries and mutations of the GraphQL API';
+comment on schema api is 'Contain views and functions that define the GraphQL API';
 create schema web;
-comment on schema web is 'Contains functions executable from specific routes in the web server';
+comment on schema web is 'Contain functions that can be executed from specific routes in the web server';
 
 -- create roles
 \i roles/roles.sql

@@ -134,7 +134,7 @@ create table tasks (
   -- last event fields:
   team_id integer not null references teams (team_id),
   next_team_id integer references teams (team_id),
-  task_status_id integer not null references task_statuses (task_status_id) default :'task_initial_status'::integer
+  task_status_id integer not null references task_statuses (task_status_id) default 1
 );
 
 create table task_assets (
