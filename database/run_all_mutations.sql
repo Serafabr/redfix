@@ -1,115 +1,113 @@
-\set mutation_ok 0
-
 -- asset
-\i api_test/asset/insert_asset.sql
-\i api_test/asset/modify_asset.sql
+\i tests/asset/insert_asset.sql
+\i tests/asset/modify_asset.sql
 
-\i api_test/asset/insert_tag.sql
-\i api_test/asset/modify_tag.sql
+\i tests/asset/insert_tag.sql
+\i tests/asset/modify_tag.sql
 
-\i api_test/asset/insert_asset_child.sql
-\i api_test/asset/remove_asset_child.sql
+\i tests/asset/insert_asset_child.sql
+\i tests/asset/remove_asset_child.sql
 
-\i api_test/asset/insert_asset_parent.sql
-\i api_test/asset/remove_asset_parent.sql
+\i tests/asset/insert_asset_parent.sql
+\i tests/asset/remove_asset_parent.sql
 
-\i api_test/asset/insert_asset_tag.sql
-\i api_test/asset/remove_asset_tag.sql
+\i tests/asset/insert_asset_tag.sql
+\i tests/asset/remove_asset_tag.sql
 
-\i api_test/asset/remove_tag.sql
+\i tests/asset/remove_tag.sql
 
 -- team
-\i api_test/team/change_password.sql
-\i api_test/team/modify_self.sql
+\i tests/team/change_password.sql
+\i tests/team/modify_self.sql
 
-\i api_test/team/insert_person.sql
-\i api_test/team/modify_person.sql
+\i tests/team/insert_person.sql
+\i tests/team/modify_person.sql
 
-\i api_test/team/insert_team.sql
-\i api_test/team/modify_team.sql
+\i tests/team/insert_team.sql
+\i tests/team/modify_team.sql
 
-\i api_test/team/insert_team_person.sql
-\i api_test/team/remove_team_person.sql
+\i tests/team/insert_team_person.sql
+\i tests/team/remove_team_person.sql
 
-\i api_test/team/activate_person.sql
-\i api_test/team/deactivate_person.sql
+\i tests/team/activate_person.sql
+\i tests/team/deactivate_person.sql
 
-\i api_test/team/activate_team.sql
-\i api_test/team/deactivate_team.sql
+\i tests/team/activate_team.sql
+\i tests/team/deactivate_team.sql
 
 -- firm
-\i api_test/firm/insert_firm.sql
-\i api_test/firm/modify_firm.sql
+\i tests/firm/insert_firm.sql
+\i tests/firm/modify_firm.sql
 
 -- -- project
-\i api_test/project/insert_project.sql
-\i api_test/project/modify_project.sql
-\i api_test/project/deactivate_project.sql
-\i api_test/project/activate_project.sql
-\i api_test/project/remove_project.sql
--- \i api_test/project/add_task_to_project.sql
--- \i api_test/project/remove_task_from_project.sql
+\i tests/project/insert_project.sql
+\i tests/project/modify_project.sql
+\i tests/project/deactivate_project.sql
+\i tests/project/activate_project.sql
+\i tests/project/remove_project.sql
+-- \i tests/project/add_task_to_project.sql
+-- \i tests/project/remove_task_from_project.sql
 
 -- depot
-\i api_test/depot/insert_depot.sql
-\i api_test/depot/modify_depot.sql
+\i tests/depot/insert_depot.sql
+\i tests/depot/modify_depot.sql
 
-\i api_test/depot/insert_box.sql
-\i api_test/depot/modify_box.sql
+\i tests/depot/insert_box.sql
+\i tests/depot/modify_box.sql
 
-\i api_test/depot/insert_supply.sql
-\i api_test/depot/modify_supply.sql
+\i tests/depot/insert_supply.sql
+\i tests/depot/modify_supply.sql
 
-\i api_test/depot/deactivate_box.sql
-\i api_test/depot/activate_box.sql
-\i api_test/depot/remove_supply.sql
+\i tests/depot/deactivate_box.sql
+\i tests/depot/activate_box.sql
+\i tests/depot/remove_supply.sql
 
 -- task
-\i api_test/task/insert_task.sql
-\i api_test/task/modify_task.sql
-\i api_test/task/insert_task_asset.sql
-\i api_test/task/remove_task_asset.sql
+\i tests/task/insert_task.sql
+\i tests/task/modify_task.sql
+\i tests/task/insert_task_asset.sql
+\i tests/task/remove_task_asset.sql
 
--- \i api_test/task/move_task.sql
--- \i api_test/task/send_task.sql
--- \i api_test/task/cancel_send_task.sql
--- \i api_test/task/receive_task.sql
--- \i api_test/task/insert_task_note.sql
--- \i api_test/task/modify_task_note.sql
--- \i api_test/task/remove_task_note.sql
+-- \i tests/task/move_task.sql
+-- \i tests/task/send_task.sql
+-- \i tests/task/cancel_send_task.sql
+-- \i tests/task/receive_task.sql
+-- \i tests/task/insert_task_note.sql
+-- \i tests/task/modify_task_note.sql
+-- \i tests/task/remove_task_note.sql
 
-\i api_test/task/follow_task.sql
-\i api_test/task/unfollow_task.sql
+\i tests/task/follow_task.sql
+\i tests/task/unfollow_task.sql
 
-\i api_test/task/clone_task.sql
-\i api_test/task/propose_task_supply.sql
-\i api_test/task/approve_proposed_task_supplies.sql
-\i api_test/task/approve_task_supply.sql
-\i api_test/task/remove_task_supply.sql
+\i tests/task/clone_task.sql
+\i tests/task/propose_task_supply.sql
+\i tests/task/approve_proposed_task_supplies.sql
+\i tests/task/approve_task_supply.sql
+\i tests/task/remove_task_supply.sql
 
--- \i api_test/task/finish_task.sql
--- \i api_test/task/reopen_task.sql
+-- \i tests/task/finish_task.sql
+-- \i tests/task/reopen_task.sql
 
 -- plans
-\i api_test/plan/insert_plan.sql
-\i api_test/plan/modify_plan.sql
-\i api_test/plan/insert_task_template.sql
-\i api_test/plan/generate_plan_task.sql
-\i api_test/plan/generate_plan_tasks.sql
+\i tests/plan/insert_plan.sql
+\i tests/plan/modify_plan.sql
+\i tests/plan/insert_task_template.sql
+\i tests/plan/generate_plan_task.sql
+\i tests/plan/generate_plan_tasks.sql
 
-\i api_test/plan/insert_monitor.sql
-\i api_test/plan/modify_monitor.sql
-\i api_test/plan/insert_monitor_read.sql
-\i api_test/plan/modify_monitor_read.sql
+\i tests/plan/insert_monitor.sql
+\i tests/plan/modify_monitor.sql
+\i tests/plan/insert_monitor_read.sql
+\i tests/plan/modify_monitor_read.sql
 
 -- invoices
-\i api_test/invoice/insert_invoice.sql
-\i api_test/invoice/modify_invoice.sql
+\i tests/invoice/insert_invoice.sql
+\i tests/invoice/modify_invoice.sql
 
--- \i api_test/invoice/bind_tasks_to_invoice.sql
-\i api_test/invoice/insert_invoice_tasks.sql
-\i api_test/invoice/set_invoice_paid.sql
-\i api_test/invoice/set_invoice_unpaid.sql
+-- \i tests/invoice/bind_tasks_to_invoice.sql
+\i tests/invoice/insert_invoice_tasks.sql
+\i tests/invoice/set_invoice_paid.sql
+\i tests/invoice/set_invoice_unpaid.sql
 
-\i api_test/invoice/remove_invoice_task.sql
-\i api_test/invoice/remove_invoice.sql
+\i tests/invoice/remove_invoice_task.sql
+\i tests/invoice/remove_invoice.sql

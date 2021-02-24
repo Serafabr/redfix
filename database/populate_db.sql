@@ -7,6 +7,7 @@ set cookie.session.person_id to 1;
 -- set psql variables
 \set ON_ERROR_STOP on
 \set insert_ceb_data false
+\set mutation_ok 0
 
 -- begin transaction;
 begin transaction;
