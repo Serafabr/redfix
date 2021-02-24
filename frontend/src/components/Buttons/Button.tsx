@@ -9,7 +9,7 @@ import style from './Button.module.scss';
 type Props = {
   text: string,
   disabled?: boolean,
-  onClick?: any,
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
 
 // Component
