@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Plus } from '../Icons';
 import style from './Button.module.scss';
 
@@ -12,9 +13,14 @@ export const Button = ({
   disabled = false,
   onClick
  }: Props) => {
+   
+  const btnClasses = classNames(
+    style.Button,
+    {[style.Disabled]: disabled}
+  );
   
   return (
-    <button className={style.Button} onClick={onClick}>
+    <button className={btnClasses} onClick={onClick}>
       <div className={style.ContentWrapper}>
         <div className={style.Text}>
           {text}
