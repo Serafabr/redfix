@@ -1,3 +1,7 @@
 .Button {
-  stroke: red;
+  stroke: #FFFFFF;
+  
+  &.PrimaryColor {
+    stroke: #FFF;
+  }
 }
