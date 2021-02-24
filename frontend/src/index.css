@@ -1,5 +1,9 @@
 @import-normalize;
 
+html {
+  font-size: 0.875rem;
+}
+
 body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
