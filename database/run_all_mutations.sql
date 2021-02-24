@@ -21,7 +21,6 @@
 \i tests/spec/insert_price.sql
 \i tests/spec/modify_price.sql
 \i tests/spec/remove_price.sql
-delete from specs where spec_id >= 10001;
 
 -- team
 \i tests/team/change_password.sql
@@ -114,9 +113,19 @@ delete from specs where spec_id >= 10001;
 
 \i tests/invoice/remove_invoice_task.sql
 
-
+-- files
+\i tests/files/insert_asset_files.sql
+\i tests/files/insert_depot_files.sql
+\i tests/files/insert_plan_files.sql
+\i tests/files/insert_project_files.sql
+\i tests/files/insert_spec_files.sql
+\i tests/files/insert_task_files.sql
+\i tests/files/modify_avatar.sql
+\i tests/files/remove_avatar.sql
+\i tests/files/remove_file.sql
 
 -- entity removals and others
+delete from specs where spec_id >= 10001;
 \i tests/project/add_task_to_project.sql
 \i tests/project/remove_task_from_project.sql
 

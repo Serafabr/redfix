@@ -7,12 +7,12 @@ create table files (
 );
 
 create table asset_files (
-  asset_id integer not null references assets (asset_id),
+  asset_id integer not null references assets (asset_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade
 );
 
 create table depot_files (
-  depot_id integer not null references depots (depot_id),
+  depot_id integer not null references depots (depot_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade
 );
 
@@ -23,21 +23,21 @@ create table depot_files (
 alter table persons add foreign key (avatar_uuid) references files (uuid) on delete set null;
 
 create table plan_files (
-  plan_id integer not null references plans (plan_id),
+  plan_id integer not null references plans (plan_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade
 );
 
 create table project_files (
-  project_id integer not null references projects (project_id),
+  project_id integer not null references projects (project_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade
 );
 
 create table spec_files (
-  spec_id integer not null references specs (spec_id),
+  spec_id integer not null references specs (spec_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade
 );
 
 create table task_files (
-  task_id integer not null references tasks (task_id),
+  task_id integer not null references tasks (task_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade
 );
