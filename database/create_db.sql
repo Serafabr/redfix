@@ -37,7 +37,7 @@ create extension if not exists pgcrypto;
 create schema api;
 comment on schema api is 'Contain views and functions that define the GraphQL API';
 create schema web;
-comment on schema web is 'Contain functions that can be executed from specific routes in the web server';
+comment on schema web is 'Contain functions that can be executed from specific endpoints of the web server';
 
 -- create roles
 \i roles/roles.sql

@@ -70,13 +70,13 @@
 \i tests/task/insert_task_asset.sql
 \i tests/task/remove_task_asset.sql
 
--- \i tests/task/move_task.sql
--- \i tests/task/send_task.sql
--- \i tests/task/cancel_send_task.sql
--- \i tests/task/receive_task.sql
--- \i tests/task/insert_task_note.sql
--- \i tests/task/modify_task_note.sql
--- \i tests/task/remove_task_note.sql
+\i tests/task/move_task.sql
+\i tests/task/send_task.sql
+\i tests/task/cancel_send_task.sql
+\i tests/task/receive_task.sql
+\i tests/task/insert_task_note.sql
+\i tests/task/modify_task_note.sql
+\i tests/task/remove_task_note.sql
 
 \i tests/task/follow_task.sql
 \i tests/task/unfollow_task.sql
@@ -106,7 +106,7 @@
 \i tests/invoice/insert_invoice.sql
 \i tests/invoice/modify_invoice.sql
 
--- \i tests/invoice/bind_tasks_to_invoice.sql
+\i tests/invoice/bind_tasks_to_invoice.sql
 \i tests/invoice/insert_invoice_tasks.sql
 \i tests/invoice/set_invoice_paid.sql
 \i tests/invoice/set_invoice_unpaid.sql
@@ -124,9 +124,12 @@
 \i tests/files/remove_avatar.sql
 \i tests/files/remove_file.sql
 
+-- options
+\i tests/options/insert_task_status.sql
+
 -- utilities
 \i tests/utilities/insert_caesb_bill.sql
--- \i tests/utilities/insert_ceb_bill_note.sql
+\i tests/utilities/insert_ceb_bill_note.sql
 \i tests/utilities/modify_caesb_bill.sql
 
 -- entity removals and others
@@ -134,8 +137,6 @@ delete from specs where spec_id >= 10001;
 delete from caesb_bills where true;
 \i tests/project/add_task_to_project.sql
 \i tests/project/remove_task_from_project.sql
-
-
 \i tests/asset/remove_tag.sql
 \i tests/project/remove_project.sql
 \i tests/invoice/remove_invoice.sql

@@ -20,22 +20,13 @@ create table task_statuses (
 );
 
 insert into task_statuses values
-  (1, 'Fila de espera', false),
-  (2, 'Pendente', false),
-  (3, 'Em execução', false),
-  (4, 'Suspensa', false),
-  (5, 'Em análise', true),
-  (6, 'Cancelada', true),
-  (7, 'Concluída', true)
-
-  -- PROPOSTA DE STATUS:
-  -- pendente
-  -- autorizada
-  -- suspensa
-  -- cancelada
-  -- concluída
-  -- verificada
-
+  (default, 'Fila de espera', false), -- 1
+  (default, 'Pendente', false),       -- 2
+  (default, 'Em execução', false),    -- 3
+  (default, 'Suspensa', false),       -- 4
+  (default, 'Em análise', true),      -- 5
+  (default, 'Cancelada', true),       -- 6
+  (default, 'Concluída', true)        -- 7
 ;
 
 -- task priorities
