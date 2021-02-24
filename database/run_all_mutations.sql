@@ -14,6 +14,15 @@
 \i tests/asset/insert_asset_tag.sql
 \i tests/asset/remove_asset_tag.sql
 
+-- spec
+\i tests/spec/insert_spec.sql
+\i tests/spec/insert_spec_version.sql
+\i tests/spec/modify_spec_version.sql
+\i tests/spec/insert_price.sql
+\i tests/spec/modify_price.sql
+\i tests/spec/remove_price.sql
+delete from specs where spec_id >= 10001;
+
 -- team
 \i tests/team/change_password.sql
 \i tests/team/modify_self.sql

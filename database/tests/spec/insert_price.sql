@@ -1,32 +1,7 @@
-\set function_name api.insert_price
-
-drop function if exists :function_name;
-create or replace function :function_name (
-  in "specId" integer,
-  in "date" date,
-  in "price" numeric,
-  in "priceSourceTypeId" integer,
-  in "source" text,
-  out id integer
-)
-  language plpgsql
-  as $$
-    begin
-      insert into prices values (
-        default,
-        "specId",
-        "date",
-        "price",
-        "priceSourceTypeId",
-        "source",
-        true
-      ) returning price_id into id;
-    end;
-  $$
-;
-
-grant execute on function :function_name to coordinator, supervisor, inspector;
-
-select generate_api_documentation(:'function_name',E'`priceId` of the new price\n') as new_comment \gset
-
-comment on function :function_name is :'new_comment';
+select api.insert_price(
+  :new_spec_id,
+  now()::date,
+  100.01,
+  1,
+  'Empresa X'
+) as new_price_id, :mutation_ok + 1 as mutation_ok \gset

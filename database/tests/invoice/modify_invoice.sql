@@ -4,4 +4,4 @@ select api.modify_invoice(
   '2021-01-01',
   now()::date,
   'Tarefas t1 e t2 serão faturadas posteriormente'
-), :mutation_ok + 1 as mutation_ok \gset
+) as not_used_output, :mutation_ok + 1 as mutation_ok \gset

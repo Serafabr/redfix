@@ -7,6 +7,7 @@ create or replace function :function_name (
   in "price" numeric,
   in "priceSourceTypeId" integer,
   in "source" text,
+  in "firmId" integer default null,
   out id integer
 )
   language plpgsql
@@ -19,6 +20,7 @@ create or replace function :function_name (
         "price",
         "priceSourceTypeId",
         "source",
+        "firmId",
         true
       ) returning price_id into id;
     end;
