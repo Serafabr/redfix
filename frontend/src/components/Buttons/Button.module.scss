@@ -1,5 +1,9 @@
 @import "../../style/variables";
 
+/********
+* Generic button properties
+********/
+
 .Button {
   border: 2px solid $primary_color;
   border-radius: 4px;
@@ -13,6 +17,10 @@
   font-size: 1rem;
   font-weight: 600;
   color: $primary_color;
+  
+  /********
+  * Button States
+  ********/
   
   &:hover,
   &:active {
@@ -30,26 +38,43 @@
     outline: $outline_property;
   }
   
-  /********
-  * Disabled Button
-  ********/
+}
+
+/********
+* Button Styles (Blue or White)
+********/
+
+// .BlueButton {
   
-  &.Disabled,
-  &.Disabled:hover,
-  &.Disabled:active {
-    border: 2px solid $gray_300;
-    color: $gray_300;
-    cursor: auto;
-    
-    .Plus {
-      stroke: $gray_300;
-    }
-  }
+// }
+
+// .WhiteButton {
   
-  &.Disabled:focus {
-    outline: none;
+// }
+
+/********
+* Disabled Button
+********/
+
+.Disabled,
+.Disabled:hover,
+.Disabled:active {
+  border: 2px solid $gray_300;
+  color: $gray_300;
+  cursor: auto;
+  
+  .Plus {
+    stroke: $gray_300;
   }
 }
+
+.Disabled:focus {
+  outline: none;
+}
+
+/********
+* Other components
+********/
 
 .ContentWrapper {
   display: flex;
