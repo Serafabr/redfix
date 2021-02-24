@@ -220,6 +220,9 @@ begin transaction;
 \i api/utilities/insert_ceb_bill.sql
 \i api/utilities/upsert_caesb_bill.sql
 
+-- remove new_comment from psql variables
+\unset new_comment
+
 -- create triggers before populate tables
 \i triggers/check_delete_supply.sql
 \i triggers/check_insert_active_box.sql

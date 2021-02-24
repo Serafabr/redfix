@@ -11,18 +11,10 @@ set cookie.session.person_id to 1;
 -- begin transaction;
 begin transaction;
 
--- populate tables with sample data
-\i samples/appliances.sql
-\i samples/tags.sql
-\i samples/persons.sql
-\i samples/firms.sql
-\i samples/projects.sql
-\i samples/requests.sql
-\i samples/depots.sql
-\i samples/tasks.sql
-\i samples/plans.sql
-\i samples/invoices.sql
+-- use api to insert sample data
+\i run_all_mutations.sql
 
+-- ceb data
 \if :insert_ceb_data
   \i samples/ceb_meters.sql
   \i samples/ceb_bills.sql
