@@ -33,7 +33,8 @@ create or replace function :function_name (
         serial_number,
         model,
         price
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "assetSf",
         "name",
         "description",
@@ -46,7 +47,8 @@ create or replace function :function_name (
         "serialNumber",
         "model",
         "price"
-      ) where a.asset_id = "assetId";
+      ) as new_values
+      where a.asset_id = "assetId";
       id = "assetId";
     end;
   $$

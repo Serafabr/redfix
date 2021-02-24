@@ -9,7 +9,7 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update task_supplies as ts set qty_approved = qty_proposed where ts.task_id = "taskId" and ts.supply_id in (select unnest("suppliesIds"));
+      update task_supplies set qty_approved = qty_proposed where task_id = "taskId" and supply_id in (select unnest("suppliesIds"));
       id = "taskId";
     end;
   $$

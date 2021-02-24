@@ -10,19 +10,18 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
-    declare
-      new_name alias for "name";
-      new_cnpj alias for "cnpj";
     begin
-      update firms set (
+      update firms as f set (
         name,
         name_rs,
         cnpj
-      ) = (
-        new_name,
+      ) = (select new_values.*)
+      from (select
+        "name",
         "nameRs",
-        new_cnpj
-      ) where firm_id = "firmId";
+        "cnpj"
+      ) as new_values
+      where f.firm_id = "firmId";
       id = "firmId";
     end;
   $$

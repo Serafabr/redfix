@@ -12,21 +12,20 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
-    declare
-      new_description alias for "description";
-      new_note alias for "note";
     begin
-      update invoices set (
+      update invoices as i set (
         description,
         invoice_start,
         invoice_end,
         note
-      ) = (
-        new_description,
+      ) = (select new_values.*)
+      from (select
+        "description",
         "invoiceStart",
         "invoiceEnd",
-        new_note
-      );
+        "note"
+      ) as new_values
+      where i.invoice_id = "invoiceId";
       id = "invoiceId";
     end;
   $$

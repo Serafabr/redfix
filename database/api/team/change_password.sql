@@ -2,17 +2,15 @@
 
 drop function if exists api.change_password;
 create or replace function api.change_password (
-  in new_password text,
+  in "newPassword" text,
   out id integer
 )
   language plpgsql
   security definer
   as $$
     begin
-      update persons
-        set password_hash = crypt(new_password, gen_salt('bf', 10))
-      where person_id = get_person_id()
-      returning person_id into id;
+      update persons set password_hash = crypt("newPassword", gen_salt('bf', 10)) where person_id = get_person_id();
+      id = get_person_id();
     end;
   $$
 ;

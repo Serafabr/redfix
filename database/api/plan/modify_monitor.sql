@@ -11,26 +11,24 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
-    declare
-      new_name alias for "name";
-      new_unit alias for "unit";
-      new_description alias for "description";
     begin
-      update monitors set (
+      update monitors as m set (
         updated_at,
         updated_by,
         name,
         description,
         unit,
         asset_id
-      ) = (
-        default,
-        default,
-        new_name,
-        new_description,
-        new_unit,
+      ) = (select new_values.*)
+      from (select
+        now(),
+        now(),
+        "name",
+        "description",
+        "unit",
         "assetId"
-      ) where monitor_id = "monitorId";
+      ) as new_values
+      where m.monitor_id = "monitorId";
       id = "monitorId";
     end;
   $$

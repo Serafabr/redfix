@@ -11,15 +11,17 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update plans set (
+      update plans as p set (
         name,
         description,
         periodicity_id
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "name",
         "description",
         "periodicityId"
-      ) where plan_id = "planId";
+      ) as new_values
+      where p.plan_id = "planId";
       id = "planId";
     end;
   $$

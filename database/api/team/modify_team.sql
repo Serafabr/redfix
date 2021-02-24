@@ -10,13 +10,15 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update teams set (
+      update teams as t set (
         name,
         description
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "name",
         "description"
-      ) where team_id = "teamId";
+      ) as new_values
+      where t.team_id = "teamId";
       id = "teamId";
     end;
   $$

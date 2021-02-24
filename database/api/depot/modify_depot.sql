@@ -33,7 +33,8 @@ create or replace function :function_name (
         description,
         url,
         sigad
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "depotSf",
         now(),
         get_person_id(),
@@ -47,7 +48,8 @@ create or replace function :function_name (
         "description",
         "url",
         "sigad"
-      ) where d.depot_id = "depotId";
+      ) as new_values
+      where d.depot_id = "depotId";
       insert into depot_events values (
         default,
         "depotId",

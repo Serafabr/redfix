@@ -13,17 +13,19 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update projects set (
+      update projects as p set (
         name,
         description,
         date_start,
         date_end
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "name",
         "description",
         "dateStart",
         "dateEnd"
-      ) where project_id = "projectId";
+      ) as new_values
+      where p.project_id = "projectId";
       id = "projectId";
     end;
   $$

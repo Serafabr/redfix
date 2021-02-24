@@ -5,23 +5,23 @@ create or replace function :function_name (
   in "monitorReadId" integer,
   in "readAt" timestamptz,
   in "readValue" numeric,
-  in note text default null,
+  in "note" text default null,
   out id integer
 )
   language plpgsql
   as $$
-    declare
-      new_note alias for note;
     begin
-      update monitor_reads set (
+      update monitor_reads as m set (
         read_at,
         read_value,
         note
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "readAt",
         "readValue",
-        new_note
-      ) where monitor_read_id = "monitorReadId";
+        "note"
+      ) as new_values
+      where m.monitor_read_id = "monitorReadId";
       id = "monitorReadId";
     end;
   $$

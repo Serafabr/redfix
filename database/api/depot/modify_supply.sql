@@ -18,12 +18,14 @@ create or replace function :function_name (
         spec_id,
         qty_initial,
         price
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "supplySf",
         "specId",
         "qtyInitial",
         "price"
-      ) where s.supply_id = "supplyId";
+      ) as new_values
+      where s.supply_id = "supplyId";
       id = "supplyId";
     end;
   $$

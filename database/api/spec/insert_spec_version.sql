@@ -9,7 +9,7 @@ create or replace function :function_name (
   language plpgsql
   as $$
     declare
-      new_version alias for "version";
+      "newVersion" alias for "version";
     begin
       -- copy data from old version
       insert into specs (
@@ -43,7 +43,7 @@ create or replace function :function_name (
       ) select
         -- spec_id is ommitted so it uses the default (sequential integer value)
         z.spec_sf,
-        new_version, -- input by user
+        "newVersion", -- input by user
         z.name,
         z.spec_category_id,
         z.spec_subcategory_id,

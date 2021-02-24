@@ -9,7 +9,7 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update tags as t set tag_text = "tagText" where t.tag_id = "tagId";
+      update tags set tag_text = "tagText" where tag_id = "tagId";
       id = "tagId";
     end;
   $$

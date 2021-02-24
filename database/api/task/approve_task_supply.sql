@@ -19,7 +19,7 @@ create or replace function :function_name (
         "supplyId",
         "qtyApproved"
       ) on conflict (task_id, supply_id) do
-      update set qty_approved = "qtyApproved" where ts.task_id = "taskId" and ts.supply_id = "supplyId";
+      update set qty_approved = "qtyApproved" where task_id = "taskId" and supply_id = "supplyId";
       id = "taskId";
     end;
   $$

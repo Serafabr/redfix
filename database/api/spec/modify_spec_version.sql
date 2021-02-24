@@ -51,7 +51,8 @@ create or replace function :function_name (
         catser,
         updated_at,
         updated_by
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "name",
         "specCategoryId",
         "specSubcategoryId",
@@ -74,7 +75,8 @@ create or replace function :function_name (
         "catser",
         now(),
         get_person_id()
-      ) where z.spec_id = "specId";
+      ) as new_values
+      where z.spec_id = "specId";
       id = "specId";
     end;
   $$

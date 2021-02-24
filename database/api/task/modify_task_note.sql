@@ -8,16 +8,16 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
-    declare
-      new_note alias for "note";
     begin
       update task_events as te set (
         note,
         updated_at
-      ) = (
-        new_note,
+      ) = (select new_values.*)
+      from (select
+        "note",
         now()
-      ) where te.task_event_id = "taskEventId";
+      ) as new_values
+      where te.task_event_id = "taskEventId";
       id = "taskEventId";
     end;
   $$

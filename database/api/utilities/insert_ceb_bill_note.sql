@@ -3,20 +3,18 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "cebMeterId" integer,
-  in year integer,
-  in month integer,
-  in note text,
+  in "year" integer,
+  in "month" integer,
+  in "note" text,
   out id integer
 )
   language plpgsql
   strict
   as $$
     declare
-      new_note alias for note;
+      "newNote" alias for "note";
     begin
-      update ceb_bills as c
-        set note = new_note
-      where c.ceb_meter_id = "cebMeterId" and c.year = year and c.month = month;
+      update ceb_bills as c set note = "newNote" where c.ceb_meter_id = "cebMeterId" and c.year = "year" and c.month = "month";
       id = "cebMeterId";
     end;
   $$

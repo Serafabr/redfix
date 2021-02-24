@@ -21,56 +21,54 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update tasks as t
-        set (
-          updated_at,
-          updated_by,
-          task_priority_id,
-          task_category_id,
-          plan_id,
-          project_id,
-          title,
-          description,
-          place,
-          progress,
-          date_limit,
-          date_start,
-          date_end,
-          request_id
-        ) = (
-          now(),
-          get_person_id(),
-          "taskPriorityId",
-          "taskCategoryId",
-          "planId",
-          "projectId",
-          "title",
-          "description",
-          "place",
-          "progress",
-          "dateLimit",
-          "dateStart",
-          "dateEnd",
-          "requestId"
-        ) where t.task_id = "taskId";
-
-        insert into task_events values (
-          default,
-          "taskId",
-          'modify',
-          now(),
-          get_person_id(),
-          "teamId",
-          null,
-          null,
-          'Alteração da tarefa',
-          null,
-          null,
-          true
-        );
-
-        id = "taskId";
-
+      update tasks as t set (
+        updated_at,
+        updated_by,
+        task_priority_id,
+        task_category_id,
+        plan_id,
+        project_id,
+        title,
+        description,
+        place,
+        progress,
+        date_limit,
+        date_start,
+        date_end,
+        request_id
+      ) = (select new_values.*)
+      from (select
+        now(),
+        get_person_id(),
+        "taskPriorityId",
+        "taskCategoryId",
+        "planId",
+        "projectId",
+        "title",
+        "description",
+        "place",
+        "progress",
+        "dateLimit",
+        "dateStart",
+        "dateEnd",
+        "requestId"
+      ) as new_values
+      where t.task_id = "taskId";
+      insert into task_events values (
+        default,
+        "taskId",
+        'modify',
+        now(),
+        get_person_id(),
+        "teamId",
+        null,
+        null,
+        'Alteração da tarefa',
+        null,
+        null,
+        true
+      );
+      id = "taskId";
     end;
   $$
 ;

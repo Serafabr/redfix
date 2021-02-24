@@ -13,19 +13,21 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update prices set (
+      update prices as p set (
         spec_id,
         date,
         price,
         price_source_type_id,
         source
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "specId",
         "date",
         "price",
         "priceSourceTypeId",
         "source"
-      ) where price_id = "priceId";
+      ) as new_values
+      where p.price_id = "priceId";
       id = "priceId";
     end;
   $$

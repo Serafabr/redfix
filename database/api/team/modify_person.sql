@@ -17,7 +17,7 @@ create or replace function :function_name (
   security definer
   as $$
     begin
-      update persons set (
+      update persons as p set (
         username,
         cpf,
         email,
@@ -25,7 +25,8 @@ create or replace function :function_name (
         phone,
         cellphone,
         person_role
-      ) = (
+      ) = (select new_values.*)
+      from (select
         "username",
         "cpf",
         "email",
@@ -34,7 +35,8 @@ create or replace function :function_name (
         "phone",
         "cellphone",
         "personRole"
-      ) where person_id = "personId";
+      ) as new_values
+      where p.person_id = "personId";
       id = "personId";
     end;
   $$

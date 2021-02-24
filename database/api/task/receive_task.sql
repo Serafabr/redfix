@@ -10,7 +10,6 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-
       insert into task_events values (
         default,
         "taskId",
@@ -25,7 +24,6 @@ create or replace function :function_name (
         null,
         true
       );
-
       update tasks set (
         team_id,
         next_team_id,
@@ -35,7 +33,6 @@ create or replace function :function_name (
         null,
         "taskStatusId"
       ) where task_id = "taskId";
-
       id = "taskId";
     end;
   $$
