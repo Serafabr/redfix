@@ -3,11 +3,13 @@ import style from './Button.module.scss';
 
 type Props = {
   text: string,
+  disabled?: boolean,
   onClick?: any,
 };
 
 export const Button = ({ 
   text,
+  disabled = false,
   onClick
  }: Props) => {
   return (
