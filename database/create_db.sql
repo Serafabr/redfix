@@ -81,13 +81,13 @@ begin transaction;
 \i schema/views/assets_of_task.sql
 \i schema/views/quantities.sql
 
--- create api schema objects
 -- json_lists
-\i api/json_lists/get_assets_of_task.sql
-\i api/json_lists/get_events_of_task.sql
-\i api/json_lists/get_files_of_task.sql
-\i api/json_lists/get_supplies_of_task.sql
+\i schema/json_lists/get_assets_of_task.sql
+\i schema/json_lists/get_events_of_task.sql
+\i schema/json_lists/get_files_of_task.sql
+\i schema/json_lists/get_supplies_of_task.sql
 
+-- create api schema objects
 -- asset
 \i api/asset/asset_data.sql
 \i api/asset/appliance_data.sql
