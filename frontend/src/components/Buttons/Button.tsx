@@ -1,13 +1,18 @@
+// Third party imports
 import classNames from 'classnames';
+//Local components
 import { Plus } from '../Icons';
+// Style
 import style from './Button.module.scss';
 
+// Prop types
 type Props = {
   text: string,
   disabled?: boolean,
   onClick?: any,
 };
 
+// Component
 export const Button = ({ 
   text,
   disabled = false,
