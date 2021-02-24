@@ -8,7 +8,7 @@ create or replace view api.task_data as
     t.updated_by,
     t.task_priority_id,
     t.task_category_id,
-    t.plan_id,
+    t.task_template_id,
     t.project_id,
     t.title,
     t.description,

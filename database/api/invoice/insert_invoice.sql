@@ -20,7 +20,7 @@ create or replace function :function_name (
         "invoiceStart",
         "invoiceEnd",
         "note"
-      ) returning invoice into id;
+      ) returning invoice_id into id;
     end;
   $$
 ;

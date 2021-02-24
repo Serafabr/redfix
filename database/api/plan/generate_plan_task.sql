@@ -25,7 +25,7 @@ create or replace function :function_name (
         tt.task_priority_id,
         tt.task_category_id,
         "teamId",
-        "planId"
+        "taskTemplateId"
       ) into new_task_id;
       -- select api.send_task(
       --   new_task_id,

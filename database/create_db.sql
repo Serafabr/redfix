@@ -150,6 +150,8 @@ begin transaction;
 \i api/invoice/insert_invoice_tasks.sql
 \i api/invoice/remove_invoice_task.sql
 \i api/invoice/remove_invoice.sql
+\i api/invoice/set_invoice_paid.sql
+\i api/invoice/set_invoice_unpaid.sql
 -- plan
 \i api/plan/generate_plan_task.sql
 \i api/plan/generate_plan_tasks.sql
@@ -236,13 +238,14 @@ begin transaction;
 -- create rls policies
 -- (currently not used)
 
--- insert asset categories, facilities and specs
+-- insert administrators, teams, asset categories, facilities and specs
 \i samples/administrators.sql
 \i samples/asset_categories.sql
 \i samples/facilities.sql
 \i samples/asset_parents.sql
 \i samples/specs.sql
 alter sequence persons_person_id_seq restart with 10001;
+alter sequence teams_team_id_seq restart with 10001;
 alter sequence assets_asset_id_seq restart with 10001;
 alter sequence specs_spec_id_seq restart with 10001;
 

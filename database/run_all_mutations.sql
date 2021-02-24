@@ -70,13 +70,13 @@
 \i api_test/task/insert_task_asset.sql
 \i api_test/task/remove_task_asset.sql
 
-\i api_test/task/move_task.sql
-\i api_test/task/send_task.sql
-\i api_test/task/cancel_send_task.sql
-\i api_test/task/receive_task.sql
-\i api_test/task/insert_task_note.sql
-\i api_test/task/modify_task_note.sql
-\i api_test/task/remove_task_note.sql
+-- \i api_test/task/move_task.sql
+-- \i api_test/task/send_task.sql
+-- \i api_test/task/cancel_send_task.sql
+-- \i api_test/task/receive_task.sql
+-- \i api_test/task/insert_task_note.sql
+-- \i api_test/task/modify_task_note.sql
+-- \i api_test/task/remove_task_note.sql
 
 \i api_test/task/follow_task.sql
 \i api_test/task/unfollow_task.sql
@@ -91,7 +91,25 @@
 -- \i api_test/task/reopen_task.sql
 
 -- plans
--- \i samples/plans.sql
+\i api_test/plan/insert_plan.sql
+\i api_test/plan/modify_plan.sql
+\i api_test/plan/insert_task_template.sql
+\i api_test/plan/generate_plan_task.sql
+\i api_test/plan/generate_plan_tasks.sql
+
+\i api_test/plan/insert_monitor.sql
+\i api_test/plan/modify_monitor.sql
+\i api_test/plan/insert_monitor_read.sql
+\i api_test/plan/modify_monitor_read.sql
 
 -- invoices
--- \i samples/invoices.sql
+\i api_test/invoice/insert_invoice.sql
+\i api_test/invoice/modify_invoice.sql
+
+-- \i api_test/invoice/bind_tasks_to_invoice.sql
+\i api_test/invoice/insert_invoice_tasks.sql
+\i api_test/invoice/set_invoice_paid.sql
+\i api_test/invoice/set_invoice_unpaid.sql
+
+\i api_test/invoice/remove_invoice_task.sql
+\i api_test/invoice/remove_invoice.sql

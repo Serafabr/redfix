@@ -15,7 +15,7 @@ create or replace function :function_name (
         default,
         "monitorId",
         "readAt",
-        "readvalue",
+        "readValue",
         "note"
       ) returning monitor_read_id into id;
     end;

@@ -3,7 +3,6 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "invoiceId" integer,
-  in "depotId" integer,
   in "description" text,
   in "invoiceStart" date default null,
   in "invoiceEnd" date default null,

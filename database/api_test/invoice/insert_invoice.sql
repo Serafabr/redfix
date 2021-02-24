@@ -1,32 +1,7 @@
-\set function_name api.insert_invoice
-
-drop function if exists :function_name;
-create or replace function :function_name (
-  in "depotId" integer,
-  in "description" text,
-  in "invoiceStart" date default null,
-  in "invoiceEnd" date default null,
-  in "note" text default null,
-  out id integer
-)
-  language plpgsql
-  as $$
-    begin
-      insert into invoices values (
-        default,
-        "depotId",
-        "description",
-        false,
-        "invoiceStart",
-        "invoiceEnd",
-        "note"
-      ) returning invoice into id;
-    end;
-  $$
-;
-
-grant execute on function :function_name to coordinator, supervisor, inspector;
-
-select generate_api_documentation(:'function_name',E'`invoiceId` of the new invoice\n') as new_comment \gset
-
-comment on function :function_name is :'new_comment';
+select api.insert_invoice(
+  :new_depot_id,
+  'Primeiro faturamento de 2021',
+  '2021-01-01',
+  now()::date,
+  'Tarefas t1 e t2 serão faturadas depois'
+) as new_invoice_id, :mutation_ok + 1 as mutation_ok \gset

@@ -22,7 +22,7 @@ create or replace function :function_name (
       ) = (select new_values.*)
       from (select
         now(),
-        now(),
+        get_person_id(),
         "name",
         "description",
         "unit",
