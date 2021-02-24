@@ -12,4 +12,4 @@ select api.insert_supply(
   378,
   10,
   9.10
-) as supply_id_to_be_removed \gset
+) as supply_to_be_removed \gset
