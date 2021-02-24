@@ -30,7 +30,10 @@
     outline: $outline_property;
   }
   
-  // Button Disabled
+  /********
+  * Disabled Button
+  ********/
+  
   &.Disabled,
   &.Disabled:hover,
   &.Disabled:active {
