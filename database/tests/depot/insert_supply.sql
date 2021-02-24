@@ -9,6 +9,14 @@ select api.insert_supply(
 select api.insert_supply(
   'M-02',
   :new_box_id,
+  380,
+  100,
+  99
+) as supply_id_to_be_removed_from_task_supplies \gset
+
+select api.insert_supply(
+  'M-03',
+  :new_box_id,
   378,
   10,
   9.10
