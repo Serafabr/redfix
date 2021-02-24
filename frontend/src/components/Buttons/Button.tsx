@@ -16,8 +16,8 @@ export const Button = ({
         <div className={style.Text}>
           {text}
         </div>
-        <div className={style.Icon}>
-          <Plus />
+        <div className={style.IconWrapper}>
+          <Plus className={style.Plus} />
         </div>
       </div>
     </button>

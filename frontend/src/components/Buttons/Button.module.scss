@@ -19,6 +19,14 @@
     
     color: $hovered_color;
     cursor: pointer;
+    
+    .Plus {
+      stroke: $hovered_color;
+    }
+  }
+  
+  &:focus {
+    outline: 1px solid #a8adee;
   }
 }
 
@@ -33,7 +41,11 @@
   font-style: normal;
 }
 
-.Icon {
+.IconWrapper {
   display: flex;
   align-items: center;
+}
+
+.Plus {
+  stroke: $primary_color;
 }
