@@ -6,8 +6,11 @@ import { Plus } from '../Icons';
 import style from './Button.module.scss';
 
 // Prop types
+enum ButtonStyle { Blue, White }
+
 type Props = {
   text: string,
+  buttonStyle?: ButtonStyle,
   disabled?: boolean,
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
@@ -15,13 +18,18 @@ type Props = {
 // Component
 export const Button = ({ 
   text,
+  buttonStyle = ButtonStyle.Blue,
   disabled = false,
   onClick
  }: Props) => {
    
   const btnClasses = classNames(
     style.Button,
-    {[style.Disabled]: disabled}
+    {
+      [style.BlueButton]: buttonStyle === ButtonStyle.Blue,
+      [style.WhiteButton]: buttonStyle === ButtonStyle.White,
+      [style.Disabled]: disabled,
+    }
   );
   
   return (
