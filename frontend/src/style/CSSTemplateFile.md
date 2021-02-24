@@ -42,7 +42,7 @@
 * box-shadow
 
 
-## WIDTH AND HEIGHT
+## SIZES
 * width
 * max/min-width
 * height

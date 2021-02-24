@@ -1,17 +1,13 @@
-enum PlusColor = { PrimaryColor };
+import style from './Plus.module.scss';
 
-type Props = {
-  className?: string,
-}
-
-function SvgPlus(props: Props) {
+function SvgPlus() {
   return (
     <svg
       width={16}
       height={16}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      className={style.PrimaryColor}
     >
       <path
         d="M8 3.333v9.334M3.333 8h9.334"

@@ -1,9 +1,39 @@
-@import '../../style/variables';
+@import "../../style/variables";
 
 .Button {
-  stroke: #767676;
+  border: 2px solid $primary_color;
+  border-radius: 4px;
   
-  &.PrimaryColor {
-    stroke: $primary_color;
+  width: 132px;
+  height: 40px;
+  
+  background-color: #ffffff;
+  
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: $primary_color;
+  
+  &:hover {
+    border: 2px solid $hovered_color;
+    
+    color: $hovered_color;
+    cursor: pointer;
   }
+}
+
+.ContentWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.Text {
+  line-height: 21px;
+  font-style: normal;
+}
+
+.Icon {
+  display: flex;
+  align-items: center;
 }
