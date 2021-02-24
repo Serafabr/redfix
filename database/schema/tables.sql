@@ -231,8 +231,7 @@ create table plans (
   updated_by integer not null references persons (person_id) default get_person_id(),
   name text not null,
   description text not null,
-  depot_id integer not null references depots (depot_id),
-  periodicity_id integer references periodicities (periodicity_id)
+  depot_id integer not null references depots (depot_id)
 );
 
 create table task_templates (
@@ -241,7 +240,8 @@ create table task_templates (
   description text not null,
   task_category_id integer not null references task_categories (task_category_id),
   task_priority_id integer not null references task_priorities (task_priority_id),
-  plan_id integer not null references plans (plan_id)
+  plan_id integer not null references plans (plan_id),
+  periodicity_id integer references periodicities (periodicity_id)
   -- next_team_id integer not null references teams (team_id)
 );
 

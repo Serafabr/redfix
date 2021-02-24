@@ -4,5 +4,6 @@ select api.insert_task_template(
   'Serviço de substituição de peça',
   2,
   2,
-  :new_plan_id
+  :new_plan_id,
+  1
 ) as new_task_template_id, :mutation_ok + 1 as mutation_ok \gset

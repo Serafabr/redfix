@@ -5,7 +5,6 @@ create or replace function :function_name (
   in "planId" integer,
   in "name" text,
   in "description" text,
-  in "periodicityId" integer default null,
   out id integer
 )
   language plpgsql
@@ -13,13 +12,11 @@ create or replace function :function_name (
     begin
       update plans as p set (
         name,
-        description,
-        periodicity_id
+        description
       ) = (select new_values.*)
       from (select
         "name",
-        "description",
-        "periodicityId"
+        "description"
       ) as new_values
       where p.plan_id = "planId";
       id = "planId";

@@ -5,7 +5,6 @@ create or replace function :function_name (
   in "name" text,
   in "description" text,
   in "depotId" integer,
-  in "periodicityId" integer default null,
   out id integer
 )
   language plpgsql
@@ -19,8 +18,7 @@ create or replace function :function_name (
         get_person_id(),
         "name",
         "description",
-        "depotId",
-        "periodicityId"
+        "depotId"
       ) returning plan_id into id;
     end;
   $$
