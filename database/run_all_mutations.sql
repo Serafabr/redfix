@@ -14,8 +14,6 @@
 \i tests/asset/insert_asset_tag.sql
 \i tests/asset/remove_asset_tag.sql
 
-\i tests/asset/remove_tag.sql
-
 -- team
 \i tests/team/change_password.sql
 \i tests/team/modify_self.sql
@@ -44,9 +42,6 @@
 \i tests/project/modify_project.sql
 \i tests/project/deactivate_project.sql
 \i tests/project/activate_project.sql
-\i tests/project/remove_project.sql
--- \i tests/project/add_task_to_project.sql
--- \i tests/project/remove_task_from_project.sql
 
 -- depot
 \i tests/depot/insert_depot.sql
@@ -60,7 +55,6 @@
 
 \i tests/depot/deactivate_box.sql
 \i tests/depot/activate_box.sql
-\i tests/depot/remove_supply.sql
 
 -- task
 \i tests/task/insert_task.sql
@@ -110,4 +104,16 @@
 \i tests/invoice/set_invoice_unpaid.sql
 
 \i tests/invoice/remove_invoice_task.sql
+
+
+
+-- entity removals and others
+\i tests/project/add_task_to_project.sql
+\i tests/project/remove_task_from_project.sql
+
+
+\i tests/asset/remove_tag.sql
+\i tests/project/remove_project.sql
 \i tests/invoice/remove_invoice.sql
+\i tests/depot/remove_supply.sql
+
