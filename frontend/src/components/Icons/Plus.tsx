@@ -13,7 +13,6 @@ function SvgPlus(props: Props) {
     >
       <path
         d="M8 3.333v9.334M3.333 8h9.334"
-        stroke="767676"
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
