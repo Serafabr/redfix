@@ -1,10 +1,8 @@
 type Props = {
-  color: string,
-};
+  className: string,
+}
 
 function SvgPlus(props: Props) {
-  const { color } = props;
-  
   return (
     <svg
       width={16}
@@ -15,7 +13,7 @@ function SvgPlus(props: Props) {
     >
       <path
         d="M8 3.333v9.334M3.333 8h9.334"
-        stroke={color}
+        stroke="FFFFFF"
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
