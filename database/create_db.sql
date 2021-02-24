@@ -218,9 +218,10 @@ begin transaction;
 -- utilities
 \i api/utilities/caesb_data.sql
 \i api/utilities/ceb_data.sql
+\i api/utilities/insert_caesb_bill.sql
 \i api/utilities/insert_ceb_bill_note.sql
 \i api/utilities/insert_ceb_bill.sql
-\i api/utilities/upsert_caesb_bill.sql
+\i api/utilities/modify_caesb_bill.sql
 
 -- remove new_comment from psql variables
 \unset new_comment
@@ -244,6 +245,8 @@ begin transaction;
 \i samples/facilities.sql
 \i samples/asset_parents.sql
 \i samples/specs.sql
+\i samples/caesb_meters.sql
+\i samples/ceb_meters.sql
 alter sequence persons_person_id_seq restart with 10001;
 alter sequence teams_team_id_seq restart with 10001;
 alter sequence assets_asset_id_seq restart with 10001;

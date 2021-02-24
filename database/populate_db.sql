@@ -17,7 +17,6 @@ begin transaction;
 
 -- ceb data
 \if :insert_ceb_data
-  \i samples/ceb_meters.sql
   \i samples/ceb_bills.sql
 \endif 
 

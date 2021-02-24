@@ -20,7 +20,7 @@ create table caesb_bills (
   caesb_meter_id integer not null references caesb_meters (caesb_meter_id),
   year integer not null,
   month integer not null check (month >= 1 and month <= 12),
-  leitura_atual date not null,
+  leitura_atual integer not null,
   data_leitura_atual date not null,
   leitura_anterior integer not null,
   data_leitura_anterior date not null,

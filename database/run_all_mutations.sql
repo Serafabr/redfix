@@ -124,8 +124,14 @@
 \i tests/files/remove_avatar.sql
 \i tests/files/remove_file.sql
 
+-- utilities
+\i tests/utilities/insert_caesb_bill.sql
+-- \i tests/utilities/insert_ceb_bill_note.sql
+\i tests/utilities/modify_caesb_bill.sql
+
 -- entity removals and others
 delete from specs where spec_id >= 10001;
+delete from caesb_bills where true;
 \i tests/project/add_task_to_project.sql
 \i tests/project/remove_task_from_project.sql
 
