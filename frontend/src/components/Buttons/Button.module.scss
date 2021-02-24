@@ -1,7 +1,9 @@
+@import '../../style/variables';
+
 .Button {
-  stroke: #FFFFFF;
+  stroke: #767676;
   
   &.PrimaryColor {
-    stroke: #FFF;
+    stroke: $primary_color;
   }
 }

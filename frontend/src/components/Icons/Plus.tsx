@@ -1,3 +1,5 @@
+enum PlusColor = { PrimaryColor };
+
 type Props = {
   className?: string,
 }
