@@ -14,20 +14,8 @@
   font-weight: 600;
   color: $primary_color;
   
-  &.Disabled,
-  &.Disabled:hover,
-  &.Disabled:focus,
-  &.Disabled:active {
-    border: 2px solid $gray_300;
-    color: $gray_300;
-    cursor: auto;
-    
-    .Plus {
-      stroke: $gray_300;
-    }
-  }
-  
-  &:hover {
+  &:hover,
+  &:active {
     border: 2px solid $hovered_color;
     
     color: $hovered_color;
@@ -40,6 +28,23 @@
   
   &:focus {
     outline: $outline_property;
+  }
+  
+  // Button Disabled
+  &.Disabled,
+  &.Disabled:hover,
+  &.Disabled:active {
+    border: 2px solid $gray_300;
+    color: $gray_300;
+    cursor: auto;
+    
+    .Plus {
+      stroke: $gray_300;
+    }
+  }
+  
+  &.Disabled:focus {
+    outline: none;
   }
 }
 
