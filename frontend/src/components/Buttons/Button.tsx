@@ -12,6 +12,7 @@ export const Button = ({
   disabled = false,
   onClick
  }: Props) => {
+  
   return (
     <button className={style.Button} onClick={onClick}>
       <div className={style.ContentWrapper}>
