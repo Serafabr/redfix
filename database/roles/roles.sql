@@ -1,9 +1,9 @@
-drop role coordinator;
-drop role supervisor;
-drop role inspector;
-drop role employee;
-drop role visitor;
-drop role cmms_user;
+drop role IF exists coordinator;
+drop role if exists supervisor;
+drop role if exists inspector;
+drop role if exists employee;
+drop role if exists visitor;
+drop role if exists cmms_user;
 
 -- cmms users' roles
 -- cmms_user is used only for login (inside pgPool definition)
