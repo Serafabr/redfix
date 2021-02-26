@@ -6,7 +6,7 @@ import { Plus } from '../Icons';
 import style from './Button.module.scss';
 
 // Prop types
-enum ButtonStyle { Primary, Secondary }
+export enum ButtonStyle { Primary, Secondary }
 
 type Props = {
   text: string,
