@@ -1,5 +1,5 @@
 import './App.scss';
-import { Button, ButtonStyle } from './components/Buttons/Button';
+import { Button, ButtonStyle } from './components/Buttons/Button/Button';
 import { Plus } from './components/Icons';
 
 function App() {
