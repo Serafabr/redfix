@@ -1,9 +1,12 @@
 import style from './BaseInput.module.scss';
 
-export const BaseInput = () => {
+type Props = {
+  className?: string,
+  [any: string]: any,
+};
+
+export const BaseInput = ({className, ...rest}: Props) => {
   return (
-    <div>
-      <input className={`${style.Input}`} type="text" placeholder="Name..."/>
-    </div>
+    <input className={`${style.Input}`} {...rest}/>
   )
 };
