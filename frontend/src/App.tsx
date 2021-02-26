@@ -1,5 +1,6 @@
 import './App.scss';
 import { BaseInput } from './components/Inputs/BaseInput/BaseInput';
+import { Input } from './components/Inputs/Input/Input';
 import { SearchInput } from './components/Inputs/SearchInput/SearchInput';
 
 
@@ -11,6 +12,9 @@ function App() {
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
         <SearchInput />
+      </div>
+      <div style={{ margin: '20px', width: '350px' }}>
+        <Input placeholder="Nome" error />
       </div>
     </div>
   );

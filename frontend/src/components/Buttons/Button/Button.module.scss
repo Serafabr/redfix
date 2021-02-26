@@ -37,7 +37,7 @@
   
   &:hover,
   &:active {
-    background-color:  $hovered_color;
+    background-color:  $hovered_primary;
     cursor: pointer;
   }
   
@@ -75,12 +75,12 @@
   
   &:hover,
   &:active {
-    border: 2px solid $hovered_color;
-    color:  $hovered_color;
+    border: 2px solid $hovered_primary;
+    color:  $hovered_primary;
     cursor: pointer;
     
     .Plus {
-      stroke: $hovered_color;
+      stroke: $hovered_primary;
     }
   }
   

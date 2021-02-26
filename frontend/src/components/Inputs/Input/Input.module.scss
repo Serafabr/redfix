@@ -1,0 +1,17 @@
+@import "../../../style/variables";
+
+.Legend {
+  margin: 4px 7px;
+  font: inherit;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.85714rem;
+  line-height: 20px;
+  color: $gray_600;
+}
+
+.Error {
+  .Legend {
+    color: $danger_color;
+  }
+}
