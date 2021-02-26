@@ -215,16 +215,16 @@ create table periodicities (
 );
 
 insert into periodicities values
-  (1, 'Sob demanda', null),
-  (2, 'Diária', null),
-  (3, 'Semanal', null),
-  (4, 'Quinzenal', null),
-  (5, 'Mensal', null),
-  (6, 'Bimestral', null),
-  (7, 'Trimestral', null),
-  (8, 'Semestral', null),
-  (9, 'Anual', null),
-  (10, 'Bienal', null)
+  (0, 'Sob demanda', null),
+  (1, 'Diária', null),
+  (7, 'Semanal', null),
+  (15, 'Quinzenal', null),
+  (30, 'Mensal', null),
+  (60, 'Bimestral', null),
+  (90, 'Trimestral', null),
+  (180, 'Semestral', null),
+  (365, 'Anual', null),
+  (730, 'Bienal', null)
 ;
 
 create table price_source_types (
