@@ -1,0 +1,19 @@
+@import "../../../style/variables";
+
+.Input {
+  box-sizing: border-box;
+  
+  width: 100%;
+  padding: 10px 16px;
+  height: 40px;
+  border: 1px solid $gray_200;
+  background-color: $white_0;
+  border-radius: 4px;
+  
+  font: inherit;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $gray_700;
+}

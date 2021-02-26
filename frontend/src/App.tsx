@@ -1,43 +1,12 @@
 import './App.scss';
-import { Button, ButtonStyle } from './components/Buttons/Button/Button';
-import { Plus } from './components/Icons';
+import { BaseInput } from './components/Input/BaseInput/BaseInput';
+
 
 function App() {
   return (
     <div className="App">
-      <Button text="Nova Tarefa" />
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" disabled />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" buttonStyle={ButtonStyle.Secondary} />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" buttonStyle={ButtonStyle.Secondary} disabled />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" iconComponent={Plus} />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" iconComponent={Plus} disabled />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} disabled />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" justIcon iconComponent={Plus} />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" justIcon iconComponent={Plus} disabled />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" justIcon iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} />
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <Button text="Nova Tarefa" justIcon iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} disabled />
+      <div style={{ margin: '20px', width: '350px' }}>
+        <BaseInput />
       </div>
     </div>
   );
