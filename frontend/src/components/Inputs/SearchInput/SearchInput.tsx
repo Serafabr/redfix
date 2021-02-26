@@ -1,9 +1,16 @@
 import { BaseInput } from '../BaseInput/BaseInput';
 import style from './SearchInput.module.scss';
 
-export const SearchInput = () => {
+type Props = any;
+
+export const SearchInput = (props: Props) => {
   
   return (
-    <BaseInput className={style.SearchInput} placeholder="Pesquisar..." />
+    <BaseInput 
+      className={style.SearchInput} 
+      error={false} 
+      placeholder="Pesquisar..." 
+      {...props}
+    />
   )
 }
