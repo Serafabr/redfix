@@ -2,8 +2,22 @@
 
 ## File
 1. Group your css properties by type.
-2. Label all groups with comments (like the headers below).
-3. Use the order below.
+2. Use the order below.
+
+
+
+# Writing Style
+
+* Begin every new major section of a CSS project with a title.
+* Title style:
+
+``` /*------------------------------------*\
+      #Title
+    \*------------------------------------*/
+```
+* Limit CSS files’ width to 80 characters.
+* Each title should be preceded by three (3) carriage returns.
+
 
 
 # CSS Properties (Order)

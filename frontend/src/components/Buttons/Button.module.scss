@@ -1,32 +1,33 @@
 @import "../../style/variables";
 
-/********
-* Generic button properties
-********/
+/*------------------------------------*\
+  #Button Overall Style
+\*------------------------------------*/
 
 .Button {
-  border: 2px solid $primary_color;
+  border:        2px solid $primary_color;
   border-radius: 4px;
   
-  width: 132px;
+  width:  132px;
   height: 40px;
   
   background-color: #ffffff;
   
-  font: inherit;
-  font-size: 1rem;
+  font:        inherit;
+  font-size:   1rem;
   font-weight: 600;
-  color: $primary_color;
+  color:       $primary_color;
   
-  /********
-  * Button States
-  ********/
+  
+  /*****
+  >>Button States
+  *****/
   
   &:hover,
   &:active {
     border: 2px solid $hovered_color;
     
-    color: $hovered_color;
+    color:  $hovered_color;
     cursor: pointer;
     
     .Plus {
@@ -40,9 +41,11 @@
   
 }
 
-/********
-* Button Styles (Blue or White)
-********/
+
+
+/*------------------------------------*\
+  #Button Styles (Blue and White)
+\*------------------------------------*/
 
 // .BlueButton {
   
@@ -52,15 +55,17 @@
   
 // }
 
-/********
-* Disabled Button
-********/
+
+
+/*------------------------------------*\
+  #Disabled Button
+\*------------------------------------*/
 
 .Disabled,
 .Disabled:hover,
 .Disabled:active {
   border: 2px solid $gray_300;
-  color: $gray_300;
+  color:  $gray_300;
   cursor: auto;
   
   .Plus {
@@ -72,23 +77,25 @@
   outline: none;
 }
 
-/********
-* Other components
-********/
+
+
+/*------------------------------------*\
+  #Other Components
+\*------------------------------------*/
 
 .ContentWrapper {
-  display: flex;
-  align-items: center;
+  display:         flex;
+  align-items:     center;
   justify-content: space-around;
 }
 
 .Text {
   line-height: 21px;
-  font-style: normal;
+  font-style:  normal;
 }
 
 .IconWrapper {
-  display: flex;
+  display:     flex;
   align-items: center;
 }
 
