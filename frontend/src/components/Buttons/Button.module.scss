@@ -8,7 +8,7 @@
   border:        none;
   border-radius: 4px;
   
-  width:  132px;
+  width:  138px;
   height: 40px;
   
   font:        inherit;
@@ -39,6 +39,22 @@
   .Plus {
     stroke: #ffffff;
   }
+  
+  
+  /*****
+    >>Disabled Button
+  *****/
+
+  &.Disabled,
+  &.Disabled:hover,
+  &.Disabled:active {
+    background-color: $gray_300;
+    cursor: auto;
+  }
+
+  &.Disabled:focus {
+    outline: none;
+  }
 }
 
 
@@ -66,28 +82,28 @@
   .Plus {
     stroke: $primary_color;
   }
-}
-
-
-
-/*------------------------------------*\
-  #Disabled Button
-\*------------------------------------*/
-
-.Disabled,
-.Disabled:hover,
-.Disabled:active {
-  border: 2px solid $gray_300;
-  color:  $gray_300;
-  cursor: auto;
   
-  .Plus {
-    stroke: $gray_300;
-  }
-}
+  
+  
+  /*****
+    >>Disabled Button
+  *****/
 
-.Disabled:focus {
-  outline: none;
+  &.Disabled,
+  &.Disabled:hover,
+  &.Disabled:active {
+    border: 2px solid $gray_300;
+    color:  $gray_300;
+    cursor: auto;
+    
+    .Plus {
+      stroke: $gray_300;
+    }
+  }
+
+  &.Disabled:focus {
+    outline: none;
+  }
 }
 
 
