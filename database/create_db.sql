@@ -265,5 +265,8 @@ commit transaction;
 -- set ON_ERROR_STOP to off
 \set ON_ERROR_STOP off
 
+-- unset psql variables
+\i scripts/unset_psql_variables
+
 -- print message
 \echo :new_db_name CREATED SUCCESSFULLY.

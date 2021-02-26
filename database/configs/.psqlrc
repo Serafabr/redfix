@@ -1,12 +1,6 @@
 -- How to use .psqlrc file:
 -- https://www.postgresql.org/docs/12/app-psql.html#id-1.9.4.18.10
 
-\set new_db_name              'db_dev'
-\set asset_category_facility  '1'
-\set asset_category_electric  '2'
-\set asset_category_air       '3'
-\set asset_category_hydro     '4'
-\set insert_ceb_data          false
 \pset null ' NULL '
 \encoding 'utf8'
 \c postgresql://administrator:123456@localhost:5432/:DBNAME
