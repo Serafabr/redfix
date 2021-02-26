@@ -15,7 +15,7 @@ export const BaseInput = ({
   
   const inputClasses = classNames(
     style.Input,
-    classNames,
+    className,
     {
       [style.Error]: error,
     }

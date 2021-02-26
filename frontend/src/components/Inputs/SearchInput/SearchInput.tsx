@@ -1,10 +1,9 @@
-import style from './BaseInput.module.scss';
+import { BaseInput } from '../BaseInput/BaseInput';
+import style from './SearchInput.module.scss';
 
 export const SearchInput = () => {
   
   return (
-    <div>
-      
-    </div>
+    <BaseInput className={style.SearchInput} placeholder="Pesquisar..." />
   )
 }
