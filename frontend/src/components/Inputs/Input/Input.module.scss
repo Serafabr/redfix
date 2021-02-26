@@ -15,3 +15,18 @@
     color: $danger_color;
   }
 }
+
+.ErrorMessage {
+  margin: 4px 7px;
+  display: flex;
+}
+
+.ErrorTextMessage {
+  margin-left: 6px;
+  color: $danger_color;
+  font: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.85714rem;
+  line-height: 20px;
+}

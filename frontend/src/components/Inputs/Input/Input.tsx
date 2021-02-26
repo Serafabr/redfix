@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames';
 import { BaseInput } from '../BaseInput/BaseInput'
+import svgError from '../../../assets/icons/search.svg';
 import style from './Input.module.scss';
 
 type Props = {
@@ -28,8 +29,8 @@ export const Input = ({
         {...rest}
       />
       <div className={style.ErrorMessage}>
-        <img src="" alt=""/>
-        <p>Mensagem de erro</p>
+        <img src={svgError} alt="Mensagem de erro"/>
+        <div className={style.ErrorTextMessage}>Mensagem de erro</div>
       </div>
     </div>
   )
