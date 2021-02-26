@@ -14,6 +14,7 @@ type Props = {
   text: string,
   buttonStyle?: ButtonStyle,
   iconComponent?: React.ComponentType<IconProps> | null,
+  justIcon?: boolean,
   disabled?: boolean,
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
@@ -23,6 +24,7 @@ export const Button = ({
   text,
   buttonStyle = ButtonStyle.Primary,
   iconComponent: Icon = null,
+  justIcon = false,
   disabled = false,
   onClick
  }: Props) => {
@@ -33,6 +35,7 @@ export const Button = ({
     {
       [style.PrimaryButton]: buttonStyle === ButtonStyle.Primary,
       [style.SecondaryButton]: buttonStyle === ButtonStyle.Secondary,
+      [style.Square]: justIcon,
       [style.Disabled]: disabled,
     }
   );
@@ -40,9 +43,11 @@ export const Button = ({
   return (
     <button className={btnClasses} onClick={onClick}>
       <div className={style.ContentWrapper}>
-        <div className={style.Text}>
-          {text}
-        </div>
+        {!justIcon && (
+          <div className={style.Text}>
+            {text}
+          </div>
+        )}
         {Icon ? (
           <div className={style.IconWrapper}>
             <Icon className={style.Plus} />

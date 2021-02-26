@@ -27,6 +27,18 @@ function App() {
       <div style={{marginTop: '10px'}}>
         <Button text="Nova Tarefa" iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} disabled />
       </div>
+      <div style={{marginTop: '10px'}}>
+        <Button text="Nova Tarefa" justIcon iconComponent={Plus} />
+      </div>
+      <div style={{marginTop: '10px'}}>
+        <Button text="Nova Tarefa" justIcon iconComponent={Plus} disabled />
+      </div>
+      <div style={{marginTop: '10px'}}>
+        <Button text="Nova Tarefa" justIcon iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} />
+      </div>
+      <div style={{marginTop: '10px'}}>
+        <Button text="Nova Tarefa" justIcon iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} disabled />
+      </div>
     </div>
   );
 }
