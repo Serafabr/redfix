@@ -6,6 +6,6 @@ select api.propose_task_supply(
 
 select api.propose_task_supply(
   :new_task_id,
-  :supply_id_to_be_removed_from_task_supplies,
+  :supply_to_be_removed_from_task_supplies,
   5
 ) as not_used_output \gset

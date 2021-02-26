@@ -1,8 +1,15 @@
+\unset asset_category_air
+\unset asset_category_electric
+\unset asset_category_facility
+\unset asset_category_hydro
+\unset function_name
+\unset insert_ceb_data
 \unset invoice_to_be_removed
 \unset mutation_ok
 \unset my_boolean_test
 \unset new_asset_id
 \unset new_box_id
+\unset new_comment
 \unset new_depot_id
 \unset new_firm_id
 \unset new_invoice_id
@@ -22,6 +29,7 @@
 \unset not_used_output
 \unset project_to_be_removed
 \unset supply_to_be_removed
+\unset supply_to_be_removed_from_task_supplies
 \unset tag_to_be_removed
 \unset test_result_message
 \unset total_of_mutations

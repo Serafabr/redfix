@@ -12,7 +12,7 @@ select api.insert_supply(
   380,
   100,
   99
-) as supply_id_to_be_removed_from_task_supplies \gset
+) as supply_to_be_removed_from_task_supplies \gset
 
 select api.insert_supply(
   'M-03',
