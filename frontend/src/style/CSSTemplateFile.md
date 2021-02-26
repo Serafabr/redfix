@@ -94,11 +94,11 @@
 * text-indent
 * text-transform
 * text-decoration
+* font-style
 * line-height
 * word-spacing
 * letter-spacing
 * white-space
-* font-style
 
 
 ## LIST STYLING
