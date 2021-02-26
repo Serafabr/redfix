@@ -35,6 +35,10 @@
     background-color:  $hovered_color;
     cursor: pointer;
   }
+  
+  .Plus {
+    stroke: #ffffff;
+  }
 }
 
 
@@ -43,7 +47,7 @@
   #Secondary Button Styles
 \*------------------------------------*/
 
-.SecodaryButton {
+.SecondaryButton {
   border:             2px solid $primary_color;
   background-color: #ffffff;
   color:              $primary_color;
@@ -57,6 +61,10 @@
     .Plus {
       stroke: $hovered_color;
     }
+  }
+  
+  .Plus {
+    stroke: $primary_color;
   }
 }
 
