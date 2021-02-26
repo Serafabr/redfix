@@ -8,21 +8,28 @@ import style from './Button.module.scss';
 // Prop types
 export enum ButtonStyle { Primary, Secondary }
 
+type IconProps = {
+  className: string,
+};
+
 type Props = {
   text: string,
   buttonStyle?: ButtonStyle,
+  iconComponent?: React.ComponentType<IconProps> | null,
   disabled?: boolean,
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
 
-// Component
+// Button Component
 export const Button = ({ 
   text,
   buttonStyle = ButtonStyle.Primary,
+  iconComponent: Icon = null,
   disabled = false,
   onClick
  }: Props) => {
-   
+  
+  // Button style logic
   const btnClasses = classNames(
     style.Button,
     {
@@ -38,9 +45,11 @@ export const Button = ({
         <div className={style.Text}>
           {text}
         </div>
-        <div className={style.IconWrapper}>
-          <Plus className={style.Plus} />
-        </div>
+        {Icon ? (
+          <div className={style.IconWrapper}>
+            <Icon className={style.Plus} />
+          </div>
+        ) : null}
       </div>
     </button>
   )
