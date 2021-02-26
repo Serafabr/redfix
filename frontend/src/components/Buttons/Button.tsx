@@ -1,7 +1,5 @@
 // Third party imports
 import classNames from 'classnames';
-//Local components
-import { Plus } from '../Icons';
 // Style
 import style from './Button.module.scss';
 
