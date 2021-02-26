@@ -27,6 +27,10 @@ export const Input = ({
         error={error}
         {...rest}
       />
+      <div className={style.ErrorMessage}>
+        <img src="" alt=""/>
+        <p>Mensagem de erro</p>
+      </div>
     </div>
   )
 }
