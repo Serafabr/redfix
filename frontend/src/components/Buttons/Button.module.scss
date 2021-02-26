@@ -5,28 +5,52 @@
 \*------------------------------------*/
 
 .Button {
-  border:        2px solid $primary_color;
+  border:        none;
   border-radius: 4px;
   
   width:  132px;
   height: 40px;
   
-  background-color: #ffffff;
-  
   font:        inherit;
   font-size:   1rem;
   font-weight: 600;
-  color:       $primary_color;
   
+  &:focus {
+    outline: $outline_property;
+  }
+}
+
+
+
+/*------------------------------------*\
+  #Primary Button Styles
+\*------------------------------------*/
+
+.PrimaryButton {
+  background-color: $primary_color;
+  color:          #ffffff;
   
-  /*****
-  >>Button States
-  *****/
+  &:hover,
+  &:active {
+    background-color:  $hovered_color;
+    cursor: pointer;
+  }
+}
+
+
+
+/*------------------------------------*\
+  #Secondary Button Styles
+\*------------------------------------*/
+
+.SecodaryButton {
+  border:             2px solid $primary_color;
+  background-color: #ffffff;
+  color:              $primary_color;
   
   &:hover,
   &:active {
     border: 2px solid $hovered_color;
-    
     color:  $hovered_color;
     cursor: pointer;
     
@@ -34,26 +58,7 @@
       stroke: $hovered_color;
     }
   }
-  
-  &:focus {
-    outline: $outline_property;
-  }
-  
 }
-
-
-
-/*------------------------------------*\
-  #Button Styles (Blue and White)
-\*------------------------------------*/
-
-// .BlueButton {
-  
-// }
-
-// .WhiteButton {
-  
-// }
 
 
 

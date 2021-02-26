@@ -1,12 +1,11 @@
 # How To Organize CSS Files
 
-## File
-1. Group your css properties by type.
+## Properties Group
+1. Group your css properties by type, if there're more than 3 properties.
 2. Use the order below.
 
 
-
-# Writing Style
+## Writing Style
 
 * Begin every new major section of a CSS project with a title.
 * Title style:

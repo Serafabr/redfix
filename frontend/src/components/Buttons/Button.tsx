@@ -6,7 +6,7 @@ import { Plus } from '../Icons';
 import style from './Button.module.scss';
 
 // Prop types
-enum ButtonStyle { Blue, White }
+enum ButtonStyle { Primary, Secondary }
 
 type Props = {
   text: string,
@@ -18,7 +18,7 @@ type Props = {
 // Component
 export const Button = ({ 
   text,
-  buttonStyle = ButtonStyle.Blue,
+  buttonStyle = ButtonStyle.Primary,
   disabled = false,
   onClick
  }: Props) => {
@@ -26,8 +26,8 @@ export const Button = ({
   const btnClasses = classNames(
     style.Button,
     {
-      [style.BlueButton]: buttonStyle === ButtonStyle.Blue,
-      [style.WhiteButton]: buttonStyle === ButtonStyle.White,
+      [style.PrimaryButton]: buttonStyle === ButtonStyle.Primary,
+      [style.SecondaryButton]: buttonStyle === ButtonStyle.Secondary,
       [style.Disabled]: disabled,
     }
   );
