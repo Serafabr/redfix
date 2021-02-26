@@ -19,7 +19,7 @@ set cookie.session.person_id to 1;
 -- begin transaction
 begin transaction;
 
-\i run_all_mutations.sql
+\i scripts/run_all_mutations.sql
 
 -- rollback transaction
 rollback transaction;

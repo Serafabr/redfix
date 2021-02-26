@@ -14,7 +14,7 @@ set cookie.session.person_id to 1;
 begin transaction;
 
 -- use api to insert sample data
-\i run_all_mutations.sql
+\i scripts/run_all_mutations.sql
 
 -- ceb data
 \if :insert_ceb_data
