@@ -241,8 +241,8 @@ create table task_templates (
   task_category_id integer not null references task_categories (task_category_id),
   task_priority_id integer not null references task_priorities (task_priority_id),
   plan_id integer not null references plans (plan_id),
-  periodicity_id integer references periodicities (periodicity_id)
-  -- next_team_id integer not null references teams (team_id)
+  periodicity_id integer references periodicities (periodicity_id),
+  next_team_id integer references teams (team_id)
 );
 
 alter table tasks add foreign key (task_template_id) references task_templates (task_template_id) on delete set null;

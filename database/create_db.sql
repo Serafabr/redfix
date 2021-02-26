@@ -154,7 +154,6 @@ begin transaction;
 \i api/invoice/set_invoice_unpaid.sql
 -- plan
 \i api/plan/generate_plan_task.sql
-\i api/plan/generate_plan_tasks.sql
 \i api/plan/insert_monitor_read.sql
 \i api/plan/insert_monitor.sql
 \i api/plan/insert_plan.sql

@@ -27,12 +27,14 @@ create or replace function :function_name (
         "teamId",
         "taskTemplateId"
       ) into new_task_id;
-      -- select api.send_task(
-      --   new_task_id,
-      --   "teamId",
-      --   tt.next_team_id,
-      --   'MENSAGEM'
-      -- );
+      if tt.next_team_id is not null
+        then perform api.send_task(
+          new_task_id,
+          "teamId",
+          tt.next_team_id,
+          'MENSAGEM'
+        );
+      end if;
       id = new_task_id;
     end;
   $$

@@ -9,6 +9,7 @@ create or replace function :function_name (
   in "taskCategoryId" integer,
   in "planId" integer,
   in "periodicityId" integer default null,
+  in "nextTeamId" integer default null,
   out id integer
 )
   language plpgsql
@@ -24,7 +25,8 @@ create or replace function :function_name (
         "taskCategoryId",
         "taskPriorityId",
         "planId",
-        "periodicityId"
+        "periodicityId",
+        "nextTeamId"
       ) returning task_template_id into id;
 
       insert into task_template_assets select id, unnest("assets");

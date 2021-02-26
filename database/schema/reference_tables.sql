@@ -224,7 +224,7 @@ insert into periodicities values
   (7, 'Trimestral', null),
   (8, 'Semestral', null),
   (9, 'Anual', null),
-  (10, 'Bienal', null),
+  (10, 'Bienal', null)
 ;
 
 create table price_source_types (
