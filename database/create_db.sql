@@ -184,6 +184,7 @@ begin transaction;
 \i api/task/approve_task_supply.sql
 \i api/task/cancel_send_task.sql
 \i api/task/clone_task.sql
+\i api/task/consume_task_supply.sql
 \i api/task/follow_task.sql
 \i api/task/insert_task.sql
 \i api/task/insert_task_asset.sql

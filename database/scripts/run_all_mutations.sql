@@ -85,6 +85,7 @@
 \i tests/task/propose_task_supply.sql
 \i tests/task/approve_proposed_task_supplies.sql
 \i tests/task/approve_task_supply.sql
+\i tests/task/consume_task_supply.sql
 \i tests/task/remove_task_supply.sql
 
 -- \i tests/task/finish_task.sql
