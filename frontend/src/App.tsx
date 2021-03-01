@@ -15,9 +15,6 @@ function App() {
       <div style={{ margin: '20px', width: '350px' }}>
         <Input placeholder="Nome" label="Nome Completo" />
       </div>
-      <div style={{ margin: '20px', width: '350px' }}>
-        <Input placeholder="Ex: São Paulo" label="Cidade" error />
-      </div>
     </div>
   );
 }
