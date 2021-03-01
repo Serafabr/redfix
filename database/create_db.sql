@@ -157,11 +157,13 @@ begin transaction;
 \i api/plan/insert_monitor_read.sql
 \i api/plan/insert_monitor.sql
 \i api/plan/insert_plan.sql
+\i api/plan/insert_task_template_asset.sql
 \i api/plan/insert_task_template.sql
 \i api/plan/modify_monitor_read.sql
 \i api/plan/modify_monitor.sql
 \i api/plan/modify_plan.sql
 \i api/plan/modify_task_template.sql
+\i api/plan/remove_task_template_asset.sql
 -- project
 \i api/project/activate_project.sql
 \i api/project/add_task_to_project.sql

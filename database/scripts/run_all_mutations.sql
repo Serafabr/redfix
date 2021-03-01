@@ -96,6 +96,8 @@
 \i tests/plan/modify_plan.sql
 \i tests/plan/insert_task_template.sql
 \i tests/plan/modify_task_template.sql
+\i tests/plan/insert_task_template_asset.sql
+\i tests/plan/remove_task_template_asset.sql
 \i tests/plan/generate_plan_task.sql
 
 \i tests/plan/insert_monitor.sql
