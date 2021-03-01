@@ -16,7 +16,13 @@ function App() {
         <Input placeholder="Nome" label="Nome Completo" />
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
+<<<<<<< HEAD
         <Input placeholder="Ex: São Paulo" label="Cidade" error />
+||||||| 12775ed
+        <Input placeholder="Nome" error />
+=======
+        <Input placeholder="Nome" label="Cidade" error />
+>>>>>>> 0d9e32d5a36e7a2b279bf8c88971ab39b0ac0e9f
       </div>
     </div>
   );
