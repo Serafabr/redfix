@@ -1,4 +1,4 @@
-drop role IF exists coordinator;
+drop role if exists coordinator;
 drop role if exists supervisor;
 drop role if exists inspector;
 drop role if exists employee;
