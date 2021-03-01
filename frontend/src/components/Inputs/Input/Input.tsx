@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { BaseInput } from '../BaseInput/BaseInput'
 import svgError from '../../../assets/icons/search.svg';
 import style from './Input.module.scss';
+import { AlertCircle } from '../../Icons';
 
 type Props = {
   error?: boolean,
@@ -29,7 +30,7 @@ export const Input = ({
         {...rest}
       />
       <div className={style.ErrorMessage}>
-        <img src={svgError} alt="Mensagem de erro"/>
+        <AlertCircle className="Test" />
         <div className={style.ErrorTextMessage}>Mensagem de erro</div>
       </div>
     </div>
