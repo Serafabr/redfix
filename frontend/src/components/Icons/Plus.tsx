@@ -1,4 +1,4 @@
-import style from './Plus.module.scss';
+import style from './Icons.module.scss';
 
 type Props = {
   className: string,
@@ -11,7 +11,7 @@ function SvgPlus({ className }: Props) {
       height={16}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${className} ${style.Plus}`}
+      className={`${className} ${style.Icon}`}
     >
       <path
         d="M8 3.333v9.334M3.333 8h9.334"
