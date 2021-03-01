@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames';
-import { BaseInput } from '../BaseInput/BaseInput'
 import style from './Input.module.scss';
 import { AlertCircle } from '../../Icons';
 
@@ -14,24 +13,31 @@ export const Input = ({
   ...rest
 }: Props) => {
   
+  const legendClasses = classNames(
+    style.Legend,
+    {
+      [style.LegendError]: error
+    },
+  );
+  
   const inputClasses = classNames(
     style.Input,
     {
-      [style.Error]: error
+      [style.InputError]: error
     },
   );
   
   return (
-    <div className={inputClasses}>
-      <legend className={style.Legend}>Nome Completo:</legend>
-      <BaseInput 
-        error={error}
-        {...rest}
-      />
-      <div className={style.ErrorMessage}>
-        <AlertCircle className={style.ErrorIcon} />
-        <div className={style.ErrorTextMessage}>Mensagem de erro</div>
-      </div>
+    <div>
+      <label className={legendClasses}>Nome Completo:
+        <input className={inputClasses} {...rest}/>
+      </label>
+      {error && (
+        <div className={style.ErrorMessageWrapper}>
+          <AlertCircle className={style.ErrorIcon} />
+          <div className={style.ErrorTextMessage}>Mensagem de erro</div>
+        </div>
+      )}
     </div>
   )
 }

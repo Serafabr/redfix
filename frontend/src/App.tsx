@@ -14,6 +14,9 @@ function App() {
         <SearchInput />
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
+        <Input placeholder="Nome" />
+      </div>
+      <div style={{ margin: '20px', width: '350px' }}>
         <Input placeholder="Nome" error />
       </div>
     </div>

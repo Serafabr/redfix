@@ -1,22 +1,94 @@
 @import "../../../style/variables";
 
+
+/*------------------------------------*\
+  #Label Style
+\*------------------------------------*/
+
 .Legend {
   margin: 4px 7px;
   font: inherit;
   font-style: normal;
   font-weight: 600;
-  font-size: 0.85714rem;
+  font-size: 0.85714rem; //12px
   line-height: 20px;
   color: $gray_600;
 }
 
-.Error {
-  .Legend {
-    color: $danger_color;
+
+
+/*------------------------------------*\
+  #Input Style
+\*------------------------------------*/
+
+.Input {
+  padding:       10px 16px;
+  border:        1px solid $gray_300;
+  border-radius: 4px;
+  
+  width:  100%;
+  height: 40px;
+  
+  background-color: $white_0;
+  
+  font:        inherit;
+  font-size:   1rem;
+  font-weight: 400;
+  color:       $gray_700;
+  
+  font-style:  normal;
+  line-height: 21px;
+  
+  ::placeholder {
+    color: $gray_400;
+  }
+  
+  &:hover {
+    border: 1px solid $gray_400;
+  }
+  
+  &:focus,
+  &:active {
+    border:     1px solid $primary_color;
+    box-shadow: 0px 0px 3px 2px rgba(21, 137, 238, 0.5);
+    outline:    none;
   }
 }
 
-.ErrorMessage {
+
+
+/*------------------------------------*\
+  #Error Style
+\*------------------------------------*/
+
+.LegendError {
+  color: $danger_color;
+}
+
+.InputError {
+  border: 1px solid $danger_color;
+  
+  
+  &:hover {
+    border:     1px solid $hovered_danger;
+  }
+  
+  
+  &:focus,
+  &:active {
+    border:     1px solid $danger_color;
+    box-shadow: 0px 0px 3px 2px rgba(194, 57, 52, 0.5);
+    outline:    none;
+  }
+}
+
+
+
+/*------------------------------------*\
+  #Error Message (Below)
+\*------------------------------------*/
+
+.ErrorMessageWrapper {
   margin: 4px 7px;
   display: flex;
   align-items: center;
