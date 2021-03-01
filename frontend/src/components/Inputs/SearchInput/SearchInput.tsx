@@ -1,4 +1,4 @@
-import { BaseInput } from '../BaseInput/BaseInput';
+import { Input } from '../Input/Input';
 import style from './SearchInput.module.scss';
 
 type Props = any;
@@ -6,7 +6,7 @@ type Props = any;
 export const SearchInput = (props: Props) => {
   
   return (
-    <BaseInput 
+    <Input 
       className={style.SearchInput} 
       error={false} 
       placeholder="Pesquisar..." 

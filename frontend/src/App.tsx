@@ -8,16 +8,16 @@ function App() {
   return (
     <div className="App">
       <div style={{ margin: '20px', width: '350px' }}>
-        <BaseInput type="text" placeholder="Nome"/>
+        <Input type="text" placeholder="Nome"/>
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
         <SearchInput />
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
-        <Input placeholder="Nome" />
+        <Input placeholder="Nome" label="Nome Completo" />
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
-        <Input placeholder="Nome" error />
+        <Input placeholder="Nome" label="Cidade" error />
       </div>
     </div>
   );
