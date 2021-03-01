@@ -6,13 +6,15 @@
 \*------------------------------------*/
 
 .Legend {
-  margin: 4px 7px;
-  font: inherit;
-  font-style: normal;
+  margin:      4px 7px;
+  
+  font:        inherit;
+  font-size:   0.85714rem; //12px
   font-weight: 600;
-  font-size: 0.85714rem; //12px
+  color:       $gray_600;
+  
+  font-style:  normal;
   line-height: 20px;
-  color: $gray_600;
 }
 
 
@@ -43,6 +45,7 @@
     color: $gray_400;
   }
   
+  
   &:hover {
     border: 1px solid $gray_400;
   }
@@ -70,9 +73,8 @@
   
   
   &:hover {
-    border:     1px solid $hovered_danger;
+    border: 1px solid $hovered_danger;
   }
-  
   
   &:focus,
   &:active {
@@ -89,8 +91,8 @@
 \*------------------------------------*/
 
 .ErrorMessageWrapper {
-  margin: 4px 7px;
-  display: flex;
+  display:     flex;
+  margin:      4px 7px;
   align-items: center;
 }
 
@@ -100,10 +102,12 @@
 
 .ErrorTextMessage {
   margin-left: 6px;
-  color: $danger_color;
-  font: inherit;
-  font-style: normal;
+  
+  color:       $danger_color;
+  font:        inherit;
+  font-size:   0.85714rem;
   font-weight: 400;
-  font-size: 0.85714rem;
+  
+  font-style:  normal;
   line-height: 20px;
 }
