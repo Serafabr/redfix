@@ -7,6 +7,8 @@ create or replace function :function_name (
   in "description" text,
   in "unit" text,
   in "assetId" integer,
+  in "lowerLimit" numeric,
+  in "upperLimit" numeric,
   out id integer
 )
   language plpgsql
@@ -18,7 +20,9 @@ create or replace function :function_name (
         name,
         description,
         unit,
-        asset_id
+        asset_id,
+        lower_limit,
+        upper_limit
       ) = (select new_values.*)
       from (select
         now(),
@@ -26,7 +30,9 @@ create or replace function :function_name (
         "name",
         "description",
         "unit",
-        "assetId"
+        "assetId",
+        "lowerLimit",
+        "upperLimit"
       ) as new_values
       where m.monitor_id = "monitorId";
       id = "monitorId";

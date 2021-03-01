@@ -262,7 +262,9 @@ create table monitors (
   name text not null,
   description text not null,
   unit text not null,
-  asset_id integer not null references assets (asset_id)
+  asset_id integer not null references assets (asset_id),
+  lower_limit numeric,
+  upper_limit numeric
 );
 
 create table monitor_reads (

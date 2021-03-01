@@ -6,6 +6,8 @@ create or replace function :function_name (
   in "description" text,
   in "unit" text,
   in "assetId" integer,
+  in "lowerLimit" numeric,
+  in "upperLimit" numeric,
   out id integer
 )
   language plpgsql
@@ -20,7 +22,9 @@ create or replace function :function_name (
         "name",
         "description",
         "unit",
-        "assetId"
+        "assetId",
+        "lowerLimit",
+        "upperLimit"
       ) returning monitor_id into id;
     end;
   $$
