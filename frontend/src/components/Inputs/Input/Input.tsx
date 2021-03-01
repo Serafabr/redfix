@@ -7,6 +7,7 @@ type Props = {
   label?: string | null,
   className?: string,
   error?: boolean,
+  errorMessage?: string | null,
   [any: string]: any
 };
 
@@ -14,6 +15,7 @@ export const Input = ({
   label = null,
   className,
   error = false,
+  errorMessage = null,
   ...rest
 }: Props) => {
   
@@ -38,10 +40,10 @@ export const Input = ({
     <div>
       {label && <label className={legendClasses}>{label}:</label>}
       <input className={inputClasses} {...rest}/>
-      {error && (
+      {error && errorMessage && (
         <div className={style.ErrorMessageWrapper}>
           <AlertCircle className={style.ErrorIcon} />
-          <div className={style.ErrorTextMessage}>Mensagem de erro</div>
+          <div className={style.ErrorTextMessage}>{errorMessage}</div>
         </div>
       )}
     </div>

@@ -13,7 +13,7 @@ function App() {
         <SearchInput />
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
-        <Input placeholder="Nome" label="Nome Completo" />
+        <Input placeholder="Nome" label="Nome Completo" error errorMessage="Inserir seu nome completo"/>
       </div>
     </div>
   );
