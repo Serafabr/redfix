@@ -1,6 +1,8 @@
-drop trigger if exists check_task_supply on task_supplies;
-drop function if exists check_task_supply;
-create or replace function check_task_supply ()
+\set trigger_name check_task_supply
+
+drop trigger if exists :trigger_name on task_supplies;
+drop function if exists :trigger_name;
+create or replace function :trigger_name ()
   returns trigger
   language plpgsql
   as $$
@@ -17,6 +19,6 @@ create or replace function check_task_supply ()
   $$
 ;
 
-create trigger check_task_supply
+create trigger :trigger_name
 before insert or update on task_supplies
-for each row execute procedure check_task_supply();
+for each row execute procedure :trigger_name();

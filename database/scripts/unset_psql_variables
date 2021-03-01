@@ -33,3 +33,4 @@
 \unset tag_to_be_removed
 \unset test_result_message
 \unset total_of_mutations
+\unset trigger_name

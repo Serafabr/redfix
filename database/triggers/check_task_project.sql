@@ -1,6 +1,8 @@
-drop trigger if exists check_task_project on tasks;
-drop function if exists check_task_project;
-create or replace function check_task_project ()
+\set trigger_name check_task_project
+
+drop trigger if exists :trigger_name on tasks;
+drop function if exists :trigger_name;
+create or replace function :trigger_name ()
   returns trigger
   language plpgsql
   as $$
@@ -17,6 +19,6 @@ create or replace function check_task_project ()
   $$
 ;
 
-create trigger check_task_project
+create trigger :trigger_name
 before insert or update on tasks
-for each row execute procedure check_task_project();
+for each row execute procedure :trigger_name();

@@ -1,7 +1,8 @@
-drop trigger if exists check_asset_location on assets;
-drop function if exists check_asset_location;
+\set trigger_name check_asset_location
 
-create or replace function check_asset_location ()
+drop trigger if exists :trigger_name on assets;
+drop function if exists :trigger_name;
+create or replace function :trigger_name ()
   returns trigger
   language plpgsql
   as $$
@@ -17,6 +18,6 @@ create or replace function check_asset_location ()
   $$
 ;
 
-create trigger check_asset_location
+create trigger :trigger_name
 before insert or update on assets
-for each row execute procedure check_asset_location();
+for each row execute procedure :trigger_name();

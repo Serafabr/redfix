@@ -1,6 +1,8 @@
-drop trigger if exists check_delete_supply on supplies;
-drop function if exists check_delete_supply;
-create or replace function check_delete_supply ()
+\set trigger_name check_delete_supply
+
+drop trigger if exists :trigger_name on supplies;
+drop function if exists :trigger_name;
+create or replace function :trigger_name ()
   returns trigger
   language plpgsql
   as $$
@@ -14,6 +16,6 @@ create or replace function check_delete_supply ()
   $$
 ;
 
-create trigger check_delete_supply
+create trigger :trigger_name
 before delete on supplies
-for each row execute procedure check_delete_supply();
+for each row execute procedure :trigger_name();

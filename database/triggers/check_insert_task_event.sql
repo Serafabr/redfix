@@ -1,7 +1,8 @@
-drop trigger if exists check_insert_task_event on task_events;
-drop function if exists check_insert_task_event;
+\set trigger_name check_insert_task_event
 
-create or replace function check_insert_task_event ()
+drop trigger if exists :trigger_name on task_events;
+drop function if exists :trigger_name;
+create or replace function :trigger_name ()
   returns trigger
   language plpgsql
   as $$
@@ -47,6 +48,6 @@ create or replace function check_insert_task_event ()
   $$
 ;
 
-create trigger check_insert_task_event
+create trigger :trigger_name
 before insert on task_events
-for each row execute procedure check_insert_task_event();
+for each row execute procedure :trigger_name();

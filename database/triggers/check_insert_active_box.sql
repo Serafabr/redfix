@@ -1,6 +1,8 @@
-drop trigger if exists check_insert_active_box on active_boxes;
-drop function if exists check_insert_active_box;
-create or replace function check_insert_active_box ()
+\set trigger_name check_insert_active_box
+
+drop trigger if exists :trigger_name on active_boxes;
+drop function if exists :trigger_name;
+create or replace function :trigger_name ()
   returns trigger
   language plpgsql
   as $$
@@ -19,6 +21,6 @@ create or replace function check_insert_active_box ()
   $$
 ;
 
-create trigger check_insert_active_box
+create trigger :trigger_name
 before insert on active_boxes
-for each row execute procedure check_insert_active_box();
+for each row execute procedure :trigger_name();

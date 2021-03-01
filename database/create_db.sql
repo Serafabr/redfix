@@ -230,6 +230,7 @@ begin transaction;
 -- create triggers before populate tables
 \i triggers/check_delete_supply.sql
 \i triggers/check_insert_active_box.sql
+-- \i triggers/check_insert_invoice_task.sql
 \i triggers/check_insert_task_event.sql
 \i triggers/check_update_task_event.sql
 \i triggers/check_task_project.sql

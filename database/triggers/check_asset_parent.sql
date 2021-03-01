@@ -1,7 +1,8 @@
-drop trigger if exists check_asset_parent on asset_parents;
-drop function if exists check_asset_parent;
+\set trigger_name check_asset_parent
 
-create or replace function check_asset_parent ()
+drop trigger if exists :trigger_name on asset_parents;
+drop function if exists :trigger_name;
+create or replace function :trigger_name ()
   returns trigger
   language plpgsql
   as $$
@@ -14,6 +15,6 @@ create or replace function check_asset_parent ()
   $$
 ;
 
-create trigger check_asset_parent
+create trigger :trigger_name
 before insert or update on asset_parents
-for each row execute procedure check_asset_parent();
+for each row execute procedure :trigger_name();

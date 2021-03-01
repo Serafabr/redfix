@@ -21,6 +21,7 @@ create or replace function :function_name (
         when 203 then message = format('%s %s - Erro ao criar evento da tarefa.', header, exception_code);
         when 204 then message = format('%s %s - Usuário não é o dono da mensagem.', header, exception_code);
         when 205 then message = format('%s %s - Projeto inválido.', header, exception_code);
+        when 206 then message = format('%s %s - Tarefa não concluída não pode ser adicionada a um faturamento.', header, exception_code);
         -- depot api (codes 301 to 399)
         when 301 then message = format('%s %s - Suprimento não pode ser removido pois está vinculado a alguma(s) tarefa(s).', header, exception_code);
         when 302 then message = format('%s %s - Somente podem ser ativadas as caixas de um estoque formalizado.', header, exception_code);

@@ -1,7 +1,8 @@
-drop trigger if exists publish_to_channel on assets;
-drop function if exists publish_to_channel;
+\set trigger_name publish_to_channel
 
-create or replace function publish_to_channel() returns trigger 
+drop trigger if exists :trigger_name on assets;
+drop function if exists :trigger_name;
+create or replace function :trigger_name() returns trigger 
 language plpgsql
 volatile
 as $$
@@ -12,14 +13,6 @@ begin
 end;
 $$;
 
-create trigger publish_to_channel
+create trigger :trigger_name
 after insert or update on assets
-for each row execute procedure publish_to_channel();
-
-insert into assets values (
-  default,
-  now()::text,
-  'name',
-  null,
-  1
-);
+for each row execute procedure :trigger_name();

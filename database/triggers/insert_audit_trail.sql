@@ -1,6 +1,7 @@
-drop function if exists insert_audit_trail cascade;
+\set trigger_name insert_audit_trail
 
-create or replace function insert_audit_trail ()
+drop function if exists :trigger_name cascade;
+create or replace function :trigger_name ()
   returns trigger
   language plpgsql
   as $$
