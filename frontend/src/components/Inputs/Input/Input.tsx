@@ -1,7 +1,6 @@
 import React from 'react'
 import classNames from 'classnames';
 import { BaseInput } from '../BaseInput/BaseInput'
-import svgError from '../../../assets/icons/search.svg';
 import style from './Input.module.scss';
 import { AlertCircle } from '../../Icons';
 
@@ -30,7 +29,7 @@ export const Input = ({
         {...rest}
       />
       <div className={style.ErrorMessage}>
-        <AlertCircle className="Test" />
+        <AlertCircle className={style.ErrorIcon} />
         <div className={style.ErrorTextMessage}>Mensagem de erro</div>
       </div>
     </div>

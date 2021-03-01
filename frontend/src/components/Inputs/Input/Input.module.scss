@@ -19,6 +19,11 @@
 .ErrorMessage {
   margin: 4px 7px;
   display: flex;
+  align-items: center;
+}
+
+.ErrorIcon {
+  stroke: $danger_color;
 }
 
 .ErrorTextMessage {
