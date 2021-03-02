@@ -1,7 +1,9 @@
 import { Avatar } from '../Avatar/Avatar';
+
 import dropIcon from '../../../assets/icons/dropdown.svg';
 import style from './AvatarDropdown.module.scss';
 
+// Avatar with dropdown
 export const AvatarDropdown = () => {
   return (
     <div className={style.AvatarDropdown}>

@@ -3,6 +3,7 @@ import style from './Avatar.module.scss';
 
 type Props = any;
 
+// Avatar image
 export const Avatar = (props: Props) => {
   return (
     <div className={style.Avatar}>

@@ -1,36 +1,51 @@
 @import "../../../style/variables";
 
+
+/*------------------------------------*\
+  #Avatar with dropdown (Wrapper)
+\*------------------------------------*/
+
 .AvatarDropdown {
-  display: flex;
-  align-items: center;
+  display:      flex;
+  align-items:  center;
+  
   height: 33px;
-  width: 165px;
+  width:  165px;
 }
 
+
+
+/*------------------------------------*\
+  #Information about the user: the name and the job
+\*------------------------------------*/
+
 .InfoWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display:          flex;
+  flex-direction:   column;
+  justify-content:  center;
+  
   margin-left: 12px;
 }
 
 .Name {
-  font: inherit;
-  font-size: 1rem;
-  font-weight: 600;
+  font:         inherit;
+  font-size:    1rem;
+  font-weight:  600;
+  color:        $gray_700;
+  
   line-height: 21px;
-  color: $gray_700;
 }
 
 .Job {
-  font: inherit;
-  font-size: 0.7143rem;
-  font-weight: 600;
+  font:         inherit;
+  font-size:    0.7143rem;
+  font-weight:  600;
+  color:        $gray_400;
+  
   line-height: 16px;
-  color: $gray_400;
 }
 
 .DropIcon {
-  padding: 15px 5px;
-  margin-left: auto;
+  margin-left:  auto;
+  padding:      15px 5px;
 }

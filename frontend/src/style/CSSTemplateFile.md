@@ -56,10 +56,10 @@
 
 
 ## SIZES
-* width
-* max/min-width
 * height
 * max/min-height
+* width
+* max/min-width
 
 
 ## BACKGROUND
