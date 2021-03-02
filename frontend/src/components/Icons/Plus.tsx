@@ -1,7 +1,7 @@
 import style from './Icons.module.scss';
 
 type Props = {
-  className: string | null,
+  className?: string | null,
 }
 
 function SvgPlus({ className = null }: Props) {
