@@ -1,0 +1,28 @@
+@import "../../../style/variables";
+
+.AvatarDropdown {
+  display: flex;
+  align-items: center;
+  height: 33px;
+  width: 165px;
+}
+
+.InfoWrapper {
+  margin-left: 12px;
+}
+
+.Name {
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 21px;
+  color: $gray_700;
+}
+
+.Job {
+  font: inherit;
+  font-size: 0.7143rem;
+  font-weight: 600;
+  line-height: 16px;
+  color: $gray_400;
+}
