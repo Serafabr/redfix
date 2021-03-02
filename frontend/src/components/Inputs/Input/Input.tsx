@@ -1,19 +1,21 @@
-import React from 'react'
 import classNames from 'classnames';
-import style from './Input.module.scss';
-import { AlertCircle } from '../../Icons';
 
+import { AlertCircle } from '../../Icons';
+import style from './Input.module.scss';
+
+// Prop Types
 type Props = {
   label?: string | null,
-  className?: string,
+  inputClassName?: string,
   error?: boolean,
   errorMessage?: string | null,
   [any: string]: any
 };
 
+// Input Component
 export const Input = ({
   label = null,
-  className,
+  inputClassName,
   error = false,
   errorMessage = null,
   ...rest
@@ -29,7 +31,7 @@ export const Input = ({
   
   const inputClasses = classNames(
     style.Input,
-    className,
+    inputClassName,
     {
       [style.InputError]: error
     },

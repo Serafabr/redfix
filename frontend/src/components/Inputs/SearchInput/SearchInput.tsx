@@ -6,7 +6,7 @@ export const SearchInput = () => {
   
   return (
     <Input 
-      className={style.SearchInput} 
+      inputClassName={style.SearchInput} 
       error={false} 
       placeholder="Pesquisar..." 
     />
