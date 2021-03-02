@@ -1,5 +1,5 @@
 import './App.scss';
-import { Avatar } from './components/Avatars';
+import { AvatarDropdown } from './components/Avatars';
 import { Input } from './components/Inputs/Input/Input';
 import { SearchInput } from './components/Inputs/SearchInput/SearchInput';
 
@@ -17,7 +17,7 @@ function App() {
         <Input placeholder="Nome" label="Nome Completo" error errorMessage="Inserir seu nome completo"/>
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
-        <Avatar />
+        <AvatarDropdown />
       </div>
     </div>
   );
