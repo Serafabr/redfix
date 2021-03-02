@@ -4,12 +4,14 @@ import classNames from 'classnames';
 import style from './Button.module.scss';
 
 // Prop types
+// Button Styles
 export enum ButtonStyle { Primary, Secondary }
 
 type IconProps = {
   className: string,
 };
 
+// Button Props
 type Props = {
   text: string,
   buttonStyle?: ButtonStyle,
@@ -29,9 +31,9 @@ export const Button = ({
   onClick
  }: Props) => {
   
-  // Button style logic
+  // Button classes logic
   const btnClasses = classNames(
-    style.Button,
+    style.Button, // Always
     {
       [style.PrimaryButton]: buttonStyle === ButtonStyle.Primary,
       [style.SecondaryButton]: buttonStyle === ButtonStyle.Secondary,
