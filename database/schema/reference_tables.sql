@@ -236,3 +236,42 @@ insert into price_source_types values
   (1, 'Contrato'),
   (2, 'Proposta de empresa')
 ;
+
+create table spec_units (
+  spec_unit_id integer primary key,
+  spec_unit_text text not null,
+  dimensions integer not null
+);
+
+insert into spec_units values
+  (1, 'unidade x mês', 1),
+  (2, 'Rolo com 40 espiras', 1),
+  (3, 'metro cúbico', 3),
+  (4, 'm', 1),
+  (5, 'Frasco de 150 ml', 1),
+  (6, 'pc', 1),
+  (7, 'm²', 2),
+  (8, 'Dia de uso efetivo do equipamento', 1),
+  (9, 'unidade', 1),
+  (10, 'Kg', 1),
+  (11, 'Saco de 20 kg', 1),
+  (12, 'pç', 1),
+  (13, 'Frasco de 500 ml com aplicador', 1),
+  (14, 'metro quadrado', 2),
+  (15, 'm² x mês', 2),
+  (16, 'conj x mês', 1),
+  (17, 'hh', 1),
+  (18, 'par', 1),
+  (19, 'metro linear', 1),
+  (20, 'Profissional', 1),
+  (21, 'Pacote de 900 ml', 1),
+  (22, 'kg', 1),
+  (23, 'Saco de 50 kg', 1),
+  (24, 'metro cúbico por kilômetro', 3),
+  (25, 'un', 1),
+  (26, 'Saco de 40 kg', 1),
+  (27, 'Litro', 1),
+  (28, 'm x mês', 1),
+  (29, 'm³', 3),
+  (30, 'Metro linear', 1)
+;
