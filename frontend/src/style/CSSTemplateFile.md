@@ -49,10 +49,10 @@
 * box-sizing
 * margin
 * padding
-* outline
 * border
 * border-radius
 * box-shadow
+* outline
 
 
 ## SIZES
