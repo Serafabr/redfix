@@ -3,7 +3,10 @@ import style from './Dropdown.module.scss';
 export const Dropdown = () => {
   return (
     <div className={style.Dropdown}>
-      <button className={style.DropdownButton}>Ordens de Serviço</button>
+      <button className={style.DropdownButton}>
+        <div>Ordens de Serviço</div>
+        <div className={style.ButtonDownArrow}>V</div>
+      </button>
       <div className={style.ListWrapper}>
         <li className={style.List}>
           <ul className={style.Item}>Ordens de Serviço</ul>
