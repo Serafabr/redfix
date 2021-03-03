@@ -41,7 +41,7 @@
     cursor: pointer;
   }
   
-  .Plus {
+  .Icon {
     stroke: #ffffff;
   }
   
@@ -79,12 +79,12 @@
     color:  $hovered_primary;
     cursor: pointer;
     
-    .Plus {
+    .Icon {
       stroke: $hovered_primary;
     }
   }
   
-  .Plus {
+  .Icon {
     stroke: $primary_color;
   }
   
@@ -101,7 +101,7 @@
     color:  $gray_300;
     cursor: auto;
     
-    .Plus {
+    .Icon {
       stroke: $gray_300;
     }
   }
@@ -133,6 +133,6 @@
   align-items: center;
 }
 
-.Plus {
+.Icon {
   stroke: $primary_color;
 }

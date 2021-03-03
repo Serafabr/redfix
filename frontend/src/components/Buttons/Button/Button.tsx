@@ -13,7 +13,7 @@ type IconProps = {
 
 // Button Props
 type Props = {
-  text: string,
+  text?: string | null,
   buttonStyle?: ButtonStyle,
   iconComponent?: React.ComponentType<IconProps> | null,
   justIcon?: boolean,
@@ -23,7 +23,7 @@ type Props = {
 
 // Button Component
 export const Button = ({ 
-  text,
+  text = null,
   buttonStyle = ButtonStyle.Primary,
   iconComponent: Icon = null,
   justIcon = false,
@@ -52,7 +52,7 @@ export const Button = ({
         )}
         {Icon ? (
           <div className={style.IconWrapper}>
-            <Icon className={style.Plus} />
+            <Icon className={style.Icon} />
           </div>
         ) : null}
       </div>
