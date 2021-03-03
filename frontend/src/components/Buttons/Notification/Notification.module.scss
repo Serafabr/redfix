@@ -1,0 +1,32 @@
+@import "../../../style/variables";
+
+.Notification {
+  padding: 4px 6px;
+  background: none;
+  color: none;
+  border: none;
+  
+  
+  &:focus,
+  &:active {
+    outline:    none;
+    box-shadow: 0px 0px 3px 2px rgba(21, 137, 238, 0.4);
+    border-radius: 2px;
+  }
+}
+
+.NotificationIcon {
+  path {
+    stroke: $primary_color;
+  }
+}
+
+.Notification:hover {
+  cursor: pointer;
+    
+    .NotificationIcon {
+      path {
+        stroke: $hovered_primary;
+      }
+    }
+}
