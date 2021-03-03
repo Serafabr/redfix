@@ -5,6 +5,7 @@ import { SearchInput } from './components/Inputs/SearchInput/SearchInput';
 import Notification from './components/Buttons/Notification/Notification';
 import Support from './components/Buttons/Support/Support';
 import { QuickSearch } from './components/Inputs/QuickSearch/QuickSearch';
+import { Dropdown } from './components/Buttons/Dropdown/Dropdown';
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
         <Support />
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
-        <QuickSearch />
+        <Dropdown />
       </div>
     </div>
   );
