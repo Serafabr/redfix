@@ -1,10 +1,14 @@
 @import '../../../style/variables';
 
+.Dropdown {
+  position: relative;
+}
+
 .DropdownButton {
   display: flex;
   align-items: center;
   
-  padding: 10px 16px;
+  padding: 10px 12px 10px 16px;
   
   height: 40px;
   width: 165px;
@@ -18,11 +22,55 @@
   color: $gray_700;
   line-height: 21px;
   
-  &:focus {
-    outline: $outline_property;
+  &:hover {
+    border: 1px solid $gray_400;
+  }
+  
+  &:focus,
+  &:active {
+    outline: none;
   }
 }
 
 .ButtonDownArrow {
+  height: 16px;
+  width: 16px;
+  
   margin-left: auto;
+  
+  img {
+    width: 100%;
+    vertical-align: center;
+  }
+}
+
+.ListWrapper {
+  width: 165px;
+  border-radius: 4px;
+  background-color: $white_0;
+  border: 1px solid $gray_200;
+  position: absolute;
+  top: 48px;
+  left: 0px;
+  box-shadow: 0px 4px 10px rgba(203, 203, 203, 0.08);;
+}
+
+.List {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.Item {
+  margin: 0;
+  padding: 8px 15px;
+  font: inherit;
+  line-height: 21px;
+  color: $gray_400;
+  
+  &:hover {
+    background-color: $gray_50;
+    color: $gray_700;
+    cursor: pointer;
+  }
 }
