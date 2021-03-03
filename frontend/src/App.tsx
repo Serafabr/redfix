@@ -4,14 +4,12 @@ import { Input } from './components/Inputs/Input/Input';
 import { SearchInput } from './components/Inputs/SearchInput/SearchInput';
 import Notification from './components/Buttons/Notification/Notification';
 import Support from './components/Buttons/Support/Support';
+import { QuickSearch } from './components/Inputs/QuickSearch/QuickSearch';
 
 
 function App() {
   return (
     <div className="App">
-      <div style={{ margin: '20px', width: '350px' }}>
-        <Input type="text" placeholder="Nome"/>
-      </div>
       <div style={{ margin: '20px', width: '350px' }}>
         <SearchInput />
       </div>
@@ -29,6 +27,9 @@ function App() {
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
         <Support />
+      </div>
+      <div style={{ margin: '20px', width: '350px' }}>
+        <QuickSearch />
       </div>
     </div>
   );
