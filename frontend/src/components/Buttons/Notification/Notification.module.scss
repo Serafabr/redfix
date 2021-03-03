@@ -12,8 +12,7 @@
   
   &:focus,
   &:active {
-    border-radius:  2px;
-    @extend %outline_box_shadow;
+    outline: none;
   }
 }
 

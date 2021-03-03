@@ -2,7 +2,8 @@ import './App.scss';
 import { AvatarDropdown } from './components/Avatars';
 import { Input } from './components/Inputs/Input/Input';
 import { SearchInput } from './components/Inputs/SearchInput/SearchInput';
-import Notification from './components/Buttons/Notification/Notification'
+import Notification from './components/Buttons/Notification/Notification';
+import Support from './components/Buttons/Support/Support';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
       </div>
       <div style={{ margin: '20px', width: '350px' }}>
         <Notification />
+      </div>
+      <div style={{ margin: '20px', width: '350px' }}>
+        <Support />
       </div>
     </div>
   );
