@@ -65,6 +65,7 @@ begin transaction;
 \i schema/tables.sql
 \i schema/files_tables.sql
 \i schema/utilities.sql
+-- \i schema/partitions.sql
 
 -- create functions
 \i functions/authenticate.sql
