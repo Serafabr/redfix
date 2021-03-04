@@ -1,14 +1,24 @@
-import { useState } from 'react';
+import { useState, useRef, RefObject } from 'react';
 import classNames from 'classnames';
 // Components
 import ArrowDown from '../../../assets/icons/arrow-down.svg';
 // Style
 import style from './Dropdown.module.scss';
+import { useOutsideHandler } from '../../../hooks';
 
 
 export const Dropdown = () => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
+  
+  // Callback that will be executed if you click outside an element.
+  const handleOutsideClick = () => {
+    setIsOpen(false);
+  }
+  
+  // Hook that execute a callback if you click outside an element.
+  const wrapperRef = useRef(null);
+  useOutsideHandler(wrapperRef, handleOutsideClick);
   
   const handleOnClick = () => {
     setIsOpen((prevState) => (!prevState));
@@ -24,7 +34,7 @@ export const Dropdown = () => {
   
   // Render
   return (
-    <div className={style.Dropdown}>
+    <div className={style.Dropdown} ref={wrapperRef}>
       <button className={dropdownButtonClasses} onClick={handleOnClick}>
         <div>Ordens de Serviço</div>
         <div className={style.ButtonDownArrow}>

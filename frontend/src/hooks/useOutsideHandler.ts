@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, RefObject } from 'react';
 
-type refProps = React.RefObject<HTMLInputElement>;
+type refProps = RefObject<HTMLInputElement>;
 type callbackProps = () => void;
 type eventProps = MouseEvent; // Type from the DOM
 
