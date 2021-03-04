@@ -1,17 +1,31 @@
 import { useState } from 'react';
-import style from './Dropdown.module.scss';
+import classNames from 'classnames';
+// Components
 import ArrowDown from '../../../assets/icons/arrow-down.svg';
+// Style
+import style from './Dropdown.module.scss';
+
 
 export const Dropdown = () => {
+  // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   
   const handleOnClick = () => {
     setIsOpen((prevState) => (!prevState));
   };
   
+  // Change classes for the button, if the dropdown is open.
+  const dropdownButtonClasses = classNames(
+    style.DropdownButton,
+    {
+      [style.Opened]: isOpen,
+    }
+  );
+  
+  // Render
   return (
     <div className={style.Dropdown}>
-      <button className={style.DropdownButton} onClick={handleOnClick}>
+      <button className={dropdownButtonClasses} onClick={handleOnClick}>
         <div>Ordens de Serviço</div>
         <div className={style.ButtonDownArrow}>
           <img src={ArrowDown} alt="Ícone dropdown"/>
