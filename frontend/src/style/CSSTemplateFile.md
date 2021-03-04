@@ -32,6 +32,7 @@
 * right
 * bottom
 * left
+* z-index
 
 
 ## FLOAT AND CLEAR
@@ -71,7 +72,6 @@
 * visibility
 * opacity
 * transform 
-* z-index
 * clip
 * overflow
 
