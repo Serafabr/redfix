@@ -1,0 +1,1 @@
+export { useOutsideHandler } from './useOutsideHandler';
