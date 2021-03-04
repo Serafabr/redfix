@@ -32,6 +32,9 @@ function App() {
       <div style={{ margin: '20px', width: '350px' }}>
         <Dropdown />
       </div>
+      <div style={{ margin: '20px', width: '550px' }}>
+        <QuickSearch />
+      </div>
     </div>
   );
 }

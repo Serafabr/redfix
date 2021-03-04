@@ -15,7 +15,7 @@
     \*------------------------------------*/
 ```
 * Limit CSS files’ width to 80 characters.
-* Each title should be preceded by three (3) carriage returns.
+* Each title should be preceded by two (2) carriage returns.
 
 
 
