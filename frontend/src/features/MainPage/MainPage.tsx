@@ -1,5 +1,5 @@
-import { AppSidebarFooter } from '../Layout/AppSidebarFooter';
-import { AppSidebarNav } from '../Layout/AppSidebarNav';
+import { AppHeader, AppSidebar } from '../Layout';
+
 import style from './MainPage.module.scss';
 
 export const MainPage = () => {
@@ -8,7 +8,7 @@ export const MainPage = () => {
       <AppHeader />
       <AppSidebar />
       <main>
-        Hey
+        Body
       </main>
       {/* <AppHeader>
         <MainHeader />
