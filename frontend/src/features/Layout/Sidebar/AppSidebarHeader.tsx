@@ -1,7 +1,7 @@
-export const AppSideBarHeader = () => {
+export const AppSidebarHeader = () => {
   return (
     <div>
-      
+      REDFIX
     </div>
   )
 }

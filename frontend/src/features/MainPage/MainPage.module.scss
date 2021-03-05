@@ -1,4 +1,26 @@
 .MainPage {
   display: grid;
   height: 100vh;
+  grid-template-columns: 256px 1fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-areas: 
+  "sidebarHeader header"
+  "sidebar body";
 }
+
+.AppHeader {
+  grid-area: header;
+}
+
+.AppSidebarHeader {
+  grid-area: sidebarHeader;
+}
+
+.AppSidebar {
+  grid-area: sidebar;
+}
+
+.Body {
+  grid-area: body;
+}
+
