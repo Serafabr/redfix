@@ -1,8 +1,7 @@
-\set function_name api.modify_monitor
+\set function_name api.create_monitor
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "monitorId" integer,
   in "name" text,
   in "description" text,
   in "unit" text,
@@ -14,34 +13,25 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update monitors as m set (
-        updated_at,
-        updated_by,
-        name,
-        description,
-        unit,
-        asset_id,
-        lower_limit,
-        upper_limit
-      ) = (select new_values.*)
-      from (select
+      insert into monitors values (
+        default,
         now(),
-        get_person_id(),
+        now(),
+        default,
+        default,
         "name",
         "description",
         "unit",
         "assetId",
         "lowerLimit",
         "upperLimit"
-      ) as new_values
-      where m.monitor_id = "monitorId";
-      id = "monitorId";
+      ) returning monitor_id into id;
     end;
   $$
 ;
 
 grant execute on function :function_name to coordinator, supervisor;
 
-select generate_api_documentation(:'function_name',E'`monitorId` of the modified monitor\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'`monitorId` of the new monitor\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';
