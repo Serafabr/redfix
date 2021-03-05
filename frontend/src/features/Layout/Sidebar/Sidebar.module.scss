@@ -4,6 +4,12 @@
   height: 100%;
   width: 100%;
   background-color: $secondary_color;
+  border: 0px;
+  overflow: auto;
+}
+
+.SidebarWrapper {
+  margin-top: 20px;
 }
 
 .AppSidebarHeader {
