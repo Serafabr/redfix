@@ -1,3 +1,43 @@
+@import '../../../style/variables';
+
 .AppSideBar {
-  background-color: blue;
+  height: 100%;
+  width: 100%;
+  background-color: $secondary_color;
+}
+
+.AppSidebarHeader {
+  height: 100%;
+  width: 100%;
+  background-color: $secondary_color;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid rgba(256, 256, 256, 0.12);
+}
+
+.ImgWrapper {
+  width: 83px;
+  height: 23px;
+  
+  img {
+    width: 100%;
+  }
+}
+
+.Version {
+  height: 20px;
+  width: 44px;
+  border-radius: 4px;
+  background-color: rgba(256, 256, 256, 0.04);
+  text-align: center;
+  padding: 0;
+  
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.7142rem;
+  color: $white_0;
+  line-height: 20px;
+  
+  vertical-align: center;
 }
