@@ -8,7 +8,10 @@ export const SidebarGroup = () => {
   return (
     <div className={style.SidebarGroup}>
       <div className={style.GroupDivider}>
-        Manutenções
+        <div className={style.DividerLine} />
+        <div className={style.DividerText}>
+          Manutenções
+        </div>
       </div>
       <ul className={style.List}>
         <li className={style.Item}>
