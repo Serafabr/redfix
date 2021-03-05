@@ -2,7 +2,7 @@ import style from './Sidebar.module.scss';
 
 export const AppSidebar = () => {
   return (
-    <div>
+    <div className={style.AppSideBar}>
       Sidebar
     </div>
   )

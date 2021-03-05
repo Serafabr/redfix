@@ -7,7 +7,7 @@ export const MainPage = () => {
     <div className={style.MainPage}>
       <AppHeader />
       <AppSidebar />
-      <main>
+      <main style={{ backgroundColor: "gray" }}>
         Body
       </main>
       {/* <AppHeader>
