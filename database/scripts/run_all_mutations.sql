@@ -74,9 +74,9 @@
 \i tests/task/send_task.sql
 \i tests/task/cancel_send_task.sql
 \i tests/task/receive_task.sql
-\i tests/task/add_note_to_task.sql
+\i tests/task/create_task_note.sql
 \i tests/task/modify_task_note.sql
-\i tests/task/remove_note_from_task.sql
+\i tests/task/delete_task_note.sql
 
 \i tests/task/follow_task.sql
 \i tests/task/unfollow_task.sql

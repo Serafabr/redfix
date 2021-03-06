@@ -1,4 +1,4 @@
-\set function_name api.add_note_to_task
+\set function_name api.create_task_note
 
 drop function if exists :function_name;
 create or replace function :function_name (

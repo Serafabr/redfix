@@ -1,4 +1,4 @@
-select api.add_note_to_task(
+select api.create_task_note(
   :new_task_id,
   :new_team_id,
   'Mensagem para a tarefa',

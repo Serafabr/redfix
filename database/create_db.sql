@@ -183,13 +183,14 @@ begin transaction;
 \i api/spec/spec_data.sql
 -- task
 \i api/task/add_asset_to_task.sql
-\i api/task/add_note_to_task.sql
 \i api/task/approve_all_supplies.sql
 \i api/task/approve_supply.sql
 \i api/task/cancel_send_task.sql
 \i api/task/clone_task.sql
 \i api/task/consume_supply.sql
+\i api/task/create_task_note.sql
 \i api/task/create_task.sql
+\i api/task/delete_task_note.sql
 -- \i api/task/filter_tasks.sql
 -- \i api/task/finish_task.sql
 \i api/task/follow_task.sql
@@ -199,7 +200,6 @@ begin transaction;
 \i api/task/propose_supply.sql
 \i api/task/receive_task.sql
 \i api/task/remove_asset_from_task.sql
-\i api/task/remove_note_from_task.sql
 \i api/task/remove_supply_from_task.sql
 -- \i api/task/reopen_task.sql
 \i api/task/send_task.sql

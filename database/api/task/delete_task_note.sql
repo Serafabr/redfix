@@ -1,4 +1,4 @@
-\set function_name api.remove_note_from_task
+\set function_name api.delete_task_note
 
 drop function if exists :function_name;
 create or replace function :function_name (
