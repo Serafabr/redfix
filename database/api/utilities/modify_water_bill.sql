@@ -44,7 +44,7 @@ create or replace function :function_name (
         "valorAgua",
         new_note
       ) where
-        w.caesb_meter_id = "waterMeterId" and
+        w.water_meter_id = "waterMeterId" and
         w.year = bill_year and
         w.month = bill_month
       ;

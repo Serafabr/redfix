@@ -1,4 +1,4 @@
-select api.modify_caesb_bill(
+select api.modify_water_bill(
   1,
   2021,
   1,

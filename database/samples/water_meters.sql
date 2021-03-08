@@ -1,4 +1,4 @@
-insert into caesb_meters values
+insert into water_meters values
   (1, '005.671-5', 'SQS 309 Bloco D'),
   (2, '005.675-8', 'SQS 309 Bloco C'),
   (3, '005.677-4', 'SQS 309 Bloco G'),

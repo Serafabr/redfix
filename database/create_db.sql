@@ -252,8 +252,8 @@ begin transaction;
 \i samples/facilities.sql
 \i samples/asset_parents.sql
 \i samples/specs.sql
-\i samples/caesb_meters.sql
-\i samples/ceb_meters.sql
+\i samples/water_meters.sql
+\i samples/energy_meters.sql
 alter sequence persons_person_id_seq restart with 10001;
 alter sequence teams_team_id_seq restart with 10001;
 alter sequence assets_asset_id_seq restart with 10001;

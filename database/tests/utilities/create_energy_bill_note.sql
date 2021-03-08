@@ -1,4 +1,4 @@
-select api.insert_ceb_bill_note(
+select api.create_energy_bill_note(
   1,
   2021,
   1,

@@ -1,4 +1,4 @@
-insert into ceb_meters values
+insert into energy_meters values
   (466453, '466.453-1', ''),
   (471550, '471.550-0', ''),
   (471551, '471.551-9', ''),

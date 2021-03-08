@@ -1,4 +1,4 @@
-select api.insert_caesb_bill(
+select api.create_water_bill(
   1,
   2021,
   1,
