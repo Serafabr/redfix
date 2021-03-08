@@ -8,7 +8,7 @@ import { Divider } from '../Divider/Divider';
 export const SidebarGroup = () => {
   return (
     <div className={style.SidebarGroup}>
-      <Divider />
+      <Divider label="Manutenções" />
       <ul className={style.List}>
         <li className={style.Item}>
           <div className={style.IconWrapper}>

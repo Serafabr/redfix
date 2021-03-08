@@ -1,11 +1,15 @@
 import style from './Divider.module.scss';
 
-export const Divider = () => {
+type Props = {
+  label: string,
+}
+
+export const Divider = ({ label }: Props) => {
   return (
     <div className={style.GroupDivider}>
       <div className={style.DividerLine} />
       <div className={style.DividerText}>
-        Manutenções
+        {label}
       </div>
     </div>
   )
