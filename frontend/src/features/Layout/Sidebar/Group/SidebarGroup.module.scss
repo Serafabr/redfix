@@ -9,32 +9,3 @@
   padding: 0;
   list-style: none;
 }
-
-.Item {
-  height: 37px;
-  width: 100%;
-  padding: 10px 24px;
-  
-  display: flex;
-  align-items: center;
-  
-  font: inherit;
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 21px;
-  color: rgba(256, 256, 256, 0.24);
-}
-
-.IconWrapper {
-  width: 17px;
-  height: 17px;
-  
-  img {
-    width: 100%;
-    margin: auto;
-  }
-}
-
-.ItemText {
-  margin-left: 13px;
-}
