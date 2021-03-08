@@ -1,4 +1,5 @@
-import { ImgHTMLAttributes } from 'react';
+import { useState } from 'react';
+
 import style from './SidebarItem.module.scss';
 
 type Props = {
@@ -10,6 +11,13 @@ export const SidebarItem = ({
   label,
   icon,
 }: Props) => {
+  
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  
+  const toggleHover = () => {
+    
+  }
+  
   return (
     <div  className={style.Item}>
       <div className={style.IconWrapper}>
