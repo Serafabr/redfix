@@ -1,6 +1,6 @@
-drop view if exists api.asset_data cascade;
--- cascade because api.facility_data and api.appliance_data depend on api.asset_data
-create or replace view api.asset_data as
+drop view if exists api.assets cascade;
+-- cascade because api.facilities and api.appliances depend on api.assets
+create or replace view api.assets as
   select  a.asset_id,
           a.asset_sf,
           a.name,

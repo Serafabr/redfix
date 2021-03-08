@@ -1,5 +1,5 @@
-drop view if exists api.appliance_data;
-create or replace view api.appliance_data as
+drop view if exists api.appliances;
+create or replace view api.appliances as
   select  a.asset_id,
           a.asset_sf,
           a.name,
@@ -15,6 +15,6 @@ create or replace view api.appliance_data as
           a.price,
           -- a.parents,
           a.tasks
-  from api.asset_data as a
+  from api.assets as a
   where a.asset_category_id <> :'asset_category_facility'::integer
 ;

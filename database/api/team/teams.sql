@@ -1,5 +1,5 @@
-drop view if exists api.team_data;
-create or replace view api.team_data as
+drop view if exists api.teams;
+create or replace view api.teams as
   select t.team_id, 
          t.name,
          t.description,

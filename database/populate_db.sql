@@ -18,7 +18,7 @@ begin transaction;
 
 -- ceb data
 \if :insert_ceb_data
-  \i samples/ceb_bills.sql
+  \i samples/energy_bills.sql
 \endif 
 
 -- commit transaction

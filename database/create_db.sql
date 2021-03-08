@@ -89,15 +89,15 @@ begin transaction;
 
 -- create api schema objects
 -- asset
+\i api/asset/assets.sql
+\i api/asset/appliances.sql
+\i api/asset/facilities.sql
 \i api/asset/add_child_to_asset.sql
 \i api/asset/add_parent_to_asset.sql
 \i api/asset/add_tag_to_asset.sql
--- \i api/asset/appliance_data.sql
--- \i api/asset/asset_data.sql
 \i api/asset/create_asset.sql
 \i api/asset/create_tag.sql
 \i api/asset/delete_tag.sql
--- \i api/asset/facility_data.sql
 \i api/asset/get_asset_children.sql
 \i api/asset/get_asset_parents.sql
 \i api/asset/modify_asset.sql
@@ -105,7 +105,7 @@ begin transaction;
 \i api/asset/remove_child_from_asset.sql
 \i api/asset/remove_parent_from_asset.sql
 \i api/asset/remove_tag_from_asset.sql
-\i api/asset/tag_data.sql
+\i api/asset/tags.sql
 -- dashboard
 \i api/dashboard/dashboard_data.sql
 -- depot
@@ -115,7 +115,7 @@ begin transaction;
 \i api/depot/create_supply.sql
 \i api/depot/deactivate_box.sql
 \i api/depot/delete_supply.sql
-\i api/depot/depot_data.sql
+\i api/depot/depots.sql
 \i api/depot/modify_box.sql
 \i api/depot/modify_depot.sql
 \i api/depot/modify_supply.sql
@@ -171,7 +171,7 @@ begin transaction;
 \i api/project/deactivate_project.sql
 \i api/project/delete_project.sql
 \i api/project/modify_project.sql
-\i api/project/project_data.sql
+\i api/project/projects.sql
 \i api/project/remove_task_from_project.sql
 -- spec
 \i api/spec/create_price.sql
@@ -180,7 +180,7 @@ begin transaction;
 \i api/spec/delete_price.sql
 \i api/spec/modify_price.sql
 \i api/spec/modify_spec_version.sql
-\i api/spec/spec_data.sql
+\i api/spec/specs.sql
 -- task
 \i api/task/add_asset_to_task.sql
 \i api/task/approve_all_supplies.sql
@@ -203,7 +203,7 @@ begin transaction;
 \i api/task/remove_supply_from_task.sql
 -- \i api/task/reopen_task.sql
 \i api/task/send_task.sql
-\i api/task/task_data.sql
+\i api/task/tasks.sql
 \i api/task/unfollow_task.sql
 -- team
 \i api/team/activate_person.sql
@@ -218,9 +218,9 @@ begin transaction;
 \i api/team/modify_myself.sql
 \i api/team/modify_person.sql
 \i api/team/modify_team.sql
-\i api/team/person_data.sql
+\i api/team/persons.sql
 \i api/team/remove_person_from_team.sql
-\i api/team/team_data.sql
+\i api/team/teams.sql
 -- utilities
 \i api/utilities/create_energy_bill_note.sql
 \i api/utilities/create_energy_bill.sql

@@ -1,5 +1,5 @@
-drop view if exists api.task_data;
-create or replace view api.task_data as
+drop view if exists api.tasks;
+create or replace view api.tasks as
   select
     t.task_id,
     t.created_at,

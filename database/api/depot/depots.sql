@@ -1,6 +1,5 @@
-drop view if exists api.depot_data;
-
-create or replace view api.depot_data as
+drop view if exists api.depots;
+create or replace view api.depots as
   with
     ord_supplies as (
       select  b.depot_id,

@@ -1,6 +1,5 @@
-drop view if exists api.spec_data;
-
-create or replace view api.spec_data as
+drop view if exists api.specs;
+create or replace view api.specs as
   with
     supplies_of_spec as (
       select  z.spec_id,

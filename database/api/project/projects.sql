@@ -1,5 +1,5 @@
-drop view if exists api.project_data;
-create or replace view api.project_data as
+drop view if exists api.projects;
+create or replace view api.projects as
   select  p.project_id,
           p.name,
           p.description,

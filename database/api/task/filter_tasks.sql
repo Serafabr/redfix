@@ -5,11 +5,11 @@ create or replace function :function_name (
   in "filterStart" date default '2000-01-01'::date,
   in "filterEnd" date default '2999-12-31'::date
 )
-  returns setof api.task_data
+  returns setof api.tasks
   language sql
   stable
   as $$
-    select * from api.task_data where created_at >= "filterStart" and created_at <= "filterEnd";
+    select * from api.tasks where created_at >= "filterStart" and created_at <= "filterEnd";
   $$
 ;
 

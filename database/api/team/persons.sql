@@ -1,5 +1,5 @@
-drop view if exists api.person_data;
-create or replace view api.person_data as
+drop view if exists api.persons;
+create or replace view api.persons as
   select  p.person_id,
           p.username,
           p.cpf,
