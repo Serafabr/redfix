@@ -3,13 +3,14 @@
 \unset asset_category_facility
 \unset asset_category_hydro
 \unset function_name
-\unset insert_ceb_data
+\unset insert_energy_bills
 \unset invoice_to_be_deleted
 \unset mutation_ok
 \unset my_boolean_test
 \unset new_asset_id
 \unset new_box_id
 \unset new_comment
+\unset new_db_name
 \unset new_depot_id
 \unset new_firm_id
 \unset new_invoice_id

@@ -3,7 +3,7 @@
 \set LAST_ERROR_SQLSTATE '00000'
 \set ON_ERROR_STOP off
 \set QUIET on
-\set insert_ceb_data false
+\set insert_energy_bills false
 \set mutation_ok 0
 
 -- set pg_settings variables
@@ -16,8 +16,8 @@ begin transaction;
 -- use api to insert sample data
 \i scripts/run_all_mutations.sql
 
--- ceb data
-\if :insert_ceb_data
+-- energy bills
+\if :insert_energy_bills
   \i samples/energy_bills.sql
 \endif 
 
