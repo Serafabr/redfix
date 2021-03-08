@@ -3,16 +3,12 @@ import style from './SidebarGroup.module.scss';
 import notesTask from '../../../../assets/icons/sidebar/notes-tasks.svg';
 import wench from '../../../../assets/icons/sidebar/tools-wench.svg';
 import idCard from '../../../../assets/icons/sidebar/id-card.svg';
+import { Divider } from '../Divider/Divider';
 
 export const SidebarGroup = () => {
   return (
     <div className={style.SidebarGroup}>
-      <div className={style.GroupDivider}>
-        <div className={style.DividerLine} />
-        <div className={style.DividerText}>
-          Manutenções
-        </div>
-      </div>
+      <Divider />
       <ul className={style.List}>
         <li className={style.Item}>
           <div className={style.IconWrapper}>
