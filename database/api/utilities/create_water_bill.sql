@@ -1,8 +1,8 @@
-\set function_name api.insert_caesb_bill
+\set function_name api.create_water_bill
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "caesbMeterId" integer,
+  in "waterMeterId" integer,
   in "year" integer,
   in "month" integer,
   in "leituraAtual" integer,
@@ -19,8 +19,8 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      insert into caesb_bills values (
-        "caesbMeterId",
+      insert into water_bills values (
+        "waterMeterId",
         "year",
         "month",
         "leituraAtual",
@@ -33,7 +33,7 @@ create or replace function :function_name (
         "valorAgua",
         "note"
       );
-      id = "caesbMeterId";
+      id = "waterMeterId";
     end;
   $$
 ;

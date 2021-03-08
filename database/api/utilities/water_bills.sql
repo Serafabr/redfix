@@ -1,7 +1,7 @@
-drop view if exists api.caesb_data;
-create or replace view api.caesb_data as
+drop view if exists api.water_bills;
+create or replace view api.water_bills as
   select
-    b.caesb_meter_id,
+    b.water_meter_id,
     b.year,
     b.month,
     b.leitura_atual,
@@ -13,6 +13,6 @@ create or replace view api.caesb_data as
     b.valor_esgoto,
     b.valor_agua,
     b.note
-  from caesb_bills as b
-  inner join caesb_meters as m using (caesb_meter_id)
+  from water_bills as b
+  inner join water_meters as m using (water_meter_id)
 ;

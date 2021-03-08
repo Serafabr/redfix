@@ -1,23 +1,23 @@
-drop table if exists caesb_bills cascade;
-drop table if exists caesb_meter_assets cascade;
-drop table if exists caesb_meters cascade;
-drop table if exists ceb_bills cascade;
-drop table if exists ceb_meter_assets cascade;
-drop table if exists ceb_meters cascade;
+drop table if exists water_bills cascade;
+drop table if exists water_meter_assets cascade;
+drop table if exists water_meters cascade;
+drop table if exists energy_bills cascade;
+drop table if exists energy_meter_assets cascade;
+drop table if exists energy_meters cascade;
 
-create table caesb_meters (
-  caesb_meter_id integer primary key,
-  caesb_meter_sf text not null,
+create table water_meters (
+  water_meter_id integer primary key,
+  water_meter_sf text not null,
   description text not null
 );
 
-create table caesb_meter_assets (
-  caesb_meter_id integer not null references caesb_meters (caesb_meter_id),
+create table water_meter_assets (
+  water_meter_id integer not null references water_meters (water_meter_id),
   asset_id integer not null references assets (asset_id)
 );
 
-create table caesb_bills (
-  caesb_meter_id integer not null references caesb_meters (caesb_meter_id),
+create table water_bills (
+  water_meter_id integer not null references water_meters (water_meter_id),
   year integer not null,
   month integer not null check (month >= 1 and month <= 12),
   leitura_atual integer not null,
@@ -29,21 +29,21 @@ create table caesb_bills (
   valor_esgoto numeric not null,
   valor_agua numeric not null,
   note text,
-  primary key (caesb_meter_id, year, month)
+  primary key (water_meter_id, year, month)
 );
 
-create table ceb_meters (
-  ceb_meter_id integer primary key,
-  ceb_meter_sf text not null,
+create table energy_meters (
+  energy_meter_id integer primary key,
+  energy_meter_sf text not null,
   description text not null
 );
 
-create table ceb_meter_assets (
-  ceb_meter_id integer not null references ceb_meters (ceb_meter_id),
+create table energy_meter_assets (
+  energy_meter_id integer not null references energy_meters (energy_meter_id),
   asset_id integer not null references assets (asset_id)
 );
 
-create table ceb_bills (
+create table energy_bills (
   -- CLIENTE
   cliente text,
   -- T.
@@ -252,7 +252,7 @@ create table ceb_bills (
   codigodebarras text,
   last_csv_column text default '', -- avoid out of bounds copy command (ceb csv file has an extra semicolon at the end of the line)
   -------------------------------------------------------------------
-  ceb_meter_id integer generated always as (cliente::integer) stored references ceb_meters (ceb_meter_id),
+  energy_meter_id integer generated always as (cliente::integer) stored references energy_meters (energy_meter_id),
   year integer generated always as (substring(mesft from 1 for 4)::integer) stored,
   month integer check (month >= 1 and month <= 12) generated always as (substring(mesft from 5 for 2)::integer) stored,
   modalidade text not null generated always as (
@@ -310,5 +310,5 @@ create table ceb_bills (
   dc_p integer generated always as (dmcontp::integer) stored,
   dc_f integer generated always as (dmconfp::integer) stored,
   note text,
-  primary key (ceb_meter_id, year, month)
+  primary key (energy_meter_id, year, month)
 );

@@ -222,12 +222,12 @@ begin transaction;
 \i api/team/remove_person_from_team.sql
 \i api/team/team_data.sql
 -- utilities
-\i api/utilities/caesb_data.sql
-\i api/utilities/ceb_data.sql
-\i api/utilities/insert_caesb_bill.sql
-\i api/utilities/insert_ceb_bill_note.sql
-\i api/utilities/insert_ceb_bill.sql
-\i api/utilities/modify_caesb_bill.sql
+\i api/utilities/create_energy_bill_note.sql
+\i api/utilities/create_energy_bill.sql
+\i api/utilities/create_water_bill.sql
+\i api/utilities/energy_bills.sql
+\i api/utilities/modify_water_bill.sql
+\i api/utilities/water_bills.sql
 
 -- remove new_comment from psql variables
 \unset new_comment

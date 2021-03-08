@@ -1,8 +1,8 @@
-\set function_name api.insert_ceb_bill_note
+\set function_name api.create_energy_bill_note
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "cebMeterId" integer,
+  in "energyMeterId" integer,
   in "year" integer,
   in "month" integer,
   in "note" text,
@@ -16,8 +16,8 @@ create or replace function :function_name (
       bill_month alias for "month";
       "newNote" alias for "note";
     begin
-      update ceb_bills as c set note = "newNote" where c.ceb_meter_id = "cebMeterId" and c.year = bill_year and c.month = bill_month;
-      id = "cebMeterId";
+      update energy_bills as e set note = "newNote" where e.energy_meter_id = "energyMeterId" and e.year = bill_year and e.month = bill_month;
+      id = "energyMeterId";
     end;
   $$
 ;

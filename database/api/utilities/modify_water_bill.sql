@@ -1,8 +1,8 @@
-\set function_name api.modify_caesb_bill
+\set function_name api.modify_water_bill
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "caesbMeterId" integer,
+  in "waterMeterId" integer,
   in "year" integer,
   in "month" integer,
   in "leituraAtual" integer,
@@ -23,7 +23,7 @@ create or replace function :function_name (
       bill_month alias for "month";
       new_note alias for "note";
     begin
-      update caesb_bills as c set (
+      update water_bills as w set (
         leitura_atual,
         data_leitura_atual,
         leitura_anterior,
@@ -44,11 +44,11 @@ create or replace function :function_name (
         "valorAgua",
         new_note
       ) where
-        c.caesb_meter_id = "caesbMeterId" and
-        c.year = bill_year and
-        c.month = bill_month
+        w.caesb_meter_id = "waterMeterId" and
+        w.year = bill_year and
+        w.month = bill_month
       ;
-      id = "caesbMeterId";
+      id = "waterMeterId";
     end;
   $$
 ;

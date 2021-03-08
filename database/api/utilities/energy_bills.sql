@@ -1,7 +1,7 @@
-drop view if exists api.ceb_data;
-create or replace view api.ceb_data as
+drop view if exists api.energy_bills;
+create or replace view api.energy_bills as
   select
-    b.ceb_meter_id,
+    b.energy_meter_id,
     b.year,
     b.month,
     b.note,
@@ -43,7 +43,7 @@ create or replace view api.ceb_data as
     b.dc,
     b.dc_p,
     b.dc_f,
-    m.ceb_meter_sf,
+    m.energy_meter_sf,
     m.description,
     to_date(b.dtvenci, 'YYYYMMDD') as dt_vencimento,
     to_date(b.dtltan, 'YYYYMMDD') as dt_leitura_anterior,
@@ -51,6 +51,6 @@ create or replace view api.ceb_data as
     to_date(b.dtapres, 'YYYYMMDD') as dt_apresentacao,
     b.leitant::integer as leitura_anterior,
     b.leitatu::integer as leitura_atual
-  from ceb_bills as b
-  inner join ceb_meters as m using (ceb_meter_id)
+  from energy_bills as b
+  inner join energy_meters as m using (energy_meter_id)
 ;

@@ -131,13 +131,13 @@
 \i tests/options/create_task_status.sql
 
 -- utilities
-\i tests/utilities/insert_caesb_bill.sql
-\i tests/utilities/insert_ceb_bill_note.sql
-\i tests/utilities/modify_caesb_bill.sql
+\i tests/utilities/create_water_bill.sql
+\i tests/utilities/create_energy_bill_note.sql
+\i tests/utilities/modify_water_bill.sql
 
 -- entity removals and others
 delete from specs where spec_id >= 10001;
-delete from caesb_bills where true;
+delete from water_bills where true;
 \i tests/project/add_task_to_project.sql
 \i tests/project/remove_task_from_project.sql
 \i tests/asset/delete_tag.sql

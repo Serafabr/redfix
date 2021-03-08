@@ -90,7 +90,7 @@ async function insertCebData(req, res, next){
       record.pop(); // remove empty string at the end of the record
       const valuesString = `(${record.map(field => ("'" + field + "'")).join(',')})`;
       // console.log(valuesString);
-      promises.push(pgPool.query('select web.insert_ceb_bill($1)', [valuesString]));
+      promises.push(pgPool.query('select web.create_energy_bill($1)', [valuesString]));
       // console.log(data);
     } catch(error) {
       console.log(error);
