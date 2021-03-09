@@ -21,7 +21,7 @@ import user from '../../assets/icons/sidebar/id-card.svg';
 import userDual from '../../assets/icons/sidebar/dualColor/id-card.svg';
 
 // Sidebar items
-export const sidebar = [
+export const navItems = [
   {
     groupLabel: undefined,
     items: [

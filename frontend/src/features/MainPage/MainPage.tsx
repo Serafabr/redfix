@@ -1,4 +1,5 @@
 import { AppHeader, AppSidebar, AppSidebarHeader } from '../Layout';
+import { navItems } from '../../utils/nav/navItems';
 
 import style from './MainPage.module.scss';
 
@@ -12,24 +13,11 @@ export const MainPage = () => {
         <AppSidebarHeader />
       </div>
       <div className={style.AppSidebar}>
-        <AppSidebar />
+        <AppSidebar navItems={navItems} />
       </div>
       <main className={style.Body} style={{ backgroundColor: "gray" }}>
         Body
       </main>
-      {/* <AppHeader>
-        <MainHeader />
-      </AppHeader>
-      <AppSideBar>
-        <AppSideBarHeader />
-        <AppSidebarNav />
-        <AppSidebarFooter />
-      </AppSideBar>
-      <main>
-        <Container>
-          MainBody
-        </Container>
-      </main> */}
     </div>
   )
 }
