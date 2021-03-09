@@ -18,6 +18,7 @@
 
 .AppSidebar {
   grid-area: sidebar;
+  overflow-y: auto;
 }
 
 .Body {
