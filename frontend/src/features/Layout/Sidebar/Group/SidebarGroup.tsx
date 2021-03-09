@@ -11,17 +11,17 @@ type SidebarItem = {
 
 type Props = {
   items: SidebarItem[],
-  dividerLabel: string,
+  groupLabel?: string,
 };
 
 export const SidebarGroup = ({
   items,
-  dividerLabel
+  groupLabel
 }: Props) => {
   return (
     <div className={style.SidebarGroup}>
-      {dividerLabel && (
-        <Divider label={dividerLabel} />
+      {groupLabel && (
+        <Divider label={groupLabel} />
       )}
       <ul className={style.List}>
         {items.map((item) => (
