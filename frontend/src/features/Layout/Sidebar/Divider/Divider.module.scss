@@ -1,7 +1,8 @@
 @import '../../../../style/variables';
 
 .GroupDivider {
-  padding: 22px 0;
+  padding-top: 10px;
+  padding-bottom: 18px;
   position: relative;
 }
 
@@ -12,7 +13,7 @@
 .DividerText {
   display: inline-block;
   position: absolute;
-  top: 14px;
+  top: 3px;
   left: 12px;
   z-index: 10;
   
