@@ -9,7 +9,7 @@ type SidebarItem = {
   hoveredIcon: string,
 };
 
-type Props = {
+export type Props = {
   items: SidebarItem[],
   groupLabel?: string,
 };
