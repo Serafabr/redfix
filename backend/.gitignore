@@ -4,6 +4,7 @@ public/**/*
 !public/images
 !public/images/test.jpeg
 !public/docs
+!public/docs/*
 
 # Files directory
 files/*
