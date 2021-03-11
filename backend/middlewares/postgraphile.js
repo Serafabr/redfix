@@ -1,4 +1,5 @@
 const { postgraphile, makePluginHook } = require('postgraphile');
+const PgSimplifyInflectorPlugin = require("@graphile-contrib/pg-simplify-inflector");
 const { default: PgPubsub } = require("@graphile/pg-pubsub");
 const paths = require('../paths');
 const { pgPool } = require('../db');
@@ -25,6 +26,7 @@ module.exports = postgraphile(
     retryOnInitFail: NODE_ENV === 'production',
     enableCors: false,
     graphileBuildOptions: { pgStrictFunctions: true },
+    appendPlugins: [PgSimplifyInflectorPlugin],
     graphqlRoute: paths.api,
     graphiql: NODE_ENV !== 'production',
     graphiqlRoute: paths.graphiql,

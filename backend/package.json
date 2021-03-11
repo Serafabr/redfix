@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/pg-pubsub": "^4.7.0",
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
