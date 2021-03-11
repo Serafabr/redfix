@@ -9,7 +9,7 @@ create or replace function :function_name (
   as $$
     begin
       -- insert only if box_id does not exist in the table yet
-      insert into active_boxes values ("boxId") on conflict do nothing;
+      insert into active_boxes values ("boxId") on conflict (box_id) do nothing;
       id = "boxId";
     end;
   $$

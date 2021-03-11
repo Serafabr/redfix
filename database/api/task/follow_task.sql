@@ -9,7 +9,7 @@ create or replace function :function_name (
   as $$
     begin
       -- 'on conflict do nothing' to avoid error in case the task was previously inserted
-      insert into person_tasks values (get_person_id(), "taskId") on conflict do nothing;
+      insert into person_tasks values (get_person_id(), "taskId") on conflict (person_id, task_id) do nothing;
       id = "taskId";
     end;
   $$
