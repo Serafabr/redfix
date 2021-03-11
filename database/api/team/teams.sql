@@ -4,7 +4,7 @@ create or replace view api.teams as
          t.name,
          t.description,
          t.is_active,
-         coalesce(m.member_count, 0) as member_count,
+         coalesce(m.member_count, 0)::integer as member_count,
          coalesce(m.members, jsonb_build_array()) as members
   from teams as t
   left join (
