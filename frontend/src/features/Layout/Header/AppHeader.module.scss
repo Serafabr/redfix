@@ -1,6 +1,11 @@
+@import "../../../style/variables";
+
 .AppHeader {
   height: 100%;
   width: 100%;
-  padding: 24px;
-  background-color: green;
+  padding: 20px 40px;
+  background-color: $white_0;
+  border-bottom: 2px solid #c8c8c8cc;
+  box-shadow: 0px 4px 10px rgba(203, 203, 203, 0.5);
+  z-index: 10;
 }
