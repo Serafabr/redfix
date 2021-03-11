@@ -1,6 +1,6 @@
 import style from './Support.module.scss';
 
-function Support() {
+export function Support() {
   return (
     <button className={style.Support} >
       <svg
@@ -28,5 +28,3 @@ function Support() {
     </button>
   );
 }
-
-export default Support;

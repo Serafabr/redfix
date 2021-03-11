@@ -1,6 +1,6 @@
 import style from './Notification.module.scss';
 
-function Notification() {
+export function Notification() {
   return (
     <button className={style.Notification}>
       <svg

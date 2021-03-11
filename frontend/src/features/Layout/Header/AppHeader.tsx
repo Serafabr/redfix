@@ -1,7 +1,8 @@
-import { Button, ButtonStyle } from '../../../components/Buttons';
+import { Button, ButtonStyle, Notification, Support } from '../../../components/Buttons';
 import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch';
 import style from './AppHeader.module.scss';
 import { Plus } from '../../../components/Icons';
+import { AvatarDropdown } from '../../../components/Avatars';
 
 export const AppHeader = () => {
   return (
@@ -15,13 +16,13 @@ export const AppHeader = () => {
         </div>
         <div className={style.AvatarWrapper}>
           <div className={style.Phone}>
-            Pho
+            <Support />
           </div>
           <div className={style.Notifications}>
-            Not
+            <Notification />
           </div>
           <div className={style.Avatar}>
-            Avatar
+            <AvatarDropdown />
           </div>
         </div>
       </div>
