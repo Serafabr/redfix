@@ -9,3 +9,25 @@
   box-shadow: 0px 4px 10px rgba(203, 203, 203, 0.5);
   z-index: 10;
 }
+
+.HeaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SearchWrapper {
+  flex-grow: 1;
+  flex-basis: 40%;
+  max-width: 450px;
+}
+
+.ButtonWrapper {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.AvatarWrapper {
+  text-align: center;
+  flex-grow: 1;
+}
