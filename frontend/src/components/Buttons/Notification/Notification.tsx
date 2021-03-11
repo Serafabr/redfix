@@ -4,7 +4,7 @@ export function Notification() {
   return (
     <button className={style.Notification}>
       <svg
-        width={20}
+        width={22}
         height={22}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
