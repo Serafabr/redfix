@@ -1,7 +1,6 @@
 \set trigger_name check_insert_invoice_task
 
-drop trigger if exists :trigger_name on invoice_tasks;
-drop function if exists :trigger_name;
+drop function if exists :trigger_name cascade;
 create or replace function :trigger_name ()
   returns trigger
   language plpgsql
@@ -15,6 +14,7 @@ create or replace function :trigger_name ()
   $$
 ;
 
-create trigger :trigger_name
-before insert or update on invoice_tasks
-for each row execute procedure :trigger_name();
+-- example:
+-- create trigger :trigger_name
+-- before insert or update on invoice_tasks
+-- for each row execute procedure :trigger_name();

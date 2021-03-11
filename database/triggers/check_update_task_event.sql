@@ -1,7 +1,6 @@
 \set trigger_name check_update_task_event
 
-drop trigger if exists :trigger_name on task_events;
-drop function if exists :trigger_name;
+drop function if exists :trigger_name cascade;
 create or replace function :trigger_name ()
   returns trigger
   language plpgsql
@@ -14,6 +13,7 @@ create or replace function :trigger_name ()
     end;
   $$
 ;
+
 create trigger :trigger_name
 before update on task_events
 for each row execute procedure :trigger_name();

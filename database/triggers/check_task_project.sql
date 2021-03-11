@@ -1,7 +1,6 @@
 \set trigger_name check_task_project
 
-drop trigger if exists :trigger_name on tasks;
-drop function if exists :trigger_name;
+drop function if exists :trigger_name cascade;
 create or replace function :trigger_name ()
   returns trigger
   language plpgsql

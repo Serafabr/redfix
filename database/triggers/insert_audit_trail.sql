@@ -18,3 +18,8 @@ create or replace function :trigger_name ()
     end;
   $$
 ;
+
+-- example:
+-- create trigger insert_audit_trail
+-- after insert or update or delete on assets
+-- for each row execute procedure insert_audit_trail();
