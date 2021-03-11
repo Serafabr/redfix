@@ -14,7 +14,15 @@ export const AppHeader = () => {
           <Button text="Nova Tarefa" iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} />
         </div>
         <div className={style.AvatarWrapper}>
-          Avatar
+          <div className={style.Phone}>
+            Pho
+          </div>
+          <div className={style.Notifications}>
+            Not
+          </div>
+          <div className={style.Avatar}>
+            Avatar
+          </div>
         </div>
       </div>
     </div>

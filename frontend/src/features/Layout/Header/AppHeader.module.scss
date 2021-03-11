@@ -25,7 +25,7 @@
 .ButtonWrapper {
   display: flex;
   justify-content: flex-end;
-  padding-right: 20px;
+  padding-right: 25px;
   flex-grow: 1;
   border-right: 1px solid #dfdfdf;
   height: 40px;
@@ -34,4 +34,18 @@
 .AvatarWrapper {
   text-align: center;
   flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Phone {
+  width: 20%;
+}
+
+.Notifications {
+  width: 20%;
+}
+
+.Avatar {
+  width: 50%;
 }
