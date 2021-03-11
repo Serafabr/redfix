@@ -33,7 +33,7 @@ export const navItems = [
     items: [
       {label: "Tarefas", icon: task, hoveredIcon: taskDual},
       {label: "Planos de Manutenção", icon: plan, hoveredIcon: planDual},
-      {label: "Monitor", icon: task, hoveredIcon: taskDual},
+      {label: "Monitores", icon: task, hoveredIcon: taskDual},
     ],
   },
   {

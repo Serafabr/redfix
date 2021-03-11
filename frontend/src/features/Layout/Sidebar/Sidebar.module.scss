@@ -5,10 +5,10 @@
   width: 100%;
   background-color: $secondary_color;
   border: 0px;
-  overflow: hidden;
+  overflow-y: hidden;
   
   &:hover {
-    overflow: auto;
+    overflow-y: auto;
   }
   
   &::-webkit-scrollbar-track {
@@ -30,9 +30,9 @@
     border-radius: 4px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: rgb(55, 81, 114)
+    background-color: rgb(42, 69, 104)
   }
-}
+  }
 
 .SidebarWrapper {
   margin-top: 15px;
