@@ -13,7 +13,8 @@ create table water_meters (
 
 create table water_meter_assets (
   water_meter_id integer not null references water_meters (water_meter_id),
-  asset_id integer not null references assets (asset_id)
+  asset_id integer not null references assets (asset_id),
+  primary key (water_meter_id, asset_id)
 );
 
 create table water_bills (
@@ -40,7 +41,8 @@ create table energy_meters (
 
 create table energy_meter_assets (
   energy_meter_id integer not null references energy_meters (energy_meter_id),
-  asset_id integer not null references assets (asset_id)
+  asset_id integer not null references assets (asset_id),
+  primary key (energy_meter_id, asset_id)
 );
 
 create table energy_bills (

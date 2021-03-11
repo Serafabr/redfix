@@ -266,11 +266,11 @@ alter sequence specs_spec_id_seq restart with 10001;
 -- commit transaction
 commit transaction;
 
--- create extra indexes
--- \i schema/indexes.sql
-
 -- set ON_ERROR_STOP to off
 \set ON_ERROR_STOP off
+
+-- create extra indexes
+-- \i schema/indexes.sql
 
 -- unset psql variables
 \i scripts/unset_psql_variables
