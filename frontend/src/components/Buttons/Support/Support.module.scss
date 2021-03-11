@@ -11,6 +11,8 @@
   border:     none;
   background: none;
   
+  display: flex;
+  align-items: center;
   
   &:focus,
   &:active {
