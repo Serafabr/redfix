@@ -15,15 +15,9 @@ export const AppHeader = () => {
           <Button text="Nova Tarefa" iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} />
         </div>
         <div className={style.AvatarWrapper}>
-          <div className={style.Phone}>
             <Support />
-          </div>
-          <div className={style.Notifications}>
             <Notification />
-          </div>
-          <div className={style.Avatar}>
             <AvatarDropdown />
-          </div>
         </div>
       </div>
     </div>
