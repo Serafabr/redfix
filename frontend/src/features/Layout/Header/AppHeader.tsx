@@ -1,5 +1,7 @@
+import { Button, ButtonStyle } from '../../../components/Buttons';
 import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch';
 import style from './AppHeader.module.scss';
+import { Plus } from '../../../components/Icons';
 
 export const AppHeader = () => {
   return (
@@ -9,7 +11,7 @@ export const AppHeader = () => {
           <QuickSearch />
         </div>
         <div className={style.ButtonWrapper}>
-          Button
+          <Button text="Nova Tarefa" iconComponent={Plus} buttonStyle={ButtonStyle.Secondary} />
         </div>
         <div className={style.AvatarWrapper}>
           Avatar
