@@ -17,9 +17,9 @@
 }
 
 .SearchWrapper {
-  flex-grow: 1;
   flex-basis: 40%;
-  max-width: 450px;
+  max-width: 500px;
+  min-width: 380px;
 }
 
 .ButtonWrapper {
