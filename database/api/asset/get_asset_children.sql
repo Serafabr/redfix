@@ -14,7 +14,7 @@ create or replace function :function_name (
                 'assetSf', a.asset_sf,
                 'name', a.name
               ) order by a.asset_sf),
-              jsonb_build_array()
+              '[]'::jsonb
             ) as children
     from asset_parents as ap
     inner join assets as a using (asset_id)

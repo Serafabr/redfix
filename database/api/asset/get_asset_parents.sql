@@ -1,4 +1,4 @@
-\set function_name 'api.get_asset_parents'
+\set function_name api.get_asset_parents
 
 
 drop function if exists :function_name;
@@ -15,10 +15,10 @@ create or replace function :function_name (
                 'assetSf', a.asset_sf,
                 'name', a.name
               ) order by a.asset_sf),
-              jsonb_build_array()
-            ) as children
+              '[]'::jsonb
+            ) as parents
     from asset_parents as ap
-    inner join assets as a using (asset_id)
+    inner join assets as a on (ap.parent_id = a.asset_id)
     where ap.asset_id = "assetId";
   $$
 ;
