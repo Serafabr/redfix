@@ -86,6 +86,8 @@ begin transaction;
 \i schema/json_lists/get_events_of_task.sql
 \i schema/json_lists/get_files_of_task.sql
 \i schema/json_lists/get_supplies_of_task.sql
+\i schema/json_lists/get_tasks_of_asset.sql
+\i schema/json_lists/get_tasks_of_project.sql
 
 -- create api schema objects
 -- asset
