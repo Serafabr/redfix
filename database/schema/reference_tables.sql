@@ -270,12 +270,12 @@ insert into spec_units values
   (24, 'Dia de uso efetivo', 1)
 ;
 
-create table monitor_cateogries (
+create table monitor_categories (
   monitor_category_id integer primary key,
   monitor_category_text text not null
 );
 
-insert into monitor_cateogries values
+insert into monitor_categories values
   (1, 'Acumulador'),
   (2, 'Valor instantâneo')
 ;
