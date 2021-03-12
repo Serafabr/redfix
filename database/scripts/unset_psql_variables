@@ -1,3 +1,4 @@
+\unset all_mutations
 \unset asset_category_air
 \unset asset_category_electric
 \unset asset_category_facility
@@ -33,5 +34,6 @@
 \unset supply_to_be_removed_from_task
 \unset tag_to_be_deleted
 \unset test_result_message
+\unset tested_mutation
 \unset total_of_mutations
 \unset trigger_name
