@@ -4,6 +4,7 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "name" text,
   in "description" text,
+  in "monitorCategoryId" integer,
   in "unit" text,
   in "assetId" integer,
   in "lowerLimit" numeric default null,
@@ -21,6 +22,7 @@ create or replace function :function_name (
         default,
         "name",
         "description",
+        "monitorCategoryId",
         "unit",
         "assetId",
         "lowerLimit",

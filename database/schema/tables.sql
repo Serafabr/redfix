@@ -261,6 +261,7 @@ create table monitors (
   updated_by integer not null references persons (person_id) default get_person_id(),
   name text not null,
   description text not null,
+  monitor_category_id integer not null references monitor_categories (monitor_category_id),
   unit text not null,
   asset_id integer not null references assets (asset_id),
   lower_limit numeric,
