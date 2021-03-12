@@ -1,3 +1,5 @@
+\set tested_mutation api.create_person
+
 select api.create_person (
   'person' || substr(gen_random_uuid()::text,1,8),
   substr((extract(epoch from now()) * 1000)::text,1,11),
@@ -6,3 +8,5 @@ select api.create_person (
   '1234',
   'coordinator'
 ) as new_person_id, :mutation_ok + 1 as mutation_ok \gset
+
+\set all_mutations :all_mutations:tested_mutation,

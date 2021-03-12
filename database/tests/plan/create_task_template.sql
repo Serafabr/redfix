@@ -1,3 +1,5 @@
+\set tested_mutation api.create_task_template
+
 select api.create_task_template(
   array[:new_asset_id::integer],
   'Substituição da peça P',
@@ -8,3 +10,5 @@ select api.create_task_template(
   1,
   :new_team_id
 ) as new_task_template_id, :mutation_ok + 1 as mutation_ok \gset
+
+\set all_mutations :all_mutations:tested_mutation,

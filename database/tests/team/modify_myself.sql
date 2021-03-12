@@ -1,3 +1,5 @@
+\set tested_mutation api.modify_myself
+
 select api.modify_myself(
   'hzlopes',
   '00000000001',
@@ -5,3 +7,5 @@ select api.modify_myself(
   'Henrique Z L',
   '2339'
 ) as not_used_output, :mutation_ok + 1 as mutation_ok \gset
+
+\set all_mutations :all_mutations:tested_mutation,

@@ -1,3 +1,5 @@
+\set tested_mutation api.create_supply
+
 select api.create_supply(
   'M-01',
   :new_box_id,
@@ -21,3 +23,5 @@ select api.create_supply(
   10,
   9.10
 ) as supply_to_be_deleted \gset
+
+\set all_mutations :all_mutations:tested_mutation,

@@ -1,3 +1,5 @@
+\set tested_mutation api.upload_asset_files
+
 select api.upload_asset_files(
   :new_asset_id,
   array[(
@@ -8,3 +10,5 @@ select api.upload_asset_files(
     null
   )::files]
 ) as not_used_output, :mutation_ok + 1 as mutation_ok \gset
+
+\set all_mutations :all_mutations:tested_mutation,

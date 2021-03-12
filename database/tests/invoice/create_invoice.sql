@@ -1,3 +1,5 @@
+\set tested_mutation api.create_invoice
+
 select api.create_invoice(
   :new_depot_id,
   'Primeiro faturamento de 2021',
@@ -13,3 +15,5 @@ select api.create_invoice(
   now()::date,
   'Tarefas t1 e t2 serão faturadas depois'
 ) as invoice_to_be_deleted \gset
+
+\set all_mutations :all_mutations:tested_mutation,
