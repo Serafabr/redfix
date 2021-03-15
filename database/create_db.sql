@@ -86,7 +86,7 @@ begin transaction;
 \i schema/json_lists/get_events_of_task.sql
 \i schema/json_lists/get_files_of_asset.sql
 \i schema/json_lists/get_files_of_task.sql
-\i schema/json_lists/get_supplies_of_task.sql
+-- \i schema/json_lists/get_supplies_of_task.sql
 \i schema/json_lists/get_tasks_of_asset.sql
 \i schema/json_lists/get_tasks_of_project.sql
 
@@ -113,15 +113,18 @@ begin transaction;
 \i api/dashboard/dashboard_data.sql
 -- depot
 \i api/depot/activate_box.sql
+\i api/depot/approve_usages.sql
 \i api/depot/create_box.sql
 \i api/depot/create_depot.sql
 \i api/depot/create_supply.sql
 \i api/depot/deactivate_box.sql
 \i api/depot/delete_supply.sql
-\i api/depot/depots.sql
+\i api/depot/delete_usages.sql
+-- \i api/depot/depots.sql
 \i api/depot/modify_box.sql
 \i api/depot/modify_depot.sql
 \i api/depot/modify_supply.sql
+\i api/depot/propose_usage_from_internal_box.sql
 -- files
 \i api/files/delete_avatar.sql
 \i api/files/delete_file.sql
@@ -141,18 +144,11 @@ begin transaction;
 \i api/options/depot_options.sql
 \i api/options/person_options.sql
 \i api/options/project_options.sql
-\i api/options/spec_options.sql
-\i api/options/supply_options.sql
-\i api/options/task_options.sql
-\i api/options/task_supply_options.sql
 \i api/options/team_options.sql
 -- invoice
-\i api/invoice/add_tasks_to_invoice.sql
-\i api/invoice/auto_add_tasks_to_invoice.sql
 \i api/invoice/create_invoice.sql
 \i api/invoice/delete_invoice.sql
 \i api/invoice/modify_invoice.sql
-\i api/invoice/remove_task_from_invoice.sql
 \i api/invoice/set_invoice_paid.sql
 \i api/invoice/set_invoice_unpaid.sql
 -- plan
@@ -177,36 +173,29 @@ begin transaction;
 \i api/project/projects.sql
 \i api/project/remove_task_from_project.sql
 -- spec
-\i api/spec/create_price.sql
-\i api/spec/create_spec_version.sql
-\i api/spec/create_spec.sql
-\i api/spec/delete_price.sql
-\i api/spec/modify_price.sql
-\i api/spec/modify_spec_version.sql
-\i api/spec/specs.sql
+-- \i api/spec/create_price.sql
+-- \i api/spec/create_spec_version.sql
+-- \i api/spec/create_spec.sql
+-- \i api/spec/delete_price.sql
+-- \i api/spec/modify_price.sql
+-- \i api/spec/modify_spec_version.sql
+-- \i api/spec/specs.sql
 -- task
 \i api/task/add_asset_to_task.sql
-\i api/task/approve_all_supplies.sql
-\i api/task/approve_supply.sql
 \i api/task/cancel_send_task.sql
 \i api/task/clone_task.sql
-\i api/task/consume_supply.sql
 \i api/task/create_task_note.sql
 \i api/task/create_task.sql
 \i api/task/delete_task_note.sql
 -- \i api/task/filter_tasks.sql
--- \i api/task/finish_task.sql
 \i api/task/follow_task.sql
 \i api/task/modify_task_note.sql
 \i api/task/modify_task.sql
 \i api/task/move_task.sql
-\i api/task/propose_supply.sql
 \i api/task/receive_task.sql
 \i api/task/remove_asset_from_task.sql
-\i api/task/remove_supply_from_task.sql
--- \i api/task/reopen_task.sql
 \i api/task/send_task.sql
-\i api/task/tasks.sql
+-- \i api/task/tasks.sql
 \i api/task/unfollow_task.sql
 -- team
 \i api/team/activate_person.sql
@@ -236,12 +225,9 @@ begin transaction;
 \unset new_comment
 
 -- create triggers before populate tables
-\i triggers/check_delete_supply.sql
 \i triggers/check_project_is_active.sql
 \i triggers/log_data_change.sql
 \i triggers/publish_to_channel.sql
-\i triggers/validate_asset_location.sql
-\i triggers/validate_asset_parent.sql
 \i triggers/validate_box_activation.sql
 \i triggers/validate_task_event.sql
 \i triggers/verify_task_note_creator.sql
@@ -254,17 +240,15 @@ begin transaction;
 \i samples/asset_categories.sql
 \i samples/facilities.sql
 \i samples/asset_parents.sql
-\i samples/specs.sql
 \i samples/water_meters.sql
 \i samples/energy_meters.sql
 alter sequence persons_person_id_seq restart with 10001;
 alter sequence teams_team_id_seq restart with 10001;
 alter sequence assets_asset_id_seq restart with 10001;
-alter sequence specs_spec_id_seq restart with 10001;
 
 -- create triggers after asset categories
-\i triggers/check_asset_location.sql
-\i triggers/check_asset_parent.sql
+\i triggers/validate_asset_location.sql
+\i triggers/validate_asset_parent.sql
 
 -- commit transaction
 commit transaction;

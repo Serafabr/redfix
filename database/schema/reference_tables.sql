@@ -238,13 +238,13 @@ insert into price_source_types values
   (3, 'Proposta de empresa')
 ;
 
-create table spec_units (
-  spec_unit_id integer primary key,
-  spec_unit_text text not null,
+create table units (
+  unit_id integer primary key,
+  unit_text text not null,
   dimensions integer not null
 );
 
-insert into spec_units values
+insert into units values
   (1, 'L', 1),
   (2, 'm', 1),
   (3, 'm²', 2),
