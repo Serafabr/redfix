@@ -3,11 +3,12 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "specId" integer,
-  in "date" date,
   in "price" numeric,
+  in "date" date,
+  in "validDays" integer,
   in "priceSourceTypeId" integer,
-  in "source" text,
   in "firmId" integer default null,
+  in "note" text default null,
   out id integer
 )
   language plpgsql
@@ -16,12 +17,12 @@ create or replace function :function_name (
       insert into prices values (
         default,
         "specId",
-        "date",
         "price",
+        "date",
+        "validDays",
         "priceSourceTypeId",
-        "source",
         "firmId",
-        true
+        "note"
       ) returning price_id into id;
     end;
   $$

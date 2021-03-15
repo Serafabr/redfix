@@ -4,10 +4,12 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "priceId" integer,
   in "specId" integer,
-  in "date" date,
   in "price" numeric,
+  in "date" date,
+  in "validDays" integer,
   in "priceSourceTypeId" integer,
-  in "source" text,
+  in "firmId" integer default null,
+  in "note" text default null,
   out id integer
 )
   language plpgsql
@@ -15,17 +17,21 @@ create or replace function :function_name (
     begin
       update prices as p set (
         spec_id,
-        date,
         price,
+        date,
+        valid_days,
         price_source_type_id,
-        source
+        firm_id,
+        note
       ) = (select new_values.*)
       from (select
         "specId",
-        "date",
         "price",
+        "date",
+        "validDays",
         "priceSourceTypeId",
-        "source"
+        "firmId",
+        "note"
       ) as new_values
       where p.price_id = "priceId";
       id = "priceId";

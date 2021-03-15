@@ -113,18 +113,18 @@ begin transaction;
 \i api/dashboard/dashboard_data.sql
 -- depot
 \i api/depot/activate_box.sql
-\i api/depot/approve_usages.sql
 \i api/depot/create_box.sql
 \i api/depot/create_depot.sql
+\i api/depot/create_price.sql
+\i api/depot/create_spec.sql
 \i api/depot/create_supply.sql
 \i api/depot/deactivate_box.sql
+\i api/depot/delete_price.sql
 \i api/depot/delete_supply.sql
-\i api/depot/delete_usages.sql
--- \i api/depot/depots.sql
 \i api/depot/modify_box.sql
 \i api/depot/modify_depot.sql
+\i api/depot/modify_price.sql
 \i api/depot/modify_supply.sql
-\i api/depot/propose_usage_from_internal_box.sql
 -- files
 \i api/files/delete_avatar.sql
 \i api/files/delete_file.sql
@@ -146,9 +146,12 @@ begin transaction;
 \i api/options/project_options.sql
 \i api/options/team_options.sql
 -- invoice
+\i api/invoice/approve_usages.sql
 \i api/invoice/create_invoice.sql
 \i api/invoice/delete_invoice.sql
+\i api/invoice/delete_usages.sql
 \i api/invoice/modify_invoice.sql
+\i api/invoice/propose_usage_from_internal_box.sql
 \i api/invoice/set_invoice_paid.sql
 \i api/invoice/set_invoice_unpaid.sql
 -- plan
@@ -172,14 +175,6 @@ begin transaction;
 \i api/project/modify_project.sql
 \i api/project/projects.sql
 \i api/project/remove_task_from_project.sql
--- spec
--- \i api/spec/create_price.sql
--- \i api/spec/create_spec_version.sql
--- \i api/spec/create_spec.sql
--- \i api/spec/delete_price.sql
--- \i api/spec/modify_price.sql
--- \i api/spec/modify_spec_version.sql
--- \i api/spec/specs.sql
 -- task
 \i api/task/add_asset_to_task.sql
 \i api/task/cancel_send_task.sql
