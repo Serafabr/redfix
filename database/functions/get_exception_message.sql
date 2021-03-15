@@ -15,6 +15,7 @@ create or replace function :function_name (
         -- asset api (codes 101 to 199)
         when 101 then message = format('%s %s - Localização do ativo deve ser um endereçamento.', header, exception_code);
         when 102 then message = format('%s %s - Ativo-categoria deve estar no topo da hierarquia.', header, exception_code);
+        when 103 then message = format('%s %s - Categoria inválida para equipamento', header, exception_code);
         -- task api (codes 201 to 299)
         when 201 then message = format('%s %s - Tarefa deve estar vinculada a pelo menos um ativo.', header, exception_code);
         when 202 then message = format('%s %s - Suprimento não pertence a uma caixa ativa.', header, exception_code);

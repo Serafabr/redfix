@@ -2,6 +2,9 @@
 \i tests/asset/create_asset.sql
 \i tests/asset/modify_asset.sql
 
+\i tests/asset/create_appliance.sql
+\i tests/asset/modify_appliance.sql
+
 \i tests/asset/create_tag.sql
 \i tests/asset/modify_tag.sql
 
@@ -13,14 +16,6 @@
 
 \i tests/asset/add_tag_to_asset.sql
 \i tests/asset/remove_tag_from_asset.sql
-
--- spec
-\i tests/spec/create_spec.sql
-\i tests/spec/create_spec_version.sql
-\i tests/spec/modify_spec_version.sql
-\i tests/spec/create_price.sql
-\i tests/spec/modify_price.sql
-\i tests/spec/delete_price.sql
 
 -- team
 \i tests/team/change_password.sql
@@ -58,6 +53,13 @@
 \i tests/depot/create_box.sql
 \i tests/depot/modify_box.sql
 
+\i tests/depot/create_spec.sql
+\i tests/depot/modify_spec.sql
+
+\i tests/depot/create_price.sql
+\i tests/depot/modify_price.sql
+\i tests/depot/delete_price.sql
+
 \i tests/depot/create_supply.sql
 \i tests/depot/modify_supply.sql
 
@@ -82,14 +84,6 @@
 \i tests/task/unfollow_task.sql
 
 \i tests/task/clone_task.sql
-\i tests/task/propose_supply.sql
-\i tests/task/approve_all_supplies.sql
-\i tests/task/approve_supply.sql
-\i tests/task/consume_supply.sql
-\i tests/task/remove_supply_from_task.sql
-
--- \i tests/task/finish_task.sql
--- \i tests/task/reopen_task.sql
 
 -- plans
 \i tests/plan/create_plan.sql
@@ -109,19 +103,18 @@
 \i tests/invoice/create_invoice.sql
 \i tests/invoice/modify_invoice.sql
 
-\i tests/invoice/add_tasks_to_invoice.sql
-\i tests/invoice/auto_add_tasks_to_invoice.sql
-\i tests/invoice/set_invoice_paid.sql
-\i tests/invoice/set_invoice_unpaid.sql
+-- \i tests/invoice/propose_usage_from_internal_box.sql
+-- \i tests/invoice/approve_usages.sql
 
-\i tests/invoice/remove_task_from_invoice.sql
+-- \i tests/invoice/set_invoice_paid.sql
+-- \i tests/invoice/set_invoice_unpaid.sql
+
 
 -- files
 \i tests/files/upload_asset_files.sql
 \i tests/files/upload_depot_files.sql
 \i tests/files/upload_plan_files.sql
 \i tests/files/upload_project_files.sql
-\i tests/files/upload_spec_files.sql
 \i tests/files/upload_task_files.sql
 \i tests/files/modify_avatar.sql
 \i tests/files/delete_avatar.sql
@@ -136,7 +129,6 @@
 \i tests/utilities/modify_water_bill.sql
 
 -- entity removals and others
-delete from specs where spec_id >= 10001;
 delete from water_bills where true;
 \i tests/project/add_task_to_project.sql
 \i tests/project/remove_task_from_project.sql
@@ -144,4 +136,3 @@ delete from water_bills where true;
 \i tests/project/delete_project.sql
 \i tests/invoice/delete_invoice.sql
 \i tests/depot/delete_supply.sql
-

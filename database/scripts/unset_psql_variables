@@ -8,6 +8,7 @@
 \unset invoice_to_be_deleted
 \unset mutation_ok
 \unset my_boolean_test
+\unset new_appliance_id
 \unset new_asset_id
 \unset new_box_id
 \unset new_comment

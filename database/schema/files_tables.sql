@@ -32,11 +32,6 @@ create table project_files (
   uuid uuid not null references files (uuid) on delete cascade
 );
 
-create table spec_files (
-  spec_id integer not null references specs (spec_id) on delete cascade,
-  uuid uuid not null references files (uuid) on delete cascade
-);
-
 create table task_files (
   task_id integer not null references tasks (task_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade

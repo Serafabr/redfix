@@ -133,7 +133,6 @@ begin transaction;
 \i api/files/upload_depot_files.sql
 \i api/files/upload_plan_files.sql
 \i api/files/upload_project_files.sql
-\i api/files/upload_spec_files.sql
 \i api/files/upload_task_files.sql
 -- firm
 \i api/firm/create_firm.sql
