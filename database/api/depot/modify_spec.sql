@@ -1,8 +1,8 @@
-\set function_name api.create_spec
+\set function_name api.modify_spec
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "depotId" integer,
+  in "specId" integer,
   in "specSf" text,
   in "name" text,
   in "unit" integer,
@@ -11,13 +11,18 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      insert into specs values (
-        default,
-        "depotId",
+      update specs set (
+        spec_sf,
+        name,
+        unit
+      ) = (select new_values.*)
+      from (select
         "specSf",
         "name",
         "unit"
-      ) returning spec_id into id;
+      ) as new_values
+      where spec_id = "specId";
+      id = "specId";
     end;
   $$
 ;

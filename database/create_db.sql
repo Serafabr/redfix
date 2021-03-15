@@ -98,11 +98,13 @@ begin transaction;
 \i api/asset/add_child_to_asset.sql
 \i api/asset/add_parent_to_asset.sql
 \i api/asset/add_tag_to_asset.sql
+\i api/asset/create_appliance.sql
 \i api/asset/create_asset.sql
 \i api/asset/create_tag.sql
 \i api/asset/delete_tag.sql
 \i api/asset/get_asset_children.sql
 \i api/asset/get_asset_parents.sql
+\i api/asset/modify_appliance.sql
 \i api/asset/modify_asset.sql
 \i api/asset/modify_tag.sql
 \i api/asset/remove_child_from_asset.sql
@@ -124,6 +126,7 @@ begin transaction;
 \i api/depot/modify_box.sql
 \i api/depot/modify_depot.sql
 \i api/depot/modify_price.sql
+\i api/depot/modify_spec.sql
 \i api/depot/modify_supply.sql
 -- files
 \i api/files/delete_avatar.sql

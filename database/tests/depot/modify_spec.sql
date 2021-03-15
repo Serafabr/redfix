@@ -2,7 +2,6 @@
 
 select api.modify_spec(
   :new_spec_id,
-  :new_depot_id,
   'SF-0001',
   'Cabo XYZZYX',
   2

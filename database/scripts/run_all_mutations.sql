@@ -104,6 +104,7 @@
 \i tests/invoice/modify_invoice.sql
 
 -- \i tests/invoice/propose_usage_from_internal_box.sql
+-- \i tests/invoice/delete_usages.sql
 -- \i tests/invoice/approve_usages.sql
 
 -- \i tests/invoice/set_invoice_paid.sql

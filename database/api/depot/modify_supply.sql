@@ -3,27 +3,26 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "supplyId" integer,
-  in "supplySf" text,
-  in "boxId" integer,
   in "specId" integer,
   in "qtyInitial" numeric,
   in "price" numeric,
+  in "bdi" numeric,
   out id integer
 )
   language plpgsql
   as $$
     begin
       update supplies as s set (
-        supply_sf,
         spec_id,
         qty_initial,
-        price
+        price,
+        bdi
       ) = (select new_values.*)
       from (select
-        "supplySf",
         "specId",
         "qtyInitial",
-        "price"
+        "price",
+        "bdi"
       ) as new_values
       where s.supply_id = "supplyId";
       id = "supplyId";

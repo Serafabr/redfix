@@ -2,11 +2,11 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "supplySf" text,
-  in "boxId" integer,
   in "specId" integer,
+  in "boxId" integer,
   in "qtyInitial" numeric,
   in "price" numeric,
+  in "bdi" numeric,
   out id integer
 )
   language plpgsql
@@ -14,11 +14,11 @@ create or replace function :function_name (
     begin
       insert into supplies as s values (
         default,
-        "supplySf",
-        "boxId",
         "specId",
+        "boxId",
         "qtyInitial",
-        "price"
+        "price",
+        "bdi"
       ) returning s.supply_id into id;
     end;
   $$

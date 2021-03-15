@@ -32,9 +32,10 @@ rollback transaction;
 \o
 
 -- print results
+select count(u.*) as total_tested_mutations from (select unnest(regexp_split_to_array(regexp_replace(:'all_mutations',',$',''),','))) as u \gset
 select
   E'\n\nTESTED MUTATIONS:    ' ||
-  :mutation_ok ||
+  :'total_tested_mutations' ||
   ' / ' ||
   :total_of_mutations ||
   E'\n\n'

@@ -1,7 +1,7 @@
 \set tested_mutation api.create_price
 
 select api.create_price(
-  :new_spec_id,
+  :new_spec_id::integer,
   99.98,
   '2021-01-31'::date,
   60,

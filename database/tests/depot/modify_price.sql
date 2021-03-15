@@ -1,6 +1,6 @@
 \set tested_mutation api.modify_price
 
-select api.create_price(
+select api.modify_price(
   :new_price_id,
   :new_spec_id,
   99.98,

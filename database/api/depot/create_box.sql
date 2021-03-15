@@ -4,6 +4,7 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "depotId" integer,
   in "boxSf" text,
+  in "isInternal" boolean,
   in "boxId" integer default null, -- id of the box to copy supplies from
   in "note" text default null,
   out id integer
@@ -14,7 +15,8 @@ create or replace function :function_name (
       insert into boxes as b values (
         default,
         "boxSf",
-        "depotId"
+        "depotId",
+        "isInternal"
       ) returning b.box_id into id;
       if "boxId" is not null then
         insert into supplies as s (

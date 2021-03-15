@@ -1,27 +1,27 @@
 \set tested_mutation api.create_supply
 
 select api.create_supply(
-  'M-01',
+  :new_spec_id,
   :new_box_id,
-  376,
   1000,
-  99.99
+  99.99,
+  0.20
 ) as new_supply_id, :mutation_ok + 1 as mutation_ok \gset
 
 select api.create_supply(
-  'M-02',
+  :another_spec_id,
   :new_box_id,
-  380,
-  100,
-  99
+  2000,
+  9.99,
+  0.20
 ) as supply_to_be_removed_from_task \gset
 
 select api.create_supply(
-  'M-03',
+  :third_spec_id,
   :new_box_id,
-  378,
+  3000,
   10,
-  9.10
+  0.20
 ) as supply_to_be_deleted \gset
 
 \set all_mutations :all_mutations:tested_mutation,
