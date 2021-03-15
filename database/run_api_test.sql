@@ -17,9 +17,6 @@ set cookie.session.person_id to 1;
 -- discard output
 \o /dev/null
 
--- reset mutation_ok count
-\set mutation_ok 0
-
 -- begin transaction
 begin transaction;
 

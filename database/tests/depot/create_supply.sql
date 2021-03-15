@@ -6,7 +6,7 @@ select api.create_supply(
   1000,
   99.99,
   0.20
-) as new_supply_id, :mutation_ok + 1 as mutation_ok \gset
+) as new_supply_id \gset
 
 select api.create_supply(
   :another_spec_id,

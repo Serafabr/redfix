@@ -5,6 +5,6 @@ select api.create_asset(
   'Estações Transformadoras',
   2,
   102
-) as new_asset_id, :mutation_ok + 1 as mutation_ok \gset
+) as new_asset_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

@@ -4,7 +4,6 @@
 \set ON_ERROR_STOP off
 \set QUIET on
 \set insert_energy_bills false
-\set mutation_ok 0
 
 -- set pg_settings variables
 -- "login" to allow inserts (mandatory person_id in some columns)

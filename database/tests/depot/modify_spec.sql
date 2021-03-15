@@ -5,6 +5,6 @@ select api.modify_spec(
   'SF-0001',
   'Cabo XYZZYX',
   2
-) as new_spec_id, :mutation_ok + 1 as mutation_ok \gset
+) as new_spec_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

@@ -1,4 +1,5 @@
 \unset all_mutations
+\unset another_spec_id
 \unset asset_category_air
 \unset asset_category_electric
 \unset asset_category_facility
@@ -6,7 +7,6 @@
 \unset function_name
 \unset insert_energy_bills
 \unset invoice_to_be_deleted
-\unset mutation_ok
 \unset my_boolean_test
 \unset new_appliance_id
 \unset new_asset_id
@@ -36,5 +36,7 @@
 \unset tag_to_be_deleted
 \unset test_result_message
 \unset tested_mutation
+\unset third_spec_id
 \unset total_of_mutations
+\unset total_tested_mutations
 \unset trigger_name

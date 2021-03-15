@@ -7,6 +7,6 @@ select api.modify_appliance(
   2,
   102,
   'Descrição atualizada do novo equipamento.'
-) as new_appliance_id, :mutation_ok + 1 as mutation_ok \gset
+) as new_appliance_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

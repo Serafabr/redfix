@@ -6,6 +6,6 @@ select api.modify_supply(
   1000,
   99.99,
   0.25
-) as not_used_output, :mutation_ok + 1 as mutation_ok \gset
+) as not_used_output \gset
 
 \set all_mutations :all_mutations:tested_mutation,

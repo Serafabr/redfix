@@ -9,6 +9,6 @@ select api.modify_price(
   1,
   null,
   null
-) as new_price_id, :mutation_ok + 1 as mutation_ok \gset
+) as new_price_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

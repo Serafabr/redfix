@@ -7,6 +7,6 @@ select api.create_person (
   'Nome da Pessoa e Sobrenome',
   '1234',
   'coordinator'
-) as new_person_id, :mutation_ok + 1 as mutation_ok \gset
+) as new_person_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

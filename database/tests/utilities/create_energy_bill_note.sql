@@ -5,6 +5,6 @@ select api.create_energy_bill_note(
   2021,
   1,
   'Algumas observações sobre a fatura da CEB'
-) as not_used_output, :mutation_ok + 1 as mutation_ok \gset
+) as not_used_output \gset
 
 \set all_mutations :all_mutations:tested_mutation,

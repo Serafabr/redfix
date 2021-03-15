@@ -5,6 +5,6 @@ select api.create_depot(
   3,
   'Contrato de Manutenção Elétrica',
   'Descrição'
-) as new_depot_id, :mutation_ok + 1 as mutation_ok \gset
+) as new_depot_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

@@ -5,7 +5,7 @@ select api.create_spec(
   'SF-0001',
   'Cabo XYZ',
   2
-) as new_spec_id, :mutation_ok + 1 as mutation_ok \gset
+) as new_spec_id \gset
 
 select api.create_spec(
   :new_depot_id,
