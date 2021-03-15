@@ -1,4 +1,4 @@
-\set trigger_name check_asset_location
+\set trigger_name validate_asset_location
 
 drop function if exists :trigger_name cascade;
 create or replace function :trigger_name ()

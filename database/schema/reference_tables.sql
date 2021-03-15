@@ -233,8 +233,9 @@ create table price_source_types (
 );
 
 insert into price_source_types values
-  (1, 'Contrato'),
-  (2, 'Proposta de empresa')
+  (1, 'SINAP'),
+  (2, 'Contrato'),
+  (3, 'Proposta de empresa')
 ;
 
 create table spec_units (

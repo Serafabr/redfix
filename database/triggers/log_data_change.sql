@@ -1,4 +1,4 @@
-\set trigger_name insert_audit_trail
+\set trigger_name log_data_change
 
 drop function if exists :trigger_name cascade;
 create or replace function :trigger_name ()
@@ -20,6 +20,6 @@ create or replace function :trigger_name ()
 ;
 
 -- example:
--- create trigger insert_audit_trail
+-- create trigger log_data_change
 -- after insert or update or delete on assets
--- for each row execute procedure insert_audit_trail();
+-- for each row execute procedure log_data_change();

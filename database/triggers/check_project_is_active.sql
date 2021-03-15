@@ -1,4 +1,4 @@
-\set trigger_name check_task_project
+\set trigger_name check_project_is_active
 
 drop function if exists :trigger_name cascade;
 create or replace function :trigger_name ()

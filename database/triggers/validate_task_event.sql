@@ -1,4 +1,4 @@
-\set trigger_name check_insert_task_event
+\set trigger_name validate_task_event
 
 drop function if exists :trigger_name cascade;
 create or replace function :trigger_name ()

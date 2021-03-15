@@ -237,14 +237,14 @@ begin transaction;
 
 -- create triggers before populate tables
 \i triggers/check_delete_supply.sql
-\i triggers/check_insert_active_box.sql
-\i triggers/check_insert_invoice_task.sql
-\i triggers/check_insert_task_event.sql
-\i triggers/check_update_task_event.sql
-\i triggers/check_task_project.sql
-\i triggers/check_task_supply.sql
-\i triggers/insert_audit_trail.sql
+\i triggers/check_project_is_active.sql
+\i triggers/log_data_change.sql
 \i triggers/publish_to_channel.sql
+\i triggers/validate_asset_location.sql
+\i triggers/validate_asset_parent.sql
+\i triggers/validate_box_activation.sql
+\i triggers/validate_task_event.sql
+\i triggers/verify_task_note_creator.sql
 
 -- create rls policies
 -- (currently not used)

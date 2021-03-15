@@ -1,4 +1,4 @@
-\set trigger_name check_asset_parent
+\set trigger_name verify_task_note_creator
 
 drop function if exists :trigger_name cascade;
 create or replace function :trigger_name ()
@@ -6,14 +6,14 @@ create or replace function :trigger_name ()
   language plpgsql
   as $$
     begin
-      if (select new.asset_id not in (select asset_category_id from asset_categories))
+      if old.person_id = get_person_id()
         then return new;
-        else raise exception '%', get_exception_message(102);
+        else raise exception '%', get_exception_message(204);
       end if;
     end;
   $$
 ;
 
 create trigger :trigger_name
-before insert or update on asset_parents
+before update of note on task_events
 for each row execute procedure :trigger_name();

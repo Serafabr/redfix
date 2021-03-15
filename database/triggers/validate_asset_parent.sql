@@ -1,4 +1,4 @@
-\set trigger_name check_update_task_event
+\set trigger_name validate_asset_parent
 
 drop function if exists :trigger_name cascade;
 create or replace function :trigger_name ()
@@ -6,14 +6,14 @@ create or replace function :trigger_name ()
   language plpgsql
   as $$
     begin
-      if old.person_id = get_person_id()
+      if (select new.asset_id not in (select asset_category_id from asset_categories))
         then return new;
-        else raise exception '%', get_exception_message(204);
+        else raise exception '%', get_exception_message(102);
       end if;
     end;
   $$
 ;
 
 create trigger :trigger_name
-before update on task_events
+before insert or update on asset_parents
 for each row execute procedure :trigger_name();
