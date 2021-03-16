@@ -19,19 +19,19 @@ create or replace function :function_name (
           'boxSf', b.box_sf,
           'depotId', d.depot_id,
           'depotSf', d.depot_sf,
-          'qtyProposed', ts.qty_proposed,
-          'qtyApproved', ts.qty_approved,
-          'qtyConsumed', ts.qty_consumed,
+          'qtyProposed', a.qty_proposed,
+          'qtyApproved', a.qty_approved,
+          'qtyConsumed', a.qty_consumed,
           'price', s.price,
           'name', z.name,
           'unit', z.unit
         ) order by d.depot_sf, b.box_sf, s.supply_sf) as l
-      from task_supplies as ts
+      from allocations as a
       inner join supplies as s using (supply_id)
       inner join boxes as b using (box_id)
       inner join depots as d using (depot_id)
       inner join specs as z using (spec_id)
-      where ts.task_id = "taskId"
+      where a.task_id = "taskId"
     ) as j
   $$
 ;

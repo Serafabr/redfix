@@ -1,25 +1,25 @@
-\set function_name api.approve_usage_proposals
+\set function_name api.approve_allocations
 
-drop type if exists usage_approval cascade;
-create type usage_approval as (
-  usage_id integer,
+drop type if exists allocation_approval cascade;
+create type allocation_approval as (
+  alloc_id integer,
   qty_approved numeric
 );
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "usageApprovals" usage_approval[],
+  in "allocationApprovals" allocation_approval[],
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update task_supplies as ts set (
+      update allocations as a set (
         qty_approved
       ) = (
         select ua.qty_approved
-      ) from (select unnest("usageApprovals")) as ua
-      where ts.usage_id = ua.usage_id;
+      ) from (select unnest("allocationApprovals")) as ua
+      where a.alloc_id = ua.alloc_id;
       id = 1;
     end;
   $$

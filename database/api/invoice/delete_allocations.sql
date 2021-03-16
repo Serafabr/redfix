@@ -1,14 +1,14 @@
-\set function_name api.delete_usages
+\set function_name api.delete_allocations
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "usagesIds" integer[],
+  in "allocIds" integer[],
   out id integer
 )
   language plpgsql
   as $$
     begin
-      delete from task_supplies where usage_id in (select unnest("usagesIds"));
+      delete from allocations where alloc_id in (select unnest("allocIds"));
       id = 1;
     end;
   $$

@@ -10,10 +10,10 @@ create or replace view quantities as
     select
       s.supply_id,
       s.qty_initial,
-      sum(coalesce(ts.qty_approved, ts.qty_proposed, 0)) as qty_blocked,
+      sum(coalesce(a.qty_approved, a.qty_proposed, 0)) as qty_blocked,
       sum(coalesce(qty_consumed, 0)) as qty_consumed
     from supplies as s
-    left join task_supplies as ts using (supply_id)
+    left join allocations as a using (supply_id)
     group by s.supply_id, s.qty_initial
   ) as q
 ;

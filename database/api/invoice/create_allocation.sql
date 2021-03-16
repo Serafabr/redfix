@@ -1,4 +1,4 @@
-\set function_name api.propose_usage_from_internal_box
+\set function_name api.create_allocation
 
 drop function if exists :function_name;
 create or replace function :function_name (
@@ -11,7 +11,7 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      insert into task_supplies as ts (
+      insert into allocations as a (
         task_id,
         spec_id,
         internal_box_id,
@@ -21,13 +21,13 @@ create or replace function :function_name (
         "specId",
         "internalBoxId",
         "qtyProposed"
-      ) returning ts.usage_id into id;
+      ) returning a.alloc_id into id;
     end;
   $$
 ;
 
 grant execute on function :function_name to coordinator, supervisor, inspector, employee;
 
-select generate_api_documentation(:'function_name',E'the new`usageId`\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'the new`allocId`\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';
