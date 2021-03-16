@@ -14,12 +14,11 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update allocations as a set (
-        qty_approved
-      ) = (
-        select ua.qty_approved
-      ) from (select unnest("allocationApprovals")) as ua
-      where a.alloc_id = ua.alloc_id;
+      with aa as (
+        select (unnest("allocationApprovals")).*
+      ) update allocations as a set qty_approved = aa.qty_approved
+      from aa
+      where a.alloc_id = aa.alloc_id;
       id = 1;
     end;
   $$
