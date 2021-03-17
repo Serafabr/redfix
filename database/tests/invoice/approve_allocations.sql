@@ -2,9 +2,9 @@
 
 select api.approve_allocations(
   array[
-    (:new_alloc_id,1),
+    (:new_alloc_id,0.9),
     (:alloc_to_be_deleted,0.5)
   ]::allocation_approval[]
-) as new_alloc_id \gset
+) as not_used_output \gset
 
 \set all_mutations :all_mutations:tested_mutation,

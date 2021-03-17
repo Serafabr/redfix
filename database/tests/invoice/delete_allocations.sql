@@ -2,6 +2,6 @@
 
 select api.delete_allocations(
   array[:alloc_to_be_deleted]
-) as new_alloc_id \gset
+) as not_used_output \gset
 
 \set all_mutations :all_mutations:tested_mutation,
