@@ -1,4 +1,3 @@
-drop role if exists coordinator;
 drop role if exists supervisor;
 drop role if exists inspector;
 drop role if exists employee;
@@ -18,7 +17,6 @@ create role cmms_user with
   admin administrator
 ;
 
-create role coordinator in role cmms_user;
 create role supervisor in role cmms_user;
 create role inspector in role cmms_user;
 create role employee in role cmms_user;

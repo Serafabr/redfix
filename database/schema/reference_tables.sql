@@ -81,7 +81,6 @@ create table person_roles (
 
 insert into person_roles values
   ('administrator', 'Administrador'),
-  ('coordinator', 'Chefe do SEDACOPE'),
   ('supervisor', 'Servidor da SINFRA'),
   ('inspector', 'Terceirizado da Fiscalização'),
   ('employee', 'Terceirizado da Manutenção'),

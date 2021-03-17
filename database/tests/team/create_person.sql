@@ -6,7 +6,7 @@ select api.create_person (
   substr(gen_random_uuid()::text,1,8) || '@senado.leg.br',
   'Nome da Pessoa e Sobrenome',
   '1234',
-  'coordinator'
+  'supervisor'
 ) as new_person_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

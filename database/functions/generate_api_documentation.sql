@@ -15,7 +15,6 @@ create or replace function :function_name (
         'Output `id`: ' || output_description ||
         E'\nGranted to: \n' ||
         case when ad.administrator then E'* administrator\n' else '' end ||
-        case when ad.coordinator then E'* coordinator\n' else '' end ||
         case when ad.supervisor then E'* supervisor\n' else '' end ||
         case when ad.inspector then E'* inspector\n' else '' end ||
         case when ad.employee then E'* employee\n' else '' end ||

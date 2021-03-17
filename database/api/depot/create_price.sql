@@ -28,7 +28,7 @@ create or replace function :function_name (
   $$
 ;
 
-grant execute on function :function_name to coordinator, supervisor, inspector;
+grant execute on function :function_name to supervisor, inspector;
 
 select generate_api_documentation(:'function_name',E'`priceId` of the new price\n') as new_comment \gset
 

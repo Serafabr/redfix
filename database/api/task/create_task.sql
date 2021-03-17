@@ -78,7 +78,7 @@ create or replace function :function_name (
   $$
 ;
 
-grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+grant execute on function :function_name to supervisor, inspector, employee;
 
 select generate_api_documentation(:'function_name',E'`taskId` of the new task\n') as new_comment \gset
 

@@ -48,7 +48,7 @@ create or replace function :function_name (
   $$
 ;
 
-grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+grant execute on function :function_name to supervisor, inspector, employee;
 
 select generate_api_documentation(:'function_name',E'`assetId` of the modified asset\n') as new_comment \gset
 

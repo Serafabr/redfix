@@ -7,7 +7,7 @@ select api.modify_person(
   substr(gen_random_uuid()::text,1,8) || '@senado.leg.br',
   'Novo Nome',
   '1234',
-  'coordinator'
+  'supervisor'
 ) as not_used_output \gset
 
 \set all_mutations :all_mutations:tested_mutation,

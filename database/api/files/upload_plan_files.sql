@@ -19,7 +19,7 @@ create or replace function :function_name (
   $$
 ;
 
-grant execute on function :function_name to coordinator, supervisor;
+grant execute on function :function_name to supervisor;
 
 select generate_api_documentation(:'function_name',E'the same as `planId` input\n') as new_comment \gset
 

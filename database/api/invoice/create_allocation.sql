@@ -26,7 +26,7 @@ create or replace function :function_name (
   $$
 ;
 
-grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+grant execute on function :function_name to supervisor, inspector, employee;
 
 select generate_api_documentation(:'function_name',E'the new`allocId`\n') as new_comment \gset
 

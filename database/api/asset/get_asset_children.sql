@@ -22,7 +22,7 @@ create or replace function :function_name (
   $$
 ;
 
-grant execute on function :function_name to coordinator, supervisor, inspector, employee, visitor;
+grant execute on function :function_name to supervisor, inspector, employee, visitor;
 
 select generate_api_documentation(:'function_name',E'Output `children`: a list of assets that are children of the asset identified by `assetId\n') as new_comment \gset
 

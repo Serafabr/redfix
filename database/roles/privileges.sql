@@ -18,7 +18,7 @@ grant usage on schema web to cmms_user;
 -- change public schema default privileges
 alter default privileges in schema public grant usage on sequences to cmms_user;
 alter default privileges in schema public grant select on tables to cmms_user;
-alter default privileges in schema public grant insert, update, delete on tables to coordinator, supervisor, inspector, employee;
+alter default privileges in schema public grant insert, update, delete on tables to supervisor, inspector, employee;
 alter default privileges in schema public grant execute on functions to cmms_user;
 
 -- change api schema default privileges
