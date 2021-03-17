@@ -1,3 +1,5 @@
+\unset ON_ERROR_STOP
+\unset QUIET
 \unset all_mutations
 \unset alloc_to_be_deleted
 \unset another_spec_id
