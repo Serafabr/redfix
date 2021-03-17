@@ -1,3 +1,8 @@
+create type asset_event_enum as enum (
+  'status',
+  'note'
+);
+
 create type depot_event_enum as enum (
   'insert_depot',
   'insert_box',

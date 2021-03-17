@@ -42,6 +42,7 @@ create table asset_events (
   asset_event_name asset_event_enum not null,
   created_at timestamptz not null default now(),
   person_id integer not null references persons (person_id) default get_person_id(),
+  asset_status_id integer references asset_statuses (asset_status_id),
   note text
 );
 

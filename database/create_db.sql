@@ -99,6 +99,8 @@ begin transaction;
 \i api/asset/add_parent_to_asset.sql
 \i api/asset/add_tag_to_asset.sql
 \i api/asset/create_appliance.sql
+\i api/asset/create_asset_note.sql
+\i api/asset/create_asset_status_event.sql
 \i api/asset/create_asset.sql
 \i api/asset/create_tag.sql
 \i api/asset/delete_tag.sql
