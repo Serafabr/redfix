@@ -2,6 +2,7 @@ import { AppHeader, AppSidebar, AppSidebarHeader } from '../Layout';
 import { navItems } from '../../utils/nav/navItems';
 
 import style from './MainPage.module.scss';
+import { PageTitle } from '../../components/PageTitle/PageTitle';
 
 export const MainPage = () => {
   return (
@@ -15,8 +16,11 @@ export const MainPage = () => {
       <div className={style.AppSidebar}>
         <AppSidebar navItems={navItems} />
       </div>
-      <main className={style.Body} style={{ backgroundColor: "#e5e5e5", padding: "50px" }}>
-        Body
+      <main className={style.Body} style={{ backgroundColor: "#e5e5e5", padding: "24px 40px" }}>
+        <PageTitle />
+        <div style={{ marginTop: "50px" }}>
+          Body
+        </div>
       </main>
     </div>
   )
