@@ -3,11 +3,11 @@
 <path d="M10.5 3H13C13.2652 3 13.5196 3.10536 13.7071 3.29289C13.8946 3.48043 14 3.73478 14 4V14.5C14 14.7652 13.8946 15.0196 13.7071 15.2071C13.5196 15.3946 13.2652 15.5 13 15.5H3C2.73478 15.5 2.48043 15.3946 2.29289 15.2071C2.10536 15.0196 2 14.7652 2 14.5V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H5.5C5.5 2.33696 5.76339 1.70107 6.23223 1.23223C6.70107 0.763392 7.33696 0.5 8 0.5C8.66304 0.5 9.29893 0.763392 9.76777 1.23223C10.2366 1.70107 10.5 2.33696 10.5 3V3Z" stroke="#1589EE" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M8 2.5C8.04945 2.5 8.09778 2.51466 8.13889 2.54213C8.18 2.5696 8.21205 2.60865 8.23097 2.65433C8.24989 2.70001 8.25484 2.75028 8.2452 2.79877C8.23555 2.84727 8.21174 2.89181 8.17678 2.92678C8.14181 2.96174 8.09727 2.98555 8.04877 2.9952C8.00028 3.00484 7.95001 2.99989 7.90433 2.98097C7.85865 2.96205 7.8196 2.93 7.79213 2.88889C7.76466 2.84778 7.75 2.79945 7.75 2.75C7.75 2.6837 7.77634 2.62011 7.82322 2.57322C7.87011 2.52634 7.9337 2.5 8 2.5" stroke="#1589EE" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M4.5 7H8" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M10 7H11.5" stroke="#1589EE" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 7H11.5" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M11.5 9.5H8" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6 9.5H4.5" stroke="#1589EE" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 9.5H4.5" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M4.5 12H8" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M10 12H11.5" stroke="#1589EE" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 12H11.5" stroke="#ffffff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 <defs>
 <clipPath id="clip0">
