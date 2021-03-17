@@ -2,9 +2,11 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "depotId" integer,
   in "boxSf" text,
+  in "depotId" integer,
   in "isInternal" boolean,
+  in "materialDefaultBdi" numeric default 0,
+  in "serviceDefaultBdi" numeric default 0,
   in "boxId" integer default null, -- id of the box to copy supplies from
   in "note" text default null,
   out id integer
@@ -16,28 +18,30 @@ create or replace function :function_name (
         default,
         "boxSf",
         "depotId",
-        "isInternal"
+        "isInternal",
+        "materialDefaultBdi",
+        "serviceDefaultBdi"
       ) returning b.box_id into id;
       if "boxId" is not null then
         insert into supplies as s (
           -- omit supply_id column: default value
-          supply_sf,
-          box_id,
           spec_id,
+          box_id,
           qty_initial,
-          price
+          price,
+          bdi
         ) select
-          ss.supply_sf,
-          id,
           ss.spec_id,
+          id,
           ss.qty_initial,
-          ss.price
+          ss.price,
+          ss.bdi
         from supplies as ss where ss.box_id = "boxId";
       end if;
       insert into depot_events values (
         default,
         "depotId",
-        'insert_box'::depot_event_enum,
+        'create_box'::depot_event_enum,
         now(),
         get_person_id(),
         "note"

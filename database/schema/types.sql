@@ -4,8 +4,8 @@ create type asset_event_enum as enum (
 );
 
 create type depot_event_enum as enum (
-  'insert_depot',
-  'insert_box',
+  'create_depot',
+  'create_box',
   'modify_depot',
   'modify_box',
   'change_category'

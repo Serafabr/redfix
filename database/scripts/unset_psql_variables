@@ -34,6 +34,7 @@
 \unset new_task_template_id
 \unset new_team_id
 \unset not_used_output
+\unset original_box_id
 \unset project_to_be_removed
 \unset supply_to_be_deleted
 \unset supply_to_be_removed_from_task

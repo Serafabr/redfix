@@ -2,7 +2,7 @@
 
 select api.modify_box(
   :new_box_id,
-  'Inicial'
+  '1º Termo Aditivo'
 ) as not_used_output \gset
 
 \set all_mutations :all_mutations:tested_mutation,

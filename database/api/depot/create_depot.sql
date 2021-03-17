@@ -39,10 +39,18 @@ create or replace function :function_name (
       insert into depot_events values (
         default,
         id,
-        'insert_depot'::depot_event_enum,
+        'create_depot'::depot_event_enum,
         now(),
         get_person_id(),
         'Criação do estoque'
+      );
+      insert into boxes values (
+        default,
+        'Caixa original',
+        id,
+        true,
+        0,
+        0
       );
     end;
   $$
