@@ -3,7 +3,9 @@ import { navItems } from '../../utils/nav/navItems';
 
 import style from './MainPage.module.scss';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Button } from '../../components/Buttons';
+import { Button, ButtonStyle } from '../../components/Buttons';
+
+import { Plus as PlusIcon } from '../../components/Icons';
 
 export const MainPage = () => {
   return (
@@ -18,9 +20,17 @@ export const MainPage = () => {
         <AppSidebar navItems={navItems} />
       </div>
       <main className={style.Body} style={{ backgroundColor: "#e5e5e5", padding: "24px 40px" }}>
-        <div className="TitleArea">
+        <div className={style.TitleArea}>
           <PageTitle title="Tarefa" path="/tarefas" />
-          <Button text="Nova Tarefa" />
+          <div className={style.Buttons}>
+            <div className={style.ButtonWrapper}>
+              <Button text="Nova Tarefa" iconComponent={PlusIcon} />
+            </div>
+            <div className={style.ButtonWrapper}>
+              <Button buttonStyle={ButtonStyle.Secondary} justIcon iconComponent={PlusIcon} />
+            </div>
+            
+          </div>
         </div>
         <div style={{ marginTop: "50px" }}>
           Body
