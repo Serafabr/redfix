@@ -18,6 +18,7 @@
 \unset new_comment
 \unset new_db_name
 \unset new_depot_id
+\unset new_ext_alloc_id
 \unset new_firm_id
 \unset new_invoice_id
 \unset new_monitor_id

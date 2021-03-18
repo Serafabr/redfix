@@ -106,7 +106,8 @@
 \i tests/invoice/create_invoice.sql
 \i tests/invoice/modify_invoice.sql
 
-\i tests/invoice/create_allocation.sql
+\i tests/invoice/create_internal_allocation.sql
+-- \i tests/invoice/create_external_allocation.sql
 \i tests/invoice/delete_allocations.sql
 \i tests/invoice/approve_allocations.sql
 

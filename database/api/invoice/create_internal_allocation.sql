@@ -1,4 +1,4 @@
-\set function_name api.create_allocation
+\set function_name api.create_internal_allocation
 
 drop function if exists :function_name;
 create or replace function :function_name (
