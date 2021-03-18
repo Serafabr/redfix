@@ -84,6 +84,7 @@ begin transaction;
 -- json_lists
 \i schema/json_lists/get_reads_of_monitor.sql
 
+\i schema/json_lists/get_assets_of_location.sql
 \i schema/json_lists/get_assets_of_task.sql
 \i schema/json_lists/get_events_of_task.sql
 \i schema/json_lists/get_files_of_asset.sql
@@ -94,18 +95,18 @@ begin transaction;
 
 -- create api schema objects
 -- asset
-\i api/asset/assets.sql
-\i api/asset/appliances.sql
-\i api/asset/facilities.sql
 \i api/asset/add_child_to_asset.sql
 \i api/asset/add_parent_to_asset.sql
 \i api/asset/add_tag_to_asset.sql
+\i api/asset/appliances.sql
+\i api/asset/assets.sql
 \i api/asset/create_appliance.sql
 \i api/asset/create_asset_note.sql
 \i api/asset/create_asset_status_event.sql
 \i api/asset/create_asset.sql
 \i api/asset/create_tag.sql
 \i api/asset/delete_tag.sql
+\i api/asset/facilities.sql
 \i api/asset/get_asset_children.sql
 \i api/asset/get_asset_parents.sql
 \i api/asset/modify_appliance.sql
