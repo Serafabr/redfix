@@ -17,8 +17,8 @@
 \i tests/asset/add_tag_to_asset.sql
 \i tests/asset/remove_tag_from_asset.sql
 
--- \i tests/asset/create_asset_note.sql
--- \i tests/asset/create_asset_status_event.sql
+\i tests/asset/create_asset_note.sql
+\i tests/asset/create_asset_status_event.sql
 
 -- team
 \i tests/team/change_password.sql

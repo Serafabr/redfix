@@ -4,7 +4,7 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "assetId" integer,
   in "createdAt" timestamptz,
-  in "note" integer,
+  in "note" text,
   out id integer
 )
   language plpgsql

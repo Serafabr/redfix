@@ -5,7 +5,7 @@ create or replace function :function_name (
   in "assetId" integer,
   in "createdAt" timestamptz,
   in "assetStatusId" integer,
-  in "note" integer,
+  in "note" text,
   out id integer
 )
   language plpgsql
