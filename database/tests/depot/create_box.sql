@@ -10,4 +10,14 @@ select api.create_box(
   'Itens conforme edital'
 ) as new_box_id \gset
 
+select api.create_box(
+  'Nota Fiscal 199',
+  :new_depot_id,
+  false,
+  0,
+  0,
+  null,
+  'Materiais que não constam no edital'
+) as new_ext_box_id \gset
+
 \set all_mutations :all_mutations:tested_mutation,

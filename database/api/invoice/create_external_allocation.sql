@@ -4,14 +4,24 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "taskId" integer,
   in "specId" integer,
-  in "internalBoxId" integer,
   in "qtyProposed" numeric,
+  in "externalBoxId" integer default null,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      -- todo
+      insert into allocations as a (
+        task_id,
+        spec_id,
+        external_box_id,
+        qty_proposed
+      ) values (
+        "taskId",
+        "specId",
+        "externalBoxId",
+        "qtyProposed"
+      ) returning a.alloc_id into id;
     end;
   $$
 ;

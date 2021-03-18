@@ -21,4 +21,11 @@ select api.create_spec(
   2
 ) as third_spec_id \gset
 
+select api.create_spec(
+  :new_depot_id,
+  'X-099',
+  'Tijolo Especial',
+  7
+) as new_ext_spec_id \gset
+
 \set all_mutations :all_mutations:tested_mutation,
