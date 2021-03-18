@@ -2,6 +2,7 @@
 \unset QUIET
 \unset all_mutations
 \unset alloc_to_be_deleted
+\unset another_alloc_id
 \unset another_spec_id
 \unset api_test_ok
 \unset asset_category_air

@@ -147,6 +147,7 @@ begin transaction;
 -- invoice
 \i api/invoice/add_allocations_to_invoice.sql
 \i api/invoice/approve_allocations.sql
+\i api/invoice/create_allocation.sql
 \i api/invoice/create_external_allocation.sql
 \i api/invoice/create_internal_allocation.sql
 \i api/invoice/create_invoice.sql
