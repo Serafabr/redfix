@@ -90,6 +90,7 @@ begin transaction;
 \i schema/json_lists/get_files_of_asset.sql
 \i schema/json_lists/get_monitors_of_asset.sql
 \i schema/json_lists/get_files_of_task.sql
+\i schema/json_lists/get_prices_of_spec.sql
 \i schema/json_lists/get_tasks_of_asset.sql
 \i schema/json_lists/get_tasks_of_project.sql
 
@@ -147,6 +148,7 @@ begin transaction;
 \i api/firm/modify_firm.sql
 -- invoice
 \i api/invoice/add_allocations_to_invoice.sql
+\i api/invoice/allocations_prices_options.sql
 \i api/invoice/approve_allocations.sql
 \i api/invoice/create_allocation.sql
 \i api/invoice/create_external_allocation.sql
