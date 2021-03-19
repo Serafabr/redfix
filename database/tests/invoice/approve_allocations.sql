@@ -2,8 +2,7 @@
 
 select api.approve_allocations(
   array[
-    (:new_alloc_id,0.9),
-    (:alloc_to_be_deleted,0.5)
+    (:new_alloc_id,9)
   ]::allocation_approval[]
 ) as not_used_output \gset
 

@@ -208,7 +208,10 @@ create table supplies (
   box_id integer not null references boxes (box_id),
   qty_initial numeric not null,
   price numeric not null,
-  bdi numeric not null default 0
+  bdi numeric not null default 0,
+  qty_proposed numeric not null default 0,
+  qty_approved numeric not null default 0,
+  qty_consumed numeric not null default 0
 );
 
 create table invoices (
@@ -232,6 +235,7 @@ create table allocations (
   qty_proposed numeric,
   qty_approved numeric,
   qty_consumed numeric
+  -- price numeric
 );
 
 create table tags (

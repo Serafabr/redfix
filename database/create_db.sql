@@ -79,7 +79,7 @@ begin transaction;
 -- create views
 \i schema/views/api_docs.sql
 \i schema/views/assets_of_task.sql
-\i schema/views/quantities.sql
+-- \i schema/views/quantities.sql
 
 -- json_lists
 \i schema/json_lists/get_reads_of_monitor.sql
@@ -151,8 +151,6 @@ begin transaction;
 \i api/invoice/allocations_prices_options.sql
 \i api/invoice/approve_allocations.sql
 \i api/invoice/create_allocation.sql
-\i api/invoice/create_external_allocation.sql
-\i api/invoice/create_internal_allocation.sql
 \i api/invoice/create_invoice.sql
 \i api/invoice/delete_allocations.sql
 \i api/invoice/delete_invoice.sql
@@ -238,6 +236,11 @@ begin transaction;
 \i triggers/validate_box_activation.sql
 \i triggers/validate_task_event.sql
 \i triggers/verify_task_note_creator.sql
+
+
+
+
+\i triggers/update_quantities.sql
 
 -- create rls policies
 -- (currently not used)

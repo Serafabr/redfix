@@ -1,3 +1,5 @@
+\echo '\n\n\n\n\nInitiating test of API mutations...\n\n'
+
 -- reset LAST_ERROR_SQLSTATE
 \set LAST_ERROR_SQLSTATE '00000'
 
