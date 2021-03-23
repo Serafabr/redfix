@@ -7,7 +7,12 @@ import style from './Dropdown.module.scss';
 import { useOutsideHandler } from '../../../hooks';
 
 
-export const Dropdown = () => {
+type Props = {
+  buttonStyle?: any,
+};
+
+
+export const Dropdown = ({ buttonStyle }: Props) => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   
@@ -35,7 +40,7 @@ export const Dropdown = () => {
   // Render
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
-      <button className={dropdownButtonClasses} onClick={handleOnClick}>
+      <button className={dropdownButtonClasses} onClick={handleOnClick} style={buttonStyle}>
         <div>Ordens de Serviço</div>
         <div className={style.ButtonDownArrow}>
           <img src={ArrowDown} alt="Ícone dropdown"/>

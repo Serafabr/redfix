@@ -29,7 +29,6 @@ export const MainPage = () => {
             <div className={style.ButtonWrapper}>
               <Button buttonStyle={ButtonStyle.Secondary} justIcon iconComponent={PlusIcon} />
             </div>
-            
           </div>
         </div>
         <div style={{ marginTop: "50px" }}>
