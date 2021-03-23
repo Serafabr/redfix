@@ -5,7 +5,7 @@ import style from './Button.module.scss';
 
 // Prop types
 // Button Styles
-export enum ButtonStyle { Primary, Secondary }
+export enum ButtonType { Primary, Secondary }
 
 type IconProps = {
   className: string,
@@ -14,7 +14,8 @@ type IconProps = {
 // Button Props
 type Props = {
   text?: string | null,
-  buttonStyle?: ButtonStyle,
+  buttonType?: ButtonType,
+  buttonStyle?: any,
   iconComponent?: React.ComponentType<IconProps> | null,
   justIcon?: boolean,
   disabled?: boolean,
@@ -24,7 +25,8 @@ type Props = {
 // Button Component
 export const Button = ({ 
   text = null,
-  buttonStyle = ButtonStyle.Primary,
+  buttonType = ButtonType.Primary,
+  buttonStyle,
   iconComponent: Icon = null,
   justIcon = false,
   disabled = false,
@@ -35,15 +37,15 @@ export const Button = ({
   const btnClasses = classNames(
     style.Button, // Always
     {
-      [style.PrimaryButton]: buttonStyle === ButtonStyle.Primary,
-      [style.SecondaryButton]: buttonStyle === ButtonStyle.Secondary,
+      [style.PrimaryButton]: buttonType === ButtonType.Primary,
+      [style.SecondaryButton]: buttonType === ButtonType.Secondary,
       [style.Square]: justIcon,
       [style.Disabled]: disabled,
     }
   );
   
   return (
-    <button className={btnClasses} onClick={onClick}>
+    <button className={btnClasses} onClick={onClick} style={buttonStyle}>
       <div className={style.ContentWrapper}>
         {!justIcon && (
           <div className={style.Text}>

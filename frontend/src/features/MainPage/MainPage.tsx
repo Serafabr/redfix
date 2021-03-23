@@ -3,7 +3,7 @@ import { navItems } from '../../utils/nav/navItems';
 
 import style from './MainPage.module.scss';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Button, ButtonStyle } from '../../components/Buttons';
+import { Button, ButtonType } from '../../components/Buttons';
 
 import { Plus as PlusIcon } from '../../components/Icons';
 
@@ -27,7 +27,7 @@ export const MainPage = () => {
               <Button text="Nova Tarefa" iconComponent={PlusIcon} />
             </div>
             <div className={style.ButtonWrapper}>
-              <Button buttonStyle={ButtonStyle.Secondary} justIcon iconComponent={PlusIcon} />
+              <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
             </div>
           </div>
         </div>
