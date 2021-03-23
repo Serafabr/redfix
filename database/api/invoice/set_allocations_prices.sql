@@ -1,16 +1,18 @@
-\set function_name api.approve_allocations
+\set function_name api.set_allocations_prices
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "allocationsApprovals" alloc_approval[],
+  in "allocationsPrices" alloc_price[],
   out id integer
 )
   language plpgsql
   as $$
     begin
       with aa as (
-        select (unnest("allocationsApprovals")).*
-      ) update allocations as a set qty_approved = aa.qty_approved
+        select (unnest("allocationsPrices")).*
+      ) update allocations as a set
+        price_source  = aa.price_source,
+        price = aa.price
       from aa
       where a.alloc_id = aa.alloc_id;
       id = 1;

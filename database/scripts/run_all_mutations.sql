@@ -112,6 +112,8 @@
 
 \i tests/invoice/add_allocations_to_invoice.sql
 
+\i tests/invoice/set_allocations_prices.sql
+
 \i tests/invoice/set_invoice_paid.sql
 \i tests/invoice/set_invoice_unpaid.sql
 

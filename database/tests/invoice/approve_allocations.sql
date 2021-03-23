@@ -3,7 +3,7 @@
 select api.approve_allocations(
   array[
     (:new_alloc_id,9)
-  ]::allocation_approval[]
+  ]::alloc_approval[]
 ) as not_used_output \gset
 
 \set all_mutations :all_mutations:tested_mutation,

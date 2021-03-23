@@ -20,3 +20,20 @@ create type task_event_enum as enum (
   'move',
   'note'
 );
+
+create type alloc_approval as (
+  alloc_id integer,
+  qty_approved numeric
+);
+
+create type alloc_price_source as enum (
+  'internal_box',
+  'external_box',
+  'search'
+);
+
+create type alloc_price as (
+  alloc_id integer,
+  price_source alloc_price_source,
+  price numeric
+);

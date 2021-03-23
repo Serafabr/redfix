@@ -234,8 +234,9 @@ create table allocations (
   invoice_id integer references invoices (invoice_id),
   qty_proposed numeric,
   qty_approved numeric,
-  qty_consumed numeric
-  -- price numeric
+  qty_consumed numeric,
+  price_source alloc_price_source,
+  price numeric
 );
 
 create table tags (
