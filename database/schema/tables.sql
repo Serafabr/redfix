@@ -312,7 +312,7 @@ create table dashboard (
   -- etc.
 );
 
-create table audit_trails (
+create table data_change_logs (
   person_id integer not null references persons (person_id) default get_person_id(),
   created_at timestamptz not null,
   operation text not null,

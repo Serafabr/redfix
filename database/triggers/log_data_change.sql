@@ -6,8 +6,8 @@ create or replace function :trigger_name ()
   language plpgsql
   as $$
     begin
-      insert into audit_trails values (
-        default,
+      insert into data_change_logs values (
+        get_person_id(),
         now(),
         tg_op::text,
         tg_table_name::text,
