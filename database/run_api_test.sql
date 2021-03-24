@@ -25,26 +25,25 @@ select :'LAST_ERROR_SQLSTATE' = '00000' as api_test_ok \gset
 
 \if :api_test_ok
 
-  -- count mutations
+  -- count all api mutations
   select count(*) as total_of_mutations from api_docs where graphql_operation_type = 'mutation' \gset
 
-  -- print results
+  -- count all api tested mutations
   select count(u.*) as total_tested_mutations from (select unnest(regexp_split_to_array(regexp_replace(:'all_mutations',',$',''),','))) as u \gset
-  select
-    E'\n\nTESTED MUTATIONS:    ' ||
-    :'total_tested_mutations' ||
-    ' / ' ||
-    :total_of_mutations ||
-    E'\n\n'
-  as test_result_message \gset
 
-  \echo :test_result_message
-
+  -- find not tested api mutations and print results
   with not_tested_mutations as (
     select operation_name from api_docs where graphql_operation_type = 'mutation'
     except
     select unnest(regexp_split_to_array(regexp_replace(:'all_mutations',',$',''),',')) as operation_name
-  ) select operation_name as "NOT TESTED MUTATIONS" from not_tested_mutations;
+  ), not_tested_mutations_string as (
+    select string_agg(operation_name,E'\n') as not_tested_mutations_string from not_tested_mutations
+  ) select
+    :total_tested_mutations as "TESTED MUTATIONS",
+    :total_of_mutations as "TOTAL OF MUTATIONS",
+    coalesce(not_tested_mutations_string,'') as "NOT TESTED MUTATIONS"
+    from not_tested_mutations_string
+  ;
 
   \else
 
