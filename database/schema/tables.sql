@@ -232,7 +232,7 @@ create table allocations (
   external_box_id integer references boxes (box_id),
   supply_id integer references supplies (supply_id),
   invoice_id integer references invoices (invoice_id),
-  qty_proposed numeric,
+  qty_proposed numeric not null,
   qty_approved numeric,
   qty_consumed numeric,
   price_source alloc_price_source,
