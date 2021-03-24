@@ -13,6 +13,8 @@ create or replace function :function_name (
   in "firmId" integer default null,
   in "url" text default null,
   in "sigad" text default null,
+  in "materialDefaultBdi" numeric default 0,
+  in "serviceDefaultBdi" numeric default 0,
   out id integer
 )
   language plpgsql
@@ -49,8 +51,8 @@ create or replace function :function_name (
         'Caixa original',
         id,
         true,
-        0,
-        0
+        "materialDefaultBdi",
+        "serviceDefaultBdi"
       );
     end;
   $$
