@@ -1,5 +1,3 @@
-const path = require('path');
-const paths = require('../../paths');
 const got = require('got');
 
 describe('Download and static routes tests', () => {
