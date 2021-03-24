@@ -110,6 +110,9 @@
 \i tests/invoice/approve_allocations.sql
 \i tests/invoice/delete_allocations.sql
 
+\i tests/invoice/modify_qty_proposed.sql
+\i tests/invoice/modify_qty_approved.sql
+
 \i tests/invoice/add_allocations_to_invoice.sql
 
 \i tests/invoice/set_allocations_prices.sql

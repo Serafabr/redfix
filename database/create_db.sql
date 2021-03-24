@@ -155,6 +155,8 @@ begin transaction;
 \i api/invoice/delete_allocations.sql
 \i api/invoice/delete_invoice.sql
 \i api/invoice/modify_invoice.sql
+\i api/invoice/modify_qty_proposed.sql
+\i api/invoice/modify_qty_approved.sql
 \i api/invoice/set_allocations_prices.sql
 \i api/invoice/set_invoice_paid.sql
 \i api/invoice/set_invoice_unpaid.sql
