@@ -2,10 +2,12 @@
 
 ## backend
 
-* *Rodar web server em ambiente de desenvolvimento:* `npm start`
+* Rodar web server em ambiente de desenvolvimento: `npm start`
 
 ## database
 
-* Criação do usuário `administrator`: `source scripts/create_administrator.sh`
+* Criação do banco de dados em ambiente de desenvolvimento:
 
-* Criar banco de dados para desenvolvimento: no psql, executar `\i create_db.sql`
+  1. Criação do usuário `administrator`: `source scripts/create_administrator.sh`
+  2. Abrir o `psql` com o usuário `administrator` (ver comando em `bash_scripts/start_psql.sh`)
+  3. Executar `\i create_db.sql`
