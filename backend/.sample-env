@@ -15,7 +15,7 @@ PGUSER=administrator
 PGPASSWORD=123456
 PGHOST=localhost
 PGPORT=5432
-PGDATABASE=db_dev
+PGDATABASE=dev
 
 # Cookie
 COOKIE_NAME=cmms:session
