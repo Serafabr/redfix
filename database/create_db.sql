@@ -263,14 +263,11 @@ alter sequence assets_asset_id_seq restart with 10001;
 \i triggers/validate_asset_location.sql
 \i triggers/validate_asset_parent.sql
 
--- commit transaction
-commit transaction;
-
--- set ON_ERROR_STOP to off
-\set ON_ERROR_STOP off
-
 -- create extra indexes
 -- \i schema/indexes.sql
+
+-- commit transaction
+commit transaction;
 
 -- print message
 \echo :new_db_name CREATED SUCCESSFULLY.

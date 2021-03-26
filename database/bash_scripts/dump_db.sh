@@ -13,7 +13,7 @@ pg_dump \
 --file=db.dump.sql \
 --host=localhost \
 --port=5432 \
---username=postgres \
+--username=administrator \
 --password
 
 # Dumps all roles in the cluster
@@ -26,5 +26,5 @@ pg_dumpall \
 --file=roles.dump.sql \
 --host=localhost \
 --port=5432 \
---username=postgres \
+--username=administrator \
 --password

@@ -6,5 +6,5 @@ psql \
 --dbname=template1 \
 --host=localhost \
 --port=5432 \
---username=postgres \
+--username=administrator \
 --password
