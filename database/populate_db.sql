@@ -14,7 +14,7 @@ set cookie.session.person_id to 1;
 
 -- run mutations inside a transaction and commit
 begin transaction;
-\i scripts/run_all_mutations.sql
+\i psql_scripts/run_all_mutations.sql
 \if :insert_energy_bills
   \i samples/energy_bills.sql
 \endif 
@@ -38,4 +38,4 @@ select :'LAST_ERROR_SQLSTATE' = '00000' as db_was_populated \gset
 \endif
 
 -- unset variables
-\i scripts/unset_psql_variables
+\i psql_scripts/unset_psql_variables.sql

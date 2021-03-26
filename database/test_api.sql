@@ -14,7 +14,7 @@ set cookie.session.person_id to 1;
 
 -- run mutations inside a transaction and rollback
 begin transaction;
-\i scripts/run_all_mutations.sql
+\i psql_scripts/run_all_mutations.sql
 rollback transaction;
 
 -- set QUIET off
@@ -52,4 +52,4 @@ select :'LAST_ERROR_SQLSTATE' = '00000' as api_test_ok \gset
 \endif
 
 -- unset psql variables
-\i scripts/unset_psql_variables
+\i psql_scripts/unset_psql_variables.sql

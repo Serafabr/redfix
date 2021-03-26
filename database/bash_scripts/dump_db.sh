@@ -8,7 +8,7 @@ pg_dump \
 --create \
 --clean \
 --if-exists \
---dbname=db_dev \
+--dbname=dev \
 --encoding=utf8 \
 --file=db.dump.sql \
 --host=localhost \
@@ -21,7 +21,7 @@ pg_dumpall \
 --clean \
 --if-exists \
 --roles-only \
---database=db_dev \
+--database=dev \
 --encoding=utf8 \
 --file=roles.dump.sql \
 --host=localhost \

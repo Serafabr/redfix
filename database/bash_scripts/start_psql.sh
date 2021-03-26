@@ -4,4 +4,4 @@ psql \
 --username=administrator \
 --host=localhost \
 --port=5432 \
---dbname=db_dev
+--dbname=dev

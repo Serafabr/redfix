@@ -2,7 +2,7 @@
 rollback;
 
 -- set psql variables
-\set new_db_name              'db_dev'
+\set new_db_name              'dev'
 \set asset_category_facility  '1'
 \set asset_category_electric  '2'
 \set asset_category_air       '3'
@@ -272,8 +272,8 @@ commit transaction;
 -- create extra indexes
 -- \i schema/indexes.sql
 
--- unset psql variables
-\i scripts/unset_psql_variables
-
 -- print message
 \echo :new_db_name CREATED SUCCESSFULLY.
+
+-- unset psql variables
+\i psql_scripts/unset_psql_variables.sql
