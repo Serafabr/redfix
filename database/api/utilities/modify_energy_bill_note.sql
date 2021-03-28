@@ -1,4 +1,4 @@
-\set function_name api.create_energy_bill_note
+\set function_name api.modify_energy_bill_note
 
 drop function if exists :function_name;
 create or replace function :function_name (

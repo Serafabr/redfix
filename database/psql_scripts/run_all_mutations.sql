@@ -16,6 +16,7 @@
 
 \i api_tests/asset/add_tag_to_asset.sql
 \i api_tests/asset/remove_tag_from_asset.sql
+\i api_tests/asset/delete_tag.sql
 
 \i api_tests/asset/create_asset_note.sql
 \i api_tests/asset/create_asset_status_event.sql
@@ -48,12 +49,6 @@
 \i api_tests/firm/create_firm.sql
 \i api_tests/firm/modify_firm.sql
 
--- -- project
-\i api_tests/project/create_project.sql
-\i api_tests/project/modify_project.sql
-\i api_tests/project/deactivate_project.sql
-\i api_tests/project/activate_project.sql
-
 -- depot
 \i api_tests/depot/create_depot.sql
 \i api_tests/depot/modify_depot.sql
@@ -70,6 +65,7 @@
 
 \i api_tests/depot/create_supply.sql
 \i api_tests/depot/modify_supply.sql
+\i api_tests/depot/delete_supply.sql
 
 \i api_tests/depot/deactivate_box.sql
 \i api_tests/depot/activate_box.sql
@@ -92,6 +88,15 @@
 \i api_tests/task/unfollow_task.sql
 
 \i api_tests/task/clone_task.sql
+
+-- -- project
+\i api_tests/project/create_project.sql
+\i api_tests/project/modify_project.sql
+\i api_tests/project/deactivate_project.sql
+\i api_tests/project/activate_project.sql
+\i api_tests/project/add_task_to_project.sql
+\i api_tests/project/remove_task_from_project.sql
+\i api_tests/project/delete_project.sql
 
 -- plans
 \i api_tests/plan/create_plan.sql
@@ -120,6 +125,7 @@
 \i api_tests/invoice/set_invoice_paid.sql
 \i api_tests/invoice/set_invoice_unpaid.sql
 
+\i api_tests/invoice/delete_invoice.sql
 
 -- files
 \i api_tests/files/upload_asset_files.sql
@@ -136,14 +142,8 @@
 
 -- utilities
 \i api_tests/utilities/create_water_bill.sql
-\i api_tests/utilities/create_energy_bill_note.sql
 \i api_tests/utilities/modify_water_bill.sql
+\i api_tests/utilities/modify_energy_bill_note.sql
 
--- entity removals and others
-delete from water_bills where true;
-\i api_tests/project/add_task_to_project.sql
-\i api_tests/project/remove_task_from_project.sql
-\i api_tests/asset/delete_tag.sql
-\i api_tests/project/delete_project.sql
-\i api_tests/invoice/delete_invoice.sql
-\i api_tests/depot/delete_supply.sql
+-- truncate tables
+truncate water_bills;

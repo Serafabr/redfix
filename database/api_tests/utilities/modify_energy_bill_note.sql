@@ -1,6 +1,6 @@
-\set tested_mutation api.create_energy_bill_note
+\set tested_mutation api.modify_energy_bill_note
 
-select api.create_energy_bill_note(
+select api.modify_energy_bill_note(
   1,
   2021,
   1,

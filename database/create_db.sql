@@ -222,10 +222,10 @@ begin transaction;
 \i api/team/remove_person_from_team.sql
 \i api/team/teams.sql
 -- utilities
-\i api/utilities/create_energy_bill_note.sql
 \i api/utilities/create_energy_bill.sql
 \i api/utilities/create_water_bill.sql
 \i api/utilities/energy_bills.sql
+\i api/utilities/modify_energy_bill_note.sql
 \i api/utilities/modify_water_bill.sql
 \i api/utilities/water_bills.sql
 
