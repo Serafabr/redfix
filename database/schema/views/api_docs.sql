@@ -32,7 +32,7 @@ create or replace view api_docs as
     from mutations as m
     inner join pg_catalog.pg_proc as p on (p.proname::text = m.op_name)
     inner join pg_catalog.pg_class as c on (c.relname::text = 'pg_proc')
-    -- left join: necessary because only routines with descriptions ("comments") exist in pg_description table
+    -- left join: necessary because only objects with descriptions ("comments") exist in pg_description table
     left join pg_catalog.pg_description as d on (d.objoid = p.oid)
   ),
   queries as (
@@ -62,8 +62,10 @@ create or replace view api_docs as
       q.visitor,
       coalesce(d.description,'') as description
     from queries as q
-    inner join pg_catalog.pg_class as c on (c.relname::text = q.op_name)
+    -- inner join below must avoid duplicate names of relations in public and api namespaces
+    inner join pg_catalog.pg_class as c on (c.relname::text = q.op_name and c.relnamespace = (select oid from pg_catalog.pg_namespace where nspname = 'api'))
     inner join pg_catalog.pg_class as cc on (cc.relname::text = 'pg_class')
+    -- left join: necessary because only objects with descriptions ("comments") exist in pg_description table
     left join pg_catalog.pg_description as d on (d.objoid = c.oid)
   )
   select * from mutations_docs
