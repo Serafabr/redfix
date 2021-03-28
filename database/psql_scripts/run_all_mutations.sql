@@ -20,6 +20,11 @@
 \i api_tests/asset/create_asset_note.sql
 \i api_tests/asset/create_asset_status_event.sql
 
+\i api_tests/asset/create_monitor.sql
+\i api_tests/asset/modify_monitor.sql
+\i api_tests/asset/create_monitor_read.sql
+\i api_tests/asset/modify_monitor_read.sql
+
 -- team
 \i api_tests/team/change_password.sql
 \i api_tests/team/modify_myself.sql
@@ -96,11 +101,6 @@
 \i api_tests/plan/add_asset_to_task_template.sql
 \i api_tests/plan/remove_asset_from_task_template.sql
 \i api_tests/plan/create_task_from_template.sql
-
-\i api_tests/plan/create_monitor.sql
-\i api_tests/plan/modify_monitor.sql
-\i api_tests/plan/create_monitor_read.sql
-\i api_tests/plan/modify_monitor_read.sql
 
 -- invoices
 \i api_tests/invoice/create_invoice.sql

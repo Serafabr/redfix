@@ -105,6 +105,8 @@ begin transaction;
 \i api/asset/create_asset_note.sql
 \i api/asset/create_asset_status_event.sql
 \i api/asset/create_asset.sql
+\i api/asset/create_monitor_read.sql
+\i api/asset/create_monitor.sql
 \i api/asset/create_tag.sql
 \i api/asset/delete_tag.sql
 \i api/asset/facilities.sql
@@ -112,6 +114,8 @@ begin transaction;
 \i api/asset/get_asset_parents.sql
 \i api/asset/modify_appliance.sql
 \i api/asset/modify_asset.sql
+\i api/asset/modify_monitor_read.sql
+\i api/asset/modify_monitor.sql
 \i api/asset/modify_tag.sql
 \i api/asset/remove_child_from_asset.sql
 \i api/asset/remove_parent_from_asset.sql
@@ -169,13 +173,9 @@ begin transaction;
 \i api/options/team_options.sql
 -- plan
 \i api/plan/add_asset_to_task_template.sql
-\i api/plan/create_monitor_read.sql
-\i api/plan/create_monitor.sql
 \i api/plan/create_plan.sql
 \i api/plan/create_task_from_template.sql
 \i api/plan/create_task_template.sql
-\i api/plan/modify_monitor_read.sql
-\i api/plan/modify_monitor.sql
 \i api/plan/modify_plan.sql
 \i api/plan/modify_task_template.sql
 \i api/plan/remove_asset_from_task_template.sql
