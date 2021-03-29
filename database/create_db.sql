@@ -68,11 +68,11 @@ begin transaction;
 
 -- create functions
 \i functions/authenticate.sql
+\i functions/coalesce_list.sql
 \i functions/generate_api_documentation.sql
 \i functions/get_all_files_uuids.sql
 \i functions/get_exception_message.sql
 \i functions/insert_files.sql
-\i functions/json_coalesce.sql
 \i functions/refresh_all_materialized_views.sql
 \i functions/update_dashboard.sql
 
@@ -81,18 +81,18 @@ begin transaction;
 \i schema/views/assets_of_task.sql
 -- \i schema/views/quantities.sql
 
--- json_lists
-\i schema/json_lists/get_reads_of_monitor.sql
+-- lists
+\i schema/lists/get_reads_of_monitor.sql
 
-\i schema/json_lists/get_assets_of_location.sql
-\i schema/json_lists/get_assets_of_task.sql
-\i schema/json_lists/get_events_of_task.sql
-\i schema/json_lists/get_files_of_asset.sql
-\i schema/json_lists/get_monitors_of_asset.sql
-\i schema/json_lists/get_files_of_task.sql
-\i schema/json_lists/get_prices_of_spec.sql
-\i schema/json_lists/get_tasks_of_asset.sql
-\i schema/json_lists/get_tasks_of_project.sql
+\i schema/lists/get_assets_of_location.sql
+\i schema/lists/get_assets_of_task.sql
+\i schema/lists/get_events_of_task.sql
+\i schema/lists/get_files_of_asset.sql
+\i schema/lists/get_monitors_of_asset.sql
+\i schema/lists/get_files_of_task.sql
+\i schema/lists/get_prices_of_spec.sql
+\i schema/lists/get_tasks_of_asset.sql
+\i schema/lists/get_tasks_of_project.sql
 
 -- create api schema objects
 -- asset
@@ -236,14 +236,11 @@ begin transaction;
 \i triggers/check_project_is_active.sql
 \i triggers/log_data_change.sql
 \i triggers/publish_to_channel.sql
+\i triggers/update_quantities.sql
+\i triggers/validate_allocation.sql
 \i triggers/validate_box_activation.sql
 \i triggers/validate_task_event.sql
 \i triggers/verify_task_note_creator.sql
-
-
-
-
-\i triggers/update_quantities.sql
 
 -- create rls policies
 -- (currently not used)

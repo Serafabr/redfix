@@ -9,7 +9,7 @@ create or replace function :function_name (
   strict
   stable
   as $$
-    select json_coalesce(j.l) as list from (
+    select coalesce_list(j.l) as list from (
       select
         jsonb_agg(jsonb_build_object(
             'priceId', p.price_id,

@@ -1,24 +1,23 @@
-\set function_name get_assets_of_task
+\set function_name get_assets_of_location
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "taskId" integer,
+  in "locationId" integer,
   out list jsonb
 )
   language sql
   strict
   stable
   as $$
-    select json_coalesce(j.l) as list from (
+    select coalesce_list(j.l) as list from (
       select
         jsonb_agg(jsonb_build_object(
             'assetId', a.asset_id,
             'assetSf', a.asset_sf,
             'name', a.name
         ) order by a.asset_sf) as l
-      from task_assets as ta
-      inner join assets as a using (asset_id)
-      where ta.task_id = "taskId"
+      from assets as a
+      where a.location_id = "locationId"
     ) as j
   $$
 ;

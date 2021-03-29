@@ -1,15 +1,15 @@
-\set function_name get_files_of_task
+\set function_name get_files_of_asset
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "taskId" integer,
+  in "assetId" integer,
   out list jsonb
 )
   language sql
   strict
   stable
   as $$
-    select json_coalesce(j.l) as list from (
+    select coalesce_list(j.l) as list from (
       select
         jsonb_agg(jsonb_build_object(
           'uuid', f.uuid,
@@ -18,10 +18,10 @@ create or replace function :function_name (
           'uploadedAt', f.uploaded_at,
           'personName', p.name
         ) order by f.filename) as l
-      from task_files as tf
+      from asset_files as af
       inner join files as f using (uuid)
       inner join persons as p using (person_id)
-      where tf.task_id = "taskId"
+      where af.asset_id = "assetId"
     ) as j
   $$
 ;

@@ -1,4 +1,4 @@
-\set function_name json_coalesce
+\set function_name coalesce_list
 
 drop function if exists :function_name;
 create or replace function :function_name (

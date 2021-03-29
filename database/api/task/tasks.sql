@@ -34,7 +34,6 @@ create or replace view api.tasks as
     -- aggregates:
     -- assets
     get_assets_of_task(t.task_id) as assets,
-    -- json_coalesce((select assets from assets_of_task as a where a.task_id = t.task_id)) as assets,
     -- events
     get_events_of_task(t.task_id) as events,
     -- LIST FROM VIEW
