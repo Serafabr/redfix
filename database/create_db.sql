@@ -248,13 +248,13 @@ begin transaction;
 -- create rls policies
 -- (currently not used)
 
--- insert administrators, teams, asset categories, facilities and specs
+-- insert initial data
 \i samples/administrators.sql
 \i samples/asset_categories.sql
 \i samples/facilities.sql
 \i samples/asset_parents.sql
-\i samples/water_meters.sql
 \i samples/energy_meters.sql
+\i samples/water_meters.sql
 alter sequence persons_person_id_seq restart with 10001;
 alter sequence teams_team_id_seq restart with 10001;
 alter sequence assets_asset_id_seq restart with 10001;
