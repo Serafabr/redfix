@@ -16,7 +16,7 @@ set cookie.session.person_id to 1;
 begin transaction;
 \i psql_scripts/run_all_mutations.sql
 \if :insert_energy_bills
-  \i samples/energy_bills.sql
+  \i data/energy_bills.sql
 \endif 
 commit transaction;
 
