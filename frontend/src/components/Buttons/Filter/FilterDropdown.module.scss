@@ -1,0 +1,26 @@
+@import "../../../style/variables";
+
+.Button {
+  background-color: white;
+  border: 1px solid $gray_200;
+  border-radius: 4px;
+  padding: 9px 16px;
+  
+  font:         inherit;
+  font-size:    1rem;
+  font-weight:  500;
+  color:        $gray_600;
+  
+  line-height: 21px;
+  
+  // STATES
+  &:hover {
+    border: 1px solid $gray_400;
+    cursor: pointer;
+  }
+  
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
