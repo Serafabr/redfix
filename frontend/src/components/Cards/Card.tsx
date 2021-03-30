@@ -7,7 +7,7 @@ type Props = {
 export const Card = ({ children }: Props) => {
   return (
     <div className={style.Card}>
-      Card
+      {children}
     </div>
   )
 };

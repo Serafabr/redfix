@@ -3,7 +3,7 @@ import { navItems } from '../../utils/nav/navItems';
 
 import style from './MainPage.module.scss';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Button, ButtonType } from '../../components/Buttons';
+import { Button, ButtonType, FilterDropdown } from '../../components/Buttons';
 
 import { Plus as PlusIcon } from '../../components/Icons';
 import { Card } from '../../components/Cards';
@@ -34,7 +34,7 @@ export const MainPage = () => {
         </div>
         <div style={{ marginTop: "24px" }}>
           <Card>
-            Hey
+            <FilterDropdown />
           </Card>
         </div>
       </main>
