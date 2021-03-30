@@ -7,6 +7,7 @@ import { Button, ButtonType, FilterDropdown } from '../../components/Buttons';
 
 import { Plus as PlusIcon } from '../../components/Icons';
 import { Card } from '../../components/Cards';
+import { SelectBox } from '../../components/SelectBox/SelectBox';
 
 export const MainPage = () => {
   return (
@@ -34,7 +35,12 @@ export const MainPage = () => {
         </div>
         <div style={{ marginTop: "24px" }}>
           <Card>
-            <FilterDropdown />
+            <div style={{ display: "flex" }}>
+              <FilterDropdown />
+              <div style={{ width: "180px" }}>
+                <SelectBox />
+              </div>
+            </div>
           </Card>
         </div>
       </main>
