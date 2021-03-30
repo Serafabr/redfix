@@ -6,6 +6,8 @@
   border-radius: 4px;
   padding: 9px 16px;
   
+  height: 40px;
+  
   font:         inherit;
   font-size:    1rem;
   font-weight:  500;
@@ -17,10 +19,21 @@
   &:hover {
     border: 1px solid $gray_400;
     cursor: pointer;
+    
+    color:        $gray_700;
   }
   
   &:focus,
   &:active {
     outline: none;
+  }
+}
+
+.ContentWrapper {
+  display: flex;
+  justify-content: center;
+  
+  img {
+    margin-right: 14px;
   }
 }
