@@ -6,6 +6,7 @@ import { PageTitle } from '../../components/PageTitle/PageTitle';
 import { Button, ButtonType } from '../../components/Buttons';
 
 import { Plus as PlusIcon } from '../../components/Icons';
+import { Card } from '../../components/Cards';
 
 export const MainPage = () => {
   return (
@@ -31,8 +32,10 @@ export const MainPage = () => {
             </div>
           </div>
         </div>
-        <div style={{ marginTop: "50px" }}>
-          Body
+        <div style={{ marginTop: "24px" }}>
+          <Card>
+            Hey
+          </Card>
         </div>
       </main>
     </div>
