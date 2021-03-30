@@ -59,6 +59,12 @@
 
 }
 
+.TextItem {
+  max-width: 80%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
 .Selected {
   font-weight: 600;
   color: $gray_700;

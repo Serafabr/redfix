@@ -7,7 +7,7 @@ export const SelectBox = () => {
     <div>
       <div className={style.ListWrapper}>
         <li className={style.List}>
-          <ul className={`${style.Item} ${style.Selected}`}>Customizar tabelaaaaaaaaaaaaaaaaaa<img src={blueCheckIcon} alt="Selected" /></ul>
+          <ul className={`${style.Item} ${style.Selected}`}><span className={style.TextItem}>Customizar tabela</span><img src={blueCheckIcon} alt="Selected" /></ul>
           <ul className={`${style.Item} ${style.Selected}`}>Exportar para CSV<img src={blueCheckIcon} alt="Selected" /></ul>
           <ul className={style.Item}>Exportar para Excel</ul>
           <ul className={style.Item}>Exportar PDF</ul>
