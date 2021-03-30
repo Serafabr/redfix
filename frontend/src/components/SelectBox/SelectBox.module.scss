@@ -1,36 +1,44 @@
 @import "../../style/variables";
 
-.ListWrapper {
+.SelectBox {
   padding-bottom: 10px;
   background-color: #00000000;
 }
 
-/*------------------------------------*/
-.List {
-  margin:         0;
-  padding:        8px 0;
+.ListWrapper {
   border:         1px solid $gray_200;
   border-radius:  4px;
   box-shadow:     0px 4px 10px rgba(203, 203, 203, 0.08);
   
+  background-color: $white_0;
+}
+
+/*------------------------------------*/
+.List {
+  margin-right:         0;
+  padding:        8px 0;
+  
+  
   max-height: 200px;
   overflow-y: auto;
   
-  background-color: $white_0;
+  
   
   list-style: none;
   
   
   &::-webkit-scrollbar {
     width: 6px;
-
     background-color: transparent;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    margin: 5px;
   }
 
   &::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: $gray_300;
   }
 }
