@@ -37,7 +37,7 @@ export const MainPage = () => {
           <Card>
             <div style={{ display: "flex" }}>
               <FilterDropdown />
-              <div style={{ width: "180px" }}>
+              <div style={{ width: "300px" }}>
                 <SelectBox />
               </div>
             </div>
