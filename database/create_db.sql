@@ -203,6 +203,7 @@ begin transaction;
 \i api/task/receive_task.sql
 \i api/task/remove_asset_from_task.sql
 \i api/task/send_task.sql
+\i api/task/set_task_date_limit.sql
 -- \i api/task/tasks.sql
 \i api/task/unfollow_task.sql
 -- team

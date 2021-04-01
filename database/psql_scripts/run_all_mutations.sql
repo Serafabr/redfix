@@ -87,6 +87,8 @@
 \i api_tests/task/follow_task.sql
 \i api_tests/task/unfollow_task.sql
 
+\i api_tests/task/set_task_date_limit.sql
+
 \i api_tests/task/clone_task.sql
 
 -- -- project
