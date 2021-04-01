@@ -91,7 +91,7 @@
 
 \i api_tests/task/clone_task.sql
 
--- -- project
+-- project
 \i api_tests/project/create_project.sql
 \i api_tests/project/modify_project.sql
 \i api_tests/project/deactivate_project.sql
@@ -108,6 +108,7 @@
 \i api_tests/plan/add_asset_to_task_template.sql
 \i api_tests/plan/remove_asset_from_task_template.sql
 \i api_tests/plan/create_task_from_template.sql
+-- \i api_tests/plan/finish_task.sql
 
 -- invoices
 \i api_tests/invoice/create_invoice.sql

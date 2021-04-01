@@ -196,6 +196,7 @@ begin transaction;
 \i api/task/create_task.sql
 \i api/task/delete_task_note.sql
 \i api/task/filter_tasks.sql
+-- \i api/task/finish_task.sql
 \i api/task/follow_task.sql
 \i api/task/modify_task_note.sql
 \i api/task/modify_task.sql

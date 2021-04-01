@@ -8,9 +8,9 @@ create or replace function :function_name (
   in "taskPriorityId" integer,
   in "taskCategoryId" integer,
   in "planId" integer,
-  in "periodicityId" integer default null,
-  in "daysRange" integer default null,
-  in "nextTeamId" integer default null,
+  in "periodicityId" integer,
+  in "daysRange" integer,
+  in "nextTeamId" integer,
   out id integer
 )
   language plpgsql
