@@ -28,6 +28,8 @@ create or replace function :function_name (
         when 302 then message = format('%s %s - Somente podem ser ativadas as caixas de um estoque formalizado', header, exception_code);
         -- invoice api (codes 401 to 499)
         when 401 then message = format('%s %s - Alocação inválida (nenhuma caixa definida)', header, exception_code);
+        -- plan api (codes 501 to 599)
+        when 501 then message = format('%s %s - Rotina com periodicidade definida não permite executar create_task_from_template', header, exception_code);
         else message = header;
       end case;
     end;

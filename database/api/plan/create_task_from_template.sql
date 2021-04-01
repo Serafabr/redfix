@@ -12,30 +12,65 @@ create or replace function :function_name (
       tt record;
       assets integer[];
       new_task_id integer;
+      "periodicityDays" integer;
     begin
-      select * into tt from task_templates where task_template_id = "taskTemplateId";
-      select array_agg(tta.asset_id) into assets
+      select
+        row(ttt.*),
+        p.periodicity_days
+        into
+        tt,
+        "periodicityDays"
+      from task_templates as ttt
+      inner join periodicities as p using (periodicity_id)
+      where task_template_id = "taskTemplateId";
+      -- check if periodicity_days is null
+      if ("periodicityDays" is null) then
+        -- insert into tasks
+        insert into tasks (
+          title,
+          description,
+          task_priority_id,
+          task_category_id,
+          task_template_id
+        ) values (
+          tt.title,
+          tt.description,
+          tt.task_priority_id,
+          tt.task_category_id,
+          "taskTemplateId"
+        ) returning task_id into new_task_id;
+        -- insert into task_assets
+        insert into task_assets select
+          new_task_id,
+          tta.asset_id
         from task_template_assets as tta
-        where tta.task_template_id = "taskTemplateId"
-      group by tta.task_template_id;  
-      select api.create_task(
-        assets,
-        tt.title,
-        tt.description,
-        tt.task_priority_id,
-        tt.task_category_id,
-        "teamId",
-        "taskTemplateId"
-      ) into new_task_id;
-      if tt.next_team_id is not null
-        then perform api.send_task(
+        where tta.task_template_id = "taskTemplateId";
+        -- insert into task_events
+        insert into task_events values (
+          default,
+          new_task_id,
+          'insert',
+          now(),
+          get_person_id(),
+          "teamId",
+          null,
+          null,
+          'Criação da tarefa.',
+          null,
+          null,
+          true
+        );
+        -- send task
+        perform api.send_task(
           new_task_id,
           "teamId",
           tt.next_team_id,
           'MENSAGEM'
         );
+        id = new_task_id;
+      else
+        raise exception '%', get_exception_message(501);
       end if;
-      id = new_task_id;
     end;
   $$
 ;
