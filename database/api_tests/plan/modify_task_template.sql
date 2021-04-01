@@ -7,7 +7,8 @@ select api.modify_task_template(
   2,
   2,
   :new_plan_id,
-  1,
+  180,
+  15,
   :new_team_id
 ) as not_used_output \gset
 

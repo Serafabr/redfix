@@ -9,6 +9,7 @@ create or replace function :function_name (
   in "taskCategoryId" integer,
   in "planId" integer,
   in "periodicityId" integer default null,
+  in "daysRange" integer default null,
   in "nextTeamId" integer default null,
   out id integer
 )
