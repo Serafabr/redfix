@@ -26,7 +26,11 @@ create or replace function :trigger_name ()
                     current_role = 'supervisor'
                   )
                 )
-                when 'status' then new.task_status_id is not null
+                when 'status' then (
+                  -- todo: check team_id of the person setting task status is equal the
+                  -- current team_id of the task; or check role is administrator or supervisor
+                  true
+                )
                 when 'note' then new.note is not null
               end into is_event_ok
         from last_send as ls
