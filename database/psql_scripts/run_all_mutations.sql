@@ -105,7 +105,7 @@
 \i api_tests/plan/modify_task_template.sql
 \i api_tests/plan/add_asset_to_task_template.sql
 \i api_tests/plan/remove_asset_from_task_template.sql
--- \i api_tests/plan/create_task_from_template.sql
+\i api_tests/plan/create_task_from_template.sql
 -- \i api_tests/plan/finish_task.sql
 
 -- invoices

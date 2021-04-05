@@ -25,13 +25,15 @@ create or replace function :function_name (
           description,
           task_priority_id,
           task_category_id,
-          task_template_id
+          task_template_id,
+          team_id
         ) values (
           tt.title,
           tt.description,
           tt.task_priority_id,
           tt.task_category_id,
-          "taskTemplateId"
+          "taskTemplateId",
+          "teamId"
         ) returning task_id into new_task_id;
         -- insert into task_assets
         insert into task_assets select
