@@ -145,7 +145,6 @@ create table task_templates (
   task_priority_id integer not null references task_priorities (task_priority_id),
   plan_id integer not null references plans (plan_id),
   periodicity_id integer not null references periodicities (periodicity_id),
-  days_range integer not null,
   next_team_id integer not null references teams (team_id)
 );
 
