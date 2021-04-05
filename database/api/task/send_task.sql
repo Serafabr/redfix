@@ -25,13 +25,7 @@ create or replace function :function_name (
         null,
         true
       );
-      update tasks set (
-        team_id,
-        next_team_id
-      ) = (
-        "teamId",
-        "nextTeamId"
-      ) where task_id = "taskId";
+      update tasks set team_id = "nextTeamId" where task_id = "taskId";
       id = "taskId";
     end;
   $$

@@ -76,10 +76,8 @@
 \i api_tests/task/add_asset_to_task.sql
 \i api_tests/task/remove_asset_from_task.sql
 
-\i api_tests/task/move_task.sql
+\i api_tests/task/set_task_status.sql
 \i api_tests/task/send_task.sql
-\i api_tests/task/cancel_send_task.sql
-\i api_tests/task/receive_task.sql
 \i api_tests/task/create_task_note.sql
 \i api_tests/task/modify_task_note.sql
 \i api_tests/task/delete_task_note.sql
@@ -107,7 +105,7 @@
 \i api_tests/plan/modify_task_template.sql
 \i api_tests/plan/add_asset_to_task_template.sql
 \i api_tests/plan/remove_asset_from_task_template.sql
-\i api_tests/plan/create_task_from_template.sql
+-- \i api_tests/plan/create_task_from_template.sql
 -- \i api_tests/plan/finish_task.sql
 
 -- invoices

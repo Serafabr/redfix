@@ -27,6 +27,7 @@ create or replace function :function_name (
         "taskPriorityId",
         "planId",
         "periodicityId",
+        "daysRange",
         "nextTeamId"
       ) returning task_template_id into id;
 

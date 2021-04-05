@@ -29,14 +29,16 @@ create or replace function :function_name (
       end if;
 
       insert into tasks values (
-        default,
+        default,-- task_id
         now(),
         now(),
         get_person_id(),
         get_person_id(),
         "taskPriorityId",
         "taskCategoryId",
+        default,-- task_status_id
         "taskTemplateId",
+        "teamId",
         "projectId",
         "title",
         "description",
@@ -45,10 +47,7 @@ create or replace function :function_name (
         "dateLimit",
         "dateStart",
         "dateEnd",
-        "requestId",
-        "teamId",
-        null,
-        default -- task initial status
+        "requestId"
       ) returning
           task_id,
           task_status_id
@@ -66,7 +65,7 @@ create or replace function :function_name (
         now(),
         get_person_id(),
         "teamId",
-        "teamId",
+        null,
         task_initial_status,
         'Criação da tarefa',
         null,

@@ -157,7 +157,9 @@ create table tasks (
   updated_by integer not null references persons (person_id) default get_person_id(),
   task_priority_id integer not null references task_priorities (task_priority_id),
   task_category_id integer not null references task_categories (task_category_id),
+  task_status_id integer not null references task_statuses (task_status_id) default 1,
   task_template_id integer references task_templates (task_template_id),
+  team_id integer not null references teams (team_id),
   project_id integer references projects (project_id) on delete set null,
   title text not null,
   description text not null,
@@ -166,11 +168,7 @@ create table tasks (
   date_limit timestamptz,
   date_start timestamptz,
   date_end timestamptz,
-  request_id integer references requests (request_id),
-  -- last event fields:
-  team_id integer not null references teams (team_id),
-  next_team_id integer references teams (team_id),
-  task_status_id integer not null references task_statuses (task_status_id) default 1
+  request_id integer references requests (request_id)
 );
 
 create table task_assets (

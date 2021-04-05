@@ -11,8 +11,7 @@ create or replace function :trigger_name ()
 
       with last_send as (
         select  t.task_id,
-                t.team_id,
-                t.next_team_id
+                t.team_id
           from tasks as t
         where t.task_id = new.task_id
       )
@@ -27,12 +26,7 @@ create or replace function :trigger_name ()
                     current_role = 'supervisor'
                   )
                 )
-                when 'receive' then (
-                  (new.team_id = ls.next_team_id) and
-                  (new.task_status_id is not null)
-                )
-                when 'cancel' then new.team_id = ls.team_id
-                when 'move' then new.task_status_id is not null
+                when 'status' then new.task_status_id is not null
                 when 'note' then new.note is not null
               end into is_event_ok
         from last_send as ls

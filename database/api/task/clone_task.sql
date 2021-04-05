@@ -29,8 +29,7 @@ create or replace function :function_name (
         date_start,
         date_end,
         request_id,
-        team_id,
-        next_team_id
+        team_id
       ) select
         now(),
         now(),
@@ -48,8 +47,7 @@ create or replace function :function_name (
         t.date_start,
         t.date_end,
         t.request_id,
-        "teamId",
-        null
+        "teamId"
       from tasks as t where t.task_id = "taskId"
       returning
           task_id,

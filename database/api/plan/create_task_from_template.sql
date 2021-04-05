@@ -14,17 +14,11 @@ create or replace function :function_name (
       new_task_id integer;
       "periodicityDays" integer;
     begin
-      select
-        row(ttt.*),
-        p.periodicity_days
-        into
-        tt,
-        "periodicityDays"
+      select ttt.* into tt
       from task_templates as ttt
-      inner join periodicities as p using (periodicity_id)
-      where task_template_id = "taskTemplateId";
-      -- check if periodicity_days is null
-      if ("periodicityDays" is null) then
+      where ttt.task_template_id = "taskTemplateId";
+      -- check if periodicity_id is 0
+      if (tt.periodicity_id = 0) then
         -- insert into tasks
         insert into tasks (
           title,

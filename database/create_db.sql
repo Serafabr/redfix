@@ -190,7 +190,6 @@ begin transaction;
 \i api/project/remove_task_from_project.sql
 -- task
 \i api/task/add_asset_to_task.sql
-\i api/task/cancel_send_task.sql
 \i api/task/clone_task.sql
 \i api/task/create_task_note.sql
 \i api/task/create_task.sql
@@ -200,11 +199,10 @@ begin transaction;
 \i api/task/follow_task.sql
 \i api/task/modify_task_note.sql
 \i api/task/modify_task.sql
-\i api/task/move_task.sql
-\i api/task/receive_task.sql
 \i api/task/remove_asset_from_task.sql
 \i api/task/send_task.sql
 \i api/task/set_task_date_limit.sql
+\i api/task/set_task_status.sql
 -- \i api/task/tasks.sql
 \i api/task/unfollow_task.sql
 -- team

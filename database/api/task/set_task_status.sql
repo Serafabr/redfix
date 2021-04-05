@@ -1,4 +1,4 @@
-\set function_name api.move_task
+\set function_name api.set_task_status
 
 drop function if exists :function_name;
 create or replace function :function_name (
@@ -13,7 +13,7 @@ create or replace function :function_name (
       insert into task_events values (
         default,
         "taskId",
-        'move',
+        'status',
         now(),
         get_person_id(),
         "teamId",

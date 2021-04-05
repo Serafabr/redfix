@@ -1,6 +1,6 @@
-\set tested_mutation api.move_task
+\set tested_mutation api.set_task_status
 
-select api.move_task(
+select api.set_task_status(
   :new_task_id,
   :new_team_id,
   2
