@@ -38,7 +38,7 @@ create or replace function :trigger_name ()
 
       if is_event_ok
         then return new;
-        else raise exception '%', get_exception_message(203);
+        else perform raise_exception(203);
       end if;
 
     end;

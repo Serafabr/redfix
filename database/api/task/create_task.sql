@@ -25,7 +25,7 @@ create or replace function :function_name (
     begin
 
       if array_length("assets", 1) is null
-        then raise exception '%', get_exception_message(201);
+        then perform raise_exception(201);
       end if;
 
       insert into tasks values (

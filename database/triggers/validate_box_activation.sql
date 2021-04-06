@@ -14,7 +14,7 @@ create or replace function :trigger_name ()
         inner join depot_categories dc using (depot_category_id)
         where b.box_id = new.box_id
       ) then return new;
-        else raise exception '%', get_exception_message(302);
+        else perform raise_exception(302);
       end if;
     end;
   $$

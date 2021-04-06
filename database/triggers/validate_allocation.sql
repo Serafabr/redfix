@@ -8,7 +8,7 @@ create or replace function :trigger_name ()
     begin
       if (coalesce(new.internal_box_id, new.external_box_id) is not null)
         then return new;
-        else raise exception '%', get_exception_message(401);
+        else perform raise_exception(401);
       end if;
     end;
   $$

@@ -11,7 +11,7 @@ create or replace function :trigger_name ()
         from assets as a
         where a.asset_id = new.location_id
       ) then return new;
-        else raise exception '%', get_exception_message(101);
+        else perform raise_exception(101);
       end if;
     end;
   $$

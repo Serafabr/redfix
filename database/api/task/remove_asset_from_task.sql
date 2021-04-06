@@ -13,7 +13,7 @@ create or replace function :function_name (
     begin
       select count(*) into line_count from task_assets as ta where ta.task_id = "taskId";
       if line_count = 1
-        then raise exception '%', get_exception_message(201);
+        then perform raise_exception(201);
         else delete from task_assets as ta where ta.task_id = "taskId" and ta.asset_id = "assetId";
       end if;
       id = "taskId";

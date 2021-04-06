@@ -7,8 +7,12 @@ create or replace function :trigger_name ()
   as $$
     begin
       if (select new.asset_id not in (select asset_category_id from asset_categories))
-        then return new;
-        else raise exception '%', get_exception_message(102);
+        then
+          if (new.parent_id <> new.asset_id)
+            then return new;
+            else perform raise_exception(104);
+          end if;
+        else perform raise_exception(102);
       end if;
     end;
   $$

@@ -62,6 +62,7 @@ begin transaction;
 
 -- create tables
 \i schema/reference_tables.sql
+\i schema/exceptions.sql
 \i schema/tables.sql
 \i schema/files_tables.sql
 \i schema/utilities.sql

@@ -32,7 +32,7 @@ create or replace function :function_name (
           "model",
           "price"
         ) returning asset_id into id;
-        else raise exception '%', get_exception_message(103);
+        else perform raise_exception(103);
       end if;
     end;
   $$

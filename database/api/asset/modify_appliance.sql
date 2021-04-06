@@ -41,7 +41,7 @@ create or replace function :function_name (
           "price"
         ) as new_values
         where a.asset_id = "assetId";
-        else raise exception '%', get_exception_message(103);
+        else perform raise_exception(103);
       end if;
       id = "assetId";
     end;
