@@ -6,6 +6,7 @@ select api.modify_appliance(
   'Estações Transformadoras',
   2,
   102,
+  'Referência de local atualizada',
   'Descrição atualizada do novo equipamento.'
 ) as new_appliance_id \gset
 

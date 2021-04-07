@@ -72,7 +72,6 @@ begin transaction;
 \i functions/coalesce_list.sql
 \i functions/generate_api_documentation.sql
 \i functions/get_all_files_uuids.sql
-\i functions/get_exception_message.sql
 \i functions/insert_files.sql
 \i functions/refresh_all_materialized_views.sql
 \i functions/update_dashboard.sql

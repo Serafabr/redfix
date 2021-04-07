@@ -5,6 +5,7 @@ select api.create_appliance(
   'Estações Transformadoras',
   2,
   102,
+  'Uma referência dentro do local',
   'Descrição do novo equipamento.'
 ) as new_appliance_id \gset
 
