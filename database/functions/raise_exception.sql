@@ -14,15 +14,15 @@ create or replace function :function_name (
       h text;
     begin
       select
-        rfe.message,
-        rfe.detail,
-        rfe.hint
+        e.message,
+        e.detail,
+        e.hint
         into
         m,
         d,
         h
-      from redfix_exceptions as rfe
-      where rfe.errcode = errcode_input;
+      from exceptions as e
+      where e.errcode = errcode_input;
 
       raise exception using
         errcode = 'RF' || errcode_input::text,

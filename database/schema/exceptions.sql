@@ -1,11 +1,11 @@
-create table redfix_exceptions (
+create table exceptions (
   errcode integer primary key check (errcode::text ~ '\d{3}'),
   message text not null,
   detail text default '',
   hint text default ''
 );
 
-insert into redfix_exceptions values
+insert into exceptions values
   -- asset api (errcodes 101 to 199)
   (101, 'Localização do ativo deve ser um endereçamento'),
   (102, 'Ativo-categoria deve estar no topo da hierarquia'),
