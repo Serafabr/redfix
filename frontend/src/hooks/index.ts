@@ -1,1 +1,1 @@
-export { useOutsideHandler } from './useOutsideHandler';
+export { useClickOutsideListener } from './useClickOutsideListener';

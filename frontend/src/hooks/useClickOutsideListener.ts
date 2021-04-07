@@ -4,7 +4,7 @@ type refProps = RefObject<HTMLElement>;
 type callbackProps = () => void;
 type eventProps = MouseEvent; // Type from the DOM
 
-export const useOutsideHandler = (ref: refProps, callback: callbackProps) => {
+export const useClickOutsideListener = (ref: refProps, callback: callbackProps) => {
   // Create a custom hook
   useEffect(() => {
     // Alert if clicked on outside an element
