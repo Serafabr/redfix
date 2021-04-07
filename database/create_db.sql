@@ -120,6 +120,7 @@ begin transaction;
 \i api/asset/remove_child_from_asset.sql
 \i api/asset/remove_parent_from_asset.sql
 \i api/asset/remove_tag_from_asset.sql
+\i api/asset/set_monitor_next_read_date.sql
 \i api/asset/tags.sql
 -- dashboard
 \i api/dashboard/dashboard_data.sql

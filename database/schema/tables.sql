@@ -272,7 +272,8 @@ create table monitors (
   unit text not null,
   asset_id integer not null references assets (asset_id),
   lower_limit numeric,
-  upper_limit numeric
+  upper_limit numeric,
+  next_read_date timestamptz
 );
 
 create table monitor_reads (

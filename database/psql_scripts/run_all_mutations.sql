@@ -23,6 +23,7 @@
 
 \i api_tests/asset/create_monitor.sql
 \i api_tests/asset/modify_monitor.sql
+\i api_tests/asset/set_monitor_next_read_date.sql
 \i api_tests/asset/create_monitor_read.sql
 \i api_tests/asset/modify_monitor_read.sql
 
