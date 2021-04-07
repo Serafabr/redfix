@@ -5,6 +5,8 @@ import task from '../../assets/icons/sidebar/notes-paper.svg';
 import taskDual from '../../assets/icons/sidebar/dualColor/notes-paper.svg';
 import plan from '../../assets/icons/sidebar/tools-wench.svg';
 import planDual from '../../assets/icons/sidebar/dualColor/tools-wench.svg';
+import monitor from '../../assets/icons/sidebar/graph.svg';
+import monitorDual from '../../assets/icons/sidebar/dualColor/graph.svg';
 import finance from '../../assets/icons/sidebar/dollar-sign.svg';
 import financeDual from '../../assets/icons/sidebar/dualColor/dollar-sign.svg';
 import facility from '../../assets/icons/sidebar/building.svg';
@@ -33,7 +35,7 @@ export const navItems = [
     items: [
       {label: "Tarefas", icon: task, hoveredIcon: taskDual},
       {label: "Planos de Manutenção", icon: plan, hoveredIcon: planDual},
-      {label: "Monitores", icon: task, hoveredIcon: taskDual},
+      {label: "Monitores", icon: monitor, hoveredIcon: monitorDual},
     ],
   },
   {
