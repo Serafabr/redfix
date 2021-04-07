@@ -25,8 +25,8 @@ create type alloc_approval as (
 );
 
 create type alloc_price_source as enum (
-  'internal_box',
-  'external_box',
+  'box',
+  'invoice',
   'search'
 );
 
