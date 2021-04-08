@@ -82,8 +82,6 @@ begin transaction;
 -- \i schema/views/quantities.sql
 
 -- lists
-\i schema/lists/get_reads_of_monitor.sql
-
 \i schema/lists/get_assets_of_location.sql
 \i schema/lists/get_assets_of_task.sql
 \i schema/lists/get_events_of_task.sql
@@ -91,6 +89,7 @@ begin transaction;
 \i schema/lists/get_monitors_of_asset.sql
 \i schema/lists/get_files_of_task.sql
 \i schema/lists/get_prices_of_spec.sql
+\i schema/lists/get_reads_of_monitor.sql
 \i schema/lists/get_tasks_of_asset.sql
 \i schema/lists/get_tasks_of_project.sql
 
