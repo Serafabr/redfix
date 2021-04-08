@@ -5,51 +5,35 @@ create or replace function :function_name (
   in "depotId" integer,
   in "depotSf" text,
   in "depotCategoryId" integer,
-  in "title" text,
-  in "description" text,
+  in "TITLE" text,
+  in "DESCRIPTION" text,
   in "dateSign" date default null,
   in "datePub" date default null,
   in "dateStart" date default null,
   in "dateEnd" date default null,
   in "firmId" integer default null,
-  in "url" text default null,
-  in "sigad" text default null,
+  in "URL" text default null,
+  in "SIGAD" text default null,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update depots as d set (
-        depot_sf,
-        updated_at,
-        updated_by,
-        depot_category_id,
-        date_sign,
-        date_pub,
-        date_start,
-        date_end,
-        firm_id,
-        title,
-        description,
-        url,
-        sigad
-      ) = (select new_values.*)
-      from (select
-        "depotSf",
-        now(),
-        get_person_id(),
-        "depotCategoryId",
-        "dateSign",
-        "datePub",
-        "dateStart",
-        "dateEnd",
-        "firmId",
-        "title",
-        "description",
-        "url",
-        "sigad"
-      ) as new_values
-      where d.depot_id = "depotId";
+      update depots set
+        depot_sf = "depotSf",
+        updated_at = now(),
+        updated_by = get_person_id(),
+        depot_category_id = "depotCategoryId",
+        date_sign = "dateSign",
+        date_pub = "datePub",
+        date_start = "dateStart",
+        date_end = "dateEnd",
+        firm_id = "firmId",
+        title = "TITLE",
+        description = "DESCRIPTION",
+        url = "URL",
+        sigad = "SIGAD"
+      where depot_id = "depotId";
       insert into depot_events values (
         default,
         "depotId",

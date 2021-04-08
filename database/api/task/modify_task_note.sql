@@ -3,21 +3,16 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "taskEventId" integer,
-  in "note" text,
+  in "NOTE" text,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update task_events as te set (
-        note,
-        updated_at
-      ) = (select new_values.*)
-      from (select
-        "note",
-        now()
-      ) as new_values
-      where te.task_event_id = "taskEventId";
+      update task_events set
+        note = "NOTE",
+        updated_at = now()
+      where task_event_id = "taskEventId";
       id = "taskEventId";
     end;
   $$

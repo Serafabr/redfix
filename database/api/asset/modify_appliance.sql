@@ -4,46 +4,33 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "assetId" integer,
   in "assetSf" text,
-  in "name" text,
+  in "NAME" text,
   in "assetCategoryId" integer,
   in "locationId" integer,
-  in "place" text default null,
-  in "description" text default null,
-  in "manufacturer" text default null,
+  in "PLACE" text default null,
+  in "DESCRIPTION" text default null,
+  in "MANUFACTURER" text default null,
   in "serialNumber" text default null,
-  in "model" text default null,
-  in "price" numeric default null,
+  in "MODEL" text default null,
+  in "PRICE" numeric default null,
   out id integer
 )
   language plpgsql
   as $$
     begin
       if ("assetCategoryId" <> 1)
-        then update assets as a set (
-          asset_sf,
-          name,
-          asset_category_id,
-          location_id,
-          place,
-          description,
-          manufacturer,
-          serial_number,
-          model,
-          price
-        ) = (select new_values.*)
-        from (select
-          "assetSf",
-          "name",
-          "assetCategoryId",
-          "locationId",
-          "place",
-          "description",
-          "manufacturer",
-          "serialNumber",
-          "model",
-          "price"
-        ) as new_values
-        where a.asset_id = "assetId";
+        then update assets set
+          asset_sf = "assetSf",
+          name = "NAME",
+          asset_category_id = "assetCategoryId",
+          location_id = "locationId",
+          place = "PLACE",
+          description = "DESCRIPTION",
+          manufacturer = "MANUFACTURER",
+          serial_number = "serialNumber",
+          model = "MODEL",
+          price = "PRICE"
+        where asset_id = "assetId";
         else perform raise_exception(103);
       end if;
       id = "assetId";

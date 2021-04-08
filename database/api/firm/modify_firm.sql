@@ -3,25 +3,19 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "firmId" integer,
-  in "name" text,
-  in "cnpj" text,
+  in "NAME" text,
+  in "CNPJ" text,
   in "nameRs" text default null,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update firms as f set (
-        name,
-        name_rs,
-        cnpj
-      ) = (select new_values.*)
-      from (select
-        "name",
-        "nameRs",
-        "cnpj"
-      ) as new_values
-      where f.firm_id = "firmId";
+      update firms set
+        name = "NAME",
+        name_rs = "nameRs",
+        cnpj = "CNPJ"
+      where firm_id = "firmId";
       id = "firmId";
     end;
   $$

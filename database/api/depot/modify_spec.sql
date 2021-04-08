@@ -4,23 +4,17 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "specId" integer,
   in "specSf" text,
-  in "name" text,
-  in "unit" integer,
+  in "NAME" text,
+  in "UNIT" integer,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update specs set (
-        spec_sf,
-        name,
-        unit
-      ) = (select new_values.*)
-      from (select
-        "specSf",
-        "name",
-        "unit"
-      ) as new_values
+      update specs set
+        spec_sf = "specSf",
+        name = "NAME",
+        unit = "UNIT"
       where spec_id = "specId";
       id = "specId";
     end;

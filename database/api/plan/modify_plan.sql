@@ -3,22 +3,17 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "planId" integer,
-  in "name" text,
-  in "description" text,
+  in "NAME" text,
+  in "DESCRIPTION" text,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update plans as p set (
-        name,
-        description
-      ) = (select new_values.*)
-      from (select
-        "name",
-        "description"
-      ) as new_values
-      where p.plan_id = "planId";
+      update plans set
+        name = "NAME",
+        description = "DESCRIPTION"
+      where plan_id = "planId";
       id = "planId";
     end;
   $$

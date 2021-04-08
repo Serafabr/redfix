@@ -3,22 +3,17 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "teamId" integer,
-  in "name" text,
-  in "description" text default null,
+  in "NAME" text,
+  in "DESCRIPTION" text default null,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update teams as t set (
-        name,
-        description
-      ) = (select new_values.*)
-      from (select
-        "name",
-        "description"
-      ) as new_values
-      where t.team_id = "teamId";
+      update teams set
+        name = "NAME",
+        description = "DESCRIPTION"
+      where team_id = "teamId";
       id = "teamId";
     end;
   $$

@@ -3,40 +3,28 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "personId" integer,
-  in "username" text,
-  in "cpf" text,
-  in "email" text,
-  -- in "teamId" integer,
-  in "name" text,
-  in "phone" text,
+  in "USERNAME" text,
+  in "CPF" text,
+  in "EMAIL" text,
+  in "NAME" text,
+  in "PHONE" text,
   in "personRole" text,
-  in "cellphone" text default null,
+  in "CELLPHONE" text default null,
   out id integer
 )
   language plpgsql
   security definer
   as $$
     begin
-      update persons as p set (
-        username,
-        cpf,
-        email,
-        name,
-        phone,
-        cellphone,
-        person_role
-      ) = (select new_values.*)
-      from (select
-        "username",
-        "cpf",
-        "email",
-        -- "teamId",
-        "name",
-        "phone",
-        "cellphone",
-        "personRole"
-      ) as new_values
-      where p.person_id = "personId";
+      update persons set
+        username = "USERNAME",
+        cpf = "CPF",
+        email = "EMAIL",
+        name = "NAME",
+        phone = "PHONE",
+        cellphone = "CELLPHONE",
+        person_role = "personRole"
+      where person_id = "personId";
       id = "personId";
     end;
   $$

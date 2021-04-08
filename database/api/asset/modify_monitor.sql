@@ -3,10 +3,10 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "monitorId" integer,
-  in "name" text,
-  in "description" text,
+  in "NAME" text,
+  in "DESCRIPTION" text,
   in "monitorCategoryId" integer,
-  in "unit" text,
+  in "UNIT" text,
   in "assetId" integer,
   in "lowerLimit" numeric default null,
   in "upperLimit" numeric default null,
@@ -15,29 +15,17 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      update monitors as m set (
-        updated_at,
-        updated_by,
-        name,
-        description,
-        monitor_category_id,
-        unit,
-        asset_id,
-        lower_limit,
-        upper_limit
-      ) = (select new_values.*)
-      from (select
-        now(),
-        get_person_id(),
-        "name",
-        "description",
-        "monitorCategoryId",
-        "unit",
-        "assetId",
-        "lowerLimit",
-        "upperLimit"
-      ) as new_values
-      where m.monitor_id = "monitorId";
+      update monitors set
+        updated_at = now(),
+        updated_by = get_person_id(),
+        name = "NAME",
+        description = "DESCRIPTION",
+        monitor_category_id = "monitorCategoryId",
+        unit = "UNIT",
+        asset_id = "assetId",
+        lower_limit = "lowerLimit",
+        upper_limit = "upperLimit"
+      where monitor_id = "monitorId";
       id = "monitorId";
     end;
   $$
