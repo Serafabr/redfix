@@ -40,6 +40,7 @@
 \unset new_task_id
 \unset new_task_template_id
 \unset new_team_id
+\unset no_periodicity_task_template_id
 \unset not_used_output
 \unset original_box_id
 \unset project_to_be_deleted
