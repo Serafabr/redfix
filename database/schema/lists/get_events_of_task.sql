@@ -12,21 +12,21 @@ create or replace function :function_name (
     select coalesce_list(j.l) as list from (
       select
         jsonb_agg(jsonb_build_object(
-            'taskEventId', te.task_event_id,
-            'taskEventName', te.task_event_name,
-            'createdAt', te.created_at,
-            'personId', te.person_id,
-            'personName', p.name,
-            'teamId', te.team_id,
-            'teamName', t.name,
-            'nextTeamId', te.next_team_id,
-            'nextTeamName', tt.name,
-            'taskStatusText', ts.task_status_text,
-            'taskStatusId', te.task_status_id,
-            'note', te.note,
-            'replyTo', te.reply_to,
-            'updatedAt', te.updated_at,
-            'isVisible', te.is_visible
+          'taskEventId', te.task_event_id,
+          'taskEventName', te.task_event_name,
+          'createdAt', te.created_at,
+          'personId', te.person_id,
+          'personName', p.name,
+          'teamId', te.team_id,
+          'teamName', t.name,
+          'nextTeamId', te.next_team_id,
+          'nextTeamName', tt.name,
+          'taskStatusText', ts.task_status_text,
+          'taskStatusId', te.task_status_id,
+          'note', te.note,
+          'replyTo', te.reply_to,
+          'updatedAt', te.updated_at,
+          'isVisible', te.is_visible
         ) order by te.created_at desc) as l
       from task_events as te
       inner join persons as p using (person_id)

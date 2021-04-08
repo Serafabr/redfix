@@ -12,10 +12,10 @@ create or replace function :function_name (
     select coalesce_list(j.l) as list from (
       select
         jsonb_agg(jsonb_build_object(
-            'monitorReadId', m.monitor_read_id,
-            'readAt', m.read_at,
-            'readValue', m.read_value,
-            'note', m.note
+          'monitorReadId', m.monitor_read_id,
+          'readAt', m.read_at,
+          'readValue', m.read_value,
+          'note', m.note
         ) order by m.read_at) as l
       from monitor_reads as m
       where m.monitor_id = "monitorId"

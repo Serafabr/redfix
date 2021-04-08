@@ -12,10 +12,10 @@ create or replace function :function_name (
     select coalesce_list(j.l) as list from (
       select
         jsonb_agg(jsonb_build_object(
-            'priceId', p.price_id,
-            'price', p.price,
-            'date', p.date,
-            'validDays', p.valid_days
+          'priceId', p.price_id,
+          'price', p.price,
+          'date', p.date,
+          'validDays', p.valid_days
         ) order by p.date) as l
       from prices as p
       where p.spec_id = "specId"

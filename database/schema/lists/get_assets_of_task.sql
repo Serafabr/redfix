@@ -12,9 +12,9 @@ create or replace function :function_name (
     select coalesce_list(j.l) as list from (
       select
         jsonb_agg(jsonb_build_object(
-            'assetId', a.asset_id,
-            'assetSf', a.asset_sf,
-            'name', a.name
+          'assetId', a.asset_id,
+          'assetSf', a.asset_sf,
+          'name', a.name
         ) order by a.asset_sf) as l
       from task_assets as ta
       inner join assets as a using (asset_id)
