@@ -73,6 +73,7 @@ begin transaction;
 \i functions/generate_api_documentation.sql
 \i functions/get_all_files_uuids.sql
 \i functions/insert_files.sql
+\i functions/raise_exception.sql
 \i functions/refresh_all_materialized_views.sql
 \i functions/update_dashboard.sql
 

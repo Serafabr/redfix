@@ -10,6 +10,8 @@
 \unset asset_category_facility
 \unset asset_category_hydro
 \unset db_was_populated
+\unset errcode_RF101
+\unset errcode_RF104
 \unset function_name
 \unset insert_energy_bills
 \unset invoice_to_be_deleted

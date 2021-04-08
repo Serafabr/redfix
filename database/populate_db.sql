@@ -1,4 +1,4 @@
-\echo '\n\n\n\n\nPopulating the database using API mutations...\n\n'
+\echo '\n\n\n\n\nPopulating the database...\n\n'
 
 -- reset LAST_ERROR_SQLSTATE
 \set LAST_ERROR_SQLSTATE '00000'
