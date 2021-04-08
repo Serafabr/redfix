@@ -4,12 +4,12 @@ select api.set_allocations_prices(
   array[
     (
       :new_alloc_id,
-      'internal_box',
+      'box',
       (
         select s.price
         from allocations as a
         inner join supplies as s on (
-          a.internal_box_id = s.box_id and
+          a.box_id = s.box_id and
           a.spec_id = s.spec_id
         ) where a.alloc_id = :new_alloc_id
       )

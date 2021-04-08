@@ -32,6 +32,7 @@
 \unset new_plan_id
 \unset new_price_id
 \unset new_project_id
+\unset new_purchase_id
 \unset new_spec_id
 \unset new_supply_id
 \unset new_tag_id
@@ -41,7 +42,8 @@
 \unset new_team_id
 \unset not_used_output
 \unset original_box_id
-\unset project_to_be_removed
+\unset project_to_be_deleted
+\unset purchase_to_be_deleted
 \unset supply_to_be_deleted
 \unset supply_to_be_removed_from_task
 \unset tag_to_be_deleted

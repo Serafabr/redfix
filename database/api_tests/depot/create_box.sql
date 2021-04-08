@@ -18,6 +18,6 @@ select api.create_box(
   0,
   null,
   'Materiais que não constam no edital'
-) as new_ext_box_id \gset
+) as new_invoice_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

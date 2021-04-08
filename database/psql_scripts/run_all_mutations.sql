@@ -109,25 +109,24 @@
 \i api_tests/plan/create_task_from_template.sql
 -- \i api_tests/plan/finish_task.sql
 
--- invoices
-\i api_tests/invoice/create_invoice.sql
-\i api_tests/invoice/modify_invoice.sql
+-- purchases
+\i api_tests/purchase/create_purchase.sql
+\i api_tests/purchase/modify_purchase.sql
 
-\i api_tests/invoice/create_allocation.sql
-\i api_tests/invoice/approve_allocations.sql
-\i api_tests/invoice/delete_allocations.sql
+\i api_tests/purchase/create_allocation.sql
+\i api_tests/purchase/approve_allocations.sql
+\i api_tests/purchase/delete_allocations.sql
 
-\i api_tests/invoice/modify_qty_proposed.sql
-\i api_tests/invoice/modify_qty_approved.sql
+\i api_tests/purchase/modify_qty_proposed.sql
+\i api_tests/purchase/modify_qty_approved.sql
 
-\i api_tests/invoice/add_allocations_to_invoice.sql
+\i api_tests/purchase/add_allocations_to_purchase.sql
 
-\i api_tests/invoice/set_allocations_prices.sql
+\i api_tests/purchase/set_allocations_prices.sql
 
-\i api_tests/invoice/set_invoice_paid.sql
-\i api_tests/invoice/set_invoice_unpaid.sql
+\i api_tests/purchase/toggle_purchase_paid.sql
 
-\i api_tests/invoice/delete_invoice.sql
+\i api_tests/purchase/delete_purchase.sql
 
 -- files
 \i api_tests/files/upload_asset_files.sql

@@ -5,8 +5,8 @@ create or replace function :function_name (
   in "taskId" integer,
   in "specId" integer,
   in "qtyProposed" numeric,
-  in "internalBoxId" integer default null,
-  in "externalBoxId" integer default null,
+  in "boxId" integer default null,
+  in "invoiceId" integer default null,
   out id integer
 )
   language plpgsql
@@ -15,14 +15,14 @@ create or replace function :function_name (
       insert into allocations as a (
         task_id,
         spec_id,
-        internal_box_id,
-        external_box_id,
+        box_id,
+        invoice_id,
         qty_proposed
       ) values (
         "taskId",
         "specId",
-        "internalBoxId",
-        "externalBoxId",
+        "boxId",
+        "invoiceId",
         "qtyProposed"
       ) returning a.alloc_id into id;
     end;

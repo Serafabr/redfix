@@ -271,8 +271,8 @@ create table purchases (
   depot_id integer not null references depots (depot_id),
   description text not null,
   paid boolean not null,
-  invoice_start date not null,
-  invoice_end date not null,
+  purchase_start date not null,
+  purchase_end date not null,
   note text
 );
 

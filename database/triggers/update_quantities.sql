@@ -10,7 +10,7 @@ create or replace function :trigger_name ()
       "specId" integer;
       "supplyId" integer;
     begin
-      "boxId" = coalesce(new.internal_box_id,old.internal_box_id,new.external_box_id,old.external_box_id);
+      "boxId" = coalesce(new.box_id,old.box_id,new.invoice_id,old.invoice_id);
       "specId" = coalesce(new.spec_id,old.spec_id);
       select supply_id into "supplyId" from supplies where box_id = "boxId" and spec_id = "specId";
       update supplies set

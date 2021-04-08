@@ -21,7 +21,7 @@ insert into exceptions values
   -- depot api (codes 301 to 399)
   (301, 'Suprimento não pode ser removido pois está vinculado a alguma(s) tarefa(s)'),
   (302, 'Somente podem ser ativadas as caixas de um estoque formalizado'),
-  -- invoice api (codes 401 to 499)
+  -- purchase api (codes 401 to 499)
   (401, 'Alocação inválida (nenhuma caixa definida)'),
   -- plan api (codes 501 to 599)
   (501, 'Rotina com periodicidade definida não permite executar create_task_from_template')

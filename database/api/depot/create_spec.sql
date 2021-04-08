@@ -6,6 +6,7 @@ create or replace function :function_name (
   in "specSf" text,
   in "name" text,
   in "unit" integer,
+  in "isInternal" boolean,
   out id integer
 )
   language plpgsql
@@ -16,7 +17,8 @@ create or replace function :function_name (
         "depotId",
         "specSf",
         "name",
-        "unit"
+        "unit",
+        "isInternal"
       ) returning spec_id into id;
     end;
   $$
