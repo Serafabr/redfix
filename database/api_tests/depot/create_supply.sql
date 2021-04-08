@@ -9,6 +9,14 @@ select api.create_supply(
 ) as new_supply_id \gset
 
 select api.create_supply(
+  :new_spec_id,
+  :new_invoice_id,
+  100,
+  98,
+  0.20
+) as new_supply_id \gset
+
+select api.create_supply(
   :another_spec_id,
   :new_box_id,
   2000,

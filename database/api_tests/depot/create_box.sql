@@ -3,7 +3,7 @@
 select api.create_box(
   'Primeiro T.A.',
   :new_depot_id,
-  true,
+  false,
   0,
   0,
   :original_box_id,
@@ -13,7 +13,7 @@ select api.create_box(
 select api.create_box(
   'Nota Fiscal 199',
   :new_depot_id,
-  false,
+  true,
   0,
   0,
   null,

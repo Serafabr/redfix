@@ -17,13 +17,17 @@ create or replace function :function_name (
         spec_id,
         box_id,
         invoice_id,
-        qty_proposed
+        qty_proposed,
+        box_supply_id,
+        invoice_supply_id
       ) values (
         "taskId",
         "specId",
         "boxId",
         "invoiceId",
-        "qtyProposed"
+        "qtyProposed",
+        (select supply_id from supplies where box_id = "boxId" and spec_id = "specId"),
+        (select supply_id from supplies where box_id = "invoiceId" and spec_id = "specId")
       ) returning a.alloc_id into id;
     end;
   $$

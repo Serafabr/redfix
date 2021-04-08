@@ -6,18 +6,16 @@ create or replace function :trigger_name ()
   language plpgsql
   as $$
     declare
-      "boxId" integer;
-      "specId" integer;
-      "supplyId" integer;
+      "boxSupplyId" integer;
+      "invoiceSupplyId" integer;
     begin
-      "boxId" = coalesce(new.box_id,old.box_id,new.invoice_id,old.invoice_id);
-      "specId" = coalesce(new.spec_id,old.spec_id);
-      select supply_id into "supplyId" from supplies where box_id = "boxId" and spec_id = "specId";
+      "boxSupplyId" = coalesce(new.box_supply_id, old.box_supply_id);
+      "invoiceSupplyId" = coalesce(new.invoice_supply_id, old.invoice_supply_id);
       update supplies set
         qty_proposed = qty_proposed - coalesce(old.qty_proposed,0) + coalesce(new.qty_proposed,0),
         qty_approved = qty_approved - coalesce(old.qty_approved,0) + coalesce(new.qty_approved,0),
         qty_consumed = qty_consumed - coalesce(old.qty_consumed,0) + coalesce(new.qty_consumed,0)
-      where supply_id = "supplyId";
+      where supply_id in ("boxSupplyId", "invoiceSupplyId");
       return null;
     end;
   $$
