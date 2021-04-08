@@ -7,10 +7,12 @@ import blueCheckIcon from '../../assets/icons/blue-check.svg';
 
 type Props = {
   setIsOpen: (isOpen: boolean) => void,
+  searchable?: boolean
 };
 
 export const SelectBox = ({
-  setIsOpen
+  setIsOpen,
+  searchable = false,
 }: Props) => {
    
   // Callback that will be executed if you click outside an element.
@@ -25,13 +27,15 @@ export const SelectBox = ({
   return (
     <div className={style.SelectBox} ref={wrapperRef}>
       <div className={style.ListWrapper}>
-        <div className={style.InputWrapper}>
-          <Input 
-            inputClassName={style.SearchInput} 
-            error={false} 
-            placeholder="Pesquisar..." 
-          />
-        </div>
+        {searchable && (
+          <div className={style.InputWrapper}>
+            <Input 
+              inputClassName={style.SearchInput} 
+              error={false} 
+              placeholder="Pesquisar..." 
+            />
+          </div>
+        )}
         <li className={style.List}>
           <ul className={`${style.Item} ${style.Selected}`}><span className={style.TextItem}>Customizar tabela</span><img src={blueCheckIcon} alt="Selected" /></ul>
           <ul className={`${style.Item} ${style.Selected}`}>Exportar para CSV<img src={blueCheckIcon} alt="Selected" /></ul>

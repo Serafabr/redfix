@@ -21,7 +21,7 @@ export const Dropdown = ({ buttonStyle }: Props) => {
     setIsOpen(false);
   }
   
-  // Hook that execute a callback if you click outside an element.
+  // Hook that executes a callback if you click outside an element.
   const wrapperRef = useRef(null);
   useClickOutsideListener(wrapperRef, handleOutsideClick);
   
