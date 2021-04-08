@@ -19,7 +19,8 @@ create or replace function :function_name (
           'monitorCategoryText', mc.monitor_category_text,
           'unit', m.unit,
           'lowerLimit', m.lower_limit,
-          'upperLimit', m.upper_limit
+          'upperLimit', m.upper_limit,
+          'reads', get_reads_of_monitor(m.monitor_id)
         ) order by m.name) as l
       from monitors as m
       inner join monitor_categories as mc using (monitor_category_id)
