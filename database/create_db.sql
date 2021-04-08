@@ -186,6 +186,7 @@ begin transaction;
 \i api/purchase/modify_purchase.sql
 \i api/purchase/modify_qty_proposed.sql
 \i api/purchase/modify_qty_approved.sql
+\i api/purchase/set_allocation_invoice.sql
 \i api/purchase/set_allocations_prices.sql
 \i api/purchase/toggle_purchase_paid.sql
 -- task

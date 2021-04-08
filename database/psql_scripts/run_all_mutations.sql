@@ -122,6 +122,8 @@
 
 \i api_tests/purchase/add_allocations_to_purchase.sql
 
+\i api_tests/purchase/set_allocation_invoice.sql
+
 \i api_tests/purchase/set_allocations_prices.sql
 
 \i api_tests/purchase/toggle_purchase_paid.sql
