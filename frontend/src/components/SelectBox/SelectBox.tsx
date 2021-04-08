@@ -1,11 +1,30 @@
+import { useRef } from 'react';
+import { useClickOutsideListener } from '../../hooks';
 import style from './SelectBox.module.scss';
 
 import { Input } from '../Inputs'
 import blueCheckIcon from '../../assets/icons/blue-check.svg';
+import { useSelectBox } from './useSelectBox';
 
-export const SelectBox = () => {
+type Props = {
+  setIsOpen: (isOpen: boolean) => void,
+};
+
+export const SelectBox = ({
+  setIsOpen
+}: Props) => {
+   
+  // Callback that will be executed if you click outside an element.
+  const handleOutsideClick = () => {
+    setIsOpen(false);
+  }
+  
+  // Hook that executes a callback if you click outside an element.
+  const wrapperRef = useRef(null);
+  useClickOutsideListener(wrapperRef, handleOutsideClick);
+  
   return (
-    <div className={style.SelectBox}>
+    <div className={style.SelectBox} ref={wrapperRef}>
       <div className={style.ListWrapper}>
         <div className={style.InputWrapper}>
           <Input 

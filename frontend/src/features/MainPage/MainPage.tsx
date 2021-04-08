@@ -38,7 +38,7 @@ export const MainPage = () => {
             <div style={{ display: "flex" }}>
               <FilterDropdown />
               <div style={{ width: "300px" }}>
-                <SelectBox />
+                <SelectBox setIsOpen={() => (console.log("Clicked"))} />
               </div>
             </div>
           </Card>
