@@ -29,25 +29,27 @@ export const SelectBox = ({
   useClickOutsideListener(clickOutsideRef, handleOutsideClick);
   
   return (
-    <div className={style.SelectBox}>
-      <div className={style.ListWrapper}>
-        {searchable && (
-          <div className={style.InputWrapper}>
-            <Input 
-              inputClassName={style.SearchInput} 
-              error={false} 
-              placeholder="Pesquisar..." 
-            />
-          </div>
-        )}
-        <li className={style.List}>
-          {items.map((item) => (
-            <ul key={item.id} className={`${style.Item} ${item.selected && style.Selected}`}>
-              <span className={style.TextItem}>{item.name}</span>
-              {item.selected && (<img src={blueCheckIcon} alt="Selected" />)}
-            </ul>
-          ))}
-        </li>
+    <div style={{ position: "relative" }}>
+      <div className={style.SelectBox}>
+        <div className={style.ListWrapper}>
+          {searchable && (
+            <div className={style.InputWrapper}>
+              <Input 
+                inputClassName={style.SearchInput} 
+                error={false} 
+                placeholder="Pesquisar..." 
+              />
+            </div>
+          )}
+          <li className={style.List}>
+            {items.map((item) => (
+              <ul key={item.id} className={`${style.Item} ${item.selected && style.Selected}`}>
+                <span className={style.TextItem}>{item.name}</span>
+                {item.selected && (<img src={blueCheckIcon} alt="Selected" />)}
+              </ul>
+            ))}
+          </li>
+        </div>
       </div>
     </div>
   )

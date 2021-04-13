@@ -8,6 +8,7 @@ import { Button, ButtonType, FilterDropdown } from '../../components/Buttons';
 import { Plus as PlusIcon } from '../../components/Icons';
 import { Card } from '../../components/Cards';
 import { SelectBox } from '../../components/SelectBox/SelectBox';
+import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
 
 const items = [
   {id: 1,name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
@@ -49,7 +50,7 @@ export const MainPage = () => {
             <div style={{ display: "flex" }}>
               <FilterDropdown />
               <div style={{ width: "300px" }}>
-                hey
+                <Dropdown />
               </div>
             </div>
           </Card>
