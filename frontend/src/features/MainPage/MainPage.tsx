@@ -9,6 +9,17 @@ import { Plus as PlusIcon } from '../../components/Icons';
 import { Card } from '../../components/Cards';
 import { SelectBox } from '../../components/SelectBox/SelectBox';
 
+const items = [
+  {id: 1,name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
+  {id: 2,name: "Exportar para CSV", selected: false},
+  {id: 3,name: "Exportar para Excel", selected: false},
+  {id: 4,name: "Exportar para PDF", selected: false},
+  {id: 5,name: "Customizar tabela", selected: false},
+  {id: 6,name: "Exportar para CSV", selected: false},
+  {id: 6,name: "Exportar para Excel", selected: false},
+  {id: 6,name: "Exportar para PDF", selected: false},
+];
+
 export const MainPage = () => {
   return (
     <div className={style.MainPage}>
@@ -38,7 +49,7 @@ export const MainPage = () => {
             <div style={{ display: "flex" }}>
               <FilterDropdown />
               <div style={{ width: "300px" }}>
-                <SelectBox setIsOpen={() => (console.log("Clicked"))} />
+                hey
               </div>
             </div>
           </Card>
