@@ -29,7 +29,7 @@ export const FilterDropdown = () => {
   
   return (
     <div className={style.FilterDropdown} ref={wrapperRef}>
-      <button className={style.Button} onClick={handleButtonOnClick}>
+      <button className={`${style.Button} ${isOpen && style.Opened}`} onClick={handleButtonOnClick}>
         <div className={style.ContentWrapper}>
           <img src={quickIcon} alt="Pesquisa rápida"/>
           Caixa de Entrada
