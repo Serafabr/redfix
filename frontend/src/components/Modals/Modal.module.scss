@@ -13,11 +13,12 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.ModalContent {
+.ModalBox {
   background-color: #fff;
   margin:  10px;
   border-radius: 4px;
   width: 70%;
   padding: 20px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid #DFDFDF;
+  box-shadow: 0 5px 10px 0 rgba(68, 68, 68, 0.671);
 }
