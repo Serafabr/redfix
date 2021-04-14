@@ -45,9 +45,14 @@
   width: 100%;
   height: 300px;
   background-color: #fff;
+  padding: 20px;
 }
 
 .ModalFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 15px;
   width: 100%;
   height: 65px;
   background-color: #F5F5F5;
