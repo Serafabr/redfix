@@ -9,6 +9,7 @@ import { Plus as PlusIcon } from '../../components/Icons';
 import { Card } from '../../components/Cards';
 import { SelectBox } from '../../components/SelectBox/SelectBox';
 import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
+import { Modal } from '../../components/Modals';
 
 const items = [
   {id: 1,name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
@@ -54,6 +55,9 @@ export const MainPage = () => {
               </div>
             </div>
           </Card>
+        </div>
+        <div style={{ margin: "20px" }}>
+          <Modal />
         </div>
       </main>
     </div>
