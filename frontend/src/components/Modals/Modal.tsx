@@ -1,16 +1,19 @@
+import { useState } from 'react';
+
 import { Button, ButtonType } from '../Buttons';
 import style from './Modal.module.scss';
 import closeIcon from '../../assets/icons/modal/close.svg';
 import closeIconHovered from '../../assets/icons/modal/hovered/close.svg';
 
 export const Modal = () => {
+  const [ isCloseIconHovered, setIsCloseIconHovered ] = useState<boolean>(false);
   
   const handleBackgroundOnClick = () => {
     console.log("Fechar modal");
   };
   
-  const handleMouseEnter = () => {
-    console.log("Mouse Enter");
+  const handleCloseIconHover = (mouseEntered: boolean) => {
+    setIsCloseIconHovered(mouseEntered)
   }
   
   return (
@@ -19,8 +22,8 @@ export const Modal = () => {
       <div className={style.ModalBox}>
         <div className={style.ModalHeader}>
           <span className={style.Title}>Editar progresso</span>
-          <div className={style.IconWrapper} onMouseEnter={() => {handleMouseEnter()}} onMouseLeave={() => {handleMouseEnter()}}>
-            <img src={closeIcon} alt="Fechar"/>
+          <div className={style.IconWrapper} onMouseEnter={() => {handleCloseIconHover(true)}} onMouseLeave={() => {handleCloseIconHover(false)}}>
+            <img src={isCloseIconHovered ? closeIconHovered : closeIcon} alt="Fechar"/>
           </div>
         </div>
         <div className={style.ModalContent}>
