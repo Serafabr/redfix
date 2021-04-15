@@ -11,6 +11,11 @@ create type depot_event_enum as enum (
   'change_category'
 );
 
+create type spec_type_enum as enum (
+  'material',
+  'service'
+);
+
 create type task_event_enum as enum (
   'insert',
   'modify',

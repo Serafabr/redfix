@@ -172,3 +172,25 @@ insert into monitor_categories values
   (1, 'Acumulador'),
   (2, 'Valor instantâneo')
 ;
+
+create table alloc_sources (
+  alloc_source_id integer primary key,
+  alloc_source_text text not null
+);
+
+insert into alloc_sources values
+  (1, 'Contrato'),
+  (2, 'Almoxarifado SF'),
+  (3, 'Consumível'),
+  (4, 'Reserva Técnica')
+;
+
+create table alloc_destinations (
+  alloc_destination_id integer primary key,
+  alloc_destination_text text not null
+);
+
+insert into alloc_destinations values
+  (1, 'Tarefa'),
+  (2, 'Reserva Técnica')
+;
