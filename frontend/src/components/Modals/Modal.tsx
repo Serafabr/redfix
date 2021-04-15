@@ -1,12 +1,22 @@
 import { Button, ButtonType } from '../Buttons';
 import style from './Modal.module.scss';
+import closeIcon from '../../assets/icons/modal/close.svg';
 
 export const Modal = () => {
+  
+  const handleBackgroundOnClick = () => {
+    console.log("Fechar modal");
+  };
+  
   return (
     <div className={style.Modal}>
+      <div className={style.Background}/>
       <div className={style.ModalBox}>
         <div className={style.ModalHeader}>
           <span className={style.Title}>Editar progresso</span>
+          <div className={style.IconWrapper}>
+            <img src={closeIcon} alt="Fechar"/>
+          </div>
         </div>
         <div className={style.ModalContent}>
           Teste

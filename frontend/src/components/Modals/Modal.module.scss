@@ -25,6 +25,7 @@
 .ModalHeader {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 65px;
   padding: 15px;
@@ -39,6 +40,21 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
+}
+
+.IconWrapper {
+  height: 16px;
+  width: 16px;
+  margin-right: 10px;
+  
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .ModalContent {
