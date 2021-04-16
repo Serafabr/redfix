@@ -6,12 +6,12 @@ import closeIcon from '../../assets/icons/modal/close.svg';
 import closeIconHovered from '../../assets/icons/modal/hovered/close.svg';
 
 type Props = {
-  isOpened?: boolean,
-  setIsOpened: () => void
+  isOpened: boolean,
+  setIsOpened: (isOpened: boolean) => void
 };
 
 export const Modal = ({
-  isOpened = false,
+  isOpened,
   setIsOpened
 }: Props) => {
   
@@ -19,7 +19,7 @@ export const Modal = ({
   
   const handleBackgroundOnClick = (e: React.MouseEvent<HTMLElement>) => {
     if ((e.target as any).id === "modal") {
-      console.log("Close modal");
+      setIsOpened(false);
     }
   };
   
@@ -28,12 +28,12 @@ export const Modal = ({
   }
   
   return (
-    <div id="modal" className={`${style.Modal} ${style.Closed}`} onClick={handleBackgroundOnClick}>
+    <div id="modal" className={`${style.Modal} ${!isOpened && style.Closed}`} onClick={handleBackgroundOnClick}>
       <div className={style.ModalBox}>
         <div className={style.ModalHeader}>
           <span className={style.Title}>Editar progresso</span>
           <div className={style.IconWrapper} onMouseEnter={() => {handleCloseIconHover(true)}} onMouseLeave={() => {handleCloseIconHover(false)}}>
-            <img src={isCloseIconHovered ? closeIconHovered : closeIcon} alt="Fechar"/>
+            <img src={isCloseIconHovered ? closeIconHovered : closeIcon} alt="Fechar" onClick={() => setIsOpened(false)}/>
           </div>
         </div>
         <div className={style.ModalContent}>

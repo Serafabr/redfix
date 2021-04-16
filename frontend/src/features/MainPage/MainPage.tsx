@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { AppHeader, AppSidebar, AppSidebarHeader } from '../Layout';
 import { navItems } from '../../utils/nav/navItems';
 
@@ -23,6 +25,9 @@ const items = [
 ];
 
 export const MainPage = () => {
+  const [ isModalOpened, setIsModalOpened ] = useState<boolean>(true);
+  
+  
   return (
     <div className={style.MainPage}>
       <div className={style.AppHeader}>
@@ -57,7 +62,10 @@ export const MainPage = () => {
           </Card>
         </div>
         <div style={{ margin: "20px" }}>
-          <Modal />
+          <Modal 
+            isOpened={isModalOpened}
+            setIsOpened={setIsModalOpened}
+          />
         </div>
       </main>
     </div>
