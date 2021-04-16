@@ -5,7 +5,16 @@ import style from './Modal.module.scss';
 import closeIcon from '../../assets/icons/modal/close.svg';
 import closeIconHovered from '../../assets/icons/modal/hovered/close.svg';
 
-export const Modal = () => {
+type Props = {
+  isOpened?: boolean,
+  setIsOpened: () => void
+};
+
+export const Modal = ({
+  isOpened = false,
+  setIsOpened
+}: Props) => {
+  
   const [ isCloseIconHovered, setIsCloseIconHovered ] = useState<boolean>(false);
   
   const handleBackgroundOnClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -19,7 +28,7 @@ export const Modal = () => {
   }
   
   return (
-    <div id="modal" className={style.Modal} onClick={handleBackgroundOnClick}>
+    <div id="modal" className={`${style.Modal} ${style.Closed}`} onClick={handleBackgroundOnClick}>
       <div className={style.ModalBox}>
         <div className={style.ModalHeader}>
           <span className={style.Title}>Editar progresso</span>
