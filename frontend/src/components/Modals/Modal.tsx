@@ -8,8 +8,10 @@ import closeIconHovered from '../../assets/icons/modal/hovered/close.svg';
 export const Modal = () => {
   const [ isCloseIconHovered, setIsCloseIconHovered ] = useState<boolean>(false);
   
-  const handleBackgroundOnClick = () => {
-    console.log("Fechar modal");
+  const handleBackgroundOnClick = (e: React.MouseEvent<HTMLElement>) => {
+    if ((e.target as any).id === "modal") {
+      console.log("Close modal");
+    }
   };
   
   const handleCloseIconHover = (mouseEntered: boolean) => {
@@ -17,8 +19,7 @@ export const Modal = () => {
   }
   
   return (
-    <div className={style.Modal}>
-      <div className={style.Background}/>
+    <div id="modal" className={style.Modal} onClick={handleBackgroundOnClick}>
       <div className={style.ModalBox}>
         <div className={style.ModalHeader}>
           <span className={style.Title}>Editar progresso</span>
