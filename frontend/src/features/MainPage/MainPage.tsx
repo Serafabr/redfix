@@ -12,6 +12,7 @@ import { Card } from '../../components/Cards';
 import { SelectBox } from '../../components/SelectBox/SelectBox';
 import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
 import { Modal } from '../../components/Modals';
+import { Login } from '../Login';
 
 const items = [
   {id: 1,name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
@@ -66,6 +67,9 @@ export const MainPage = () => {
             isOpened={isModalOpened}
             setIsOpened={setIsModalOpened}
           />
+        </div>
+        <div style={{ margin: "20px" }}>
+          <Login />
         </div>
       </main>
     </div>
