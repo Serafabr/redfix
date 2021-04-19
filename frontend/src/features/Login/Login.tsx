@@ -14,6 +14,10 @@ export const Login = () => {
             <input type="text" placeholder="Digite seu e-mail..."/>
             <label htmlFor="password">Senha</label>
             <input type="text" placeholder="Digite sua senha..."/>
+            <div className={style.ButtonsContainer}>
+              <a href="#">Esqueceu a senha?</a>
+              <button>Entrar</button>
+            </div>
           </form>
         </div>
       </div>
