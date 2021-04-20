@@ -19,7 +19,7 @@ export const Login = () => {
               <Input label="Senha" type="password" placeholder="Digite sua senha..."/>
             </div>
             <div className={style.ButtonsContainer}>
-              <a href="#">Esqueceu a senha?</a>
+              <a className={style.ForgotPass} href="#">Esqueceu a senha?</a>
               <Button text="Entrar" />
             </div>
           </form>
