@@ -25,6 +25,9 @@ export const Login = () => {
           </form>
         </div>
       </div>
+      <div className={style.RequestAccess}>
+        <span>Não tem acesso? Solicite seu cadastro</span>
+      </div>
     </div>
   )
 }

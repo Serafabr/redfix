@@ -6,10 +6,12 @@
   grid-template-areas: 
   "sidebarHeader header"
   "sidebar body";
+  overflow: hidden;
 }
 
 .AppHeader {
   grid-area: header;
+  box-shadow: 0px 5px 10px rgba(203, 203, 203, 0.8);
 }
 
 .AppSidebarHeader {
@@ -38,5 +40,6 @@
 
 .Body {
   grid-area: body;
+  overflow: auto;
 }
 

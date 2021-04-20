@@ -54,3 +54,14 @@
     color: $gray_400;
   }
 }
+
+.RequestAccess {
+  font: inherit;
+  margin-top: 48px;
+  color: $gray_500;
+  
+  &:hover {
+    color: $gray_600;
+    cursor: pointer;
+  }
+}
