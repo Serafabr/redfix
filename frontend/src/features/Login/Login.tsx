@@ -1,12 +1,13 @@
 import style from './Login.module.scss';
 import blueLogo from '../../assets/logo/blue-logo.svg';
 import { Input } from '../../components/Inputs';
+import { Button } from '../../components/Buttons';
 
 export const Login = () => {
   return (
     <div className={style.Login}>
       <div className={style.Logo}>
-        <img src={blueLogo} alt=""/>
+        <img src={blueLogo} alt="RedFix"/>
       </div>
       <div className={style.CardBox}>
         <div className={style.Content}>
@@ -19,7 +20,7 @@ export const Login = () => {
             </div>
             <div className={style.ButtonsContainer}>
               <a href="#">Esqueceu a senha?</a>
-              <button>Entrar</button>
+              <Button text="Entrar" />
             </div>
           </form>
         </div>
