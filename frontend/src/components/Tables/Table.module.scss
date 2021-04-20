@@ -1,0 +1,25 @@
+.Table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  background-color: white;
+  
+  td, th {
+    padding: 5px;
+    text-align: left;
+  }
+}
+
+.Head {
+  tr {
+    height: 55px;
+    background-color: #00396B;
+  }
+  
+  th {
+    color: white;
+    font: inherit;
+    font-weight: 600;
+  }
+}
+

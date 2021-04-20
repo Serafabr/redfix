@@ -13,6 +13,7 @@ import { SelectBox } from '../../components/SelectBox/SelectBox';
 import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
 import { Modal } from '../../components/Modals';
 import { Login } from '../Login';
+import { Table } from '../../components/Tables';
 
 const items = [
   {id: 1,name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
@@ -61,15 +62,15 @@ export const MainPage = () => {
               </div>
             </div>
           </Card>
+          <div style={{ marginTop: "20px" }}>
+            <Table />
+          </div>
         </div>
         <div style={{ margin: "20px" }}>
           <Modal 
             isOpened={isModalOpened}
             setIsOpened={setIsModalOpened}
           />
-        </div>
-        <div style={{ margin: "20px" }}>
-          <Login />
         </div>
       </main>
     </div>
