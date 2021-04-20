@@ -16,12 +16,22 @@
 .CardBox {
   background-color: #fff;
   margin-top: 55px;
-  height: 330px;
   width: 440px;
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(203, 203, 203, 0.14);
 }
 
-.CardBoxContent {
-  margin: 40px;  
+.Content {
+  margin: 48px 40px 48px 40px;
+}
+
+.Input {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 24px;
+}
+
+.ButtonsContainer {
+  margin-top: 40px;
 }

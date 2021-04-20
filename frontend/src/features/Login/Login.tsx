@@ -1,5 +1,6 @@
 import style from './Login.module.scss';
 import blueLogo from '../../assets/logo/blue-logo.svg';
+import { Input } from '../../components/Inputs';
 
 export const Login = () => {
   return (
@@ -10,10 +11,12 @@ export const Login = () => {
       <div className={style.CardBox}>
         <div className={style.Content}>
           <form action="#">
-            <label htmlFor="email">E-mail</label>
-            <input type="text" placeholder="Digite seu e-mail..."/>
-            <label htmlFor="password">Senha</label>
-            <input type="text" placeholder="Digite sua senha..."/>
+            <div className={style.Input}>
+              <Input label="E-mail" type="text" placeholder="Digite seu e-mail..."/>
+            </div>
+            <div className={style.Input}>
+              <Input label="Senha" type="password" placeholder="Digite sua senha..."/>
+            </div>
             <div className={style.ButtonsContainer}>
               <a href="#">Esqueceu a senha?</a>
               <button>Entrar</button>
