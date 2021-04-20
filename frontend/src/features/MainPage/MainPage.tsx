@@ -61,10 +61,10 @@ export const MainPage = () => {
                 <Dropdown />
               </div>
             </div>
+            <div style={{ margin: "24px 0" }}>
+              <Table />
+            </div>
           </Card>
-          <div style={{ marginTop: "20px" }}>
-            <Table />
-          </div>
         </div>
         <div style={{ margin: "20px" }}>
           <Modal 

@@ -3,17 +3,24 @@
   table-layout: fixed;
   width: 100%;
   background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
   
   td, th {
     padding: 5px;
     text-align: left;
+  }
+  
+  td:nth-child(1),
+  th:nth-child(1) {
+    text-align: center;
   }
 }
 
 .Head {
   tr {
     height: 55px;
-    background: linear-gradient(#00396B, #004683, #00396B);
+    background: linear-gradient(#00396B, #074e8b, #00396B);
   }
   
   th {
@@ -23,9 +30,22 @@
   }
 }
 
-.FirstCol {
-  th, td {
-    text-align: center;
+.Body {
+  tr {
+    border-bottom: 1px solid #E5E5E5;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #F5F5F5;
+  }
+  
+  td {
+    font: inherit;
+    font-weight: 400;
+    color: #8a8a8a;
+    padding: 16px 0;
+    font-size: 14px;
+    line-height: 21px;
   }
 }
 
