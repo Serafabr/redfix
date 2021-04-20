@@ -13,13 +13,19 @@
 .Head {
   tr {
     height: 55px;
-    background-color: #00396B;
+    background: linear-gradient(#00396B, #004683, #00396B);
   }
   
   th {
     color: white;
     font: inherit;
     font-weight: 600;
+  }
+}
+
+.FirstCol {
+  th, td {
+    text-align: center;
   }
 }
 
