@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-const tasks = useMemo(
+export const tasks = useMemo(
   () => [
     {
       id: 1254,
@@ -153,7 +153,7 @@ const tasks = useMemo(
   []
 );
 
-const columnsTask = useMemo(
+export const taskColumns = useMemo(
   () => [
     { Header: 'ID', accessor: 'id' },
     { Header: 'Tarefa', accessor: 'task' },

@@ -15,6 +15,8 @@ import { Modal } from '../../components/Modals';
 import { Login } from '../Login';
 import { Table } from '../../components/Tables';
 
+import { tasks, taskColumns } from '../../utils/fakeData';
+
 const items = [
   {id: 1,name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
   {id: 2,name: "Exportar para CSV", selected: false},
