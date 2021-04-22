@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@svgr/cli": "^5.5.0",
-    "@types/classnames": "^2.2.11"
+    "@types/classnames": "^2.2.11",
+    "@types/react-table": "^7.0.29"
   }
 }
