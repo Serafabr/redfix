@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import { AppHeader, AppSidebar, AppSidebarHeader } from '../Layout';
 import { navItems } from '../../utils/nav/navItems';
@@ -16,6 +16,7 @@ import { Login } from '../Login';
 import { Table } from '../../components/Tables';
 
 import { tasks, taskColumns } from '../../utils/fakeData';
+import { useTable } from 'react-table';
 
 const items = [
   {id: 1,name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
@@ -31,6 +32,20 @@ const items = [
 export const MainPage = () => {
   const [ isModalOpened, setIsModalOpened ] = useState<boolean>(true);
   
+  
+  // Tasks table
+  const columns = useMemo(
+    () => taskColumns,
+    []
+  );
+  const data = useMemo(
+    () => tasks,
+    []
+  );
+  
+  
+  const taskTable = useTable({ columns, data });
+  console.log(taskTable);
   
   return (
     <div className={style.MainPage}>
