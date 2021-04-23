@@ -1,51 +1,13 @@
-import { useState, useMemo } from 'react';
-
 import { AppHeader, AppSidebar, AppSidebarHeader } from '../Layout';
 import { navItems } from '../../utils/nav/navItems';
 
 import style from './MainPage.module.scss';
 import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Button, ButtonType, FilterDropdown } from '../../components/Buttons';
+import { Button, ButtonType } from '../../components/Buttons';
 
 import { Plus as PlusIcon } from '../../components/Icons';
-import { Card } from '../../components/Cards';
-import { SelectBox } from '../../components/SelectBox/SelectBox';
-import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
-import { Modal } from '../../components/Modals';
-import { Login } from '../Login';
-import { Table } from '../../components/Tables';
-
-import { tasks, taskColumns } from '../../utils/fakeData';
-import { useTable } from 'react-table';
-
-const items = [
-  {id: 1,name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
-  {id: 2,name: "Exportar para CSV", selected: false},
-  {id: 3,name: "Exportar para Excel", selected: false},
-  {id: 4,name: "Exportar para PDF", selected: false},
-  {id: 5,name: "Customizar tabela", selected: false},
-  {id: 6,name: "Exportar para CSV", selected: false},
-  {id: 6,name: "Exportar para Excel", selected: false},
-  {id: 6,name: "Exportar para PDF", selected: false},
-];
 
 export const MainPage = () => {
-  const [ isModalOpened, setIsModalOpened ] = useState<boolean>(true);
-  
-  
-  // Tasks table
-  const columns = useMemo(
-    () => taskColumns,
-    []
-  );
-  const data = useMemo(
-    () => tasks,
-    []
-  );
-  
-  // Use Table
-  const taskTable = useTable({ columns, data });
-
   return (
     <div className={style.MainPage}>
       <div className={style.AppHeader}>
@@ -68,25 +30,6 @@ export const MainPage = () => {
               <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
             </div>
           </div>
-        </div>
-        <div style={{ marginTop: "24px" }}>
-          <Card>
-            <div style={{ display: "flex" }}>
-              <FilterDropdown />
-              <div style={{ width: "300px" }}>
-                <Dropdown />
-              </div>
-            </div>
-            <div style={{ margin: "24px 0" }}>
-              <Table data={taskTable} />
-            </div>
-          </Card>
-        </div>
-        <div style={{ margin: "20px" }}>
-          <Modal 
-            isOpened={isModalOpened}
-            setIsOpened={setIsModalOpened}
-          />
         </div>
       </main>
     </div>
