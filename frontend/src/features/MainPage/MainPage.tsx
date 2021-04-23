@@ -43,9 +43,25 @@ export const MainPage = () => {
     []
   );
   
+  // Use Table
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow
+  } = useTable({ columns, data });
   
-  const taskTable = useTable({ columns, data });
-  console.log(taskTable);
+  console.log('getTableProps');
+  console.log(getTableProps);
+  console.log('getTableBodyProps');
+  console.log(getTableBodyProps);
+  console.log('headerGroups');
+  console.log(headerGroups);
+  console.log('rows');
+  console.log(rows);
+  console.log('prepareRow');
+  console.log(prepareRow);
   
   return (
     <div className={style.MainPage}>
