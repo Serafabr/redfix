@@ -7,11 +7,15 @@ type Props = any;
 
 export const Table = ({ 
   data: {
+    getTableProps,
+    getTableBodyProps,
     headerGroups,
+    rows,
+    prepareRow,
   }
  }: Props) => {
   return (
-    <table className={style.Table}>
+    <table className={style.Table} {...getTableProps()}>
       <colgroup>
         <col style={{ width: "10%" }}/>
         <col style={{ width: "40%" }}/>
@@ -30,56 +34,19 @@ export const Table = ({
           </tr>
         ))}
       </thead>
-      <tbody className={style.Body}>
-        <tr>
-          <td >0001</td>
-          <td>Manutenção no subsolo do Edifício Principal</td>
-          <td><img src={cancelIcon} alt="Concluído" />Cancelado</td>
-          <td>Edifício Principal</td>
-          <td>31/12/2020</td>
-        </tr>
-        <tr>
-          <td >0001</td>
-          <td>Manutenção no subsolo do Edifício Principal</td>
-          <td><img src={doneIcon} alt="Concluído" />Concluído</td>
-          <td>Edifício Principal</td>
-          <td>31/12/2020</td>
-        </tr>
-        <tr>
-          <td >0001</td>
-          <td>Manutenção no subsolo do Edifício Principal</td>
-          <td>Concluído</td>
-          <td>Edifício Principal</td>
-          <td>31/12/2020</td>
-        </tr>
-        <tr>
-          <td >0001</td>
-          <td>Manutenção no subsolo do Edifício Principal</td>
-          <td>Concluído</td>
-          <td>Edifício Principal</td>
-          <td>31/12/2020</td>
-        </tr>
-        <tr>
-          <td >0001</td>
-          <td>Manutenção no subsolo do Edifício Principal</td>
-          <td>Concluído</td>
-          <td>Edifício Principal</td>
-          <td>31/12/2020</td>
-        </tr>
-        <tr>
-          <td >0001</td>
-          <td>Manutenção no subsolo do Edifício Principal</td>
-          <td>Concluído</td>
-          <td>Edifício Principal</td>
-          <td>31/12/2020</td>
-        </tr>
-        <tr>
-          <td >0001</td>
-          <td>Manutenção no subsolo do Edifício Principal</td>
-          <td>Concluído</td>
-          <td>Edifício Principal</td>
-          <td>31/12/2020</td>
-        </tr>
+      <tbody className={style.Body} {...getTableProps()}>
+        {rows.map((row: any) => {
+          prepareRow(row);
+          return (
+            <tr {...row.getRowProps()}>
+              {row.cells.map((cell: any) => (
+                <td {...cell.getCellProps()}>
+                  {cell.render('Cell')}
+                </td>
+              ))}
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   )
