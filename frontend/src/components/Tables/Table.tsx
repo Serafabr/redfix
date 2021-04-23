@@ -3,7 +3,13 @@ import style from './Table.module.scss';
 import doneIcon from '../../assets/icons/check.svg'
 import cancelIcon from '../../assets/icons/x.svg'
 
-export const Table = () => {
+type Props = any;
+
+export const Table = ({ 
+  data: {
+    headerGroups,
+  }
+ }: Props) => {
   return (
     <table className={style.Table}>
       <colgroup>
@@ -14,13 +20,15 @@ export const Table = () => {
         <col style={{ width: "15%" }}/>
       </colgroup>
       <thead className={style.Head}>
-        <tr>
-          <th >Id</th>
-          <th>Título</th>
-          <th>Status</th>
-          <th>Localização</th>
-          <th>Prazo</th>
-        </tr>
+        {headerGroups.map((headerGroup: any) => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((column: any) => (
+              <th {...column.getHeaderProps()}>
+                {column.render('Header')}
+              </th>
+            ))}
+          </tr>
+        ))}
       </thead>
       <tbody className={style.Body}>
         <tr>

@@ -44,25 +44,8 @@ export const MainPage = () => {
   );
   
   // Use Table
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow
-  } = useTable({ columns, data });
-  
-  console.log('getTableProps');
-  console.log(getTableProps);
-  console.log('getTableBodyProps');
-  console.log(getTableBodyProps);
-  console.log('headerGroups');
-  console.log(headerGroups);
-  console.log('rows');
-  console.log(rows);
-  console.log('prepareRow');
-  console.log(prepareRow);
-  
+  const taskTable = useTable({ columns, data });
+
   return (
     <div className={style.MainPage}>
       <div className={style.AppHeader}>
@@ -95,7 +78,7 @@ export const MainPage = () => {
               </div>
             </div>
             <div style={{ margin: "24px 0" }}>
-              <Table />
+              <Table data={taskTable} />
             </div>
           </Card>
         </div>
