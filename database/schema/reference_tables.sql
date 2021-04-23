@@ -178,8 +178,7 @@ create table alloc_statuses (
 );
 
 insert into alloc_statuses values
-  (1, 'OK'),
-  (2, 'Cancelado'),
-  (3, 'Proposto'),
-  (4, 'Aprovado')
+  (1, 'Alocado'),
+  (2, 'Proposto'),
+  (3, 'Aprovado')
 ;
