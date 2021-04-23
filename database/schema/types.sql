@@ -11,11 +11,6 @@ create type depot_event_enum as enum (
   'change_category'
 );
 
-create type spec_type_enum as enum (
-  'material',
-  'service'
-);
-
 create type task_event_enum as enum (
   'insert',
   'modify',
@@ -27,16 +22,4 @@ create type task_event_enum as enum (
 create type alloc_approval as (
   alloc_id integer,
   qty_approved numeric
-);
-
-create type alloc_price_source as enum (
-  'box',
-  'invoice',
-  'search'
-);
-
-create type alloc_price as (
-  alloc_id integer,
-  price_source alloc_price_source,
-  price numeric
 );

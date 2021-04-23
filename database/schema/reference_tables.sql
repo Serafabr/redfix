@@ -87,18 +87,6 @@ insert into person_roles values
   ('visitor', 'Visitante')
 ;
 
-create table depot_categories (
-  depot_category_id integer primary key,
-  depot_category_text text not null,
-  is_activatable boolean not null
-);
-
-insert into depot_categories values
-  (1, 'Processo de licitação', false),
-  (2, 'Contrato', true),
-  (3, 'ARP', true)
-;
-
 create table periodicities (
   periodicity_id integer primary key,
   periodicity_text text not null,
@@ -173,24 +161,25 @@ insert into monitor_categories values
   (2, 'Valor instantâneo')
 ;
 
-create table alloc_sources (
-  alloc_source_id integer primary key,
-  alloc_source_text text not null
+create table supply_categories (
+  supply_category_id integer primary key,
+  supply_category_text text not null
+);
+  
+insert into supply_categories values
+  (1, 'Material'),
+  (2, 'Serviço'),
+  (3, 'Mão-de-obra')
 );
 
-insert into alloc_sources values
-  (1, 'Contrato'),
-  (2, 'Almoxarifado SF'),
-  (3, 'Consumível'),
-  (4, 'Reserva Técnica')
-;
-
-create table alloc_destinations (
-  alloc_destination_id integer primary key,
-  alloc_destination_text text not null
+create table alloc_statuses (
+  alloc_status_id integer primary key,
+  alloc_status_text text not null
 );
 
-insert into alloc_destinations values
-  (1, 'Tarefa'),
-  (2, 'Reserva Técnica')
+insert into alloc_statuses values
+  (1, 'OK'),
+  (2, 'Cancelado'),
+  (3, 'Proposto'),
+  (4, 'Aprovado')
 ;

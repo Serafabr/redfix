@@ -25,7 +25,7 @@ create or replace function :function_name (
       where e.errcode = errcode_input;
 
       raise exception using
-        errcode = 'RF' || errcode_input::text,
+        errcode = 'SF' || errcode_input::text,
         message = m,
         detail = d,
         hint = h

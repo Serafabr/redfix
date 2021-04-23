@@ -1,9 +1,7 @@
 create index on allocations (task_id);
-create index on allocations (spec_id);
-create index on allocations (internal_box_id);
-create index on allocations (external_box_id);
 create index on allocations (supply_id);
-create index on allocations (invoice_id);
+create index on allocations (source_depot_id);
+create index on allocations (target_depot_id);
 create index on assets (asset_category_id);
 create index on asset_events (asset_id);
 create index on asset_files (asset_id);
