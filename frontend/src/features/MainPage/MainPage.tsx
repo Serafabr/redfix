@@ -1,11 +1,8 @@
 import { AppHeader, AppSidebar, AppSidebarHeader } from '../Layout';
 import { navItems } from '../../utils/nav/navItems';
+import { Redirect, Route, Switch } from "react-router-dom";
 
 import style from './MainPage.module.scss';
-import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Button, ButtonType } from '../../components/Buttons';
-
-import { Plus as PlusIcon } from '../../components/Icons';
 
 export const MainPage = () => {
   return (
@@ -20,17 +17,20 @@ export const MainPage = () => {
         <AppSidebar navItems={navItems} />
       </div>
       <main className={style.Body} style={{ backgroundColor: "#e5e5e5", padding: "24px 40px" }}>
-        <div className={style.TitleArea}>
-          <PageTitle title="Tarefa" path="/tarefas" />
-          <div className={style.Buttons}>
-            <div className={style.ButtonWrapper}>
-              <Button text="Nova Tarefa" iconComponent={PlusIcon} />
-            </div>
-            <div className={style.ButtonWrapper}>
-              <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
-            </div>
-          </div>
-        </div>
+        <Switch>
+          {routes.map((route, idx) => {
+            return route.component ? (
+              <Route
+                key={idx}
+                path={route.path}
+                exact={route.exact}
+                name={route.name}
+                render={routerProps => <route.component {...routerProps} {...route.props}/>}
+              />
+            ) : null;
+          })}
+          <Redirect from="/" to={{ pathname: "/painel" }}/>
+        </Switch>
       </main>
     </div>
   )
