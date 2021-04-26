@@ -34,6 +34,7 @@ export const navItems = [
     groupLabel: "Manutenções",
     items: [
       {label: "Tarefas", icon: task, hoveredIcon: taskDual},
+      {label: "Projetos", icon: task, hoveredIcon: taskDual},
       {label: "Planos de Manutenção", icon: plan, hoveredIcon: planDual},
       {label: "Monitores", icon: monitor, hoveredIcon: monitorDual},
     ],
