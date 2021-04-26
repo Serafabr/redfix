@@ -1,7 +1,9 @@
-import { PageTitle } from '../../components/PageTitle/PageTitle';
-import { Button, ButtonType } from '../../components/Buttons';
+import { PageTitle } from '../../../components/PageTitle/PageTitle';
+import { Button, ButtonType } from '../../../components/Buttons';
 
-import { Plus as PlusIcon } from '../../components/Icons';
+import { Plus as PlusIcon } from '../../../components/Icons';
+
+import style from './Task.module.scss';
 
 export const Task = () => {
   return (
