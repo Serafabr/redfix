@@ -161,6 +161,17 @@ insert into monitor_categories values
   (2, 'Valor instantâneo')
 ;
 
+create table depot_categories (
+  depot_category_id integer primary key,
+  depot_category_text text not null
+);
+
+insert into depot_categories values
+  (1, 'Contrato/ARP'),
+  (2, 'Em licitação'),
+  (3, 'Reserva Técnica')
+;
+
 create table supply_categories (
   supply_category_id integer primary key,
   supply_category_text text not null
@@ -168,9 +179,8 @@ create table supply_categories (
   
 insert into supply_categories values
   (1, 'Material'),
-  (2, 'Serviço'),
-  (3, 'Mão-de-obra')
-);
+  (2, 'Serviço')
+;
 
 create table alloc_statuses (
   alloc_status_id integer primary key,

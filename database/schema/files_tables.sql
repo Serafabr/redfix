@@ -11,6 +11,11 @@ create table asset_files (
   uuid uuid not null references files (uuid) on delete cascade
 );
 
+create table billing_files (
+  billing_id integer not null references billings (billing_id) on delete cascade,
+  uuid uuid not null references files (uuid) on delete cascade
+);
+
 create table depot_files (
   depot_id integer not null references depots (depot_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade
