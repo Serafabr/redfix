@@ -11,6 +11,7 @@ create or replace function :function_name (
       with aa as (
         select (unnest("allocations")).*
       ) update allocations as a set
+        alloc_status_id = 1,
         qty = aa.qty_approved,
         allocated_at = now(),
         allocated_by = get_person_id()
