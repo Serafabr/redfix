@@ -54,22 +54,15 @@
 \i api_tests/depot/create_depot.sql
 \i api_tests/depot/modify_depot.sql
 
-\i api_tests/depot/create_box.sql
-\i api_tests/depot/modify_box.sql
-
-\i api_tests/depot/create_spec.sql
-\i api_tests/depot/modify_spec.sql
+\i api_tests/depot/create_supply.sql
+\i api_tests/depot/modify_supply.sql
 
 \i api_tests/depot/create_price.sql
 \i api_tests/depot/modify_price.sql
 \i api_tests/depot/delete_price.sql
 
-\i api_tests/depot/create_supply.sql
-\i api_tests/depot/modify_supply.sql
-\i api_tests/depot/delete_supply.sql
-
-\i api_tests/depot/deactivate_box.sql
-\i api_tests/depot/activate_box.sql
+\i api_tests/depot/deactivate_depot.sql
+\i api_tests/depot/activate_depot.sql
 
 -- task
 \i api_tests/task/create_task.sql
@@ -109,9 +102,9 @@
 \i api_tests/plan/create_task_from_template.sql
 -- \i api_tests/plan/finish_task.sql
 
--- purchases
-\i api_tests/purchase/create_purchase.sql
-\i api_tests/purchase/modify_purchase.sql
+-- billings
+\i api_tests/purchase/create_billing.sql
+\i api_tests/purchase/modify_billing.sql
 
 \i api_tests/purchase/create_allocation.sql
 \i api_tests/purchase/approve_allocations.sql
@@ -120,18 +113,16 @@
 \i api_tests/purchase/modify_qty_proposed.sql
 \i api_tests/purchase/modify_qty_approved.sql
 
-\i api_tests/purchase/add_allocations_to_purchase.sql
+\i api_tests/purchase/add_allocations_to_billing.sql
 
-\i api_tests/purchase/set_allocation_invoice.sql
-
-\i api_tests/purchase/set_allocations_prices.sql
 
 \i api_tests/purchase/toggle_purchase_paid.sql
 
-\i api_tests/purchase/delete_purchase.sql
+\i api_tests/purchase/delete_billing.sql
 
 -- files
 \i api_tests/files/upload_asset_files.sql
+\i api_tests/files/upload_billing_files.sql
 \i api_tests/files/upload_depot_files.sql
 \i api_tests/files/upload_plan_files.sql
 \i api_tests/files/upload_project_files.sql

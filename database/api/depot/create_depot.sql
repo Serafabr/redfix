@@ -4,17 +4,18 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "depotSf" text,
   in "depotCategoryId" integer,
-  in "title" text,
+  in "name" text,
   in "description" text,
+  in "parentId" integer default null,
+  in "firmId" integer default null,
+  in "materialDefaultBdi" numeric default 0,
+  in "serviceDefaultBdi" numeric default 0,
   in "dateSign" date default null,
   in "datePub" date default null,
   in "dateStart" date default null,
   in "dateEnd" date default null,
-  in "firmId" integer default null,
   in "url" text default null,
   in "sigad" text default null,
-  in "materialDefaultBdi" numeric default 0,
-  in "serviceDefaultBdi" numeric default 0,
   out id integer
 )
   language plpgsql
@@ -23,18 +24,18 @@ create or replace function :function_name (
       insert into depots values (
         default,
         "depotSf",
-        now(),
-        now(),
-        1,
-        1,
         "depotCategoryId",
+        "name",
+        "description",
+        false,
+        "parentId",
+        "firmId",
+        "materialDefaultBdi",
+        "serviceDefaultBdi",
         "dateSign",
         "datePub",
         "dateStart",
         "dateEnd",
-        "firmId",
-        "title",
-        "description",
         "url",
         "sigad"
       ) returning depot_id into id;
@@ -45,14 +46,6 @@ create or replace function :function_name (
         now(),
         get_person_id(),
         'Criação do estoque'
-      );
-      insert into boxes values (
-        default,
-        'Caixa original',
-        id,
-        true,
-        "materialDefaultBdi",
-        "serviceDefaultBdi"
       );
     end;
   $$

@@ -3,20 +3,22 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "supplyId" integer,
-  in "specId" integer,
-  in "qtyInitial" numeric,
-  in "PRICE" numeric,
-  in "BDI" numeric,
+  in "supplySf" text,
+  in "name" text,
+  in "unit" integer,
+  in "supplyCategoryId" integer,
+  in "isInternal" boolean
   out id integer
 )
   language plpgsql
   as $$
     begin
       update supplies set
-        spec_id = "specId",
-        qty_initial = "qtyInitial",
-        price = "PRICE",
-        bdi = "BDI"
+        supply_sf = "supplySf",
+        name = "NAME",
+        unit = "UNIT",
+        supply_category_id = "supplyCategoryId",
+        is_internal = "isInternal"
       where supply_id = "supplyId";
       id = "supplyId";
     end;
@@ -25,6 +27,6 @@ create or replace function :function_name (
 
 grant execute on function :function_name to supervisor, inspector;
 
-select generate_api_documentation(:'function_name',E'`supplyId` of the modified supply\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'the same as `supplyId` input\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';

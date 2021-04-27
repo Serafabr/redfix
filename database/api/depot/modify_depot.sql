@@ -5,13 +5,16 @@ create or replace function :function_name (
   in "depotId" integer,
   in "depotSf" text,
   in "depotCategoryId" integer,
-  in "TITLE" text,
+  in "NAME" text,
   in "DESCRIPTION" text,
+  in "parentId" integer default null,
+  in "firmId" integer default null,
+  in "materialDefaultBdi" numeric default 0,
+  in "serviceDefaultBdi" numeric default 0,
   in "dateSign" date default null,
   in "datePub" date default null,
   in "dateStart" date default null,
   in "dateEnd" date default null,
-  in "firmId" integer default null,
   in "URL" text default null,
   in "SIGAD" text default null,
   out id integer
@@ -21,34 +24,34 @@ create or replace function :function_name (
     begin
       update depots set
         depot_sf = "depotSf",
-        updated_at = now(),
-        updated_by = get_person_id(),
         depot_category_id = "depotCategoryId",
+        name = "NAME",
+        description = "DESCRIPTION",
+        parent_id = "parentId",
+        firm_id = "firmId",
+        material_default_bdi = "materialDefaultBdi",
+        service_default_bdi = "serviceDefaultBdi",
         date_sign = "dateSign",
         date_pub = "datePub",
         date_start = "dateStart",
         date_end = "dateEnd",
-        firm_id = "firmId",
-        title = "TITLE",
-        description = "DESCRIPTION",
         url = "URL",
         sigad = "SIGAD"
       where depot_id = "depotId";
       insert into depot_events values (
         default,
-        "depotId",
+        id,
         'modify_depot'::depot_event_enum,
         now(),
         get_person_id(),
         'Modificação do estoque'
       );
-      id = "depotId";
     end;
   $$
 ;
 
 grant execute on function :function_name to supervisor, inspector;
 
-select generate_api_documentation(:'function_name',E'`depotId` of the modified depot\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'the same as `depotId` input\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';

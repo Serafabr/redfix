@@ -2,24 +2,26 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "specId" integer,
-  in "boxId" integer,
-  in "qtyInitial" numeric,
-  in "price" numeric,
-  in "bdi" numeric,
+  in "supplySf" text,
+  in "depotId" integer,
+  in "name" text,
+  in "unit" integer,
+  in "supplyCategoryId" integer,
+  in "isInternal" boolean
   out id integer
 )
   language plpgsql
   as $$
     begin
-      insert into supplies as s values (
+      insert into supplies values (
         default,
-        "specId",
-        "boxId",
-        "qtyInitial",
-        "price",
-        "bdi"
-      ) returning s.supply_id into id;
+        "supplySf",
+        "depotId",
+        "name",
+        "unit",
+        "supplyCategoryId",
+        "isInternal"
+      ) returning supply_id into id;
     end;
   $$
 ;
