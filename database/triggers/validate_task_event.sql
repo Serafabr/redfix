@@ -16,9 +16,9 @@ create or replace function :trigger_name ()
         where t.task_id = new.task_id
       )
       select  case new.task_event_name
-                when 'insert' then (true)
-                when 'modify' then (true)
-                when 'send' then (
+                when 'creation' then (true)
+                when 'modification' then (true)
+                when 'team' then (
                   new.next_team_id is not null and
                   (
                     ls.team_id = new.team_id or

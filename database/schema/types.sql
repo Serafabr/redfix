@@ -1,25 +1,27 @@
 create type asset_event_enum as enum (
+  'creation',
+  'modification',
   'status',
   'note'
 );
 
 create type depot_event_enum as enum (
-  'create_depot',
-  'create_box',
-  'modify_depot',
-  'modify_box',
-  'change_category'
+  'creation',
+  'modification',
+  'category',
+  'extension',
+  'adjustment'
 );
 
 create type task_event_enum as enum (
-  'insert',
-  'modify',
-  'send',
+  'creation',
+  'modification',
+  'team',
   'status',
   'note'
 );
 
-create type alloc_approval as (
+create type allocation_quantity as (
   alloc_id integer,
-  qty_approved numeric
+  qty numeric
 );

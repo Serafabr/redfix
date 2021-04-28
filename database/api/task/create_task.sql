@@ -61,7 +61,7 @@ create or replace function :function_name (
       insert into task_events values (
         default,
         id,
-        'insert',
+        'creation',
         now(),
         get_person_id(),
         "teamId",

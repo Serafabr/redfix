@@ -13,7 +13,7 @@ create or replace function :function_name (
       select
         jsonb_agg(jsonb_build_object(
           'taskEventId', te.task_event_id,
-          'taskEventName', te.task_event_name,
+          'taskEvent', te.task_event,
           'createdAt', te.created_at,
           'personId', te.person_id,
           'personName', p.name,

@@ -42,7 +42,7 @@ create or replace function :function_name (
       insert into depot_events values (
         default,
         id,
-        'create_depot'::depot_event_enum,
+        'creation',
         now(),
         get_person_id(),
         'Criação do estoque'

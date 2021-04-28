@@ -13,7 +13,7 @@ create or replace function :function_name (
       -- insert into task_events values (
       --   default,
       --   "taskId",
-      --   'modify',
+      --   'modification',
       --   now(),
       --   get_person_id(),
       --   "teamId",
