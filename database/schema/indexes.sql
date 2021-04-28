@@ -1,9 +1,3 @@
-rollback;
-
-\set ON_ERROR_STOP on
-
-begin transaction;
-
 create index on allocations (supply_id);
 create index on allocations (alloc_status_id);
 create index on allocations (source_depot_id);
@@ -73,5 +67,3 @@ create index on task_template_assets (asset_id);
 create index on team_persons (person_id);
 
 create index on water_meter_assets (asset_id);
-
-commit transaction;

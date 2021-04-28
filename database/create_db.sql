@@ -103,7 +103,9 @@ alter sequence firms_firm_id_seq restart with 10001;
 commit transaction;
 
 -- create extra indexes
+-- begin transaction;
 -- \i schema/indexes.sql
+-- commit transaction;
 
 -- create api
 -- \i create_api.sql
