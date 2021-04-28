@@ -15,6 +15,15 @@ create index on asset_parents (asset_id);
 
 create index on asset_tags (tag_id);
 
+create index on billings (depot_id);
+
+create index on billing_costs (billing_id);
+create index on billing_costs (cost_price_id);
+
+create index on costs (depot_id);
+
+create index on cost_prices (cost_id);
+
 create index on depots (depot_category_id);
 create index on depots (is_active);
 create index on depots (parent_id);
@@ -44,6 +53,8 @@ create index on project_files (project_id);
 create index on project_files (uuid);
 
 create index on supplies (depot_id);
+
+create index on supply_prices (supply_id);
 
 create index on tasks (created_at);
 create index on tasks (project_id);
