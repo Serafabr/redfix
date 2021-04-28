@@ -57,6 +57,7 @@ begin transaction;
 \i api/asset/tags.sql
 -- billing
 \i api/billing/create_billing.sql
+\i api/billing/create_invoice.sql
 \i api/billing/modify_billing.sql
 -- dashboard
 \i api/dashboard/dashboard_data.sql
