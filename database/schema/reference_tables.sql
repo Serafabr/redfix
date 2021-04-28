@@ -75,8 +75,8 @@ insert into task_categories values
 ;
 
 create table person_roles (
- person_role text primary key,
- person_role_text text not null
+  person_role text primary key,
+  person_role_text text not null
 );
 
 insert into person_roles values

@@ -107,8 +107,6 @@ create table depots (
   name text not null,
   description text not null,
   is_active boolean not null,
-  -- is_source boolean not null,
-  -- is_target boolean not null,
   parent_id integer references depots (depot_id),
   firm_id integer references firms (firm_id),
   material_default_bdi numeric not null default 0,
