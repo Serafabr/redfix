@@ -1,10 +1,56 @@
 import React from "react";
-import MainPage from "./views/MainPage";
 import { paths } from './paths';
 
+/* 
+**
+* Import all pages from the app.
+* Use React.lazy()
+**
+*/
+
+// MainPage
+import MainPage from "./views/MainPage";
+
+// General pages
 const Dashboard = React.lazy(() => import("./views/Dashboard"));
 const Login = React.lazy(() => import("./views/Authentication/Login"));
 const Profile = React.lazy(() => import("./views/Authentication/Profile"));
+
+// Tasks
+
+
+// Plans
+
+
+// Monitors
+
+
+// Billings
+
+
+// Facilities
+
+
+// Appliances
+
+
+// Depots
+
+
+// Receipt
+
+
+// Companies
+
+
+// Teams
+
+
+// Users
+
+
+
+
 
 const Facilities = React.lazy(() => import("./views/Facilities/Facilities"));
 const Facility = React.lazy(() => import("./views/Facility/Facility"));
