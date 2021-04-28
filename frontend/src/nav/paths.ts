@@ -1,12 +1,12 @@
 export const paths = {
   main: {
-    dashboard: '/painel',
-    mainPage: '/',
-    notFound: '/404',
+    dashboard:  '/painel',
+    mainPage:   '/',
+    notFound:   '/404',
   },
   auth: {
-    login:        '/login/',
-    profile:     '/perfil',
+    login:      '/login/',
+    profile:    '/perfil',
   },
   tasks: {
     all:        '/tarefas',
