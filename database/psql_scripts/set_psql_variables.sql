@@ -1,0 +1,5 @@
+\set new_db_name              'dev'
+\set asset_category_facility  '1'
+\set asset_category_electric  '2'
+\set asset_category_air       '3'
+\set asset_category_hydro     '4'

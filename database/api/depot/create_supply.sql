@@ -7,7 +7,7 @@ create or replace function :function_name (
   in "name" text,
   in "unit" integer,
   in "supplyCategoryId" integer,
-  in "isInternal" boolean
+  in "isInternal" boolean,
   out id integer
 )
   language plpgsql

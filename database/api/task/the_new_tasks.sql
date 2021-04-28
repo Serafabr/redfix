@@ -19,7 +19,6 @@ create or replace view api.the_new_tasks as
     t.date_end,
     t.request_id,
     t.team_id,
-    t.next_team_id,
     t.task_status_id,
     (select y.name as team_name from teams as y where y.team_id = t.team_id),
     (select task_status_text from task_statuses as ts where ts.task_status_id = t.task_status_id),

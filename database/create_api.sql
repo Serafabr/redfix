@@ -1,9 +1,33 @@
 rollback;
 
+\i psql_scripts/set_psql_variables.sql
+
 \set ON_ERROR_STOP On
 
 begin transaction;
 
+-- create auxiliary objects
+-- nested lists
+\i schema/lists/nested_lists/get_reads_of_monitor.sql
+\i schema/lists/nested_lists/get_task_templates_of_plan.sql
+-- lists
+\i schema/lists/get_assets_of_location.sql
+\i schema/lists/get_assets_of_task.sql
+\i schema/lists/get_events_of_task.sql
+\i schema/lists/get_files_of_asset.sql
+\i schema/lists/get_monitors_of_asset.sql
+\i schema/lists/get_plans_of_asset.sql
+\i schema/lists/get_files_of_task.sql
+\i schema/lists/get_tasks_of_asset.sql
+\i schema/lists/get_tasks_of_project.sql
+
+-- create api
+-- allocation
+\i api/allocation/approve_task_allocations.sql
+\i api/allocation/create_task_allocation.sql
+\i api/allocation/finish_task_allocations.sql
+\i api/allocation/modify_qty_approved.sql
+\i api/allocation/modify_qty_proposed.sql
 -- asset
 \i api/asset/add_child_to_asset.sql
 \i api/asset/add_parent_to_asset.sql
@@ -32,13 +56,13 @@ begin transaction;
 \i api/asset/set_monitor_next_read_date.sql
 \i api/asset/tags.sql
 -- billing
--- TODO
+\i api/billing/create_billing.sql
+\i api/billing/modify_billing.sql
 -- dashboard
 \i api/dashboard/dashboard_data.sql
 -- depot
 \i api/depot/create_depot.sql
 \i api/depot/create_supply.sql
-\i api/depot/delete_supply.sql
 \i api/depot/modify_depot.sql
 \i api/depot/modify_supply.sql
 -- files
@@ -85,7 +109,7 @@ begin transaction;
 \i api/task/create_task.sql
 \i api/task/delete_task_note.sql
 \i api/task/filter_tasks.sql
-\i api/task/finish_task.sql
+-- \i api/task/finish_task.sql
 \i api/task/follow_task.sql
 \i api/task/modify_task_note.sql
 \i api/task/modify_task.sql
@@ -121,4 +145,4 @@ begin transaction;
 
 commit transaction;
 
-\unset ON_ERROR_STOP
+\i psql_scripts/unset_psql_variables.sql

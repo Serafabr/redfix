@@ -1,19 +1,14 @@
 -- rollback transaction
 rollback;
 
+-- set client encoding to utf8
+\encoding utf8
+
 -- set psql variables
-\set new_db_name              'dev'
-\set asset_category_facility  '1'
-\set asset_category_electric  '2'
-\set asset_category_air       '3'
-\set asset_category_hydro     '4'
+\i psql_scripts/set_psql_variables.sql
 
--- set pg_settings variables
--- "login" to allow inserts (mandatory person_id in some columns)
-set cookie.session.person_id to 1;
-
--- set ON_ERROR_STOP to off
-\set ON_ERROR_STOP off
+-- set ON_ERROR_STOP to on
+\set ON_ERROR_STOP on
 
 -- connect as administrator to another database to allow "drop database" command
 \c postgresql://administrator:123456@localhost:5432/postgres
@@ -42,13 +37,7 @@ comment on schema web is 'Contain functions that can be executed from specific e
 -- create roles
 \i roles/roles.sql
 
--- set ON_ERROR_STOP to on
-\set ON_ERROR_STOP on
-
--- set client encoding to utf8
-\encoding utf8
-
--- begin transaction
+-- begin transaction (schema creation)
 begin transaction;
 
 -- alter default privileges
@@ -79,37 +68,19 @@ begin transaction;
 
 -- create views
 \i schema/views/api_docs.sql
-\i schema/views/assets_of_task.sql
--- \i schema/views/quantities.sql
-
--- nested lists
-\i schema/lists/nested_lists/get_reads_of_monitor.sql
-\i schema/lists/nested_lists/get_task_templates_of_plan.sql
-
--- lists
-\i schema/lists/get_assets_of_location.sql
-\i schema/lists/get_assets_of_task.sql
-\i schema/lists/get_events_of_task.sql
-\i schema/lists/get_files_of_asset.sql
-\i schema/lists/get_monitors_of_asset.sql
-\i schema/lists/get_plans_of_asset.sql
-\i schema/lists/get_files_of_task.sql
-\i schema/lists/get_tasks_of_asset.sql
-\i schema/lists/get_tasks_of_project.sql
-
--- create api schema objects
--- \i psql_scripts/create_api.sql
 
 -- create triggers before populate tables
 \i triggers/check_project_is_active.sql
 \i triggers/log_data_change.sql
 \i triggers/publish_to_channel.sql
--- \i triggers/update_quantities.sql
 \i triggers/validate_task_event.sql
 \i triggers/verify_task_note_creator.sql
 
 -- create rls policies
 -- (currently not used)
+
+-- "login" to allow inserts (mandatory person_id in some columns)
+set cookie.session.person_id to 1;
 
 -- insert initial data
 \i data/administrators.sql
@@ -128,11 +99,14 @@ alter sequence firms_firm_id_seq restart with 10001;
 \i triggers/validate_asset_location.sql
 \i triggers/validate_asset_parent.sql
 
+-- commit transaction
+commit transaction;
+
 -- create extra indexes
 -- \i schema/indexes.sql
 
--- commit transaction
-commit transaction;
+-- create api
+-- \i create_api.sql
 
 -- print message
 \echo :new_db_name CREATED SUCCESSFULLY.
