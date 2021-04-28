@@ -1,74 +1,107 @@
 export const paths = {
-  assets: {
-    all:        '/ativos',
-    one:        '/ativos/:id',
-    create:     '/ativos/', // POST
-    createForm: '/ativos/formulário',
-    update:     '/ativos/:id', // PUT
-    updateForm: '/ativos/formulário/:id',
+  main: {
+    dashboard: '/painel',
+    mainPage: '/',
+    notFound: '/404',
+  },
+  auth: {
+    login:        '/login/',
+    profile:     '/perfil',
   },
   tasks: {
     all:        '/tarefas',
     one:        '/tarefas/:id',
-    create:     '/tarefas/', // POST
     createForm: '/tarefas/formulário',
-    update:     '/tarefas/:id', // PUT
     updateForm: '/tarefas/formulário/:id',
+    create:     '/tarefas', // POST
+    update:     '/tarefas/:id', // PUT
+  },
+  projects: {
+    all:        '/projects',
+    one:        '/projects/:id',
+    createForm: '/projects/formulário',
+    updateForm: '/projects/formulário/:id',
+    create:     '/projects', // POST
+    update:     '/projects/:id', // PUT
   },
   plans: {
     all:        '/planos',
     one:        '/planos/:id',
-    create:     '/planos/', // POST
     createForm: '/planos/formulário',
-    update:     '/planos/:id', // PUT
     updateForm: '/planos/formulário/:id',
+    create:     '/planos', // POST
+    update:     '/planos/:id', // PUT
   },
   monitors: {
     all:        '/monitores',
     one:        '/monitores/:id',
-    create:     '/monitores/', // POST
     createForm: '/monitores/formulário',
-    update:     '/monitores/:id', // PUT
     updateForm: '/monitores/formulário/:id',
+    create:     '/monitores', // POST
+    update:     '/monitores/:id', // PUT
   },
-  invoices: {
+  billings: {
     all:        '/faturamentos',
     one:        '/faturamentos/:id',
-    create:     '/faturamentos/', // POST
     createForm: '/faturamentos/formulário',
-    update:     '/faturamentos/:id', // PUT
     updateForm: '/faturamentos/formulário/:id',
+    create:     '/faturamentos', // POST
+    update:     '/faturamentos/:id', // PUT
+  },
+  facilities: {
+    all:        '/edificios',
+    one:        '/edificios/:id',
+    createForm: '/edificios/formulário',
+    updateForm: '/edificios/formulário/:id',
+    create:     '/edificios', // POST
+    update:     '/edificios/:id', // PUT
+  },
+  appliances: {
+    all:        '/equipamentos',
+    one:        '/equipamentos/:id',
+    createForm: '/equipamentos/formulário',
+    updateForm: '/equipamentos/formulário/:id',
+    create:     '/equipamentos', // POST
+    update:     '/equipamentos/:id', // PUT
   },
   depots: {
     all:        '/depositos',
     one:        '/depositos/:id',
-    create:     '/depositos/', // POST
     createForm: '/depositos/formulário',
-    update:     '/depositos/:id', // PUT
     updateForm: '/depositos/formulário/:id',
+    create:     '/depositos', // POST
+    update:     '/depositos/:id', // PUT
   },
-  spec: {
-    all:        '/espectec',
-    one:        '/espectec/:id',
-    create:     '/espectec/', // POST
-    createForm: '/espectec/formulário',
-    update:     '/espectec/:id', // PUT
-    updateForm: '/espectec/formulário/:id',
+  receipts: {
+    all:        '/notasfiscais',
+    one:        '/notasfiscais/:id',
+    createForm: '/notasfiscais/formulário',
+    updateForm: '/notasfiscais/formulário/:id',
+    create:     '/notasfiscais', // POST
+    update:     '/notasfiscais/:id', // PUT
   },
-  team: {
+  companies: {
+    all:        '/empresas',
+    one:        '/empresas/:id',
+    createForm: '/empresas/formulário',
+    updateForm: '/empresas/formulário/:id',
+    create:     '/empresas', // POST
+    update:     '/empresas/:id', // PUT
+  },
+  teams: {
     all:        '/equipes',
     one:        '/equipes/:id',
-    create:     '/equipes/', // POST
     createForm: '/equipes/formulário',
-    update:     '/equipes/:id', // PUT
     updateForm: '/equipes/formulário/:id',
+    create:     '/equipes', // POST
+    update:     '/equipes/:id', // PUT
   },
-  person: {
+  users: {
     all:        '/usuarios',
     one:        '/usuarios/:id',
-    create:     '/usuarios/', // POST
     createForm: '/usuarios/formulário',
-    update:     '/usuarios/:id', // PUT
     updateForm: '/usuarios/formulário/:id',
+    create:     '/usuarios', // POST
+    update:     '/usuarios/:id', // PUT
   },
 };
