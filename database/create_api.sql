@@ -62,10 +62,14 @@ begin transaction;
 -- dashboard
 \i api/dashboard/dashboard_data.sql
 -- depot
+\i api/depot/activate_depot.sql
 \i api/depot/create_depot.sql
 \i api/depot/create_supply.sql
+\i api/depot/deactivate_depot.sql
+-- \i api/depot/extend_contract_term.sql
 \i api/depot/modify_depot.sql
 \i api/depot/modify_supply.sql
+-- \i api/depot/readjust_contract_prices.sql
 -- files
 \i api/files/delete_avatar.sql
 \i api/files/delete_file.sql

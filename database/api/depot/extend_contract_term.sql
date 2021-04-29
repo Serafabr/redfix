@@ -1,4 +1,4 @@
-\set function_name api.modify_depot
+\set function_name api.extend_contract_term
 
 drop function if exists :function_name;
 create or replace function :function_name (
@@ -71,6 +71,6 @@ create or replace function :function_name (
 
 grant execute on function :function_name to supervisor, inspector;
 
-select generate_api_documentation(:'function_name',E'the same as `depotId` input\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'`1`\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';
