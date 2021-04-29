@@ -1,9 +1,9 @@
 import style from './Auth.module.scss';
 
-export const PasswordRecover = () => {
+export const RecoverPassword = () => {
   return (
     <div>
-      PasswordRecover
+      
     </div>
   )
 }
