@@ -1,4 +1,4 @@
-\set function_name restart_sequences
+\set function_name restart_all_sequences
 
 drop function if exists :function_name;
 create or replace function :function_name (

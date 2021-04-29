@@ -1,15 +1,6 @@
 -- rollback transaction
 rollback;
 
--- set client encoding to utf8
-\encoding utf8
-
--- set psql variables
-\i psql_scripts/set_psql_variables.sql
-
--- set ON_ERROR_STOP to on
-\set ON_ERROR_STOP on
-
 -- connect as administrator to another database to allow "drop database" command
 \c postgresql://administrator:123456@localhost:5432/postgres
 
@@ -24,6 +15,15 @@ create database :new_db_name with owner administrator template template0 encodin
 
 -- connect to the new database as administrator
 \c postgresql://administrator:123456@localhost:5432/:new_db_name
+
+-- set client encoding to utf8
+\encoding utf8
+
+-- set psql variables
+\i psql_scripts/set_psql_variables.sql
+
+-- set ON_ERROR_STOP to on
+\set ON_ERROR_STOP on
 
 -- create extensions
 create extension if not exists pgcrypto;
@@ -69,10 +69,13 @@ begin transaction;
 -- create views
 \i schema/views/api_docs.sql
 
--- create triggers before populate tables
+-- create triggers
 \i triggers/check_project_is_active.sql
 \i triggers/log_data_change.sql
 \i triggers/publish_to_channel.sql
+-- \i triggers/update_quantities.sql
+\i triggers/validate_asset_location.sql
+\i triggers/validate_asset_parent.sql
 \i triggers/validate_task_event.sql
 \i triggers/verify_task_note_creator.sql
 
@@ -94,10 +97,6 @@ alter sequence persons_person_id_seq restart with 10001;
 alter sequence teams_team_id_seq restart with 10001;
 alter sequence assets_asset_id_seq restart with 10001;
 alter sequence firms_firm_id_seq restart with 10001;
-
--- create triggers after asset categories
-\i triggers/validate_asset_location.sql
-\i triggers/validate_asset_parent.sql
 
 -- commit transaction
 commit transaction;
