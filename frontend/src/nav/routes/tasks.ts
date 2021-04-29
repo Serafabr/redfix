@@ -1,15 +1,16 @@
 import React from "react";
-import { paths } from './paths';
+import { paths } from '../paths';
 
-const Tasks = React.lazy(() => import("./views/Tasks/Tasks"));
-const Task = React.lazy(() => import("./views/Task/Task"));
-const TaskForm = React.lazy(() => import("./views/TaskForm/TaskForm"));
+// Lazy imports - Components
+const Tasks = React.lazy(() => import("../../features/Tasks"));
+const Task = React.lazy(() => import("../../features/Tasks/Task"));
+const TaskForm = React.lazy(() => import("../../features/Tasks/TaskForm"));
 
 const routes = [
-  { path: paths.task.all, exact: true, name: "Ordens de serviços", component: Tasks, props: { mode: 'all' } },
-  { path: paths.task.one, exact: true, name: "Ordens de serviços", component: Task, props: { mode: 'one' } },
-  { path: paths.task.update, exact: true, name: "Ordens de serviços", component: TaskForm, props: { mode: 'update' } },
-  { path: paths.task.create, exact: true, name: "Ordens de serviços", component: TaskForm, props: { mode: 'create' } },
+  { path: paths.tasks.all, exact: true, name: "Tarefas", component: Tasks },
+  { path: paths.tasks.one, exact: true, name: "Tarefa", component: Task },
+  { path: paths.tasks.createForm, exact: true, name: "Nova tarefa", component: TaskForm },
+  { path: paths.tasks.updateForm, exact: true, name: "Editar tarefa", component: TaskForm },
 ];
 
 export default routes;
