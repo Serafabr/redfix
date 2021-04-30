@@ -40,6 +40,8 @@
 \i api_tests/team/add_person_to_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/team/remove_person_from_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
+\i api_tests/team/set_my_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
 \i api_tests/team/activate_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/team/deactivate_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
@@ -55,10 +57,6 @@
 \i api_tests/depot/modify_depot.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/depot/create_supply.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/depot/modify_supply.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-
-\i api_tests/depot/create_price.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/depot/modify_price.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/depot/delete_price.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 \i api_tests/depot/deactivate_depot.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/depot/activate_depot.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
@@ -91,7 +89,7 @@
 \i api_tests/project/remove_task_from_project.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/project/delete_project.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
--- plans
+-- plan
 \i api_tests/plan/create_plan.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/plan/modify_plan.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/plan/create_task_template.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
@@ -100,23 +98,17 @@
 \i api_tests/plan/remove_asset_from_task_template.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/plan/create_task_from_template.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
--- billings
+-- allocation
+\i api_tests/allocation/create_task_allocation.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/allocation/modify_qty_proposed.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/allocation/approve_task_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/allocation/modify_qty_approved.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
+\i api_tests/allocation/finish_task_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
+-- billing
 \i api_tests/billing/create_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/billing/modify_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-
-\i api_tests/billing/create_allocation.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/billing/approve_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/billing/delete_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-
-\i api_tests/billing/modify_qty_proposed.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/billing/modify_qty_approved.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-
-\i api_tests/billing/add_allocations_to_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-
-
-\i api_tests/billing/toggle_billing_paid.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-
-\i api_tests/billing/delete_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 -- files
 \i api_tests/files/upload_asset_files.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
