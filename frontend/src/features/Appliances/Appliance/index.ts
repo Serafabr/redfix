@@ -1,0 +1,1 @@
+export { Appliance as default } from './Appliance';
