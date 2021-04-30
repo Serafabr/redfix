@@ -15,6 +15,7 @@
 \unset function_name
 \unset insert_energy_bills
 \unset invoice_to_be_deleted
+\unset mutation_with_error
 \unset my_boolean_test
 \unset new_alloc_id
 \unset new_appliance_id
