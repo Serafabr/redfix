@@ -1,1 +1,1 @@
-export { Monitor as default } from './Monitor';
+export { Billing as default } from './Billing';
