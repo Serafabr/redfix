@@ -2,7 +2,7 @@
 revoke all on database :new_db_name from public;
 revoke all on schema public from public;
 
--- set default privileges
+-- revoke all privileges
 alter default privileges revoke all on tables from public;
 alter default privileges revoke all on sequences from public;
 alter default privileges revoke all on routines from public;
