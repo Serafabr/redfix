@@ -1,6 +1,12 @@
 -- rollback transaction
 rollback;
 
+-- set psql variables
+\i psql_scripts/set_psql_variables.sql
+
+-- set ON_ERROR_STOP to on
+\set ON_ERROR_STOP on
+
 -- connect as administrator to another database to allow "drop database" command
 \c postgresql://administrator:123456@localhost:5432/postgres
 
@@ -18,12 +24,6 @@ create database :new_db_name with owner administrator template template0 encodin
 
 -- set client encoding to utf8
 \encoding utf8
-
--- set psql variables
-\i psql_scripts/set_psql_variables.sql
-
--- set ON_ERROR_STOP to on
-\set ON_ERROR_STOP on
 
 -- create extensions
 create extension if not exists pgcrypto;
@@ -43,8 +43,9 @@ begin transaction;
 -- alter default privileges
 \i roles/privileges.sql
 
--- create get_person_id function
+-- create get_person_id and get_team_id functions
 \i functions/get_person_id.sql
+\i functions/get_team_id.sql
 
 -- create types
 \i schema/types.sql

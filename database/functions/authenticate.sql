@@ -20,7 +20,8 @@ create or replace function :function_name (
                 p.cpf,
                 p.email,
                 p.name,
-                p.person_role
+                p.person_role,
+                p.team_id
         from persons as p
         where
           case input_string
@@ -47,6 +48,7 @@ create or replace function :function_name (
                 'email', pd.email,
                 'name', pd.name,
                 'role', pd.person_role,
+                'teamId', pd.team_id,
                 'teams', pt.teams
               ) into authenticated_person
       from  person_data as pd,

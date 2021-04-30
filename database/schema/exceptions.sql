@@ -24,5 +24,8 @@ insert into exceptions values
   -- purchase api (codes 401 to 499)
   (401, 'Alocação inválida (nenhuma caixa definida)'),
   -- plan api (codes 501 to 599)
-  (501, 'Rotina com periodicidade definida não permite executar create_task_from_template')
+  (501, 'Rotina com periodicidade definida não permite executar create_task_from_template'),
+  -- team api (codes 601 to 699)
+  (601, 'Usuário não pertence à equipe'),
+  (602, 'Usuário não está em uma equipe')
 ;

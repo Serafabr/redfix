@@ -139,6 +139,7 @@ begin transaction;
 \i api/team/modify_team.sql
 \i api/team/persons.sql
 \i api/team/remove_person_from_team.sql
+\i api/team/set_my_team.sql
 \i api/team/teams.sql
 -- utilities
 \i api/utilities/create_energy_bill.sql

@@ -5,3 +5,5 @@ insert into teams values (1, 'COEMANT', 'Equipe da COEMANT', true);
 
 insert into team_persons values (1,1);
 insert into team_persons values (1,2);
+
+update persons set team_id = 1;

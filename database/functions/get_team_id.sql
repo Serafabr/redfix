@@ -1,0 +1,18 @@
+\set function_name get_team_id
+
+drop function if exists :function_name;
+create or replace function :function_name (
+  out id integer
+)
+  language plpgsql
+  as $$
+    begin
+      select team_id into id from persons where person_id = current_setting('cookie.session.person_id')::integer;
+      -- if (id is null)
+      --   then raise_exception(602);
+      -- end if;
+    end;
+  $$
+;
+
+grant execute on function :function_name to cmms_user;
