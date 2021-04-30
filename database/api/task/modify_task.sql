@@ -7,7 +7,6 @@ create or replace function :function_name (
   in "DESCRIPTION" text,
   in "taskPriorityId" integer,
   in "taskCategoryId" integer,
-  in "teamId" integer,
   in "taskTemplateId" integer default null,
   in "projectId" integer default null,
   in "PLACE" text default null,
@@ -19,6 +18,8 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
+    declare
+      "teamId" integer = get_team_id();
     begin
       update tasks set
         updated_at = now(),

@@ -3,7 +3,6 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "taskTemplateId" integer,
-  in "teamId" integer,
   out id integer
 )
   language plpgsql
@@ -13,6 +12,7 @@ create or replace function :function_name (
       assets integer[];
       new_task_id integer;
       "periodicityDays" integer;
+      "teamId" integer = get_team_id();
     begin
       select ttt.* into tt
       from task_templates as ttt

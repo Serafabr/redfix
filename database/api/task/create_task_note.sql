@@ -3,13 +3,14 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "taskId" integer,
-  in "teamId" integer,
   in "note" text,
   in "replyTo" integer default null,
   out id integer
 )
   language plpgsql
   as $$
+    declare
+      "teamId" integer = get_team_id();
     begin
       insert into task_events values (
         default,

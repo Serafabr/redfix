@@ -15,7 +15,7 @@ create or replace function :trigger_name ()
           from tasks as t
         where t.task_id = new.task_id
       )
-      select  case new.task_event_name
+      select  case new.task_event
                 when 'creation' then (true)
                 when 'modification' then (true)
                 when 'team' then (

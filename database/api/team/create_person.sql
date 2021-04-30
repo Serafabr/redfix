@@ -5,11 +5,11 @@ create or replace function :function_name (
   in "username" text,
   in "cpf" text,
   in "email" text,
-  -- in "teamId" integer,
   in "name" text,
   in "phone" text,
   in "personRole" text,
   in "cellphone" text default null,
+  in "teamId" integer default null,
   out id integer
 )
   language plpgsql
@@ -22,12 +22,12 @@ create or replace function :function_name (
         "cpf",
         "email",
         "name",
-        -- "teamId",
         "phone",
         "cellphone",
         crypt('123456', gen_salt('bf', 10)), 
         true,
-        "personRole"
+        "personRole",
+        "teamId"
       ) returning person_id into id;
     end;
   $$

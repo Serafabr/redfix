@@ -3,13 +3,13 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "taskId" integer,
-  in "teamId" integer,
   out id integer
 )
   language plpgsql
   as $$
     declare
       task_initial_status integer;
+      "teamId" integer = get_team_id();
     begin
       insert into tasks (
         -- task_id and task_status_id are defaults
@@ -47,7 +47,7 @@ create or replace function :function_name (
         t.date_start,
         t.date_end,
         t.request_id,
-        "teamId"
+        get_team_id()
       from tasks as t where t.task_id = "taskId"
       returning
           task_id,

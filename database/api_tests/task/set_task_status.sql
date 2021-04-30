@@ -2,7 +2,6 @@
 
 select api.set_task_status(
   :new_task_id,
-  :new_team_id,
   2
 ) as not_used_output \gset
 

@@ -5,8 +5,7 @@ select api.create_task(
   'Manutenção no subsolo do Ed. Principal',
   'Descrição dos serviços',
   1,
-  2,
-  :new_team_id
+  2
 ) as new_task_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

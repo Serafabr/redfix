@@ -8,9 +8,6 @@ create or replace function :function_name (
   as $$
     begin
       select team_id into id from persons where person_id = current_setting('cookie.session.person_id')::integer;
-      -- if (id is null)
-      --   then raise_exception(602);
-      -- end if;
     end;
   $$
 ;
