@@ -1,1 +1,1 @@
-export {};
+export { Depots as default } from './Depots';

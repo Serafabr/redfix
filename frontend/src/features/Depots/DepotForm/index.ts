@@ -1,0 +1,1 @@
+export { DepotForm as default } from './DepotForm';
