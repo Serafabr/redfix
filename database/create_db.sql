@@ -28,20 +28,23 @@ create database :new_db_name with owner administrator template template0 encodin
 -- create extensions
 create extension if not exists pgcrypto;
 
+-- create roles
+\i roles/roles.sql
+
+-- revoke privileges
+\i roles/revoke_privileges.sql
+
 -- create additional schemas
 create schema api;
 comment on schema api is 'Contain views and functions that define the GraphQL API';
 create schema web;
 comment on schema web is 'Contain functions that can be executed from specific endpoints of the web server';
 
--- create roles
-\i roles/roles.sql
+-- grant privileges
+\i roles/grant_privileges.sql
 
 -- begin transaction (schema creation)
 begin transaction;
-
--- alter default privileges
-\i roles/privileges.sql
 
 -- create get_person_id and get_team_id functions
 \i functions/get_person_id.sql
