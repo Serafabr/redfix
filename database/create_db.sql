@@ -31,17 +31,14 @@ create extension if not exists pgcrypto;
 -- create roles
 \i roles/roles.sql
 
--- revoke privileges
-\i roles/revoke_privileges.sql
-
 -- create additional schemas
 create schema api;
 comment on schema api is 'Contain views and functions that define the GraphQL API';
 create schema web;
 comment on schema web is 'Contain functions that can be executed from specific endpoints of the web server';
 
--- grant privileges
-\i roles/grant_privileges.sql
+-- revoke and grant privileges, and set default privileges
+\i roles/privileges.sql
 
 -- begin transaction (schema creation)
 begin transaction;
