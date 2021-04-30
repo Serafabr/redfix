@@ -1,1 +1,1 @@
-export {};
+export { Facilities as default } from './Facilities';
