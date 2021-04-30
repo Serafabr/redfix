@@ -7,10 +7,10 @@ const Receipt = React.lazy(() => import("../../features/Receipts/Receipt"));
 const ReceiptForm = React.lazy(() => import("../../features/Receipts/ReceiptForm"));
 
 const routes = [
-  { path: paths.receipts.all, exact: true, name: "Estoques", component: receipts },
-  { path: paths.receipts.one, exact: true, name: "Estoque", component: Depot },
-  { path: paths.receipts.createForm, exact: true, name: "Novo estoque", component: DepotForm },
-  { path: paths.receipts.updateForm, exact: true, name: "Editar estoque", component: DepotForm },
+  { path: paths.receipts.all, exact: true, name: "Estoques", component: Receipts },
+  { path: paths.receipts.one, exact: true, name: "Estoque", component: Receipt },
+  { path: paths.receipts.createForm, exact: true, name: "Novo estoque", component: ReceiptForm },
+  { path: paths.receipts.updateForm, exact: true, name: "Editar estoque", component: ReceiptForm },
 ];
 
 export default routes;
