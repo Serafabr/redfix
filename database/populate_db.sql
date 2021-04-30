@@ -33,7 +33,7 @@ select :'LAST_ERROR_SQLSTATE' = '00000' as db_was_populated \gset
 
   \else
 
-  \echo '\n\nThere was an error\n\n'
+  \echo '\n\nMutation with error: ' :mutation_with_error '\n\n'
 
 \endif
 
