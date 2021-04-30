@@ -59,7 +59,6 @@ create or replace function :function_name (
         -- send task
         perform api.send_task(
           new_task_id,
-          "teamId",
           tt.next_team_id,
           'MENSAGEM'
         );

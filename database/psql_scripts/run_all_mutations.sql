@@ -101,22 +101,22 @@
 \i api_tests/plan/create_task_from_template.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 -- billings
-\i api_tests/purchase/create_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/purchase/modify_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/create_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/modify_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
-\i api_tests/purchase/create_allocation.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/purchase/approve_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/purchase/delete_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/create_allocation.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/approve_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/delete_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
-\i api_tests/purchase/modify_qty_proposed.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/purchase/modify_qty_approved.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/modify_qty_proposed.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/modify_qty_approved.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
-\i api_tests/purchase/add_allocations_to_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/add_allocations_to_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 
-\i api_tests/purchase/toggle_purchase_paid.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/toggle_billing_paid.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
-\i api_tests/purchase/delete_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/billing/delete_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 -- files
 \i api_tests/files/upload_asset_files.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
