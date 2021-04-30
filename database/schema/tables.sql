@@ -133,7 +133,7 @@ create table supplies (
   supply_sf text not null,
   depot_id integer not null references depots (depot_id),
   name text not null,
-  unit integer not null references units (unit_id),
+  unit_id integer not null references units (unit_id),
   supply_category_id integer not null references supply_categories (supply_category_id),
   is_internal boolean not null
 );

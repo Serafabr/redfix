@@ -4,8 +4,8 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "supplySf" text,
   in "depotId" integer,
-  in "name" text,
-  in "unit" integer,
+  in "NAME" text,
+  in "unitId" integer,
   in "supplyCategoryId" integer,
   in "isInternal" boolean,
   out id integer
@@ -17,8 +17,8 @@ create or replace function :function_name (
         default,
         "supplySf",
         "depotId",
-        "name",
-        "unit",
+        "NAME",
+        "unitId",
         "supplyCategoryId",
         "isInternal"
       ) returning supply_id into id;

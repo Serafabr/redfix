@@ -1,11 +1,12 @@
 \set tested_mutation api.create_supply
 
 select api.create_supply(
-  :new_spec_id,
+  'SF-00001',
   :new_depot_id,
-  1000,
-  99.99,
-  0.20
+  'Material XYZ',
+  7,
+  1,
+  true
 ) as new_supply_id \gset
 
 \set all_mutations :all_mutations:tested_mutation,

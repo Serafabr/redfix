@@ -40,12 +40,13 @@ create or replace function :function_name (
       where depot_id = "depotId";
       insert into depot_events values (
         default,
-        id,
+        "depotId",
         'modification',
         now(),
         get_person_id(),
         'Modificação do estoque'
       );
+      id = "depotId";
     end;
   $$
 ;

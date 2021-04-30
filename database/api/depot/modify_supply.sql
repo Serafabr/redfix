@@ -4,8 +4,8 @@ drop function if exists :function_name;
 create or replace function :function_name (
   in "supplyId" integer,
   in "supplySf" text,
-  in "name" text,
-  in "unit" integer,
+  in "NAME" text,
+  in "unitId" integer,
   in "supplyCategoryId" integer,
   in "isInternal" boolean,
   out id integer
@@ -16,7 +16,7 @@ create or replace function :function_name (
       update supplies set
         supply_sf = "supplySf",
         name = "NAME",
-        unit = "UNIT",
+        unit_id = "unitId",
         supply_category_id = "supplyCategoryId",
         is_internal = "isInternal"
       where supply_id = "supplyId";
