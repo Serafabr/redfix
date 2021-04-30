@@ -19,12 +19,10 @@
 \unset new_alloc_id
 \unset new_appliance_id
 \unset new_asset_id
-\unset new_box_id
 \unset new_comment
 \unset new_db_name
 \unset new_depot_id
 \unset new_ext_alloc_id
-\unset new_ext_box_id
 \unset new_ext_spec_id
 \unset new_firm_id
 \unset new_invoice_id
@@ -44,11 +42,8 @@
 \unset new_team_id
 \unset no_periodicity_task_template_id
 \unset not_used_output
-\unset original_box_id
 \unset project_to_be_deleted
 \unset purchase_to_be_deleted
-\unset supply_to_be_deleted
-\unset supply_to_be_removed_from_task
 \unset tag_to_be_deleted
 \unset test_result_message
 \unset tested_mutation

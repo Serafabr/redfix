@@ -5,9 +5,4 @@ select api.create_project(
   true
 ) as new_project_id \gset
 
-select api.create_project(
-  'Nome do projeto que vai ser removido',
-  true
-) as project_to_be_deleted \gset
-
 \set all_mutations :all_mutations:tested_mutation,

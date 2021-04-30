@@ -47,7 +47,7 @@ select :'LAST_ERROR_SQLSTATE' = '00000' as api_test_ok \gset
 
   \else
 
-  \echo '\n\nThere was an error\n\n'
+  \echo '\n\nMutation with error: ' :mutation_with_error '\n\n'
 
 \endif
 
