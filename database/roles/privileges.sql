@@ -24,7 +24,6 @@ alter default privileges in schema public grant select on tables to cmms_user;
 alter default privileges in schema public grant insert, update, delete on tables to supervisor, inspector, employee;
 alter default privileges in schema public grant usage on sequences to cmms_user;
 alter default privileges in schema public grant execute on routines to cmms_user;
-alter default privileges in schema public grant usage on types to cmms_user;
 
 -- grant privileges on objects in api schema
 -- * api schema only contains views and functions
