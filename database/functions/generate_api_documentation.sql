@@ -14,11 +14,11 @@ create or replace function :function_name (
       select (
         'Output `id`: ' || output_description ||
         E'\nGranted to: \n' ||
-        case when ad.administrator then E'* administrator\n' else '' end ||
-        case when ad.supervisor then E'* supervisor\n' else '' end ||
-        case when ad.inspector then E'* inspector\n' else '' end ||
-        case when ad.employee then E'* employee\n' else '' end ||
-        case when ad.visitor then E'* visitor\n' else '' end
+        case when (privileges->'administrator')::boolean then E'* administrator\n' else '' end ||
+        case when (privileges->'supervisor')::boolean then E'* supervisor\n' else '' end ||
+        case when (privileges->'inspector')::boolean then E'* inspector\n' else '' end ||
+        case when (privileges->'employee')::boolean then E'* employee\n' else '' end ||
+        case when (privileges->'visitor')::boolean then E'* visitor\n' else '' end
       ) into documentation
       from api_docs as ad
       where ad.operation_name = op_name;
