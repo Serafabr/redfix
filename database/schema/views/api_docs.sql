@@ -100,7 +100,7 @@ drop view if exists api.api_docs;
 create or replace view api.api_docs as
   select
     graphql_operation_type,
-    regexp_replace(operation_name,'api\.','') as operation_name,
+    regexp_replace(regexp_replace(initcap(regexp_replace(operation_name,'\.','')),'^Api',''),'_','','g') as graphql_operation_name,
     privileges
   from api_docs
 ;
