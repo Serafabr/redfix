@@ -19,13 +19,7 @@ create or replace function :function_name (
         (select count(*) from persons),
         (select count(*) from persons where is_active),
         (select count(*) from depots),
-        coalesce((
-          select count(*)
-          from active_boxes as ab
-          inner join boxes as b using (box_id)
-          inner join depots as d using (depot_id)
-          group by depot_id
-        ),0)
+        (select count(*) from depots where is_active)
       );
       updated_at = now();
     end;
