@@ -1,0 +1,1 @@
+export { Receipts as default } from './Receipts';

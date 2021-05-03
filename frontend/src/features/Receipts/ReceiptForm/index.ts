@@ -1,0 +1,1 @@
+export { ReceiptForm as default } from './ReceiptForm';
