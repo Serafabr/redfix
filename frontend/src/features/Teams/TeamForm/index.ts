@@ -1,0 +1,1 @@
+export { TeamForm as default } from './TeamForm';
