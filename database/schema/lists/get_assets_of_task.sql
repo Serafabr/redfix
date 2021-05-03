@@ -22,5 +22,3 @@ create or replace function :function_name (
     ) as j
   $$
 ;
-
-grant execute on function :function_name to cmms_user;

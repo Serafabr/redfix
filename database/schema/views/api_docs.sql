@@ -60,9 +60,9 @@ create or replace view api_docs as
       t.table_schema::text as op_schema,
       t.table_name::text as op_name,
       c.rolname,
-      true as permission_boolean
+      bool_or(c.rolname = t.grantee) as permission_boolean
     from information_schema.table_privileges as t, cmms_roles as c
-    where table_schema::text = 'api' and privilege_type = 'SELECT' and grantee = 'cmms_user'
+    where table_schema::text = 'api' and privilege_type = 'SELECT'
     group by op_schema, op_name, rolname
   ),
   queries_2 as (

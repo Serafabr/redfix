@@ -11,5 +11,3 @@ create or replace function :function_name (
     end;
   $$
 ;
-
-grant execute on function :function_name to cmms_user;

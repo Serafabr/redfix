@@ -17,7 +17,7 @@ create role cmms_user with
   admin administrator
 ;
 
-create role supervisor in role cmms_user;
-create role inspector in role cmms_user;
-create role employee in role cmms_user;
-create role visitor in role cmms_user;
+create role supervisor noinherit in role cmms_user;
+create role inspector noinherit in role cmms_user;
+create role employee noinherit in role cmms_user;
+create role visitor noinherit in role cmms_user;

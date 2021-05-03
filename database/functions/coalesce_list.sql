@@ -12,5 +12,3 @@ create or replace function :function_name (
     select coalesce(json_input, '[]'::jsonb) as json_output;
   $$
 ;
-
-grant execute on function :function_name to cmms_user;
