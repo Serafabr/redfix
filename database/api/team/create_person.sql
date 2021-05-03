@@ -25,7 +25,6 @@ create or replace function :function_name (
         "phone",
         "cellphone",
         crypt('123456', gen_salt('bf', 10)), 
-        true,
         "personRole",
         "teamId"
       ) returning person_id into id;

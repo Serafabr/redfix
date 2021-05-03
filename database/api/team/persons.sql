@@ -8,7 +8,6 @@ create or replace view api.persons as
           p.name,
           p.phone,
           p.cellphone,
-          p.is_active,
           p.person_role,
           coalesce(t.teams, jsonb_build_array()) as teams
   from persons as p

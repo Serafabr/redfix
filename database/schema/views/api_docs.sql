@@ -1,38 +1,24 @@
 drop view if exists api_docs cascade;
 create or replace view api_docs as
-  with cluster_roles as (
-    select
-      r.rolname,
-      r.rolsuper,
-      r.rolcanlogin,
-        (
-          select b.rolname
-          from pg_catalog.pg_auth_members m
-          inner join pg_catalog.pg_roles b on (m.roleid = b.oid)
-          where m.member = r.oid
-        ) as memberof
-    from pg_catalog.pg_roles r
-    where r.rolname !~ '^pg_'
-  ),
-  cmms_roles as (
-    select rolname, rolsuper, rolcanlogin from cluster_roles where memberof = 'cmms_user'
+  with cmms_roles as (
+    select person_role from person_roles
   ),
   mutations_1 as (
     select
       r.routine_schema::text as op_schema,
       r.routine_name::text as op_name,
-      c.rolname,
-      bool_or(c.rolname = r.grantee) as permission_boolean
+      c.person_role,
+      bool_or(c.person_role = r.grantee) as permission_boolean
     from information_schema.routine_privileges as r, cmms_roles as c
     where r.routine_schema::text = 'api'
-    group by op_schema, op_name, rolname
+    group by op_schema, op_name, person_role
   ),
   mutations_2 as (
     select
       op_schema,
       op_name,
       jsonb_object_agg(
-        rolname, permission_boolean
+        person_role, permission_boolean
       ) as privileges
     from mutations_1
     group by op_schema, op_name
@@ -59,18 +45,18 @@ create or replace view api_docs as
     select
       t.table_schema::text as op_schema,
       t.table_name::text as op_name,
-      c.rolname,
-      bool_or(c.rolname = t.grantee) as permission_boolean
+      c.person_role,
+      bool_or(c.person_role = t.grantee) as permission_boolean
     from information_schema.table_privileges as t, cmms_roles as c
     where table_schema::text = 'api' and privilege_type = 'SELECT'
-    group by op_schema, op_name, rolname
+    group by op_schema, op_name, person_role
   ),
   queries_2 as (
     select
       op_schema,
       op_name,
       jsonb_object_agg(
-        rolname, permission_boolean
+        person_role, permission_boolean
       ) as privileges
     from queries_1
     group by op_schema, op_name

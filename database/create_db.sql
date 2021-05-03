@@ -85,7 +85,7 @@ begin transaction;
 set cookie.session.person_id to 1;
 
 -- insert initial data
-\i data/administrators.sql
+\i data/persons.sql
 \i data/firms.sql
 \i data/asset_categories.sql
 \i data/facilities.sql

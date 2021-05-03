@@ -5,7 +5,10 @@ drop role if exists visitor;
 drop role if exists cmms_user;
 
 -- cmms users' roles
--- cmms_user is used only for login (inside pgPool definition)
+create role supervisor;
+create role inspector;
+create role employee;
+create role visitor;
 create role cmms_user with
   nosuperuser
   nocreatedb
@@ -14,10 +17,6 @@ create role cmms_user with
   noreplication
   nobypassrls
   password '123456'
+  in role supervisor, inspector, employee, visitor
   admin administrator
 ;
-
-create role supervisor noinherit in role cmms_user;
-create role inspector noinherit in role cmms_user;
-create role employee noinherit in role cmms_user;
-create role visitor noinherit in role cmms_user;

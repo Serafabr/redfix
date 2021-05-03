@@ -2,7 +2,7 @@ const { postgraphile, makePluginHook } = require('postgraphile');
 const PgSimplifyInflectorPlugin = require("@graphile-contrib/pg-simplify-inflector");
 const { default: PgPubsub } = require("@graphile/pg-pubsub");
 const paths = require('../paths');
-const { pgPool } = require('../db');
+const { pgPool, adminPgPool } = require('../db');
 const cookieSession = require('./cookie-session');
 const passport = require('./passport');
 
@@ -11,7 +11,7 @@ const pluginHook = makePluginHook([PgPubsub]);
 const { NODE_ENV, PGSETTINGS_STATEMENT_TIMEOUT, POSTGRAPHILE_SCHEMAS } = process.env;
 
 module.exports = postgraphile(
-  pgPool,
+  NODE_ENV !== 'production' ? adminPgPool : pgPool,
   POSTGRAPHILE_SCHEMAS.split(','),
   { 
     // pluginHook,

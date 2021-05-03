@@ -25,9 +25,9 @@ create or replace function :function_name (
         from persons as p
         where
           case input_string
-            when p.username then p.password_hash = crypt(password, p.password_hash) and p.is_active
-            when p.email then p.password_hash = crypt(password, p.password_hash) and p.is_active
-            when p.cpf then p.password_hash = crypt(password, p.password_hash) and p.is_active
+            when p.username then p.password_hash = crypt(password, p.password_hash)
+            when p.email then p.password_hash = crypt(password, p.password_hash)
+            when p.cpf then p.password_hash = crypt(password, p.password_hash)
             else false
           end
         fetch first row only -- this is to speed up the query

@@ -125,14 +125,11 @@ begin transaction;
 \i api/task/tasks.sql
 \i api/task/unfollow_task.sql
 -- team
-\i api/team/activate_person.sql
 \i api/team/activate_team.sql
-\i api/team/active_persons.sql
 \i api/team/add_person_to_team.sql
 \i api/team/change_password.sql
 \i api/team/create_person.sql
 \i api/team/create_team.sql
-\i api/team/deactivate_person.sql
 \i api/team/deactivate_team.sql
 \i api/team/modify_myself.sql
 \i api/team/modify_person.sql

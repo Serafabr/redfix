@@ -14,7 +14,6 @@ create table persons (
   phone text not null,
   cellphone text,
   password_hash text not null default '',
-  is_active boolean not null default true,
   person_role text not null references person_roles (person_role) default 'visitor',
   team_id integer references teams (team_id),
   avatar_uuid uuid

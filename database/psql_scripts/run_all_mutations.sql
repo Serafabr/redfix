@@ -42,9 +42,6 @@
 
 \i api_tests/team/set_my_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
-\i api_tests/team/activate_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/team/deactivate_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-
 \i api_tests/team/activate_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/team/deactivate_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
