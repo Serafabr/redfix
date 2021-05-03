@@ -43,6 +43,6 @@ app.use(paths.admin, adminRoute);
 app.use(postgraphile);
 
 // 404 Error
-app.use((req, res) => res.status(404).send("Página não encontrada."));
+app.use((req, res) => res.status(404).send("Página não encontrada\n"));
 
 module.exports = app;
