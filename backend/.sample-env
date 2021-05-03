@@ -11,7 +11,7 @@ LOG_OUTPUT=console
 # Database connection
 PGADMINUSER=administrator
 PGADMINPASS=123456
-PGUSER=administrator
+PGUSER=cmms_user
 PGPASSWORD=123456
 PGHOST=localhost
 PGPORT=5432

@@ -76,16 +76,14 @@ insert into task_categories values
 
 create table person_roles (
   person_role text primary key,
-  person_role_text text not null,
-  is_cmms_user boolean not null
+  person_role_text text not null
 );
 
 insert into person_roles values
-  ('administrator', 'Administrador', false),
-  ('supervisor', 'Servidor da SINFRA', true),
-  ('inspector', 'Terceirizado da Fiscalização', true),
-  ('employee', 'Terceirizado da Manutenção', true),
-  ('visitor', 'Visitante', true)
+  ('supervisor', 'Servidor da SINFRA'),
+  ('inspector', 'Terceirizado da Fiscalização'),
+  ('employee', 'Terceirizado da Manutenção'),
+  ('visitor', 'Visitante')
 ;
 
 create table periodicities (
