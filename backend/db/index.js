@@ -6,6 +6,7 @@ const config = {
   host: process.env.PGHOST,
   port: process.env.PGPORT,
   database: process.env.PGDATABASE,
+  application_name: 'cmms',
 };
 
 const adminConfig = {
@@ -14,6 +15,7 @@ const adminConfig = {
   host: process.env.PGHOST,
   port: process.env.PGPORT,
   database: process.env.PGDATABASE,
+  application_name: 'cmms_admin',
 };
 
 const pgPool = new Pool(config);
