@@ -101,12 +101,10 @@ alter sequence firms_firm_id_seq restart with 10001;
 commit transaction;
 
 -- create extra indexes
--- begin transaction;
 -- \i schema/indexes.sql
--- commit transaction;
 
 -- create api
--- \i create_api.sql
+\i create_api.sql
 
 -- print message
 \echo :new_db_name CREATED SUCCESSFULLY.

@@ -2,7 +2,7 @@ rollback;
 
 \i psql_scripts/set_psql_variables.sql
 
-\set ON_ERROR_STOP On
+\set ON_ERROR_STOP on
 
 begin transaction;
 
