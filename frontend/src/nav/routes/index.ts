@@ -12,7 +12,7 @@ import tasks from './tasks';
 import teams from './teams';
 import users from './users';
 
-const routes = [
+export const routes = [
   ...appliances,
   ...auth,
   ...billings,
@@ -27,5 +27,3 @@ const routes = [
   ...teams,
   ...users,
 ];
-
-export default routes;
