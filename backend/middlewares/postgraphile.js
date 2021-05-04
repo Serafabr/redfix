@@ -2,7 +2,7 @@ const { postgraphile, makePluginHook } = require('postgraphile');
 const PgSimplifyInflectorPlugin = require("@graphile-contrib/pg-simplify-inflector");
 const { default: PgPubsub } = require("@graphile/pg-pubsub");
 const paths = require('../paths');
-const { pgPool } = require('../db');
+const { pgPool, adminPgPool } = require('../db');
 const cookieSession = require('./cookie-session');
 const passport = require('./passport');
 
@@ -22,6 +22,7 @@ module.exports = postgraphile(
     //   passport.initialize(),
     //   passport.session(),
     // ],
+    ownerConnectionString: adminPgPool,
     watchPg: NODE_ENV !== 'production',
     retryOnInitFail: NODE_ENV === 'production',
     enableCors: false,
