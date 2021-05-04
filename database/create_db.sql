@@ -41,6 +41,10 @@ create extension if not exists pgcrypto;
 -- begin transaction (schema creation)
 begin transaction;
 
+-- create exceptions
+\i schema/exceptions.sql
+\i functions/raise_exception.sql
+
 -- create get_person_id and get_team_id functions
 \i functions/get_person_id.sql
 \i functions/get_team_id.sql
@@ -50,7 +54,6 @@ begin transaction;
 
 -- create tables
 \i schema/reference_tables.sql
-\i schema/exceptions.sql
 \i schema/tables.sql
 \i schema/files_tables.sql
 \i schema/utilities.sql
@@ -61,7 +64,6 @@ begin transaction;
 \i functions/generate_api_documentation.sql
 \i functions/get_all_files_uuids.sql
 \i functions/insert_files.sql
-\i functions/raise_exception.sql
 \i functions/refresh_all_materialized_views.sql
 \i functions/update_dashboard.sql
 

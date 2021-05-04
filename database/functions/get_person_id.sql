@@ -2,10 +2,15 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  out person_id integer
+  out personid integer
 )
-  language sql
+  language plpgsql
   as $$
-    select current_setting('cookie.session.person_id')::integer as person_id;
+    begin
+      select current_setting('cookie.session.person_id')::integer into personid;
+      if (personid is null)
+        then perform raise_exception(601);
+      end if;
+    end;
   $$
 ;

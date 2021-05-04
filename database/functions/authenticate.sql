@@ -40,6 +40,7 @@ create or replace function :function_name (
         from person_data as pd
         inner join team_persons as tp on (tp.person_id = pd.person_id)
         inner join teams as t on (t.team_id = tp.team_id)
+        where t.is_active
       )
       select  jsonb_build_object(
                 'personId', pd.person_id,

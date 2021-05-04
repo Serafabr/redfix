@@ -26,5 +26,7 @@ insert into exceptions values
   -- plan api (codes 501 to 599)
   (501, 'Rotina com periodicidade definida não permite executar create_task_from_template'),
   -- team api (codes 601 to 699)
-  (601, 'Usuário não pertence à equipe')
+  (601, 'Usuário indefinido'),
+  (602, 'Usuário sem equipe definida'),
+  (603, 'Usuário não pertence à equipe')
 ;

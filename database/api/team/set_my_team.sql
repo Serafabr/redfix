@@ -11,7 +11,7 @@ create or replace function :function_name (
       -- check if the person is in the team
       if (select get_person_id() in (select person_id from team_persons where team_id = "teamId"))
         then update persons set team_id = "teamId" where person_id = get_person_id();
-        else perform raise_exception(601);
+        else perform raise_exception(603);
       end if;
       id = "teamId";
     end;
