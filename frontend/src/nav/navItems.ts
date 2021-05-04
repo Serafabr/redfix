@@ -22,43 +22,46 @@ import teamDual from '../assets/icons/sidebar/dualColor/users.svg';
 import user from '../assets/icons/sidebar/id-card.svg';
 import userDual from '../assets/icons/sidebar/dualColor/id-card.svg';
 
+import { paths } from './paths';
+
+
 // Sidebar items
 export const navItems = [
   {
     groupLabel: undefined,
     items: [
-      {label: "Painel", icon: panel, hoveredIcon: panelDual},
+      {label: "Painel", path: paths.main.dashboard, icon: panel, hoveredIcon: panelDual},
     ],
   },
   {
     groupLabel: "Manutenções",
     items: [
-      {label: "Tarefas", icon: task, hoveredIcon: taskDual},
-      {label: "Projetos", icon: task, hoveredIcon: taskDual},
-      {label: "Planos de Manutenção", icon: plan, hoveredIcon: planDual},
-      {label: "Monitores", icon: monitor, hoveredIcon: monitorDual},
+      {label: "Tarefas", path: paths.tasks.all, icon: task, hoveredIcon: taskDual},
+      {label: "Projetos", path: paths.projects.all, icon: task, hoveredIcon: taskDual},
+      {label: "Planos de Manutenção", path: paths.plans.all, icon: plan, hoveredIcon: planDual},
+      {label: "Monitores", path: paths.monitors.all, icon: monitor, hoveredIcon: monitorDual},
     ],
   },
   {
     groupLabel: "Finanças",
     items: [
-      {label: "Faturamentos", icon: finance, hoveredIcon: financeDual},
+      {label: "Faturamentos", path: paths.billings.all, icon: finance, hoveredIcon: financeDual},
     ],
   },
   {
     groupLabel: "Ativos",
     items: [
-      {label: "Edifícios", icon: facility, hoveredIcon: facilityDual},
-      {label: "Equipamentos", icon: equipament, hoveredIcon: equipamentDual},
+      {label: "Edifícios", path: paths.facilities.all, icon: facility, hoveredIcon: facilityDual},
+      {label: "Equipamentos", path: paths.appliances.all, icon: equipament, hoveredIcon: equipamentDual},
     ],
   },
   {
     groupLabel: "Recursos",
     items: [
-      {label: "Estoques", icon: depot, hoveredIcon: depotDual},
-      {label: "Espec. Técnicas", icon: spec, hoveredIcon: specDual},
-      {label: "Equipes", icon: team, hoveredIcon: teamDual},
-      {label: "Usuários", icon: user, hoveredIcon: userDual},
+      {label: "Estoques", path: paths.depots.all, icon: depot, hoveredIcon: depotDual},
+      {label: "Comprovantes", path: paths.receipts.all, icon: spec, hoveredIcon: specDual},
+      {label: "Equipes", path: paths.teams.all, icon: team, hoveredIcon: teamDual},
+      {label: "Usuários", path: paths.users.all, icon: user, hoveredIcon: userDual},
     ],
   },
 ];
