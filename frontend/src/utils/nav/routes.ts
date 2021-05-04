@@ -1,3 +1,5 @@
+export {};
+
 // import React from "react";
 // import { paths } from '../../nav/paths';
 
