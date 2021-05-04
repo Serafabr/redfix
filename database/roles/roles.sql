@@ -18,5 +18,4 @@ create role cmms_user with
   nobypassrls
   password '123456'
   in role supervisor, inspector, employee, visitor
-  admin administrator
 ;
