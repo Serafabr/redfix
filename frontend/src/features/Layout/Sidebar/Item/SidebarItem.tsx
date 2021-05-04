@@ -18,9 +18,19 @@ export const SidebarItem = ({
 }: SidebarItemType) => {
   
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
   
   const toggleHover = () => {
     setIsHovered((prevState) => !prevState);
+  }
+  
+  const handleLinkIsActive = (match: any) => {
+    if (!match) {
+      setIsActive(false);
+      return false;
+    }
+    setIsActive(true);
+    return true;
   }
   
   return (
@@ -29,11 +39,12 @@ export const SidebarItem = ({
       className={style.Item} 
       onMouseEnter={toggleHover} 
       onMouseLeave={toggleHover}
+      isActive={handleLinkIsActive}
     >
       <div className={style.IconWrapper}>
-        <img src={isHovered ? hoveredIcon : icon} alt={label}/>
+        <img src={isHovered || isActive ? hoveredIcon : icon} alt={label}/>
       </div>
-      <div className={style.ItemText}>
+      <div className={`${style.ItemText} ${isActive && style.Active}`}>
         {label}
       </div>
     </NavLink>
