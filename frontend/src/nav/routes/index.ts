@@ -1,3 +1,4 @@
+import { Component, ComponentFactory, FunctionComponent, LazyExoticComponent, ReactNode } from 'react';
 import appliances from './appliances';
 import auth from './auth';
 import billings from './billings';
@@ -12,7 +13,17 @@ import tasks from './tasks';
 import teams from './teams';
 import users from './users';
 
-export const routes = [
+export type RouteType = {
+  path: string, 
+  exact?: boolean, 
+  name: string, 
+  //component: LazyExoticComponent<any> | ReactNode,
+  component: any,
+}
+
+export type RoutesType = Array<RouteType>;
+
+export const routes: RoutesType = [
   ...appliances,
   ...auth,
   ...billings,
