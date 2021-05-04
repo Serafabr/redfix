@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import style from './SidebarItem.module.scss';
 
-type Props = {
+export type SidebarItemType = {
   label: string,
+  path: string,
   icon: string,
   hoveredIcon: string,
 }
@@ -11,8 +13,9 @@ type Props = {
 export const SidebarItem = ({
   label,
   icon,
+  path,
   hoveredIcon
-}: Props) => {
+}: SidebarItemType) => {
   
   const [isHovered, setIsHovered] = useState<boolean>(false);
   
@@ -21,7 +24,8 @@ export const SidebarItem = ({
   }
   
   return (
-    <div 
+    <NavLink 
+      to={path}
       className={style.Item} 
       onMouseEnter={toggleHover} 
       onMouseLeave={toggleHover}
@@ -32,6 +36,6 @@ export const SidebarItem = ({
       <div className={style.ItemText}>
         {label}
       </div>
-    </div>
+    </NavLink>
   )
 }
