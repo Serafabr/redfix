@@ -10,6 +10,8 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
+    declare
+      "personId" integer = get_person_id();
     begin
       insert into allocations (
         created_at,
@@ -24,7 +26,7 @@ create or replace function :function_name (
         proposed_by
       ) values (
         now(),
-        get_person_id(),
+        "personId",
         "supplyId",
         2,
         "sourceDepotId",
@@ -32,7 +34,7 @@ create or replace function :function_name (
         "taskId",
         "qtyProposed",
         now(),
-        get_person_id()
+        "personId"
       ) returning alloc_id into id;
     end;
   $$

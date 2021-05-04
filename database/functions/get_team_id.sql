@@ -2,13 +2,15 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  out teamid integer
+  in "personId" integer,
+  out "teamId" integer
 )
   language plpgsql
+  strict
   as $$
     begin
-      select team_id into teamid from persons where person_id = get_person_id();
-      if (teamid is null)
+      select team_id into "teamId" from persons where person_id = "personId";
+      if ("teamId" is null)
         then perform raise_exception(602);
       end if;
     end;

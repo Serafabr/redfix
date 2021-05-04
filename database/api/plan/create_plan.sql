@@ -9,13 +9,15 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
+    declare
+      "personId" integer = get_person_id();
     begin
       insert into plans values (
         default,
         now(),
         now(),
-        get_person_id(),
-        get_person_id(),
+        "personId",
+        "personId",
         "name",
         "description",
         "depotId"

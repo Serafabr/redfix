@@ -19,8 +19,11 @@ create or replace function :function_name (
   language plpgsql
   as $$
     declare
-      "teamId" integer = get_team_id();
+      "personId" integer;
+      "teamId" integer;
     begin
+      "personId" = get_person_id();
+      "teamId" = get_team_id("personId");
       update tasks set
         updated_at = now(),
         updated_by = get_person_id(),

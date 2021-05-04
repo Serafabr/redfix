@@ -12,6 +12,7 @@ create or replace function :function_name (
     declare
       new_date_end alias for "dateEnd";
       old_date_end date;
+      "personId" integer = get_person_id();
     begin
       select date_end into old_date_end from depots where depot_id = "depotId";
 
@@ -30,7 +31,7 @@ create or replace function :function_name (
         allocated_by
       ) select
         now(),
-        get_person_id(),
+        "personId",
         -- supply id from a query (where depot_id = "depotId" and is_internal) OR from the mutation inputs
         1,
         "depotId",
@@ -38,7 +39,7 @@ create or replace function :function_name (
         null,
         -- current balance
         ((new_date_end - 1)::text || 'T23:59:59')::timestamptz,
-        get_person_id()
+        "personId"
       ;
       -- re-add supplies 
       insert into allocations (
@@ -54,7 +55,7 @@ create or replace function :function_name (
         allocated_by
       ) select
         now(),
-        get_person_id(),
+        "personId",
         -- supply id from a query (where depot_id = "depotId" and is_internal) OR from the mutation inputs
         1,
         null,
@@ -62,7 +63,7 @@ create or replace function :function_name (
         null,
         -- the same as last added qty (or qty from the mutation inputs)
         new_date_end,
-        get_person_id()
+        "personId"
       ;
       id = 1;
     end;

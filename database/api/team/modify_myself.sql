@@ -13,6 +13,8 @@ create or replace function :function_name (
   language plpgsql
   security definer
   as $$
+    declare
+      "personId" integer = get_person_id();
     begin
       update persons set
         username = "USERNAME",
@@ -21,8 +23,8 @@ create or replace function :function_name (
         name = "NAME",
         phone = "PHONE",
         cellphone = "CELLPHONE"
-      where person_id = get_person_id();
-      id = get_person_id();
+      where person_id = "personId";
+      id = "personId";
     end;
   $$
 ;

@@ -9,8 +9,11 @@ create or replace function :function_name (
   language plpgsql
   as $$
     declare
-      "teamId" integer = get_team_id();
+      "personId" integer;
+      "teamId" integer;
     begin
+      "personId" = get_person_id();
+      "teamId" = get_team_id("personId");
       insert into task_events values (
         default,
         "taskId",

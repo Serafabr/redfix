@@ -8,9 +8,11 @@ create or replace function api.change_password (
   language plpgsql
   security definer
   as $$
+    declare
+      "personId" integer = get_person_id();
     begin
-      update persons set password_hash = crypt("newPassword", gen_salt('bf', 10)) where person_id = get_person_id();
-      id = get_person_id();
+      update persons set password_hash = crypt("newPassword", gen_salt('bf', 10)) where person_id = "personId";
+      id = "personId";
     end;
   $$
 ;

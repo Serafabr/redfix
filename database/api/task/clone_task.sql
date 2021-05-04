@@ -9,8 +9,11 @@ create or replace function :function_name (
   as $$
     declare
       task_initial_status integer;
-      "teamId" integer = get_team_id();
+      "personId" integer;
+      "teamId" integer;
     begin
+      "personId" = get_person_id();
+      "teamId" = get_team_id("personId");
       insert into tasks (
         -- task_id and task_status_id are defaults
         created_at,
@@ -33,8 +36,8 @@ create or replace function :function_name (
       ) select
         now(),
         now(),
-        get_person_id(),
-        get_person_id(),
+        "personId",
+        "personId",
         t.task_priority_id,
         t.task_category_id,
         t.task_template_id,
@@ -47,7 +50,7 @@ create or replace function :function_name (
         t.date_start,
         t.date_end,
         t.request_id,
-        get_team_id()
+        "teamId"
       from tasks as t where t.task_id = "taskId"
       returning
           task_id,
@@ -68,7 +71,7 @@ create or replace function :function_name (
         id,
         'creation',
         now(),
-        get_person_id(),
+        "personId",
         "teamId",
         "teamId",
         task_initial_status,

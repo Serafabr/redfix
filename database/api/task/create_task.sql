@@ -21,9 +21,11 @@ create or replace function :function_name (
   as $$
     declare
       task_initial_status integer;
-      "teamId" integer = get_team_id();
+      "personId" integer;
+      "teamId" integer;
     begin
-
+      "personId" = get_person_id(); 
+      "teamId" = get_team_id("personId");
       if array_length("assets", 1) is null
         then perform raise_exception(201);
       end if;
@@ -32,8 +34,8 @@ create or replace function :function_name (
         default,-- task_id
         now(),
         now(),
-        get_person_id(),
-        get_person_id(),
+        "personId",
+        "personId",
         "taskPriorityId",
         "taskCategoryId",
         default,-- task_status_id
@@ -63,7 +65,7 @@ create or replace function :function_name (
         id,
         'creation',
         now(),
-        get_person_id(),
+        "personId",
         "teamId",
         null,
         task_initial_status,
