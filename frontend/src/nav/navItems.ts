@@ -4,6 +4,8 @@ import panelDual from '../assets/icons/sidebar/dualColor/grid.svg';
 import task from '../assets/icons/sidebar/notes-paper.svg';
 import taskDual from '../assets/icons/sidebar/dualColor/notes-paper.svg';
 import plan from '../assets/icons/sidebar/tools-wench.svg';
+import project from '../assets/icons/sidebar/folder-file.svg';
+import projectDual from '../assets/icons/sidebar/dualColor/folder-file.svg';
 import planDual from '../assets/icons/sidebar/dualColor/tools-wench.svg';
 import monitor from '../assets/icons/sidebar/graph.svg';
 import monitorDual from '../assets/icons/sidebar/dualColor/graph.svg';
@@ -37,7 +39,7 @@ export const navItems = [
     groupLabel: "Manutenções",
     items: [
       {label: "Tarefas", path: paths.tasks.all, icon: task, hoveredIcon: taskDual},
-      {label: "Projetos", path: paths.projects.all, icon: task, hoveredIcon: taskDual},
+      {label: "Projetos", path: paths.projects.all, icon: project, hoveredIcon: projectDual},
       {label: "Planos de Manutenção", path: paths.plans.all, icon: plan, hoveredIcon: planDual},
       {label: "Monitores", path: paths.monitors.all, icon: monitor, hoveredIcon: monitorDual},
     ],
