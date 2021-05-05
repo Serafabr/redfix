@@ -7,14 +7,8 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
-    declare
-      "personId" integer = get_person_id();
     begin
-      -- check if the person is in the team
-      if (select "personId" in (select person_id from team_persons where team_id = "teamId"))
-        then update persons set team_id = "teamId" where person_id = "personId";
-        else perform raise_exception(603);
-      end if;
+      update persons set team_id = "teamId" where person_id = get_person_id();
       id = "teamId";
     end;
   $$

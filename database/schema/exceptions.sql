@@ -28,5 +28,6 @@ insert into exceptions values
   -- team api (codes 601 to 699)
   (601, 'Usuário indefinido'),
   (602, 'Usuário sem equipe definida'),
-  (603, 'Usuário não pertence à equipe')
+  (603, 'Usuário não pertence à equipe'),
+  (604, 'Equipe desativada')
 ;
