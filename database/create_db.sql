@@ -34,12 +34,13 @@ comment on schema web is 'Contain functions that can be executed from specific e
 -- create roles and define privileges
 \i roles/roles.sql
 \i roles/privileges.sql
+\i roles/person_roles.sql
+
+-- begin transaction
+begin transaction;
 
 -- create extensions
 create extension if not exists pgcrypto;
-
--- begin transaction (schema creation)
-begin transaction;
 
 -- create exceptions
 \i schema/exceptions.sql
@@ -109,7 +110,7 @@ commit transaction;
 \i create_api.sql
 
 -- print message
-\echo :new_db_name CREATED SUCCESSFULLY.
+\echo '\nDATABASE CREATED SUCCESSFULLY\n'
 
 -- unset psql variables
 \i psql_scripts/unset_psql_variables.sql

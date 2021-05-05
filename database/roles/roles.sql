@@ -19,3 +19,8 @@ create role cmms_user with
   password '123456'
   in role supervisor, inspector, employee, visitor
 ;
+
+comment on role supervisor is 'Servidor da SINFRA';
+comment on role inspector is 'Terceirizado da Fiscalização';
+comment on role employee is 'Terceirizado da Manutenção';
+comment on role visitor is 'Visitante';

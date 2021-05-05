@@ -74,18 +74,6 @@ insert into task_categories values
   (15, 'Vidraçaria')
 ;
 
-create table person_roles (
-  person_role text primary key,
-  person_role_text text not null
-);
-
-insert into person_roles values
-  ('supervisor', 'Servidor da SINFRA'),
-  ('inspector', 'Terceirizado da Fiscalização'),
-  ('employee', 'Terceirizado da Manutenção'),
-  ('visitor', 'Visitante')
-;
-
 create table periodicities (
   periodicity_id integer primary key,
   periodicity_text text not null,
