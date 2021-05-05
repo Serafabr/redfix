@@ -6,19 +6,25 @@ import style from './Task.module.scss';
 import { Plus as PlusIcon } from '../../components/Icons';
 import { taskColumns } from '../../utils/fakeData';
 
+type TasksProps = {
+  location: {
+    pathname: string
+  }
+};
+
 const taskButtons = [
   <Button text="Nova Tarefa" iconComponent={PlusIcon} />,
   <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
 ];
 
-export const Tasks = (props: any) => {
-  console.log('props');
-  console.log(props);
+export const Tasks = ({
+  location
+}: TasksProps) => {
   return (
     <div>
       <TitleArea 
         title="Tarefas"
-        path="/tarefas"
+        path={location.pathname}
         buttons={taskButtons}
       />
     </div>
