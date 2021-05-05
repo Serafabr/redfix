@@ -23,7 +23,7 @@ export const TitleArea = ({
       <div className={style.Buttons}>
         {buttons.map((button) => (
           <div className={style.ButtonWrapper}>
-            <Button text="Nova Tarefa" iconComponent={PlusIcon} />
+            {button}
           </div>
         ))}
       </div>
