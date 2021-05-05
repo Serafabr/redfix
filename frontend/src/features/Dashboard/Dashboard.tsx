@@ -11,8 +11,8 @@ type DashProps = {
   }
 };
 
-const taskButtons = [
-  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
+const dashButtons = [
+  <Button buttonType={ButtonType.Primary} justIcon iconComponent={PlusIcon} />
 ];
 
 export const Dashboard = ({
@@ -23,7 +23,7 @@ export const Dashboard = ({
       <TitleArea 
         title="Painel"
         path={location.pathname}
-        buttons={taskButtons}
+        buttons={dashButtons}
       />
     </div>
   )

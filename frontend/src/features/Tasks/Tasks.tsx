@@ -13,7 +13,7 @@ type TasksProps = {
 };
 
 const taskButtons = [
-  <Button text="Nova Tarefa" iconComponent={PlusIcon} />,
+  <Button text="Nova tarefa" iconComponent={PlusIcon} />,
   <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
 ];
 
