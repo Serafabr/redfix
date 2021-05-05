@@ -75,9 +75,9 @@ create extension if not exists pgcrypto;
 \i triggers/check_project_is_active.sql
 \i triggers/log_data_change.sql
 \i triggers/publish_to_channel.sql
--- \i triggers/update_quantities.sql
 \i triggers/validate_asset_location.sql
 \i triggers/validate_asset_parent.sql
+\i triggers/validate_person_team.sql
 \i triggers/validate_task_event.sql
 \i triggers/verify_task_note_creator.sql
 

@@ -1,19 +1,30 @@
 drop view if exists quantities cascade;
 create or replace view quantities as
   select
-    q.supply_id,
-    q.qty_initial,
-    q.qty_blocked,
-    q.qty_consumed,
-    q.qty_initial - q.qty_blocked - q.qty_consumed as qty_available
-  from (
+    d.depot_id,
+    coalesce(i.supply_id,o.supply_id) as supply_id,
+    coalesce(i.qty_allocated,0) - coalesce(o.qty_allocated,0) as qty_available,
+    coalesce(i.qty_proposed,0) - coalesce(o.qty_proposed,0) as qty_proposed,
+    coalesce(i.qty_approved,0) - coalesce(o.qty_approved,0) as qty_approved
+  from depots as d
+  inner join (
     select
-      s.supply_id,
-      s.qty_initial,
-      sum(coalesce(a.qty_approved, a.qty_proposed, 0)) as qty_blocked,
-      sum(coalesce(qty_consumed, 0)) as qty_consumed
-    from supplies as s
-    left join allocations as a using (supply_id)
-    group by s.supply_id, s.qty_initial
-  ) as q
+      a.target_depot_id,
+      a.supply_id,
+      sum(case when a.alloc_status_id = 1 then a.qty_allocated else 0 end) as qty_allocated,
+      sum(case when a.alloc_status_id = 2 then a.qty_proposed else 0 end) as qty_proposed,
+      sum(case when a.alloc_status_id = 3 then a.qty_approved else 0 end) as qty_approved
+    from allocations as a
+    group by target_depot_id, supply_id
+  ) as i on (i.target_depot_id = d.depot_id)
+  inner join (
+    select
+      a.source_depot_id,
+      a.supply_id,
+      sum(case when a.alloc_status_id = 1 then a.qty_allocated else 0 end) as qty_allocated,
+      sum(case when a.alloc_status_id = 2 then a.qty_proposed else 0 end) as qty_proposed,
+      sum(case when a.alloc_status_id = 3 then a.qty_approved else 0 end) as qty_approved
+    from allocations as a
+    group by source_depot_id, supply_id
+  ) as o on (o.source_depot_id = d.depot_id)
 ;
