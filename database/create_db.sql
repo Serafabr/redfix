@@ -70,6 +70,7 @@ create extension if not exists pgcrypto;
 
 -- create views
 \i schema/views/api_docs.sql
+\i schema/views/quantities.sql
 
 -- create triggers
 \i triggers/check_project_is_active.sql
