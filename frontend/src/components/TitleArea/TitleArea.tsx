@@ -1,20 +1,31 @@
+import { ReactNode } from 'react';
+
 import { Button, ButtonType } from '../Buttons';
 import { PageTitle } from '../PageTitle/PageTitle';
 import style from './TitleArea.module.scss';
 
 import { Plus as PlusIcon } from '../../components/Icons';
 
-export const TitleArea = () => {
+type TitleAreaType = {
+  title: string,
+  path: string,
+  buttons: Array<ReactNode>
+}
+
+export const TitleArea = ({
+  title,
+  path,
+  buttons
+} : TitleAreaType) => {
   return (
     <div className={style.TitleArea}>
-      <PageTitle title="Tarefa" path="/tarefas" />
+      <PageTitle title={title} path={path} />
       <div className={style.Buttons}>
-        <div className={style.ButtonWrapper}>
-          <Button text="Nova Tarefa" iconComponent={PlusIcon} />
-        </div>
-        <div className={style.ButtonWrapper}>
-          <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
-        </div>
+        {buttons.map((button) => (
+          <div className={style.ButtonWrapper}>
+            <Button text="Nova Tarefa" iconComponent={PlusIcon} />
+          </div>
+        ))}
       </div>
     </div>
   )
