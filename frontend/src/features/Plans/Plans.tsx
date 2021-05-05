@@ -1,9 +1,31 @@
+import { TitleArea } from '../../components/TitleArea/TitleArea';
+import { Button, ButtonType } from '../../components/Buttons';
+
 import style from './Plans.module.scss'
 
-export const Plans = () => {
+import { Plus as PlusIcon } from '../../components/Icons';
+
+type PlansProps = {
+  location: {
+    pathname: string
+  }
+};
+
+const plansButtons = [
+  <Button text="Novo plano" iconComponent={PlusIcon} />,
+  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
+];
+
+export const Plans = ({
+  location
+}: PlansProps) => {
   return (
     <div>
-      Plans
+      <TitleArea 
+        title="Planos de manutenção"
+        path={location.pathname}
+        buttons={plansButtons}
+      />
     </div>
   )
 }

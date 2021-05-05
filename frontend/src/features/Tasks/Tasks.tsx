@@ -1,10 +1,9 @@
-import { PageTitle } from '../../components/PageTitle/PageTitle';
 import { TitleArea } from '../../components/TitleArea/TitleArea';
 import { Button, ButtonType } from '../../components/Buttons';
+
 import style from './Task.module.scss';
 
 import { Plus as PlusIcon } from '../../components/Icons';
-import { taskColumns } from '../../utils/fakeData';
 
 type TasksProps = {
   location: {
