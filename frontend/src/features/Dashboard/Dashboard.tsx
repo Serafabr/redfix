@@ -4,7 +4,6 @@ import { Button, ButtonType } from '../../components/Buttons';
 import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
-import { Plus as PlusIcon } from '../../components/Icons';
 
 type DashProps = {
   location: {

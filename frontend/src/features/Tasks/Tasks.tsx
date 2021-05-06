@@ -4,6 +4,8 @@ import { Button, ButtonType } from '../../components/Buttons';
 import style from './Task.module.scss';
 
 import { Plus as PlusIcon } from '../../components/Icons';
+import { MoreHorizontal as MoreIcon } from '../../components/Icons';
+
 
 type TasksProps = {
   location: {
@@ -13,7 +15,7 @@ type TasksProps = {
 
 const taskButtons = [
   <Button text="Nova tarefa" iconComponent={PlusIcon} />,
-  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
+  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={MoreIcon} />
 ];
 
 export const Tasks = ({

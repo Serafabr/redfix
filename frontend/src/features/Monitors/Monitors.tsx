@@ -4,6 +4,7 @@ import { Button, ButtonType } from '../../components/Buttons';
 import style from './Monitors.module.scss';
 
 import { Plus as PlusIcon } from '../../components/Icons';
+import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 
 type MonitorsProps = {
   location: {
@@ -13,7 +14,7 @@ type MonitorsProps = {
 
 const monitorsButtons = [
   <Button text="Novo monitor" iconComponent={PlusIcon} />,
-  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={PlusIcon} />
+  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={MoreIcon} />
 ];
 
 export const Monitors = ({
