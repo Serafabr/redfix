@@ -14,7 +14,6 @@ pg_dump \
 --host=localhost \
 --port=5432 \
 --username=administrator \
---no-psqlrc \
 --no-password
 
 # Dumps all roles in the cluster
@@ -28,5 +27,4 @@ pg_dumpall \
 --host=localhost \
 --port=5432 \
 --username=administrator \
---no-psqlrc \
 --no-password
