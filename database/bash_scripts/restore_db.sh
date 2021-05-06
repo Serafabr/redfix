@@ -7,4 +7,5 @@ psql \
 --host=localhost \
 --port=5432 \
 --username=administrator \
---password
+--no-psqlrc \
+--no-password
