@@ -7,14 +7,17 @@ rollback;
 -- set ON_ERROR_STOP to on
 \set ON_ERROR_STOP on
 
--- connect as administrator to another database to allow "drop database" command
-\c postgresql://administrator:123456@localhost:5432/postgres
+-- connect as user postgres to another database to allow "drop database" command
+\c postgresql://postgres:123456@localhost:5432/postgres
 
 -- forcefully terminate existing connections to allow "drop database" command
 select pg_terminate_backend(pid) from pg_stat_activity where pid <> pg_backend_pid() and datname = :'new_db_name';
 
 -- drop database
 drop database if exists :new_db_name;
+
+-- create role administrator
+\i roles/administrator.sql
 
 -- create new database
 create database :new_db_name with owner administrator template template0 encoding utf8;

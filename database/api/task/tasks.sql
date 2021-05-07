@@ -76,7 +76,7 @@ create or replace view api.tasks as
         'qtyAllocated', a.qty_allocated,
         'qtyProposed', a.qty_proposed,
         'qtyApproved', a.qty_approved
-      ) order by )
+      ) order by s.supply_sf)
       from allocations as a
       inner join supplies as s using (supply_id)
       inner join depots as d using (depot_id)

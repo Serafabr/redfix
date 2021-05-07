@@ -8,10 +8,6 @@
 
 ## database
 
-* Criação do banco de dados em ambiente de desenvolvimento:
-
-  1. Criação do usuário `administrator`: `source scripts/create_administrator.sh`
-  2. Abrir o `psql` com o usuário `administrator` (ver comando em `bash_scripts/start_psql.sh`)
-  3. Executar `\i create_db.sql`
+* Criação do banco de dados em ambiente de desenvolvimento: Abrir o `psql` e executar `\i create_db.sql`
 
 * Executar os *unit tests* das mutations da API: `\i test_api.sql`
