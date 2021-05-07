@@ -13,13 +13,13 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
+    declare
+      "personId" integer = get_person_id();
     begin
       insert into monitors values (
         default,
         now(),
-        now(),
-        default,
-        default,
+        "personId",
         "name",
         "description",
         "monitorCategoryId",

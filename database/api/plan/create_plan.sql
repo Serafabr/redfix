@@ -15,8 +15,6 @@ create or replace function :function_name (
       insert into plans values (
         default,
         now(),
-        now(),
-        "personId",
         "personId",
         "name",
         "description",

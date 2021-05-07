@@ -16,8 +16,6 @@ create or replace function :function_name (
   as $$
     begin
       update monitors set
-        updated_at = now(),
-        updated_by = get_person_id(),
         name = "NAME",
         description = "DESCRIPTION",
         monitor_category_id = "monitorCategoryId",
