@@ -67,7 +67,7 @@ create or replace function :function_name (
         );
         id = new_task_id;
       else
-        perform raise_exception(501);
+        perform raise_exception(401);
       end if;
     end;
   $$

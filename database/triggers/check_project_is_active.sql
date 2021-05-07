@@ -10,7 +10,7 @@ create or replace function :trigger_name ()
       if new.project_id is not null
         then if (select p.is_active from projects as p where p.project_id = new.project_id)
           then return new;
-          else perform raise_exception(205);
+          else perform raise_exception(204);
         end if;
         else return new;
       end if;

@@ -8,7 +8,7 @@ create or replace function :trigger_name ()
     begin
       if old.person_id = get_person_id()
         then return new;
-        else perform raise_exception(204);
+        else perform raise_exception(203);
       end if;
     end;
   $$
