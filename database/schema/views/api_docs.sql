@@ -1,15 +1,13 @@
 drop view if exists api_docs cascade;
 create or replace view api_docs as
-  with cmms_roles as (
-    select person_role from person_roles
-  ),
-  mutations_1 as (
+  with mutations_1 as (
     select
       r.routine_schema::text as op_schema,
       r.routine_name::text as op_name,
-      c.person_role,
-      bool_or(c.person_role = r.grantee) as permission_boolean
-    from information_schema.routine_privileges as r, cmms_roles as c
+      p.person_role,
+      bool_or(p.person_role = r.grantee) as permission_boolean
+    from information_schema.routine_privileges as r
+    cross join person_roles as p
     where r.routine_schema::text = 'api'
     group by op_schema, op_name, person_role
   ),
@@ -45,9 +43,10 @@ create or replace view api_docs as
     select
       t.table_schema::text as op_schema,
       t.table_name::text as op_name,
-      c.person_role,
-      bool_or(c.person_role = t.grantee) as permission_boolean
-    from information_schema.table_privileges as t, cmms_roles as c
+      p.person_role,
+      bool_or(p.person_role = t.grantee) as permission_boolean
+    from information_schema.table_privileges as t
+    cross join person_roles as p
     where table_schema::text = 'api' and privilege_type = 'SELECT'
     group by op_schema, op_name, person_role
   ),
