@@ -28,6 +28,7 @@ begin transaction;
 \i api/allocation/finish_task_allocations.sql
 \i api/allocation/modify_qty_approved.sql
 \i api/allocation/modify_qty_proposed.sql
+\i api/allocation/transfers_between_depots.sql
 -- asset
 \i api/asset/add_child_to_asset.sql
 \i api/asset/add_parent_to_asset.sql
