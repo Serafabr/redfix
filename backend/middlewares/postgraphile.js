@@ -8,7 +8,12 @@ const passport = require('./passport');
 
 const pluginHook = makePluginHook([PgPubsub]);
 
-const { NODE_ENV, PGSETTINGS_STATEMENT_TIMEOUT, POSTGRAPHILE_SCHEMAS } = process.env;
+const {
+  NODE_ENV,
+  POSTGRAPHILE_SCHEMAS,
+  POSTGRAPHILE_EXTENDED_ERRORS,
+  POSTGRAPHILE_SHOW_ERROR_STACK,
+} = process.env;
 
 module.exports = postgraphile(
   pgPool,
@@ -39,8 +44,8 @@ module.exports = postgraphile(
     disableQueryLog: NODE_ENV === 'production',
     dynamicJson: true,
     allowExplain: NODE_ENV !== 'production',
-    showErrorStack: 'json',
-    extendedErrors: ['hint', 'detail', 'errcode'],
+    showErrorStack: POSTGRAPHILE_SHOW_ERROR_STACK,
+    extendedErrors: POSTGRAPHILE_EXTENDED_ERRORS.split(','),
     // exportJsonSchemaPath: process.env.NODE_ENV === 'development' ? paths.schemaJson : false,
     // exportGqlSchemaPath: process.env.NODE_ENV === 'development' ? paths.schemaGraphQL : false,
     // sortExport: true,
@@ -49,7 +54,6 @@ module.exports = postgraphile(
       const isTransactionReadOnly = req.body && /^query/.test(req.body.query);
       return {
         'role': role,
-        'statement_timeout': PGSETTINGS_STATEMENT_TIMEOUT,
         'transaction_read_only': isTransactionReadOnly,
         'cookie.session.person_id': personId,
       }

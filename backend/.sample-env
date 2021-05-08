@@ -8,7 +8,7 @@ HTTP_PORT=3001
 # LOG_OUTPUT:    none, console, file or both
 LOG_OUTPUT=console
 
-# Database connection
+# PostgreSQL connection and settings
 PGADMINUSER=administrator
 PGADMINPASS=123456
 PGUSER=cmms_user
@@ -16,6 +16,9 @@ PGPASSWORD=123456
 PGHOST=localhost
 PGPORT=5432
 PGDATABASE=dev
+PGSETTINGS_APPLICATION_NAME=cmms
+PGSETTINGS_APPLICATION_NAME_ADMIN=cmms_admin
+PGSETTINGS_STATEMENT_TIMEOUT=0
 
 # Cookie
 COOKIE_NAME=cmms:session
@@ -38,11 +41,10 @@ SESSION_VISITOR_ROLE=visitor
 
 # PostGraphile
 # POSTGRAPHILE_SCHEMAS: comma-separated list of database schemas that contain GraphQL API objects
+# POSTGRAPHILE_EXTENDED_ERRORS: comma-separated list containing any combination of hint, detail and errcode
 POSTGRAPHILE_SCHEMAS=api
-
-# Transaction settings
-# PGSETTINGS_STATEMENT_TIMEOUT: timeout in milliseconds (0 means disabled timeout)
-PGSETTINGS_STATEMENT_TIMEOUT=0
+POSTGRAPHILE_EXTENDED_ERRORS=hint,detail,errcode
+POSTGRAPHILE_SHOW_ERROR_STACK=json
 
 # Cron jobs schedule
 # CRON_JOBS:                'on' or 'off'
