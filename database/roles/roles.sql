@@ -5,17 +5,13 @@ drop role if exists visitor;
 drop role if exists cmms_user;
 
 -- cmms users' roles
-create role supervisor;
-create role inspector;
-create role employee;
-create role visitor;
+create role supervisor with noinherit;
+create role inspector with noinherit;
+create role employee with noinherit;
+create role visitor with noinherit;
 create role cmms_user with
-  nosuperuser
-  nocreatedb
-  nocreaterole
+  noinherit
   login
-  noreplication
-  nobypassrls
   password '123456'
   in role supervisor, inspector, employee, visitor
 ;
