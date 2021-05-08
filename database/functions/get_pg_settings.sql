@@ -10,6 +10,7 @@ create or replace function :function_name (
     begin
       select
         current_setting('application_name')::text || ',' ||
+        current_setting('client_encoding')::text || ',' ||
         session_user::text || ',' ||
         current_user::text || ',' ||
         current_setting('transaction_read_only')::text || ',' ||
