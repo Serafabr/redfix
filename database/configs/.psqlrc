@@ -4,5 +4,3 @@
 \pset null ' NULL '
 \encoding 'utf8'
 set cookie.session.person_id to '1';
-set plpgsql.extra_warnings to 'all';
-set plpgsql.extra_errors to 'all';
