@@ -14,7 +14,7 @@ create or replace function :function_name (
   security definer
   as $$
     declare
-      "personId" integer = get_person_id();
+      "personId" constant integer = get_person_id();
     begin
       update persons set
         username = "USERNAME",

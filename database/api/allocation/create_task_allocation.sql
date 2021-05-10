@@ -11,7 +11,7 @@ create or replace function :function_name (
   language plpgsql
   as $$
     declare
-      "personId" integer = get_person_id();
+      "personId" constant integer = get_person_id();
     begin
       insert into allocations (
         created_at,

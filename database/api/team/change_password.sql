@@ -9,7 +9,7 @@ create or replace function api.change_password (
   security definer
   as $$
     declare
-      "personId" integer = get_person_id();
+      "personId" constant integer = get_person_id();
     begin
       update persons set password_hash = crypt("newPassword", gen_salt('bf', 10)) where person_id = "personId";
       id = "personId";

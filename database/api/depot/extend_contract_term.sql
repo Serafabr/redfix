@@ -12,7 +12,7 @@ create or replace function :function_name (
     declare
       new_date_end alias for "dateEnd";
       old_date_end date;
-      "personId" integer = get_person_id();
+      "personId" constant integer = get_person_id();
     begin
       select date_end into old_date_end from depots where depot_id = "depotId";
 

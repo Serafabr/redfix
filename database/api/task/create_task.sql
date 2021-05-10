@@ -21,11 +21,9 @@ create or replace function :function_name (
   as $$
     declare
       task_initial_status integer;
-      "personId" integer;
-      "teamId" integer;
+      "personId" constant integer = get_person_id();
+      "teamId" constant integer = get_team_id();
     begin
-      "personId" = get_person_id(); 
-      "teamId" = get_team_id("personId");
       if array_length("assets", 1) is null
         then perform raise_exception(201);
       end if;

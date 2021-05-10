@@ -8,7 +8,6 @@ create or replace function :function_name (
 )
   language plpgsql
   as $$
-    declare
     begin
       delete from asset_tags where asset_id = "assetId" and tag_id = "tagId";
       id = "assetId";

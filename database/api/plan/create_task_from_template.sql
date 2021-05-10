@@ -12,11 +12,9 @@ create or replace function :function_name (
       assets integer[];
       new_task_id integer;
       "periodicityDays" integer;
-      "personId" integer;
-      "teamId" integer;
+      "personId" constant integer = get_person_id();
+      "teamId" constant integer = get_team_id();
     begin
-      "personId" = get_person_id();
-      "teamId" = get_team_id("personId");
       select ttt.* into tt
       from task_templates as ttt
       where ttt.task_template_id = "taskTemplateId";

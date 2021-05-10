@@ -20,7 +20,7 @@ drop database if exists :new_db_name;
 \i roles/administrator.sql
 
 -- create new database
-create database :new_db_name with owner administrator template template0 encoding utf8 allow_connections false;
+create database :new_db_name with owner administrator template template0 encoding utf8;
 
 -- connect to the new database as administrator
 \c postgresql://administrator:123456@localhost:5432/:new_db_name
