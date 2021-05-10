@@ -1,18 +1,24 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, ReactNode, Component, FunctionComponent } from 'react';
 import classNames from 'classnames';
-// Components
-import ArrowDown from '../../../assets/icons/arrow-down.svg';
+
 // Style
-import style from './Dropdown.module.scss';
+import style from './ButtonWithDropdown.module.scss';
+// Hooks
 import { useClickOutsideListener } from '../../../hooks';
 
+type ButtonProps = {
+  className: string,
+  onClick: () => void,
+  style: string,
+}
 
-type Props = {
+type ButtonWithDropdownProps = {
+  Button: FunctionComponent<ButtonProps>
   buttonStyle?: any,
 };
 
 
-export const Dropdown = ({ buttonStyle }: Props) => {
+export const ButtonWithDropdown = ({ Button, buttonStyle }: ButtonWithDropdownProps) => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   
@@ -40,12 +46,7 @@ export const Dropdown = ({ buttonStyle }: Props) => {
   // Render
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
-      <button className={dropdownButtonClasses} onClick={handleOnClick} style={buttonStyle}>
-        <div>Ordens de Serviço</div>
-        <div className={style.ButtonDownArrow}>
-          <img src={ArrowDown} alt="Ícone dropdown"/>
-        </div>
-      </button>
+      <Button className={dropdownButtonClasses} onClick={handleOnClick} style={buttonStyle} />
       {isOpen && (
         <div className={style.ListWrapper}>
           <li className={style.List}>
