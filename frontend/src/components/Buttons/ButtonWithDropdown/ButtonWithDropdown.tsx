@@ -6,6 +6,13 @@ import style from './ButtonWithDropdown.module.scss';
 // Hooks
 import { useClickOutsideListener } from '../../../hooks';
 
+type Item = {
+  id: string,
+  name: string,
+};
+
+type ListItem = Array<Item>;
+
 type ButtonProps = {
   className: string,
   onClick: () => void,
@@ -13,12 +20,17 @@ type ButtonProps = {
 }
 
 type ButtonWithDropdownProps = {
-  Button: FunctionComponent<ButtonProps>
+  Button: FunctionComponent<ButtonProps>,
+  listItems: ListItem,
   buttonStyle?: any,
 };
 
 
-export const ButtonWithDropdown = ({ Button, buttonStyle }: ButtonWithDropdownProps) => {
+export const ButtonWithDropdown = ({ 
+  Button, 
+  listItems, 
+  buttonStyle 
+}: ButtonWithDropdownProps) => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   
@@ -50,10 +62,15 @@ export const ButtonWithDropdown = ({ Button, buttonStyle }: ButtonWithDropdownPr
       {isOpen && (
         <div className={style.ListWrapper}>
           <li className={style.List}>
-            <ul className={style.Item}>Ordens de Serviço</ul>
-            <ul className={style.Item}>Equipamentos</ul>
-            <ul className={style.Item}>Edifícios</ul>
-            <ul className={style.Item}>Contratos</ul>
+            {listItems.map((item: Item) => (
+              <ul 
+                key={item.id} 
+                id={item.id} 
+                className={style.Item}
+              >
+                {item.name}
+              </ul>
+            ))}
           </li>
         </div>
       )}
