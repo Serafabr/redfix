@@ -5,6 +5,7 @@ import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
+import { ButtonWithDropdown } from '../../components/Buttons/ButtonWithDropdown/ButtonWithDropdown';
 
 type DashProps = {
   location: {
@@ -27,6 +28,14 @@ export const Dashboard = ({
         buttons={dashButtons}
       />
       <Dropdown />
+      <ButtonWithDropdown 
+        button={<Button text="Fechado" />}
+        openButton={<Button text="Aberto" />}
+        listItems={[
+          {id: '1', name: 'Teste1'},
+          {id: '2', name: 'Teste2'},
+        ]}
+      />
     </div>
   )
 }

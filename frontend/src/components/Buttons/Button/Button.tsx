@@ -16,6 +16,7 @@ type Props = {
   text?: string | null,
   buttonType?: ButtonType,
   buttonStyle?: any,
+  className?: string,
   iconComponent?: React.ComponentType<IconProps> | null,
   justIcon?: boolean,
   disabled?: boolean,
@@ -27,6 +28,7 @@ export const Button = ({
   text = null,
   buttonType = ButtonType.Primary,
   buttonStyle,
+  className,
   iconComponent: Icon = null,
   justIcon = false,
   disabled = false,
@@ -36,6 +38,7 @@ export const Button = ({
   // Button classes logic
   const btnClasses = classNames(
     style.Button, // Always
+    className,
     {
       [style.PrimaryButton]: buttonType === ButtonType.Primary,
       [style.SecondaryButton]: buttonType === ButtonType.Secondary,

@@ -1,4 +1,4 @@
-import { useState, useRef, ReactNode, Component, FunctionComponent } from 'react';
+import { useState, useRef, ReactNode, Component, FunctionComponent, ReactElement } from 'react';
 
 // Style
 import style from './ButtonWithDropdown.module.scss';
@@ -12,19 +12,16 @@ type Item = {
 
 type ListItem = Array<Item>;
 
-type ButtonProps = {
-  className: string,
-  onClick: () => void,
-}
-
 type ButtonWithDropdownProps = {
-  Button: FunctionComponent<ButtonProps>,
+  button: ReactElement,
+  openButton: ReactElement,
   listItems: ListItem,
 };
 
 
 export const ButtonWithDropdown = ({ 
-  Button, 
+  button: Button, 
+  openButton: OpenButton,
   listItems, 
 }: ButtonWithDropdownProps) => {
   // Control whether the dropdown is open or closed.
@@ -46,7 +43,13 @@ export const ButtonWithDropdown = ({
   // Render
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
-      <Button className={isOpen ? style.Opened : ""} onClick={handleOnClick}/>
+      <div onClick={handleOnClick} style={{ display: "inline-block" }}>
+        {isOpen ? (
+          OpenButton
+        ) : (
+          Button
+        )}
+      </div>
       {isOpen && (
         <div className={style.ListWrapper}>
           <li className={style.List}>
