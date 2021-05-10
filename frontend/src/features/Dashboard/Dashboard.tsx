@@ -4,6 +4,7 @@ import { Button, ButtonType } from '../../components/Buttons';
 import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
+import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
 
 type DashProps = {
   location: {
@@ -25,6 +26,7 @@ export const Dashboard = ({
         path={location.pathname}
         buttons={dashButtons}
       />
+      <Dropdown />
     </div>
   )
 }
