@@ -1,5 +1,4 @@
 import { useState, useRef, ReactNode, Component, FunctionComponent } from 'react';
-import classNames from 'classnames';
 
 // Style
 import style from './ButtonWithDropdown.module.scss';
@@ -16,20 +15,17 @@ type ListItem = Array<Item>;
 type ButtonProps = {
   className: string,
   onClick: () => void,
-  style: string,
 }
 
 type ButtonWithDropdownProps = {
   Button: FunctionComponent<ButtonProps>,
   listItems: ListItem,
-  buttonStyle?: any,
 };
 
 
 export const ButtonWithDropdown = ({ 
   Button, 
   listItems, 
-  buttonStyle 
 }: ButtonWithDropdownProps) => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
@@ -47,18 +43,10 @@ export const ButtonWithDropdown = ({
     setIsOpen((prevState) => (!prevState));
   };
   
-  // Change classes for the button, if the dropdown is open.
-  const dropdownButtonClasses = classNames(
-    style.DropdownButton,
-    {
-      [style.Opened]: isOpen,
-    }
-  );
-  
   // Render
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
-      <Button className={dropdownButtonClasses} onClick={handleOnClick} style={buttonStyle} />
+      <Button className={isOpen ? style.Opened : ""} onClick={handleOnClick}/>
       {isOpen && (
         <div className={style.ListWrapper}>
           <li className={style.List}>
