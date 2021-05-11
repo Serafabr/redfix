@@ -22,7 +22,7 @@ grant connect on database :new_db_name to cmms_user;
 -- grant usage on schemas
 grant usage on schema public to supervisor, inspector, employee, visitor;
 grant usage on schema api to supervisor, inspector, employee, visitor;
-grant usage on schema web to supervisor, inspector, employee, visitor;
+grant usage on schema web to cmms_user, supervisor, inspector, employee, visitor;
 
 -- set default privileges on objects in public schema
 alter default privileges in schema public grant select on tables to supervisor, inspector, employee, visitor;

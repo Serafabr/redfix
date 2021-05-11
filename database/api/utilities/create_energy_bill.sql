@@ -7,6 +7,7 @@ create or replace function :function_name (
 )
   language plpgsql
   strict
+  security definer
   as $$
     begin
       -- "on conflict do nothing" clause avoids error in case of bills that already are in the database
