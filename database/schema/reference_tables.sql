@@ -5,10 +5,10 @@ create table asset_categories (
 );
 
 insert into asset_categories values
-  (:'asset_category_facility'::integer, 'Complexo Arquitetônico do Senado Federal', 'Descrição do CASF.'),
-  (:'asset_category_electric'::integer, 'Sistema elétrico', 'Descrição do sistema elétrico.'),
-  (:'asset_category_air'::integer, 'Sistema de climatização', null),
-  (:'asset_category_hydro'::integer, 'Sistema hidráulico', null)
+  (:'asset_category_facility'::integer, 'Localidade', 'Ativos listados no sistema de endereçamentos'),
+  (:'asset_category_electric'::integer, 'Elétrica', 'Ativos do sistema elétrico'),
+  (:'asset_category_air'::integer, 'Climatização', 'Ativos do sistema de climatização'),
+  (:'asset_category_hydro'::integer, 'Hidráulica', 'Ativos do sistema hidráulico')
 ;
 
 create table asset_statuses (
