@@ -16,7 +16,7 @@ type ButtonProps = {
   text?: string | null,
   buttonType?: ButtonType,
   buttonStyle?: any,
-  className?: string,
+  className?: string | false,
   iconComponent?: React.ComponentType<IconProps> | null,
   justIcon?: boolean,
   disabled?: boolean,
@@ -46,6 +46,7 @@ export const Button = ({
       [style.Disabled]: disabled,
     }
   );
+  
   
   return (
     <button className={btnClasses} onClick={onClick} style={buttonStyle}>

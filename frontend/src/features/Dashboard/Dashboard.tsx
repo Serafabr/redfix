@@ -22,13 +22,8 @@ const dashButtons = [
     alignList={AlignList.Right}
   >
     {(onClick, isOpen) => {
-      if (isOpen) {
-        return (
-          <Button buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
-        );
-      }
       return (
-        <Button buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+        <Button className={isOpen && style.OpenMoreButton} buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
       );
     }}
   </ButtonWithDropdown>
