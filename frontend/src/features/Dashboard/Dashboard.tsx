@@ -29,13 +29,22 @@ export const Dashboard = ({
       />
       <Dropdown />
       <ButtonWithDropdown 
-        button={<Button text="Fechado" />}
-        openButton={<Button text="Aberto" />}
         listItems={[
           {id: '1', name: 'Teste1'},
           {id: '2', name: 'Teste2'},
         ]}
-      />
+      >
+        {(onClick, isOpen) => {
+          if (isOpen) {
+            return (
+              <Button text="Aberto" onClick={onClick} />
+            );
+          }
+          return (
+            <Button text="Fechado" onClick={onClick} />
+          );
+        }}
+      </ButtonWithDropdown>
     </div>
   )
 }

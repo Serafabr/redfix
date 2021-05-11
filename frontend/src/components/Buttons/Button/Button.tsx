@@ -12,7 +12,7 @@ type IconProps = {
 };
 
 // Button Props
-type Props = {
+type ButtonProps = {
   text?: string | null,
   buttonType?: ButtonType,
   buttonStyle?: any,
@@ -33,7 +33,7 @@ export const Button = ({
   justIcon = false,
   disabled = false,
   onClick
- }: Props) => {
+ }: ButtonProps) => {
   
   // Button classes logic
   const btnClasses = classNames(

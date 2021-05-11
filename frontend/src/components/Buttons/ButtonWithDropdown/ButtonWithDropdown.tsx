@@ -13,15 +13,13 @@ type Item = {
 type ListItem = Array<Item>;
 
 type ButtonWithDropdownProps = {
-  button: ReactElement,
-  openButton: ReactElement,
+  children: (onClick: () => void, isOpen: boolean) => ReactElement,
   listItems: ListItem,
 };
 
 
 export const ButtonWithDropdown = ({ 
-  button: Button, 
-  openButton: OpenButton,
+  children,
   listItems, 
 }: ButtonWithDropdownProps) => {
   // Control whether the dropdown is open or closed.
@@ -44,11 +42,7 @@ export const ButtonWithDropdown = ({
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
       <div onClick={handleOnClick} style={{ display: "inline-block" }}>
-        {isOpen ? (
-          OpenButton
-        ) : (
-          Button
-        )}
+        {children(handleOnClick, isOpen)}
       </div>
       {isOpen && (
         <div className={style.ListWrapper}>
