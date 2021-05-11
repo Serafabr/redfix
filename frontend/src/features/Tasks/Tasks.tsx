@@ -1,7 +1,8 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
 import { Button, ButtonType } from '../../components/Buttons';
+import { ButtonWithDropdown, AlignList } from '../../components/Buttons/ButtonWithDropdown/ButtonWithDropdown';
 
-import style from './Task.module.scss';
+import style from './Tasks.module.scss';
 
 import { Plus as PlusIcon } from '../../components/Icons';
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
@@ -15,7 +16,21 @@ type TasksProps = {
 
 const taskButtons = [
   <Button text="Nova tarefa" iconComponent={PlusIcon} />,
-  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={MoreIcon} />
+  <ButtonWithDropdown 
+    listItems={[
+      {id: '1', name: 'Customizar tabela'},
+      {id: '2', name: 'Exportar para CSV'},
+      {id: '3', name: 'Expotar para Excel'},
+      {id: '4', name: 'Exportar para PDF'},
+    ]}
+    alignList={AlignList.Right}
+  >
+    {(onClick, isOpen) => {
+      return (
+        <Button className={isOpen && style.OpenMoreButton} buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+      );
+    }}
+  </ButtonWithDropdown>
 ];
 
 export const Tasks = ({
