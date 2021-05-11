@@ -27,7 +27,7 @@ const taskButtons = [
   >
     {(onClick, isOpen) => {
       return (
-        <Button className={isOpen && style.OpenMoreButton} buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+        <Button buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
       );
     }}
   </ButtonWithDropdown>
@@ -43,6 +43,9 @@ export const Tasks = ({
         path={location.pathname}
         buttons={taskButtons}
       />
+      <div className={style.Card}>
+        Card
+      </div>
     </div>
   )
 }

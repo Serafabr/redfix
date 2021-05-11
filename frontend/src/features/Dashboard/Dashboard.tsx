@@ -1,5 +1,5 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
-import { Button, ButtonType } from '../../components/Buttons';
+import { Button, ButtonType, FilterDropdown } from '../../components/Buttons';
 
 import style from './Dashboard.module.scss';
 
@@ -40,24 +40,6 @@ export const Dashboard = ({
         buttons={dashButtons}
       />
       <Dropdown />
-      <ButtonWithDropdown 
-        listItems={[
-          {id: '1', name: 'Teste1'},
-          {id: '2', name: 'Teste2'},
-        ]}
-        alignList={AlignList.Left}
-      >
-        {(onClick, isOpen) => {
-          if (isOpen) {
-            return (
-              <Button text="Aberto" onClick={onClick} />
-            );
-          }
-          return (
-            <Button text="Fechado" onClick={onClick} />
-          );
-        }}
-      </ButtonWithDropdown>
     </div>
   )
 }
