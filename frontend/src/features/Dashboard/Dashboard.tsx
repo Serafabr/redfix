@@ -14,7 +14,24 @@ type DashProps = {
 };
 
 const dashButtons = [
-  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={MoreIcon} />
+  <ButtonWithDropdown 
+    listItems={[
+      {id: '1', name: 'Teste1'},
+      {id: '2', name: 'Teste2'},
+    ]}
+    alignList={AlignList.Right}
+  >
+    {(onClick, isOpen) => {
+      if (isOpen) {
+        return (
+          <Button buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+        );
+      }
+      return (
+        <Button buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+      );
+    }}
+  </ButtonWithDropdown>
 ];
 
 export const Dashboard = ({
