@@ -44,7 +44,8 @@ export const Tasks = ({
         buttons={taskButtons}
       />
       <div className={style.Card}>
-        Card
+        <div className={style.Buttons}>Buttons</div>
+        <div className={style.Content}>Content</div>
       </div>
     </div>
   )
