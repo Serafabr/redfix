@@ -5,7 +5,7 @@ import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
-import { ButtonWithDropdown } from '../../components/Buttons/ButtonWithDropdown/ButtonWithDropdown';
+import { ButtonWithDropdown, AlignList } from '../../components/Buttons/ButtonWithDropdown/ButtonWithDropdown';
 
 type DashProps = {
   location: {
@@ -33,6 +33,7 @@ export const Dashboard = ({
           {id: '1', name: 'Teste1'},
           {id: '2', name: 'Teste2'},
         ]}
+        alignList={AlignList.Left}
       >
         {(onClick, isOpen) => {
           if (isOpen) {

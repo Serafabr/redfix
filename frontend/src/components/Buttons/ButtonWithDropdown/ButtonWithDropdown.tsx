@@ -5,6 +5,8 @@ import style from './ButtonWithDropdown.module.scss';
 // Hooks
 import { useClickOutsideListener } from '../../../hooks';
 
+export enum AlignList { Left, Right };
+
 type Item = {
   id: string,
   name: string,
@@ -15,12 +17,14 @@ type ListItem = Array<Item>;
 type ButtonWithDropdownProps = {
   children: (onClick: () => void, isOpen: boolean) => ReactElement,
   listItems: ListItem,
+  alignList?: AlignList
 };
 
 
 export const ButtonWithDropdown = ({ 
   children,
   listItems, 
+  alignList = AlignList.Left,
 }: ButtonWithDropdownProps) => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
@@ -43,7 +47,7 @@ export const ButtonWithDropdown = ({
     <div className={style.Dropdown} ref={wrapperRef}>
       {children(handleOnClick, isOpen)}
       {isOpen && (
-        <div className={style.ListWrapper}>
+        <div className={`${style.ListWrapper} ${alignList === AlignList.Right ? style.Right : style.Left}`}>
           <li className={style.List}>
             {listItems.map((item: Item) => (
               <ul 
