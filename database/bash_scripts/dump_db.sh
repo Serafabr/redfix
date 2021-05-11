@@ -8,9 +8,11 @@ pg_dump \
 --create \
 --clean \
 --if-exists \
---dbname=dev \
+--quote-all-identifiers \
+--serializable-deferrable \
 --encoding=utf8 \
 --file=db.dump.sql \
+--dbname=dev \
 --host=localhost \
 --port=5432 \
 --username=administrator \
@@ -20,10 +22,11 @@ pg_dump \
 pg_dumpall \
 --clean \
 --if-exists \
+--quote-all-identifiers \
 --roles-only \
---database=dev \
 --encoding=utf8 \
 --file=roles.dump.sql \
+--database=dev \
 --host=localhost \
 --port=5432 \
 --username=administrator \
