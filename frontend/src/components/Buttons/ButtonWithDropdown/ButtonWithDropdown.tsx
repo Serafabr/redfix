@@ -41,9 +41,7 @@ export const ButtonWithDropdown = ({
   // Render
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
-      <div onClick={handleOnClick} style={{ display: "inline-block" }}>
-        {children(handleOnClick, isOpen)}
-      </div>
+      {children(handleOnClick, isOpen)}
       {isOpen && (
         <div className={style.ListWrapper}>
           <li className={style.List}>
