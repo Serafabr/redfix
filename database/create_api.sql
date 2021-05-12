@@ -6,22 +6,6 @@ rollback;
 
 begin transaction;
 
--- create auxiliary objects
--- nested lists
-\i schema/lists/nested_lists/get_reads_of_monitor.sql
-\i schema/lists/nested_lists/get_task_templates_of_plan.sql
--- lists
-\i schema/lists/get_assets_of_location.sql
-\i schema/lists/get_assets_of_task.sql
-\i schema/lists/get_events_of_task.sql
-\i schema/lists/get_files_of_asset.sql
-\i schema/lists/get_monitors_of_asset.sql
-\i schema/lists/get_plans_of_asset.sql
-\i schema/lists/get_files_of_task.sql
-\i schema/lists/get_tasks_of_asset.sql
-\i schema/lists/get_tasks_of_project.sql
-
--- create api
 -- allocation
 \i api/allocation/approve_task_allocations.sql
 \i api/allocation/create_task_allocation.sql
@@ -84,13 +68,6 @@ begin transaction;
 -- firm
 \i api/firm/create_firm.sql
 \i api/firm/modify_firm.sql
--- options
-\i api/options/asset_options.sql
-\i api/options/create_task_status.sql
-\i api/options/depot_options.sql
-\i api/options/person_options.sql
-\i api/options/project_options.sql
-\i api/options/team_options.sql
 -- plan
 \i api/plan/add_asset_to_task_template.sql
 \i api/plan/create_plan.sql
