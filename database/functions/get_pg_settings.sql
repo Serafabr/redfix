@@ -10,7 +10,7 @@ create or replace function :function_name (
     begin
       select jsonb_build_object(
         'applicationName', current_setting('application_name')::text,
-        'clientEncoding', current_setting('client_encoding')::text,
+        'clientEncoding', pg_client_encoding()::text,
         'sessionUser', session_user::text,
         'currentRole', current_role::text,
         'personId', coalesce(current_setting('cookie.session.person_id',true),'_'),

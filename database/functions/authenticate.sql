@@ -20,34 +20,33 @@ create or replace function :function_name (
         when input_string ~* '^.+@.+\..+$' then 'email'
         else 'username'
       end into column_to_search;
-      select
-        jsonb_build_object(
-          'personId', p.person_id,
-          'username', p.username,
-          'cpf', p.cpf,
-          'email', p.email,
-          'name', p.name,
-          'role', p.person_role,
-          'teamId', p.team_id,
-          'teams', coalesce_list((
-            select jsonb_agg(jsonb_build_object(
-              'teamId', t.team_id,
-              'name', t.name
-            ) order by t.name)
-            from team_persons as tp
-            inner join teams as t using (team_id)
-            where tp.person_id = p.person_id and t.is_active
-          )),
-          'tasks', coalesce_list((
-            select jsonb_agg(jsonb_build_object(
-              'taskId', t.task_id,
-              'title', t.title
-            ) order by t.task_id)
-            from person_tasks as pt
-            inner join tasks as t using (task_id)
-            where pt.person_id = p.person_id
-          ))
-        ) into "authenticatedPerson"
+      select jsonb_build_object(
+        'personId', p.person_id,
+        'username', p.username,
+        'cpf', p.cpf,
+        'email', p.email,
+        'name', p.name,
+        'role', p.person_role,
+        'teamId', p.team_id,
+        'teams', coalesce_list((
+          select jsonb_agg(jsonb_build_object(
+            'teamId', t.team_id,
+            'name', t.name
+          ) order by t.name)
+          from team_persons as tp
+          inner join teams as t using (team_id)
+          where tp.person_id = p.person_id and t.is_active
+        )),
+        'tasks', coalesce_list((
+          select jsonb_agg(jsonb_build_object(
+            'taskId', t.task_id,
+            'title', t.title
+          ) order by t.task_id)
+          from person_tasks as pt
+          inner join tasks as t using (task_id)
+          where pt.person_id = p.person_id
+        ))
+      ) into "authenticatedPerson"
       from persons as p
       where input_string = (
         case column_to_search
