@@ -267,7 +267,8 @@ create table allocations (
   approved_at timestamptz,
   approved_by integer references persons (person_id),
   -- other columns
-  note text
+  note text,
+  constraint check_source_is_not_also_target check (source_depot_id <> target_depot_id)
 );
 
 create table invoices (

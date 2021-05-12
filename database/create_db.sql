@@ -80,6 +80,7 @@ create extension if not exists pgcrypto;
 \i triggers/check_project_is_active.sql
 \i triggers/log_data_change.sql
 \i triggers/publish_to_channel.sql
+\i triggers/validate_allocation.sql
 \i triggers/validate_asset_location.sql
 \i triggers/validate_asset_parent.sql
 \i triggers/validate_person_team.sql

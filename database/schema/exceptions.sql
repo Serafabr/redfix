@@ -21,6 +21,7 @@ insert into exceptions values
   -- 401-399: plans
   (401, 'Rotina com periodicidade definida não permite executar create_task_from_template'),
   -- 501-599: allocations and billings
+  (501, 'Alocação inválida'),
   -- 601-699: teams and firms
   (601, 'Usuário indefinido'),
   (602, 'Usuário sem equipe definida'),
