@@ -48,13 +48,13 @@ create or replace function :function_name (
         ))
       ) into "authenticatedPerson"
       from persons as p
-      where input_string = (
+      where (
         case column_to_search
-          when 'cpf' then p.cpf 
-          when 'email' then p.email
-          when 'username' then p.username
+          when 'cpf' then p.cpf = input_string and p.password_hash = crypt("password", p.password_hash)
+          when 'email' then p.email = input_string and p.password_hash = crypt("password", p.password_hash)
+          when 'username' then p.username = input_string and p.password_hash = crypt("password", p.password_hash)
         end
-      ) and p.password_hash = crypt("password", p.password_hash);
+      );
     end;
   $$
 ;
