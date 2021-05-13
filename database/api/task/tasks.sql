@@ -33,7 +33,33 @@ create or replace view api.tasks as
       select jsonb_agg(jsonb_build_object(
         'assetId', a.asset_id,
         'assetSf', a.asset_sf,
-        'name', a.name
+        'name', a.name,
+        'monitors', coalesce_list((
+          select jsonb_agg(jsonb_build_object(
+            'monitorId', m.monitor_id,
+            'name', m.name,
+            'description', m.description,
+            'monitorCategoryId', mc.monitor_category_id,
+            'monitorCategoryText', mc.monitor_category_text,
+            'unit', m.unit,
+            'lowerLimit', m.lower_limit,
+            'upperLimit', m.upper_limit,
+            'reads', coalesce_list((
+              -- list of monitor reads
+              select jsonb_agg(jsonb_build_object(
+                'monitorReadId', r.monitor_read_id,
+                'readAt', r.read_at,
+                'readValue', r.read_value,
+                'note', r.note
+              ) order by r.read_at)
+              from monitor_reads as r
+              where r.monitor_id = m.monitor_id
+            ))
+          ) order by m.name)
+          from monitors as m
+          inner join monitor_categories as mc using (monitor_category_id)
+          where m.asset_id = a.asset_id
+        ))
       ) order by a.asset_sf)
       from task_assets as ta
       inner join assets as a using (asset_id)
