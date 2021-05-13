@@ -118,9 +118,6 @@
 \i api_tests/files/delete_avatar.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/files/delete_file.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
--- options
-\i api_tests/options/create_task_status.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-
 -- utilities
 \i api_tests/utilities/create_water_bill.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/utilities/modify_water_bill.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
