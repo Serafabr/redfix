@@ -33,8 +33,13 @@ describe('Authentication tests', () => {
   });
 
   test('Logout success', async () => {
-    const response = await got.get(logoutURL);
-    expect(response.statusCode).toBe(200);
+    const response = await got.get(
+      logoutURL,
+      {
+        throwHttpErrors: false,
+      }
+    );
+    expect(response.statusCode).toBe(401);
   });
 
 });

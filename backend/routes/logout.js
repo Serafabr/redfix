@@ -5,7 +5,7 @@ router.get(
   (req, res) => {
     req.logout();
     req.session = null;
-    res.json({ logoutSuccess: true });
+    res.status(401).end();
   }
 );
 
