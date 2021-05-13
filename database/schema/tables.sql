@@ -13,7 +13,7 @@ create table persons (
   name text not null,
   phone text not null,
   cellphone text,
-  password_hash text not null default '',
+  password_hash text,
   person_role text not null references person_roles (person_role) default 'visitor',
   team_id integer references teams (team_id),
   avatar_uuid uuid

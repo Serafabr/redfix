@@ -28,16 +28,10 @@ COOKIE_KEY_2=secret2
 COOKIE_MAX_AGE=604800000
 
 # Sessions
-# SESSION_SOURCE:            default or cookie
-# SESSION_DEFAULT_PERSON_ID: a person_id from the database
-# SESSION_DEFAULT_ROLE:      supervisor, inspector, employee or visitor
-# SESSION_VISITOR_PERSON_ID: must be left empty
-# SESSION_VISITOR_ROLE:      visitor
-SESSION_SOURCE=default
+# SESSION_DEFAULT_PERSON_ID:         1 (for development and tests) or '' (for production)
+# SESSION_DEFAULT_ROLE:              supervisor, inspector, employee, visitor or '' (empty string disables unauthenticated reads)
 SESSION_DEFAULT_PERSON_ID=1
 SESSION_DEFAULT_ROLE=supervisor
-SESSION_VISITOR_PERSON_ID=
-SESSION_VISITOR_ROLE=visitor
 
 # PostGraphile
 # POSTGRAPHILE_SCHEMAS: comma-separated list of database schemas that contain GraphQL API objects

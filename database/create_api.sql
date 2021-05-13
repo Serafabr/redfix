@@ -108,6 +108,7 @@ begin transaction;
 \i api/team/change_password.sql
 \i api/team/create_person.sql
 \i api/team/create_team.sql
+\i api/team/deactivate_person.sql
 \i api/team/deactivate_team.sql
 \i api/team/modify_myself.sql
 \i api/team/modify_person.sql
