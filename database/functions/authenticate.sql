@@ -12,14 +12,15 @@ create or replace function :function_name (
   security definer
   as $$
     declare
-      input_string alias for "username";
-      column_to_search text;
+      input_string constant text = "username";
+      column_to_search constant text = (
+        select case
+          when input_string ~* '^\d{11}$' then 'cpf'
+          when input_string ~* '^.+@.+\..+$' then 'email'
+          else 'username'
+        end
+      );
     begin
-      select case
-        when input_string ~* '^\d{11}$' then 'cpf'
-        when input_string ~* '^.+@.+\..+$' then 'email'
-        else 'username'
-      end into column_to_search;
       select jsonb_build_object(
         'personId', p.person_id,
         'username', p.username,
