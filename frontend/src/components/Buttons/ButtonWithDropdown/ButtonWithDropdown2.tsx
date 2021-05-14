@@ -42,11 +42,13 @@ export const ButtonWithDropdown = ({
     <div className={style.Dropdown} ref={wrapperRef}>
       {children(handleOnClick, isOpen)}
       {isOpen && (
-        <SelectBox 
-          setIsOpen={setIsOpen}
-          items={listItems}
-          clickOutsideRef={wrapperRef}
-        />
+        <div style={{ width: "180px" }}>
+          <SelectBox 
+            setIsOpen={setIsOpen}
+            items={listItems}
+            clickOutsideRef={wrapperRef}
+          />
+        </div>
         // <div className={`${style.ListWrapper} ${alignList === AlignList.Right ? style.Right : style.Left}`}>
         //   <li className={style.List}>
         //     {listItems.map((item: Item) => (

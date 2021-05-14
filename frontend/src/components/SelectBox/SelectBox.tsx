@@ -28,7 +28,7 @@ export const SelectBox = ({
   useClickOutsideListener(clickOutsideRef, handleOutsideClick);
   
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative"}}>
       <div className={style.SelectBox}>
         <div className={style.ListWrapper}>
           {searchable && (
