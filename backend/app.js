@@ -38,8 +38,6 @@ app.use(paths.upload, uploadRoute);
 app.use(paths.download, downloadRoute);
 app.use(paths.redmine, redmineRoute);
 app.use(paths.admin, adminRoute);
-
-// PostGraphile route
 app.use(postgraphile);
 
 // 404 Error
