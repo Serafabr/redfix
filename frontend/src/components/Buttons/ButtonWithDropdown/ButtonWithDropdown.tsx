@@ -44,7 +44,7 @@ export const ButtonWithDropdown = ({
     <div className={style.Dropdown} ref={wrapperRef}>
       {children(handleOnClick, isOpen)}
       {isOpen && (
-        <div className={`${alignList === AlignList.Right ? style.Right : style.Left}`} style={{ width: `${boxWidth}px` }}>
+        <div className={`${style.ListWrapper} ${alignList === AlignList.Right ? style.Right : style.Left}`} style={{ width: `${boxWidth}px` }}>
           <SelectBox 
             setIsOpen={setIsOpen}
             items={listItems}

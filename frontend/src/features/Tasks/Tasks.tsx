@@ -26,6 +26,7 @@ const taskButtons = [
       {id: '4', name: 'Exportar para PDF'},
     ]}
     alignList={AlignList.Right}
+    boxWidth={160}
   >
     {(onClick, isOpen) => {
       return (
@@ -49,6 +50,14 @@ export const Tasks = ({
         <div className={style.Buttons}>
           <ButtonWithDropdown 
             listItems={[
+              {id: '1', name: 'Customizar tabela11112313123'},
+              {id: '2', name: 'Exportar para CSV'},
+              {id: '3', name: 'Expotar para Excel'},
+              {id: '4', name: 'Exportar para PDF'},
+              {id: '1', name: 'Customizar tabela'},
+              {id: '2', name: 'Exportar para CSV'},
+              {id: '3', name: 'Expotar para Excel'},
+              {id: '4', name: 'Exportar para PDF'},
               {id: '1', name: 'Customizar tabela'},
               {id: '2', name: 'Exportar para CSV'},
               {id: '3', name: 'Expotar para Excel'},
