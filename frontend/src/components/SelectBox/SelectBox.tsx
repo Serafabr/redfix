@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { useClickOutsideListener } from '../../hooks';
 import style from './SelectBox.module.scss';
 
