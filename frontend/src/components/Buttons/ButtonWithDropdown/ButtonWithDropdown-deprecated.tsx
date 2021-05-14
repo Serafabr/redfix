@@ -4,7 +4,6 @@ import { useState, useRef, ReactNode, Component, FunctionComponent, ReactElement
 import style from './ButtonWithDropdown.module.scss';
 // Hooks
 import { useClickOutsideListener } from '../../../hooks';
-import { SelectBox } from '../../SelectBox/SelectBox';
 
 export enum AlignList { Left, Right };
 
@@ -30,8 +29,14 @@ export const ButtonWithDropdown = ({
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   
+  // Callback that will be executed if you click outside an element.
+  const handleOutsideClick = () => {
+    setIsOpen(false);
+  }
+  
   // Hook that executes a callback if you click outside an element.
   const wrapperRef = useRef(null);
+  useClickOutsideListener(wrapperRef, handleOutsideClick);
   
   const handleOnClick = () => {
     setIsOpen((prevState) => (!prevState));
@@ -42,26 +47,19 @@ export const ButtonWithDropdown = ({
     <div className={style.Dropdown} ref={wrapperRef}>
       {children(handleOnClick, isOpen)}
       {isOpen && (
-        <div style={{ width: "180px" }}>
-          <SelectBox 
-            setIsOpen={setIsOpen}
-            items={listItems}
-            clickOutsideRef={wrapperRef}
-          />
+        <div className={`${style.ListWrapper} ${alignList === AlignList.Right ? style.Right : style.Left}`}>
+          <li className={style.List}>
+            {listItems.map((item: Item) => (
+              <ul 
+                key={item.id} 
+                id={item.id} 
+                className={style.Item}
+              >
+                {item.name}
+              </ul>
+            ))}
+          </li>
         </div>
-        // <div className={`${style.ListWrapper} ${alignList === AlignList.Right ? style.Right : style.Left}`}>
-        //   <li className={style.List}>
-        //     {listItems.map((item: Item) => (
-        //       <ul 
-        //         key={item.id} 
-        //         id={item.id} 
-        //         className={style.Item}
-        //       >
-        //         {item.name}
-        //       </ul>
-        //     ))}
-        //   </li>
-        // </div>
       )}
     </div>
   )

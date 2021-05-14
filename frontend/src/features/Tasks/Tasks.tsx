@@ -1,6 +1,6 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
 import { Button, ButtonType, FilterDropdown, FilterButton } from '../../components/Buttons';
-import { ButtonWithDropdown } from '../../components/Buttons/ButtonWithDropdown/ButtonWithDropdown2';
+import { ButtonWithDropdown, AlignList } from '../../components/Buttons';
 
 import style from './Tasks.module.scss';
 
@@ -25,7 +25,7 @@ const taskButtons = [
       {id: '3', name: 'Expotar para Excel'},
       {id: '4', name: 'Exportar para PDF'},
     ]}
-    // alignList={AlignList.Right}
+    alignList={AlignList.Right}
   >
     {(onClick, isOpen) => {
       return (
@@ -53,12 +53,9 @@ export const Tasks = ({
               {id: '2', name: 'Exportar para CSV'},
               {id: '3', name: 'Expotar para Excel'},
               {id: '4', name: 'Exportar para PDF'},
-              {id: '1', name: 'Customizar tabela'},
-              {id: '2', name: 'Exportar para CSV'},
-              {id: '3', name: 'Expotar para Excel'},
-              {id: '4', name: 'Exportar para PDF'},
             ]}
-            // alignList={AlignList.Left}
+            alignList={AlignList.Left}
+            boxWidth={180}
           >
             {(onClick, isOpen) => (
               <FilterButton 
