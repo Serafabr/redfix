@@ -34,9 +34,9 @@ comment on schema api is 'Contain views and functions that define the GraphQL AP
 create schema web;
 comment on schema web is 'Contain functions that can be executed from specific endpoints of the web server';
 
--- create roles and define privileges
+-- create roles and define default privileges
 \i roles/roles.sql
-\i roles/privileges.sql
+\i roles/default_privileges.sql
 \i roles/person_roles.sql
 
 -- begin transaction
@@ -61,6 +61,9 @@ create extension if not exists pgcrypto;
 \i schema/tables.sql
 \i schema/files_tables.sql
 \i schema/utilities.sql
+
+-- specific privileges
+\i roles/specific_privileges.sql
 
 -- create functions
 \i functions/authenticate.sql
