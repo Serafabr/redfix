@@ -22,12 +22,15 @@ passport.use(new LocalStrategy(
 ));
 
 passport.serializeUser((user, done) => {
-  const serializedUser = `${user.personId.toString()}-${user.role}`; // See cmms-session middleware
+  const serializedUser = JSON.stringify({
+    personId: user.personId,
+    role: user.role,
+  });
+  // See cmms-session middleware
   done(null, serializedUser);
 });
 
-// deserializeUser does not run for unauthenticated user, therefore, cmms-session middleware
-// is necessary to populate req.cmmsSession with visitor's data
+// deserializeUser does not run when users are unauthenticated. See cmms-session middleware
 passport.deserializeUser(async (serializedUser, done) => {
   done(null, serializedUser);
 });

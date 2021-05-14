@@ -4,7 +4,7 @@ const path = require('path');
 const paths = require('../paths');
 
 morgan.token('separator', req => '-'.repeat(100));
-morgan.token('session', req => `${req.cmmsSession.personId}-${req.cmmsSession.role}`);
+morgan.token('session', req => `${req.cmmsSession.personId === '' ? '-' : req.cmmsSession.personId}\t${req.cmmsSession.role === '' ? '-' : req.cmmsSession.role}`);
 morgan.token('body', req => JSON.stringify(req.baseUrl === paths.login ? { username: req.body.username, password: '******' } : req.body));
 
 const templateForFile = `:date[iso]\t:remote-addr\t:method\t:url\t:status\t:response-time\t:session\t:body`;
