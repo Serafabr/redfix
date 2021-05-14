@@ -1,5 +1,5 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
-import { Button, ButtonType } from '../../components/Buttons';
+import { Button, ButtonType, FilterDropdown } from '../../components/Buttons';
 import { ButtonWithDropdown, AlignList } from '../../components/Buttons/ButtonWithDropdown/ButtonWithDropdown';
 
 import style from './Tasks.module.scss';
@@ -44,7 +44,9 @@ export const Tasks = ({
         buttons={taskButtons}
       />
       <div className={style.Card}>
-        <div className={style.Buttons}>Buttons</div>
+        <div className={style.Buttons}>
+          <FilterDropdown />
+        </div>
         <div className={style.Content}>Content</div>
       </div>
     </div>
