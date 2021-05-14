@@ -10,7 +10,7 @@ type ButtonProps = {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
 
-export const FilterDropdown = ({
+export const FilterButton = ({
   text,
   buttonStyle,
   className,
