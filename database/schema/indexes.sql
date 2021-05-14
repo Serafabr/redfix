@@ -53,8 +53,6 @@ create index on plans (depot_id);
 create index on plan_files (plan_id);
 create index on plan_files (uuid);
 
-create index on prices (supply_id);
-
 create index on project_files (project_id);
 create index on project_files (uuid);
 
