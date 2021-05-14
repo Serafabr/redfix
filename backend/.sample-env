@@ -5,7 +5,7 @@ NODE_ENV=development
 HTTP_PORT=3001
 
 # Requests logging
-# LOG_OUTPUT:    'none', 'console', 'file' or 'both'
+# LOG_OUTPUT:      'none', 'console', 'file' or 'both'
 LOG_OUTPUT=console
 
 # PostgreSQL connection and settings
@@ -28,7 +28,7 @@ COOKIE_KEY_2=secret2
 COOKIE_MAX_AGE=604800000
 
 # Sessions
-# SESSION_DEFAULT_PERSON_ID:    An integer (for development and tests) or empty value (for production)
+# SESSION_DEFAULT_PERSON_ID:    an integer (for development and tests) or empty value (for production)
 # SESSION_DEFAULT_ROLE:         'supervisor', 'inspector', 'employee', 'visitor' or empty value (empty value disables unauthenticated users)
 SESSION_DEFAULT_PERSON_ID=1
 SESSION_DEFAULT_ROLE=supervisor
