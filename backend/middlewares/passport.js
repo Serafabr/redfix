@@ -26,13 +26,13 @@ passport.serializeUser((user, done) => {
     personId: user.personId,
     role: user.role,
   });
-  // See cmms-session middleware
   done(null, serializedUser);
 });
 
-// deserializeUser does not run when users are unauthenticated. See cmms-session middleware
+// deserializeUser does not run when users are unauthenticated (see cmms-session middleware)
 passport.deserializeUser(async (serializedUser, done) => {
-  done(null, serializedUser);
+  const deserializedUser = JSON.parse(serializedUser);
+  done(null, deserializedUser);
 });
 
 module.exports = passport;
