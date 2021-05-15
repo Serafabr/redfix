@@ -1,7 +1,6 @@
 // Middleware to set personId and role of unauthenticated users
 module.exports =  (req, res, next) => {
-  const { SESSION_DEFAULT_PERSON_ID, SESSION_DEFAULT_ROLE } = process.env;
-  const { personId, role } = req.session.populated ? req.session.passport.user : { personId: SESSION_DEFAULT_PERSON_ID, role: SESSION_DEFAULT_ROLE };
-  req.cmmsSession = { personId, role };
-  role !== '' ? next() : res.status(401).end();
+  if(!req.session.populated) req.user = { personId: process.env.SESSION_DEFAULT_PERSON_ID, role: process.env.SESSION_DEFAULT_ROLE };
+  if(req.user.role === '') res.status(401).end();
+  next();
 }

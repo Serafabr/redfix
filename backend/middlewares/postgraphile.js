@@ -50,7 +50,7 @@ module.exports = postgraphile(
     // exportGqlSchemaPath: process.env.NODE_ENV === 'development' ? paths.schemaGraphQL : false,
     // sortExport: true,
     pgSettings: async req => {
-      const { personId, role } = req.cmmsSession;
+      const { personId, role } = req.user;
       const isTransactionReadOnly = req.body && /^query/.test(req.body.query);
       return {
         'role': role,
