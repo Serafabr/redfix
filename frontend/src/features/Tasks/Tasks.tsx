@@ -64,7 +64,8 @@ export const Tasks = ({
               {id: '4', name: 'Exportar para PDF'},
             ]}
             alignList={AlignList.Left}
-            boxWidth={180}
+            boxWidth={220}
+            searchable={true}
           >
             {(onClick, isOpen) => (
               <FilterButton 

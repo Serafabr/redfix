@@ -20,6 +20,7 @@ type ButtonWithDropdownProps = {
   listItems: ListItem,
   alignList?: AlignList
   boxWidth?: number,
+  searchable?: boolean,
 };
 
 
@@ -28,6 +29,7 @@ export const ButtonWithDropdown = ({
   listItems, 
   alignList = AlignList.Left,
   boxWidth = 160,
+  searchable = false,
 }: ButtonWithDropdownProps) => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
@@ -49,6 +51,7 @@ export const ButtonWithDropdown = ({
             setIsOpen={setIsOpen}
             items={listItems}
             clickOutsideRef={wrapperRef}
+            searchable={searchable}
           />
         </div>
       )}
