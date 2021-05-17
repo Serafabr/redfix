@@ -3,7 +3,7 @@
 select api.upload_plan_files(
   :new_plan_id,
   array[(
-    gen_random_uuid(),
+    ext.gen_random_uuid(),
     'filename',
     1000,
     null,

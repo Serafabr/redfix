@@ -24,7 +24,7 @@ create or replace function :function_name (
         "name",
         "phone",
         "cellphone",
-        crypt('123456', get_random_salt()), 
+        ext.crypt('123456', get_random_salt()), 
         "personRole",
         "teamId"
       ) returning person_id into id;

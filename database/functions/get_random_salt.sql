@@ -7,7 +7,7 @@ create or replace function :function_name (
   language plpgsql
   as $$
     begin
-      select gen_salt('bf', 8) into random_salt;
+      select ext.gen_salt('bf', 8) into random_salt;
     end;
   $$
 ;

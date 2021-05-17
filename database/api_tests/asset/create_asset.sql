@@ -1,7 +1,7 @@
 \set tested_mutation api.create_asset
 
 select api.create_asset(
-  'ELET-ET-' || substr(gen_random_uuid()::text,1,8),
+  'ELET-ET-' || substr(ext.gen_random_uuid()::text,1,8),
   'Estações Transformadoras',
   2,
   102

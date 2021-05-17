@@ -6,6 +6,7 @@ revoke all on database :new_db_name from public, cmms_user, supervisor, inspecto
 
 -- revoke all privileges on schemas from all roles
 revoke all on schema public from public, cmms_user, supervisor, inspector, employee, visitor;
+revoke all on schema ext from public, cmms_user, supervisor, inspector, employee, visitor;
 revoke all on schema api from public, cmms_user, supervisor, inspector, employee, visitor;
 revoke all on schema web from public, cmms_user, supervisor, inspector, employee, visitor;
 

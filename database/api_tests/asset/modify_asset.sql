@@ -2,7 +2,7 @@
 
 select api.modify_asset(
   :new_asset_id,
-  'ELET-ET-' || substr(gen_random_uuid()::text,1,8),
+  'ELET-ET-' || substr(ext.gen_random_uuid()::text,1,8),
   'name',
   1,
   1

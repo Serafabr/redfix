@@ -29,6 +29,8 @@ create database :new_db_name with owner administrator template template0 encodin
 \i configs/.psqlrc
 
 -- create additional schemas
+create schema ext;
+comment on schema ext is 'Contain objects created with CREATE EXTENSION';
 create schema api;
 comment on schema api is 'Contain views and functions that define the GraphQL API';
 create schema web;
@@ -43,7 +45,7 @@ comment on schema web is 'Contain functions that can be executed from specific e
 begin transaction;
 
 -- create extensions
-create extension if not exists pgcrypto;
+create extension if not exists pgcrypto with schema ext cascade;
 
 -- create exceptions
 \i schema/exceptions.sql

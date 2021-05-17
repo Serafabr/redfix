@@ -3,7 +3,7 @@
 select api.upload_billing_files(
   :new_billing_id,
   array[(
-    gen_random_uuid(),
+    ext.gen_random_uuid(),
     'filename',
     1000,
     null,
