@@ -78,6 +78,7 @@ create extension if not exists pgcrypto;
 
 -- create views
 \i schema/views/api_docs.sql
+\i schema/views/not_indexed_fks.sql
 \i schema/views/quantities.sql
 
 -- create triggers
