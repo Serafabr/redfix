@@ -1,6 +1,6 @@
 drop view if exists not_indexed_fks;
 create or replace view not_indexed_fks as
-  -- https://www.graphile.org/postgraphile/postgresql-indexes/
+  -- based on: https://www.graphile.org/postgraphile/postgresql-indexes/
   with indexed_tables as (
     select
       ns.nspname,
@@ -31,9 +31,8 @@ create or replace view not_indexed_fks as
         ix.indkey
   )
   select
-    conrelid::regclass
-    ,conname
-    ,reltuples::bigint
+    conrelid::regclass::text as table_name,
+    conname::text as foreign_key_name
   from pg_constraint pgc
   join pg_class on (conrelid = pg_class.oid)
   where contype = 'f'
@@ -44,5 +43,5 @@ create or replace view not_indexed_fks as
     and conkey = indkey
     or (array_length(indkey, 1) > 1 and indkey @> conkey)
   )
-  order by reltuples desc
+  order by table_name, foreign_key_name
 ;

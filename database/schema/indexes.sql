@@ -11,6 +11,7 @@ create index on allocations (target_depot_id);
 create index on allocations (task_id);
 
 create index on assets (asset_category_id);
+create index on assets (location_id);
 
 create index on asset_events (asset_id);
 
