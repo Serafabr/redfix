@@ -4,10 +4,18 @@ import style from './SelectBox.module.scss';
 import { SearchInput } from '../Inputs'
 import blueCheckIcon from '../../assets/icons/blue-check.svg';
 
+export type ItemType = {
+  id: string,
+  name: string,
+  selected?: boolean,
+}
+
+export type ListItemType = Array<ItemType>;
+
 type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
-  items: Array<any>,
+  items: ListItemType,
   clickOutsideRef: any,
 };
 
@@ -36,7 +44,7 @@ export const SelectBox = ({
           </div>
         )}
         <li className={style.List}>
-          {items.map((item) => (
+          {items.map((item: ItemType) => (
             <ul key={item.id} className={`${style.Item} ${item.selected && style.Selected}`}>
               <span className={style.TextItem}>{item.name}</span>
               {item.selected && (<img src={blueCheckIcon} alt="Selected" />)}

@@ -5,14 +5,14 @@ import quickIcon from '../../../assets/icons/quick.svg';
 import { SelectBox } from '../../SelectBox/SelectBox';
 
 const items = [
-  {id: 1,name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
-  {id: 2,name: "Exportar para CSV", selected: false},
-  {id: 3,name: "Exportar para Excel", selected: false},
-  {id: 4,name: "Exportar para PDF", selected: false},
-  {id: 5,name: "Customizar tabela", selected: false},
-  {id: 6,name: "Exportar para CSV", selected: false},
-  {id: 6,name: "Exportar para Excel", selected: false},
-  {id: 6,name: "Exportar para PDF", selected: false},
+  {id: '1',name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
+  {id: '2',name: "Exportar para CSV", selected: false},
+  {id: '3',name: "Exportar para Excel", selected: false},
+  {id: '4',name: "Exportar para PDF", selected: false},
+  {id: '5',name: "Customizar tabela", selected: false},
+  {id: '6',name: "Exportar para CSV", selected: false},
+  {id: '6',name: "Exportar para Excel", selected: false},
+  {id: '6',name: "Exportar para PDF", selected: false},
 ];
 
 export const FilterDropdown = () => {
