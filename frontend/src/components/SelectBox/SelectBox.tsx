@@ -1,7 +1,7 @@
 import { useClickOutsideListener } from '../../hooks';
 import style from './SelectBox.module.scss';
 
-import { Input } from '../Inputs'
+import { SearchInput } from '../Inputs'
 import blueCheckIcon from '../../assets/icons/blue-check.svg';
 
 type Props = {
@@ -32,11 +32,7 @@ export const SelectBox = ({
       <div className={style.ListWrapper}>
         {searchable && (
           <div className={style.InputWrapper}>
-            <Input 
-              inputClassName={style.SearchInput} 
-              error={false} 
-              placeholder="Pesquisar..." 
-            />
+            <SearchInput />
           </div>
         )}
         <li className={style.List}>
