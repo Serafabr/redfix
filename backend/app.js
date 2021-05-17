@@ -26,9 +26,9 @@ app.use(expressJson);
 app.use(cookieSession);
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cmmsSession);
 app.use(morgan.logConsole);
 app.use(morgan.logFile);
+app.use(cmmsSession);
 app.use(expressStatic);
 
 // Routes
