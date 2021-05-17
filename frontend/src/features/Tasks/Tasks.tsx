@@ -39,6 +39,7 @@ const taskButtons = [
 export const Tasks = ({
   location
 }: TasksProps) => {
+  
   return (
     <div>
       <TitleArea 
@@ -48,26 +49,28 @@ export const Tasks = ({
       />
       <div className={style.Card}>
         <div className={style.Buttons}>
-          <ButtonWithDropdown 
-            listItems={[
-              {id: '1', name: 'Caixa de entrada', selected: true},
-              {id: '2', name: 'Minhas tarefas'},
-              {id: '3', name: 'Criadas - Coemant'},
-              {id: '4', name: 'RCS Tecnologia'},
-              {id: '5', name: 'Sem filtro'},
-            ]}
-            alignList={AlignList.Left}
-            boxWidth={220}
-            searchable={true}
-          >
-            {(onClick, isOpen) => (
-              <FilterButton 
-                text="Caixa de Entrada"
-                iconComponent={quickIcon}
-                onClick={onClick}
-              />
-            )}
-          </ButtonWithDropdown>
+          <div className={style.RightDivider}>
+            <ButtonWithDropdown 
+              listItems={[
+                {id: '1', name: 'Caixa de entrada', selected: true},
+                {id: '2', name: 'Minhas tarefas'},
+                {id: '3', name: 'Criadas - Coemant'},
+                {id: '4', name: 'RCS Tecnologia'},
+                {id: '5', name: 'Sem filtro'},
+              ]}
+              alignList={AlignList.Left}
+              boxWidth={220}
+              searchable={true}
+            >
+              {(onClick, isOpen) => (
+                <FilterButton 
+                  text="Caixa de entrada"
+                  iconComponent={quickIcon}
+                  onClick={onClick}
+                />
+              )}
+            </ButtonWithDropdown>
+          </div>
         </div>
         <div className={style.Content}>Content</div>
       </div>

@@ -9,8 +9,14 @@
 }
 
 .Buttons {
+  display: flex;
   padding: 24px 40px;
   border-bottom: 1px solid $gray_200;
+}
+
+.RightDivider {
+  padding-right: 16px;
+  border-right: 1px solid $gray_300;
 }
 
 .Content {
