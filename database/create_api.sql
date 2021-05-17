@@ -98,6 +98,7 @@ begin transaction;
 \i api/task/modify_task.sql
 \i api/task/remove_asset_from_task.sql
 \i api/task/send_task.sql
+\i api/task/set_task_date_end.sql
 \i api/task/set_task_date_limit.sql
 \i api/task/set_task_status.sql
 \i api/task/tasks.sql
