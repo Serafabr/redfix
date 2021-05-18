@@ -75,6 +75,8 @@
 
 \i api_tests/task/set_task_date_limit.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
+\i api_tests/task/set_task_date_end.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
 \i api_tests/task/clone_task.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 -- project
