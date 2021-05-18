@@ -50,7 +50,10 @@ export const SelectBox = ({
         )}
         <li className={style.List}>
           {items.map((item: ItemType) => (
-            <ul key={item.id} className={`${style.Item} ${selected[item.id] && style.Selected}`}>
+            <ul 
+              key={item.id} 
+              className={`${style.Item} ${selected[item.id] && style.Selected}`}
+            >
               <span className={style.TextItem}>{item.name}</span>
               {selected[item.id] && (<img src={blueCheckIcon} alt="Selected" />)}
             </ul>
