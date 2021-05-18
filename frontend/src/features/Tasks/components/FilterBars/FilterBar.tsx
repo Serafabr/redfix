@@ -3,24 +3,35 @@ import { QuickFilter } from '../FilterButtons/QuickFilter';
 import style from './FilterBar.module.scss';
 
 type Props = {
-  activatedFilter: any,
+  filterState: any,
 };
 
 export const FilterBar = ({
-  activatedFilter,
+  filterState,
 }: Props) => {
   
-  const handleOneItemSelection = () => {};
+  const { quickFilter, setQuickFilter } = filterState;
   
-  const handleManyItemsSelection = () => {};
+  const handleOneItemSelection = (filterState: any, setFilter: any) => (itemId: string) => {
+    setFilter({
+      [itemId]: true,
+    });
+  };
+  
+  const handleManyItemsSelection = (filterState: any, setFilter: any) => (itemId: string) => {
+    setFilter({
+      ...filterState,
+      [itemId]: (typeof filterState[itemId] === "boolean" ? !filterState[itemId] : true),
+    });
+  };
   
   
   return (
     <div>
       <div className={style.RightDivider}>
         <QuickFilter 
-          selected={activatedFilter.quickFilter}
-          onSelectItem={handleOneItemSelection}
+          selected={quickFilter}
+          onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
         />
       </div>
     </div>

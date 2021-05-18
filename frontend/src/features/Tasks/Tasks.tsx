@@ -63,7 +63,7 @@ export const Tasks = ({
       <div className={style.Card}>
         <div className={style.Buttons}>
           <FilterBar 
-            activatedFilter={filterConfig}
+            filterState={filterConfig}
           />
         </div>
         <div className={style.Content}>Content</div>
