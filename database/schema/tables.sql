@@ -420,7 +420,10 @@ create table dashboard (
   total_facilities integer,
   total_appliances integer,
   total_persons integer,
-  total_active_persons integer,
+  total_supervisors integer,
+  total_inspectors integer,
+  total_employees integer,
+  total_visitors integer,
   total_depots integer,
   total_active_depots integer
 );

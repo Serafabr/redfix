@@ -25,7 +25,10 @@ create or replace function :function_name (
       p as (
         select
           sum(1) as total_persons,
-          sum(case when is_active then 1 else 0 end) as total_active_persons
+          sum(case person_role when 'supervisor' then 1 else 0 end) as total_supervisors,
+          sum(case person_role when 'inspector' then 1 else 0 end) as total_inspectors,
+          sum(case person_role when 'employee' then 1 else 0 end) as total_employees,
+          sum(case person_role when 'visitor' then 1 else 0 end) as total_visitors
         from persons
       ),
       d as (
@@ -44,7 +47,10 @@ create or replace function :function_name (
         coalesce(total_facilities, 0),
         coalesce(total_appliances, 0),
         coalesce(total_persons, 0),
-        coalesce(total_active_persons, 0),
+        coalesce(total_supervisors, 0),
+        coalesce(total_inspectors, 0),
+        coalesce(total_employees, 0),
+        coalesce(total_visitors, 0),
         coalesce(total_depots, 0),
         coalesce(total_active_depots, 0)
       from t,a,p,d;
