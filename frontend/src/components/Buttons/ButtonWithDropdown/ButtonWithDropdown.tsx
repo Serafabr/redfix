@@ -4,7 +4,7 @@ import { useState, useRef, ReactNode, Component, FunctionComponent, ReactElement
 import style from './ButtonWithDropdown.module.scss';
 // Hooks
 import { useClickOutsideListener } from '../../../hooks';
-import { SelectBox, ListItemType, SelectedType } from '../../SelectBox/SelectBox';
+import { SelectBox, ListItemType, SelectedType, OnSelectItemType } from '../../SelectBox/SelectBox';
 
 export enum AlignList { Left, Right };
 
@@ -15,6 +15,7 @@ type ButtonWithDropdownProps = {
   alignList?: AlignList
   boxWidth?: number,
   searchable?: boolean,
+  onSelectItem: OnSelectItemType,
 };
 
 
@@ -25,6 +26,7 @@ export const ButtonWithDropdown = ({
   alignList = AlignList.Left,
   boxWidth = 160,
   searchable = false,
+  onSelectItem
 }: ButtonWithDropdownProps) => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);

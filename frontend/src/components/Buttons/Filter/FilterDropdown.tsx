@@ -40,6 +40,7 @@ export const FilterDropdown = () => {
           setIsOpen={setIsOpen}
           items={items}
           clickOutsideRef={wrapperRef}
+          onSelectItem={(id) => {console.log(id)}}
         />
       )}
     </div>

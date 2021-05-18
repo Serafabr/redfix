@@ -20,6 +20,7 @@ const dashButtons = [
       {id: '2', name: 'Teste2'},
     ]}
     alignList={AlignList.Right}
+    onSelectItem={(id) => {console.log(id)}}
   >
     {(onClick, isOpen) => {
       return (

@@ -1,5 +1,5 @@
 import { ButtonWithDropdown, FilterButton, AlignList } from '../../../../components/Buttons';
-import { SelectedType } from '../../../../components/SelectBox/SelectBox';
+import { SelectedType, OnSelectItemType } from '../../../../components/SelectBox/SelectBox';
 import style from './FilterButton.module.scss';
 
 import quickIcon from '../../../../assets/icons/quick.svg';
@@ -15,10 +15,12 @@ const quickFilterItems = [
 
 type Props = {
   selected: SelectedType,
+  onSelectItem: OnSelectItemType
 }
 
 export const QuickFilter = ({
   selected,
+  onSelectItem
 }: Props) => {
   return (
     <div>
@@ -28,6 +30,7 @@ export const QuickFilter = ({
         alignList={AlignList.Left}
         boxWidth={220}
         searchable={true}
+        onSelectItem={onSelectItem}
       >
         {(onClick, isOpen) => (
           <FilterButton 

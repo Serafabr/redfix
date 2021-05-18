@@ -44,7 +44,10 @@ export const SelectBox = ({
   // const wrapperRef = useRef(null);
   useClickOutsideListener(clickOutsideRef, handleOutsideClick);
   
-  const handleOnClick = (id: string) => () => onSelectItem(id);
+  const handleOnClick = (id: string) => () => {
+    setIsOpen(false);
+    onSelectItem(id);
+  };
   
   return (
     <div className={style.SelectBox}>

@@ -27,6 +27,7 @@ const taskButtons = [
     ]}
     alignList={AlignList.Right}
     boxWidth={160}
+    onSelectItem={(id) => {console.log(id)}}
   >
     {(onClick, isOpen) => {
       return (
