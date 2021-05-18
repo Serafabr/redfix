@@ -48,6 +48,7 @@ export const ButtonWithDropdown = ({
             selected={selected}
             clickOutsideRef={wrapperRef}
             searchable={searchable}
+            onSelectItem={onSelectItem}
           />
         </div>
       )}

@@ -15,12 +15,15 @@ export type SelectedType = {
   [key: string]: boolean,
 }
 
+export type OnSelectItemType = (id: string) => void;
+
 type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
   items: ListItemType,
   selected?: SelectedType,
   clickOutsideRef: any,
+  onSelectItem: OnSelectItemType,
 };
 
 export const SelectBox = ({
@@ -28,7 +31,8 @@ export const SelectBox = ({
   searchable = false,
   items,
   selected = {},
-  clickOutsideRef
+  clickOutsideRef,
+  onSelectItem,
 }: Props) => {
    
   // Callback that will be executed if you click outside an element.
@@ -39,6 +43,8 @@ export const SelectBox = ({
   // Hook that executes a callback if you click outside an element.
   // const wrapperRef = useRef(null);
   useClickOutsideListener(clickOutsideRef, handleOutsideClick);
+  
+  const handleOnClick = (id: string) => () => onSelectItem(id);
   
   return (
     <div className={style.SelectBox}>
@@ -53,6 +59,7 @@ export const SelectBox = ({
             <ul 
               key={item.id} 
               className={`${style.Item} ${selected[item.id] && style.Selected}`}
+              onClick={handleOnClick(item.id)}
             >
               <span className={style.TextItem}>{item.name}</span>
               {selected[item.id] && (<img src={blueCheckIcon} alt="Selected" />)}
