@@ -1,5 +1,5 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
-import { Button, ButtonType, FilterDropdown, FilterButton } from '../../components/Buttons';
+import { Button, ButtonType } from '../../components/Buttons';
 import { ButtonWithDropdown, AlignList } from '../../components/Buttons';
 
 import style from './Tasks.module.scss';
@@ -7,7 +7,7 @@ import style from './Tasks.module.scss';
 import { Plus as PlusIcon } from '../../components/Icons';
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 
-import quickIcon from '../../assets/icons/quick.svg';
+import { FilterBar } from './components/FilterBars';
 
 
 type TasksProps = {
@@ -49,28 +49,7 @@ export const Tasks = ({
       />
       <div className={style.Card}>
         <div className={style.Buttons}>
-          <div className={style.RightDivider}>
-            <ButtonWithDropdown 
-              listItems={[
-                {id: '1', name: 'Caixa de entrada', selected: true},
-                {id: '2', name: 'Minhas tarefas'},
-                {id: '3', name: 'Criadas - Coemant'},
-                {id: '4', name: 'RCS Tecnologia'},
-                {id: '5', name: 'Sem filtro'},
-              ]}
-              alignList={AlignList.Left}
-              boxWidth={220}
-              searchable={true}
-            >
-              {(onClick, isOpen) => (
-                <FilterButton 
-                  text="Caixa de entrada"
-                  iconComponent={quickIcon}
-                  onClick={onClick}
-                />
-              )}
-            </ButtonWithDropdown>
-          </div>
+          <FilterBar />
         </div>
         <div className={style.Content}>Content</div>
       </div>

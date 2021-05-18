@@ -6,16 +6,20 @@ import blueCheckIcon from '../../assets/icons/blue-check.svg';
 
 export type ItemType = {
   id: string,
-  name: string,
-  selected?: boolean,
+  name: string
 }
 
 export type ListItemType = Array<ItemType>;
+
+export type SelectedType = {
+  [key: string]: boolean,
+}
 
 type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
   items: ListItemType,
+  selected?: SelectedType,
   clickOutsideRef: any,
 };
 
@@ -23,6 +27,7 @@ export const SelectBox = ({
   setIsOpen,
   searchable = false,
   items,
+  selected = {},
   clickOutsideRef
 }: Props) => {
    
@@ -45,9 +50,9 @@ export const SelectBox = ({
         )}
         <li className={style.List}>
           {items.map((item: ItemType) => (
-            <ul key={item.id} className={`${style.Item} ${item.selected && style.Selected}`}>
+            <ul key={item.id} className={`${style.Item} ${selected[item.id] && style.Selected}`}>
               <span className={style.TextItem}>{item.name}</span>
-              {item.selected && (<img src={blueCheckIcon} alt="Selected" />)}
+              {selected[item.id] && (<img src={blueCheckIcon} alt="Selected" />)}
             </ul>
           ))}
         </li>
