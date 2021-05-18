@@ -1,27 +1,30 @@
 import { ButtonWithDropdown, FilterButton, AlignList } from '../../../../components/Buttons';
+import { SelectedType } from '../../../../components/SelectBox/SelectBox';
 import style from './FilterButton.module.scss';
 
 import quickIcon from '../../../../assets/icons/quick.svg';
 
 
 const quickFilterItems = [
-  {id: '1', name: 'Caixa de entrada'},
-  {id: '2', name: 'Minhas tarefas'},
-  {id: '3', name: 'Criadas - Coemant'},
-  {id: '4', name: 'RCS Tecnologia'},
-  {id: '5', name: 'Sem filtro'},
-]
+  {id: 'entryBox', name: 'Caixa de entrada'},
+  {id: 'myTasks', name: 'Minhas tarefas'},
+  {id: 'coemant', name: 'Criadas - Coemant'},
+  {id: 'rcsTec', name: 'RCS Tecnologia'},
+  {id: 'noFilter', name: 'Sem filtro'},
+];
 
-const selectedItems = {
-  '1': true,
-};
+type Props = {
+  selected: SelectedType,
+}
 
-export const QuickFilter = () => {
+export const QuickFilter = ({
+  selected,
+}: Props) => {
   return (
     <div>
       <ButtonWithDropdown 
         listItems={quickFilterItems}
-        selected={selectedItems}
+        selected={selected}
         alignList={AlignList.Left}
         boxWidth={220}
         searchable={true}

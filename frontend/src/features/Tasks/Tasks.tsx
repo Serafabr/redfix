@@ -36,6 +36,15 @@ const taskButtons = [
   </ButtonWithDropdown>
 ];
 
+
+const activatedFilter = {
+  quickFilter: {
+    entryBox: true,
+    myTasks: false,
+  },
+}
+
+
 export const Tasks = ({
   location
 }: TasksProps) => {
@@ -49,7 +58,9 @@ export const Tasks = ({
       />
       <div className={style.Card}>
         <div className={style.Buttons}>
-          <FilterBar />
+          <FilterBar 
+            activatedFilter={activatedFilter}
+          />
         </div>
         <div className={style.Content}>Content</div>
       </div>

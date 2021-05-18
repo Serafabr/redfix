@@ -2,11 +2,19 @@ import { ButtonWithDropdown, FilterButton, AlignList } from '../../../../compone
 import { QuickFilter } from '../FilterButtons/QuickFilter';
 import style from './FilterBar.module.scss';
 
-export const FilterBar = () => {
+type Props = {
+  activatedFilter: any,
+};
+
+export const FilterBar = ({
+  activatedFilter,
+}: Props) => {
   return (
     <div>
       <div className={style.RightDivider}>
-        <QuickFilter />
+        <QuickFilter 
+          selected={activatedFilter.quickFilter}
+        />
       </div>
     </div>
   )
