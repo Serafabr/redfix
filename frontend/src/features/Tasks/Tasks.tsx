@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { TitleArea } from '../../components/TitleArea/TitleArea';
 import { Button, ButtonType } from '../../components/Buttons';
 import { ButtonWithDropdown, AlignList } from '../../components/Buttons';
+import { SelectedType } from '../../components/SelectBox/SelectBox';
 
 import style from './Tasks.module.scss';
 
@@ -38,17 +40,18 @@ const taskButtons = [
 ];
 
 
-const activatedFilter = {
-  quickFilter: {
-    entryBox: true,
-    myTasks: false,
-  },
-}
-
-
 export const Tasks = ({
   location
 }: TasksProps) => {
+  
+  const [ quickFilter, setQuickFilter ] = useState<SelectedType>({});
+  
+  
+  const filterConfig = {
+    quickFilter,
+    setQuickFilter
+  };
+  
   
   return (
     <div>
@@ -60,7 +63,7 @@ export const Tasks = ({
       <div className={style.Card}>
         <div className={style.Buttons}>
           <FilterBar 
-            activatedFilter={activatedFilter}
+            activatedFilter={filterConfig}
           />
         </div>
         <div className={style.Content}>Content</div>
