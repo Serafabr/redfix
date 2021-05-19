@@ -1,4 +1,4 @@
-import { ButtonWithDropdown, FilterButton, AlignList } from '../';
+import { ButtonWithDropdown, FilterButton, AlignListType } from '../';
 import { OnSelectItemType, ItemsType, ItemType } from '../../SelectBox/SelectBox';
 
 import style from './FilterButton.module.scss';
@@ -34,6 +34,9 @@ type Props = {
   manyOptionsName?: string,
   options: ItemsType,
   onSelectItem: OnSelectItemType,
+  icon: string,
+  alignList: AlignListType,
+  searchable: boolean,
 }
 
 
@@ -42,6 +45,9 @@ export const FilterDropdown = ({
   manyOptionsName = 'filtros',
   options,
   onSelectItem,
+  icon,
+  alignList,
+  searchable,
 }: Props) => {
   
   let name = fixedName;
@@ -59,23 +65,19 @@ export const FilterDropdown = ({
     name = `${selectedItems.length} ${manyOptionsName}`;
   }
   
-  // console.log('name');
-  // console.log(name);
-  
   return (
     <div>
       <ButtonWithDropdown 
-        listItems={quickFilterItems}
-        selected={selected}
-        alignList={AlignList.Left}
+        options={options}
+        alignList={alignList}
         boxWidth={220}
-        searchable={true}
+        searchable={searchable}
         onSelectItem={onSelectItem}
       >
         {(onClick, isOpen) => (
           <FilterButton 
             text={name}
-            iconComponent={quickIcon}
+            iconComponent={icon}
             onClick={onClick}
           />
         )}
