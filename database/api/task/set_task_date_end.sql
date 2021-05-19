@@ -11,6 +11,9 @@ create or replace function :function_name (
     declare
       "newStatus" constant integer = 7;
     begin
+      if ("dateEnd" > now())
+        then perform raise_exception(205);
+      end if;
       update tasks set
         task_status_id = "newStatus",
         date_end = "dateEnd"

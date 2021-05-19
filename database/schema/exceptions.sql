@@ -17,6 +17,7 @@ insert into exceptions values
   (202, 'Erro ao criar evento da tarefa'),
   (203, 'Usuário não é o dono da mensagem'),
   (204, 'Projeto selecionado não está ativo'),
+  (205, 'Data futura não permitida'),
   -- 301-399: depots
   -- 401-399: plans
   (401, 'Rotina com periodicidade definida não permite executar create_task_from_template'),
