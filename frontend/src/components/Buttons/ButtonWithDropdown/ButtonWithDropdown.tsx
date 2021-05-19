@@ -5,12 +5,12 @@ import style from './ButtonWithDropdown.module.scss';
 // Hooks
 import { SelectBox, ItemsType, OnSelectItemType } from '../../SelectBox/SelectBox';
 
-export enum AlignList { Left, Right };
+export enum AlignListType { Left, Right };
 
 type ButtonWithDropdownProps = {
   children: (onClick: () => void, isOpen: boolean) => ReactElement,
   options: ItemsType,
-  alignList?: AlignList
+  alignList?: AlignListType
   boxWidth?: number,
   searchable?: boolean,
   onSelectItem: OnSelectItemType,
@@ -20,7 +20,7 @@ type ButtonWithDropdownProps = {
 export const ButtonWithDropdown = ({ 
   children,
   options, 
-  alignList = AlignList.Left,
+  alignList = AlignListType.Left,
   boxWidth = 160,
   searchable = false,
   onSelectItem
@@ -40,7 +40,7 @@ export const ButtonWithDropdown = ({
     <div className={style.Dropdown} ref={wrapperRef}>
       {children(handleOnClick, isOpen)}
       {isOpen && (
-        <div className={`${style.ListWrapper} ${alignList === AlignList.Right ? style.Right : style.Left}`} style={{ width: `${boxWidth}px` }}>
+        <div className={`${style.ListWrapper} ${alignList === AlignListType.Right ? style.Right : style.Left}`} style={{ width: `${boxWidth}px` }}>
           <SelectBox 
             setIsOpen={setIsOpen}
             items={options}

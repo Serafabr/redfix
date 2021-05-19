@@ -1,48 +1,85 @@
-import { useState, useRef } from 'react';
+import { ButtonWithDropdown, FilterButton, AlignList } from '../';
+import { OnSelectItemType, ItemsType, ItemType } from '../../SelectBox/SelectBox';
 
-import style from './FilterDropdown.module.scss';
-import quickIcon from '../../../assets/icons/quick.svg';
-import { SelectBox } from '../../SelectBox/SelectBox';
+import style from './FilterButton.module.scss';
 
-const items = [
-  {id: '1',name: "Customizar tabelaaaaaaaaaaaaaaaaaaa", selected: true},
-  {id: '2',name: "Exportar para CSV", selected: false},
-  {id: '3',name: "Exportar para Excel", selected: false},
-  {id: '4',name: "Exportar para PDF", selected: false},
-  {id: '5',name: "Customizar tabela", selected: false},
-  {id: '6',name: "Exportar para CSV", selected: false},
-  {id: '6',name: "Exportar para Excel", selected: false},
-  {id: '6',name: "Exportar para PDF", selected: false},
-];
+import quickIcon from '../../../../assets/icons/quick.svg';
 
-export const FilterDropdown = () => {
-  // Control whether the dropdown is open or closed.
-  const [ isOpen, setIsOpen ] = useState<boolean>(false);
+
+const quickFilterItems = {
+  entryBox: {
+    name: 'Caixa de entrada',
+    selected: false,
+  },
+  myTasks: {
+    name: 'Minhas tarefas',
+    selected: false,
+  },
+  coemant: {
+    name: 'Criadas - Coemant',
+    selected: false,
+  },
+  rcsTec: {
+    name: 'RCS Tecnologia',
+    selected: false,
+  },
+  noFilter: {
+    name: 'Sem filtro',
+    selected: false,
+  },
+};
+
+type Props = {
+  fixedName: string,
+  manyOptionsName?: string,
+  options: ItemsType,
+  onSelectItem: OnSelectItemType,
+}
+
+
+export const FilterDropdown = ({
+  fixedName,
+  manyOptionsName = 'filtros',
+  options,
+  onSelectItem,
+}: Props) => {
   
-  // Callback that will be executed if you click outside an element.
-  const handleButtonOnClick = () => {
-    setIsOpen(!isOpen);
+  let name = fixedName;
+  
+  const selectedItems: Array<ItemType | undefined> = Object.keys(options).map((itemId) => {
+    if (options[itemId].selected) {
+      return options[itemId];
+    }
+  });
+  
+  if (selectedItems.length === 1 && selectedItems[0]) {
+    name = selectedItems[0].name;
+  }
+  if (selectedItems.length > 1) {
+    name = `${selectedItems.length} ${manyOptionsName}`;
   }
   
-  // Hook that executes a callback if you click outside an element.
-  const wrapperRef = useRef(null);
+  // console.log('name');
+  // console.log(name);
   
   return (
-    <div className={style.FilterDropdown} ref={wrapperRef}>
-      <button className={`${style.Button} ${isOpen && style.Opened}`} onClick={handleButtonOnClick}>
-        <div className={style.ContentWrapper}>
-          <img src={quickIcon} alt="Pesquisa rápida"/>
-          Caixa de Entrada
-        </div>
-      </button>
-      {isOpen && (
-        <SelectBox 
-          setIsOpen={setIsOpen}
-          items={items}
-          clickOutsideRef={wrapperRef}
-          onSelectItem={(id) => {console.log(id)}}
-        />
-      )}
+    <div>
+      <ButtonWithDropdown 
+        listItems={quickFilterItems}
+        selected={selected}
+        alignList={AlignList.Left}
+        boxWidth={220}
+        searchable={true}
+        onSelectItem={onSelectItem}
+      >
+        {(onClick, isOpen) => (
+          <FilterButton 
+            text={name}
+            iconComponent={quickIcon}
+            onClick={onClick}
+          />
+        )}
+      </ButtonWithDropdown>
     </div>
   )
 }
