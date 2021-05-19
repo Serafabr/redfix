@@ -10,7 +10,7 @@ export enum AlignList { Left, Right };
 
 type ButtonWithDropdownProps = {
   children: (onClick: () => void, isOpen: boolean) => ReactElement,
-  listItems: ListItemType,
+  options: ListItemType,
   selected?: SelectedType,
   alignList?: AlignList
   boxWidth?: number,
@@ -21,7 +21,7 @@ type ButtonWithDropdownProps = {
 
 export const ButtonWithDropdown = ({ 
   children,
-  listItems, 
+  options, 
   selected = {},
   alignList = AlignList.Left,
   boxWidth = 160,
@@ -46,7 +46,7 @@ export const ButtonWithDropdown = ({
         <div className={`${style.ListWrapper} ${alignList === AlignList.Right ? style.Right : style.Left}`} style={{ width: `${boxWidth}px` }}>
           <SelectBox 
             setIsOpen={setIsOpen}
-            items={listItems}
+            items={options}
             selected={selected}
             clickOutsideRef={wrapperRef}
             searchable={searchable}

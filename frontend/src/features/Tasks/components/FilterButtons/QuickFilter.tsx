@@ -23,7 +23,18 @@ export const QuickFilter = ({
   onSelectItem
 }: Props) => {
   
-  const selectedItems = [];
+  const selectedItems = Object.keys(selected).filter((itemId) => selected[itemId]);
+  let name = 'Filtro rápido';
+  
+  if (selectedItems.length === 1) {
+    const filterId = selectedItems[0];
+    name = quickFilterItems.filter((item) => item.id === filterId)[0].name
+  } else if (selectedItems.length > 1) {
+    name = '2 filtros';
+  }
+  
+  console.log('name');
+  console.log(name);
   
   return (
     <div>
@@ -37,7 +48,7 @@ export const QuickFilter = ({
       >
         {(onClick, isOpen) => (
           <FilterButton 
-            text="Caixa de entrada"
+            text={name}
             iconComponent={quickIcon}
             onClick={onClick}
           />

@@ -5,15 +5,15 @@ import { SearchInput } from '../Inputs'
 import blueCheckIcon from '../../assets/icons/blue-check.svg';
 
 export type ItemType = {
-  id: string,
-  name: string
+  name: string,
+  selected: boolean,
 }
 
-export type ListItemType = Array<ItemType>;
+export type ItemsType = {
+  [key: string]: ItemType,
+};
 
-export type SelectedType = {
-  [key: string]: boolean,
-}
+// export type SelectedType = any;
 
 export type OnSelectItemType = (id: string) => void;
 
