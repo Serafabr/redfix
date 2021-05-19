@@ -32,6 +32,6 @@ module.exports = {
     domain: COOKIE_DOMAIN,
     path: COOKIE_PATH,
     sameSite: COOKIE_SAME_SITE,
-    maxAge: COOKIE_MAX_AGE,
+    maxAge: parseInt(COOKIE_MAX_AGE, 10),
   }
 };

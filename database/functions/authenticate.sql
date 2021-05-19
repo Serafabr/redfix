@@ -51,9 +51,9 @@ create or replace function :function_name (
       from persons as p
       where (
         case column_to_search
-          when 'cpf' then p.cpf = input_string and p.password_hash = crypt("password", p.password_hash)
-          when 'email' then p.email = input_string and p.password_hash = crypt("password", p.password_hash)
-          when 'username' then p.username = input_string and p.password_hash = crypt("password", p.password_hash)
+          when 'cpf' then p.cpf = input_string and p.password_hash = ext.crypt("password", p.password_hash)
+          when 'email' then p.email = input_string and p.password_hash = ext.crypt("password", p.password_hash)
+          when 'username' then p.username = input_string and p.password_hash = ext.crypt("password", p.password_hash)
         end
       );
     end;
