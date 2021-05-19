@@ -1,17 +1,15 @@
-import { useState, useRef, ReactNode, Component, FunctionComponent, ReactElement } from 'react';
+import { useState, useRef, ReactElement } from 'react';
 
 // Style
 import style from './ButtonWithDropdown.module.scss';
 // Hooks
-import { useClickOutsideListener } from '../../../hooks';
-import { SelectBox, ListItemType, SelectedType, OnSelectItemType } from '../../SelectBox/SelectBox';
+import { SelectBox, ItemsType, OnSelectItemType } from '../../SelectBox/SelectBox';
 
 export enum AlignList { Left, Right };
 
 type ButtonWithDropdownProps = {
   children: (onClick: () => void, isOpen: boolean) => ReactElement,
-  options: ListItemType,
-  selected?: SelectedType,
+  options: ItemsType,
   alignList?: AlignList
   boxWidth?: number,
   searchable?: boolean,
@@ -22,7 +20,6 @@ type ButtonWithDropdownProps = {
 export const ButtonWithDropdown = ({ 
   children,
   options, 
-  selected = {},
   alignList = AlignList.Left,
   boxWidth = 160,
   searchable = false,
@@ -47,7 +44,6 @@ export const ButtonWithDropdown = ({
           <SelectBox 
             setIsOpen={setIsOpen}
             items={options}
-            selected={selected}
             clickOutsideRef={wrapperRef}
             searchable={searchable}
             onSelectItem={onSelectItem}

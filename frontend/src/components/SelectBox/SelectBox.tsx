@@ -10,7 +10,7 @@ export type ItemType = {
 }
 
 export type ItemsType = {
-  [key: string]: ItemType,
+  [itemId: string]: ItemType,
 };
 
 // export type SelectedType = any;
