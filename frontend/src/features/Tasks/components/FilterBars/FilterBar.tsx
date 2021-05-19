@@ -1,16 +1,22 @@
-import { ButtonWithDropdown, FilterButton, AlignList } from '../../../../components/Buttons';
-import { QuickFilter } from '../FilterButtons/QuickFilter';
+import { ButtonWithDropdown, FilterButton, AlignListType } from '../../../../components/Buttons';
+import { FilterDropdown } from '../../../../components/Buttons';
+
 import style from './FilterBar.module.scss';
+
+import quickIcon from '../../../../assets/icons/quick.svg';
 
 type Props = {
   filterState: any,
+  filterOptions: any,
 };
 
 export const FilterBar = ({
   filterState,
+  filterOptions,
 }: Props) => {
   
-  const { quickFilter, setQuickFilter } = filterState;
+  const { quickFilterState, setQuickFilterState } = filterState;
+  const { quickFilterOptions } = filterOptions;
   
   const handleOneItemSelection = (filterState: any, setFilter: any) => (itemId: string) => {
     setFilter({
@@ -29,9 +35,13 @@ export const FilterBar = ({
   return (
     <div>
       <div className={style.RightDivider}>
-        <QuickFilter 
-          selected={quickFilter}
-          onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
+        <FilterDropdown 
+          fixedName="Filtro Rápido"
+          options={quickFilterOptions}
+          onSelectItem={handleOneItemSelection(quickFilterState, setQuickFilterState)}
+          icon={quickIcon}
+          alignList={AlignListType.Left}
+          searchable={true}
         />
       </div>
     </div>
