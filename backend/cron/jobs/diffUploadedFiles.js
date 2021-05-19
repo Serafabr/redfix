@@ -18,13 +18,9 @@ const diffUploadedFiles = async () => {
   }
 }
 
-module.exports = {
-  cronJob: new CronJob({
-    cronTime: process.env.CRON_PATTERN_DIFF,
-    onTick: diffUploadedFiles,
-    onComplete: () => {},
-    start: true,
-    timezone: 'America/Sao_Paulo',
-  }),
-  fn: diffUploadedFiles,
-}
+module.exports = new CronJob({
+  cronTime: process.env.CRON_PATTERN_DIFF,
+  onTick: diffUploadedFiles,
+  start: true,
+  timezone: process.env.CRON_TIMEZONE,
+});

@@ -47,9 +47,8 @@ POSTGRAPHILE_EXTENDED_ERRORS=hint,detail,errcode
 POSTGRAPHILE_SHOW_ERROR_STACK=json
 
 # Cron jobs schedule
-# CRON_JOBS:                'on' or 'off'
 # Cron patterns and ranges: https://www.npmjs.com/package/cron#usage-basic-cron-usage
-CRON_JOBS=off
+CRON_TIMEZONE=America/Sao_Paulo
 CRON_PATTERN_DUMP=0 0 1 * * *
 CRON_PATTERN_DIFF=0 0 2 * * *
 CRON_PATTERN_REFRESH=0 0 3 * * *

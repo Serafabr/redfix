@@ -17,13 +17,9 @@ const dumpDatabase = async () => {
   }
 }
 
-module.exports = {
-  cronJob: new CronJob({
-    cronTime: process.env.CRON_PATTERN_DUMP,
-    onTick: dumpDatabase,
-    onComplete: () => {},
-    start: true,
-    timezone: 'America/Sao_Paulo',
-  }),
-  fn: dumpDatabase,
-}
+module.exports = new CronJob({
+  cronTime: process.env.CRON_PATTERN_DUMP,
+  onTick: dumpDatabase,
+  start: true,
+  timezone: process.env.CRON_TIMEZONE,
+});

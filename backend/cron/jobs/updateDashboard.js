@@ -13,14 +13,9 @@ const updateDashboard = async () => {
   }
 }
 
-module.exports = {
-  cronJob: new CronJob({
-    cronTime: process.env.CRON_PATTERN_DASHBOARD,
-    onTick: updateDashboard,
-    onComplete: () => {},
-    start: true,
-    timezone: 'America/Sao_Paulo',
-  }),
-  fn: updateDashboard,
- }
- 
+module.exports = new CronJob({
+  cronTime: process.env.CRON_PATTERN_DASHBOARD,
+  onTick: updateDashboard,
+  start: true,
+  timezone: process.env.CRON_TIMEZONE,
+});
