@@ -1,59 +1,81 @@
-import { ButtonWithDropdown, FilterButton, AlignList } from '../../../../components/Buttons';
-import { SelectedType, OnSelectItemType } from '../../../../components/SelectBox/SelectBox';
-import style from './FilterButton.module.scss';
+export {};
 
-import quickIcon from '../../../../assets/icons/quick.svg';
+// import { ButtonWithDropdown, FilterButton, AlignList } from '../../../../components/Buttons';
+// import { OnSelectItemType } from '../../../../components/SelectBox/SelectBox';
+// import style from './FilterButton.module.scss';
+
+// import quickIcon from '../../../../assets/icons/quick.svg';
 
 
-const quickFilterItems = [
-  {id: 'entryBox', name: 'Caixa de entrada'},
-  {id: 'myTasks', name: 'Minhas tarefas'},
-  {id: 'coemant', name: 'Criadas - Coemant'},
-  {id: 'rcsTec', name: 'RCS Tecnologia'},
-  {id: 'noFilter', name: 'Sem filtro'},
-];
+// const quickFilterItems = {
+//   entryBox: {
+//     name: 'Caixa de entrada',
+//     selected: false,
+//   },
+//   myTasks: {
+//     name: 'Minhas tarefas',
+//     selected: false,
+//   },
+//   coemant: {
+//     name: 'Criadas - Coemant',
+//     selected: false,
+//   },
+//   rcsTec: {
+//     name: 'RCS Tecnologia',
+//     selected: false,
+//   },
+//   noFilter: {
+//     name: 'Sem filtro',
+//     selected: false,
+//   },
+// };
 
-type Props = {
-  selected: SelectedType,
-  onSelectItem: OnSelectItemType
-}
+// type Props = {
+//   onSelectItem: OnSelectItemType
+// }
 
-export const QuickFilter = ({
-  selected,
-  onSelectItem
-}: Props) => {
+
+// export const QuickFilter = ({
+//   onSelectItem
+// }: Props) => {
   
-  const selectedItems = Object.keys(selected).filter((itemId) => selected[itemId]);
-  let name = 'Filtro rápido';
+//   const selectedItems = Object.keys(options).forEach((itemId) => {
+//     if (selected[itemId]) {
+//       return 
+//     }
+//   });
   
-  if (selectedItems.length === 1) {
-    const filterId = selectedItems[0];
-    name = quickFilterItems.filter((item) => item.id === filterId)[0].name
-  } else if (selectedItems.length > 1) {
-    name = '2 filtros';
-  }
   
-  console.log('name');
-  console.log(name);
+//   let name = 'Filtro rápido';
   
-  return (
-    <div>
-      <ButtonWithDropdown 
-        listItems={quickFilterItems}
-        selected={selected}
-        alignList={AlignList.Left}
-        boxWidth={220}
-        searchable={true}
-        onSelectItem={onSelectItem}
-      >
-        {(onClick, isOpen) => (
-          <FilterButton 
-            text={name}
-            iconComponent={quickIcon}
-            onClick={onClick}
-          />
-        )}
-      </ButtonWithDropdown>
-    </div>
-  )
-}
+//   // if (selectedItems.length === 1) {
+//   //   const filterId = selectedItems[0];
+//   //   name = quickFilterItems.filter((item) => item.id === filterId)[0].name
+//   // } else if (selectedItems.length > 1) {
+//   //   name = '2 filtros';
+//   // }
+  
+//   // console.log('name');
+//   // console.log(name);
+  
+//   return (
+//     <div>
+//       <ButtonWithDropdown 
+//         listItems={quickFilterItems}
+//         selected={selected}
+//         alignList={AlignList.Left}
+//         boxWidth={220}
+//         searchable={true}
+//         onSelectItem={onSelectItem}
+//       >
+//         {(onClick, isOpen) => (
+//           <FilterButton 
+//             text={name}
+//             iconComponent={quickIcon}
+//             onClick={onClick}
+//           />
+//         )}
+//       </ButtonWithDropdown>
+//     </div>
+//   )
+// }
