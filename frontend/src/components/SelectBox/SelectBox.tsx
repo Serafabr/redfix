@@ -6,7 +6,7 @@ import blueCheckIcon from '../../assets/icons/blue-check.svg';
 
 export type ItemType = {
   name: string,
-  selected: boolean,
+  selected?: boolean,
 }
 
 export type ItemsType = {
