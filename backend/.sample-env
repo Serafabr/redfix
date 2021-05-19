@@ -25,13 +25,14 @@ COOKIE_NAME=cmms:session
 COOKIE_KEY_0=secret0
 COOKIE_KEY_1=secret1
 COOKIE_KEY_2=secret2
-COOKIE_PATH=/
 COOKIE_SECURE=0
 COOKIE_HTTP_ONLY=1
 COOKIE_SIGNED=1
 COOKIE_OVERWRITE=1
-COOKIE_DOMAIN=senado.gov.br
+COOKIE_DOMAIN=localhost
+COOKIE_PATH=/
 COOKIE_SAME_SITE=strict
+COOKIE_MAX_AGE=604800000
 
 # Sessions
 # SESSION_DEFAULT_PERSON_ID:    an integer (for development and tests) or empty value (for production)
