@@ -22,6 +22,9 @@ export const QuickFilter = ({
   selected,
   onSelectItem
 }: Props) => {
+  
+  const selectedItems = [];
+  
   return (
     <div>
       <ButtonWithDropdown 
