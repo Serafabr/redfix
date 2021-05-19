@@ -20,8 +20,7 @@ export type OnSelectItemType = (id: string) => void;
 type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
-  items: ListItemType,
-  selected?: SelectedType,
+  items: ItemsType,
   clickOutsideRef: any,
   onSelectItem: OnSelectItemType,
 };
@@ -30,7 +29,6 @@ export const SelectBox = ({
   setIsOpen,
   searchable = false,
   items,
-  selected = {},
   clickOutsideRef,
   onSelectItem,
 }: Props) => {
@@ -58,14 +56,14 @@ export const SelectBox = ({
           </div>
         )}
         <li className={style.List}>
-          {items.map((item: ItemType) => (
+          {Object.keys(items).map((itemId: string) => (
             <ul 
-              key={item.id} 
-              className={`${style.Item} ${selected[item.id] && style.Selected}`}
-              onClick={handleOnClick(item.id)}
+              key={itemId} 
+              className={`${style.Item} ${items[itemId].selected && style.Selected}`}
+              onClick={handleOnClick(itemId)}
             >
-              <span className={style.TextItem}>{item.name}</span>
-              {selected[item.id] && (<img src={blueCheckIcon} alt="Selected" />)}
+              <span className={style.TextItem}>{items[itemId].name}</span>
+              {items[itemId].selected && (<img src={blueCheckIcon} alt="Selected" />)}
             </ul>
           ))}
         </li>
