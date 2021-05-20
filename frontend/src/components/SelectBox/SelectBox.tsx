@@ -43,7 +43,21 @@ export const SelectBox = ({
   console.log('items');
   console.log(items);
   
-  const itemsFiltered = Object.keys(items).filter((itemId) => searchInput ? items[itemId].name.toLowerCase().includes(searchInput.toLowerCase()) : true)
+  //const itemsFiltered = Object.keys(items).filter((itemId) => searchInput ? items[itemId].name.toLowerCase().includes(searchInput.toLowerCase()) : true);
+  const firstItems = [];
+  const lastItems = [];
+  
+  for (const itemId in items) {
+    if (searchInput && items[itemId].name.toLowerCase().includes(searchInput.toLowerCase())) {
+      items[itemId].selected ? firstItems.push(itemId) : lastItems.push(itemId);
+    }
+    
+    if (!searchInput) {
+      items[itemId].selected ? firstItems.push(itemId) : lastItems.push(itemId);
+    }
+  }
+  
+  const itemsOrdered = [ ...firstItems, ...lastItems ];
   
   // Callback that will be executed if you click outside an element.
   const handleOutsideClick = () => {
@@ -70,7 +84,7 @@ export const SelectBox = ({
           </div>
         )}
         <li className={style.List}>
-          {itemsFiltered.map((itemId: string) => (
+          {itemsOrdered.map((itemId: string) => (
             <ul 
               key={itemId} 
               className={`${style.Item} ${items[itemId].selected && style.Selected}`}
@@ -80,7 +94,7 @@ export const SelectBox = ({
               {items[itemId].selected && (<img src={blueCheckIcon} alt="Selected" />)}
             </ul>
           ))}
-          {itemsFiltered.length === 0 && (
+          {itemsOrdered.length === 0 && (
             <div className={style.NoResult}>Pesquisa sem resultado...</div>
           )}
         </li>

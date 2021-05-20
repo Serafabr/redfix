@@ -42,7 +42,7 @@ type Props = {
 
 export const FilterDropdown = ({
   fixedName,
-  manyOptionsName = 'filtros',
+  manyOptionsName = 'Filtros',
   options,
   onSelectItem,
   icon,
@@ -66,7 +66,7 @@ export const FilterDropdown = ({
     name = selectedItems[0].name;
   }
   if (selectedItems.length > 1) {
-    name = `Múltiplos ${manyOptionsName} (${selectedItems.length})...`;
+    name = `${manyOptionsName} (${selectedItems.length}) ...`;
   }
   
   return (
