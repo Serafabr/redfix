@@ -4,6 +4,7 @@ import { FilterDropdown } from '../../../../components/Buttons';
 import style from './FilterBar.module.scss';
 
 import quickIcon from '../../../../assets/icons/quick.svg';
+import quickBlueIcon from '../../../../assets/icons/quick-blue.svg'
 
 type Props = {
   filterState: any,
