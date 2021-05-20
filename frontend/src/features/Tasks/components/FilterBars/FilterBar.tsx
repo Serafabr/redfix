@@ -17,7 +17,7 @@ export const FilterBar = ({
   
   const handleOneItemSelection = (filterState: any, setFilter: any) => (itemId: string) => {
     const newFilterState: any = {};
-    filterState.forEach((id: string) => {
+    Object.keys(filterState).forEach((id: string) => {
       newFilterState[id] = { ...filterState[id], selected: id === itemId }
     })
     
@@ -27,7 +27,10 @@ export const FilterBar = ({
   const handleManyItemsSelection = (filterState: any, setFilter: any) => (itemId: string) => {
     const newFilterState: any = {
       ...filterState,
-      [itemId]: !filterState[itemId],
+      [itemId]: {
+        ...filterState[itemId],
+        selected: !filterState[itemId].selected
+      },
     };
     
     setFilter(newFilterState);

@@ -32,6 +32,9 @@ export const SelectBox = ({
   clickOutsideRef,
   onSelectItem,
 }: Props) => {
+  
+  console.log('items');
+  console.log(items);
    
   // Callback that will be executed if you click outside an element.
   const handleOutsideClick = () => {

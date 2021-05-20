@@ -52,11 +52,15 @@ export const FilterDropdown = ({
   
   let name = fixedName;
   
-  const selectedItems: Array<ItemType | undefined> = Object.keys(options).map((itemId) => {
-    if (options[itemId].selected) {
-      return options[itemId];
+  const selectedItems: Array<ItemType | undefined> = Object.keys(options).reduce((filtered: Array<any>, nextId: string) => {
+    if (options[nextId].selected) {
+      filtered.push(options[nextId]);
     }
-  });
+    return filtered;
+  }, []);
+  
+  console.log('selectedItems');
+  console.log(selectedItems);
   
   if (selectedItems.length === 1 && selectedItems[0]) {
     name = selectedItems[0].name;

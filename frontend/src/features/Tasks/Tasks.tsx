@@ -68,11 +68,6 @@ export const Tasks = ({
   
   const [ quickFilter, setQuickFilter ] = useState(quickFilterInitial);
   
-  const filterState = {
-    quickFilter,
-    setQuickFilter
-  }
-  
   const filterConfig = {
     quickFilter,
     setQuickFilter
