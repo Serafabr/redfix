@@ -1,14 +1,25 @@
+// Third party imports
 import { useState, useRef, ReactElement } from 'react';
-
-// Style
+// Components
+import { SelectBox } from '../../SelectBox';
+// Types
+import { OptionsType, OnSelectItemType } from '../../SelectBox/SelectBox';
+// CSS
 import style from './ButtonWithDropdown.module.scss';
-// Hooks
-import { SelectBox, OptionsType, OnSelectItemType } from '../../SelectBox/SelectBox';
+
+/*************************\
+ * General types
+\*************************/
 
 export enum AlignListType { Left, Right };
 
-type ButtonWithDropdownProps = {
-  children: (onClick: () => void, isOpen: boolean) => ReactElement,
+/*************************\
+ * Prop types
+\*************************/
+
+type Props = {
+  // This ReactElement is the Button that will be rendered with the dropdown
+  children: (onClick: () => void, isOpen: boolean) => ReactElement<HTMLButtonElement>, 
   options: OptionsType,
   alignList?: AlignListType
   boxWidth?: number,
@@ -17,6 +28,9 @@ type ButtonWithDropdownProps = {
   sortItems?: boolean
 };
 
+/*************************\
+ * ButtonWithDropdown Component
+\*************************/
 
 export const ButtonWithDropdown = ({ 
   children,
@@ -26,21 +40,22 @@ export const ButtonWithDropdown = ({
   searchable = false,
   onSelectItem,
   sortItems = false,
-}: ButtonWithDropdownProps) => {
+}: Props) => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   
-  // Hook that executes a callback if you click outside an element.
+  // Ref this element. It will activate a callback if you click outside it.
   const wrapperRef = useRef(null);
   
-  const handleOnClick = () => {
+  // Button click listener
+  const handleButtonOnClick = () => {
     setIsOpen((prevState) => (!prevState));
   };
   
   // Render
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
-      {children(handleOnClick, isOpen)}
+      {children(handleButtonOnClick, isOpen)}
       {isOpen && (
         <div className={`${style.ListWrapper} ${alignList === AlignListType.Right ? style.Right : style.Left}`} style={{ width: `${boxWidth}px` }}>
           <SelectBox 

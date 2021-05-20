@@ -1,1 +1,1 @@
-import { SelectBox } from './SelectBox';
+export { SelectBox } from './SelectBox';

@@ -1,3 +1,4 @@
+// Third party imports
 import { FormEvent, useState } from 'react';
 // Components
 import { SearchInput } from '../Inputs'
