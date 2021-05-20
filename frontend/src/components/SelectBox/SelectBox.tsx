@@ -57,9 +57,16 @@ export const SelectBox = ({
   
   const optionIds = sortAndFilterOptionIds(items, searchInput, sortItems);
   
+<<<<<<< HEAD
   /*****
     Event Handlers
   *****/
+||||||| dfb15f8
+  const firstItems = [];
+  const lastItems = [];
+=======
+  // HANDLERS
+>>>>>>> 68f94fcec27358fb144a73a05d1c4b981d9e0509
   
   const handleChangeInput = (event: FormEvent<HTMLInputElement>) => {
     setSearchInput((event.target as HTMLInputElement).value);
