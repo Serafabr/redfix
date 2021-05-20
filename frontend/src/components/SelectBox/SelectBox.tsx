@@ -43,7 +43,7 @@ export const SelectBox = ({
   console.log('items');
   console.log(items);
   
-  const itemsFiltered = Object.keys(items).filter((itemId) => searchInput ? items[itemId].name.includes(searchInput) : true)
+  const itemsFiltered = Object.keys(items).filter((itemId) => searchInput ? items[itemId].name.toLowerCase().includes(searchInput.toLowerCase()) : true)
   
   // Callback that will be executed if you click outside an element.
   const handleOutsideClick = () => {
@@ -80,6 +80,9 @@ export const SelectBox = ({
               {items[itemId].selected && (<img src={blueCheckIcon} alt="Selected" />)}
             </ul>
           ))}
+          {itemsFiltered.length === 0 && (
+            <div className={style.NoResult}>Pesquisa sem resultado...</div>
+          )}
         </li>
       </div>
     </div>
