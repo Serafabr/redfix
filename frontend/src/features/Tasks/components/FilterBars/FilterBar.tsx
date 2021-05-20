@@ -43,7 +43,7 @@ export const FilterBar = ({
         <FilterDropdown 
           fixedName="Filtro Rápido"
           options={quickFilter}
-          onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
+          onSelectItem={handleManyItemsSelection(quickFilter, setQuickFilter)}
           icon={quickIcon}
           alignList={AlignListType.Left}
           searchable={true}

@@ -66,7 +66,7 @@ export const FilterDropdown = ({
     name = selectedItems[0].name;
   }
   if (selectedItems.length > 1) {
-    name = `${selectedItems.length} ${manyOptionsName}`;
+    name = `Múltiplos ${manyOptionsName} (${selectedItems.length})...`;
   }
   
   return (
