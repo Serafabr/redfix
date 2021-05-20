@@ -24,6 +24,7 @@ type Props = {
   items: ItemsType,
   clickOutsideRef: any,
   onSelectItem: OnSelectItemType,
+  sortItems: boolean,
 };
 
 export const SelectBox = ({
@@ -32,6 +33,7 @@ export const SelectBox = ({
   items,
   clickOutsideRef,
   onSelectItem,
+  sortItems
 }: Props) => {
   
   const [ searchInput, setSearchInput ] = useState<string | null>(null);
@@ -49,11 +51,11 @@ export const SelectBox = ({
   
   for (const itemId in items) {
     if (searchInput && items[itemId].name.toLowerCase().includes(searchInput.toLowerCase())) {
-      items[itemId].selected ? firstItems.push(itemId) : lastItems.push(itemId);
+      sortItems && items[itemId].selected ? firstItems.push(itemId) : lastItems.push(itemId);
     }
     
     if (!searchInput) {
-      items[itemId].selected ? firstItems.push(itemId) : lastItems.push(itemId);
+      sortItems && items[itemId].selected ? firstItems.push(itemId) : lastItems.push(itemId);
     }
   }
   
