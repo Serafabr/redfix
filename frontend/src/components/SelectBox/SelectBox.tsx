@@ -4,11 +4,13 @@ import { SearchInput } from '../Inputs'
 import blueCheckIcon from '../../assets/icons/blue-check.svg';
 // Hooks
 import { useClickOutsideListener } from '../../hooks';
+// Types
+import { refProps } from '../../hooks/useClickOutsideListener';
 // CSS
 import style from './SelectBox.module.scss';
 
 /*************************\
- * #Typescript TYPES
+ * General types
 \*************************/
 
 export type OptionType = {
@@ -22,18 +24,23 @@ export type OptionsType = {
 
 export type OnSelectItemType = (id: string) => void;
 
-// Internal TYPE
+export type clickOutsideRefType = refProps;
+
+/*************************\
+ * Prop types
+\*************************/
+
 type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
   items: OptionsType,
-  clickOutsideRef: any,
+  clickOutsideRef: clickOutsideRefType,
   onSelectItem: OnSelectItemType,
   sortItems: boolean,
 };
 
 /*************************\
- * #SelectBox Component
+ * SelectBox Component
 \*************************/
 
 export const SelectBox = ({
@@ -51,7 +58,6 @@ export const SelectBox = ({
     setSearchInput((event.target as HTMLInputElement).value);
   }
   
-  //const itemsFiltered = Object.keys(items).filter((itemId) => searchInput ? items[itemId].name.toLowerCase().includes(searchInput.toLowerCase()) : true);
   const firstItems = [];
   const lastItems = [];
   

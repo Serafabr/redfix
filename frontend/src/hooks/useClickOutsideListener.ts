@@ -1,8 +1,18 @@
 import { useEffect, RefObject } from 'react';
 
-type refProps = RefObject<HTMLElement>;
-type callbackProps = () => void;
-type eventProps = MouseEvent; // Type from the DOM
+/*************************\
+ * #Typescript TYPES
+\*************************/
+
+export type refProps = RefObject<HTMLElement>;
+
+export type callbackProps = () => void;
+
+export type eventProps = MouseEvent; // Type from the DOM
+
+/*************************\
+ * #useClickOutsideListener Component
+\*************************/
 
 export const useClickOutsideListener = (ref: refProps, callback: callbackProps) => {
   // Create a custom hook
