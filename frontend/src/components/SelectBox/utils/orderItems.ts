@@ -6,7 +6,7 @@ import { OptionsType } from '../SelectBox';
 
 export type SortAndFilterOptionsFunction = (
   options: OptionsType,
-  filterText: string,
+  filterText: string | null,
   isSorted?: boolean,
 ) => Array<string>; // string is the IDs
 
