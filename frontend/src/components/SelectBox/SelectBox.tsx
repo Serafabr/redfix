@@ -8,6 +8,7 @@ import { useClickOutsideListener } from '../../hooks';
 import { refProps } from '../../hooks/useClickOutsideListener';
 // CSS
 import style from './SelectBox.module.scss';
+import { sortAndFilterOptionIds } from './utils/orderItems';
 
 /*************************\
  * General types
@@ -54,24 +55,13 @@ export const SelectBox = ({
   
   const [ searchInput, setSearchInput ] = useState<string | null>(null);
   
+  const optionIds = sortAndFilterOptionIds(items, searchInput, sortItems);
+  
+  // HANDLERS
+  
   const handleChangeInput = (event: FormEvent<HTMLInputElement>) => {
     setSearchInput((event.target as HTMLInputElement).value);
   }
-  
-  const firstItems = [];
-  const lastItems = [];
-  
-  for (const itemId in items) {
-    if (searchInput && items[itemId].name.toLowerCase().includes(searchInput.toLowerCase())) {
-      sortItems && items[itemId].selected ? firstItems.push(itemId) : lastItems.push(itemId);
-    }
-    
-    if (!searchInput) {
-      sortItems && items[itemId].selected ? firstItems.push(itemId) : lastItems.push(itemId);
-    }
-  }
-  
-  const itemsOrdered = [ ...firstItems, ...lastItems ];
   
   // Callback that will be executed if you click outside an element.
   const handleOutsideClick = () => {
@@ -82,6 +72,7 @@ export const SelectBox = ({
   // const wrapperRef = useRef(null);
   useClickOutsideListener(clickOutsideRef, handleOutsideClick);
   
+  // When an option is clicked
   const handleOnClick = (id: string) => () => {
     setIsOpen(false);
     onSelectItem(id);
@@ -98,7 +89,7 @@ export const SelectBox = ({
           </div>
         )}
         <li className={style.List}>
-          {itemsOrdered.map((itemId: string) => (
+          {optionIds.map((itemId: string) => (
             <ul 
               key={itemId} 
               className={`${style.Item} ${items[itemId].selected && style.Selected}`}
@@ -108,7 +99,7 @@ export const SelectBox = ({
               {items[itemId].selected && (<img src={blueCheckIcon} alt="Selected" />)}
             </ul>
           ))}
-          {itemsOrdered.length === 0 && (
+          {optionIds.length === 0 && (
             <div className={style.NoResult}>Pesquisa sem resultado...</div>
           )}
         </li>
