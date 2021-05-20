@@ -7,28 +7,30 @@ import quickIcon from '../../../../assets/icons/quick.svg';
 
 type Props = {
   filterState: any,
-  filterOptions: any,
 };
 
 export const FilterBar = ({
   filterState,
-  filterOptions,
 }: Props) => {
   
-  const { quickFilterState, setQuickFilterState } = filterState;
-  const { quickFilterOptions } = filterOptions;
+  const { quickFilter, setQuickFilter } = filterState;
   
   const handleOneItemSelection = (filterState: any, setFilter: any) => (itemId: string) => {
-    setFilter({
-      [itemId]: true,
-    });
+    const newFilterState: any = {};
+    filterState.forEach((id: string) => {
+      newFilterState[id] = { ...filterState[id], selected: id === itemId }
+    })
+    
+    setFilter(newFilterState);
   };
   
   const handleManyItemsSelection = (filterState: any, setFilter: any) => (itemId: string) => {
-    setFilter({
+    const newFilterState: any = {
       ...filterState,
-      [itemId]: (typeof filterState[itemId] === "boolean" ? !filterState[itemId] : true),
-    });
+      [itemId]: !filterState[itemId],
+    };
+    
+    setFilter(newFilterState);
   };
   
   
@@ -37,8 +39,8 @@ export const FilterBar = ({
       <div className={style.RightDivider}>
         <FilterDropdown 
           fixedName="Filtro Rápido"
-          options={quickFilterOptions}
-          onSelectItem={handleOneItemSelection(quickFilterState, setQuickFilterState)}
+          options={quickFilter}
+          onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
           icon={quickIcon}
           alignList={AlignListType.Left}
           searchable={true}
