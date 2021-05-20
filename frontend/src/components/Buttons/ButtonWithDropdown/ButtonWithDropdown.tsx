@@ -3,13 +3,13 @@ import { useState, useRef, ReactElement } from 'react';
 // Style
 import style from './ButtonWithDropdown.module.scss';
 // Hooks
-import { SelectBox, ItemsType, OnSelectItemType } from '../../SelectBox/SelectBox';
+import { SelectBox, OptionsType, OnSelectItemType } from '../../SelectBox/SelectBox';
 
 export enum AlignListType { Left, Right };
 
 type ButtonWithDropdownProps = {
   children: (onClick: () => void, isOpen: boolean) => ReactElement,
-  options: ItemsType,
+  options: OptionsType,
   alignList?: AlignListType
   boxWidth?: number,
   searchable?: boolean,

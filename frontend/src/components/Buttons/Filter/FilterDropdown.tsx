@@ -1,5 +1,5 @@
 import { ButtonWithDropdown, FilterButton, AlignListType } from '../';
-import { OnSelectItemType, ItemsType, ItemType } from '../../SelectBox/SelectBox';
+import { OnSelectItemType, OptionsType, OptionType } from '../../SelectBox/SelectBox';
 
 import style from './FilterButton.module.scss';
 
@@ -32,9 +32,10 @@ const quickFilterItems = {
 type Props = {
   fixedName: string,
   manyOptionsName?: string,
-  options: ItemsType,
+  options: OptionsType,
   onSelectItem: OnSelectItemType,
   icon: string,
+  activatedIcon: string,
   alignList: AlignListType,
   searchable: boolean,
   sortItems: boolean
@@ -47,6 +48,7 @@ export const FilterDropdown = ({
   options,
   onSelectItem,
   icon,
+  activatedIcon,
   alignList,
   searchable,
   sortItems
@@ -54,7 +56,7 @@ export const FilterDropdown = ({
   
   let name = fixedName;
   
-  const selectedItems: Array<ItemType | undefined> = Object.keys(options).reduce((filtered: Array<any>, nextId: string) => {
+  const selectedItems: Array<OptionType | undefined> = Object.keys(options).reduce((filtered: Array<any>, nextId: string) => {
     if (options[nextId].selected) {
       filtered.push(options[nextId]);
     }
@@ -64,11 +66,15 @@ export const FilterDropdown = ({
   console.log('selectedItems');
   console.log(selectedItems);
   
+  let currentIcon = icon;
+  
   if (selectedItems.length === 1 && selectedItems[0]) {
     name = selectedItems[0].name;
+    currentIcon = activatedIcon;
   }
   if (selectedItems.length > 1) {
     name = `${manyOptionsName} (${selectedItems.length}) ...`;
+    currentIcon = activatedIcon;
   }
   
   return (
@@ -84,7 +90,7 @@ export const FilterDropdown = ({
         {(onClick, isOpen) => (
           <FilterButton 
             text={name}
-            iconComponent={icon}
+            iconComponent={currentIcon}
             onClick={onClick}
           />
         )}

@@ -28,7 +28,7 @@ const quickFilterInitial = {
       selected: false,
     },
     noFilter: {
-      name: 'Sem filtro',
+      name: 'Todas tarefas',
       selected: false,
     },
   };

@@ -1,31 +1,40 @@
 import { FormEvent, useState } from 'react';
-import { useClickOutsideListener } from '../../hooks';
-import style from './SelectBox.module.scss';
-
+// Components
 import { SearchInput } from '../Inputs'
 import blueCheckIcon from '../../assets/icons/blue-check.svg';
+// Hooks
+import { useClickOutsideListener } from '../../hooks';
+// CSS
+import style from './SelectBox.module.scss';
 
-export type ItemType = {
+/*************************\
+ * #Typescript TYPES
+\*************************/
+
+export type OptionType = {
   name: string,
   selected?: boolean,
 }
 
-export type ItemsType = {
-  [itemId: string]: ItemType,
+export type OptionsType = {
+  [itemId: string]: OptionType,
 };
-
-// export type SelectedType = any;
 
 export type OnSelectItemType = (id: string) => void;
 
+// Internal TYPE
 type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
-  items: ItemsType,
+  items: OptionsType,
   clickOutsideRef: any,
   onSelectItem: OnSelectItemType,
   sortItems: boolean,
 };
+
+/*************************\
+ * #SelectBox Component
+\*************************/
 
 export const SelectBox = ({
   setIsOpen,
@@ -41,9 +50,6 @@ export const SelectBox = ({
   const handleChangeInput = (event: FormEvent<HTMLInputElement>) => {
     setSearchInput((event.target as HTMLInputElement).value);
   }
-  
-  console.log('items');
-  console.log(items);
   
   //const itemsFiltered = Object.keys(items).filter((itemId) => searchInput ? items[itemId].name.toLowerCase().includes(searchInput.toLowerCase()) : true);
   const firstItems = [];
