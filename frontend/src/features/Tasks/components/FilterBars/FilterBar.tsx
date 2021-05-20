@@ -47,6 +47,7 @@ export const FilterBar = ({
           icon={quickIcon}
           alignList={AlignListType.Left}
           searchable={true}
+          sortItems={true}
         />
       </div>
     </div>

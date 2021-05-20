@@ -37,6 +37,7 @@ type Props = {
   icon: string,
   alignList: AlignListType,
   searchable: boolean,
+  sortItems: boolean
 }
 
 
@@ -48,6 +49,7 @@ export const FilterDropdown = ({
   icon,
   alignList,
   searchable,
+  sortItems
 }: Props) => {
   
   let name = fixedName;
@@ -77,6 +79,7 @@ export const FilterDropdown = ({
         boxWidth={220}
         searchable={searchable}
         onSelectItem={onSelectItem}
+        sortItems={sortItems}
       >
         {(onClick, isOpen) => (
           <FilterButton 
