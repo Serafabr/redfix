@@ -1,3 +1,4 @@
+import { FormEvent, useState } from 'react';
 import { useClickOutsideListener } from '../../hooks';
 import style from './SelectBox.module.scss';
 
@@ -33,9 +34,17 @@ export const SelectBox = ({
   onSelectItem,
 }: Props) => {
   
+  const [ searchInput, setSearchInput ] = useState<string | null>(null);
+  
+  const handleChangeInput = (event: FormEvent<HTMLInputElement>) => {
+    setSearchInput((event.target as HTMLInputElement).value);
+  }
+  
   console.log('items');
   console.log(items);
-   
+  
+  const itemsFiltered = Object.keys(items).filter((itemId) => searchInput ? items[itemId].name.includes(searchInput) : true)
+  
   // Callback that will be executed if you click outside an element.
   const handleOutsideClick = () => {
     setIsOpen(false);
@@ -55,11 +64,13 @@ export const SelectBox = ({
       <div className={style.ListWrapper}>
         {searchable && (
           <div className={style.InputWrapper}>
-            <SearchInput />
+            <SearchInput 
+              onChange={handleChangeInput}
+            />
           </div>
         )}
         <li className={style.List}>
-          {Object.keys(items).map((itemId: string) => (
+          {itemsFiltered.map((itemId: string) => (
             <ul 
               key={itemId} 
               className={`${style.Item} ${items[itemId].selected && style.Selected}`}
