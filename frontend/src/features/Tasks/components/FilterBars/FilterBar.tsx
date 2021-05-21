@@ -13,6 +13,7 @@ import {
 import quickIcon from '../../../../assets/icons/quick.svg';
 import quickOrangeIcon from '../../../../assets/icons/quick-orange.svg';
 import bookmarkIcon from '../../../../assets/icons/bookmark.svg';
+import bookmarkCheckedIcon from '../../../../assets/icons/bookmark-checked.svg';
 import { handleOptionSelection } from './config/handleOptionSelection';
 // CSS
 import style from './FilterBar.module.scss';
@@ -98,7 +99,7 @@ export const FilterBar = ({
       <div className={style.FilterContainer}>
         <FilterButton 
           onClick={handleSetBookmark}
-          iconComponent={bookmarkIcon}
+          iconComponent={bookmark ? bookmarkCheckedIcon : bookmarkIcon}
         />
       </div>
       <div className={style.FilterContainer}>
