@@ -14,8 +14,13 @@ import quickIcon from '../../../../assets/icons/quick.svg';
 import quickOrangeIcon from '../../../../assets/icons/quick-orange.svg';
 import teamsIcon from '../../../../assets/icons/users.svg';
 import teamPurpleIcon from '../../../../assets/icons/users-purple.svg';
+import statusIcon from '../../../../assets/icons/list.svg';
+import statusGreenIcon from '../../../../assets/icons/list-green.svg';
 import bookmarkIcon from '../../../../assets/icons/bookmark.svg';
 import bookmarkCheckedIcon from '../../../../assets/icons/bookmark-checked.svg';
+import filterIcon from '../../../../assets/icons/filter-white.svg';
+import filterIconCancel from '../../../../assets/icons/filter-cancel.svg';
+import filterIconCancelRed from '../../../../assets/icons/filter-cancel-red.svg';
 import { handleOptionSelection } from './config/handleOptionSelection';
 // CSS
 import style from './FilterBar.module.scss';
@@ -90,9 +95,9 @@ export const FilterBar = ({
           manyOptionsName="Status"
           options={statusFilter}
           onSelectItem={handleManyItemsSelection(statusFilter, setStatusFilter)}
-          icon={quickIcon}
+          icon={statusIcon}
           iconHeight={16}
-          activatedIcon={quickOrangeIcon}
+          activatedIcon={statusGreenIcon}
           alignList={AlignListType.Left}
           searchable={false}
           sortItems={true}
@@ -107,13 +112,13 @@ export const FilterBar = ({
       <div className={style.FilterContainer}>
         <FilterButton 
           onClick={() => {console.log('Clicked!')}}
-          iconComponent={bookmarkIcon}
+          iconComponent={filterIcon}
         />
       </div>
       <div className={`${style.FilterContainer} ${style.FilterAtEnd}`}>
         <FilterButton 
           onClick={() => {console.log('Clicked!')}}
-          iconComponent={bookmarkIcon}
+          iconComponent={filterIconCancelRed}
         />
       </div>
     </div>
