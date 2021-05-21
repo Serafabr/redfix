@@ -29,7 +29,7 @@ export type OnSelectItemType = (id: string) => void;
 export type clickOutsideRefType = refProps;
 
 /*************************\
- * Prop types
+ * PropTypes
 \*************************/
 
 type Props = {

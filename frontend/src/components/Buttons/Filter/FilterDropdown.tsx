@@ -1,33 +1,20 @@
-import { ButtonWithDropdown, FilterButton, AlignListType } from '../';
-import { OnSelectItemType, OptionsType, OptionType } from '../../SelectBox/SelectBox';
-
+// Components
+import { 
+  ButtonWithDropdown, 
+  FilterButton, 
+  AlignListType 
+} from '../';
+import { 
+  OnSelectItemType, 
+  OptionsType, 
+  OptionType 
+} from '../../SelectBox/SelectBox';
+// CSS
 import style from './Filter.module.scss';
 
-import quickIcon from '../../../../assets/icons/quick.svg';
-
-
-const quickFilterItems = {
-  entryBox: {
-    name: 'Caixa de entrada',
-    selected: false,
-  },
-  myTasks: {
-    name: 'Minhas tarefas',
-    selected: false,
-  },
-  coemant: {
-    name: 'Criadas - Coemant',
-    selected: false,
-  },
-  rcsTec: {
-    name: 'RCS Tecnologia',
-    selected: false,
-  },
-  noFilter: {
-    name: 'Sem filtro',
-    selected: false,
-  },
-};
+/*************************\
+ * PropTypes
+\*************************/
 
 type Props = {
   fixedName: string,
@@ -35,12 +22,16 @@ type Props = {
   options: OptionsType,
   onSelectItem: OnSelectItemType,
   icon: string,
+  iconHeight?: number,
   activatedIcon: string,
   alignList: AlignListType,
   searchable: boolean,
   sortItems: boolean
-}
+};
 
+/*************************\
+ * FilterDropdown Component
+\*************************/
 
 export const FilterDropdown = ({
   fixedName,
@@ -48,6 +39,7 @@ export const FilterDropdown = ({
   options,
   onSelectItem,
   icon,
+  iconHeight,
   activatedIcon,
   alignList,
   searchable,
@@ -91,6 +83,7 @@ export const FilterDropdown = ({
           <FilterButton 
             text={name}
             iconComponent={currentIcon}
+            iconHeight={iconHeight}
             onClick={onClick}
           />
         )}

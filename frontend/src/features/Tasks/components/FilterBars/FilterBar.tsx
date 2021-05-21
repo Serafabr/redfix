@@ -1,4 +1,4 @@
-import { ButtonWithDropdown, FilterButton, AlignListType } from '../../../../components/Buttons';
+import { FilterButton, AlignListType } from '../../../../components/Buttons';
 import { FilterDropdown } from '../../../../components/Buttons';
 
 import style from './FilterBar.module.scss';
@@ -47,6 +47,7 @@ export const FilterBar = ({
           options={quickFilter}
           onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
           icon={quickIcon}
+          iconHeight={16}
           activatedIcon={quickOrangeIcon}
           alignList={AlignListType.Left}
           searchable={true}
