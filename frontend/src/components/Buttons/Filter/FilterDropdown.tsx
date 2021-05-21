@@ -11,6 +11,8 @@ import {
 } from '../../SelectBox/SelectBox';
 // CSS
 import style from './Filter.module.scss';
+// Util functions
+import { getFilterButtonDisplay } from '../utils/filterDisplay';
 
 /*************************\
  * PropTypes
@@ -46,28 +48,7 @@ export const FilterDropdown = ({
   sortItems
 }: Props) => {
   
-  let name = fixedName;
-  
-  const selectedItems: Array<OptionType | undefined> = Object.keys(options).reduce((filtered: Array<any>, nextId: string) => {
-    if (options[nextId].selected) {
-      filtered.push(options[nextId]);
-    }
-    return filtered;
-  }, []);
-  
-  console.log('selectedItems');
-  console.log(selectedItems);
-  
-  let currentIcon = icon;
-  
-  if (selectedItems.length === 1 && selectedItems[0]) {
-    name = selectedItems[0].name;
-    currentIcon = activatedIcon;
-  }
-  if (selectedItems.length > 1) {
-    name = `${manyOptionsName} (${selectedItems.length}) ...`;
-    currentIcon = activatedIcon;
-  }
+  const [name, currentIcon] = getFilterButtonDisplay(options, fixedName, manyOptionsName, icon, activatedIcon);
   
   return (
     <div>
