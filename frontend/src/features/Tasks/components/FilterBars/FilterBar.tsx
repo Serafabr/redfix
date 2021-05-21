@@ -43,24 +43,68 @@ export const FilterBar = ({
   
   // Render
   return (
-    <div>
-      <div className={style.RightDivider}>
+    <div className={style.FilterBar}>
+      <div className={style.FilterContainer}>
+        <div className={style.RightDivider}>
+          <FilterDropdown 
+            fixedName="Filtro Rápido"
+            options={quickFilter}
+            onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
+            icon={quickIcon}
+            iconHeight={16}
+            activatedIcon={quickOrangeIcon}
+            alignList={AlignListType.Left}
+            searchable={true}
+            sortItems={false}
+          />
+        </div>
+      </div>
+      <div className={style.FilterContainer}>
         <FilterDropdown 
-          fixedName="Filtro Rápido"
-          options={quickFilter}
-          onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
+          fixedName="Equipes"
+          manyOptionsName="Equipes"
+          options={teamsFilter}
+          onSelectItem={handleManyItemsSelection(teamsFilter, setTeamsFilter)}
           icon={quickIcon}
           iconHeight={16}
           activatedIcon={quickOrangeIcon}
           alignList={AlignListType.Left}
           searchable={true}
-          sortItems={false}
+          sortItems={true}
         />
       </div>
-      <FilterButton 
-         onClick={() => {console.log('Clicked!')}}
-         iconComponent={bookmarkIcon}
-      />
+      <div className={style.FilterContainer}>
+        <FilterDropdown 
+          fixedName="Status"
+          manyOptionsName="Status"
+          options={statusFilter}
+          onSelectItem={handleManyItemsSelection(statusFilter, setStatusFilter)}
+          icon={quickIcon}
+          iconHeight={16}
+          activatedIcon={quickOrangeIcon}
+          alignList={AlignListType.Left}
+          searchable={false}
+          sortItems={true}
+        />
+      </div>
+      <div className={style.FilterContainer}>
+        <FilterButton 
+          onClick={() => {console.log('Clicked!')}}
+          iconComponent={bookmarkIcon}
+        />
+      </div>
+      <div className={style.FilterContainer}>
+        <FilterButton 
+          onClick={() => {console.log('Clicked!')}}
+          iconComponent={bookmarkIcon}
+        />
+      </div>
+      <div className={`${style.FilterContainer} ${style.FilterAtEnd}`}>
+        <FilterButton 
+          onClick={() => {console.log('Clicked!')}}
+          iconComponent={bookmarkIcon}
+        />
+      </div>
     </div>
   )
 };
