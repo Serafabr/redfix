@@ -55,8 +55,9 @@ create extension if not exists pgcrypto with schema ext cascade;
 \i functions/get_person_id.sql
 \i functions/get_team_id.sql
 
--- create types
-\i schema/types.sql
+-- create composite types and enums
+\i schema/composite_types.sql
+\i schema/enums.sql
 
 -- create tables
 \i schema/reference_tables.sql
