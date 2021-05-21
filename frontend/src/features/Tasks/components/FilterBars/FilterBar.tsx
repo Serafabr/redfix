@@ -12,6 +12,8 @@ import {
 // Icons
 import quickIcon from '../../../../assets/icons/quick.svg';
 import quickOrangeIcon from '../../../../assets/icons/quick-orange.svg';
+import teamsIcon from '../../../../assets/icons/users.svg';
+import teamPurpleIcon from '../../../../assets/icons/users-purple.svg';
 import bookmarkIcon from '../../../../assets/icons/bookmark.svg';
 import bookmarkCheckedIcon from '../../../../assets/icons/bookmark-checked.svg';
 import { handleOptionSelection } from './config/handleOptionSelection';
@@ -74,9 +76,9 @@ export const FilterBar = ({
           manyOptionsName="Equipes"
           options={teamsFilter}
           onSelectItem={handleManyItemsSelection(teamsFilter, setTeamsFilter)}
-          icon={quickIcon}
-          iconHeight={16}
-          activatedIcon={quickOrangeIcon}
+          icon={teamsIcon}
+          iconHeight={17}
+          activatedIcon={teamPurpleIcon}
           alignList={AlignListType.Left}
           searchable={true}
           sortItems={true}
