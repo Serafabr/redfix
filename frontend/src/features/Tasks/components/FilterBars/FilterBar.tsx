@@ -4,7 +4,7 @@ import { FilterDropdown } from '../../../../components/Buttons';
 import style from './FilterBar.module.scss';
 
 import quickIcon from '../../../../assets/icons/quick.svg';
-import quickBlueIcon from '../../../../assets/icons/quick-blue.svg'
+import quickOrangeIcon from '../../../../assets/icons/quick-orange.svg'
 
 type Props = {
   filterState: any,
@@ -46,7 +46,7 @@ export const FilterBar = ({
           options={quickFilter}
           onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
           icon={quickIcon}
-          activatedIcon={quickBlueIcon}
+          activatedIcon={quickOrangeIcon}
           alignList={AlignListType.Left}
           searchable={true}
           sortItems={false}

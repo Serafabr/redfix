@@ -15,7 +15,6 @@ export const FilterButton = ({
   buttonStyle,
   className,
   iconComponent,
-  disabled,
   onClick
 }: ButtonProps) => {
   return (
