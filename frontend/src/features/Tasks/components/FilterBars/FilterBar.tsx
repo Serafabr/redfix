@@ -1,5 +1,5 @@
 // Third party libraries
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 // Components
 import { FilterButton, AlignListType } from '../../../../components/Buttons';
 import { FilterDropdown } from '../../../../components/Buttons';
@@ -37,6 +37,14 @@ export const FilterBar = ({
   const [ quickFilter, setQuickFilter ] = useState(quickInitial);
   const [ teamsFilter, setTeamsFilter ] = useState(teamsInitial);
   const [ statusFilter, setStatusFilter ] = useState(statusInitial);
+  const [ bookmark, setBookmark ] = useState(false);
+  
+  const handleSetBookmark = useCallback(
+    () => {
+      setBookmark(!bookmark);
+    },
+    [bookmark],
+  )
   
   // Functions to handle item selection
   const [ handleOneItemSelection, handleManyItemsSelection ] = handleOptionSelection();
@@ -89,7 +97,7 @@ export const FilterBar = ({
       </div>
       <div className={style.FilterContainer}>
         <FilterButton 
-          onClick={() => {console.log('Clicked!')}}
+          onClick={handleSetBookmark}
           iconComponent={bookmarkIcon}
         />
       </div>
