@@ -6,6 +6,14 @@ import style from './FilterBar.module.scss';
 import quickIcon from '../../../../assets/icons/quick.svg';
 import quickOrangeIcon from '../../../../assets/icons/quick-orange.svg';
 import bookmarkIcon from '../../../../assets/icons/bookmark.svg'
+import { handleOptionSelection } from './config/handleOptionSelection';
+import { 
+  quickInitial,
+  teamsInitial,
+  statusInitial,
+ } from './config/initialFilterStates';
+
+ import { useState } from 'react';
 
 type Props = {
   filterState: any,
@@ -15,29 +23,11 @@ export const FilterBar = ({
   filterState,
 }: Props) => {
   
-  const { quickFilter, setQuickFilter } = filterState;
+  const [ quickFilter, setQuickFilter ] = useState(quickInitial);
+  const [ teamsFilter, setTeamsFilter ] = useState(teamsInitial);
+  const [ statusFilter, setStatusFilter ] = useState(statusInitial);
   
-  const handleOneItemSelection = (filterState: any, setFilter: any) => (itemId: string) => {
-    const newFilterState: any = {};
-    Object.keys(filterState).forEach((id: string) => {
-      newFilterState[id] = { ...filterState[id], selected: id === itemId }
-    })
-    
-    setFilter(newFilterState);
-  };
-  
-  const handleManyItemsSelection = (filterState: any, setFilter: any) => (itemId: string) => {
-    const newFilterState: any = {
-      ...filterState,
-      [itemId]: {
-        ...filterState[itemId],
-        selected: !filterState[itemId].selected
-      },
-    };
-    
-    setFilter(newFilterState);
-  };
-  
+  const [ handleOneItemSelection, handleManyItemsSelection ] = handleOptionSelection();
   
   return (
     <div>
