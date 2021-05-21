@@ -30,7 +30,18 @@
   &:focus,
   &:active {
     outline: none;
+  } 
+}
+
+.Image {
+  img {
+    height: 100%;
   }
+}
+
+.JustIcon {
+  padding: none;
+  width: 40px;
 }
 
 /*------------------------------------*\
@@ -52,8 +63,9 @@
 .ContentWrapper {
   display: flex;
   justify-content: center;
-  
-  img {
-    margin-right: 14px;
-  }
+  align-items: center;
+}
+
+.Text {
+  margin-left: 14px;
 }

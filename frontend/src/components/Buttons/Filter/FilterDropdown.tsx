@@ -1,7 +1,7 @@
 import { ButtonWithDropdown, FilterButton, AlignListType } from '../';
 import { OnSelectItemType, OptionsType, OptionType } from '../../SelectBox/SelectBox';
 
-import style from './FilterButton.module.scss';
+import style from './Filter.module.scss';
 
 import quickIcon from '../../../../assets/icons/quick.svg';
 

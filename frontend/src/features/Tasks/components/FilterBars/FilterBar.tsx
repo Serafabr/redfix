@@ -4,7 +4,8 @@ import { FilterDropdown } from '../../../../components/Buttons';
 import style from './FilterBar.module.scss';
 
 import quickIcon from '../../../../assets/icons/quick.svg';
-import quickOrangeIcon from '../../../../assets/icons/quick-orange.svg'
+import quickOrangeIcon from '../../../../assets/icons/quick-orange.svg';
+import bookmarkIcon from '../../../../assets/icons/bookmark.svg'
 
 type Props = {
   filterState: any,
@@ -52,6 +53,10 @@ export const FilterBar = ({
           sortItems={false}
         />
       </div>
+      <FilterButton 
+         onClick={() => {console.log('Clicked!')}}
+         iconComponent={bookmarkIcon}
+      />
     </div>
   )
 };
