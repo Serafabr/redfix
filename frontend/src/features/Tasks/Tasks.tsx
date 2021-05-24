@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { TitleArea } from '../../components/TitleArea/TitleArea';
 import { Button, ButtonType } from '../../components/Buttons';
 import { ButtonWithDropdown, AlignListType } from '../../components/Buttons';
@@ -10,6 +10,9 @@ import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 
 import { FilterBar } from './components/FilterBars';
 import { Table } from '../../components/Tables';
+
+import { columnsTasks, dataTasks } from './utils/fakeDataTasks';
+import { useTable } from 'react-table';
 
 const quickFilterInitial = {
     entryBox: {
@@ -74,6 +77,10 @@ export const Tasks = ({
     setQuickFilter
   };
   
+  const data = useMemo(() => dataTasks, []);
+  const columns = useMemo(() => columnsTasks, []);
+  
+  const table = useTable({ columns, data });
   
   return (
     <div>
