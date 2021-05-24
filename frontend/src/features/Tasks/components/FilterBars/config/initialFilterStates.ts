@@ -7,6 +7,10 @@ export const quickInitial = {
     name: 'Minhas tarefas',
     selected: false,
   },
+  bookmarked: {
+    name: 'Tarefas favoritadas',
+    selected: false,
+  },
   coemant: {
     name: 'Criadas - Coemant',
     selected: false,

@@ -105,17 +105,17 @@ export const FilterBar = ({
       </div>
       <div className={style.FilterContainer}>
         <FilterButton 
-          onClick={handleSetBookmark}
-          iconComponent={bookmark ? bookmarkCheckedIcon : bookmarkIcon}
-        />
-      </div>
-      <div className={style.FilterContainer}>
-        <FilterButton 
           onClick={() => {console.log('Clicked!')}}
           iconComponent={filterIcon}
         />
       </div>
       <div className={`${style.FilterContainer} ${style.FilterAtEnd}`}>
+        <FilterButton 
+          onClick={handleSetBookmark}
+          iconComponent={bookmark ? bookmarkCheckedIcon : bookmarkIcon}
+        />
+      </div>
+      <div className={`${style.FilterContainer} ${style.LastFilter}`}>
         <FilterButton 
           onClick={() => {console.log('Clicked!')}}
           iconComponent={filterIconCancelRed}

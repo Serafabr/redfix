@@ -42,23 +42,23 @@ type TasksProps = {
 
 const taskButtons = [
   <Button text="Nova tarefa" iconComponent={PlusIcon} />,
-  // <ButtonWithDropdown 
-  //   options={[
-  //     {id: '1', name: 'Customizar tabela'},
-  //     {id: '2', name: 'Exportar para CSV'},
-  //     {id: '3', name: 'Expotar para Excel'},
-  //     {id: '4', name: 'Exportar para PDF'},
-  //   ]}
-  //   alignList={AlignListType.Right}
-  //   boxWidth={160}
-  //   onSelectItem={(id) => {console.log(id)}}
-  // >
-  //   {(onClick, isOpen) => {
-  //     return (
-  //       <Button buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
-  //     );
-  //   }}
-  // </ButtonWithDropdown>
+  <ButtonWithDropdown 
+    options={{
+      customize: { name: 'Customizar tabela' },
+      exportCSV: { name: 'Exportar para CSV' },
+      exportExcel: { name: 'Exportar para Excel' },
+      exportPDF: { name: 'Exportar para PDF' },
+    }}
+    alignList={AlignListType.Right}
+    boxWidth={160}
+    onSelectItem={(id) => {console.log(id)}}
+  >
+    {(onClick, isOpen) => {
+      return (
+        <Button buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+      );
+    }}
+  </ButtonWithDropdown>
 ];
 
 
