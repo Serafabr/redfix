@@ -82,6 +82,9 @@ export const Tasks = ({
   
   const table = useTable({ columns, data });
   
+  console.log('tableProps');
+  console.log(table.getTableProps());
+  
   return (
     <div>
       <TitleArea 
@@ -96,7 +99,9 @@ export const Tasks = ({
           />
         </div>
         <div className={style.Content}>
-          <Table />
+          <Table 
+            data={table}
+          />
         </div>
       </div>
     </div>

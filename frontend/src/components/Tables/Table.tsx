@@ -7,15 +7,19 @@ type Props = any;
 
 export const Table = ({ 
   data: {
-    tableProps = {},
-    tableBodyProps = {},
+    getTableProps,
+    getTableBodyProps,
     headerGroups,
     rows,
     prepareRow,
   }
  }: Props) => {
+  
+  console.log('Inside - tableProps: ');
+  console.log(getTableProps);
+  
   return (
-    <table className={style.Table} {...tableProps}>
+    <table className={style.Table} {...getTableProps()}>
       <colgroup>
         <col style={{ width: "10%" }}/>
         <col style={{ width: "40%" }}/>
@@ -34,7 +38,7 @@ export const Table = ({
           </tr>
         ))}
       </thead>
-      <tbody className={style.Body} {...tableBodyProps}>
+      <tbody className={style.Body} {...getTableBodyProps()}>
         {rows.map((row: any) => {
           prepareRow && prepareRow(row);
           return (

@@ -19,8 +19,8 @@
 
 .Head {
   tr {
-    height: 55px;
-    background: linear-gradient(#00396B, #074e8b, #00396B);
+    height: 50px;
+    background: #00396B;
   }
   
   th {
@@ -43,9 +43,10 @@
     font: inherit;
     font-weight: 400;
     color: #8a8a8a;
-    padding: 16px 0;
+    padding: 16px 16px 16px 4px;
     font-size: 14px;
     line-height: 21px;
+    text-align: justify;
   }
 }
 
