@@ -10,8 +10,12 @@ const diffUploadedFiles = async () => {
     const UUIDs = fs.readdirSync(path.join(process.cwd(), paths.files));
     const { rows: [ { dbUUIDs } ] } = await adminPgPool.query('select web.get_all_files_uuids() as "dbUUIDs"');
     const diffUUIDs = UUIDs.filter(uuid => (!dbUUIDs.includes(uuid)));
-    const logContent = `${(new Date()).toISOString()}\tdiff\tok [${diffUUIDs.join(',').replace(/\.gitkeep\n/, '')}]\n`;
+    const logContent = `${(new Date()).toISOString()}\tdiff\tok\n`;
     cronWritableStream.write(logContent, 'utf8');
+
+    const diffWritableStream = fs.createWriteStream(path.join(process.cwd(), paths.diffLog));
+    diffWritableStream.write(`${diffUUIDs.join('\n')}\n`, 'utf8');
+    diffWritableStream.close();
   } catch (error){
     cronWritableStream.write(`${(new Date()).toISOString()}\tdiff\t${error}\n`, 'utf8');
     throw error;
