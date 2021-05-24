@@ -13,6 +13,9 @@ import { Table } from '../../components/Tables';
 
 import { columnsTasks, dataTasks } from './utils/fakeDataTasks';
 import { useTable } from 'react-table';
+import { ItemsPerPage } from '../../components/Tables/ItemsPerPage/ItemsPerPage';
+import { Pagination } from '../../components/Tables/Pagination/Pagination';
+import { DropdownButton } from '../../components/Buttons/Dropdown/DropdownButton';
 
 const quickFilterInitial = {
     entryBox: {
@@ -102,6 +105,18 @@ export const Tasks = ({
           <Table 
             data={table}
           />
+          <div>
+            <ItemsPerPage />
+            <Pagination />
+            <DropdownButton
+              value={10}
+              isOpen={false}
+              handleOnClick={() => {}}
+              buttonStyle={{
+                width: "80px",
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
