@@ -9,6 +9,7 @@ import { Plus as PlusIcon } from '../../components/Icons';
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 
 import { FilterBar } from './components/FilterBars';
+import { Table } from '../../components/Tables';
 
 const quickFilterInitial = {
     entryBox: {
@@ -87,7 +88,9 @@ export const Tasks = ({
             filterState={filterConfig}
           />
         </div>
-        <div className={style.Content}>Content</div>
+        <div className={style.Content}>
+          <Table />
+        </div>
       </div>
     </div>
   )
