@@ -7,6 +7,7 @@ rollback;
 begin transaction;
 
 -- allocation
+\i api/allocation/allocation_statuses.sql
 \i api/allocation/approve_task_allocations.sql
 \i api/allocation/create_task_allocation.sql
 \i api/allocation/finish_task_allocations.sql
@@ -18,6 +19,8 @@ begin transaction;
 \i api/asset/add_parent_to_asset.sql
 \i api/asset/add_tag_to_asset.sql
 \i api/asset/appliances.sql
+\i api/asset/asset_categories.sql
+\i api/asset/asset_statuses.sql
 \i api/asset/assets.sql
 \i api/asset/create_appliance.sql
 \i api/asset/create_asset_note.sql
@@ -35,6 +38,7 @@ begin transaction;
 \i api/asset/modify_monitor_read.sql
 \i api/asset/modify_monitor.sql
 \i api/asset/modify_tag.sql
+\i api/asset/monitor_categories.sql
 \i api/asset/remove_child_from_asset.sql
 \i api/asset/remove_parent_from_asset.sql
 \i api/asset/remove_tag_from_asset.sql
@@ -51,10 +55,11 @@ begin transaction;
 \i api/depot/create_depot.sql
 \i api/depot/create_supply.sql
 \i api/depot/deactivate_depot.sql
--- \i api/depot/extend_contract_term.sql
+\i api/depot/depot_categories.sql
 \i api/depot/modify_depot.sql
 \i api/depot/modify_supply.sql
--- \i api/depot/readjust_contract_prices.sql
+\i api/depot/supply_categories.sql
+\i api/depot/units.sql
 -- files
 \i api/files/delete_avatar.sql
 \i api/files/delete_file.sql
@@ -75,6 +80,7 @@ begin transaction;
 \i api/plan/create_task_template.sql
 \i api/plan/modify_plan.sql
 \i api/plan/modify_task_template.sql
+\i api/plan/periodicities.sql
 \i api/plan/remove_asset_from_task_template.sql
 -- project
 \i api/project/activate_project.sql
@@ -101,6 +107,9 @@ begin transaction;
 \i api/task/set_task_date_end.sql
 \i api/task/set_task_date_limit.sql
 \i api/task/set_task_status.sql
+\i api/task/task_categories.sql
+\i api/task/task_priorities.sql
+\i api/task/task_statuses.sql
 \i api/task/tasks.sql
 \i api/task/unfollow_task.sql
 -- team
