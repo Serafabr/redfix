@@ -1,12 +1,21 @@
-import { Dropdown } from '../../Buttons/Dropdown/Dropdown';
+import { DropdownButton } from '../../Buttons/Dropdown/DropdownButton';
 import style from './ItemsPerPage.module.scss';
 
 export const ItemsPerPage = () => {
   return (
-    <div>
-      <div>Itens por página</div>
+    <div className={style.ItemsPerPage}>
+      <div className={style.Label}>
+        Itens por página
+      </div>
       <div>
-        <Dropdown />
+        <DropdownButton
+          value={10}
+          isOpen={false}
+          handleOnClick={() => {}}
+          buttonStyle={{
+            width: "75px",
+          }}
+        />
       </div>
     </div>
   )

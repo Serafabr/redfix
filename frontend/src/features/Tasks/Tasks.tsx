@@ -108,14 +108,6 @@ export const Tasks = ({
           <div>
             <ItemsPerPage />
             <Pagination />
-            <DropdownButton
-              value={10}
-              isOpen={false}
-              handleOnClick={() => {}}
-              buttonStyle={{
-                width: "80px",
-              }}
-            />
           </div>
         </div>
       </div>
