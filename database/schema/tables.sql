@@ -255,19 +255,15 @@ create table allocations (
   source_depot_id integer references depots (depot_id),
   target_depot_id integer references depots (depot_id),
   task_id integer references tasks (task_id),
-  -- status = allocated = 1
   qty_allocated numeric,
   allocated_at timestamptz,
   allocated_by integer references persons (person_id),
-  -- status = proposed = 2
   qty_proposed numeric,
   proposed_at timestamptz,
   proposed_by integer references persons (person_id),
-  -- status = approved = 3
   qty_approved numeric,
   approved_at timestamptz,
   approved_by integer references persons (person_id),
-  -- other columns
   note text,
   constraint check_source_is_not_also_target check (source_depot_id <> target_depot_id)
 );
@@ -328,33 +324,14 @@ create table billings (
 );
 
 create table refunds (
-  -- id INTEGER NOT NULL, 
   refund_id integer primary key generated always as identity,
-  -- ssid INTEGER, 
-  -- itemid INTEGER,
-  alloc_id integer not null references allocations (alloc_id),
-  -- timestamp DATETIME,
-  -- mesref DATE,
   billing_id integer not null references billings (billing_id),  
-  -- chavenfe VARCHAR(100),
-  -- itemnfestr VARCHAR,
+  alloc_id integer not null references allocations (alloc_id),
   invoice_item_id integer not null references invoice_items (invoice_item_id),
-  -- fconv VARCHAR(100),
   conversion_factor numeric not null default 1,
-  qty numeric not null, -- ? or auxiliary table?
-  -- observacao VARCHAR,
+  qty numeric not null,
   note text
-  -- hash VARCHAR,
-  -- item_id INTEGER,
-  -- item_pedido_id INTEGER,
-  -- item_insumo_id INTEGER,
 );
-
--- create table invoice_item_refunds (
---   refund_id integer not null references refunds (refund_id),
---   invoice_item_id integer not null references invoice_items (invoice_item_id),
---   qty numeric not null
--- );
 
 create table costs (
   cost_id integer primary key generated always as identity,
@@ -397,18 +374,6 @@ create table market_prices (
   firm_id integer references firms (firm_id),
   note text
 );
-
--- create table quantities (
---   depot_id integer
---   supply_id integer
---   last_input numeric,
---   total_proposed numeric,
---   total_approved numeric,
---   total_inputs numeric,
---   total_outputs numeric,
---   total_used numeric,
---   primary key (depot_id, supply_id)
--- );
 
 create table dashboard (
   created_at timestamptz not null,
