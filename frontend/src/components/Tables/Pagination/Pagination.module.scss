@@ -1,0 +1,42 @@
+@import "../../../style/variables";
+
+.Pagination {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.PaginationItem {
+  margin: 2px;
+  min-width: 24px;
+  border-radius: 4px;
+  border: 2px solid white;
+  
+  &:hover {
+    border: 2px solid #1589EE;
+    cursor: pointer;
+  }
+}
+
+.PaginationLink {
+  display: inline-block;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 21px;
+  text-decoration: none;
+  
+  padding: 1px 5px;
+  text-align: center;
+  color: $gray_500;
+}
+
+.Active {
+  background-color: #1589EE;
+  border: 2px solid #1589EE;
+  
+  .PaginationLink {
+    color: white;
+  }
+}
