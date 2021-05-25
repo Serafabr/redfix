@@ -105,7 +105,7 @@ export const Tasks = ({
           <Table 
             data={table}
           />
-          <div>
+          <div className={style.Footer}>
             <ItemsPerPage />
             <Pagination />
           </div>
