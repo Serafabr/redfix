@@ -1,5 +1,15 @@
+import { ButtonWithDropdown } from '../../Buttons';
 import { DropdownButton } from '../../Buttons/Dropdown/DropdownButton';
+import { AlignListType } from '../../Buttons/ButtonWithDropdown/ButtonWithDropdown';
 import style from './ItemsPerPage.module.scss';
+
+const options = {
+  '10': { name: '10' },
+  '25': { name: '25' },
+  '50': { name: '50' },
+  '100': { name: '100' },
+  '150': { name: '150' },
+}
 
 export const ItemsPerPage = () => {
   return (
@@ -8,14 +18,23 @@ export const ItemsPerPage = () => {
         Itens por página
       </div>
       <div>
-        <DropdownButton
-          value={10}
-          isOpen={false}
-          handleOnClick={() => {}}
-          buttonStyle={{
-            width: "75px",
-          }}
-        />
+        <ButtonWithDropdown 
+          options={options}
+          alignList={AlignListType.Left}
+          boxWidth={100}
+          onSelectItem={(id) => {console.log(id)}}
+        >
+          {(onClick, isOpen) => (
+            <DropdownButton
+              value={10}
+              isOpen={isOpen}
+              handleOnClick={onClick}
+              buttonStyle={{
+                width: "75px",
+              }}
+            />
+          )}
+        </ButtonWithDropdown>
       </div>
     </div>
   )
