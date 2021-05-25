@@ -84,7 +84,6 @@
 
 .ListWrapper {
   position: absolute;
-  top:      48px;
   right: 0px;
   z-index: 10;
   
@@ -99,7 +98,15 @@
   }
   
   &.Right {
-    right:     0px;
+    right:    0px;
+  }
+  
+  &.Top {
+    bottom:   28px;
+  }
+  
+  &.Bottom {
+    top:      48px;
   }
 }
 

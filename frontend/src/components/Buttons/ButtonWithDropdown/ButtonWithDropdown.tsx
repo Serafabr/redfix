@@ -1,5 +1,6 @@
 // Third party imports
 import { useState, useRef, ReactElement } from 'react';
+import classnames from 'classnames';
 // Components
 import { SelectBox } from '../../SelectBox';
 // Types
@@ -21,7 +22,8 @@ type Props = {
   // This ReactElement is the Button that will be rendered with the dropdown
   children: (onClick: () => void, isOpen: boolean) => ReactElement<HTMLButtonElement>, 
   options: OptionsType,
-  alignList?: AlignListType
+  alignList?: AlignListType,
+  openOnTop?: boolean,
   boxWidth?: number,
   searchable?: boolean,
   onSelectItem: OnSelectItemType,
@@ -36,6 +38,7 @@ export const ButtonWithDropdown = ({
   children,
   options, 
   alignList = AlignListType.Left,
+  openOnTop = false,
   boxWidth = 160,
   searchable = false,
   onSelectItem,
@@ -52,12 +55,23 @@ export const ButtonWithDropdown = ({
     setIsOpen((prevState) => (!prevState));
   };
   
+  // ListWrapper style
+  const listWrapperStyle = classnames(
+    style.ListWrapper,
+    {
+      [style.Right]: alignList === AlignListType.Right,
+      [style.Left]: alignList === AlignListType.Left,
+      [style.Top]: openOnTop,
+      [style.Bottom]: !openOnTop,
+    }
+  );
+  
   // Render
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
       {children(handleButtonOnClick, isOpen)}
       {isOpen && (
-        <div className={`${style.ListWrapper} ${alignList === AlignListType.Right ? style.Right : style.Left}`} style={{ width: `${boxWidth}px` }}>
+        <div className={listWrapperStyle} style={{ width: `${boxWidth}px` }}>
           <SelectBox 
             setIsOpen={setIsOpen}
             items={options}

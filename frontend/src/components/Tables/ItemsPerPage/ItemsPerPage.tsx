@@ -21,6 +21,7 @@ export const ItemsPerPage = () => {
         <ButtonWithDropdown 
           options={options}
           alignList={AlignListType.Left}
+          openOnTop
           boxWidth={100}
           onSelectItem={(id) => {console.log(id)}}
         >
