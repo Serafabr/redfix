@@ -17,6 +17,7 @@ const paths = {
   files: 'files',
   httpLog: join('logs', 'http.log'),
   cronLog: join('logs', 'cron.log'),
+  diffLog: join('logs', 'diff.log'),
   dump: join('logs', 'dump.sql'),
   schemaJson: join('logs', 'schema.json'),
   schemaGraphQL: join('logs', 'schema.graphql'),

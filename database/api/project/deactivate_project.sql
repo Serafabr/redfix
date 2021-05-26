@@ -6,7 +6,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       update projects set is_active = false where project_id = "projectId";
@@ -15,11 +14,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `projectId`\n
-\n
-Output `id`: the same as `projectId` input
-';
+grant execute on function :function_name to supervisor, inspector;
 
-grant execute on function :function_name to coordinator, supervisor, inspector;
+select generate_api_documentation(:'function_name',E'the same as `projectId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

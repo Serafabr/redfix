@@ -4,9 +4,11 @@ const exec = util.promisify(require('child_process').exec);
 const paths = require('../../paths');
 const cronWritableStream = require('../cronWritableStream')
 
+const { PGDATABASE, PGADMINUSER } = process.env;
+
 const dumpDatabase = async () => {
   try {
-    const output = await exec(`pg_dump -f ${paths.dump} -d ${process.env.PGDATABASE}`);
+    const output = await exec(`pg_dump -f ${paths.dump} -d ${PGDATABASE} -U ${PGADMINUSER} -w`);
     const logContent = `${(new Date()).toISOString()}\tdump\tok\n`;
     cronWritableStream.write(logContent, 'utf8');
   } catch (error){
@@ -15,13 +17,9 @@ const dumpDatabase = async () => {
   }
 }
 
-module.exports = {
-  cronJob: new CronJob({
-    cronTime: process.env.CRON_PATTERN_DUMP,
-    onTick: dumpDatabase,
-    onComplete: () => {},
-    start: true,
-    timezone: 'America/Sao_Paulo',
-  }),
-  fn: dumpDatabase,
-}
+module.exports = new CronJob({
+  cronTime: process.env.CRON_PATTERN_DUMP,
+  onTick: dumpDatabase,
+  start: true,
+  timezone: process.env.CRON_TIMEZONE,
+});

@@ -6,7 +6,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       update teams set is_active = false where team_id = "teamId";
@@ -15,11 +14,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `teamId`\n
-\n
-Output `id`: the same as `teamId` input
-';
+grant execute on function :function_name to supervisor;
 
-grant execute on function :function_name to coordinator, supervisor;
+select generate_api_documentation(:'function_name',E'the same as `teamId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

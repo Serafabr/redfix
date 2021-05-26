@@ -13,13 +13,9 @@ const refreshAllMVs = async () => {
   }
 }
 
-module.exports = {
-  cronJob: new CronJob({
-    cronTime: process.env.CRON_PATTERN_REFRESH,
-    onTick: refreshAllMVs,
-    onComplete: () => {},
-    start: true,
-    timezone: 'America/Sao_Paulo',
-  }),
-  fn: refreshAllMVs,
-}
+module.exports = new CronJob({
+  cronTime: process.env.CRON_PATTERN_REFRESH,
+  onTick: refreshAllMVs,
+  start: true,
+  timezone: process.env.CRON_TIMEZONE,
+});

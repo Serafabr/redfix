@@ -1,19 +1,36 @@
 const { Pool } = require('pg');
 
+const {
+  PGUSER,
+  PGPASSWORD,
+  PGHOST,
+  PGPORT,
+  PGDATABASE,
+  PGSETTINGS_APPLICATION_NAME,
+  PGADMINUSER,
+  PGADMINPASS,
+  PGSETTINGS_APPLICATION_NAME_ADMIN,
+  PGSETTINGS_STATEMENT_TIMEOUT,
+} = process.env;
+
 const config = {
-  user: process.env.PGUSER,
-  password: process.env.PGPASSWORD,
-  host: process.env.PGHOST,
-  port: process.env.PGPORT,
-  database: process.env.PGDATABASE,
+  user: PGUSER,
+  password: PGPASSWORD,
+  host: PGHOST,
+  port: PGPORT,
+  database: PGDATABASE,
+  application_name: PGSETTINGS_APPLICATION_NAME,
+  statement_timeout: PGSETTINGS_STATEMENT_TIMEOUT,
 };
 
 const adminConfig = {
-  user: process.env.PGADMINUSER,
-  password: process.env.PGADMINPASS,
-  host: process.env.PGHOST,
-  port: process.env.PGPORT,
-  database: process.env.PGDATABASE,
+  user: PGADMINUSER,
+  password: PGADMINPASS,
+  host: PGHOST,
+  port: PGPORT,
+  database: PGDATABASE,
+  application_name: PGSETTINGS_APPLICATION_NAME_ADMIN,
+  statement_timeout: PGSETTINGS_STATEMENT_TIMEOUT,
 };
 
 const pgPool = new Pool(config);

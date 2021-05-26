@@ -2,31 +2,25 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes teams,
+  in "teamId" integer,
+  in "NAME" text,
+  in "DESCRIPTION" text default null,
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
-      update teams set (
-        name,
-        description
-      ) = (
-        attributes.name,
-        attributes.description
-      ) where team_id = attributes.team_id
-      returning team_id into id;
+      update teams set
+        name = "NAME",
+        description = "DESCRIPTION"
+      where team_id = "teamId";
+      id = "teamId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `attributes.teamId`\n
-* `attributes.name`\n
-\n
-Output `id`: `teamId` of the modified team
-';
+grant execute on function :function_name to supervisor;
 
-grant execute on function :function_name to coordinator, supervisor;
+select generate_api_documentation(:'function_name',E'`teamId` of the modified team\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

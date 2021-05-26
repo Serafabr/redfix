@@ -6,21 +6,19 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  security definer
-  strict
   as $$
     begin
-      update persons set is_active = false where person_id = "personId";
+      update persons set
+        password_hash = null,
+        person_role = 'visitor'
+      where person_id = "personId";
       id = "personId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `personId`\n
-\n
-Output `id`: the same as `personId` input
-';
+grant execute on function :function_name to supervisor;
 
-grant execute on function :function_name to coordinator, supervisor;
+select generate_api_documentation(:'function_name',E'the same as `personId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

@@ -3,14 +3,14 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "taskId" integer,
-  in "teamId" integer,
   out id integer
 )
   language plpgsql
-  strict
   as $$
     declare
       task_initial_status integer;
+      "personId" constant integer = get_person_id();
+      "teamId" constant integer = get_team_id();
     begin
       insert into tasks (
         -- task_id and task_status_id are defaults
@@ -20,6 +20,7 @@ create or replace function :function_name (
         updated_by,
         task_priority_id,
         task_category_id,
+        task_template_id,
         project_id,
         title,
         description,
@@ -29,15 +30,15 @@ create or replace function :function_name (
         date_start,
         date_end,
         request_id,
-        team_id,
-        next_team_id
+        team_id
       ) select
         now(),
         now(),
-        get_person_id(),
-        get_person_id(),
+        "personId",
+        "personId",
         t.task_priority_id,
         t.task_category_id,
+        t.task_template_id,
         t.project_id,
         t.title,
         t.description,
@@ -47,8 +48,7 @@ create or replace function :function_name (
         t.date_start,
         t.date_end,
         t.request_id,
-        "teamId",
-        null
+        "teamId"
       from tasks as t where t.task_id = "taskId"
       returning
           task_id,
@@ -67,9 +67,9 @@ create or replace function :function_name (
       insert into task_events values (
         default,
         id,
-        'insert',
+        'creation',
         now(),
-        get_person_id(),
+        "personId",
         "teamId",
         "teamId",
         task_initial_status,
@@ -83,12 +83,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `taskId`\n
-* `teamId`\n
-\n
-Output `id`: `taskId` of the new task
-';
+grant execute on function :function_name to supervisor, inspector, employee;
 
-grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+select generate_api_documentation(:'function_name',E'`taskId` of the new task\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

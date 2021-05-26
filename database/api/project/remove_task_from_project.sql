@@ -6,7 +6,6 @@ create or replace function :function_name (
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
       update tasks set project_id = null where task_id = "taskId";
@@ -15,11 +14,8 @@ create or replace function :function_name (
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `taskId`\n
-\n
-Output `id`: the same as `taskId` input
-';
+grant execute on function :function_name to supervisor, inspector, employee;
 
-grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+select generate_api_documentation(:'function_name',E'the same as `taskId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

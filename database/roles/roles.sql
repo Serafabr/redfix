@@ -1,25 +1,22 @@
-drop role coordinator;
-drop role supervisor;
-drop role inspector;
-drop role employee;
-drop role visitor;
-drop role cmms_user;
+drop role if exists supervisor;
+drop role if exists inspector;
+drop role if exists employee;
+drop role if exists visitor;
+drop role if exists cmms_user;
 
 -- cmms users' roles
--- cmms_user is used only for login (inside pgPool definition)
+create role supervisor with noinherit;
+create role inspector with noinherit;
+create role employee with noinherit;
+create role visitor with noinherit;
 create role cmms_user with
-  nosuperuser
-  nocreatedb
-  nocreaterole
+  noinherit
   login
-  noreplication
-  nobypassrls
   password '123456'
-  admin administrator
+  in role supervisor, inspector, employee, visitor
 ;
 
-create role coordinator in role cmms_user;
-create role supervisor in role cmms_user;
-create role inspector in role cmms_user;
-create role employee in role cmms_user;
-create role visitor in role cmms_user;
+comment on role supervisor is 'Servidor da SINFRA';
+comment on role inspector is 'Terceirizado da Fiscalização';
+comment on role employee is 'Terceirizado da Manutenção';
+comment on role visitor is 'Visitante';

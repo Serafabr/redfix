@@ -7,10 +7,11 @@ const fs = require('fs');
 const paths = require('../paths');
 
 async function decideUploadDestination(req, res, next){
-  const { files, image, cebFile } = req.body && req.body.variables ? req.body.variables : {};
-  if (!files && !image && !cebFile) next();   // no uploads
+  const { files, image, avatar, cebFile } = req.body && req.body.variables ? req.body.variables : {};
+  if (!files && !image && !avatar && !cebFile) next();   // no uploads
   if (files) saveFiles(req, res, next);       // regular uploads
-  if (image) saveImage(req, res, next);       // images
+  if (image) saveImage(req, res, next);       // image
+  if (avatar) saveAvatar(req, res, next);     // avatar
   if (cebFile) insertCebData(req, res, next); // CEB csv files
 }
 
@@ -60,6 +61,22 @@ async function saveImage(req, res, next){
   });
 }
 
+async function saveAvatar(req, res, next){
+  const { avatar, avatarMetadata } = req.body.variables;
+  const resolvedAvatar = await avatar.promise;
+  const { filename, mimetype, encoding, createReadStream } = resolvedAvatar;
+  const stream = createReadStream();
+  const avatarPath = path.join(process.cwd(), paths.images, avatarMetadata.uuid);
+  saveLocal(stream, avatarPath)
+  .then(() => {
+    next();
+  })
+  .catch(error => {
+    console.log(error);
+    res.status(500).end();
+  });
+}
+
 async function insertCebData(req, res, next){
   const cebFile = req.body.variables.cebFile[0];
   const resolvedCebFile = await cebFile.promise;
@@ -73,7 +90,7 @@ async function insertCebData(req, res, next){
       record.pop(); // remove empty string at the end of the record
       const valuesString = `(${record.map(field => ("'" + field + "'")).join(',')})`;
       // console.log(valuesString);
-      promises.push(pgPool.query('select web.insert_ceb_bill($1)', [valuesString]));
+      promises.push(pgPool.query('select web.create_energy_bill($1)', [valuesString]));
       // console.log(data);
     } catch(error) {
       console.log(error);

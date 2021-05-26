@@ -2,57 +2,57 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes depots,
+  in "depotId" integer,
+  in "depotSf" text,
+  in "depotCategoryId" integer,
+  in "NAME" text,
+  in "DESCRIPTION" text,
+  in "parentId" integer default null,
+  in "firmId" integer default null,
+  in "materialDefaultBdi" numeric default 0,
+  in "serviceDefaultBdi" numeric default 0,
+  in "dateSign" date default null,
+  in "datePub" date default null,
+  in "dateStart" date default null,
+  in "dateEnd" date default null,
+  in "URL" text default null,
+  in "SIGAD" text default null,
   out id integer
 )
   language plpgsql
-  strict
   as $$
     begin
-      update depots as d set (
-        depot_sf,
-        updated_at,
-        updated_by,
-        depot_category_id,
-        date_sign,
-        date_pub,
-        date_start,
-        date_end,
-        company,
-        title,
-        description,
-        url,
-        sigad
-      ) = (
-        attributes.depot_sf,
+      update depots set
+        depot_sf = "depotSf",
+        depot_category_id = "depotCategoryId",
+        name = "NAME",
+        description = "DESCRIPTION",
+        parent_id = "parentId",
+        firm_id = "firmId",
+        material_default_bdi = "materialDefaultBdi",
+        service_default_bdi = "serviceDefaultBdi",
+        date_sign = "dateSign",
+        date_pub = "datePub",
+        date_start = "dateStart",
+        date_end = "dateEnd",
+        url = "URL",
+        sigad = "SIGAD"
+      where depot_id = "depotId";
+      insert into depot_events values (
+        default,
+        "depotId",
+        'modification',
         now(),
         get_person_id(),
-        attributes.depot_category_id,
-        attributes.date_sign,
-        attributes.date_pub,
-        attributes.date_start,
-        attributes.date_end,
-        attributes.company,
-        attributes.title,
-        attributes.description,
-        attributes.url,
-        attributes.sigad
-      ) where d.depot_id = attributes.depot_id
-      returning d.depot_id into id;
+        'Modificação do estoque'
+      );
+      id = "depotId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `attributes.depotId`\n
-* `attributes.depotSf`\n
-* `attributes.depotCategoryId`\n
-* `attributes.company`\n
-* `attributes.title`\n
-* `attributes.description`\n
-\n
-Output `id`: `depotId` of the modified depot
-';
+grant execute on function :function_name to supervisor, inspector;
 
-grant execute on function :function_name to coordinator, supervisor, inspector;
+select generate_api_documentation(:'function_name',E'the same as `depotId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

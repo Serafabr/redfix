@@ -2,73 +2,62 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes tasks,
+  in "taskId" integer,
+  in "TITLE" text,
+  in "DESCRIPTION" text,
+  in "taskPriorityId" integer,
+  in "taskCategoryId" integer,
+  in "taskTemplateId" integer default null,
+  in "projectId" integer default null,
+  in "PLACE" text default null,
+  in "PROGRESS" integer default null,
+  in "dateStart" date default null,
+  in "dateEnd" date default null,
+  in "requestId" integer default null,
   out id integer
 )
   language plpgsql
-  strict
   as $$
+    declare
+      "personId" constant integer = get_person_id();
+      "teamId" constant integer = get_team_id();
     begin
-      update tasks as t
-        set (
-          updated_at,
-          updated_by,
-          task_priority_id,
-          task_category_id,
-          project_id,
-          title,
-          description,
-          place,
-          progress,
-          date_limit,
-          date_start,
-          date_end,
-          request_id
-        ) = (
-          now(),
-          get_person_id(),
-          attributes.task_priority_id,
-          attributes.task_category_id,
-          attributes.project_id,
-          attributes.title,
-          attributes.description,
-          attributes.place,
-          attributes.progress,
-          attributes.date_limit,
-          attributes.date_start,
-          attributes.date_end,
-          attributes.request_id
-        ) where t.task_id = attributes.task_id
-        returning t.task_id into id;
-
-        insert into task_events values (
-          default,
-          id,
-          'modify',
-          now(),
-          get_person_id(),
-          attributes.team_id,
-          null,
-          null,
-          'Alteração da tarefa.',
-          null,
-          null,
-          true
-        );
-
+      update tasks set
+        updated_at = now(),
+        updated_by = get_person_id(),
+        task_priority_id = "taskPriorityId",
+        task_category_id = "taskCategoryId",
+        task_template_id = "taskTemplateId",
+        project_id = "projectId",
+        title = "TITLE",
+        description = "DESCRIPTION",
+        place = "PLACE",
+        progress = "PROGRESS",
+        date_start = "dateStart",
+        date_end = "dateEnd",
+        request_id = "requestId"
+      where task_id = "taskId";
+      insert into task_events values (
+        default,
+        "taskId",
+        'modification',
+        now(),
+        get_person_id(),
+        "teamId",
+        null,
+        null,
+        'Alteração da tarefa',
+        null,
+        null,
+        true
+      );
+      id = "taskId";
     end;
   $$
 ;
 
+grant execute on function :function_name to supervisor, inspector, employee;
 
-comment on function :function_name is E'
-Mandatory inputs(s):\n
-* `attributes.title`\n
-* `attributes.taskPriorityId`\n
-* `attributes.taskCategoryId`\n
-* `attributes.teamId`\n
-\n
-Output `id`: `taskId` of the modified task
-';
+select generate_api_documentation(:'function_name',E'the same as `taskId` input\n') as new_comment \gset
 
-grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+comment on function :function_name is :'new_comment';

@@ -2,40 +2,25 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes plans,
+  in "planId" integer,
+  in "NAME" text,
+  in "DESCRIPTION" text,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update plans set (
-        name,
-        description,
-        periodicity_id,
-        date_start,
-        is_active
-      ) = (
-        attributes.name,
-        attributes.description,
-        attributes.periodicity_id,
-        attributes.date_start,
-        attributes.is_active
-      ) where plan_id = attributes.plan_id;
-      id = attributes.plan_id;
+      update plans set
+        name = "NAME",
+        description = "DESCRIPTION"
+      where plan_id = "planId";
+      id = "planId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `attributes.planId`\n
-* `attributes.name`\n
-* `attributes.description`\n
-* `attributes.periodicityId`\n
-* `attributes.dateStart`\n
-* `attributes.isActive`\n
-\n
-Output `id`: `planId` of the modified plan
-';
+grant execute on function :function_name to supervisor, inspector;
 
-grant execute on function :function_name to coordinator, supervisor, inspector;
+select generate_api_documentation(:'function_name',E'`planId` of the modified plan\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

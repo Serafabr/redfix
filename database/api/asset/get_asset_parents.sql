@@ -1,34 +1,30 @@
-\set function_name 'api.get_asset_parents'
-
+\set function_name api.get_asset_parents
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "assetId" integer,
-  out parents jsonb
+  in "childId" integer,
+  out "assetId" integer,
+  out "assetSf" text,
+  out "name" text,
+  out "assetCategoryId" integer,
+  out "assetCategoryText" text
 )
+  returns setof record
   language sql
   stable
-  strict
   as $$
-    select  coalesce(
-              jsonb_agg(jsonb_build_object(
-                'assetId', a.asset_id,
-                'assetSf', a.asset_sf,
-                'name', a.name
-              ) order by a.asset_sf),
-              jsonb_build_array()
-            ) as children
+    select
+      a.asset_id as "assetId",
+      a.asset_sf as "assetSf",
+      a.name as "name",
+      a.asset_category_id as "assetCategoryId",
+      ac.asset_category_text as "assetCategoryText"
     from asset_parents as ap
-    inner join assets as a using (asset_id)
-    where ap.asset_id = "assetId";
+    inner join assets as a on (ap.parent_id = a.asset_id)
+    inner join asset_categories as ac on (ac.asset_category_id = a.asset_category_id)
+    where ap.asset_id = "childId"
+    order by a.asset_sf;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `assetId`\n
-\n
-Output `parents`: a list of assets that are parents of the asset identified by `assetId`
-';
-
-grant execute on function :function_name to coordinator, supervisor, inspector, employee, visitor;
+grant execute on function :function_name to supervisor, inspector, employee, visitor;

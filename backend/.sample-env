@@ -5,49 +5,51 @@ NODE_ENV=development
 HTTP_PORT=3001
 
 # Requests logging
-# LOG_OUTPUT:    none, console, file or both
-LOG_OUTPUT=console
+# LOG_OUTPUTS: JSON array with any combination of "console" and "file"
+LOG_OUTPUTS=["console"]
 
-# Database connection
+# PostgreSQL connection and settings
 PGADMINUSER=administrator
 PGADMINPASS=123456
-PGUSER=administrator
+PGUSER=cmms_user
 PGPASSWORD=123456
 PGHOST=localhost
 PGPORT=5432
-PGDATABASE=db_dev
+PGDATABASE=dev
+PGSETTINGS_APPLICATION_NAME=cmms
+PGSETTINGS_APPLICATION_NAME_ADMIN=cmms_admin
+PGSETTINGS_STATEMENT_TIMEOUT=0
 
 # Cookie
 COOKIE_NAME=cmms:session
 COOKIE_KEY_0=secret0
 COOKIE_KEY_1=secret1
 COOKIE_KEY_2=secret2
+COOKIE_SECURE=0
+COOKIE_HTTP_ONLY=1
+COOKIE_SIGNED=1
+COOKIE_OVERWRITE=1
+COOKIE_DOMAIN=localhost
+COOKIE_PATH=/
+COOKIE_SAME_SITE=strict
 COOKIE_MAX_AGE=604800000
 
 # Sessions
-# SESSION_SOURCE:            default or cookie
-# SESSION_DEFAULT_PERSON_ID: a person_id from the database (0 means dev user)
-# SESSION_DEFAULT_ROLE:      administrator, supervisor, inspector, employee or visitor
-# SESSION_VISITOR_PERSON_ID: must be left empty
-# SESSION_VISITOR_ROLE:      visitor
-SESSION_SOURCE=default
-SESSION_DEFAULT_PERSON_ID=0
-SESSION_DEFAULT_ROLE=administrator
-SESSION_VISITOR_PERSON_ID=
-SESSION_VISITOR_ROLE=visitor
+# SESSION_DEFAULT_PERSON_ID:    an integer (for development and tests) or empty value (for production)
+# SESSION_DEFAULT_ROLE:         supervisor, inspector, employee, visitor or '' (empty string disables access from unauthenticated users)
+SESSION_DEFAULT_PERSON_ID=1
+SESSION_DEFAULT_ROLE=supervisor
 
 # PostGraphile
-# POSTGRAPHILE_SCHEMAS: comma-separated list of database schemas that contain GraphQL API objects
-POSTGRAPHILE_SCHEMAS=api
-
-# Transaction settings
-# PGSETTINGS_STATEMENT_TIMEOUT: timeout in milliseconds (0 means disabled timeout)
-PGSETTINGS_STATEMENT_TIMEOUT=0
+# POSTGRAPHILE_SCHEMAS:         JSON array with names of the schemas that contain GraphQL API operations
+# POSTGRAPHILE_EXTENDED_ERRORS: JSON array with any combination of "hint", "detail" and "errcode"
+POSTGRAPHILE_SCHEMAS=["api"]
+POSTGRAPHILE_EXTENDED_ERRORS=["hint","detail","errcode"]
+POSTGRAPHILE_SHOW_ERROR_STACK=json
 
 # Cron jobs schedule
-# CRON_JOBS:                'on' or 'off'
 # Cron patterns and ranges: https://www.npmjs.com/package/cron#usage-basic-cron-usage
-CRON_JOBS=off
+CRON_TIMEZONE=America/Sao_Paulo
 CRON_PATTERN_DUMP=0 0 1 * * *
 CRON_PATTERN_DIFF=0 0 2 * * *
 CRON_PATTERN_REFRESH=0 0 3 * * *

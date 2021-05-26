@@ -2,53 +2,47 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in attributes assets,
+  in "assetId" integer,
+  in "assetSf" text,
+  in "NAME" text,
+  in "assetCategoryId" integer,
+  in "locationId" integer,
+  in "PLACE" text default null,
+  in "DESCRIPTION" text default null,
+  in "LATITUDE" numeric default null,
+  in "LONGITUDE" numeric default null,
+  in "AREA" numeric default null,
+  in "MANUFACTURER" text default null,
+  in "serialNumber" text default null,
+  in "MODEL" text default null,
+  in "PRICE" numeric default null,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update assets as a set (
-        asset_sf,
-        name,
-        description,
-        asset_category_id,
-        location_id,
-        latitude,
-        longitude,
-        area,
-        manufacturer,
-        serial_number,
-        model,
-        price
-      ) = (
-        attributes.asset_sf,
-        attributes.name,
-        attributes.description,
-        attributes.asset_category_id,
-        attributes.location_id,
-        attributes.latitude,
-        attributes.longitude,
-        attributes.area,
-        attributes.manufacturer,
-        attributes.serial_number,
-        attributes.model,
-        attributes.price
-      ) where a.asset_id = attributes.asset_id
-      returning a.asset_id into id;
+      update assets set
+        asset_sf = "assetSf",
+        name = "NAME",
+        asset_category_id = "assetCategoryId",
+        location_id = "locationId",
+        place = "PLACE",
+        description = "DESCRIPTION",
+        latitude = "LATITUDE",
+        longitude = "LONGITUDE",
+        area = "AREA",
+        manufacturer = "MANUFACTURER",
+        serial_number = "serialNumber",
+        model = "MODEL",
+        price = "PRICE"
+      where asset_id = "assetId";
+      id = "assetId";
     end;
   $$
 ;
 
-comment on function :function_name is E'
-Mandatory input(s):\n
-* `attributes.assetId`\n
-* `attributes.assetSf`\n
-* `attributes.name`\n
-* `attributes.assetCategoryId`\n
-* `attributes.locationId`\n
-\n
-Output `id`: `assetId` of the modified asset
-';
+grant execute on function :function_name to supervisor, inspector, employee;
 
-grant execute on function :function_name to coordinator, supervisor, inspector, employee;
+select generate_api_documentation(:'function_name',E'`assetId` of the modified asset\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';
