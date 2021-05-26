@@ -1,10 +1,10 @@
 import style from './Pagination.module.scss';
-import { createPaginationDisplayList, checkAndFixCurrentPage } from '../utils/pagination';
+import { fillArrayWithPageNumbers, checkAndFixCurrentPage, getDisplayItem } from '../utils/pagination';
 
 import leftIcon from '../../../assets/icons/arrow-left.svg';
 import rightIcon from '../../../assets/icons/arrow-right.svg';
 
-const NUM_PAGE_BUTTONS_LARGE = 5;
+const NUM_PAGE_BUTTONS_LARGE = 9;
 
 
 type Props = {
@@ -23,56 +23,35 @@ export const Pagination = ({
   
   const fixedCurrentPage = checkAndFixCurrentPage(currentPage, pages);
   
-  const displayList = createPaginationDisplayList(maxPageButtons, fixedCurrentPage, pages);
+  const displayListNumbers = fillArrayWithPageNumbers(maxPageButtons, fixedCurrentPage, pages);
   
-  // Handle Click
-  const handleClickPagination = (pageClicked: string, displayList: Array<string>, index: number) => () => {
-    switch (pageClicked) {
-      case 'previous': {
-        if (currentPage === 1) {
-          break;
-        }
-        setCurrentPage(currentPage - 1);
-        break;
-      }
-      case 'next': {
-        if (currentPage === pages) {
-          break;
-        }
-        setCurrentPage(currentPage + 1);
-        break;
-      }
-      case '...': {
-        const lastIndex = displayList.length - 1;
-        const pages = Number(displayList[lastIndex]);
-        if (index === 1) {
-          setCurrentPage(Number(displayList[2]) === 3 ? 2 : Number(displayList[2]) - 2);
-          break;
-        }
-        setCurrentPage(Number(displayList[lastIndex - 2]) === pages - 2 ? pages - 1 : Number(displayList[lastIndex - 3]) + 2);
-        break;
-      }
-      default: {
-        setCurrentPage(Number(pageClicked));
-        break;
-      }
+  // Handle Clic
+  const handleClickPagination = (pageClicked: number) => () => {
+    if (pageClicked < 1) {
+      return;
+      
+    } else if (pageClicked > pages) {
+      return;
+      
+    } else {
+      setCurrentPage(pageClicked);
     }
   }
   
   return (
     <ul className={style.Pagination}>
-      <li className={style.PaginationItem} onClick={handleClickPagination('previous', displayList, 0)}>
+      <li className={style.PaginationItem} onClick={handleClickPagination(currentPage - 1)}>
         <img src={leftIcon} alt="Anterior" />
       </li>
-        {displayList.map((item, index) => (
+        {displayListNumbers.map((item, index) => (
           <li 
             className={`${style.PaginationItem} ${fixedCurrentPage === Number(item) && style.Active}`} 
-            onClick={handleClickPagination(item, displayList, index)}
+            onClick={handleClickPagination(item)}
           >
-            <div className={style.PaginationLink}>{item}</div>
+            <div className={style.PaginationLink}>{getDisplayItem(index, displayListNumbers)}</div>
           </li>
         ))}
-      <li className={style.PaginationItem} onClick={handleClickPagination('next', displayList, 0)}>
+      <li className={style.PaginationItem} onClick={handleClickPagination(currentPage + 1)}>
         <img src={rightIcon} alt="Próximo" />
       </li>
     </ul>
