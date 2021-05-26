@@ -109,10 +109,7 @@ set cookie.session.person_id to 1;
 \i data/asset_parents.sql
 \i data/energy_meters.sql
 \i data/water_meters.sql
-alter sequence persons_person_id_seq restart with 10001;
-alter sequence teams_team_id_seq restart with 10001;
 alter sequence assets_asset_id_seq restart with 10001;
-alter sequence firms_firm_id_seq restart with 10001;
 
 -- commit transaction
 commit transaction;

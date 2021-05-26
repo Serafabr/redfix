@@ -1,1 +1,1 @@
-insert into firms values (1, 'Senado Federal', 'Senado Federal', '00530279000115');
+insert into firms values (default, 'Senado Federal', 'Senado Federal', '00530279000115');
