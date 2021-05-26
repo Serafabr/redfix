@@ -111,7 +111,7 @@ export const Tasks = ({
             <Pagination 
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
-              pages={15}
+              pages={100}
             />
           </div>
         </div>
