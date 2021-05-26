@@ -1,0 +1,1 @@
+export { Facility as default } from './Facility';

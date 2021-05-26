@@ -1,0 +1,45 @@
+@import "../../../style/variables";
+
+/*------------------------------------*\
+  #Support Button
+\*------------------------------------*/
+
+.Support {
+  height: 30px;
+  width:  30px;
+  
+  border:     none;
+  background: none;
+  
+  display: flex;
+  align-items: center;
+  
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+
+
+/*------------------------------------*\
+  #Support Icon
+\*------------------------------------*/
+
+.SupportIcon {
+  margin: auto;
+  
+  path {
+    stroke: $primary_color;
+  }
+}
+
+.Support:hover {
+  cursor: pointer;
+    
+    .SupportIcon {
+      path {
+        stroke: $hovered_primary;
+      }
+    }
+}

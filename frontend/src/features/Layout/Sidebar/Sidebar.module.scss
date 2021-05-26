@@ -1,0 +1,73 @@
+@import '../../../style/variables';
+
+.AppSideBar {
+  height: 100%;
+  width: 100%;
+  background-color: $secondary_color;
+  border: 0px;
+  overflow-y: auto;
+  
+  &:hover {
+    overflow-y: auto;
+  }
+  
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 4px;
+    background-color: #f5f5f520;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    
+    background-color: #f5f5f520;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: rgba(95, 139, 196, 0.801)
+  }
+}
+
+.SidebarWrapper {
+  margin-top: 15px;
+}
+
+.AppSidebarHeader {
+  height: 100%;
+  width: 100%;
+  background-color: $secondary_color;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+.ImgWrapper {
+  width: 83px;
+  height: 23px;
+  
+  img {
+    width: 100%;
+  }
+}
+
+.Version {
+  height: 20px;
+  width: 44px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.04);
+  text-align: center;
+  padding: 0;
+  
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.7142rem;
+  color: $white_0;
+  line-height: 20px;
+  
+  vertical-align: center;
+}

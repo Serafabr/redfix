@@ -1,0 +1,22 @@
+@import "../../../../style/variables";
+
+.FilterBar {
+  display: flex;
+}
+
+.FilterContainer {
+  margin-right: 16px;
+}
+
+.RightDivider {
+  padding-right: 16px;
+  border-right: 1px solid $gray_300;
+}
+
+.FilterAtEnd {
+  margin-left: auto;
+}
+
+.LastFilter {
+  margin-right: 0;
+}

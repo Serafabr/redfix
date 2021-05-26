@@ -1,0 +1,30 @@
+@import "../../style/variables";
+
+.Title {
+  font: inherit;
+  font-weight: 600;
+  font-size: 2.286rem;
+  line-height: 32px;
+  color: $gray_800;
+}
+
+.Breadcrumbs {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  
+  img {
+    height: 13px;
+    width: 13px;
+  }
+}
+
+.Path {
+  margin-left: 14px;
+  font: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 21px;
+  
+  color: $gray_500;
+}

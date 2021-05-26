@@ -1,0 +1,22 @@
+@import '../../../style/variables';
+
+.QuickSearch {
+  display: flex;
+  width: 100%;
+}
+
+.InputWrapper {
+  margin-left: -4px;
+  margin-right: -4px;
+  flex-grow: 1;
+  
+  input {
+    border: 1px solid $gray_200;
+    
+    &:focus,
+    &:active {
+      box-shadow: none;
+      border: 1px solid $gray_400;
+    }
+  }
+}

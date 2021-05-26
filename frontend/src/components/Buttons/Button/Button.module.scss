@@ -1,0 +1,139 @@
+@import "../../../style/variables";
+
+/*------------------------------------*\
+  #Button Overall Style
+\*------------------------------------*/
+
+.Button {
+  border:        none;
+  border-radius: 4px;
+  
+  min-width:  130px;
+  height: 40px;
+  
+  font:        inherit;
+  font-size:   1rem;
+  font-weight: 600;
+  
+  &:focus, &.Active {
+    outline: $outline_property;
+  }
+}
+
+.Square {
+  min-width:  40px;
+  height: 40px;
+}
+
+
+
+/*------------------------------------*\
+  #Primary Button Styles
+\*------------------------------------*/
+
+.PrimaryButton {
+  background-color: $primary_color;
+  color:          #ffffff;
+  
+  &:hover,
+  &:active {
+    background-color:  $hovered_primary;
+    cursor: pointer;
+  }
+  
+  .Icon {
+    stroke: #ffffff;
+  }
+  
+  
+  /*****
+    >>Disabled Button
+  *****/
+
+  &.Disabled,
+  &.Disabled:hover,
+  &.Disabled:active {
+    background-color: $gray_300;
+    cursor: auto;
+  }
+
+  &.Disabled:focus {
+    outline: none;
+  }
+}
+
+
+
+/*------------------------------------*\
+  #Secondary Button Styles
+\*------------------------------------*/
+
+.SecondaryButton {
+  border:             2px solid $primary_color_light;
+  background-color: #ffffff;
+  color:              $primary_color;
+  
+  &:hover,
+  &:active {
+    border: 2px solid $hovered_primary;
+    color:  $hovered_primary;
+    cursor: pointer;
+    
+    .Icon {
+      stroke: $hovered_primary;
+    }
+  }
+  
+  .Icon {
+    stroke: $primary_color;
+  }
+  
+  
+  
+  /*****
+    >>Disabled Button
+  *****/
+
+  &.Disabled,
+  &.Disabled:hover,
+  &.Disabled:active {
+    border: 2px solid $gray_300;
+    color:  $gray_300;
+    cursor: auto;
+    
+    .Icon {
+      stroke: $gray_300;
+    }
+  }
+
+  &.Disabled:focus {
+    outline: none;
+  }
+}
+
+
+
+/*------------------------------------*\
+  #Other Components
+\*------------------------------------*/
+
+.ContentWrapper {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-around;
+}
+
+.Text {
+  padding: 0 6px;
+  line-height: 21px;
+  font-style:  normal;
+}
+
+.IconWrapper {
+  display:     flex;
+  align-items: center;
+}
+
+.Icon {
+  stroke: $primary_color;
+}

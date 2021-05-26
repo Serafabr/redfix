@@ -1,0 +1,1 @@
+export { Depot as default } from './Depot';

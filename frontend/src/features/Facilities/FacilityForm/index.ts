@@ -1,0 +1,1 @@
+export { FacilityForm as default } from './FacilityForm';

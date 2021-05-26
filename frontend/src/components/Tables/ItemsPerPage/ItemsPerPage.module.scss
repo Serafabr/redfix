@@ -1,0 +1,15 @@
+@import "../../../style/variables";
+
+.ItemsPerPage {
+  display: flex;
+  align-items: center;
+}
+
+.Label {
+  margin-right: 16px;
+  font: inherit;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $gray_500;
+}
