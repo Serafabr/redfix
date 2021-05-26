@@ -74,6 +74,7 @@ export const Tasks = ({
 }: TasksProps) => {
   
   const [ quickFilter, setQuickFilter ] = useState(quickFilterInitial);
+  const [ currentPage, setCurrentPage ] = useState(1);
   
   const filterConfig = {
     quickFilter,
@@ -107,7 +108,11 @@ export const Tasks = ({
           />
           <div className={style.Footer}>
             <ItemsPerPage />
-            <Pagination />
+            <Pagination 
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              pages={15}
+            />
           </div>
         </div>
       </div>
