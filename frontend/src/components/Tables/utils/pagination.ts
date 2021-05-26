@@ -70,3 +70,20 @@ export const createPaginationDisplayList = (
   // Create display list
   return createDisplayList(sortedPageNumbers, pages);
 }
+
+export const checkAndFixCurrentPage = (
+  currentPage: number, 
+  pages: number
+) => {
+
+  if (currentPage > pages) {
+    return pages;
+    
+  } else if (currentPage < 1) {
+    return 1;
+    
+  } else {
+    return currentPage;
+    
+  }
+}
