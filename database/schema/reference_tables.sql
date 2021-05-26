@@ -136,7 +136,7 @@ insert into units values
   (22, 'conj. x mês', 1),
   (23, 'profissional', 1),
   (24, 'dia', 1),
-  (25, 'm² x km', 2),
+  (25, 'm² x km', 2)
 ;
 
 create table monitor_categories (
