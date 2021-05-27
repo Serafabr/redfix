@@ -11,8 +11,8 @@ create or replace function :function_name (
   as $$
     begin
       -- "on conflict do nothing" clause avoids error in case of bills that already are in the database
-      execute format('insert into energy_bills values %s on conflict do nothing returning 1', values_string) into inserted_count;
-      inserted_count = coalesce(inserted_count, 0);
+      execute format('insert into energy_bills values %s on conflict do nothing', values_string);
+      get diagnostics inserted_count = row_count;
     end;
   $$
 ;

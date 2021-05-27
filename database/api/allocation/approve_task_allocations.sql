@@ -17,13 +17,13 @@ create or replace function :function_name (
         approved_by = get_person_id()
       from aa
       where a.alloc_id = aa.alloc_id;
-      id = 1;
+      get diagnostics id = row_count;
     end;
   $$
 ;
 
 grant execute on function :function_name to supervisor, inspector;
 
-select generate_api_documentation(:'function_name',E'`1`\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'the number of processed items\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';
