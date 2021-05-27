@@ -16,6 +16,7 @@ import { useTable } from 'react-table';
 import { ItemsPerPage } from '../../components/Tables/ItemsPerPage/ItemsPerPage';
 import { Pagination } from '../../components/Tables/Pagination/Pagination';
 import { DropdownButton } from '../../components/Buttons/Dropdown/DropdownButton';
+import { Card } from '../../components/Cards';
 
 const quickFilterInitial = {
     entryBox: {
@@ -96,7 +97,7 @@ export const Tasks = ({
         path={location.pathname}
         buttons={taskButtons}
       />
-      <div className={style.Card}>
+      <Card>
         <div className={style.Buttons}>
           <FilterBar 
             filterState={filterConfig}
@@ -115,7 +116,7 @@ export const Tasks = ({
             />
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   )
 }
