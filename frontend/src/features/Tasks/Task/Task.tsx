@@ -57,7 +57,7 @@ export const Task = () => {
                 Manutenção no subsolo do Edifício Principal. Trocar todos os disjuntores e fazer revisão dos quadros elétricos.
                 <span className={style.CardBookmark}>BM</span>
               </div>
-              <div className={style.CardTags}>
+              <div className={style.CardHeaderTags}>
                 <div className={style.BadgeWrapper}>
                   <div className={`${style.StatusBadge} ${style.Blue}`}>Fila de espera</div>
                 </div>

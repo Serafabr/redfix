@@ -1,7 +1,7 @@
 @import "../../../style/variables";
 
 .SingleCardHeader {
-  padding: 24px 40px 12px 40px;
+  padding: 24px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,8 +16,8 @@
   font-size: 1.428rem;
 }
 
-.CardTags {
-  margin: 8px 0;
+.CardHeaderTags {
+  margin-top: 8px;
 }
 
 .BadgeWrapper {
