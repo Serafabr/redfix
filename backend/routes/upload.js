@@ -100,7 +100,7 @@ async function insertCebData(req, res, next){
   .on("end", () => {
     Promise.all(promises)
     .then(values => {
-      const insertedCount = values.map(value => value.rows[0].insert_ceb_bill).reduce((acc, curr) => acc + curr);
+      const insertedCount = values.map(value => value.rows[0].create_energy_bill).reduce((acc, curr) => acc + curr);
       // console.log(insertedCount);
       res.json({
         cebSuccess: true,

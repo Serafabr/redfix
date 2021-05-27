@@ -18,12 +18,13 @@ create or replace function :function_name (
       ) then delete from allocations where alloc_id in (select unnest("allocIds"));
         else perform raise_exception(502);
       end if;
+      id = 1;
     end;
   $$
 ;
 
 grant execute on function :function_name to supervisor, inspector, employee;
 
-select generate_api_documentation(:'function_name',E'`allocId` of the new allocation\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'`1`\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';

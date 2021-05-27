@@ -17,8 +17,8 @@ create or replace function :function_name (
         person_id = "personId" and
         -- avoids changing active user
         password_hash is null
-      ;
-      id = "personId";
+      returning person_id into id;
+      -- id = "personId";
     end;
   $$
 ;
