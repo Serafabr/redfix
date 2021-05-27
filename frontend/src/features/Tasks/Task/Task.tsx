@@ -8,6 +8,7 @@ import { MoreHorizontal as MoreIcon } from '../../../components/Icons';
 
 import style from './Task.module.scss';
 import { useLocation, useParams } from 'react-router';
+import { Card } from '../../../components/Cards';
 
 type URLParams = {
   id: string
@@ -46,6 +47,13 @@ export const Task = () => {
         path={location.pathname}
         buttons={taskButtons}
       />
+      <Card>
+        <div className={style.SingleCardHeader}>
+          Title
+        </div>
+        <div>Content</div>
+        <div>Tabs</div>
+      </Card>
     </div>
   )
 }
