@@ -10,6 +10,7 @@ import style from './Task.module.scss';
 import { useLocation, useParams } from 'react-router';
 import { Card } from '../../../components/Cards';
 import { CardHeader } from '../../../components/Cards/CardHeader';
+import { ProgressBar } from '../../../components/ProgressBar';
 
 type URLParams = {
   id: string
@@ -65,7 +66,9 @@ export const Task = () => {
                 </div>
               </div>
             </div>
-            <div className={style.Percentage}>Percentage</div>
+            <div className={style.Percentage}>
+              <ProgressBar />
+            </div>
           </div>
         </CardHeader>
         <div>Content</div>
