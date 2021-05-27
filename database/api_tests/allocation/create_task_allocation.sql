@@ -7,4 +7,11 @@ select api.create_task_allocation(
   11
 ) as new_alloc_id \gset
 
+select api.create_task_allocation(
+  :new_task_id,
+  :new_supply_id,
+  :new_depot_id,
+  11
+) as alloc_to_be_deleted \gset
+
 \set all_mutations :all_mutations:tested_mutation,

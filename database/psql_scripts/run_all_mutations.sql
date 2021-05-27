@@ -99,6 +99,7 @@
 
 -- allocation
 \i api_tests/allocation/create_task_allocation.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/allocation/delete_task_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/allocation/modify_qty_proposed.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/allocation/approve_task_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/allocation/modify_qty_approved.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif

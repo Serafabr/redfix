@@ -10,6 +10,7 @@ begin transaction;
 \i api/allocation/allocation_statuses.sql
 \i api/allocation/approve_task_allocations.sql
 \i api/allocation/create_task_allocation.sql
+\i api/allocation/delete_task_allocations.sql
 \i api/allocation/finish_task_allocations.sql
 \i api/allocation/modify_qty_approved.sql
 \i api/allocation/modify_qty_proposed.sql
