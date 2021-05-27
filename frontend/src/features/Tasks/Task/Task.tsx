@@ -46,7 +46,7 @@ export const Task = () => {
   return (
     <div>
       <TitleArea 
-        title={`Tarefa - ${taskID}`}
+        title={`Tarefa ${taskID}`}
         path={location.pathname}
         buttons={taskButtons}
       />
@@ -75,7 +75,44 @@ export const Task = () => {
             </div>
           </div>
         </CardHeader>
-        <div>Content</div>
+        <div className={style.CardContent}>
+          <div className={`${style.DataDisplay} ${style.DescriptionGrid}`}>
+            <div className={style.Label}>Descrição</div>
+            <div className={style.Data}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus auctor diam, non lobortis massa mattis elementum. Phasellus tincidunt felis a sem blandit, id fringilla lacus finibus. Pellentesque a dignissim velit. Pellentesque ligula est, pretium a sodales quis, interdum id nisl. Suspendisse potenti. Sed cursus tortor tincidunt porttitor suscipit. Praesent non dignissim felis. Cras at risus nec lacus laoreet cursus. Nulla nec leo dictum, iaculis tellus ac, aliquam augue. Praesent vestibulum ante at dictum lobortis. Proin nunc massa, mollis in ultricies nec, facilisis ut tellus. Donec malesuada dolor ut libero eleifend venenatis.</div>
+          </div>
+          <div className={`${style.DataDisplay}`}>
+            <div className={style.Label}>Local</div>
+            <div className={style.Data}>Subsolo do Edifício Principal</div>
+          </div>
+          <div className={`${style.DataDisplay}`}>
+            <div className={style.Label}>Equipe Atual</div>
+            <div className={style.Data}>Seplag</div>
+          </div>
+          <div className={`${style.DataDisplay}`}>
+            <div className={style.Label}>Plano de Manutenção</div>
+            <div className={style.Data}>PM 0012 - Limpeza semanal de subestação</div>
+          </div>
+          <div className={`${style.DataDisplay}`}>
+            <div className={style.Label}>Prioridade</div>
+            <div className={style.Data}>Normal</div>
+          </div>
+          <div className={`${style.DataDisplay}`}>
+            <div className={style.Label}>Prazo</div>
+            <div className={style.Data}>Quinta-feira, 31 Dez 2020 (21 dias de atraso)</div>
+          </div>
+          <div className={`${style.DataDisplay}`}>
+            <div className={style.Label}>Criação da tarefa</div>
+            <div className={style.Data}>01/03/2020</div>
+          </div>
+          <div className={`${style.DataDisplay}`}>
+            <div className={style.Label}>Início da Execução</div>
+            <div className={style.Data}>31/12/2020</div>
+          </div>
+          <div className={`${style.DataDisplay}`}>
+            <div className={style.Label}>Término da Execução</div>
+            <div className={style.Data}>31/12/2020</div>
+          </div>
+        </div>
         <div>Tabs</div>
       </Card>
     </div>
