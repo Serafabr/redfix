@@ -16,6 +16,10 @@
   font-size: 1.428rem;
 }
 
+.CardBookmark {
+  margin-left: 5px;
+}
+
 .CardHeaderTags {
   margin-top: 8px;
 }
@@ -46,6 +50,17 @@
 }
 
 .Percentage {
+  display: flex;
+  align-items: center;
   min-width: 180px;
   margin-left: 80px;
+}
+
+.PercentageText {
+  margin-left: 12px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 20px;
+  color: $gray_600;
 }

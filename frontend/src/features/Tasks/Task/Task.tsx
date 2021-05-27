@@ -5,6 +5,7 @@ import { ButtonWithDropdown, AlignListType } from '../../../components/Buttons';
 
 import { Plus as PlusIcon } from '../../../components/Icons';
 import { MoreHorizontal as MoreIcon } from '../../../components/Icons';
+import BookmarkIcon from '../../../assets/icons/bookmark.svg';
 
 import style from './Task.module.scss';
 import { useLocation, useParams } from 'react-router';
@@ -55,7 +56,9 @@ export const Task = () => {
             <div className={style.CardTitleWrapper}>
               <div className={style.CardTitle}>
                 Manutenção no subsolo do Edifício Principal. Trocar todos os disjuntores e fazer revisão dos quadros elétricos.
-                <span className={style.CardBookmark}>BM</span>
+                <span className={style.CardBookmark}>
+                  <img src={BookmarkIcon} alt="Favoritar tarefa" />
+                </span>
               </div>
               <div className={style.CardHeaderTags}>
                 <div className={style.BadgeWrapper}>
@@ -68,6 +71,7 @@ export const Task = () => {
             </div>
             <div className={style.Percentage}>
               <ProgressBar />
+              <div className={style.PercentageText}>80%</div>
             </div>
           </div>
         </CardHeader>
