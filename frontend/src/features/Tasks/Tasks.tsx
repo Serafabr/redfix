@@ -17,6 +17,7 @@ import { ItemsPerPage } from '../../components/Tables/ItemsPerPage/ItemsPerPage'
 import { Pagination } from '../../components/Tables/Pagination/Pagination';
 import { DropdownButton } from '../../components/Buttons/Dropdown/DropdownButton';
 import { Card } from '../../components/Cards';
+import { TableCardButtons, TableCardContent } from '../../components/Cards/TableCard';
 
 const quickFilterInitial = {
     entryBox: {
@@ -98,12 +99,12 @@ export const Tasks = ({
         buttons={taskButtons}
       />
       <Card>
-        <div className={style.Buttons}>
+        <TableCardButtons>
           <FilterBar 
             filterState={filterConfig}
           />
-        </div>
-        <div className={style.Content}>
+        </TableCardButtons>
+        <TableCardContent>
           <Table 
             data={table}
           />
@@ -115,7 +116,7 @@ export const Tasks = ({
               pages={100}
             />
           </div>
-        </div>
+        </TableCardContent>
       </Card>
     </div>
   )
