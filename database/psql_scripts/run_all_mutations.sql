@@ -34,6 +34,9 @@
 \i api_tests/team/create_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/team/modify_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
+\i api_tests/team/deactivate_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/team/reactivate_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
 \i api_tests/team/create_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/team/modify_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
