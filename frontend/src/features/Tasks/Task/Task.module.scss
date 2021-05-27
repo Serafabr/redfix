@@ -1,7 +1,7 @@
 @import "../../../style/variables";
 
 .SingleCardHeader {
-  padding: 24px 40px;
+  padding: 24px 40px 12px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,6 +20,30 @@
   margin: 8px 0;
 }
 
+.BadgeWrapper {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.StatusBadge {
+  padding: 4px 12px;
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 16px;
+  border-radius: 4px;
+}
+
+.Blue {
+  background-color: #1589EE25;
+  color: #1589EE;
+}
+
+.Red {
+  background-color: #C2393425;
+  color: #C23934;
+}
 
 .Percentage {
   min-width: 180px;
