@@ -1,4 +1,27 @@
+@import "../../../style/variables";
+
 .SingleCardHeader {
   padding: 24px 40px;
-  border-bottom: 1px solid #dfdfdf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.CardTitle {
+  font: inherit;
+  color: $gray_700;
+  font-weight: 600;
+  line-height: 28px;
+  font-size: 1.428rem;
+}
+
+.CardTags {
+  margin: 8px 0;
+}
+
+
+.Percentage {
+  min-width: 180px;
+  margin-left: 80px;
 }

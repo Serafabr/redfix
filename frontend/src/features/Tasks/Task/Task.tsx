@@ -9,6 +9,7 @@ import { MoreHorizontal as MoreIcon } from '../../../components/Icons';
 import style from './Task.module.scss';
 import { useLocation, useParams } from 'react-router';
 import { Card } from '../../../components/Cards';
+import { CardHeader } from '../../../components/Cards/CardHeader';
 
 type URLParams = {
   id: string
@@ -48,9 +49,21 @@ export const Task = () => {
         buttons={taskButtons}
       />
       <Card>
-        <div className={style.SingleCardHeader}>
-          Title
-        </div>
+        <CardHeader>
+          <div className={style.SingleCardHeader}>
+            <div className={style.CardTitleWrapper}>
+              <div className={style.CardTitle}>
+                Manutenção no subsolo do Edifício Principal. Trocar todos os disjuntores e fazer revisão dos quadros elétricos.
+                <span className={style.CardBookmark}>BM</span>
+              </div>
+              <div className={style.CardTags}>
+                <div className={`${style.StatusBadge} ${style.Blue}`}>Fila de espera</div>
+                <div className={`${style.StatusBadge} ${style.Red}`}>Atrasado</div>
+              </div>
+            </div>
+            <div className={style.Percentage}>Percentage</div>
+          </div>
+        </CardHeader>
         <div>Content</div>
         <div>Tabs</div>
       </Card>
