@@ -1,9 +1,13 @@
 import style from './Card.module.scss';
 
-export const CardHeader = () => {
+type Props = {
+  children: React.ReactNode,
+};
+
+export const CardHeader = ({ children }: Props) => {
   return (
-    <div>
-      
+    <div className={style.Card}>
+      {children}
     </div>
   )
-}
+};
