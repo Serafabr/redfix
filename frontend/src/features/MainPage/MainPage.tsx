@@ -18,7 +18,7 @@ export const MainPage = () => {
       <div className={style.AppSidebar}>
         <AppSidebar navItems={navItems} />
       </div>
-      <main className={style.Body} style={{ backgroundColor: "#e5e5e5", padding: "24px 40px" }}>
+      <main className={style.Body} style={{ backgroundColor: "#e5e5e5", padding: "24px 12px" }}>
         <Suspense fallback={() => (<div>Loading</div>)}>
           <Switch>
             {routes.map((route: RouteType, idx: number) => {
