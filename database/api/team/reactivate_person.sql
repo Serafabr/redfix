@@ -11,7 +11,7 @@ create or replace function :function_name (
   as $$
     begin
       update persons set
-        password_hash = ext.crypt('123456', get_random_salt()), 
+        password_hash = ext.crypt(get_default_password(), get_random_salt()), 
         person_role = "personRole"
       where
         person_id = "personId" and

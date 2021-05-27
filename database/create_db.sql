@@ -73,6 +73,7 @@ create extension if not exists pgcrypto with schema ext cascade;
 \i functions/coalesce_list.sql
 \i functions/generate_api_documentation.sql
 \i functions/get_all_files_uuids.sql
+\i functions/get_default_password.sql
 \i functions/get_pg_settings.sql
 \i functions/get_random_salt.sql
 \i functions/insert_files.sql
