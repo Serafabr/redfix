@@ -52,7 +52,9 @@
 .Percentage {
   display: flex;
   align-items: center;
-  min-width: 180px;
+  width: 40%;
+  max-width: 210px;
+  //min-width: 180px;
   margin-left: 80px;
 }
 
