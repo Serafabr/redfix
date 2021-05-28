@@ -12,6 +12,7 @@ import { useLocation, useParams } from 'react-router';
 import { Card } from '../../../components/Cards';
 import { CardHeader } from '../../../components/Cards/CardHeader';
 import { ProgressBar } from '../../../components/ProgressBar';
+import { Tabs } from '../../../components/Tabs';
 
 type URLParams = {
   id: string
@@ -113,7 +114,7 @@ export const Task = () => {
             <div className={style.Data}>31/12/2020</div>
           </div>
         </div>
-        <div>Tabs</div>
+        <Tabs/>
       </Card>
     </div>
   )
