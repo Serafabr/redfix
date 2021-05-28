@@ -22,7 +22,7 @@ const getVisibleTabs = (tabs: Array<string>, firstTab: number, tabSize?: number 
 
 export const Tabs = () => {
   
-  const [ visibleTabs, setVisibleTabs ] = useState(getVisibleTabs(tabs, 0, 4));
+  const [ visibleTabs, setVisibleTabs ] = useState(getVisibleTabs(tabs, 0, 5));
   
   const tabsRef = useRef(null);
   
