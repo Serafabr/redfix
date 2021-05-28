@@ -20,9 +20,21 @@ const getVisibleTabs = (tabs: Array<string>, firstTab: number, tabSize?: number 
 
 export const Tabs = () => {
   
-  const [ visibleTabs, setVisibleTabs ] = useState(getVisibleTabs(tabs, 0));
-  
+  const [ visibleTabs, setVisibleTabs ] = useState(getVisibleTabs(tabs, 0, 5));
   const tabsRef = useRef(null);
+  const tabsContainerSize = (tabsRef.current as any).offsetWidth;
+  const tabsPerSize = {1300: 5, 1400: 6, 1500: 7};
+  const allowedSize = Object.keys(tabsPerSize).reduce((size: string, prtResult: number) => {
+    const sizeNumber = Number(size);
+    if (sizeNumber < prtResult && sizeNumber > tabsContainerSize) {
+      return size;
+    }
+    return prtResult;
+  }, Object.keys(tabsPerSize)[0])
+  
+  // useEffect(() => {
+    
+  // }, [tabsContainer])
   
   return (
     <div>
