@@ -7,7 +7,7 @@ const fs = require('fs');
 const paths = require('../paths');
 
 async function decideUploadDestination(req, res, next){
-  const { files, image, avatar, cebFile } = req.body && req.body.variables ? req.body.variables : {};
+  const { files, image, avatar, cebFile } = req?.body?.variables ? req.body.variables : {};
   if (!files && !image && !avatar && !cebFile) next();   // no uploads
   if (files) saveFiles(req, res, next);       // regular uploads
   if (image) saveImage(req, res, next);       // image

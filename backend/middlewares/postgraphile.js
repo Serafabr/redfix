@@ -51,7 +51,7 @@ module.exports = postgraphile(
     // sortExport: true,
     pgSettings: async req => {
       const { personId, role } = req.user;
-      const isTransactionReadOnly = req.body && /^query/.test(req.body.query);
+      const isTransactionReadOnly = /^query/.test(req?.body?.query);
       return {
         'role': role,
         'transaction_read_only': isTransactionReadOnly,
