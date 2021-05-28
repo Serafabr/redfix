@@ -9,8 +9,6 @@ const tabs = [
   'Arquivos',
   'Faturamentos',
   'Monitoramentos',
-  'Monitoramentos',
-  'Monitoramentos',
 ];
 
 const getVisibleTabs = (tabs: Array<string>, firstTab: number, tabSize?: number | undefined) => {
@@ -22,7 +20,7 @@ const getVisibleTabs = (tabs: Array<string>, firstTab: number, tabSize?: number 
 
 export const Tabs = () => {
   
-  const [ visibleTabs, setVisibleTabs ] = useState(getVisibleTabs(tabs, 0, 5));
+  const [ visibleTabs, setVisibleTabs ] = useState(getVisibleTabs(tabs, 0));
   
   const tabsRef = useRef(null);
   
