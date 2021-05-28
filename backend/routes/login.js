@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const passport = require('../middlewares/passport');
+const { passport } = require('../middlewares/passport');
 const { sessionOptions } = require('../middlewares/cookie-session');
 
 router.post(

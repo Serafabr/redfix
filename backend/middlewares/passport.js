@@ -29,10 +29,19 @@ passport.serializeUser((user, done) => {
   done(null, serializedUser);
 });
 
-// deserializeUser does not run when users are unauthenticated (see cmms-session middleware)
+// deserializeUser does not run when users are unauthenticated (see setDefaultUser)
 passport.deserializeUser(async (serializedUser, done) => {
   const deserializedUser = JSON.parse(serializedUser);
   done(null, deserializedUser);
 });
 
-module.exports = passport;
+// setDefaultUser is a middleware that must run after passport.session()
+const setDefaultUser = (req, res, next) => {
+  if(!req.session.populated) req.user = { personId: process.env.SESSION_DEFAULT_PERSON_ID, role: process.env.SESSION_DEFAULT_ROLE };
+  req.user.role !== '' || req.baseUrl === '/' ? next() : res.status(401).end();
+}
+
+module.exports = {
+  passport: passport,
+  setDefaultUser: setDefaultUser,
+};

@@ -10,8 +10,7 @@ const cors = require('./middlewares/cors');
 const expressJson = require('./middlewares/express-json');
 const expressStatic = require('./middlewares/express-static');
 const { cookieSession } = require('./middlewares/cookie-session');
-const passport = require('./middlewares/passport');
-const cmmsSession = require('./middlewares/cmms-session');
+const { passport, setDefaultUser } = require('./middlewares/passport');
 const morgan = require('./middlewares/morgan');
 const postgraphile = require('./middlewares/postgraphile');
 
@@ -26,7 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(morgan.logConsole);
 app.use(morgan.logFile);
-app.use(cmmsSession);
+app.use(setDefaultUser);
 app.use(expressStatic);
 app.use(paths.login, loginRoute);
 app.use(paths.logout, logoutRoute);
