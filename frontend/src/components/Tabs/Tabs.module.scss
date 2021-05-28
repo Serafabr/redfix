@@ -1,7 +1,10 @@
 @import "../../style/variables";
 
 .Tabs {
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid $gray_100;
+  width: 100%;
 }
 
 .TabsContainer {
@@ -24,7 +27,7 @@
   font-size: 1rem;
   line-height: 21px;
   color: #9B9B9B;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid #00000000;
   border-radius: 2px;
   
   &:hover {
@@ -32,4 +35,9 @@
     border-bottom: 3px solid $primary_color;
     cursor: pointer;
   }
+}
+
+.Activated {
+  color: $primary_color;
+  border-bottom: 3px solid $primary_color;
 }
