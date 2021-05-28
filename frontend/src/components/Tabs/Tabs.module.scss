@@ -9,6 +9,40 @@
 
 .TabsContainer {
   margin: 0 36px;
+  overflow: hidden;
+}
+
+.ButtonsContainer {
+  min-width: 25%;
+  margin-right: 20px;
+  margin-left: auto;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.TabButtonDivider {
+  display: inline-block;
+  border-right: 1px solid $gray_200;
+}
+
+.TabButton {
+  display: inline-block;
+  padding: 0 24px;
+  border: none;
+  margin: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $primary_color;
+  
+  &:hover {
+    color: $hovered_primary;
+    cursor: pointer;
+  }
 }
 
 .TabList {

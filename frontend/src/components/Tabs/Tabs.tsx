@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import style from './Tabs.module.scss';
 
 const tabs = [
@@ -13,29 +13,34 @@ const tabs = [
   'Monitoramentos',
 ];
 
+const getVisibleTabs = (tabs: Array<string>, firstTab: number, tabSize?: number | undefined) => {
+  if (!tabSize) return tabs;
+  
+  return [...tabs.slice(firstTab, tabSize + 1), '...'];
+}
+
 
 export const Tabs = () => {
   
-  const tabContainerEl = useRef(null);
-  const tabsEl = useRef(null);
+  const [ visibleTabs, setVisibleTabs ] = useState(getVisibleTabs(tabs, 0, 4));
   
-  console.log('tabContainerEl');
-  console.log(tabContainerEl.current && (tabContainerEl.current as any).offsetWidth);
-  console.log(tabsEl.current && (tabsEl.current as any).scrollWidth);
+  const tabsRef = useRef(null);
   
   return (
-    <div>x
-      <div className={style.Tabs} ref={tabsEl}>
-        <div className={style.TabsContainer} ref={tabContainerEl}>
+    <div>
+      <div className={style.Tabs}>
+        <div className={style.TabsContainer} ref={tabsRef}>
           <ul className={style.TabList}>
-            {tabs.map((tab) => (
+            {visibleTabs.map((tab) => (
               <li className={style.TabItem}>{tab}</li>
             ))}
           </ul>
         </div>
         <div className={style.ButtonsContainer}>
-          <button>Button1</button>
-          <button>Button1</button>
+          <div className={style.TabButtonDivider}>
+            <button className={style.TabButton}>Aprovar !</button>
+          </div>
+          <button className={style.TabButton}>Adicionar +</button>
         </div>
       </div>
       <div style={{ margin: "100px" }}>
