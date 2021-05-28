@@ -1,0 +1,35 @@
+@import "../../style/variables";
+
+.Tabs {
+  border-bottom: 1px solid $gray_100;
+}
+
+.TabsContainer {
+  margin: 0 36px;
+}
+
+.TabList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.TabItem {
+  padding: 6px 4px;
+  margin-right: 20px;
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 21px;
+  color: #9B9B9B;
+  border-bottom: 3px solid white;
+  border-radius: 2px;
+  
+  &:hover {
+    color: $primary_color;
+    border-bottom: 3px solid $primary_color;
+    cursor: pointer;
+  }
+}
