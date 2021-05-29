@@ -1,10 +1,12 @@
-const router = require('express').Router();
-const { pgPool } = require('../db');
-const csvParse = require('csv-parse');
-const graphqlUpload = require('../middlewares/graphql-upload');
-const path = require('path');
-const fs = require('fs');
-const paths = require('../paths');
+import { Router } from 'express';
+import path from 'path';
+import fs from 'fs';
+import csvParse from 'csv-parse';
+import { pgPool } from '../db/index.js';
+import graphqlUpload from '../middlewares/graphql-upload.js';
+import paths from '../paths.js';
+
+const router = Router();
 
 async function decideUploadDestination(req, res, next){
   const { files, image, avatar, cebFile } = req?.body?.variables ? req.body.variables : {};
@@ -124,4 +126,4 @@ router.post(
   decideUploadDestination, // Checks upload type and calls functions accordingly
 );
 
-module.exports = router;
+export default router;

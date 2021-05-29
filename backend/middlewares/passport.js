@@ -1,8 +1,8 @@
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const { pgPool } = require('../db');
+import p from 'passport';
+import { Strategy as LocalStrategy } from 'passport-local';
+import { pgPool } from '../db/index.js';
 
-passport.use(new LocalStrategy(
+p.use(new LocalStrategy(
   {
     usernameField: 'username',
     passwordField: 'password'
@@ -21,7 +21,7 @@ passport.use(new LocalStrategy(
   }
 ));
 
-passport.serializeUser((user, done) => {
+p.serializeUser((user, done) => {
   const serializedUser = JSON.stringify({
     personId: user.personId,
     role: user.role,
@@ -30,18 +30,15 @@ passport.serializeUser((user, done) => {
 });
 
 // deserializeUser does not run when users are unauthenticated (see setDefaultUser)
-passport.deserializeUser(async (serializedUser, done) => {
+p.deserializeUser(async (serializedUser, done) => {
   const deserializedUser = JSON.parse(serializedUser);
   done(null, deserializedUser);
 });
 
+export const passport = p;
+
 // setDefaultUser is a middleware that must run after passport.session()
-const setDefaultUser = (req, res, next) => {
+export const setDefaultUser = (req, res, next) => {
   if(!req.session.populated) req.user = { personId: process.env.SESSION_DEFAULT_PERSON_ID, role: process.env.SESSION_DEFAULT_ROLE };
   req.user.role !== '' || req.baseUrl === '/' ? next() : res.status(401).end();
 }
-
-module.exports = {
-  passport: passport,
-  setDefaultUser: setDefaultUser,
-};

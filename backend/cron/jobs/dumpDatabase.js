@@ -1,8 +1,10 @@
-const CronJob = require('cron').CronJob;
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
-const paths = require('../../paths');
-const cronWritableStream = require('../cronWritableStream')
+import cron from 'cron';
+import util from 'util';
+import { exec as e } from 'child_process';
+import paths from '../../paths.js';
+import cronWritableStream from '../cronWritableStream.js';
+
+const exec = util.promisify(e);
 
 const { PGDATABASE, PGADMINUSER } = process.env;
 
@@ -17,7 +19,7 @@ const dumpDatabase = async () => {
   }
 }
 
-module.exports = new CronJob({
+export default new cron.CronJob({
   cronTime: process.env.CRON_PATTERN_DUMP,
   onTick: dumpDatabase,
   start: true,

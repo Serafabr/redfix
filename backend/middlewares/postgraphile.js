@@ -1,12 +1,7 @@
-const { postgraphile, makePluginHook } = require('postgraphile');
-const PgSimplifyInflectorPlugin = require("@graphile-contrib/pg-simplify-inflector");
-const { default: PgPubsub } = require("@graphile/pg-pubsub");
-const paths = require('../paths');
-const { pgPool, adminPgPool } = require('../db');
-const cookieSession = require('./cookie-session');
-const passport = require('./passport');
-
-const pluginHook = makePluginHook([PgPubsub]);
+import { postgraphile } from 'postgraphile';
+import PgSimplifyInflectorPlugin from "@graphile-contrib/pg-simplify-inflector";
+import paths from '../paths.js';
+import { pgPool, adminPgPool } from '../db/index.js';
 
 const {
   NODE_ENV,
@@ -15,7 +10,7 @@ const {
   POSTGRAPHILE_SHOW_ERROR_STACK,
 } = process.env;
 
-module.exports = postgraphile(
+export default postgraphile(
   pgPool,
   JSON.parse(POSTGRAPHILE_SCHEMAS),
   { 

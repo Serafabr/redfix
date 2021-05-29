@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const paths = require('../paths');
+import fs from 'fs';
+import path from 'path';
+import paths from '../paths.js';
 
 const cronWritableStream = fs.createWriteStream(
   path.join(process.cwd(), paths.cronLog),
   { flags: 'a' }
 );
 
-module.exports = cronWritableStream;
+export default cronWritableStream;

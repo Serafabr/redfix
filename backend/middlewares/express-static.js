@@ -1,5 +1,5 @@
-const express = require('express');
-const path = require('path');
-const paths = require('../paths');
+import express from 'express';
+import { join } from 'path';
+import paths from '../paths.js';
 
-module.exports = express.static(path.join(process.cwd(), paths.public));
+export default express.static(join(process.cwd(), paths.public));

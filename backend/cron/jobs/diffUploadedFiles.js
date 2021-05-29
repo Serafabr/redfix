@@ -1,9 +1,9 @@
-const CronJob = require('cron').CronJob;
-const fs = require('fs');
-const path = require('path');
-const { adminPgPool } = require('../../db');
-const paths = require('../../paths');
-const cronWritableStream = require('../cronWritableStream');
+import cron from 'cron';
+import fs from 'fs';
+import path from 'path';
+import { adminPgPool } from '../../db/index.js';
+import paths from '../../paths.js';
+import cronWritableStream from '../cronWritableStream.js';
 
 const diffUploadedFiles = async () => {
   try {
@@ -22,7 +22,7 @@ const diffUploadedFiles = async () => {
   }
 }
 
-module.exports = new CronJob({
+export default new cron.CronJob({
   cronTime: process.env.CRON_PATTERN_DIFF,
   onTick: diffUploadedFiles,
   start: true,

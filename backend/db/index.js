@@ -1,4 +1,4 @@
-const { Pool } = require('pg');
+import pg from 'pg';
 
 const {
   PGUSER,
@@ -13,7 +13,7 @@ const {
   PGSETTINGS_STATEMENT_TIMEOUT,
 } = process.env;
 
-const config = {
+export const pgPool = new pg.Pool({
   user: PGUSER,
   password: PGPASSWORD,
   host: PGHOST,
@@ -21,9 +21,9 @@ const config = {
   database: PGDATABASE,
   application_name: PGSETTINGS_APPLICATION_NAME,
   statement_timeout: PGSETTINGS_STATEMENT_TIMEOUT,
-};
+});
 
-const adminConfig = {
+export const adminPgPool = new pg.Pool({
   user: PGADMINUSER,
   password: PGADMINPASS,
   host: PGHOST,
@@ -31,12 +31,4 @@ const adminConfig = {
   database: PGDATABASE,
   application_name: PGSETTINGS_APPLICATION_NAME_ADMIN,
   statement_timeout: PGSETTINGS_STATEMENT_TIMEOUT,
-};
-
-const pgPool = new Pool(config);
-const adminPgPool = new Pool(adminConfig);
-
-module.exports = {
-  pgPool: pgPool,
-  adminPgPool: adminPgPool,
-}
+});

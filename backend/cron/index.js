@@ -1,9 +1,9 @@
-const diffUploadedFiles = require('./jobs/diffUploadedFiles');
-const dumpDatabase = require('./jobs/dumpDatabase');
-const refreshAllMVs = require('./jobs/refreshAllMVs');
-const updateDashboard = require('./jobs/updateDashboard');
+import diffUploadedFiles from './jobs/diffUploadedFiles.js';
+import dumpDatabase from './jobs/dumpDatabase.js';
+import refreshAllMVs from './jobs/refreshAllMVs.js';
+import updateDashboard from './jobs/updateDashboard.js';
 
-module.exports = {
+export default {
   diffUploadedFiles,
   dumpDatabase,
   refreshAllMVs,

@@ -1,6 +1,6 @@
-const { graphqlUploadExpress } = require('graphql-upload');
+import { graphqlUploadExpress } from 'graphql-upload';
 
-module.exports = graphqlUploadExpress({
+export default graphqlUploadExpress({
   // maxFieldSize: ,
   // maxFileSize: 10000000,
   // maxFiles: 10,

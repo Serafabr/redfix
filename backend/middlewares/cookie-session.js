@@ -1,4 +1,4 @@
-const cookieSession = require('cookie-session');
+import cs from 'cookie-session';
 
 const {
   COOKIE_NAME,
@@ -15,23 +15,22 @@ const {
   COOKIE_MAX_AGE,
 } = process.env;
 
-module.exports = {
-  cookieSession: cookieSession({
-    name: COOKIE_NAME,
-    keys: [
-      COOKIE_KEY_0,
-      COOKIE_KEY_1,
-      COOKIE_KEY_2,
-    ],
-  }),
-  sessionOptions: {
-    secure: COOKIE_SECURE === '1',
-    httpOnly: COOKIE_HTTP_ONLY === '1',
-    signed: COOKIE_SIGNED === '1',
-    overwrite: COOKIE_OVERWRITE === '1',
-    domain: COOKIE_DOMAIN,
-    path: COOKIE_PATH,
-    sameSite: COOKIE_SAME_SITE,
-    maxAge: parseInt(COOKIE_MAX_AGE, 10),
-  }
+export const cookieSession = cs({
+  name: COOKIE_NAME,
+  keys: [
+    COOKIE_KEY_0,
+    COOKIE_KEY_1,
+    COOKIE_KEY_2,
+  ],
+});
+
+export const sessionOptions = {
+  secure: COOKIE_SECURE === '1',
+  httpOnly: COOKIE_HTTP_ONLY === '1',
+  signed: COOKIE_SIGNED === '1',
+  overwrite: COOKIE_OVERWRITE === '1',
+  domain: COOKIE_DOMAIN,
+  path: COOKIE_PATH,
+  sameSite: COOKIE_SAME_SITE,
+  maxAge: parseInt(COOKIE_MAX_AGE, 10),
 };

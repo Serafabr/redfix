@@ -1,7 +1,7 @@
-const morgan = require('morgan');
-const fs = require('fs');
-const path = require('path');
-const paths = require('../paths');
+import morgan from 'morgan';
+import fs from 'fs';
+import path from 'path';
+import paths from '../paths.js';
 
 morgan.token('separator', req => '-'.repeat(100));
 morgan.token('session', req => {
@@ -18,19 +18,18 @@ const streamForConsole = process.stdout;
 
 const LOG_OUTPUTS = JSON.parse(process.env.LOG_OUTPUTS);
 
-module.exports = {
-  logFile: morgan(
-    templateForFile,
-    {
-      stream: streamForFile,
-      skip: () => !LOG_OUTPUTS.includes('file'),
-    }
-  ),
-  logConsole: morgan(
-    templateForConsole,
-    {
-      stream: streamForConsole,
-      skip: () => !LOG_OUTPUTS.includes('console'),
-    }
-  ),
-};
+export const logFile = morgan(
+  templateForFile,
+  {
+    stream: streamForFile,
+    skip: () => !LOG_OUTPUTS.includes('file'),
+  }
+);
+
+export const logConsole = morgan(
+  templateForConsole,
+  {
+    stream: streamForConsole,
+    skip: () => !LOG_OUTPUTS.includes('console'),
+  }
+);

@@ -1,6 +1,6 @@
-const join = require('path').join;
-const paths = {
+import { join } from 'path';
 
+export default {
   // Routes
   api: '/api',
   login: '/login',
@@ -23,5 +23,3 @@ const paths = {
   schemaGraphQL: join('logs', 'schema.graphql'),
 
 };
-
-module.exports = paths;

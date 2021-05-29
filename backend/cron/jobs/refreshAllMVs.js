@@ -1,6 +1,6 @@
-const CronJob = require('cron').CronJob;
-const { adminPgPool } = require('../../db');
-const cronWritableStream = require('../cronWritableStream');
+import cron from 'cron';
+import { adminPgPool } from '../../db/index.js';
+import cronWritableStream from '../cronWritableStream.js';
 
 const refreshAllMVs = async () => {
   try {
@@ -13,7 +13,7 @@ const refreshAllMVs = async () => {
   }
 }
 
-module.exports = new CronJob({
+export default new cron.CronJob({
   cronTime: process.env.CRON_PATTERN_REFRESH,
   onTick: refreshAllMVs,
   start: true,

@@ -1,6 +1,6 @@
-const http = require('http');
-const app = require('./app');
-const cronJobs = require('./cron');
+import http from 'http';
+import app from './app.js';
+import cronJobs from './cron/index.js';
 
 const server = http.createServer(app);
 const { HTTP_PORT } = process.env;
