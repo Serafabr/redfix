@@ -1,8 +1,8 @@
-import p from 'passport';
+import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { pgPool } from '../db/index.js';
 
-p.use(new LocalStrategy(
+passport.use(new LocalStrategy(
   {
     usernameField: 'username',
     passwordField: 'password'
@@ -21,7 +21,7 @@ p.use(new LocalStrategy(
   }
 ));
 
-p.serializeUser((user, done) => {
+passport.serializeUser((user, done) => {
   const serializedUser = JSON.stringify({
     personId: user.personId,
     role: user.role,
@@ -30,12 +30,12 @@ p.serializeUser((user, done) => {
 });
 
 // deserializeUser does not run when users are unauthenticated (see setDefaultUser)
-p.deserializeUser(async (serializedUser, done) => {
+passport.deserializeUser(async (serializedUser, done) => {
   const deserializedUser = JSON.parse(serializedUser);
   done(null, deserializedUser);
 });
 
-export const passport = p;
+export default passport;
 
 // setDefaultUser is a middleware that must run after passport.session()
 export const setDefaultUser = (req, res, next) => {

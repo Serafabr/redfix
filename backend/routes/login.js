@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { passport } from '../middlewares/passport.js';
+import passport from '../middlewares/passport.js';
 import { sessionOptions } from '../middlewares/cookie-session.js';
 
 const router = Router();

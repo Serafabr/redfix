@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import path from 'path';
+import { join } from 'path';
 import paths from '../paths.js';
 
 const router = Router();
@@ -11,7 +11,7 @@ router.get(
     // Frontend should use encodeURI() function
     // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI
     const { uuid, filename } = req.query; // See: http://expressjs.com/en/4x/api.html#req.query
-    res.download(path.join(process.cwd(), paths.files, uuid), filename);
+    res.download(join(process.cwd(), paths.files, uuid), filename);
   }
 );
 

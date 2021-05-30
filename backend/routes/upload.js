@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import path from 'path';
+import { join } from 'path';
 import fs from 'fs';
 import csvParse from 'csv-parse';
 import { pgPool } from '../db/index.js';
@@ -36,7 +36,7 @@ async function saveFiles(req, res, next){
     const resolvedFile = await file.promise;
     const { filename, mimetype, encoding, createReadStream } = resolvedFile;
     const stream = createReadStream();
-    const filePath = path.join(process.cwd(), paths.files, filesMetadata[i].uuid);
+    const filePath = join(process.cwd(), paths.files, filesMetadata[i].uuid);
     return saveLocal(stream, filePath);
   }))
   .then(() => {
@@ -52,7 +52,7 @@ async function saveImage(req, res, next){
   const resolvedImage = await image.promise;
   const { filename, mimetype, encoding, createReadStream } = resolvedImage;
   const stream = createReadStream();
-  const imagePath = path.join(process.cwd(), paths.images, imageMetadata.uuid);
+  const imagePath = join(process.cwd(), paths.images, imageMetadata.uuid);
   saveLocal(stream, imagePath)
   .then(() => {
     next();
@@ -68,7 +68,7 @@ async function saveAvatar(req, res, next){
   const resolvedAvatar = await avatar.promise;
   const { filename, mimetype, encoding, createReadStream } = resolvedAvatar;
   const stream = createReadStream();
-  const avatarPath = path.join(process.cwd(), paths.images, avatarMetadata.uuid);
+  const avatarPath = join(process.cwd(), paths.images, avatarMetadata.uuid);
   saveLocal(stream, avatarPath)
   .then(() => {
     next();

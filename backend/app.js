@@ -7,8 +7,8 @@ import redmineRoute from './routes/redmine.js';
 import paths from './paths.js';
 import cors from './middlewares/cors.js';
 import expressStatic from './middlewares/express-static.js';
-import { cookieSession } from './middlewares/cookie-session.js';
-import { passport, setDefaultUser } from './middlewares/passport.js';
+import cookieSession from './middlewares/cookie-session.js';
+import passport, { setDefaultUser } from './middlewares/passport.js';
 import { logFile, logConsole } from './middlewares/morgan.js';
 import postgraphile from './middlewares/postgraphile.js';
 

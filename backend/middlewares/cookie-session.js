@@ -1,4 +1,4 @@
-import cs from 'cookie-session';
+import cookieSession from 'cookie-session';
 
 const {
   COOKIE_NAME,
@@ -15,7 +15,7 @@ const {
   COOKIE_MAX_AGE,
 } = process.env;
 
-export const cookieSession = cs({
+export default cookieSession({
   name: COOKIE_NAME,
   keys: [
     COOKIE_KEY_0,
