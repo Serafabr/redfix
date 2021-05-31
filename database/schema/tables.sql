@@ -380,6 +380,7 @@ create table dashboard (
   total_tasks integer,
   delayed_tasks integer,
   finished_tasks integer,
+  closed_tasks integer,
   cancelled_tasks integer,
   total_assets integer,
   total_facilities integer,
