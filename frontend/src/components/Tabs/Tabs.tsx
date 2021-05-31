@@ -13,9 +13,17 @@ const tabs = [
 ];
 
 const getVisibleTabs = (tabs: Array<string>, numberOfTabs?: number | undefined) => {
-  if (!numberOfTabs || numberOfTabs === tabs.length) return tabs;
+  const tabsLength = tabs.length;
   
-  return [...tabs.slice(0, numberOfTabs), '...'];
+  if (!numberOfTabs || numberOfTabs === tabsLength) return {
+    visibleTabs: [...tabs],
+    hiddenTabs: []
+  };
+  
+  return {
+    visibleTabs: [...tabs.slice(0, numberOfTabs), '...'],
+    hiddenTabs: [...tabs.slice(numberOfTabs, tabsLength)]
+  };
 }
 
 export const Tabs = () => {
@@ -32,9 +40,6 @@ export const Tabs = () => {
   // Add resize listener to Tabs
   useResizeListener(setTabsContainerSize);
   
-  console.log('tabsContainerSize');
-  console.log(tabsContainerSize);
-  
   const allowedSize: number = tabsContainerSize < maxSize && Object.keys(tabsPerSize).reduce((size: any, prtResult: any) => {
     if (tabsContainerSize && size > tabsContainerSize && size < prtResult) {
       return size;
@@ -43,14 +48,16 @@ export const Tabs = () => {
   }, Number(Object.keys(tabsPerSize)[0]))
   
   const numberOfTabs = tabsContainerSize >= maxSize ? tabs.length : tabsPerSize[allowedSize];
-  console.log(numberOfTabs);
+  
+  const { visibleTabs, hiddenTabs } = getVisibleTabs(tabs, numberOfTabs);
+  console.log(hiddenTabs);
   
   return (
     <div>
       <div className={style.Tabs}>
         <div className={style.TabsContainer} ref={tabsRef}>
           <ul className={style.TabList}>
-            {getVisibleTabs(tabs, numberOfTabs).map((tab) => (
+            {visibleTabs.map((tab) => (
               <li className={style.TabItem}>{tab}</li>
             ))}
           </ul>
