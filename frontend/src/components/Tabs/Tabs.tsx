@@ -22,15 +22,16 @@ export const Tabs = () => {
   
   const [ visibleTabs, setVisibleTabs ] = useState(getVisibleTabs(tabs, 0, 5));
   const tabsRef = useRef(null);
-  const tabsContainerSize = (tabsRef.current as any).offsetWidth;
+  const tabsContainerSize = tabsRef.current ? (tabsRef.current as any).offsetWidth : 0;
   const tabsPerSize = {1300: 5, 1400: 6, 1500: 7};
-  const allowedSize = Object.keys(tabsPerSize).reduce((size: string, prtResult: number) => {
-    const sizeNumber = Number(size);
-    if (sizeNumber < prtResult && sizeNumber > tabsContainerSize) {
+  const allowedSize = Object.keys(tabsPerSize).reduce((size: any, prtResult: any) => {
+    if (tabsContainerSize && size > tabsContainerSize && size < prtResult) {
       return size;
     }
     return prtResult;
-  }, Object.keys(tabsPerSize)[0])
+  }, Number(Object.keys(tabsPerSize)[0]))
+  
+  console.log(allowedSize);
   
   // useEffect(() => {
     
