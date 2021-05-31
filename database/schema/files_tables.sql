@@ -2,6 +2,7 @@ create table files (
   uuid uuid primary key,
   filename text not null,
   size bigint not null,
+  mimetype text not null,
   uploaded_at timestamptz not null default now(),
   person_id integer not null references persons (person_id) default get_person_id()
 );

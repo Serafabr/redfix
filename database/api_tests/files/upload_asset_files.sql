@@ -6,6 +6,7 @@ select api.upload_asset_files(
     'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee'::uuid,
     'filename',
     1000,
+    'mimetype',
     null,
     null
   )::files]
