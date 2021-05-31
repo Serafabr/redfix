@@ -26,19 +26,8 @@ const getVisibleTabs = (tabs: Array<string>, numberOfTabs?: number | undefined) 
   };
 }
 
-export const Tabs = () => {
-  
-  // keep the tabs container size.
-  const [ tabsContainerSize, setTabsContainerSize ] = useState<number>(window.innerWidth);
-  
-  const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
+const getNumberOfTabs = (tabsContainerSize: number, tabsPerSize: any) => {
   const maxSize = Math.max(...Object.keys(tabsPerSize).map(Number));
-  
-  // Ref to the tabs container.
-  const tabsRef = useRef(null);
-  
-  // Add resize listener to Tabs
-  useResizeListener(setTabsContainerSize);
   
   const allowedSize: number = tabsContainerSize < maxSize && Object.keys(tabsPerSize).reduce((size: any, prtResult: any) => {
     if (tabsContainerSize && size > tabsContainerSize && size < prtResult) {
@@ -48,6 +37,24 @@ export const Tabs = () => {
   }, Number(Object.keys(tabsPerSize)[0]))
   
   const numberOfTabs = tabsContainerSize >= maxSize ? tabs.length : tabsPerSize[allowedSize];
+  
+  return numberOfTabs;
+}
+
+export const Tabs = () => {
+  
+  // keep the tabs container size.
+  const [ tabsContainerSize, setTabsContainerSize ] = useState<number>(window.innerWidth);
+  
+  const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
+  
+  // Ref to the tabs container.
+  const tabsRef = useRef(null);
+  
+  // Add resize listener to Tabs
+  useResizeListener(setTabsContainerSize);
+  
+  const numberOfTabs = getNumberOfTabs(tabsContainerSize, tabsPerSize);
   
   const { visibleTabs, hiddenTabs } = getVisibleTabs(tabs, numberOfTabs);
   console.log(hiddenTabs);
