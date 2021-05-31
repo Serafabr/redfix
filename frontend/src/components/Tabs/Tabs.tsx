@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { useResizeTabsListener } from '../../hooks/useResizeTabsListener';
+import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
 import style from './Tabs.module.scss';
 
 const tabs = [
@@ -12,49 +13,20 @@ const tabs = [
   'Monitoramentos',
 ];
 
-const getVisibleTabs = (tabs: Array<string>, numberOfTabs?: number | undefined) => {
-  const tabsLength = tabs.length;
-  
-  if (!numberOfTabs || numberOfTabs === tabsLength) return {
-    visibleTabs: [...tabs],
-    hiddenTabs: []
-  };
-  
-  return {
-    visibleTabs: [...tabs.slice(0, numberOfTabs), '...'],
-    hiddenTabs: [...tabs.slice(numberOfTabs, tabsLength)]
-  };
-}
-
-const getNumberOfTabs = (tabsContainerSize: number, tabsPerSize: any) => {
-  const maxSize = Math.max(...Object.keys(tabsPerSize).map(Number));
-  
-  const allowedSize: number = tabsContainerSize < maxSize && Object.keys(tabsPerSize).reduce((size: any, prtResult: any) => {
-    if (tabsContainerSize && size > tabsContainerSize && size < prtResult) {
-      return size;
-    }
-    return prtResult;
-  }, Number(Object.keys(tabsPerSize)[0]))
-  
-  const numberOfTabs = tabsContainerSize >= maxSize ? tabs.length : tabsPerSize[allowedSize];
-  
-  return numberOfTabs;
-}
-
 export const Tabs = () => {
   
-  // keep the tabs container size.
-  const [ tabsContainerSize, setTabsContainerSize ] = useState<number>(window.innerWidth);
-  
   const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
+  
+  // keep the tabs container size.
+  const [ numberOfTabs, setNumberOfTabs ] = useState<number>(
+    getNumberOfTabs(window.innerWidth, tabsPerSize, tabs.length)
+  );
   
   // Ref to the tabs container.
   const tabsRef = useRef(null);
   
   // Add resize listener to Tabs
-  useResizeTabsListener(setTabsContainerSize);
-  
-  const numberOfTabs = getNumberOfTabs(tabsContainerSize, tabsPerSize);
+  useResizeTabsListener(setNumberOfTabs, numberOfTabs, tabsPerSize, tabs.length);
   
   const { visibleTabs, hiddenTabs } = getVisibleTabs(tabs, numberOfTabs);
   console.log(hiddenTabs);
