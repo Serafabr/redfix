@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useResizeListener } from '../../hooks/useResizeListener';
+import { useResizeTabsListener } from '../../hooks/useResizeTabsListener';
 import style from './Tabs.module.scss';
 
 const tabs = [
@@ -52,7 +52,7 @@ export const Tabs = () => {
   const tabsRef = useRef(null);
   
   // Add resize listener to Tabs
-  useResizeListener(setTabsContainerSize);
+  useResizeTabsListener(setTabsContainerSize);
   
   const numberOfTabs = getNumberOfTabs(tabsContainerSize, tabsPerSize);
   

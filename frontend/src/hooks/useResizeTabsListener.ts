@@ -12,7 +12,7 @@ export type CallbackProps = (width: number) => void;
  * #useClickOutsideListener Component
 \*************************/
 
-export const useResizeListener = (callback: CallbackProps) => {
+export const useResizeTabsListener = (callback: CallbackProps) => {
   // Create a custom hook
   useEffect(() => {
     // Handle when the user resizes the window
