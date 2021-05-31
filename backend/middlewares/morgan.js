@@ -8,7 +8,7 @@ morgan.token('session', req => {
   const u = req.baseUrl !== paths.logout ? req.user : req.loggedOutUser;
   return `${u.personId === '' ? '-' : u.personId}\t${u.role === '' ? '-' : u.role}`;
 });
-morgan.token('body', req => JSON.stringify(req.baseUrl === paths.login ? { username: req.body.username } : req.body));
+morgan.token('body', req => JSON.stringify(req.baseUrl === paths.login || /changepassword/i.test(req?.body?.query) ? { username: req?.body?.username, query: req?.body?.query } : req.body));
 
 const templateForFile = `:date[iso]\t:remote-addr\t:method\t:url\t:status\t:response-time\t:session\t:body`;
 const templateForConsole = `\n:separator\n${templateForFile}`;
