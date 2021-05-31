@@ -1,0 +1,40 @@
+\set function_name api.close_task
+
+drop function if exists :function_name;
+create or replace function :function_name (
+  in "taskId" integer,
+  in "note" text,
+  out id integer
+)
+  language plpgsql
+  as $$
+    declare
+      "personId" constant integer = get_person_id();
+      "teamId" constant integer = get_team_id();
+      "closedStatus" constant integer = 8;
+    begin
+      insert into task_events values (
+        default,
+        "taskId",
+        'status',
+        now(),
+        "personId",
+        "teamId",
+        null,
+        "closedStatus",
+        "note",
+        null,
+        null,
+        true
+      );
+      update tasks set task_status_id = "closedStatus" where task_id = "taskId";
+      id = "taskId";
+    end;
+  $$
+;
+
+grant execute on function :function_name to supervisor, inspector;
+
+select generate_api_documentation(:'function_name',E'the same as `taskId` input\n') as new_comment \gset
+
+comment on function :function_name is :'new_comment';

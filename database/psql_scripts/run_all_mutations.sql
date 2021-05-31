@@ -80,7 +80,7 @@
 
 \i api_tests/task/set_task_date_end.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
-\i api_tests/task/clone_task.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/task/close_task.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 -- project
 \i api_tests/project/create_project.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif

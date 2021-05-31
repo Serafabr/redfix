@@ -94,12 +94,11 @@ begin transaction;
 \i api/project/remove_task_from_project.sql
 -- task
 \i api/task/add_asset_to_task.sql
-\i api/task/clone_task.sql
+\i api/task/close_task.sql
 \i api/task/create_task_note.sql
 \i api/task/create_task.sql
 \i api/task/delete_task_note.sql
 \i api/task/filter_tasks.sql
--- \i api/task/finish_task.sql
 \i api/task/follow_task.sql
 \i api/task/modify_task_note.sql
 \i api/task/modify_task.sql

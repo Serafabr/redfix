@@ -13,6 +13,7 @@ create or replace function :function_name (
           sum(1) as total_tasks,
           sum(case when date_limit < current_date then 1 else 0 end) as delayed_tasks,
           sum(case when task_status_id = 7 then 1 else 0 end) as finished_tasks,
+          sum(case when task_status_id = 8 then 1 else 0 end) as closed_tasks,
           sum(case when task_status_id = 6 then 1 else 0 end) as cancelled_tasks
         from tasks
       ),
