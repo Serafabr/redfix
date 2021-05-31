@@ -6,6 +6,8 @@ create table files (
   person_id integer not null references persons (person_id) default get_person_id()
 );
 
+alter table persons add foreign key (avatar_uuid) references files (uuid) on delete set null;
+
 create table asset_files (
   asset_id integer not null references assets (asset_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade
@@ -20,12 +22,6 @@ create table depot_files (
   depot_id integer not null references depots (depot_id) on delete cascade,
   uuid uuid not null references files (uuid) on delete cascade
 );
-
--- create table person_files (
---   person_id integer not null references persons (person_id),
---   uuid uuid not null references files (uuid) on delete cascade
--- );
-alter table persons add foreign key (avatar_uuid) references files (uuid) on delete set null;
 
 create table plan_files (
   plan_id integer not null references plans (plan_id) on delete cascade,

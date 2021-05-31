@@ -5,6 +5,7 @@ create or replace function :function_name (
   out updated_at timestamptz
 )
   language plpgsql
+  security definer
   as $$
     begin
       with t as (
@@ -58,3 +59,5 @@ create or replace function :function_name (
     end;
   $$
 ;
+
+grant execute on function :function_name to cmms_user;

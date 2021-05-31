@@ -1,10 +1,10 @@
 import cron from 'cron';
-import { adminPgPool } from '../../db/index.js';
+import { pgPool } from '../../db/index.js';
 import cronWritableStream from '../cronWritableStream.js';
 
 const updateDashboard = async () => {
   try {
-    const { rows: [ { timestamp } ] } = await adminPgPool.query('select web.update_dashboard() as timestamp');
+    const { rows: [ { timestamp } ] } = await pgPool.query('select web.update_dashboard() as timestamp');
     const logContent = `${(new Date()).toISOString()}\tdashboard\tok\n`;
     cronWritableStream.write(logContent, 'utf8');
   } catch (error) {

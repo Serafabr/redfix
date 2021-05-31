@@ -25,7 +25,7 @@ create or replace function :function_name (
         h
       from exceptions as e
       where e.errcode = errcode_input;
-      if m is null
+      if not found
         then raise exception '%', format('errcode %s does not exist in exceptions table', errcode_input);
       end if;
       raise exception using

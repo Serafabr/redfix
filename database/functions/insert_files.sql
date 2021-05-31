@@ -8,14 +8,17 @@ create or replace function :function_name (
   language plpgsql
   strict
   as $$
+    declare
+      "personId" constant integer = get_person_id();
     begin
-      insert into files
-      select  f.uuid,
-              f.filename,
-              f.size,
-              now(),
-              get_person_id()
-      from unnest(files_metadata) as f;
+      insert into files select
+        fm.uuid,
+        fm.filename,
+        fm.size,
+        fm.mimetype,
+        now(),
+        "personId"
+      from unnest(files_metadata) as fm;
     end;
   $$
 ;

@@ -8,7 +8,7 @@ create or replace function :function_name (
   as $$
     begin
       select current_setting('cookie.session.person_id', true)::integer into "personId";
-      if ("personId" is null)
+      if not found
         then perform raise_exception(601);
       end if;
     end;

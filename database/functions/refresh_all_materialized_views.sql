@@ -19,9 +19,7 @@ create or replace function :function_name (
       loop
         execute format('refresh materialized view %I.%I', mviews.mv_schema, mviews.mv_name);
       end loop;
-
       refreshed_at = now();
-
     end;
   $$
 ;

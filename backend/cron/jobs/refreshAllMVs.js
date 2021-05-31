@@ -1,10 +1,10 @@
 import cron from 'cron';
-import { adminPgPool } from '../../db/index.js';
+import { pgPool } from '../../db/index.js';
 import cronWritableStream from '../cronWritableStream.js';
 
 const refreshAllMVs = async () => {
   try {
-    const { rows: [ { timestamp } ] } = await adminPgPool.query('select web.refresh_all_materialized_views() as timestamp');
+    const { rows: [ { timestamp } ] } = await pgPool.query('select web.refresh_all_materialized_views() as timestamp');
     const logContent = `${(new Date()).toISOString()}\trefresh\tok\n`;
     cronWritableStream.write(logContent, 'utf8');
   } catch (error) {
