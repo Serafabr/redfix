@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useResizeListener } from '../../hooks/useResizeListener';
 import style from './Tabs.module.scss';
 
 const tabs = [
@@ -11,19 +12,30 @@ const tabs = [
   'Monitoramentos',
 ];
 
-const getVisibleTabs = (tabs: Array<string>, firstTab: number, tabSize?: number | undefined) => {
+const getVisibleTabs = (tabs: Array<string>, tabSize?: number | undefined) => {
   if (!tabSize) return tabs;
   
-  return [...tabs.slice(firstTab, tabSize + 1), '...'];
+  return [...tabs.slice(0, tabSize), '...'];
 }
 
 
 export const Tabs = () => {
   
-  const [ visibleTabs, setVisibleTabs ] = useState(getVisibleTabs(tabs, 0, 5));
-  const tabsRef = useRef(null);
-  const tabsContainerSize = tabsRef.current ? (tabsRef.current as any).offsetWidth : 0;
+  // keep the tabs container size.
+  const [ tabsContainerSize, setTabsContainerSize ] = useState<number>(window.innerWidth);
+  
   const tabsPerSize = {1300: 5, 1400: 6, 1500: 7};
+  
+  // Ref to the tabs container.
+  const tabsRef = useRef(null);
+  
+  // Add resize listener to tabs container
+  useResizeListener(tabsRef, setTabsContainerSize);
+  
+  
+  console.log('tabsContainerSize');
+  console.log(tabsContainerSize);
+  
   const allowedSize = Object.keys(tabsPerSize).reduce((size: any, prtResult: any) => {
     if (tabsContainerSize && size > tabsContainerSize && size < prtResult) {
       return size;
@@ -33,16 +45,12 @@ export const Tabs = () => {
   
   console.log(allowedSize);
   
-  // useEffect(() => {
-    
-  // }, [tabsContainer])
-  
   return (
     <div>
       <div className={style.Tabs}>
         <div className={style.TabsContainer} ref={tabsRef}>
           <ul className={style.TabList}>
-            {visibleTabs.map((tab) => (
+            {tabs.map((tab) => (
               <li className={style.TabItem}>{tab}</li>
             ))}
           </ul>
