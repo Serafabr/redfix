@@ -12,13 +12,13 @@ export type CallbackProps = (width: number) => void;
  * #useClickOutsideListener Component
 \*************************/
 
-export const useResizeListener = (ref: RefProps, callback: CallbackProps) => {
+export const useResizeListener = (callback: CallbackProps) => {
   // Create a custom hook
   useEffect(() => {
     // Handle when the user resizes the window
     const handleResizeWindow = () => {
       console.log("Resizing");
-      callback(ref.current ? ref.current.offsetWidth : 0);
+      callback(window.innerWidth);
     }; 
     
     // Bind the event listener
@@ -28,6 +28,6 @@ export const useResizeListener = (ref: RefProps, callback: CallbackProps) => {
     return () => {
       window.removeEventListener("resize", handleResizeWindow);
     }
-  }, [ref])
+  }, [])
   
 }

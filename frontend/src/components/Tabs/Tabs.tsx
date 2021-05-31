@@ -24,26 +24,27 @@ export const Tabs = () => {
   // keep the tabs container size.
   const [ tabsContainerSize, setTabsContainerSize ] = useState<number>(window.innerWidth);
   
-  const tabsPerSize = {1300: 5, 1400: 6, 1500: 7};
+  const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
+  const maxSize = Math.max(...Object.keys(tabsPerSize).map(Number));
   
   // Ref to the tabs container.
   const tabsRef = useRef(null);
   
-  // Add resize listener to tabs container
-  useResizeListener(tabsRef, setTabsContainerSize);
-  
+  // Add resize listener to Tabs
+  useResizeListener(setTabsContainerSize);
   
   console.log('tabsContainerSize');
   console.log(tabsContainerSize);
   
-  const allowedSize = Object.keys(tabsPerSize).reduce((size: any, prtResult: any) => {
+  const allowedSize: number = tabsContainerSize < maxSize && Object.keys(tabsPerSize).reduce((size: any, prtResult: any) => {
     if (tabsContainerSize && size > tabsContainerSize && size < prtResult) {
       return size;
     }
     return prtResult;
   }, Number(Object.keys(tabsPerSize)[0]))
   
-  console.log(allowedSize);
+  const numberOfTabs = tabsContainerSize >= maxSize ? tabs.length : tabsPerSize[allowedSize];
+  console.log(numberOfTabs);
   
   return (
     <div>
