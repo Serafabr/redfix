@@ -12,12 +12,11 @@ const tabs = [
   'Monitoramentos',
 ];
 
-const getVisibleTabs = (tabs: Array<string>, tabSize?: number | undefined) => {
-  if (!tabSize) return tabs;
+const getVisibleTabs = (tabs: Array<string>, numberOfTabs?: number | undefined) => {
+  if (!numberOfTabs || numberOfTabs === tabs.length) return tabs;
   
-  return [...tabs.slice(0, tabSize), '...'];
+  return [...tabs.slice(0, numberOfTabs), '...'];
 }
-
 
 export const Tabs = () => {
   
@@ -51,7 +50,7 @@ export const Tabs = () => {
       <div className={style.Tabs}>
         <div className={style.TabsContainer} ref={tabsRef}>
           <ul className={style.TabList}>
-            {tabs.map((tab) => (
+            {getVisibleTabs(tabs, numberOfTabs).map((tab) => (
               <li className={style.TabItem}>{tab}</li>
             ))}
           </ul>
