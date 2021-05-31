@@ -7,10 +7,9 @@ const router = Router();
 router.get(
   '/',
   (req, res) => {
-    // URI for downloads: http://localhost:3001/download/?uuid=UUID&filename=FILENAME
-    // Frontend should use encodeURI() function
+    // Frontend should use encodeURI() function to generate the URI for downloads (http://HOSTNAME:PORT/download?uuid=UUID&filename=FILENAME)
     // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI
-    const { uuid, filename } = req.query; // See: http://expressjs.com/en/4x/api.html#req.query
+    const { uuid, filename } = req.query;
     res.download(join(process.cwd(), paths.files, uuid), filename);
   }
 );
