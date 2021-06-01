@@ -34,6 +34,8 @@
   },
   "nodemonConfig": {
     "ignore": [
+      "public/*",
+      "logs/*",
       "tests/*",
       "windows-service-*"
     ]

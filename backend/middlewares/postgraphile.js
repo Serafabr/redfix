@@ -41,8 +41,8 @@ export default postgraphile(
     allowExplain: NODE_ENV !== 'production',
     showErrorStack: POSTGRAPHILE_SHOW_ERROR_STACK,
     extendedErrors: JSON.parse(POSTGRAPHILE_EXTENDED_ERRORS),
-    // exportJsonSchemaPath: process.env.NODE_ENV === 'development' ? paths.schemaJson : false,
-    // exportGqlSchemaPath: process.env.NODE_ENV === 'development' ? paths.schemaGraphQL : false,
+    // exportJsonSchemaPath: NODE_ENV === 'development' ? paths.schemaJson : false,
+    // exportGqlSchemaPath: NODE_ENV === 'development' ? paths.schemaGraphQL : false,
     // sortExport: true,
     pgSettings: async req => {
       const { personId, role } = req.user;

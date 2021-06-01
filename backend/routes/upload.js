@@ -6,8 +6,6 @@ import { pgPool } from '../db/index.js';
 import graphqlUpload from '../middlewares/graphql-upload.js';
 import paths from '../paths.js';
 
-const router = Router();
-
 async function decideUploadDestination(req, res, next){
   const { files, image, avatar, cebFile } = req?.body?.variables ? req.body.variables : {};
   if (!files && !image && !avatar && !cebFile) next();   // no uploads
@@ -19,8 +17,7 @@ async function decideUploadDestination(req, res, next){
 
 // Helper function to write files to disk from a stream
 function saveLocal(stream, filePath){
-  return new Promise((resolve, reject) =>
-    stream
+  return new Promise((resolve, reject) => stream
     .on("error", error => {
       if (stream.truncated){ fs.unlinkSync(filePath); }
       reject(error);
@@ -36,7 +33,7 @@ async function saveFiles(req, res, next){
     const resolvedFile = await file.promise;
     const { filename, mimetype, encoding, createReadStream } = resolvedFile;
     const stream = createReadStream();
-    const filePath = join(process.cwd(), paths.files, filesMetadata[i].uuid);
+    const filePath = join(paths.files, filesMetadata[i].uuid);
     return saveLocal(stream, filePath);
   }))
   .then(() => {
@@ -52,7 +49,7 @@ async function saveImage(req, res, next){
   const resolvedImage = await image.promise;
   const { filename, mimetype, encoding, createReadStream } = resolvedImage;
   const stream = createReadStream();
-  const imagePath = join(process.cwd(), paths.images, imageMetadata.uuid);
+  const imagePath = join(paths.images, imageMetadata.uuid);
   saveLocal(stream, imagePath)
   .then(() => {
     next();
@@ -68,7 +65,7 @@ async function saveAvatar(req, res, next){
   const resolvedAvatar = await avatar.promise;
   const { filename, mimetype, encoding, createReadStream } = resolvedAvatar;
   const stream = createReadStream();
-  const avatarPath = join(process.cwd(), paths.images, avatarMetadata.uuid);
+  const avatarPath = join(paths.images, avatarMetadata.uuid);
   saveLocal(stream, avatarPath)
   .then(() => {
     next();
@@ -119,6 +116,8 @@ async function insertCebData(req, res, next){
     res.json({ cebSuccess: false });
   })
 }
+
+const router = Router();
 
 router.post(
   '/',

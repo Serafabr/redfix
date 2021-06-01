@@ -1,6 +1,5 @@
 import morgan from 'morgan';
 import { createWriteStream } from 'fs';
-import { join } from 'path';
 import paths from '../paths.js';
 
 morgan.token('separator', req => '-'.repeat(100));
@@ -13,7 +12,7 @@ morgan.token('body', req => JSON.stringify(req.baseUrl === paths.login || /chang
 const templateForFile = `:date[iso]\t:remote-addr\t:method\t:url\t:status\t:response-time\t:session\t:body`;
 const templateForConsole = `\n:separator\n${templateForFile}`;
 
-const streamForFile = createWriteStream(join(process.cwd(), paths.httpLog), { flags: 'a' });
+const streamForFile = createWriteStream(paths.httpLog, { flags: 'a' });
 const streamForConsole = process.stdout;
 
 const LOG_OUTPUTS = JSON.parse(process.env.LOG_OUTPUTS);

@@ -1,25 +1,24 @@
 import { join } from 'path';
 
+const cwd = process.cwd();
+
 export default {
   // Routes
   api: '/api',
   login: '/login',
   logout: '/logout',
   download: '/download',
-  upload: '/api', // Must be the same as api path
   graphiql: '/graphiql',
   redmine: '/redmine',
   admin: '/admin',
-
   // Filesystem
-  public: 'public',
-  images: join('public', 'images'),
-  files: 'files',
-  httpLog: join('logs', 'http.log'),
-  cronLog: join('logs', 'cron.log'),
-  diffLog: join('logs', 'diff.log'),
-  dump: join('logs', 'dump.sql'),
-  schemaJson: join('logs', 'schema.json'),
-  schemaGraphQL: join('logs', 'schema.graphql'),
-
+  public: join(cwd, 'public'),
+  images: join(cwd, 'public', 'images'),
+  files: join(cwd, 'files'),
+  httpLog: join(cwd, 'logs', 'http.log'),
+  cronLog: join(cwd, 'logs', 'cron.log'),
+  diffLog: join(cwd, 'logs', 'diff.log'),
+  dump: join(cwd, 'logs', 'dump.sql'),
+  schemaJson: join(cwd, 'logs', 'schema.json'),
+  schemaGraphQL: join(cwd, 'logs', 'schema.graphql'),
 };
