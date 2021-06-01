@@ -10,7 +10,6 @@ export default {
   download: '/download',
   graphiql: '/graphiql',
   redmine: '/redmine',
-  admin: '/admin',
   // Filesystem
   public: join(cwd, 'public'),
   images: join(cwd, 'public', 'images'),
