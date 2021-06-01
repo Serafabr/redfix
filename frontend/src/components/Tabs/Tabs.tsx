@@ -3,21 +3,33 @@ import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
 import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
 import style from './Tabs.module.scss';
 import { ButtonWithDropdown } from '../Buttons';
-import { AlignList } from '../Buttons/ButtonWithDropdown/ButtonWithDropdown-deprecated';
+import { AlignListType } from '../Buttons/ButtonWithDropdown/ButtonWithDropdown';
 
-const tabs = [
-  'Suprimentos',
-  'Ativos',
-  'Histórico',
-  'Checklist',
-  'Arquivos',
-  'Faturamentos',
-  'Monitoramentos',
+const tabsOrder = [
+  'history',
+  'supplies',
+  'assets',
+  'checklist',
+  'files',
+  'billings',
+  'monitors'
 ];
+
+const tabViews = {
+  history: { name: "Histórico", view: <div>Histórico</div> },
+  supplies: { name: "Suprimentos", view: <div>Suprimentos</div> },
+  assets: { name: "Ativos", view: <div>Ativos</div> },
+  checklist: { name: "Checklist", view: <div>Checklist</div> },
+  files: { name: "Arquivos", view: <div>Arquivos</div> },
+  billings: { name: "Faturamentos", view: <div>Faturamentos</div> },
+  monitors: { name: "Monitores", view: <div>Monitores</div> },
+}
+
+const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
 
 export const Tabs = () => {
   
-  const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
+  const tabsLength = tabsOrder.length;
   
   // keep the tabs container size.
   const [ numberOfTabs, setNumberOfTabs ] = useState<number>(
