@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
 import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
 import style from './Tabs.module.scss';
+import { ButtonWithDropdown } from '../Buttons';
+import { AlignList } from '../Buttons/ButtonWithDropdown/ButtonWithDropdown-deprecated';
 
 const tabs = [
   'Suprimentos',
@@ -31,8 +33,21 @@ export const Tabs = () => {
   const { visibleTabs, hiddenTabs } = getVisibleTabs(tabs, numberOfTabs);
   
   let hiddenTabsButton = null;
+  const hiddenFake = {'monitor': {name: "Monitoramento"}, 'billing': {name: "Faturamentos"}};
   if (hiddenTabs.length > 0) {
-    hiddenTabsButton = <li className={style.TabItem}>...</li>;
+    hiddenTabsButton = (
+      <ButtonWithDropdown
+        options={hiddenFake}
+        boxWidth={150}
+        onSelectItem={(id) => {console.log(id)}}
+      >
+        {(onClick, isOpen) => (
+          //<li className={`${style.TabItem} ${style.HiddenButton}`} onClick={onClick}>...</li>
+          <div className={`${style.TabItem} ${style.HiddenButton} ${isOpen && style.Activated}`} onClick={onClick}>...</div>
+          //<div onClick={onClick}>...</div>
+        )}
+      </ButtonWithDropdown>
+    );
   }
   
   return (

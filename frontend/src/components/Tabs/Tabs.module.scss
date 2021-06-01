@@ -9,7 +9,7 @@
 
 .TabsContainer {
   margin: 0 0 0 36px;
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 .ButtonsContainer {
@@ -73,6 +73,10 @@
     border-bottom: 3px solid $primary_color;
     cursor: pointer;
   }
+}
+
+.HiddenButton {
+  margin-left: 12px;
 }
 
 .Activated {

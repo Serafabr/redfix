@@ -90,21 +90,21 @@ export const SelectBox = ({
             />
           </div>
         )}
-        <li className={style.List}>
+        <ul className={style.List}>
           {optionIds.map((itemId: string) => (
-            <ul 
+            <li 
               key={itemId} 
               className={`${style.Item} ${items[itemId].selected && style.Selected}`}
               onClick={handleOnClick(itemId)}
             >
               <span className={style.TextItem}>{items[itemId].name}</span>
               {items[itemId].selected && (<img src={blueCheckIcon} alt="Selected" />)}
-            </ul>
+            </li>
           ))}
           {optionIds.length === 0 && (
             <div className={style.NoResult}>Pesquisa sem resultado...</div>
           )}
-        </li>
+        </ul>
       </div>
     </div>
   )
