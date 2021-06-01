@@ -52,8 +52,8 @@ POSTGRAPHILE_SHOW_ERROR_STACK=json
 CRON_TIMEZONE=America/Sao_Paulo
 CRON_PATTERN_DUMP=0 0 1 * * *
 CRON_PATTERN_DIFF=0 0 2 * * *
-CRON_PATTERN_REFRESH=0 0 3 * * *
 CRON_PATTERN_DASHBOARD=0 0 4 * * *
+CRON_PATTERN_REFRESH=0 0 3 * * *
 
 # Redmine
 REDMINE_URL=https://redminesf.senado.gov.br/redmine/projects/solicitacoes-de-servico/issues.json?set_filter=1&page=
