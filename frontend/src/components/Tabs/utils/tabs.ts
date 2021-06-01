@@ -7,7 +7,7 @@ export const getVisibleTabs = (tabs: Array<string>, numberOfTabs?: number | unde
   };
   
   return {
-    visibleTabs: [...tabs.slice(0, numberOfTabs), '...'],
+    visibleTabs: [...tabs.slice(0, numberOfTabs)],
     hiddenTabs: [...tabs.slice(numberOfTabs, tabsLength)]
   };
 }

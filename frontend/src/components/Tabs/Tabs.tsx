@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useResizeTabsListener } from '../../hooks/useResizeTabsListener';
+import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
 import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
 import style from './Tabs.module.scss';
 
@@ -25,11 +25,15 @@ export const Tabs = () => {
   // Ref to the tabs container.
   const tabsRef = useRef(null);
   
-  // Add resize listener to Tabs
-  useResizeTabsListener(setNumberOfTabs, numberOfTabs, tabsPerSize, tabs.length);
+  // Add resize listener to Tabs. It will set a new number of tabs, depending on the size of the screen.
+  useGetNewNumberOfTabs(setNumberOfTabs, numberOfTabs, tabsPerSize, tabs.length);
   
   const { visibleTabs, hiddenTabs } = getVisibleTabs(tabs, numberOfTabs);
-  console.log(hiddenTabs);
+  
+  let hiddenTabsButton = null;
+  if (hiddenTabs.length > 0) {
+    hiddenTabsButton = <li className={style.TabItem}>...</li>;
+  }
   
   return (
     <div>
@@ -39,6 +43,7 @@ export const Tabs = () => {
             {visibleTabs.map((tab) => (
               <li className={style.TabItem}>{tab}</li>
             ))}
+            {hiddenTabsButton}
           </ul>
         </div>
         <div className={style.ButtonsContainer}>
