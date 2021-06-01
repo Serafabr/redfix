@@ -15,7 +15,7 @@ const tabs = [
   'monitors'
 ];
 
-const tabViews = {
+const tabViews: any = {
   history: { name: "Histórico", view: <div>Histórico</div> },
   supplies: { name: "Suprimentos", view: <div>Suprimentos</div> },
   assets: { name: "Ativos", view: <div>Ativos</div> },
@@ -48,6 +48,7 @@ export const Tabs = () => {
   
   let hiddenTabsButton = null;
   const hiddenFake = {'monitor': {name: "Monitoramento"}, 'billing': {name: "Faturamentos"}};
+  
   if (hiddenTabs.length > 0) {
     hiddenTabsButton = (
       <ButtonWithDropdown
@@ -69,8 +70,8 @@ export const Tabs = () => {
       <div className={style.Tabs}>
         <div className={style.TabsContainer} ref={tabsRef}>
           <ul className={style.TabList}>
-            {visibleTabs.map((tab) => (
-              <li className={style.TabItem}>{tab}</li>
+            {visibleTabs.map((tab: string) => (
+              <li className={`${style.TabItem} ${activateKey === tab && style.Activated}`}>{tabViews[tab].name}</li>
             ))}
             {hiddenTabsButton}
           </ul>
@@ -83,7 +84,7 @@ export const Tabs = () => {
         </div>
       </div>
       <div style={{ margin: "100px" }}>
-        TabePane
+        {tabViews[activateKey].view}
       </div>
     </div>
   )
