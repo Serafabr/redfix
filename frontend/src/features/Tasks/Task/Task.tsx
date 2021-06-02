@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { PageTitle } from '../../../components/PageTitle/PageTitle';
 import { Button, ButtonType } from '../../../components/Buttons';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
@@ -37,10 +39,6 @@ const tabViews: any = {
 
 const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
 
-const activateKey = 'assets';
-
-
-
 
 type URLParams = {
   id: string
@@ -68,6 +66,8 @@ const taskButtons = [
 ];
 
 export const Task = () => {
+  
+  const [ activateKeyTabs, setActivateKeyTabs ] = useState(tabs[0]);
   
   const { id: taskID } = useParams<URLParams>();
   const location = useLocation<string>();
@@ -146,7 +146,8 @@ export const Task = () => {
           tabs={tabs}
           tabViews={tabViews}
           tabsPerSize={tabsPerSize}
-          activateKey={activateKey}
+          activateKey={activateKeyTabs}
+          setActivateKey={setActivateKeyTabs}
         />
       </Card>
     </div>

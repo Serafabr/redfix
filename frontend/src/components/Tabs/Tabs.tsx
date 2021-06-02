@@ -1,9 +1,8 @@
-import { useState, useRef, ReactNode, FunctionComponent } from 'react';
+import { useState, useRef, ReactNode, MouseEvent } from 'react';
 import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
 import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
 import style from './Tabs.module.scss';
 import { ButtonWithDropdown } from '../Buttons';
-import { AlignListType } from '../Buttons/ButtonWithDropdown/ButtonWithDropdown';
 
 
 type Tabs = Array<string>;
@@ -28,6 +27,7 @@ type TabsProps = {
   tabViews: TabViews,
   tabsPerSize?: TabsPerSize,
   activateKey: ActivateKey,
+  setActivateKey: (id: string) => void
 }
 
 
@@ -35,7 +35,8 @@ export const Tabs = ({
   tabs,
   tabViews,
   tabsPerSize = {},
-  activateKey
+  activateKey,
+  setActivateKey
 }: TabsProps) => {
   
   const tabsLength = tabs.length;
@@ -53,24 +54,29 @@ export const Tabs = ({
   
   const { visibleTabs, hiddenTabs } = getVisibleTabs(tabs, numberOfTabs);
   
+  
+  const handleTabOnClick = (event: MouseEvent) => {
+    setActivateKey((event.target as any).id);
+  }  
+  
   let hiddenTabsButton = null;
-  const hiddenFake = {'monitor': {name: "Monitoramento"}, 'billing': {name: "Faturamentos"}};
+  const hiddenFake = {'monitors': {name: "Monitoramento"}, 'billings': {name: "Faturamentos"}};
   
   if (hiddenTabs.length > 0) {
     hiddenTabsButton = (
       <ButtonWithDropdown
         options={hiddenFake}
         boxWidth={150}
-        onSelectItem={(id) => {console.log(id)}}
+        onSelectItem={setActivateKey}
       >
         {(onClick, isOpen) => (
           //<li className={`${style.TabItem} ${style.HiddenButton}`} onClick={onClick}>...</li>
-          <div className={`${style.TabItem} ${style.HiddenButton} ${isOpen && style.Activated}`} onClick={onClick}>...</div>
+          <div className={`${style.TabItem} ${style.HiddenButton} ${Object.keys(hiddenFake).includes(activateKey) && style.Activated}`} onClick={onClick}>...</div>
           //<div onClick={onClick}>...</div>
         )}
       </ButtonWithDropdown>
     );
-  }
+  };
   
   return (
     <div>
@@ -78,7 +84,7 @@ export const Tabs = ({
         <div className={style.TabsContainer} ref={tabsRef}>
           <ul className={style.TabList}>
             {visibleTabs.map((tab: string) => (
-              <li className={`${style.TabItem} ${activateKey === tab && style.Activated}`}>{tabViews[tab].name}</li>
+              <li id={tab} className={`${style.TabItem} ${activateKey === tab && style.Activated}`} onClick={handleTabOnClick}>{tabViews[tab].name}</li>
             ))}
             {hiddenTabsButton}
           </ul>
