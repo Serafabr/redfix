@@ -13,22 +13,22 @@ import style from './Tabs.module.scss';
  * General types
 \*************************/
 
-type Tabs = Array<string>;
+export type Tabs = Array<string>;
 
-type TabView = {
+export type TabView = {
   name: string,
   view: ReactNode;
 };
 
-type TabViews = {
+export type TabViews = {
   [id: string]: TabView
 };
 
-type TabsPerSize = {
+export type TabsPerSize = {
   [size: number]: number
 };
 
-type ActivateKey = string;
+export type ActivateKey = string;
 
 /*************************\
  * PropTypes
@@ -56,7 +56,7 @@ export const Tabs = ({
   
   const tabsLength = tabs.length;
   
-  // keep the tabs container size.
+  // Keep the number of tabs allowed, regarding the screen size.
   const [ numberOfTabs, setNumberOfTabs ] = useState<number>(
     getNumberOfTabs(window.innerWidth, tabsPerSize, tabsLength)
   );
@@ -64,15 +64,11 @@ export const Tabs = ({
   // Ref to the tabs container.
   const tabsRef = useRef(null);
   
-  // Add resize listener to Tabs. It will set a new number of tabs, depending on the size of the screen.
+  // Add resize listener to the screen. It will set a new number of tabs, depending on the size of the screen.
   useGetNewNumberOfTabs(setNumberOfTabs, numberOfTabs, tabsPerSize, tabsLength);
   
   const { visibleTabs, hiddenTabs } = getVisibleTabs(tabs, numberOfTabs);
   
-  
-  const handleTabOnClick = (event: MouseEvent) => {
-    setActivateKey((event.target as any).id);
-  }  
   
   let hiddenTabsButton = null;
   const hiddenFake = {'monitors': {name: "Monitoramento"}, 'billings': {name: "Faturamentos"}};
@@ -92,6 +88,12 @@ export const Tabs = ({
       </ButtonWithDropdown>
     );
   };
+  
+  // Handle functions
+  
+  const handleTabOnClick = (event: MouseEvent) => {
+    setActivateKey((event.target as any).id);
+  }  
   
   return (
     <div>
