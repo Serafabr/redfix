@@ -3,7 +3,6 @@ import { graphqlUploadExpress } from 'graphql-upload';
 import { join } from 'path';
 import fs from 'fs';
 import csvParse from 'csv-parse';
-import { pgPool } from '../db/index.js';
 import paths from '../paths.js';
 
 async function saveUploads(req, res, next){
@@ -11,7 +10,7 @@ async function saveUploads(req, res, next){
     case 'files': saveFiles(req, res, next); break;
     case 'image': saveImage(req, res, next); break;
     case 'avatar': saveAvatar(req, res, next); break;
-    case 'energy': insertEnergyData(req, res, next); break;
+    case 'energy': parseEnergyCsv(req, res, next); break;
     default: next();
   }
 }
@@ -77,7 +76,7 @@ async function saveAvatar(req, res, next){
   });
 }
 
-async function insertEnergyData(req, res, next){
+async function parseEnergyCsv(req, res, next){
   const energyCsv = req.body.variables.energyCsv;
   const resolvedEnergyCsv = await energyCsv.promise;
   const { filename, mimetype, encoding, createReadStream } = resolvedEnergyCsv;
