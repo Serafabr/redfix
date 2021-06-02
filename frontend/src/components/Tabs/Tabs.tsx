@@ -5,15 +5,16 @@ import { ButtonWithDropdown } from '../Buttons';
 // Hooks
 import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
 // Utilities
-import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
+import { getNumberOfTabs, getVisibleTabs, getHiddenTabsObject } from './utils/tabs';
 // CSS
 import style from './Tabs.module.scss';
+import { TabsHiddenButton } from './TabsHiddenButton';
 
 /*************************\
  * General types
 \*************************/
 
-export type Tabs = Array<string>;
+export type TabsType = Array<string>;
 
 export type TabView = {
   name: string,
@@ -35,7 +36,7 @@ export type ActivateKey = string;
 \*************************/
 
 type TabsProps = {
-  tabs: Tabs,
+  tabs: TabsType,
   tabViews: TabViews,
   tabsPerSize?: TabsPerSize,
   activateKey: ActivateKey,
@@ -67,27 +68,8 @@ export const Tabs = ({
   // Add resize listener to the screen. It will set a new number of tabs, depending on the size of the screen.
   useGetNewNumberOfTabs(setNumberOfTabs, numberOfTabs, tabsPerSize, tabsLength);
   
-  const { visibleTabs, hiddenTabs } = getVisibleTabs(tabs, numberOfTabs);
-  
-  
-  let hiddenTabsButton = null;
-  const hiddenFake = {'monitors': {name: "Monitoramento"}, 'billings': {name: "Faturamentos"}};
-  
-  if (hiddenTabs.length > 0) {
-    hiddenTabsButton = (
-      <ButtonWithDropdown
-        options={hiddenFake}
-        boxWidth={150}
-        onSelectItem={setActivateKey}
-      >
-        {(onClick, isOpen) => (
-          //<li className={`${style.TabItem} ${style.HiddenButton}`} onClick={onClick}>...</li>
-          <div className={`${style.TabItem} ${style.HiddenButton} ${Object.keys(hiddenFake).includes(activateKey) && style.Activated}`} onClick={onClick}>...</div>
-          //<div onClick={onClick}>...</div>
-        )}
-      </ButtonWithDropdown>
-    );
-  };
+  const { visibleTabKeys, hiddenTabKeys } = getVisibleTabs(tabs, numberOfTabs);
+  const hiddenTabsLength = hiddenTabKeys.length;
   
   // Handle functions
   
@@ -100,10 +82,16 @@ export const Tabs = ({
       <div className={style.Tabs}>
         <div className={style.TabsContainer} ref={tabsRef}>
           <ul className={style.TabList}>
-            {visibleTabs.map((tab: string) => (
+            {visibleTabKeys.map((tab: string) => (
               <li id={tab} className={`${style.TabItem} ${activateKey === tab && style.Activated}`} onClick={handleTabOnClick}>{tabViews[tab].name}</li>
             ))}
-            {hiddenTabsButton}
+            {hiddenTabsLength > 0 && (
+              <TabsHiddenButton 
+                hiddenTabs={getHiddenTabsObject(tabViews, hiddenTabKeys)}
+                activateKey={activateKey}
+                setActivateKey={setActivateKey}
+              />
+            )}
           </ul>
         </div>
         <div className={style.ButtonsContainer}>

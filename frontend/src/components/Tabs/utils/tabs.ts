@@ -1,25 +1,24 @@
-// Components
-import { ButtonWithDropdown } from '../../Buttons';
+// Types
 import { TabViews } from '../Tabs';
 
 export const getVisibleTabs = (tabs: Array<string>, numberOfTabs?: number | undefined) => {
   const tabsLength = tabs.length;
   
   if (!numberOfTabs || numberOfTabs === tabsLength) return {
-    visibleTabs: [...tabs],
-    hiddenTabs: []
+    visibleTabKeys: [...tabs],
+    hiddenTabKeys: []
   };
   
   return {
-    visibleTabs: tabs.slice(0, numberOfTabs),
-    hiddenTabs: tabs.slice(numberOfTabs, tabsLength)
+    visibleTabKeys: [...tabs.slice(0, numberOfTabs)],
+    hiddenTabKeys: [...tabs.slice(numberOfTabs, tabsLength)]
   };
 }
 
-export const getHiddenTabsObject = (tabs: TabViews, hiddenTabKeys: Array<string>) => {
+export const getHiddenTabsObject = (tabViews: TabViews, hiddenTabKeys: Array<string>) => {
   const result: TabViews = {};
   hiddenTabKeys.forEach((key: string) => {
-    result[key] = {...tabs[key]};
+    result[key] = {...tabViews[key]};
   })
   
   return result;
