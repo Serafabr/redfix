@@ -130,10 +130,9 @@ begin transaction;
 \i api/team/teams.sql
 -- utilities
 \i api/utilities/create_energy_bills.sql
-\i api/utilities/create_water_bill.sql
 \i api/utilities/energy_bills.sql
 \i api/utilities/modify_energy_bill_note.sql
-\i api/utilities/modify_water_bill.sql
+\i api/utilities/upsert_water_bill.sql
 \i api/utilities/water_bills.sql
 
 commit transaction;

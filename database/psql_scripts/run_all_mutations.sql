@@ -125,9 +125,7 @@
 \i api_tests/files/delete_file.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 -- utilities
-\i api_tests/utilities/create_water_bill.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/utilities/modify_water_bill.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/utilities/create_energy_bills.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/utilities/modify_energy_bill_note.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
--- truncate tables
-truncate water_bills;
+\i api_tests/utilities/upsert_water_bill.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
