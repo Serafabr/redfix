@@ -1,3 +1,3 @@
 export default (req, res) => {
-  res.status(404).send("Página não encontrada\n");
+  res.status(404).end();
 };

@@ -129,7 +129,7 @@ begin transaction;
 \i api/team/set_my_team.sql
 \i api/team/teams.sql
 -- utilities
-\i api/utilities/create_energy_bill.sql
+\i api/utilities/create_energy_bills.sql
 \i api/utilities/create_water_bill.sql
 \i api/utilities/energy_bills.sql
 \i api/utilities/modify_energy_bill_note.sql

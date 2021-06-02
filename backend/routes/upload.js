@@ -1,18 +1,19 @@
 import { Router } from 'express';
+import { graphqlUploadExpress } from 'graphql-upload';
 import { join } from 'path';
 import fs from 'fs';
 import csvParse from 'csv-parse';
 import { pgPool } from '../db/index.js';
-import graphqlUpload from '../middlewares/graphql-upload.js';
 import paths from '../paths.js';
 
-async function decideUploadDestination(req, res, next){
-  const { files, image, avatar, cebFile } = req?.body?.variables ? req.body.variables : {};
-  if (!files && !image && !avatar && !cebFile) next();   // no uploads
-  if (files) saveFiles(req, res, next);       // regular uploads
-  if (image) saveImage(req, res, next);       // image
-  if (avatar) saveAvatar(req, res, next);     // avatar
-  if (cebFile) insertCebData(req, res, next); // CEB csv files
+async function saveUploads(req, res, next){
+  switch (req?.body?.variables?.uploadType){
+    case 'files': saveFiles(req, res, next); break;
+    case 'image': saveImage(req, res, next); break;
+    case 'avatar': saveAvatar(req, res, next); break;
+    case 'energy': insertEnergyData(req, res, next); break;
+    default: next();
+  }
 }
 
 // Helper function to write files to disk from a stream
@@ -76,44 +77,33 @@ async function saveAvatar(req, res, next){
   });
 }
 
-async function insertCebData(req, res, next){
-  const cebFile = req.body.variables.cebFile[0];
-  const resolvedCebFile = await cebFile.promise;
-  const { filename, mimetype, encoding, createReadStream } = resolvedCebFile;
+async function insertEnergyData(req, res, next){
+  const energyCsv = req.body.variables.energyCsv;
+  const resolvedEnergyCsv = await energyCsv.promise;
+  const { filename, mimetype, encoding, createReadStream } = resolvedEnergyCsv;
   const stream = createReadStream();
-  const promises = [];
+  const allValues = [];
   stream
   .pipe(csvParse({ from_line: 2, delimiter: ';' })) // skip header and set delimiter
-  .on("data", record => { // each record is a line of ceb csv file
+  .on("data", record => { // each record is a line of energy csv file
     try {
-      record.pop(); // remove empty string at the end of the record
-      const valuesString = `(${record.map(field => ("'" + field + "'")).join(',')})`;
-      // console.log(valuesString);
-      promises.push(pgPool.query('select web.create_energy_bill($1)', [valuesString]));
-      // console.log(data);
+      // remove empty string at the end of the record
+      record.pop();
+      // generate string compatible with VALUES clause format of INSERT
+      const values = `(${record.map(field => ("'" + field + "'")).join(',')})`;
+      allValues.push(values);
     } catch(error) {
       console.log(error);
-      res.json({ cebSuccess: false });
+      res.status(400).end();
     }
   })
-  .on("end", () => {
-    Promise.all(promises)
-    .then(values => {
-      const insertedCount = values.map(value => value.rows[0].create_energy_bill).reduce((acc, curr) => acc + curr);
-      // console.log(insertedCount);
-      res.json({
-        cebSuccess: true,
-        insertedCount: insertedCount,
-      });
-    })
-    .catch(error => {
-      console.log(error);
-      res.json({ cebSuccess: false });
-    });
+  .on("end", async () => {
+    req.body.variables.valuesString = allValues.join(',');
+    next();
   })
   .on("error", error => {
     console.log(error);
-    res.json({ cebSuccess: false });
+    res.status(400).end();
   })
 }
 
@@ -121,8 +111,11 @@ const router = Router();
 
 router.post(
   '/',
-  graphqlUpload,           // Processes the multipart request
-  decideUploadDestination, // Checks upload type and calls functions accordingly
+  graphqlUploadExpress({
+    maxFileSize: 100E6,
+    maxFiles: 10,
+  }),
+  saveUploads,
 );
 
 export default router;

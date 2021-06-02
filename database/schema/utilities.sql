@@ -252,7 +252,7 @@ create table energy_bills (
   lims2 text,
   -- CODIGO DE BARRAS DA FATURA
   codigodebarras text,
-  last_csv_column text default '', -- avoid out of bounds copy command (ceb csv file has an extra semicolon at the end of the line)
+  last_csv_column text default '', -- avoid out of bounds copy command (csv file has an extra semicolon at the end of the line)
   -------------------------------------------------------------------
   energy_meter_id integer generated always as (cliente::integer) stored references energy_meters (energy_meter_id),
   year integer generated always as (substring(mesft from 1 for 4)::integer) stored,
