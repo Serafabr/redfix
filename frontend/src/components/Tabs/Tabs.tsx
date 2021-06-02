@@ -1,8 +1,13 @@
+// Third-party imports
 import { useState, useRef, ReactNode, MouseEvent } from 'react';
-import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
-import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
-import style from './Tabs.module.scss';
+// Components
 import { ButtonWithDropdown } from '../Buttons';
+// Hooks
+import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
+// Utilities
+import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
+// CSS
+import style from './Tabs.module.scss';
 
 
 type Tabs = Array<string>;
