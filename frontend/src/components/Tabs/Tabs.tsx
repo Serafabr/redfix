@@ -1,7 +1,5 @@
 // Third-party imports
 import { useState, useRef, ReactNode, MouseEvent } from 'react';
-// Components
-import { ButtonWithDropdown } from '../Buttons';
 // Hooks
 import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
 // Utilities
@@ -9,6 +7,9 @@ import { getNumberOfTabs, getVisibleTabs, getHiddenTabsObject } from './utils/ta
 // CSS
 import style from './Tabs.module.scss';
 import { TabsHiddenButton } from './TabsHiddenButton';
+// Icons
+import checkIcon from '../../assets/icons/check.svg';
+import plusIcon from '../../assets/icons/plus.svg';
 
 /*************************\
  * General types
@@ -96,9 +97,19 @@ export const Tabs = ({
         </div>
         <div className={style.ButtonsContainer}>
           <div className={style.TabButtonDivider}>
-            <button className={style.TabButton}>Aprovar !</button>
+            <button className={style.TabButton}>
+              Aprovar
+              <div className={style.ImgContainer}>
+                <img src={checkIcon} alt="Aprovar" />
+              </div>
+            </button>
           </div>
-          <button className={style.TabButton}>Adicionar +</button>
+          <button className={style.TabButton}>
+            Adicionar
+            <div className={style.ImgContainer}>
+              <img src={plusIcon} alt="Adicionar" />
+            </div>
+            </button>
         </div>
       </div>
       <div style={{ margin: "100px" }}>

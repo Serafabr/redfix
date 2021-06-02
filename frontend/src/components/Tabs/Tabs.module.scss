@@ -26,7 +26,8 @@
 }
 
 .TabButton {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 0 24px;
   border: none;
   margin: 0;
@@ -72,6 +73,18 @@
     color: $primary_color;
     border-bottom: 3px solid $primary_color;
     cursor: pointer;
+  }
+}
+
+.ImgContainer {
+  width: 12px;
+  vertical-align: middle;
+  margin-left: 10px;
+  
+  img {
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
   }
 }
 

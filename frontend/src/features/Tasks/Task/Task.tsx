@@ -37,7 +37,7 @@ const tabViews: any = {
   monitors: { name: "Monitores", view: <div>Monitores</div> },
 }
 
-const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
+const tabsPerSize: {[key: number]: number} = {1160: 6};
 
 
 type URLParams = {
