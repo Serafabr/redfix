@@ -14,6 +14,34 @@ import { CardHeader } from '../../../components/Cards/CardHeader';
 import { ProgressBar } from '../../../components/ProgressBar';
 import { Tabs } from '../../../components/Tabs';
 
+
+const tabs = [
+  'history',
+  'supplies',
+  'assets',
+  'checklist',
+  'files',
+  'billings',
+  'monitors'
+];
+
+const tabViews: any = {
+  history: { name: "Histórico", view: <div>Histórico</div> },
+  supplies: { name: "Suprimentos", view: <div>Suprimentos</div> },
+  assets: { name: "Ativos", view: <div>Ativos</div> },
+  checklist: { name: "Checklist", view: <div>Checklist</div> },
+  files: { name: "Arquivos", view: <div>Arquivos</div> },
+  billings: { name: "Faturamentos", view: <div>Faturamentos</div> },
+  monitors: { name: "Monitores", view: <div>Monitores</div> },
+}
+
+const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
+
+const activateKey = 'assets';
+
+
+
+
 type URLParams = {
   id: string
 }
@@ -114,7 +142,12 @@ export const Task = () => {
             <div className={style.Data}>31/12/2020</div>
           </div>
         </div>
-        <Tabs/>
+        <Tabs
+          tabs={tabs}
+          tabViews={tabViews}
+          tabsPerSize={tabsPerSize}
+          activateKey={activateKey}
+        />
       </Card>
     </div>
   )

@@ -7,10 +7,12 @@ export const getVisibleTabs = (tabs: Array<string>, numberOfTabs?: number | unde
   };
   
   return {
-    visibleTabs: [...tabs.slice(0, numberOfTabs)],
-    hiddenTabs: [...tabs.slice(numberOfTabs, tabsLength)]
+    visibleTabs: tabs.slice(0, numberOfTabs),
+    hiddenTabs: tabs.slice(numberOfTabs, tabsLength)
   };
 }
+
+export const getHiddenTabsObject = () => {}
 
 export const getNumberOfTabs = (tabsContainerSize: number, tabsPerSize: any, tabsLength: number) => {
   const maxSize = Math.max(...Object.keys(tabsPerSize).map(Number));

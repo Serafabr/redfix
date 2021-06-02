@@ -1,35 +1,42 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, ReactNode, FunctionComponent } from 'react';
 import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
 import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
 import style from './Tabs.module.scss';
 import { ButtonWithDropdown } from '../Buttons';
 import { AlignListType } from '../Buttons/ButtonWithDropdown/ButtonWithDropdown';
 
-const tabs = [
-  'history',
-  'supplies',
-  'assets',
-  'checklist',
-  'files',
-  'billings',
-  'monitors'
-];
 
-const tabViews: any = {
-  history: { name: "Histórico", view: <div>Histórico</div> },
-  supplies: { name: "Suprimentos", view: <div>Suprimentos</div> },
-  assets: { name: "Ativos", view: <div>Ativos</div> },
-  checklist: { name: "Checklist", view: <div>Checklist</div> },
-  files: { name: "Arquivos", view: <div>Arquivos</div> },
-  billings: { name: "Faturamentos", view: <div>Faturamentos</div> },
-  monitors: { name: "Monitores", view: <div>Monitores</div> },
+type Tabs = Array<string>;
+
+type TabView = {
+  name: string,
+  view: ReactNode;
+};
+
+type TabViews = {
+  [id: string]: TabView
+};
+
+type TabsPerSize = {
+  [size: number]: number
+};
+
+type ActivateKey = string;
+
+type TabsProps = {
+  tabs: Tabs,
+  tabViews: TabViews,
+  tabsPerSize?: TabsPerSize,
+  activateKey: ActivateKey,
 }
 
-const tabsPerSize: {[key: number]: number} = {1200: 5, 1250: 6};
 
-const activateKey = 'assets';
-
-export const Tabs = () => {
+export const Tabs = ({
+  tabs,
+  tabViews,
+  tabsPerSize = {},
+  activateKey
+}: TabsProps) => {
   
   const tabsLength = tabs.length;
   
