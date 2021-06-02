@@ -9,6 +9,9 @@ import { getNumberOfTabs, getVisibleTabs } from './utils/tabs';
 // CSS
 import style from './Tabs.module.scss';
 
+/*************************\
+ * General types
+\*************************/
 
 type Tabs = Array<string>;
 
@@ -27,6 +30,10 @@ type TabsPerSize = {
 
 type ActivateKey = string;
 
+/*************************\
+ * PropTypes
+\*************************/
+
 type TabsProps = {
   tabs: Tabs,
   tabViews: TabViews,
@@ -35,6 +42,9 @@ type TabsProps = {
   setActivateKey: (id: string) => void
 }
 
+/*************************\
+ * Tabs Component
+\*************************/
 
 export const Tabs = ({
   tabs,
