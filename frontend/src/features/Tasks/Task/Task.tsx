@@ -17,6 +17,8 @@ import { ProgressBar } from '../../../components/ProgressBar';
 import { Tabs } from '../../../components/Tabs';
 import { DataField, DataGrid } from '../../../components/DataDisplay';
 
+import barChartIcon from '../../../assets/icons/bar-chart.svg';
+
 
 const tabs = [
   'history',
@@ -129,6 +131,7 @@ export const Task = () => {
             <DataField
               label="Prioridade"
               data="Normal"
+              icon={barChartIcon}
             />
             <DataField
               label="Prazo"
