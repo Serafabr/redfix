@@ -8,8 +8,8 @@ import { getNumberOfTabs, getVisibleTabs, getHiddenTabsObject } from './utils/ta
 import style from './Tabs.module.scss';
 import { TabsHiddenButton } from './TabsHiddenButton';
 // Icons
-import checkIcon from '../../assets/icons/check.svg';
-import plusIcon from '../../assets/icons/plus.svg';
+import checkIcon from '../../assets/icons/check-blue.svg';
+import plusIcon from '../../assets/icons/plus-blue.svg';
 
 /*************************\
  * General types
