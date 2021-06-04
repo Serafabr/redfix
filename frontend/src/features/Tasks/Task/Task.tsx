@@ -15,6 +15,7 @@ import { Card } from '../../../components/Cards';
 import { CardHeader } from '../../../components/Cards/CardHeader';
 import { ProgressBar } from '../../../components/ProgressBar';
 import { Tabs } from '../../../components/Tabs';
+import { DataField, DataGrid } from '../../../components/DataDisplay';
 
 
 const tabs = [
@@ -105,42 +106,52 @@ export const Task = () => {
           </div>
         </CardHeader>
         <div className={style.CardContent}>
-          <div className={`${style.DataDisplay} ${style.DescriptionGrid}`}>
-            <div className={style.Label}>Descrição</div>
-            <div className={style.Data}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus auctor diam, non lobortis massa mattis elementum. Phasellus tincidunt felis a sem blandit, id fringilla lacus finibus. Pellentesque a dignissim velit. Pellentesque ligula est, pretium a sodales quis, interdum id nisl. Suspendisse potenti. Sed cursus tortor tincidunt porttitor suscipit. Praesent non dignissim felis. Cras at risus nec lacus laoreet cursus. Nulla nec leo dictum, iaculis tellus ac, aliquam augue. Praesent vestibulum ante at dictum lobortis. Proin nunc massa, mollis in ultricies nec, facilisis ut tellus. Donec malesuada dolor ut libero eleifend venenatis.</div>
-          </div>
-          <div className={`${style.DataDisplay}`}>
-            <div className={style.Label}>Local</div>
-            <div className={style.Data}>Subsolo do Edifício Principal</div>
-          </div>
-          <div className={`${style.DataDisplay}`}>
-            <div className={style.Label}>Equipe Atual</div>
-            <div className={style.Data}>Seplag</div>
-          </div>
-          <div className={`${style.DataDisplay}`}>
-            <div className={style.Label}>Plano de Manutenção</div>
-            <div className={style.Data}>PM 0012 - Limpeza semanal de subestação</div>
-          </div>
-          <div className={`${style.DataDisplay}`}>
-            <div className={style.Label}>Prioridade</div>
-            <div className={style.Data}>Normal</div>
-          </div>
-          <div className={`${style.DataDisplay}`}>
-            <div className={style.Label}>Prazo</div>
-            <div className={style.Data}>Quinta-feira, 31 Dez 2020 (21 dias de atraso)</div>
-          </div>
-          <div className={`${style.DataDisplay}`}>
-            <div className={style.Label}>Criação da tarefa</div>
-            <div className={style.Data}>01/03/2020</div>
-          </div>
-          <div className={`${style.DataDisplay}`}>
-            <div className={style.Label}>Início da Execução</div>
-            <div className={style.Data}>31/12/2020</div>
-          </div>
-          <div className={`${style.DataDisplay}`}>
-            <div className={style.Label}>Término da Execução</div>
-            <div className={style.Data}>31/12/2020</div>
-          </div>
+          <DataGrid
+            className={style.DataGrid}
+          >
+            <DataField
+              gridArea="desc"
+              label="Descrição"
+              data="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus auctor diam, non lobortis massa mattis elementum. Phasellus tincidunt felis a sem blandit, id fringilla lacus finibus. Pellentesque a dignissim velit. Pellentesque ligula est, pretium a sodales quis, interdum id nisl. Suspendisse potenti. Sed cursus tortor tincidunt porttitor suscipit. Praesent non dignissim felis. Cras at risus nec lacus laoreet cursus. Nulla nec leo dictum, iaculis tellus ac, aliquam augue. Praesent vestibulum ante at dictum lobortis. Proin nunc massa, mollis in ultricies nec, facilisis ut tellus. Donec malesuada dolor ut libero eleifend venenatis."
+            />
+            <DataField
+              label="Local"
+              data="Subsolo do Edifício Principal"
+            />
+            <DataField
+              label="Equipe Atual"
+              data="Seplag"
+            />
+            <DataField
+              label="Categoria"
+              data="Elétrica"
+            />
+            <DataField
+              label="Prioridade"
+              data="Normal"
+            />
+            <DataField
+              label="Prazo"
+              data="Quinta-feira, 31 Dez 2020 (21 dias de atraso)"
+            />
+            <DataField
+              label="Criação da tarefa"
+              data="01/03/2020"
+            />
+            <DataField
+              label="Início da Execução"
+              data="31/12/2020"
+            />
+            <DataField
+              label="Término da Execução"
+              data="31/12/2020"
+            />
+            <DataField
+              gridArea="plan"
+              label="Plano de Manutenção"
+              data="PM 0012 - Limpeza semanal de subestação"
+            />
+          </DataGrid>
         </div>
         <Tabs
           tabs={tabs}
