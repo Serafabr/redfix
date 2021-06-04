@@ -16,8 +16,11 @@ import { CardHeader } from '../../../components/Cards/CardHeader';
 import { ProgressBar } from '../../../components/ProgressBar';
 import { Tabs } from '../../../components/Tabs';
 import { DataField, DataGrid } from '../../../components/DataDisplay';
+import { IconPositionT } from '../../../components/DataDisplay/DataField';
 
 import barChartIcon from '../../../assets/icons/bar-chart.svg';
+import checkIcon from '../../../assets/icons/check-blue.svg';
+import linkIcon from '../../../assets/icons/external-link.svg';
 
 
 const tabs = [
@@ -108,52 +111,41 @@ export const Task = () => {
           </div>
         </CardHeader>
         <div className={style.CardContent}>
-          <DataGrid
-            className={style.DataGrid}
-          >
-            <DataField
-              gridArea="desc"
-              label="Descrição"
-              data="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus auctor diam, non lobortis massa mattis elementum. Phasellus tincidunt felis a sem blandit, id fringilla lacus finibus. Pellentesque a dignissim velit. Pellentesque ligula est, pretium a sodales quis, interdum id nisl. Suspendisse potenti. Sed cursus tortor tincidunt porttitor suscipit. Praesent non dignissim felis. Cras at risus nec lacus laoreet cursus. Nulla nec leo dictum, iaculis tellus ac, aliquam augue. Praesent vestibulum ante at dictum lobortis. Proin nunc massa, mollis in ultricies nec, facilisis ut tellus. Donec malesuada dolor ut libero eleifend venenatis."
-            />
-            <DataField
-              label="Local"
-              data="Subsolo do Edifício Principal"
-            />
-            <DataField
-              label="Equipe Atual"
-              data="Seplag"
-            />
-            <DataField
-              label="Categoria"
-              data="Elétrica"
-            />
-            <DataField
-              label="Prioridade"
-              data="Normal"
-              icon={barChartIcon}
-            />
-            <DataField
-              label="Prazo"
-              data="Quinta-feira, 31 Dez 2020 (21 dias de atraso)"
-            />
-            <DataField
-              label="Criação da tarefa"
-              data="01/03/2020"
-            />
-            <DataField
-              label="Início da Execução"
-              data="31/12/2020"
-            />
-            <DataField
-              label="Término da Execução"
-              data="31/12/2020"
-            />
-            <DataField
-              gridArea="plan"
-              label="Plano de Manutenção"
-              data="PM 0012 - Limpeza semanal de subestação"
-            />
+          <DataGrid className={style.DataGrid}>
+            <DataField gridArea="desc" label="Descrição">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus auctor diam, non lobortis massa mattis elementum. Phasellus tincidunt felis a sem blandit, id fringilla lacus finibus. Pellentesque a dignissim velit. Pellentesque ligula est, pretium a sodales quis, interdum id nisl. Suspendisse potenti. Sed cursus tortor tincidunt porttitor suscipit. Praesent non dignissim felis. Cras at risus nec lacus laoreet cursus. Nulla nec leo dictum, iaculis tellus ac, aliquam augue. Praesent vestibulum ante at dictum lobortis. Proin nunc massa, mollis in ultricies nec, facilisis ut tellus. Donec malesuada dolor ut libero eleifend venenatis.
+            </DataField>
+            <DataField label="Local">
+              Subsolo do Edifício Principal.
+            </DataField>
+            <DataField label="Equipe Atual">
+              Seplag
+            </DataField>
+            <DataField label="Categoria">
+              Elétrica
+            </DataField>
+            <DataField label="Prioridade">
+              <div className={style.DataIcon}>
+                <img src={barChartIcon} alt="Prioridade" />
+              </div>
+              Normal
+            </DataField>
+            <DataField label="Prazo">
+              Quinta-feira, 31 Dez 2020 (21 dias de atraso)
+            </DataField>
+            <DataField label="Criação da tarefa">
+              01/03/2020
+            </DataField>
+            <DataField label="Início da Execução">
+              31/12/2020
+            </DataField>
+            <DataField label="Término da Execução">
+              31/12/2020
+            </DataField>
+            <DataField gridArea="plan" label="Plano de Manutenção">
+                PM 0012 - Limpeza semanal de subestação
+                <img className={style.IconEndLine} src={linkIcon} alt="Plano de Manutenção" />
+            </DataField>
           </DataGrid>
         </div>
         <Tabs
