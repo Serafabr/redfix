@@ -22,6 +22,8 @@ import barChartIcon from '../../../assets/icons/bar-chart.svg';
 import checkIcon from '../../../assets/icons/check-blue.svg';
 import linkIcon from '../../../assets/icons/external-link.svg';
 import { PercentageBar } from '../../../components/PercentageBar';
+import { Badge } from '../../../components/Badges';
+import { ColorType } from '../../../components/Badges/Badge';
 
 
 const tabs = [
@@ -103,6 +105,7 @@ export const Task = () => {
                 <div className={style.BadgeWrapper}>
                   <div className={`${style.StatusBadge} ${style.Red}`}>Atrasado</div>
                 </div>
+                <Badge text="Atrasado" color={ColorType.Green} />
               </div>
             </div>
             <PercentageBar progress={15}/>
