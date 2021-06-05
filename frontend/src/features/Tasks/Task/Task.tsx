@@ -21,6 +21,7 @@ import { IconPositionT } from '../../../components/DataDisplay/DataField';
 import barChartIcon from '../../../assets/icons/bar-chart.svg';
 import checkIcon from '../../../assets/icons/check-blue.svg';
 import linkIcon from '../../../assets/icons/external-link.svg';
+import { PercentageBar } from '../../../components/PercentageBar';
 
 
 const tabs = [
@@ -104,10 +105,7 @@ export const Task = () => {
                 </div>
               </div>
             </div>
-            <div className={style.Percentage}>
-              <ProgressBar progress={80} />
-              <div className={style.PercentageText}>80%</div>
-            </div>
+            <PercentageBar progress={15}/>
           </div>
         </CardHeader>
         <div className={style.CardContent}>
