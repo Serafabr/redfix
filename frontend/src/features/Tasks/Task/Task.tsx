@@ -105,7 +105,8 @@ export const Task = () => {
                 <div className={style.BadgeWrapper}>
                   <div className={`${style.StatusBadge} ${style.Red}`}>Atrasado</div>
                 </div>
-                <Badge text="Atrasado" color={ColorType.Green} />
+                <Badge text="Concluído" color={ColorType.Pink} />
+                <Badge text="Concluído" color={ColorType.Purple} />
               </div>
             </div>
             <PercentageBar progress={15}/>
