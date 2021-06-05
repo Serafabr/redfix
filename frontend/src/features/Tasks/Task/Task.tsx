@@ -105,7 +105,7 @@ export const Task = () => {
               </div>
             </div>
             <div className={style.Percentage}>
-              <ProgressBar />
+              <ProgressBar progress={80} />
               <div className={style.PercentageText}>80%</div>
             </div>
           </div>

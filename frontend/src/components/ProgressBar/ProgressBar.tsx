@@ -1,10 +1,14 @@
 import style from './ProgressBar.module.scss';
 
-export const ProgressBar = () => {
+type ProgressBarT = {
+  progress: number
+};
+
+export const ProgressBar = ({ progress }: ProgressBarT) => {
   return (
     <div className={style.ProgressBar}>
       <span className={style.Bar}>
-        <span className={style.Progress} style={{ width: "80%" }}></span>
+        <span className={style.Progress} style={{ width: `${progress}%` }}></span>
       </span>
     </div>
   )
