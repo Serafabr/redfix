@@ -24,6 +24,7 @@ import linkIcon from '../../../assets/icons/external-link.svg';
 import { PercentageBar } from '../../../components/PercentageBar';
 import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/Badge';
+import { CardTitle } from '../../../components/Cards/CardTitle';
 
 
 const tabs = [
@@ -77,6 +78,7 @@ const taskButtons = [
 export const Task = () => {
   
   const [ activateKeyTabs, setActivateKeyTabs ] = useState(tabs[0]);
+  const [ bookmarkState, setBookmarkState ] = useState(false);
   
   const { id: taskID } = useParams<URLParams>();
   const location = useLocation<string>();
@@ -91,18 +93,16 @@ export const Task = () => {
       <Card>
         <CardHeader>
           <div className={style.SingleCardHeader}>
-            <div className={style.CardTitleWrapper}>
-              <div className={style.CardTitle}>
-                Manutenção no subsolo do Edifício Principal. Trocar todos os disjuntores e fazer revisão dos quadros elétricos.
-                <span className={style.CardBookmark}>
-                  <img src={BookmarkIcon} alt="Favoritar tarefa" />
-                </span>
-              </div>
-              <div className={style.CardHeaderTags}>
-                <Badge text="Fila de espera" color={ColorType.Orange} />
-                <Badge text="Sem atrasos" color={ColorType.Blue} />
-              </div>
-            </div>
+              <CardTitle 
+                title="Manutenção no subsolo do Edifício Principal. Trocar todos os disjuntores e fazer revisão dos quadros elétricos."
+                withBookmark={true}
+                bookmarkState={bookmarkState}
+                setBookmarkState={setBookmarkState}
+                badges={[
+                  <Badge text="Fila de espera" color={ColorType.Orange} />,
+                  <Badge text="Sem atrasos" color={ColorType.Blue} />
+                ]}
+              />
             <PercentageBar progress={15}/>
           </div>
         </CardHeader>
@@ -139,8 +139,8 @@ export const Task = () => {
               31/12/2020
             </DataField>
             <DataField gridArea="plan" label="Plano de Manutenção">
-                PM 0012 - Limpeza semanal de subestação
-                <img className={style.IconEndLine} src={linkIcon} alt="Plano de Manutenção" />
+              PM 0012 - Limpeza semanal de subestação
+              <img className={style.IconEndLine} src={linkIcon} alt="Plano de Manutenção" />
             </DataField>
           </DataGrid>
         </div>

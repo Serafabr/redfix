@@ -22,4 +22,12 @@
 
 .CardBookmark {
   margin-left: 5px;
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.CardHeaderTags {
+  margin-top: 8px;
 }
