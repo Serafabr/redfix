@@ -1,30 +1,26 @@
 import { useState } from 'react';
 
-import { PageTitle } from '../../../components/PageTitle/PageTitle';
 import { Button, ButtonType } from '../../../components/Buttons';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { ButtonWithDropdown, AlignListType } from '../../../components/Buttons';
 
 import { Plus as PlusIcon } from '../../../components/Icons';
 import { MoreHorizontal as MoreIcon } from '../../../components/Icons';
-import BookmarkIcon from '../../../assets/icons/bookmark.svg';
 
 import style from './Task.module.scss';
 import { useLocation, useParams } from 'react-router';
 import { Card } from '../../../components/Cards';
 import { CardHeader } from '../../../components/Cards/CardHeader';
-import { ProgressBar } from '../../../components/ProgressBar';
 import { Tabs } from '../../../components/Tabs';
 import { DataField, DataGrid } from '../../../components/DataDisplay';
-import { IconPositionT } from '../../../components/DataDisplay/DataField';
 
 import barChartIcon from '../../../assets/icons/bar-chart.svg';
-import checkIcon from '../../../assets/icons/check-blue.svg';
 import linkIcon from '../../../assets/icons/external-link.svg';
 import { PercentageBar } from '../../../components/PercentageBar';
 import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/Badge';
 import { CardTitle } from '../../../components/Cards/CardTitle';
+import { SingleCardContent, SingleCardHeader } from '../../../components/Cards/SingleCard';
 
 
 const tabs = [
@@ -92,21 +88,21 @@ export const Task = () => {
       />
       <Card>
         <CardHeader>
-          <div className={style.SingleCardHeader}>
-              <CardTitle 
-                title="Manutenção no subsolo do Edifício Principal. Trocar todos os disjuntores e fazer revisão dos quadros elétricos."
-                withBookmark={true}
-                bookmarkState={bookmarkState}
-                setBookmarkState={setBookmarkState}
-                badges={[
-                  <Badge text="Fila de espera" color={ColorType.Orange} />,
-                  <Badge text="Sem atrasos" color={ColorType.Blue} />
-                ]}
-              />
+          <SingleCardHeader>
+            <CardTitle 
+              title="Manutenção no subsolo do Edifício Principal. Trocar todos os disjuntores e fazer revisão dos quadros elétricos."
+              withBookmark={true}
+              bookmarkState={bookmarkState}
+              setBookmarkState={setBookmarkState}
+              badges={[
+                <Badge text="Fila de espera" color={ColorType.Orange} />,
+                <Badge text="Sem atrasos" color={ColorType.Blue} />
+              ]}
+            />
             <PercentageBar progress={15}/>
-          </div>
+          </SingleCardHeader>
         </CardHeader>
-        <div className={style.CardContent}>
+        <SingleCardContent>
           <DataGrid className={style.DataGrid}>
             <DataField gridArea="desc" label="Descrição">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus auctor diam, non lobortis massa mattis elementum. Phasellus tincidunt felis a sem blandit, id fringilla lacus finibus. Pellentesque a dignissim velit. Pellentesque ligula est, pretium a sodales quis, interdum id nisl. Suspendisse potenti. Sed cursus tortor tincidunt porttitor suscipit. Praesent non dignissim felis. Cras at risus nec lacus laoreet cursus. Nulla nec leo dictum, iaculis tellus ac, aliquam augue. Praesent vestibulum ante at dictum lobortis. Proin nunc massa, mollis in ultricies nec, facilisis ut tellus. Donec malesuada dolor ut libero eleifend venenatis.
@@ -143,7 +139,7 @@ export const Task = () => {
               <img className={style.IconEndLine} src={linkIcon} alt="Plano de Manutenção" />
             </DataField>
           </DataGrid>
-        </div>
+        </SingleCardContent>
         <Tabs
           tabs={tabs}
           tabViews={tabViews}

@@ -1,9 +1,13 @@
 import style from './SingleCard.module.scss';
 
-export const SingleCardHeader = () => {
+type Props = {
+  children: React.ReactNode,
+};
+
+export const SingleCardHeader = ({ children }: Props) => {
   return (
-    <div>
-      
+    <div className={style.SingleCardHeader}>
+      {children}
     </div>
   )
 }

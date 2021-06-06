@@ -1,9 +1,13 @@
 import style from './SingleCard.module.scss';
 
-export const SingleCardContent = () => {
+type Props = {
+  children: React.ReactNode,
+};
+
+export const SingleCardContent = ({ children }: Props) => {
   return (
-    <div>
-      
+    <div className={style.SingleCardContent}>
+      {children}
     </div>
   )
 }
