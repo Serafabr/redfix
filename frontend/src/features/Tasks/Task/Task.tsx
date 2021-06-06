@@ -12,7 +12,7 @@ import { useLocation, useParams } from 'react-router';
 import { Card } from '../../../components/Cards';
 import { CardHeader } from '../../../components/Cards/CardHeader';
 import { Tabs } from '../../../components/Tabs';
-import { DataField, DataGrid } from '../../../components/DataDisplay';
+import { DataField, DataFieldPriority, DataGrid } from '../../../components/DataDisplay';
 
 import barChartIcon from '../../../assets/icons/bar-chart.svg';
 import linkIcon from '../../../assets/icons/external-link.svg';
@@ -21,6 +21,7 @@ import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/Badge';
 import { CardTitle } from '../../../components/Cards/CardTitle';
 import { SingleCardContent, SingleCardHeader } from '../../../components/Cards/SingleCard';
+import { PrioritiesT } from '../../../components/DataDisplay/DataFieldPriority';
 
 
 const tabs = [
@@ -96,7 +97,8 @@ export const Task = () => {
               setBookmarkState={setBookmarkState}
               badges={[
                 <Badge text="Fila de espera" color={ColorType.Orange} />,
-                <Badge text="Sem atrasos" color={ColorType.Blue} />
+                <Badge text="Atrasado" color={ColorType.Red} />,
+                <Badge text="Tarefa urgente" color={ColorType.Pink} />
               ]}
             />
             <PercentageBar progress={15}/>
@@ -116,12 +118,9 @@ export const Task = () => {
             <DataField label="Categoria">
               Elétrica
             </DataField>
-            <DataField label="Prioridade">
-              <div className={style.DataIcon}>
-                <img src={barChartIcon} alt="Prioridade" />
-              </div>
-              Normal
-            </DataField>
+            <DataFieldPriority 
+              priority={PrioritiesT.Urgent}
+            />
             <DataField label="Prazo">
               Quinta-feira, 31 Dez 2020 (21 dias de atraso)
             </DataField>

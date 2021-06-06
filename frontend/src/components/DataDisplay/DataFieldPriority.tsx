@@ -2,7 +2,9 @@ import { ReactNode } from 'react';
 import style from './DataDisplay.module.scss';
 import { DataField } from './DataField';
 
-import barChartIcon from '../../assets/icons/bar-chart.svg';
+import lowIcon from '../../assets/icons/priority/low-priority.svg';
+import normalIcon from '../../assets/icons/priority/normal-priority.svg';
+import highIcon from '../../assets/icons/priority/high-priority.svg';
 
 // enum PrioritiesT { Waiting, Pending, Executing, Suspended, Analysis, Canceled, Finished, Completed };
 
@@ -17,13 +19,13 @@ import barChartIcon from '../../assets/icons/bar-chart.svg';
 //   [PrioritiesT.Completed]: { text: '', icon:  }
 // }
 
-enum PrioritiesT { Low, Normal, High, Urgent };
+export enum PrioritiesT { Low, Normal, High, Urgent };
 
 const Priorities = {
-  [PrioritiesT.Low]: { text: 'Baixa', icon: barChartIcon }, 
-  [PrioritiesT.Normal]: { text: 'Normal', icon: barChartIcon }, 
-  [PrioritiesT.High]: { text: 'Alta', icon: barChartIcon }, 
-  [PrioritiesT.Urgent]: { text: 'Urgente', icon: barChartIcon }, 
+  [PrioritiesT.Low]: { text: 'Baixa', icon: lowIcon }, 
+  [PrioritiesT.Normal]: { text: 'Normal', icon: normalIcon }, 
+  [PrioritiesT.High]: { text: 'Alta', icon: highIcon }, 
+  [PrioritiesT.Urgent]: { text: 'Urgente', icon: highIcon }, 
 }
 
 type DataFieldPriorityT = {
