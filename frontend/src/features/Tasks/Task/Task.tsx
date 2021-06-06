@@ -134,9 +134,8 @@ export const Task = () => {
             <DataField label="Término da Execução">
               31/12/2020
             </DataField>
-            <DataField gridArea="plan" label="Plano de Manutenção">
+            <DataField gridArea="plan" label="Plano de Manutenção" withLink>
               PM 0012 - Limpeza semanal de subestação
-              <img className={style.IconEndLine} src={linkIcon} alt="Plano de Manutenção" />
             </DataField>
           </DataGrid>
         </SingleCardContent>
