@@ -12,3 +12,14 @@
   border-bottom: 1px solid #dfdfdf;
 }
 
+.CardTitle {
+  font: inherit;
+  color: $gray_700;
+  font-weight: 600;
+  line-height: 28px;
+  font-size: 1.428rem;
+}
+
+.CardBookmark {
+  margin-left: 5px;
+}
