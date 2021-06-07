@@ -49,7 +49,7 @@ export const dataTasks = [
   {
     id: 1354,
     task: 'Manutenção do subsolo do Edifício Principal.',
-    status: 'Cancelado',
+    status: 'Em execução',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
   },
