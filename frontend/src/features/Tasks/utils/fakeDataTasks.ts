@@ -1,4 +1,5 @@
 import { TableStatus } from '../components/TableStatus';
+import { TableTask } from '../components/TableTask';
 
 export const columnsTasks = [
   {
@@ -8,6 +9,7 @@ export const columnsTasks = [
   {
     Header: 'Tarefa',
     accessor: (row: any) => ({task: row.task, team: row.team}),
+    Cell: TableTask
   },
   {
     Header: 'Status',
