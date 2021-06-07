@@ -8,7 +8,6 @@ type TableTaskT = {
 };
 
 export const TableTask = ({value: { task, team }}: TableTaskT) => {
-  console.log(task);
   return (
     <div className={style.TaskContainer}>
       <div className={style.Task}>{task}</div>

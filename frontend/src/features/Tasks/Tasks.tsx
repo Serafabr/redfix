@@ -93,7 +93,6 @@ export const Tasks = ({
   const history = useHistory();
   
   const getCellProps = (cell: any) => {
-    console.log(cell)
     if (cell.column.Header === 'Tarefa') {
       return {
         onClick: () => {history.push(`/tarefas/${cell.row.values.ID}`)},

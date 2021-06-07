@@ -18,9 +18,6 @@ export const Table = ({
   getCellProps = defaultPropsGetter,
  }: Props) => {
   
-  console.log('Inside - tableProps: ');
-  console.log(rows);
-  
   return (
     <table className={style.Table} {...getTableProps()}>
       <colgroup>
