@@ -7,7 +7,7 @@ export const columnsTasks = [
   },
   {
     Header: 'Tarefa',
-    accessor: (row: any) => row.task,
+    accessor: (row: any) => ({task: row.task, team: row.team}),
   },
   {
     Header: 'Status',
@@ -31,6 +31,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coemant',
   },
   {
     id: 1352,
@@ -38,6 +39,7 @@ export const dataTasks = [
     status: 'Finalizado',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Equipa da RCS Tecnologia',
   },
   {
     id: 1353,
@@ -45,6 +47,7 @@ export const dataTasks = [
     status: 'Pendente',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Entherm',
   },
   {
     id: 1354,
@@ -52,6 +55,7 @@ export const dataTasks = [
     status: 'Em execução',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coordenação Geral',
   },
   {
     id: 1355,
@@ -59,6 +63,7 @@ export const dataTasks = [
     status: 'Fila de espera',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Sinfra',
   },
   {
     id: 1356,
@@ -66,6 +71,7 @@ export const dataTasks = [
     status: 'Suspenso',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coemant',
   },
   {
     id: 1357,
@@ -73,6 +79,7 @@ export const dataTasks = [
     status: 'Em análise',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Sinfra',
   },
   {
     id: 1358,
@@ -80,6 +87,7 @@ export const dataTasks = [
     status: 'Cancelado',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coemant',
   },
   {
     id: 1359,
@@ -87,6 +95,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coproj',
   },
   {
     id: 1360,
@@ -94,6 +103,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Semac',
   },
   {
     id: 1361,
@@ -101,6 +111,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Semac',
   },
   {
     id: 1362,
@@ -108,6 +119,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coemant',
   },
   {
     id: 1363,
@@ -115,6 +127,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Seau',
   },
   {
     id: 1367,
@@ -122,6 +135,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coemant',
   },
   {
     id: 1368,
@@ -129,6 +143,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Seau',
   },
   {
     id: 1369,
@@ -136,6 +151,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coemant',
   },
   {
     id: 1371,
@@ -143,6 +159,7 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coemant',
   },
   {
     id: 1372,
@@ -150,5 +167,6 @@ export const dataTasks = [
     status: 'Concluído',
     place: 'Edifício Principal',
     dueDate: '18/12/2021',
+    team: 'Coemant',
   },
 ];
