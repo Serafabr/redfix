@@ -6,19 +6,6 @@ import lowIcon from '../../assets/icons/priority/low-priority.svg';
 import normalIcon from '../../assets/icons/priority/normal-priority.svg';
 import highIcon from '../../assets/icons/priority/high-priority.svg';
 
-// enum PrioritiesT { Waiting, Pending, Executing, Suspended, Analysis, Canceled, Finished, Completed };
-
-// const Priorities = {
-//   [PrioritiesT.Waiting]: { text: '', icon:  }, 
-//   [PrioritiesT.Pending]: { text: '', icon:  }, 
-//   [PrioritiesT.Executing]: { text: '', icon:  }, 
-//   [PrioritiesT.Suspended]: { text: '', icon:  }, 
-//   [PrioritiesT.Analysis]: { text: '', icon:  }, 
-//   [PrioritiesT.Canceled]: { text: '', icon:  }, 
-//   [PrioritiesT.Finished]: { text: '', icon:  }, 
-//   [PrioritiesT.Completed]: { text: '', icon:  }
-// }
-
 export enum PrioritiesT { Low, Normal, High, Urgent };
 
 const Priorities = {
