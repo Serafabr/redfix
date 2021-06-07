@@ -5,6 +5,8 @@ import cancelIcon from '../../assets/icons/x.svg'
 
 type Props = any;
 
+const defaultPropsGetter = () => ({})
+
 export const Table = ({ 
   data: {
     getTableProps,
@@ -12,7 +14,8 @@ export const Table = ({
     headerGroups,
     rows,
     prepareRow,
-  }
+  },
+  getCellProps = defaultPropsGetter,
  }: Props) => {
   
   console.log('Inside - tableProps: ');
@@ -44,7 +47,9 @@ export const Table = ({
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map((cell: any) => (
-                <td {...cell.getCellProps()}>
+                <td {...cell.getCellProps([
+                  getCellProps(cell),
+                ])}>
                   {cell.render('Cell')}
                 </td>
               ))}

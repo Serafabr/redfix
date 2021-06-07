@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { TitleArea } from '../../components/TitleArea/TitleArea';
 import { Button, ButtonType } from '../../components/Buttons';
 import { ButtonWithDropdown, AlignListType } from '../../components/Buttons';
+import { useHistory } from 'react-router-dom';
 
 import style from './Tasks.module.scss';
 
@@ -89,8 +90,17 @@ export const Tasks = ({
   
   const table = useTable({ columns, data });
   
-  console.log('tableProps');
-  console.log(table.getTableProps());
+  const history = useHistory();
+  
+  const getCellProps = (cell: any) => {
+    console.log(cell)
+    if (cell.column.Header === 'Tarefa') {
+      return {
+        onClick: () => {history.push(`/tarefas/${cell.row.values.ID}`)}
+      };
+    }
+    return {};
+  }
   
   return (
     <div>
@@ -110,6 +120,7 @@ export const Tasks = ({
         <TableCardContent>
           <Table 
             data={table}
+            getCellProps={getCellProps}
           />
           <div className={style.Footer}>
             <ItemsPerPage />
