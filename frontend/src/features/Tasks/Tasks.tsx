@@ -96,7 +96,8 @@ export const Tasks = ({
     console.log(cell)
     if (cell.column.Header === 'Tarefa') {
       return {
-        onClick: () => {history.push(`/tarefas/${cell.row.values.ID}`)}
+        onClick: () => {history.push(`/tarefas/${cell.row.values.ID}`)},
+        className: style.Pointer
       };
     }
     return {};
