@@ -20,6 +20,8 @@ import { ColorType } from '../../../components/Badges/Badge';
 import { CardTitle } from '../../../components/Cards/CardTitle';
 import { SingleCardContent, SingleCardHeader } from '../../../components/Cards/SingleCard';
 import { PrioritiesT } from '../../../components/DataDisplay/DataFieldPriority';
+import { BadgeDelay } from '../components/BadgeDelay';
+import { DelayT } from '../components/BadgeDelay/BadgeDelay';
 
 
 const tabs = [
@@ -95,7 +97,7 @@ export const Task = () => {
               setBookmarkState={setBookmarkState}
               badges={[
                 <Badge text="Fila de espera" color={ColorType.Orange} />,
-                <Badge text="Atrasado" color={ColorType.Red} />,
+                <BadgeDelay delay={DelayT.OnTime} />,
                 <Badge text="Tarefa urgente" color={ColorType.Pink} />
               ]}
             />
@@ -117,7 +119,7 @@ export const Task = () => {
               Elétrica
             </DataField>
             <DataFieldPriority 
-              priority={PrioritiesT.Urgent}
+              priority={PrioritiesT.Low}
             />
             <DataField label="Prazo">
               Quinta-feira, 31 Dez 2020 (21 dias de atraso)

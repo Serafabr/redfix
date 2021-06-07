@@ -16,7 +16,7 @@ export const Table = ({
  }: Props) => {
   
   console.log('Inside - tableProps: ');
-  console.log(getTableProps);
+  console.log(rows);
   
   return (
     <table className={style.Table} {...getTableProps()}>

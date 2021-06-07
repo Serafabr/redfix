@@ -1,3 +1,5 @@
+import { TableStatus } from '../components/TableStatus';
+
 export const columnsTasks = [
   {
     Header: 'ID',
@@ -9,6 +11,7 @@ export const columnsTasks = [
   },
   {
     Header: 'Status',
+    Cell: TableStatus,
     accessor: (row: any) => row.status,
   },
   {
