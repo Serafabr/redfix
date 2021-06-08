@@ -23,9 +23,11 @@ import { PrioritiesT } from '../../../components/DataDisplay/DataFieldPriority';
 import { BadgeDelay } from '../components/BadgeDelay';
 import { DelayT } from '../components/BadgeDelay/BadgeDelay';
 
+import { Logs } from './Tabs/Logs';
+
 
 const tabs = [
-  'history',
+  'logs',
   'supplies',
   'assets',
   'checklist',
@@ -35,7 +37,7 @@ const tabs = [
 ];
 
 const tabViews: any = {
-  history: { name: "Histórico", view: <div>Histórico</div> },
+  logs: { name: "Histórico", view: <Logs /> },
   supplies: { name: "Suprimentos", view: <div>Suprimentos</div> },
   assets: { name: "Ativos", view: <div>Ativos</div> },
   checklist: { name: "Checklist", view: <div>Checklist</div> },

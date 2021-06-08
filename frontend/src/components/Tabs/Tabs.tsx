@@ -112,7 +112,7 @@ export const Tabs = ({
             </button>
         </div>
       </div>
-      <div style={{ margin: "100px" }}>
+      <div>
         {tabViews[activateKey].view}
       </div>
     </div>
