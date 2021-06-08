@@ -37,8 +37,7 @@ const saveFiles = async (req, res, next) => {
     }))
     next();
   } catch (error){
-    console.log(error);
-    res.status(500).end();
+    handleUploadError(error, res);
   }
 };
 
@@ -52,8 +51,7 @@ const saveImage = async (req, res, next) => {
     await saveLocal(stream, imagePath);
     next();
   } catch(error){
-    console.log(error);
-    res.status(500).end();
+    handleUploadError(error, res);
   }
 };
 
@@ -67,8 +65,7 @@ const saveAvatar = async (req, res, next) => {
     await saveLocal(stream, avatarPath);
     next();
   } catch (error){
-    console.log(error);
-    res.status(500).end();
+    handleUploadError(error, res);
   }
 };
 
@@ -93,9 +90,13 @@ const parseEnergyCsv = async (req, res, next) => {
       next();
     })
   } catch (error){
-    console.log(error);
-    res.status(500).end();
+    handleUploadError(error, res);
   }
+};
+
+const handleUploadError = (error, res) => {
+  console.log(error);
+  res.status(500).end();
 };
 
 const router = Router();
