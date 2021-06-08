@@ -112,7 +112,7 @@ export const Tabs = ({
             </button>
         </div>
       </div>
-      <div>
+      <div className={style.TabPane}>
         {tabViews[activateKey].view}
       </div>
     </div>
