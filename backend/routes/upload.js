@@ -5,14 +5,9 @@ import fs from 'fs';
 import csvParse from 'csv-parse';
 import paths from '../paths.js';
 
-const saveUploads = (req, res, next) => {
-  switch (req?.body?.variables?.uploadType){
-    case 'files': saveFiles(req, res, next); break;
-    case 'image': saveImage(req, res, next); break;
-    case 'avatar': saveAvatar(req, res, next); break;
-    case 'energy': parseEnergyCsv(req, res, next); break;
-    default: next();
-  }
+const handleUploadError = (error, res) => {
+  console.log(error);
+  res.status(500).end();
 };
 
 // Helper function to write files to disk from a stream
@@ -94,9 +89,14 @@ const parseEnergyCsv = async (req, res, next) => {
   }
 };
 
-const handleUploadError = (error, res) => {
-  console.log(error);
-  res.status(500).end();
+const saveUploads = (req, res, next) => {
+  switch (req?.body?.variables?.uploadType){
+    case 'files': saveFiles(req, res, next); break;
+    case 'image': saveImage(req, res, next); break;
+    case 'avatar': saveAvatar(req, res, next); break;
+    case 'energy': parseEnergyCsv(req, res, next); break;
+    default: next();
+  }
 };
 
 const router = Router();
