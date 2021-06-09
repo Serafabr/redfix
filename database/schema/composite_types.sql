@@ -34,8 +34,8 @@ drop type if exists invoice_item_type cascade;
 create type invoice_item_type as (
   codigoprod text,
   descprod text,
-  ncm integer,
-  ean integer,
+  ncm text,
+  ean text,
   unidade text,
   quantidade text,
   valorunit text,
