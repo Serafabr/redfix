@@ -19,3 +19,15 @@
     color: $hovered_primary;
   }
 }
+
+.IconContainer {
+  display: inline-block;
+  margin-left: 10px;
+  
+  vertical-align: middle;
+}
+
+.ButtonIcon {
+  width: 12px;
+  height: 12px;
+}
