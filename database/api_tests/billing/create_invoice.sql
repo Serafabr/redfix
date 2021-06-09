@@ -1,0 +1,76 @@
+\set tested_mutation api.create_invoice
+
+select api.create_invoice(
+  :new_depot_id,
+  (
+    -- chave text,
+    ext.gen_random_uuid(),
+    -- numero text,
+    '123',
+    -- datahoraemissao text,
+    '2021-01-02T16:01:01',
+    -- emitcnpj text,
+    '000000000000',
+    -- emitnome text,
+    'Nome do emissor',
+    -- destcnpj text,
+    '999999999999',
+    -- destnome text,
+    'Nome do destinatário',
+    -- vbc text,
+    '1090.99',
+    -- vicms text,
+    '1090.99',
+    -- vicmsdeson text,
+    '1090.99',
+    -- vbcst text,
+    '1090.99',
+    -- vst text,
+    '1090.99',
+    -- vprod text,
+    '1090.99',
+    -- vfrete text,
+    '1090.99',
+    -- vseg text,
+    '1090.99',
+    -- vdesc text,
+    '1090.99',
+    -- vii text,
+    '1090.99',
+    -- vipi text,
+    '1090.99',
+    -- vpis text,
+    '1090.99',
+    -- vcofins text,
+    '1090.99',
+    -- voutro text,
+    '1090.99',
+    -- vnf text
+    '1090.99'
+  )::invoice_type,
+  array[
+    (
+      -- codigoprod text,
+      'M1',
+      -- descprod text,
+      'Descricao do produto',
+      -- ncm integer,
+      '123',
+      -- ean integer,
+      '123',
+      -- unidade text,
+      'UN.',
+      -- quantidade text,
+      '1',
+      -- valorunit text,
+      '1090.99',
+      -- valoritem text,
+      '1090.99',
+      -- valorbcicms text
+      '1090.99'
+    )::invoice_item_type
+  ],
+  'Apelido para a NF XYZ'
+) as new_invoice_id \gset
+
+\set all_mutations :all_mutations:tested_mutation,

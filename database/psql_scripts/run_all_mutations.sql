@@ -113,6 +113,8 @@
 \i api_tests/billing/create_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/billing/modify_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
+\i api_tests/billing/create_invoice.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
 -- files
 \i api_tests/files/upload_asset_files.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/files/upload_billing_files.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif

@@ -2,14 +2,14 @@
 
 drop function if exists :function_name;
 create or replace function :function_name (
-  in "allocationsQuantities" allocation_quantity[],
+  in "allocations" alloc_type[],
   out id integer
 )
   language plpgsql
   as $$
     begin
       with aa as (
-        select (unnest("allocationsQuantities")).*
+        select (unnest("allocations")).*
       ) update allocations as a set
         alloc_status_id = 1,
         qty_allocated = aa.qty,
