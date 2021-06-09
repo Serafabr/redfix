@@ -11,20 +11,26 @@ type TimelineItemT = {
   innerMessage?: string,
   logTime: string,
   iconColor: IconColorT,
-  children: ReactNode,
+  message: ReactNode,
+}
+
+const icon = {
+  [IconColorT.Red]: ellipseBlue, 
+  [IconColorT.Blue]: ellipseRed, 
+  [IconColorT.Orange]: ellipseOrange
 }
 
 export const TimelineItem = ({
   innerMessage,
   logTime,
   iconColor,
-  children
+  message
 }: TimelineItemT) => {
   return (
     <div className={style.TimeLineItem}>
-      <img className={style.Icon} src={ellipseBlue} alt="Mensagem" />
+      <img className={style.Icon} src={icon[iconColor]} alt="Mensagem" />
       <div className={style.MessageBox}>
-        <div className={style.Message}>{children}</div>
+        <div className={style.Message}>{message}</div>
         {innerMessage && (
           <div className={style.InnerMessage}>{innerMessage}</div>
         )}
