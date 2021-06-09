@@ -1,0 +1,125 @@
+export const columnsSupplies = [
+  {
+    Header: 'ID',
+    accessor: (row: any) => row.id, // accessor is the "key" in the data
+  },
+  {
+    Header: 'Descrição',
+    accessor: (row: any) => row.supply,
+  },
+  {
+    Header: 'Quantidade',
+    accessor: (row: any) => row.quantity,
+  },
+  {
+    Header: 'Aprovado',
+    accessor: (row: any) => row.approved,
+  },
+  {
+    Header: 'Unitário',
+    accessor: (row: any) => row.price,
+  },
+  {
+    Header: 'Total',
+    accessor: (row: any) => row.total,
+  },
+];
+
+export const dataSupplies = [
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+  {
+    id: 'M-03',
+    supply: 'Interruptor para condulete',
+    quantity: '12 un.',
+    approved: '10 un.',
+    price: 'R$ 2,50',
+    total: 'R$ 30,00',
+  },
+];
