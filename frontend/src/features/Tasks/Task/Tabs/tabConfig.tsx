@@ -1,5 +1,5 @@
 import { Logs, NewMessage } from './Logs';
-import { AddSupply, AcceptSupply } from './Supplies';
+import { Supplies, AddSupply, AcceptSupply } from './Supplies';
 
 export const tabConfig: any = {
   logs: { 
@@ -9,7 +9,7 @@ export const tabConfig: any = {
   },
   supplies: { 
     name: "Suprimentos", 
-    view: <div>Suprimentos</div>, 
+    view: <Supplies />, 
     buttons:[<AcceptSupply />, <AddSupply />] 
   },
   assets: { name: "Ativos", view: <div>Ativos</div>, buttons:[] },
