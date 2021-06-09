@@ -20,9 +20,13 @@
   white-space: nowrap;
 }
 
-.TabButtonDivider {
+.ButtonDivider {
   display: inline-block;
   border-right: 1px solid $gray_200;
+  
+  &:last-of-type {
+    border-right: none;
+  }
 }
 
 .TabButton {

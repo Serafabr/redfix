@@ -20,6 +20,7 @@ export type TabsType = Array<string>;
 export type TabView = {
   name: string,
   view: ReactNode;
+  buttons: Array<ReactNode>
 };
 
 export type TabViews = {
@@ -96,7 +97,12 @@ export const Tabs = ({
           </ul>
         </div>
         <div className={style.ButtonsContainer}>
-          <div className={style.TabButtonDivider}>
+          {tabViews[activateKey].buttons.map((button: any) => (
+            <div className={style.ButtonDivider}>
+              {button}
+            </div>
+          ))}
+          {/* <div className={style.TabButtonDivider}>
             <button className={style.TabButton}>
               Aprovar
               <div className={style.ImgContainer}>
@@ -109,7 +115,7 @@ export const Tabs = ({
             <div className={style.ImgContainer}>
               <img src={plusIcon} alt="Adicionar" />
             </div>
-            </button>
+          </button> */}
         </div>
       </div>
       <div className={style.TabPane}>
