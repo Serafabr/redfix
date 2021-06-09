@@ -9,6 +9,8 @@ import { TimelineButtonContainer } from '../../../../../components/Timeline/Time
 import { TimelineItem } from '../../../../../components/Timeline';
 import { IconColorT } from '../../../../../components/Timeline/TimelineItem';
 import { LogItem, LogItemActionT } from './LogItem';
+import { PlainButton } from '../../../../../components/Buttons/PlainButton/PlainButton';
+import { NewMessage } from './LogButtons';
 
 export const Logs = () => {
   return (
@@ -69,9 +71,10 @@ export const Logs = () => {
           user="Henrique Zaidan"
           logTime="18/01/2021 às 02:03:54 pm"
         />
-        <button className={style.MoreButton}>
+        <PlainButton>
           Mostrar mais ...
-        </button>
+        </PlainButton>
+        <NewMessage/>
       </div>
     </div>
   )

@@ -23,7 +23,7 @@ import { PrioritiesT } from '../../../components/DataDisplay/DataFieldPriority';
 import { BadgeDelay } from '../components/BadgeDelay';
 import { DelayT } from '../components/BadgeDelay/BadgeDelay';
 
-import { Logs } from './Tabs/Logs';
+import { Logs } from './tabs/Logs';
 
 
 const tabs = [
@@ -37,13 +37,13 @@ const tabs = [
 ];
 
 const tabViews: any = {
-  logs: { name: "Histórico", view: <Logs /> },
-  supplies: { name: "Suprimentos", view: <div>Suprimentos</div> },
-  assets: { name: "Ativos", view: <div>Ativos</div> },
-  checklist: { name: "Checklist", view: <div>Checklist</div> },
-  files: { name: "Arquivos", view: <div>Arquivos</div> },
-  billings: { name: "Faturamentos", view: <div>Faturamentos</div> },
-  monitors: { name: "Monitores", view: <div>Monitores</div> },
+  logs: { name: "Histórico", view: <Logs />, buttons:[] },
+  supplies: { name: "Suprimentos", view: <div>Suprimentos</div>, buttons:[] },
+  assets: { name: "Ativos", view: <div>Ativos</div>, buttons:[] },
+  checklist: { name: "Checklist", view: <div>Checklist</div>, buttons:[] },
+  files: { name: "Arquivos", view: <div>Arquivos</div>, buttons:[] },
+  billings: { name: "Faturamentos", view: <div>Faturamentos</div>, buttons:[] },
+  monitors: { name: "Monitores", view: <div>Monitores</div>, buttons:[] },
 }
 
 const tabsPerSize: {[key: number]: number} = {1160: 6};
