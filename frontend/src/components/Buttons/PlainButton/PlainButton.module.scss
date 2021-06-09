@@ -1,0 +1,19 @@
+.MoreButton {
+  border: none;
+  margin: 0;
+  padding: 6px 12px;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $primary_color;
+  
+  &:hover {
+    cursor: pointer;
+    color: $hovered_primary;
+  }
+}

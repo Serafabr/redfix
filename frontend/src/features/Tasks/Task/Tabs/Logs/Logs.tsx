@@ -8,6 +8,7 @@ import { TimelineFilterButton } from '../../../../../components/Timeline/Timelin
 import { TimelineButtonContainer } from '../../../../../components/Timeline/TimelineButtonContainer';
 import { TimelineItem } from '../../../../../components/Timeline';
 import { IconColorT } from '../../../../../components/Timeline/TimelineItem';
+import { LogItem, LogItemActionT } from './LogItem';
 
 export const Logs = () => {
   return (
@@ -27,53 +28,49 @@ export const Logs = () => {
         />
       </TimelineButtonContainer>
       <div className={style.LogsWrapper}>
-        <TimelineItem 
-          message={<span><span className={style.Highlight}>Pedro Serafim</span> escreveu:</span>}
-          innerMessage="Aguardando a chegada dos materiais."
-          iconColor={IconColorT.Red}
-          logTime="18/01/2021 às 02:01:28 pm"
+        <LogItem 
+          action={LogItemActionT.Message}
+          innerMessage="Aguardando a chegada dos materiais elétricos."
+          user="Pedro Serafim"
+          logTime="18/01/2021 às 02:03:54 pm"
         />
-        <div className={style.Log}>
-          <img className={style.Icon} src={ellipseBlue} alt="Mensagem" />
-          <div className={style.MessageBox}>
-          <div className={style.SystemMessage}><span className={style.Highlight}>Pedro Serafim</span> escreveu:</div>
-            <div className={style.UserMessage}> Aguardando a chegada dos materiais.</div>
-            <div className={style.LogTime}>18/01/2021 às 02:01:28 pm</div>
-          </div>
-        </div>
-        <div className={style.Log}>
-          <img className={style.Icon} src={ellipseBlue} alt="Mensagem" />
-          <div className={style.MessageBox}>
-            <div className={style.SystemMessage}><span className={style.Highlight}>Pedro Serafim</span> escreveu:</div>
-            <div className={style.UserMessage}> Aguardando a chegada dos materiais.</div>
-            <div className={style.LogTime}>18/01/2021 às 02:01:28 pm</div>
-          </div>
-        </div>
-        <div className={style.Log}>
-          <img className={style.Icon} src={ellipseBlue} alt="Mensagem" />
-          <div className={style.MessageBox}>
-          <div className={style.SystemMessage}><span className={style.Highlight}>Pedro Serafim</span> escreveu:</div>
-            <div className={style.UserMessage}> Segue a tarefa após o ajuste de todos os materiais.</div>
-            <div className={style.LogTime}>18/01/2021 às 02:01:28 pm</div>
-          </div>
-        </div>
-        <div className={style.Log}>
-          <img className={style.Icon} src={ellipseRed} alt="Mensagem" />
-          <div className={style.MessageBox}>
-          <div className={style.SystemMessage}><span className={style.Highlight}>Pedro Serafim</span> tramitou a tarefa da <span className={style.Highlight}>Coemant</span> para <span className={style.Highlight}>Seplag</span>.</div>
-            <div className={style.UserMessage}> Aguardando a chegada dos materiais.</div>
-            <div className={style.LogTime}>18/01/2021 às 02:01:28 pm</div>
-          </div>
-        </div>
-        <div className={style.Log}>
-          <img className={style.Icon} src={ellipseOrange} alt="Mensagem" />
-          <div className={style.MessageBox}>
-          <div className={style.SystemMessage}><span className={style.Highlight}>Pedro Serafim</span> alterou o status de <span className={style.Highlight}>Em análise</span> para <span className={style.Highlight}>Em execução</span>.</div>
-            <div className={style.LogTime}>18/01/2021 às 02:01:28 pm</div>
-          </div>
-        </div>
+        <LogItem 
+          action={LogItemActionT.Status}
+          user="Pedro Serafim"
+          logTime="18/01/2021 às 02:03:54 pm"
+          oldStatus="Em análise"
+          newStatus="Em execução"
+        />
+        <LogItem 
+          action={LogItemActionT.Status}
+          innerMessage="Aguardando a chegada dos materiais elétricos."
+          user="Felipe Brandão"
+          logTime="18/01/2021 às 02:03:54 pm"
+          oldStatus="Fila de espera"
+          newStatus="Em análise"
+        />
+        <LogItem 
+          action={LogItemActionT.Message}
+          innerMessage="Deverá ser analisada a possibilidade de troca de disjuntor."
+          user="Lauro Alves"
+          logTime="18/01/2021 às 02:03:54 pm"
+        />
+        <LogItem 
+          action={LogItemActionT.Dispatch}
+          innerMessage="Aguardando a chegada dos materiais elétricos."
+          user="Pedro Serafim"
+          origin="Seplag"
+          destiny="Coemant"
+          logTime="18/01/2021 às 02:03:54 pm"
+        />
+        <LogItem 
+          action={LogItemActionT.Creation}
+          innerMessage="Aguardando a chegada dos materiais elétricos."
+          user="Henrique Zaidan"
+          logTime="18/01/2021 às 02:03:54 pm"
+        />
         <button className={style.MoreButton}>
-          Mostrar mais...
+          Mostrar mais ...
         </button>
       </div>
     </div>
