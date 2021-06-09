@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Button, ButtonType } from '../../../components/Buttons';
+import { Button, ButtonType, PlainButton } from '../../../components/Buttons';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { ButtonWithDropdown, AlignListType } from '../../../components/Buttons';
 
@@ -23,7 +23,7 @@ import { PrioritiesT } from '../../../components/DataDisplay/DataFieldPriority';
 import { BadgeDelay } from '../components/BadgeDelay';
 import { DelayT } from '../components/BadgeDelay/BadgeDelay';
 
-import { Logs } from './tabs/Logs';
+import { tabConfig } from './tabs/tabConfig';
 
 
 const tabs = [
@@ -35,16 +35,6 @@ const tabs = [
   'billings',
   'monitors'
 ];
-
-const tabViews: any = {
-  logs: { name: "Histórico", view: <Logs />, buttons:[] },
-  supplies: { name: "Suprimentos", view: <div>Suprimentos</div>, buttons:[] },
-  assets: { name: "Ativos", view: <div>Ativos</div>, buttons:[] },
-  checklist: { name: "Checklist", view: <div>Checklist</div>, buttons:[] },
-  files: { name: "Arquivos", view: <div>Arquivos</div>, buttons:[] },
-  billings: { name: "Faturamentos", view: <div>Faturamentos</div>, buttons:[] },
-  monitors: { name: "Monitores", view: <div>Monitores</div>, buttons:[] },
-}
 
 const tabsPerSize: {[key: number]: number} = {1160: 6};
 
@@ -142,7 +132,7 @@ export const Task = () => {
         </SingleCardContent>
         <Tabs
           tabs={tabs}
-          tabViews={tabViews}
+          tabViews={tabConfig}
           tabsPerSize={tabsPerSize}
           activateKey={activateKeyTabs}
           setActivateKey={setActivateKeyTabs}
