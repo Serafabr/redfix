@@ -14,7 +14,7 @@ import { NewMessage } from './LogButtons';
 
 export const Logs = () => {
   return (
-    <div>
+    <>
       <TimelineButtonContainer>
         <TimelineFilterButton 
           text="Mensagens"
@@ -74,8 +74,10 @@ export const Logs = () => {
         <PlainButton>
           Mostrar mais ...
         </PlainButton>
-        <NewMessage/>
+        <PlainButton>
+          Mostrar tudo
+        </PlainButton>
       </div>
-    </div>
+    </>
   )
 }
