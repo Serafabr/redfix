@@ -1,14 +1,56 @@
 import style from './Logs.module.scss';
 import { TimelineItem } from '../../../../../components/Timeline';
 import { IconColorT } from '../../../../../components/Timeline/TimelineItem';
+import { UserMessage, StatusMessage, DispatchMessage, CreationMessage } from './SystemMessages';
 
-export const LogItem = () => {
+export enum LogItemActionT { Message, Status, Dispatch, Creation };
+
+const iconColor = {
+  [LogItemActionT.Message]: IconColorT.Blue, 
+  [LogItemActionT.Status]: IconColorT.Red, 
+  [LogItemActionT.Dispatch]: IconColorT.Orange, 
+  [LogItemActionT.Creation]: IconColorT.Red,
+}
+
+type LogItemT = {
+  action: LogItemActionT,
+  innerMessage?: string,
+  user: string,
+  origin?: string,
+  destiny?: string,
+  oldStatus?: string,
+  newStatus?: string,
+  logTime: string
+}
+
+export const LogItem = ({
+  action,
+  innerMessage,
+  user,
+  origin = 'ERRO!!!',
+  destiny = 'ERRO!!!',
+  oldStatus = 'ERRO!!!',
+  newStatus = 'ERRO!!!',
+  logTime
+}: LogItemT) => {
+  
+  const systemMessage = {
+    [LogItemActionT.Message]: (<UserMessage user={ user } />), 
+    [LogItemActionT.Status]: (<StatusMessage user={ user } oldStatus={ oldStatus } newStatus={ newStatus } />), 
+    [LogItemActionT.Dispatch]: (<DispatchMessage user={ user } origin={ origin } destiny={ destiny } />), 
+    [LogItemActionT.Creation]: (<CreationMessage user={ user } />),
+  }
+  
+  if (action === LogItemActionT.Status || action === LogItemActionT.Creation) {
+    innerMessage = undefined;
+  }
+  
   return (
     <TimelineItem 
-      message={<span><span className={style.Highlight}>Pedro Serafim</span> escreveu:</span>}
-      innerMessage="Aguardando a chegada dos materiais."
-      iconColor={IconColorT.Red}
-      logTime="18/01/2021 às 02:01:28 pm"
+      message={systemMessage[action]}
+      innerMessage={innerMessage}
+      iconColor={iconColor[action]}
+      logTime={logTime}
     />
   )
 }
