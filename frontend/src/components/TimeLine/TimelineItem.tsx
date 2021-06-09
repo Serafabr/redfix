@@ -5,7 +5,7 @@ import ellipseRed from '../../assets/icons/log/ellipse-red.svg';
 import ellipseOrange from '../../assets/icons/log/ellipse-orange.svg';
 import { ReactNode } from 'react';
 
-enum IconColorT { Red, Blue, Orange }; 
+export enum IconColorT { Red, Blue, Orange }; 
 
 type TimelineItemT = {
   innerMessage?: string,
@@ -15,8 +15,8 @@ type TimelineItemT = {
 }
 
 const icon = {
-  [IconColorT.Red]: ellipseBlue, 
-  [IconColorT.Blue]: ellipseRed, 
+  [IconColorT.Blue]: ellipseBlue, 
+  [IconColorT.Red]: ellipseRed, 
   [IconColorT.Orange]: ellipseOrange
 }
 

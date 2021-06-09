@@ -4,29 +4,35 @@ import ellipseBlue from '../../../../../assets/icons/log/ellipse-blue.svg';
 import ellipseRed from '../../../../../assets/icons/log/ellipse-red.svg';
 import ellipseOrange from '../../../../../assets/icons/log/ellipse-orange.svg';
 import ellipseGray from '../../../../../assets/icons/log/ellipse-gray.svg';
+import { TimelineFilterButton } from '../../../../../components/Timeline/TimelineFilterButton';
+import { TimelineButtonContainer } from '../../../../../components/Timeline/TimelineButtonContainer';
+import { TimelineItem } from '../../../../../components/Timeline';
+import { IconColorT } from '../../../../../components/Timeline/TimelineItem';
 
 export const Logs = () => {
   return (
     <div>
-      <div className={style.FilterBar}>
-        <button className={style.LogButton}>
-          <img src={ellipseBlue} alt="Nova mensagem" />
-          Mensagens
-        </button>
-        <button className={style.LogButton}>
-          <img src={ellipseOrange} alt="Nova mensagem" />
-          Alterações de Status
-        </button>
-        <button className={style.LogButton}>
-          <img src={ellipseRed} alt="Nova mensagem" />
-          Tramitações
-        </button>
-        <button className={`${style.LogButton} ${style.Inactive}`}>
-          <img src={ellipseGray} alt="Nova mensagem" />
-          Tramitações
-        </button>
-      </div>
+      <TimelineButtonContainer>
+        <TimelineFilterButton 
+          text="Mensagens"
+          icon={ellipseBlue}
+        />
+        <TimelineFilterButton 
+          text="Alterações de Status"
+          icon={ellipseRed}
+        />
+        <TimelineFilterButton 
+          text="Tramitações"
+          icon={ellipseOrange}
+        />
+      </TimelineButtonContainer>
       <div className={style.LogsWrapper}>
+        <TimelineItem 
+          message={<span><span className={style.Highlight}>Pedro Serafim</span> escreveu:</span>}
+          innerMessage="Aguardando a chegada dos materiais."
+          iconColor={IconColorT.Red}
+          logTime="18/01/2021 às 02:01:28 pm"
+        />
         <div className={style.Log}>
           <img className={style.Icon} src={ellipseBlue} alt="Mensagem" />
           <div className={style.MessageBox}>

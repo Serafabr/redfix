@@ -9,7 +9,7 @@ export const TimelineButtonContainer = ({
   children
 }: TimelineButtonContainerT) => {
   return (
-    <div className={style.FilterBar}>
+    <div className={style.TimelineButtonContainer}>
       {children}
     </div>
   )

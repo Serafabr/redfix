@@ -12,7 +12,7 @@ export const TimelineFilterButton = ({
   disabled = false,
 }: TimelineFilterButtonT) => {
   return (
-    <button className={`${style.TimelineFilterButton} ${disabled && style.disabled}`}>
+    <button className={`${style.TimelineFilterButton} ${disabled && style.Inactive}`}>
       <img src={icon} alt="Filtro" />
       {text}
     </button>
