@@ -35,8 +35,7 @@ type TableStatusT = {
 
 export const TableStatus = ({ value }: TableStatusT) => {
   return (
-    <div className={`${style.TableStatus} ${Status[value].className}`}>
-      {/* <img className={style.Icon} src={Status[value].icon} alt="Concluído" /> */}
+    <div className={`${style.StatusBadge} ${Status[value].className}`}>
       {Status[value].text}
     </div>
   )
