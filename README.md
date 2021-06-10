@@ -1,17 +1,19 @@
-# Instruções de uso
+# Instruções
 
-## backend
+## 📁 backend
 
-* Rodar web server em ambiente de desenvolvimento: `npm start`
+* Inicializar web server: `npm start`
 
-* Testar as rotas: `npm test`
+* Executar testes: `npm test`
 
-## database
+## 📁 database
 
-* Criação do banco de dados em ambiente de desenvolvimento: Abrir o `psql` e executar `\i create_db.sql`
+* Abrir `psql` como `administrator`: `source start_psql.sh`
 
-* Executar os *unit tests* das mutations da API: `\i test_api.sql`
+* Criar banco de dados: `\i create_db.sql`
 
-## docs
+* Executar testes das mutations da API: `\i test_api.sql`
+
+## 📁 docs
 
 * Abrir documentação no browser: `google-chrome index.html`
