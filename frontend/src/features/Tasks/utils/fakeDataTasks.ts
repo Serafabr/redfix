@@ -4,27 +4,44 @@ import { TableTask } from '../components/TableTask';
 export const columnsTasks = [
   {
     Header: 'ID',
+    id: 'id',
     accessor: (row: any) => row.id, // accessor is the "key" in the data
   },
   {
     Header: 'Tarefa',
+    id: 'task',
     accessor: (row: any) => ({task: row.task, team: row.team}),
     Cell: TableTask
   },
   {
     Header: 'Status',
-    Cell: TableStatus,
+    id: 'status',
     accessor: (row: any) => row.status,
+    Cell: TableStatus,
   },
   {
     Header: 'Localização',
+    id: 'place',
     accessor: (row: any) => row.place,
   },
   {
     Header: 'Prazo',
+    id: 'dueDate',
     accessor: (row: any) => row.dueDate,
   },
 ];
+
+type ColumnConfig = {
+  [id: string]: any,
+}
+
+export const columnConfig: ColumnConfig = {
+  id: { width: '70px' },
+  task: { width: '60%' },
+  status: { width: '150px' },
+  place: { width: '25%' },
+  dueDate: { width: '15%' },
+};
 
 export const dataTasks = [
   {

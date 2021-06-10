@@ -12,7 +12,7 @@ import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 import { FilterBar } from './components/FilterBars';
 import { Table } from '../../components/Tables';
 
-import { columnsTasks, dataTasks } from './utils/fakeDataTasks';
+import { columnsTasks, dataTasks, columnConfig } from './utils/fakeDataTasks';
 import { useTable } from 'react-table';
 import { ItemsPerPage } from '../../components/Tables/ItemsPerPage/ItemsPerPage';
 import { Pagination } from '../../components/Tables/Pagination/Pagination';
@@ -102,6 +102,13 @@ export const Tasks = ({
     return {};
   }
   
+  const getHeaderProps = ({ id }: {id: string}) => {
+    const { width, minWidth } = columnConfig[id];
+    return {
+      style: { width, minWidth }
+    };
+  }
+  
   return (
     <div>
       <TitleArea 
@@ -121,6 +128,7 @@ export const Tasks = ({
           <Table 
             data={table}
             getCellProps={getCellProps}
+            getHeaderProps={getHeaderProps}
           />
           <div className={style.Footer}>
             <ItemsPerPage />
