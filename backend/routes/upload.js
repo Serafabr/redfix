@@ -6,8 +6,8 @@ import csvParse from 'csv-parse';
 import paths from '../paths.js';
 
 const handleUploadError = (error, res) => {
-  console.log(error);
-  res.status(500).end();
+  const { name, message } = error;
+  res.status(400).json({ error: { name, message } });
 };
 
 // Helper function to write files to disk from a stream
