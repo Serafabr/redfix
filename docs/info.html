@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body class="container w-50 text-justify">
+  <h1 class="text-center py-3 font-weight-bold">RedFix</h1>
+  <h3 class="text-center font-weight-bold">Motivação do Projeto</h3>
+  <hr/>
+
+  <p><h3>Visão geral</h3></p>
+  <p>
+    O RedFix é o sistema de gestão de manutenção em desenvolvimento pelo SEPLAG.
+    Nesse projeto, o objetivo é prover a COEMANT com uma aplicação web
+    para visualização e registro de todos os dados de manutenção.
+  </p>
+  <p>
+    Busca-se uma interface moderna, intuitiva, fácil de utilizar
+    e acessível por todos os colaboradores do Senado Federal envolvidos
+    na manutenção: terceirizados, servidores efetivos e
+    comissionados da SINFRA.
+  </p>
+  <br/>
+
+  <p><h3>Motivação</h3></p>
+  <p>
+    As aplicações mais intensivamente utilizadas para registro
+    dos dados de manutenção são, atualmente, o Redmine e o Excel.
+  </p>
+  <p>
+    Diversas iniciativas da SINFRA têm ampliado as
+    possibilidades de uso do Redmine, destacando-se as seguintes:
+    <ul>
+      <li>
+        o acréscimo de campos customizados nos formulários (e.g., campo 'endereçamento'
+        no formulário para criar uma 'tarefa'); e
+      </li>
+      <li>
+        a importação e a criação de conteúdo (wikis, tabelas)
+        por meio de scripts que interagem com a API REST do Redmine
+        e/ou bancos de dados de contratos de manutenção
+      </li>
+    </ul>
+    Com essas ações é possível verificar saldos de materiais e serviços,
+    bem como buscar quais tarefas foram realizadas em determinado endereçamento.
+    Além disso, as Diretrizes de Arquitetura e Engenharia compiladas pelo SEDACOPE
+    — incluindo aproximadamente mil especificações técnicas —,
+    podem ser acessadas pelos usuários do Redmine que estejam elaborando
+    termos de referência de futuras contratações.
+    Assim, essa ferramenta entrega hoje muito mais valor e utilidade à SINFRA
+    do que no início do uso desse software, quando apenas funcionava como
+    repositório de solicitações de serviços.
+  </p>
+  <p>
+    O Excel é a escolha natural para se trabalhar com tabelas,
+    e todos os contratos com fiscalização realizada pela SINFRA (ou suas unidades
+    subordinadas) possuem pelo menos uma planilha de controle,
+    usualmente para gerenciar saldos de materiais e serviços,
+    quantidades utilizadas em cada tarefa, preços etc. Também é utilizado para
+    a elaboração de propostas de uso de insumos previamente à realização de
+    manutenções, que servem como orçamentos a serem aprovados pelos fiscais do
+    contrato.
+    Assim, geralmente cada contrato possui bases de dados próprias, que são
+    mantidas por um grupo restrito de colaboradores (raramente mais do que duas pessoas).
+  </p>
+  <p>
+    Dito isso, é certo que a dupla Redmine e Excel atende às necessidades do
+    dia a dia da fiscalização de contratos. Com esse modelo, contudo,
+    não é possível:
+    <ul>
+      <li>
+        <p>
+          obter informações agregadas de maneira rápida e confiável.
+        </p>
+        <p>
+          Hoje, obter respostas às seguintes questões pode ser bastante difícil e
+          demorado (ou mesmo impossível) sem a atuação de colaboradores específicos:
+          <ul>
+            <li>"Quantas tarefas foram concluídas com atraso no último ano?"</li>
+            <li>"Quais materiais estão quase se esgotando?"</li>
+            <li>"Qual o saldo de determinado material, considerando todos os contratos e ARPs?"</li>
+            <li>"Qual o custo médio de uma tarefa executada pelo Contrato X?"</li>
+            <li>"Quais foram as últimas manutenções realizadas na sala Y?"</li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          obter um histórico confiável dos serviços realizados em cada ativo.
+        </p>
+        <p>
+          O preenchimento de campos customizados do formulário de uma
+          'tarefa' é opcional e, por isso, a existência e correção de dados
+          inseridos nesses campos é totalmente dependente dos procedimentos
+          executados pelo usuário.
+        </p>
+      </li>
+      <li>
+        <p>
+          garantir a aplicação de regras na inserção de dados.
+        </p>
+        <p>
+          A maioria das planilhas de controle de saldos de contratos
+          não realiza verificações dos dados, o que
+          pode levar o sistema a um estado inconsistente (por exemplo, com saldo negativo
+          de material). Embutir essas regras em uma planilha pode
+          evitar esses problemas, mas esse trabalho tem que ser refeito
+          para contratos (ou planilhas) novos.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Por esses motivos, o SEPLAG definiu que as funcionalidades mínimas do RedFix devem
+    englobar tudo aquilo que se consegue realizar hoje com o Redmine, Excel e scripts,
+    solucionando os mencionados problemas.
+  </p>
+  <br/>
+
+  <p><h3>Possibilidades de evolução</h3></p>
+  <p>
+    A arquitetura do RedFix foca na sua modularidade,
+    o que facilita a adição de novas funcionalidades.
+    A lista a seguir contém ideias de possíveis evoluções
+    para o sistema:
+  </p>
+  <h6><b>Apresentação de dados de maneira visual</b></h6>
+  <p>
+    Os dados podem ser agregados em somatórios e médias,
+    e apresentados em gráficos num painel informativo
+    com um "retrato" da situação atual da manutenção.
+  </p>
+  <h6><b>Integração com solicitações</b></h6>
+  <p>
+    As solicitações de serviços podem ser integradas,
+    seja em banco de dados diverso (mantendo a separação atual)
+    ou mesmo como uma migração para a base do RedFix,
+    sem perda do histórico.
+  </p>
+  <h6><b>Integração com wiki de Diretrizes de Arquitetura e Engenharia (DARQENG)</b></h6>
+  <p>
+    A base de dados mantida pelo SEDACOPE na wiki DARQENG foi
+    estudada, e o RedFix tem sido construído com essa integração
+    em mente.
+  </p>
+  <h6><b>Emissão de relatórios personalizados</b></h6>
+  <p>
+    Conforme as necessidades identificadas para um determinado
+    contrato ou setor da SINFRA.
+  </p>
+  <h6><b>Monitor de consumo de água e energia elétrica</b></h6>
+  <p>
+    Pode ser construída uma ferramenta para simples consulta das faturas
+    de energia elerica e água (CEB e CAESB), ou mesmo geração automática
+    de gráficos para o período indicado pelo usuário, permitindo identificar
+    tendências e variações sazonais.
+  </p>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</body>
+</html>

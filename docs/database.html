@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body class="container w-50 text-justify">
+  <h1 class="text-center py-3 font-weight-bold">RedFix</h1>
+  <h3 class="text-center font-weight-bold">📁 database</h3>
+  <hr/>
+
+<p>O sistema gerenciador de banco de dados relacional (RDBMS) é o <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
+
+<h3>Extensões</h3>
+
+<p>Por enquanto apenas a extensão <code><a href="https://www.postgresql.org/docs/12/pgcrypto.html">pgcrypto</a></code> é utilizada (para encriptação de senhas de usuários e posterior verificação na autenticação).</p>
+
+<h3>Schemas</h3>
+
+<p>Os objetos do banco de dados são organizados em 3 schemas ("namespaces"):</p>
+<ul>
+  <li><strong>public</strong>, que é o schema default e contém:
+    <ul>
+      <li>Objetos que definem o modelo físico dos dados (tabelas)</li>
+      <li>Objetos adicionados por meio de <code>CREATE EXTENSION</code></li>
+      <li>Funções que devem ser acessadas por todos os roles (e.g. <code>get_person_id</code>)</li>
+      <li>Objetos auxiliares como types, enums, trigger functions etc.</li>
+    </ul>
+  </li>
+  <li><strong>api</strong>, que contém views e funções que servem como Queries e Mutations da API GraphQL
+  </li>
+  <li><strong>web</strong>, que contém funções acessíveis por rotas específicas do web server (e.g., para autenticação)
+  </li>
+</ul>
+
+<p>
+  Os papéis (roles) no banco de dados correspondem aos seguintes grupos de usuários:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Grupo de usuários</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>administrator</td>
+      <td>Servidores lotados no SEPLAG</td>
+    </tr>
+    <tr>
+      <td>supervisor</td>
+      <td>Servidores efetivos da SINFRA</td>
+    </tr>
+    <tr>
+      <td>inspector</td>
+      <td>Terceirizados que atuam na fiscalização</td>
+    </tr>
+    <tr>
+      <td>employee</td>
+      <td>Terceirizados que atuam no âmbito dos contratos de manutenção</td>
+    </tr>
+    <tr>
+      <td>visitor</td>
+      <td>Somente para leitura de dados</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
