@@ -40,13 +40,26 @@
   }
   
   td {
-    font: inherit;
-    font-weight: 400;
-    color: #6d6d6d;
     padding: 12px 10px;
-    font-size: 14px;
-    line-height: 21px;
-    text-align: justify;
+    line-height: 0;
   }
+  
+  // td {
+  //   font: inherit;
+  //   font-weight: 400;
+  //   color: #6d6d6d;
+  //   padding: 12px 10px;
+  //   font-size: 14px;
+  //   line-height: 21px;
+  //   text-align: justify;
+  // }
 }
 
+.Cell {
+  font: inherit;
+  font-weight: 400;
+  color: #6d6d6d;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: justify;
+}

@@ -16,22 +16,25 @@ export const Table = ({
     prepareRow,
   },
   getCellProps = defaultPropsGetter,
+  getHeaderProps = defaultPropsGetter
  }: Props) => {
   
   return (
     <table className={style.Table} {...getTableProps()}>
-      <colgroup>
+      {/* <colgroup>
         <col style={{ width: "10%" }}/>
         <col style={{ width: "40%" }}/>
         <col style={{ width: "15%", minWidth: "140px" }}/>
         <col style={{ width: "20%" }}/>
         <col style={{ width: "15%" }}/>
-      </colgroup>
+      </colgroup> */}
       <thead className={style.Head}>
         {headerGroups.map((headerGroup: any) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column: any) => (
-              <th {...column.getHeaderProps()}>
+              <th {...column.getHeaderProps([
+                getHeaderProps(column)
+              ])}>
                 {column.render('Header')}
               </th>
             ))}
@@ -47,7 +50,9 @@ export const Table = ({
                 <td {...cell.getCellProps([
                   getCellProps(cell),
                 ])}>
-                  {cell.render('Cell')}
+                  <div className={`${style.Cell} ${style.Small}`}>
+                    {cell.render('Cell')}
+                  </div>
                 </td>
               ))}
             </tr>
