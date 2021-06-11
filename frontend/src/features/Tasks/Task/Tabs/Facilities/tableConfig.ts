@@ -16,7 +16,7 @@ export const columnsSupplies = [
   {
     id: 'parent',
     Header: 'Ativo Pai',
-    accessor: (row: any) => row.approved,
+    accessor: (row: any) => row.parent,
     Cell: CellFormat({ isCenter: true }),
   },
   {

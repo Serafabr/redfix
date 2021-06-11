@@ -31,9 +31,9 @@ const tabs = [
   'supplies',
   'assets',
   // 'checklist',
-  'files',
   'billings',
-  'monitors'
+  'monitors',
+  'files',
 ];
 
 const tabsPerSize: {[key: number]: number} = {1160: 6};
