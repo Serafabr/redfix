@@ -24,7 +24,7 @@ create or replace function :function_name (
     begin
       update tasks set
         updated_at = now(),
-        updated_by = get_person_id(),
+        updated_by = "personId",
         task_priority_id = "taskPriorityId",
         task_category_id = "taskCategoryId",
         task_template_id = "taskTemplateId",
@@ -42,7 +42,7 @@ create or replace function :function_name (
         "taskId",
         'modification',
         now(),
-        get_person_id(),
+        "personId",
         "teamId",
         null,
         null,

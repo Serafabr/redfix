@@ -78,6 +78,8 @@
 
 \i api_tests/task/set_task_date_limit.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
+\i api_tests/task/modify_task_todos.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
 \i api_tests/task/set_task_date_end.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 \i api_tests/task/close_task.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif

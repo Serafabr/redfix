@@ -42,3 +42,9 @@ create type invoice_item_type as (
   valoritem text,
   valorbcicms text
 );
+
+drop type if exists todo_type cascade;
+create type todo_type as (
+  todo text,
+  done boolean
+);

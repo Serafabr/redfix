@@ -17,7 +17,7 @@ create or replace function :function_name (
         "taskId",
         'status',
         now(),
-        get_person_id(),
+        "personId",
         "teamId",
         null,
         "taskStatusId",

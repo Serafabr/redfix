@@ -216,7 +216,8 @@ create table tasks (
   date_limit timestamptz,
   date_start timestamptz,
   date_end timestamptz,
-  request_id integer references requests (request_id)
+  request_id integer references requests (request_id),
+  todos todo_type[] not null default array[]::todo_type[]
 );
 
 create table task_assets (

@@ -9,6 +9,8 @@ create or replace function :function_name (
   language plpgsql
   as $$
     declare
+      "personId" constant integer = get_person_id();
+      "teamId" constant integer = get_team_id();
       "newStatus" constant integer = 7;
     begin
       if ("dateEnd" > now())
@@ -23,8 +25,8 @@ create or replace function :function_name (
         "taskId",
         'status',
         now(),
-        get_person_id(),
-        get_team_id(),
+        "personId",
+        "teamId",
         null,
         "newStatus",
         'Alteração de status: execução concluída em ' || to_char("dateEnd",'DD/MM/YYYY'),
