@@ -3,15 +3,16 @@ import style from './Cells.module.scss';
 import classNames from 'classnames';
 
 type CellFormatT = {
-  children: ReactNode,
-  isCenter: boolean,
-  isBold: boolean
+  value: any,
 }
 
-export const CellFormat = ({
-  isCenter = false,
-  isBold = false,
-  children,
+type FormatT = {
+  isCenter?: boolean, 
+  isBold?: boolean,
+}
+
+export const CellFormat = ({ isCenter = false, isBold = false }: FormatT) => ({
+  value,
 }: CellFormatT) => {
   
   const cellClasses = classNames(
@@ -23,7 +24,7 @@ export const CellFormat = ({
   
   return (
     <div className={cellClasses}>
-      {children}
+      {value}
     </div>
   )
 }

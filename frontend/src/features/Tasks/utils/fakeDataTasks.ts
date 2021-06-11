@@ -1,11 +1,13 @@
 import { TableStatus } from '../components/TableStatus';
 import { TableTask } from '../components/TableTask';
+import { CellFormat } from '../../../components/Tables/Cells/CellFormat';
 
 export const columnsTasks = [
   {
     Header: 'ID',
     id: 'id',
     accessor: (row: any) => row.id, // accessor is the "key" in the data
+    Cell: CellFormat({ isCenter: true, isBold: true })
   },
   {
     Header: 'Tarefa',
@@ -23,11 +25,13 @@ export const columnsTasks = [
     Header: 'Localização',
     id: 'place',
     accessor: (row: any) => row.place,
+    Cell: CellFormat({ isCenter: true })
   },
   {
     Header: 'Prazo',
     id: 'dueDate',
     accessor: (row: any) => row.dueDate,
+    Cell: CellFormat({ isCenter: true })
   },
 ];
 
