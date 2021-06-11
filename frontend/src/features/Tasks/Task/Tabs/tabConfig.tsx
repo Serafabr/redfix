@@ -13,7 +13,7 @@ export const tabConfig: any = {
     buttons:[<AcceptSupply />, <AddSupply />] 
   },
   assets: { name: "Ativos", view: <div>Ativos</div>, buttons:[] },
-  checklist: { name: "Checklist", view: <div>Checklist</div>, buttons:[] },
+  // checklist: { name: "Checklist", view: <div>Checklist</div>, buttons:[] },
   files: { name: "Arquivos", view: <div>Arquivos</div>, buttons:[] },
   billings: { name: "Faturamentos", view: <div>Faturamentos</div>, buttons:[] },
   monitors: { name: "Monitores", view: <div>Monitores</div>, buttons:[] },

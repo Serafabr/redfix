@@ -30,7 +30,7 @@ const tabs = [
   'logs',
   'supplies',
   'assets',
-  'checklist',
+  // 'checklist',
   'files',
   'billings',
   'monitors'
