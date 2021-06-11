@@ -20,6 +20,7 @@ import { DropdownButton } from '../../components/Buttons/Dropdown/DropdownButton
 import { Card } from '../../components/Cards';
 import { TableCardButtons, TableCardContent } from '../../components/Cards/TableCard';
 import { CardHeader } from '../../components/Cards/CardHeader';
+import { columnsSupplies } from './Task/tabs/Supplies/tableConfig';
 
 const quickFilterInitial = {
     entryBox: {
@@ -102,12 +103,6 @@ export const Tasks = ({
     return {};
   }
   
-  const getHeaderProps = ({ id }: {id: string}) => {
-    return {
-      style: { ...columnStyle[id] }
-    };
-  }
-  
   return (
     <div>
       <TitleArea 
@@ -127,7 +122,7 @@ export const Tasks = ({
           <Table 
             data={table}
             getCellProps={getCellProps}
-            getHeaderProps={getHeaderProps}
+            columnStyle={columnStyle}
           />
           <div className={style.Footer}>
             <ItemsPerPage />

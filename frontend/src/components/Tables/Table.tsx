@@ -5,7 +5,18 @@ import cancelIcon from '../../assets/icons/x.svg'
 
 type Props = any;
 
+type ColumnStyleT = {
+  [id: string]: any,
+}
+
 const defaultPropsGetter = () => ({})
+
+const getHeaderStyle = (columnStyle: ColumnStyleT, id: string) => {
+  const style = (columnStyle && id) ? columnStyle[id] : {}
+  return {
+    style: { ...style }
+  };
+}
 
 export const Table = ({ 
   data: {
@@ -16,7 +27,7 @@ export const Table = ({
     prepareRow,
   },
   getCellProps = defaultPropsGetter,
-  getHeaderProps = defaultPropsGetter
+  columnStyle,
  }: Props) => {
   
   return (
@@ -33,7 +44,7 @@ export const Table = ({
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column: any) => (
               <th {...column.getHeaderProps([
-                getHeaderProps(column)
+                getHeaderStyle(columnStyle, column.id)
               ])}>
                 {column.render('Header')}
               </th>
