@@ -1,4 +1,5 @@
 import { CellFormat } from "../../../../../components/Tables/Cells/CellFormat";
+import { MoreButton } from "../../../../../components/Tables/Cells/MoreButton";
 import { ColumnStyleT } from "../../../../../components/Tables/Table";
 
 export const columnsSupplies = [
@@ -37,6 +38,12 @@ export const columnsSupplies = [
     accessor: (row: any) => row.total,
     Cell: CellFormat({ isCenter: true, isBold: true }),
   },
+  {
+    id: 'moreButton',
+    Header: '',
+    accessor: (row: any) => row.id,
+    Cell: MoreButton,
+  },
 ];
 
 export const columnStyle: ColumnStyleT = {
@@ -46,6 +53,7 @@ export const columnStyle: ColumnStyleT = {
   approved: { width: '15%', textAlign: 'center' },
   price: { width: '15%', textAlign: 'center' },
   total: { width: '15%', textAlign: 'center' },
+  moreButton: { width: '40px', textAlign: 'center' },
 };
 
 export const dataSupplies = [
