@@ -1,10 +1,11 @@
 import { CellFormat } from "../../../../../components/Tables/Cells/CellFormat";
 import { ColumnStyleT } from "../../../../../components/Tables/Table";
+import { MoreButton } from "../../../../../components/Tables/Cells/MoreButton";
 
 export const columnsSupplies = [
   {
     id: 'id',
-    Header: 'ID',
+    Header: 'Código',
     accessor: (row: any) => row.id, // accessor is the "key" in the data
     Cell: CellFormat({ isCenter: true, isBold: true }),
   },
@@ -25,6 +26,12 @@ export const columnsSupplies = [
     accessor: (row: any) => row.area,
     Cell: CellFormat({ isCenter: true }),
   },
+  {
+    id: 'moreButton',
+    Header: '',
+    accessor: (row: any) => row.id,
+    Cell: MoreButton,
+  },
 ];
 
 export const columnStyle: ColumnStyleT = {
@@ -32,6 +39,7 @@ export const columnStyle: ColumnStyleT = {
   facility: { width: '50%' },
   parent: { width: '35%', textAlign: 'center' },
   area: { width: '15%', textAlign: 'center' },
+  moreButton: { width: '40px', textAlign: 'center' },
 };
 
 export const dataSupplies = [
