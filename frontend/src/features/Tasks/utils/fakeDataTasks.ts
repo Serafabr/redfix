@@ -36,7 +36,7 @@ type ColumnStyle = {
 }
 
 export const columnStyle: ColumnStyle = {
-  id: { width: '70px', textAlign: 'center' },
+  id: { width: '80px', textAlign: 'center' },
   task: { width: '55%' },
   status: { width: '150px', textAlign: 'center' },
   place: { width: '30%', textAlign: 'center' },

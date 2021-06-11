@@ -50,7 +50,7 @@ export const Table = ({
                 <td {...cell.getCellProps([
                   getCellProps(cell),
                 ])}>
-                  <div className={`${style.Cell} ${style.Small}`}>
+                  <div className={`${style.Cell}`}>
                     {cell.render('Cell')}
                   </div>
                 </td>
