@@ -123,6 +123,7 @@ export const Tasks = ({
             data={table}
             getCellProps={getCellProps}
             columnStyle={columnStyle}
+            smallTable
           />
           <div className={style.Footer}>
             <ItemsPerPage />

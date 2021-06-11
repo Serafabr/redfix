@@ -1,6 +1,7 @@
 import { CellFormat } from "../../../../../components/Tables/Cells/CellFormat";
 import { MoreButton } from "../../../../../components/Tables/Cells/MoreButton";
 import { ColumnStyleT } from "../../../../../components/Tables/Table";
+import { CellWithSubtext } from "../../../../../components/Tables/Cells/CellWithSubtext";
 
 export const columnsSupplies = [
   {
@@ -12,7 +13,8 @@ export const columnsSupplies = [
   {
     id: 'supply',
     Header: 'Descrição',
-    accessor: (row: any) => row.supply,
+    accessor: (row: any) => ({mainText: row.supply, subText: 'RCS Tecnologia - CT 110/2020'}),
+    Cell: CellWithSubtext,
   },
   {
     id: 'quantity',
@@ -49,10 +51,10 @@ export const columnsSupplies = [
 export const columnStyle: ColumnStyleT = {
   id: { width: '60px', textAlign: 'center' },
   supply: { width: '40%' },
-  quantity: { width: '15%', textAlign: 'center' },
-  approved: { width: '15%', textAlign: 'center' },
+  quantity: { width: '14%', textAlign: 'center' },
+  approved: { width: '14%', textAlign: 'center' },
   price: { width: '15%', textAlign: 'center' },
-  total: { width: '15%', textAlign: 'center' },
+  total: { width: '17%', textAlign: 'center' },
   moreButton: { width: '40px', textAlign: 'center' },
 };
 
@@ -62,8 +64,8 @@ export const dataSupplies = [
     supply: 'Interruptor para condulete',
     quantity: '12 un.',
     approved: '10 un.',
-    price: 'R$ 2,50',
-    total: 'R$ 30,00',
+    price: 'R$ 21.211,50',
+    total: 'R$ 300.000,00',
   },
   {
     id: 'M-03',
@@ -75,7 +77,7 @@ export const dataSupplies = [
   },
   {
     id: 'M-03',
-    supply: 'Interruptor para condulete',
+    supply: 'Interruptor para condulete. Interruptor para condulete. Interruptor para condulete. Interruptor para condulete. Interruptor para condulete. Interruptor para condulete. ',
     quantity: '12 un.',
     approved: '10 un.',
     price: 'R$ 2,50',
@@ -83,7 +85,7 @@ export const dataSupplies = [
   },
   {
     id: 'M-03',
-    supply: 'Interruptor para condulete',
+    supply: 'Interruptor para condulete. Interruptor para condulete. Interruptor para condulete. ',
     quantity: '12 un.',
     approved: '10 un.',
     price: 'R$ 2,50',
