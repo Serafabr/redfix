@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export PGCLIENTENCODING=utf8
+
 psql \
 --username=administrator \
 --host=localhost \
