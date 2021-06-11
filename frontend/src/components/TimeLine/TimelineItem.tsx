@@ -1,8 +1,8 @@
 import style from './Timeline.module.scss';
 
-import ellipseBlue from '../../assets/icons/log/ellipse-blue.svg';
-import ellipseRed from '../../assets/icons/log/ellipse-red.svg';
-import ellipseOrange from '../../assets/icons/log/ellipse-orange.svg';
+import ellipseBlue from '../../assets/icons/logTab/ellipse-blue.svg';
+import ellipseRed from '../../assets/icons/logTab/ellipse-red.svg';
+import ellipseOrange from '../../assets/icons/logTab/ellipse-orange.svg';
 import { ReactNode } from 'react';
 
 export enum IconColorT { Red, Blue, Orange }; 

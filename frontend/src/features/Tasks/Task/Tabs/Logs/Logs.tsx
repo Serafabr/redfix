@@ -1,9 +1,9 @@
 import style from './Logs.module.scss';
 
-import ellipseBlue from '../../../../../assets/icons/log/ellipse-blue.svg';
-import ellipseRed from '../../../../../assets/icons/log/ellipse-red.svg';
-import ellipseOrange from '../../../../../assets/icons/log/ellipse-orange.svg';
-import ellipseGray from '../../../../../assets/icons/log/ellipse-gray.svg';
+import ellipseBlue from '../../../../../assets/icons/logTab/ellipse-blue.svg';
+import ellipseRed from '../../../../../assets/icons/logTab/ellipse-red.svg';
+import ellipseOrange from '../../../../../assets/icons/logTab/ellipse-orange.svg';
+import ellipseGray from '../../../../../assets/icons/logTab/ellipse-gray.svg';
 import { TimelineFilterButton } from '../../../../../components/Timeline/TimelineFilterButton';
 import { TimelineButtonContainer } from '../../../../../components/Timeline/TimelineButtonContainer';
 import { TimelineItem } from '../../../../../components/Timeline';
