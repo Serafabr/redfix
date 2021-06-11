@@ -14,6 +14,10 @@ import style from './ButtonWithDropdown.module.scss';
 
 export enum AlignListType { Left, Right };
 
+type Style = {
+  [key: string]: string,
+}
+
 /*************************\
  * Prop types
 \*************************/
@@ -25,6 +29,7 @@ type Props = {
   alignList?: AlignListType,
   openOnTop?: boolean,
   boxWidth?: number,
+  listStyle?: Style, 
   searchable?: boolean,
   onSelectItem: OnSelectItemType,
   sortItems?: boolean
@@ -40,6 +45,7 @@ export const ButtonWithDropdown = ({
   alignList = AlignListType.Left,
   openOnTop = false,
   boxWidth = 160,
+  listStyle = {},
   searchable = false,
   onSelectItem,
   sortItems = false,
@@ -55,8 +61,8 @@ export const ButtonWithDropdown = ({
     setIsOpen((prevState) => (!prevState));
   };
   
-  // ListWrapper style
-  const listWrapperStyle = classnames(
+  // ListWrapper classes
+  const listWrapperClasses = classnames(
     style.ListWrapper,
     {
       [style.Right]: alignList === AlignListType.Right,
@@ -66,12 +72,18 @@ export const ButtonWithDropdown = ({
     }
   );
   
+  // ListWrapper style
+  const listWrapperStyle = {
+      width: `${boxWidth}px`,
+      ...listStyle
+    };
+  
   // Render
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
       {children(handleButtonOnClick, isOpen)}
       {isOpen && (
-        <div className={listWrapperStyle} style={{ width: `${boxWidth}px` }}>
+        <div className={listWrapperClasses} style={listWrapperStyle}>
           <SelectBox 
             setIsOpen={setIsOpen}
             items={options}

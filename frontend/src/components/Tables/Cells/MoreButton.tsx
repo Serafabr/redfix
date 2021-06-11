@@ -23,6 +23,7 @@ export const MoreButton = () => {
         options={options}
         alignList={AlignListType.Right}
         boxWidth={140}
+        listStyle={{ top: "25px" }}
         onSelectItem={handleSelectItem}
       >
         {(onClick, isOpen) => (
