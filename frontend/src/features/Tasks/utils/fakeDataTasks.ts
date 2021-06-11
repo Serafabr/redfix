@@ -31,21 +31,21 @@ export const columnsTasks = [
   },
 ];
 
-type ColumnConfig = {
+type ColumnStyle = {
   [id: string]: any,
 }
 
-export const columnConfig: ColumnConfig = {
-  id: { width: '70px' },
-  task: { width: '60%' },
-  status: { width: '150px' },
-  place: { width: '25%' },
-  dueDate: { width: '15%' },
+export const columnStyle: ColumnStyle = {
+  id: { width: '70px', textAlign: 'center' },
+  task: { width: '55%' },
+  status: { width: '150px', textAlign: 'center' },
+  place: { width: '30%', textAlign: 'center' },
+  dueDate: { width: '15%', textAlign: 'center' },
 };
 
 export const dataTasks = [
   {
-    id: 1351,
+    id: 135112312,
     task: 'Manutenção do subsolo do Edifício Principal.',
     status: 'Concluído',
     place: 'Edifício Principal',
