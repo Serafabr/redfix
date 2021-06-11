@@ -5,7 +5,7 @@ import cancelIcon from '../../assets/icons/x.svg'
 
 type Props = any;
 
-type ColumnStyleT = {
+export type ColumnStyleT = {
   [id: string]: any,
 }
 
@@ -28,6 +28,7 @@ export const Table = ({
   },
   getCellProps = defaultPropsGetter,
   columnStyle,
+  smallTable = false,
  }: Props) => {
   
   return (
@@ -54,7 +55,7 @@ export const Table = ({
                 <td {...cell.getCellProps([
                   getCellProps(cell),
                 ])}>
-                  <div className={`${style.Cell}`}>
+                  <div className={`${style.Cell} ${smallTable && style.Small}`}>
                     {cell.render('Cell')}
                   </div>
                 </td>

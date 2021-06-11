@@ -6,7 +6,7 @@ export enum DelayT { Overdue, OnTime, Tomorrow, Today };
 
 const DelayDisplay = {
   [DelayT.Overdue]: { text: 'Atrasado', color: ColorType.Red }, 
-  [DelayT.OnTime]: { text: 'Sem atrasos', color: ColorType.Blue }, 
+  [DelayT.OnTime]: { text: 'Dentro do prazo', color: ColorType.Blue }, 
   [DelayT.Tomorrow]: { text: 'Prazo: amanhã', color: ColorType.Purple }, 
   [DelayT.Today]: { text: 'Prazo: hoje', color: ColorType.Purple }
 }

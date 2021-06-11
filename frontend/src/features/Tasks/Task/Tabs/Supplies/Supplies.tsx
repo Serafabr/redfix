@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useTable } from 'react-table';
 
 import { Table } from '../../../../../components/Tables';
-import { dataSupplies, columnsSupplies } from './tableConfig';
+import { dataSupplies, columnsSupplies, columnStyle } from './tableConfig';
 import style from './Supplies.module.scss';
 
 export const Supplies = () => {
@@ -16,6 +16,8 @@ export const Supplies = () => {
     <div>
       <Table 
         data={table}
+        columnStyle={columnStyle}
+        smallTable
       />
     </div>
   )

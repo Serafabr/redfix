@@ -39,11 +39,6 @@
     background-color: #F5F5F5;
   }
   
-  td {
-    padding: 12px 10px;
-    line-height: 0;
-  }
-  
   // td {
   //   font: inherit;
   //   font-weight: 400;
@@ -56,6 +51,7 @@
 }
 
 .Cell {
+  padding: 8px 6px;
   font: inherit;
   font-weight: 400;
   color: #6d6d6d;
@@ -64,11 +60,6 @@
   text-align: justify;
 }
 
-.Center {
-  text-align: center;
-}
-
-.Bold {
-  font-weight: 600;
-  color: #404040;
+.Small {
+  padding: 2px 6px;
 }
