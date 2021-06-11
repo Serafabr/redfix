@@ -8,7 +8,7 @@ import { AlignListType } from '../../Buttons/';
 const options: OptionsType = {
   editSupply: { name: 'Editar item' },
   billSupply: { name: 'Faturar item' },
-  addReceipt: { name: 'Inserir comprovante' },
+  addReceipt: { name: 'Comprovante' },
   removeSupply: { name: 'Excluir item' },
 }
 

@@ -15,6 +15,10 @@ import { sortAndFilterOptionIds } from './utils/orderItems';
  * General types
 \*************************/
 
+type Style = {
+  [key: string]: string,
+}
+
 export type OptionType = {
   name: string,
   selected?: boolean,
@@ -51,7 +55,7 @@ export const SelectBox = ({
   items,
   clickOutsideRef,
   onSelectItem,
-  sortItems
+  sortItems,
 }: Props) => {
   
   const [ searchInput, setSearchInput ] = useState<string | null>(null);
