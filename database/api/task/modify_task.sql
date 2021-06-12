@@ -37,20 +37,6 @@ create or replace function :function_name (
         date_end = "dateEnd",
         request_id = "requestId"
       where task_id = "taskId";
-      insert into task_events values (
-        default,
-        "taskId",
-        'modification',
-        now(),
-        "personId",
-        "teamId",
-        null,
-        null,
-        'Alteração da tarefa',
-        null,
-        null,
-        true
-      );
       id = "taskId";
     end;
   $$

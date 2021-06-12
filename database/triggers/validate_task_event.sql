@@ -12,12 +12,6 @@ create or replace function :trigger_name ()
       select team_id into task_current_team from tasks where task_id = new.task_id;
       select case new.task_event
         when 'creation' then (true)
-        when 'modification' then (
-          task_current_team = new.team_id or
-          current_role = 'administrator' or
-          current_role = 'supervisor' or
-          current_role = 'inspector'
-        )
         when 'team' then (
           new.next_team_id is not null and (
             task_current_team = new.team_id or
