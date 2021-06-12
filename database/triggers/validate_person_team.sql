@@ -23,4 +23,4 @@ create or replace function :trigger_name ()
 
 create trigger :trigger_name
 before update of team_id on persons
-for each row execute procedure :trigger_name();
+for each row execute function :trigger_name();

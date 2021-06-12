@@ -48,4 +48,4 @@ create or replace function :trigger_name ()
 
 create trigger :trigger_name
 before insert on task_events
-for each row execute procedure :trigger_name();
+for each row execute function :trigger_name();

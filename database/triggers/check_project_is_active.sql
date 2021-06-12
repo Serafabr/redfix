@@ -20,4 +20,4 @@ create or replace function :trigger_name ()
 
 create trigger :trigger_name
 before insert or update on tasks
-for each row execute procedure :trigger_name();
+for each row execute function :trigger_name();
