@@ -101,6 +101,7 @@ begin transaction;
 \i api/task/filter_tasks.sql
 \i api/task/follow_task.sql
 \i api/task/modify_task_note.sql
+\i api/task/modify_task_todos.sql
 \i api/task/modify_task.sql
 \i api/task/remove_asset_from_task.sql
 \i api/task/send_task.sql
