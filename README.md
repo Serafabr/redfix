@@ -8,11 +8,13 @@
 
 ## 📁 database
 
-* Abrir `psql` como `administrator`: `source start_psql.sh`
+* Abrir `psql`: `source start_psql.sh`
 
 * Criar banco de dados: `\i create_db.sql`
 
 * Executar testes das mutations da API: `\i test_api.sql`
+
+* Popular tabelas: `\i populate_db.sql`
 
 ## 📁 docs
 
