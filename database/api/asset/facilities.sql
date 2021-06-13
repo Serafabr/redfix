@@ -1,5 +1,5 @@
-drop view if exists api.assets;
-create or replace view api.assets as
+drop view if exists api.facilities;
+create or replace view api.facilities as
   select  
     a.asset_id,
     a.asset_sf,
