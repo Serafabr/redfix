@@ -50,11 +50,11 @@ export const columnsSupplies = [
 
 export const columnStyle: ColumnStyleT = {
   id: { width: '60px', textAlign: 'center' },
-  supply: { width: '40%' },
-  quantity: { width: '14%', textAlign: 'center' },
-  approved: { width: '14%', textAlign: 'center' },
-  price: { width: '15%', textAlign: 'center' },
-  total: { width: '17%', textAlign: 'center' },
+  supply: { width: '36%' },
+  quantity: { width: '15%', textAlign: 'center' },
+  approved: { width: '15%', textAlign: 'center' },
+  price: { width: '16%', textAlign: 'center' },
+  total: { width: '18%', textAlign: 'center' },
   moreButton: { width: '40px', textAlign: 'center' },
 };
 
@@ -78,8 +78,8 @@ export const dataSupplies = [
   {
     id: 'M-03',
     supply: 'Interruptor para condulete. Interruptor para condulete. Interruptor para condulete. Interruptor para condulete. Interruptor para condulete. Interruptor para condulete. ',
-    quantity: '12 un.',
-    approved: '10 un.',
+    quantity: '120 un.',
+    approved: '100 un.',
     price: 'R$ 2,50',
     total: 'R$ 30,00',
   },
