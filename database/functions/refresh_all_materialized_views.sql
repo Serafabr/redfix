@@ -11,10 +11,11 @@ create or replace function :function_name (
       mviews record;
     begin
       for mviews in
-        select n.nspname as mv_schema,
-              c.relname as mv_name
-          from pg_catalog.pg_class as c
-          left join pg_catalog.pg_namespace as n on (n.oid = c.relnamespace)
+        select
+          n.nspname as mv_schema,
+          c.relname as mv_name
+        from pg_catalog.pg_class as c
+        left join pg_catalog.pg_namespace as n on (n.oid = c.relnamespace)
         where c.relkind = 'm'
       loop
         execute format('refresh materialized view %I.%I', mviews.mv_schema, mviews.mv_name);
