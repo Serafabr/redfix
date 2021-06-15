@@ -2,14 +2,14 @@ import { useMemo } from 'react';
 import { useTable } from 'react-table';
 
 import { Table } from '../../../../../components/Tables';
-import { dataBillings, columnsBillings, columnStyle } from './tableConfig';
-import style from './Billings.module.scss';
+import { dataMonitors, columnsMonitors, columnStyle } from './tableConfig';
+import style from './Monitors.module.scss';
 import { DataField, DataGrid } from '../../../../../components/DataDisplay';
 
-export const Billings = () => {
+export const Monitors = () => {
   
-  const data = useMemo(() => dataBillings, []);
-  const columns = useMemo(() => columnsBillings, []);
+  const data = useMemo(() => dataMonitors, []);
+  const columns = useMemo(() => columnsMonitors, []);
   
   const table = useTable({ columns, data });
   

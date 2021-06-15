@@ -4,10 +4,10 @@ import { PlainButton } from '../../../../../components/Buttons/PlainButton/Plain
 import plusIcon from '../../../../../assets/icons/plus-blue.svg';
 
 
-export const AddBilling = () => {
+export const AddMeasure = () => {
   return (
     <PlainButton icon={plusIcon}>
-      Faturar tarefa
+      Adicionar medição
     </PlainButton>
   )
 }

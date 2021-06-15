@@ -44,11 +44,11 @@ export const columnsMonitors = [
 ];
 
 export const columnStyle: ColumnStyleT = {
-  id: { width: '60px', textAlign: 'center' },
-  monitor: { width: '44%' },
-  date: { width: '20%', textAlign: 'center' },
-  value: { width: '20%', textAlign: 'center' },
-  optimumValue: { width: '16%', textAlign: 'center' },
+  id: { width: '90px', textAlign: 'center' },
+  monitor: { width: '50%' },
+  date: { width: '15%', textAlign: 'center' },
+  value: { width: '15%', textAlign: 'center' },
+  optimumValue: { width: '20%', textAlign: 'center' },
   moreButton: { width: '40px', textAlign: 'center' },
 };
 
