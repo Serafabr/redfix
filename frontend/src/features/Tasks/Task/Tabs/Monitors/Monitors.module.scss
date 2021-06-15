@@ -1,12 +1,15 @@
+@import "../../../../../style/variables";
+
 .TabInfo {
   padding-left: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid $gray_100;
 }
 
 .ChartContainer {
   height: 400px;
-  margin-bottom: 30px;
-  padding: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
 }
 
 .DataGrid {

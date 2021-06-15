@@ -39,7 +39,7 @@
 
 .TimeLineItem {
   position: relative;
-  border-left: 1px solid $gray_200;
+  border-left: 1px solid #CACACA;
   margin-bottom: 5px;
 }
 
@@ -58,7 +58,7 @@
   font: inherit;
   font-weight: 400;
   font-size: 1rem;
-  color: $gray_500;
+  color: #808080;
   line-height: 21px;
 }
 
@@ -86,5 +86,5 @@
 
 .Highlight {
   font-weight: 600;
-  color: $gray_600;
+  color: #5F5F5F;
 }
