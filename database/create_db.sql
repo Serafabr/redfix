@@ -108,9 +108,13 @@ set cookie.session.person_id to 1;
 \i data/asset_categories.sql
 \i data/facilities.sql
 \i data/asset_parents.sql
+\i data/appliances.sql
+\i data/tags.sql
+\i data/asset_tags.sql
 \i data/energy_meters.sql
 \i data/water_meters.sql
 alter sequence assets_asset_id_seq restart with 10001;
+alter sequence tags_tag_id_seq restart with 15;
 
 -- commit transaction
 commit transaction;
