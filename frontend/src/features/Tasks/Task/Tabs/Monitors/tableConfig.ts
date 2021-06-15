@@ -26,7 +26,7 @@ export const columnsMonitors = [
   {
     id: 'value',
     Header: 'Medição',
-    accessor: (row: any) => row.measure,
+    accessor: (row: any) => row.value,
     Cell: CellFormat({ isCenter: true }),
   },
   {
@@ -44,11 +44,11 @@ export const columnsMonitors = [
 ];
 
 export const columnStyle: ColumnStyleT = {
-  id: { width: '90px', textAlign: 'center' },
-  monitor: { width: '50%' },
+  id: { width: '130px', textAlign: 'center' },
+  monitor: { width: '45%' },
   date: { width: '15%', textAlign: 'center' },
   value: { width: '15%', textAlign: 'center' },
-  optimumValue: { width: '20%', textAlign: 'center' },
+  optimumValue: { width: '25%', textAlign: 'center' },
   moreButton: { width: '40px', textAlign: 'center' },
 };
 
