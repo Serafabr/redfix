@@ -8,6 +8,7 @@ import style from './Monitors.module.scss';
 import { DataField, DataGrid } from '../../../../../components/DataDisplay';
 import { DropdownButton } from '../../../../../components/Buttons/Dropdown/DropdownButton';
 import { TabPaneTitle } from '../../../../../components/TabPane';
+import { Input, InputField } from '../../../../../components/Form';
 
 const data2 = {
   labels: ['10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021'],
@@ -59,7 +60,10 @@ export const Monitors = () => {
   return (
     <div>
       <div className={style.TabInfo}>
-        <TabPaneTitle />
+        <TabPaneTitle title="Monitoramento de ativos" />
+        <InputField label="Ativos" >
+          <Input />
+        </InputField>
         <div className={style.SelectButtonsContainer}>
           <DropdownButton value="Grupo Motor Gerador" handleOnClick={() => {}} isOpen={false} />
           <DropdownButton value="Medição de votlagem nas baterias do Nobreak" handleOnClick={() => {}} isOpen={false} />

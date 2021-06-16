@@ -1,0 +1,54 @@
+@import "../../../style/variables";
+
+/*------------------------------------*\
+  #Label Style
+\*------------------------------------*/
+
+.Legend {
+  display: inline-block;
+  
+  margin-bottom: 3px;
+  margin-left:   7px;
+  
+  font:        inherit;
+  font-size:   0.85714rem; //12px
+  font-weight: 600;
+  color:       $gray_600;
+  
+  line-height: 20px;
+}
+
+/*------------------------------------*\
+  #Error Style
+\*------------------------------------*/
+
+.LegendError {
+  color: $danger_color;
+}
+
+
+/*------------------------------------*\
+  #Error Message (Below)
+\*------------------------------------*/
+
+.ErrorMessageWrapper {
+  display:     flex;
+  margin:      4px 7px;
+  align-items: center;
+}
+
+.ErrorIcon {
+  stroke: $danger_color;
+}
+
+.ErrorTextMessage {
+  margin-left: 6px;
+  
+  font:        inherit;
+  font-size:   0.85714rem;
+  font-weight: 400;
+  color:       $danger_color;
+  
+  font-style:  normal;
+  line-height: 20px;
+}

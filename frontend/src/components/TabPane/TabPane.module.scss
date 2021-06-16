@@ -1,0 +1,9 @@
+@import "../../style/variables";
+
+.TabPaneTitle {
+  font: inherit;
+  font-weight: 600;
+  font-size: 1.43rem;
+  line-height: 30px;
+  color: $gray_700;
+}

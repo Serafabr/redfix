@@ -5,6 +5,7 @@ import { Table } from '../../../../../components/Tables';
 import { dataBillings, columnsBillings, columnStyle } from './tableConfig';
 import style from './Billings.module.scss';
 import { DataField, DataGrid } from '../../../../../components/DataDisplay';
+import { TabPaneTitle } from '../../../../../components/TabPane';
 
 export const Billings = () => {
   
@@ -15,6 +16,9 @@ export const Billings = () => {
   
   return (
     <div>
+      {/* <div className={style.TitleContainer}>
+        <TabPaneTitle title="Pagamentos realizados" />
+      </div> */}
       <div className={style.TabInfo}>
         <DataGrid className={style.DataGrid}>
           <DataField label="Custo da tarefa">

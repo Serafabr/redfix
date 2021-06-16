@@ -1,9 +1,15 @@
 import style from './TabPane.module.scss';
 
-export const TabPaneTitle = () => {
+type TabPaneTitleT = {
+  title: string,
+}
+
+export const TabPaneTitle = ({
+  title,
+}: TabPaneTitleT) => {
   return (
     <div className={style.TabPaneTitle}>
-      Titulo
+      {title}
     </div>
   )
 }
