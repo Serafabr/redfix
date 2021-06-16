@@ -17,12 +17,12 @@ export const DropdownButton = ({
 }: Props) => {
   
   return (
-    <button 
-      className={`${style.DropdownButton} ${isOpen && style.Opened}`} 
-      onClick={handleOnClick} 
+    <button
+      className={`${style.DropdownButton} ${isOpen && style.Opened}`}
+      onClick={handleOnClick}
       style={buttonStyle}
     >
-      <div>{value}</div>
+      <div className={style.Text}>{value}</div>
       <div className={style.ButtonDownArrow}>
         <img src={ArrowDown} alt="Ícone dropdown"/>
       </div>

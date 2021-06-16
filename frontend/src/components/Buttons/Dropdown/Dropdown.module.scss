@@ -26,13 +26,6 @@
   
   background-color: $white_0;
   
-  font:         inherit;
-  font-size:    1rem;
-  font-weight:  normal;
-  color:        $gray_700;
-  
-  line-height: 21px;
-  
   // STATES
   &:hover {
     border: 1px solid $gray_400;
@@ -45,18 +38,26 @@
   }
 }
 
+.Text {
+  font:         inherit;
+  font-size:    1rem;
+  font-weight:  normal;
+  color:        $gray_600;
+  
+  line-height: 21px;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 5px;
+}
+
 /*------------------------------------*/
 .ButtonDownArrow {
   margin-left: auto;
   
   height: 16px;
   width:  16px;
-  
-  
-  img {
-    width:          100%;
-    vertical-align: center;
-  }
 }
 
 

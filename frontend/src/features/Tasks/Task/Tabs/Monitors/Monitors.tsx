@@ -6,13 +6,14 @@ import { Table } from '../../../../../components/Tables';
 import { dataMonitors, columnsMonitors, columnStyle } from './tableConfig';
 import style from './Monitors.module.scss';
 import { DataField, DataGrid } from '../../../../../components/DataDisplay';
+import { DropdownButton } from '../../../../../components/Buttons/Dropdown/DropdownButton';
 
 const data2 = {
-  labels: ['10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021'],
+  labels: ['10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021'],
   datasets: [
     {
       label: 'Medição de voltagem nas baterias do Nobreak',
-      data: [110, 105, 108, 115, 121, 120],
+      data: [110, 105, 108, 115, 121, 120, 110, 105, 108, 115, 121, 120],
       fill: false,
       backgroundColor: '#FFB053',
       borderColor: '#FFB05390',
@@ -57,6 +58,10 @@ export const Monitors = () => {
   return (
     <div>
       <div className={style.TabInfo}>
+        <div className={style.SelectButtonsContainer}>
+          <DropdownButton value="Grupo Motor Gerador" handleOnClick={() => {}} isOpen={false} />
+          <DropdownButton value="Medição de votlagem nas baterias do Nobreak" handleOnClick={() => {}} isOpen={false} />
+        </div>
         <div className={style.ChartContainer}>
           <Line type="line" data={data2} options={options} />
         </div>

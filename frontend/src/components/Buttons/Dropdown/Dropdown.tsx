@@ -41,7 +41,7 @@ export const Dropdown = ({ buttonStyle }: Props) => {
   return (
     <div className={style.Dropdown} ref={wrapperRef}>
       <button className={dropdownButtonClasses} onClick={handleOnClick} style={buttonStyle}>
-        <div>Ordens de Serviço</div>
+        <div className={style.Text}>Ordens de Serviço</div>
         <div className={style.ButtonDownArrow}>
           <img src={ArrowDown} alt="Ícone dropdown"/>
         </div>
