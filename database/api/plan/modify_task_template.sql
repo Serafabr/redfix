@@ -10,6 +10,7 @@ create or replace function :function_name (
   in "planId" integer,
   in "periodicityId" integer,
   in "nextTeamId" integer,
+  in "TODOS" todo_type[] default array[]::todo_type[],
   out id integer
 )
   language plpgsql
@@ -22,7 +23,8 @@ create or replace function :function_name (
         task_priority_id = "taskPriorityId",
         plan_id = "planId",
         periodicity_id = "periodicityId",
-        next_team_id = "nextTeamId"
+        next_team_id = "nextTeamId",
+        todos = "TODOS"
       where task_template_id = "taskTemplateId";
       id = "taskTemplateId";
     end;
