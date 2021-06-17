@@ -90,3 +90,25 @@
   font-weight: 600;
   color: #5F5F5F;
 }
+
+.CleanFilter {
+  display: flex;
+  align-items: center;
+  
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $gray_600;
+  
+  img {
+    margin-left: 8px;
+    height: 14px;
+    width: 14px;
+  }
+  
+  &:hover {
+    cursor: pointer;
+    color: $gray_700;
+  }
+}
