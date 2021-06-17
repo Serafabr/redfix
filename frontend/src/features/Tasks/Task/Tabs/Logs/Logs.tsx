@@ -6,7 +6,7 @@ import ellipseOrange from '../../../../../assets/icons/logTab/ellipse-orange.svg
 import ellipseGray from '../../../../../assets/icons/logTab/ellipse-gray.svg';
 import { TimelineFilterButton } from '../../../../../components/Timeline/TimelineFilterButton';
 import { TimelineButtonContainer } from '../../../../../components/Timeline/TimelineButtonContainer';
-import { TimelineItem } from '../../../../../components/Timeline';
+import { TimelineCleanFilter, TimelineItem } from '../../../../../components/Timeline';
 import { IconColorT } from '../../../../../components/Timeline/TimelineItem';
 import { LogItem, LogItemActionT } from './LogItem';
 import { PlainButton } from '../../../../../components/Buttons/PlainButton/PlainButton';
@@ -28,6 +28,9 @@ export const Logs = () => {
           text="Tramitações"
           icon={ellipseOrange}
         />
+        <div className={style.CleanButtonContainer}>
+          <TimelineCleanFilter />
+        </div>
       </TimelineButtonContainer>
       <div className={style.LogsWrapper}>
         <LogItem 
