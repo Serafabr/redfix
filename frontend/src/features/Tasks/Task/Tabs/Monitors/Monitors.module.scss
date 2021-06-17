@@ -1,23 +1,19 @@
 @import "../../../../../style/variables";
 
 .TabInfo {
-  padding-left: 12px;
   margin-bottom: 30px;
   border-bottom: 1px solid $gray_100;
 }
 
 .SelectButtonsContainer {
-  margin: 10px 20px;
+  margin: 0px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .ChartContainer {
   height: 400px;
   margin-bottom: 20px;
-  padding: 15px;
-}
-
-.DataGrid {
-  grid-template: 
-    "1 2 out" / 
-    1fr 1fr 2fr;
 }

@@ -41,7 +41,7 @@ export const InputField = ({
   // Render component
   return (
     <div>
-      {label && <label className={legendClasses}>{label}:</label>}
+      {label && <label className={legendClasses}>{label}</label>}
       {children}
       {error && errorMessage && (
         <div className={style.ErrorMessageWrapper}>

@@ -44,6 +44,9 @@ const options = {
           family: 'Source Sans Pro',
           size: 12,
           weight: 600,
+          skipAuto: true,
+          maxRotation: 90,
+          minRotation: 0
         }
       }
     }
@@ -60,13 +63,27 @@ export const Monitors = () => {
   return (
     <div>
       <div className={style.TabInfo}>
-        <TabPaneTitle title="Monitoramento de ativos" />
-        <InputField label="Ativos" >
-          <Input />
-        </InputField>
         <div className={style.SelectButtonsContainer}>
-          <DropdownButton value="Grupo Motor Gerador" handleOnClick={() => {}} isOpen={false} />
-          <DropdownButton value="Medição de votlagem nas baterias do Nobreak" handleOnClick={() => {}} isOpen={false} />
+          <div style={{ width: "40%" }}>
+            <InputField label="Ativo" >
+              <DropdownButton 
+                value="Grupo Motor Gerador" 
+                handleOnClick={() => {}} 
+                isOpen={false} 
+                buttonStyle={{ width: "100%" }}
+              />
+            </InputField>
+          </div>
+          <div style={{ width: "40%" }}>
+            <InputField label="Monitor" >
+              <DropdownButton 
+                value="Medição de votlagem nas baterias do Nobreak" 
+                handleOnClick={() => {}} 
+                isOpen={false} 
+                buttonStyle={{ width: "100%" }}
+              />
+            </InputField>
+          </div>
         </div>
         <div className={style.ChartContainer}>
           <Line type="line" data={data2} options={options} />
