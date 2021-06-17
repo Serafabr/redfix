@@ -6,14 +6,16 @@ import { Badge } from '../Badges';
 
 type CardTitleT = {
   title: string,
+  subtitle?: string,
   withBookmark?: boolean,
   bookmarkState?: boolean,
   setBookmarkState?: (state: boolean) => void,
-  badges: Array<ReactElement<typeof Badge>>
+  badges?: Array<ReactElement<typeof Badge>>
 }
 
 export const CardTitle = ({
   title,
+  subtitle,
   withBookmark = false,
   bookmarkState = false,
   setBookmarkState,
@@ -26,7 +28,7 @@ export const CardTitle = ({
   
   return (
     <div className={style.CardTitleWrapper}>
-      <div className={style.CardTitle}>
+      <div className={style.CardTitle} >
         {title}
         {withBookmark && (
           <span className={style.CardBookmark} onClick={handleBookmarkClick}>
@@ -34,9 +36,16 @@ export const CardTitle = ({
           </span>
         )}
       </div>
-      <div className={style.CardHeaderTags}>
-        {badges}
-      </div>
+      {subtitle && (
+        <div className={style.CardSubtitle}>
+          {subtitle}
+        </div>
+      )}
+      {badges && (
+        <div className={style.CardHeaderTags}>
+          {badges}
+        </div>
+      )}
     </div>
   )
 }

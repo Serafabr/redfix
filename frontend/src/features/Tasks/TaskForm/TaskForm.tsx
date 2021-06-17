@@ -27,11 +27,11 @@ export const TaskForm = () => {
           <SingleCardHeader>
             <CardTitle
               title="Informações gerais"
-              badges={[]}
+              subtitle="Informações que serão necessárias para a execução da tarefa."
             />
-            <div>
-              <Badge text="Formulário incompleto" color={ColorType.Orange} />
-              <Badge text="Etapa 02 de 05" color={ColorType.Blue} />
+            <div style={{ width: "120px" }}>
+              {/* <Badge text="Formulário incompleto" color={ColorType.Orange} /> */}
+              <Badge text="Etapa 01 de 05" color={ColorType.Red} />
             </div>
           </SingleCardHeader>
         </CardHeader>
@@ -42,11 +42,11 @@ export const TaskForm = () => {
           <SingleCardHeader>
             <CardTitle
               title="Datas e prazos"
-              badges={[]}
+              subtitle="Prazo de ínicio e para o término da tarefa. Tais informações podem ser preenchidas posteriormente."
             />
-            <div>
-              <Badge text="Preenchido sem erros" color={ColorType.Green} />
-              <Badge text="Etapa 02 de 05" color={ColorType.Blue} />
+            <div style={{ width: "120px" }}>
+              {/* <Badge text="Preenchido sem erros" color={ColorType.Green} /> */}
+              <Badge text="Etapa 02 de 05" color={ColorType.Green} />
             </div>
           </SingleCardHeader>
         </CardHeader>
@@ -57,11 +57,11 @@ export const TaskForm = () => {
           <SingleCardHeader>
             <CardTitle
               title="Vincular ativos"
-              badges={[]}
+              subtitle="Os ativos cadastrados serão os 'alvos' dos seviços a serem realizados. Não é possível o cadastro de uma tarefa SEM ativo."
             />
-            <div>
-              <Badge text="Preenchido com erros" color={ColorType.Red} />
-              <Badge text="Etapa 02 de 05" color={ColorType.Blue} />
+            <div style={{ width: "120px" }}>
+              {/* <Badge text="Preenchido com erros" color={ColorType.Red} /> */}
+              <Badge text="Etapa 03 de 05" color={ColorType.Orange} />
             </div>
           </SingleCardHeader>
         </CardHeader>
