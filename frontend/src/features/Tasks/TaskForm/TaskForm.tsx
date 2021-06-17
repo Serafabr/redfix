@@ -26,12 +26,13 @@ export const TaskForm = () => {
         <CardHeader>
           <SingleCardHeader>
             <CardTitle
-              title="Informações gerais sobre a tarefa"
-              badges={[
-                <Badge text="Formulário incompleto" color={ColorType.Orange} />,
-              ]}
+              title="Informações gerais"
+              badges={[]}
             />
-            <Badge text="Etapa 01 de 05" color={ColorType.Blue} />
+            <div>
+              <Badge text="Formulário incompleto" color={ColorType.Orange} />
+              <Badge text="Etapa 02 de 05" color={ColorType.Blue} />
+            </div>
           </SingleCardHeader>
         </CardHeader>
         <SingleCardContent>
@@ -40,12 +41,13 @@ export const TaskForm = () => {
         <CardHeader>
           <SingleCardHeader>
             <CardTitle
-              title="Datas e prazos para execução"
-              badges={[
-                <Badge text="Preenchido sem erros" color={ColorType.Green} />,
-              ]}
+              title="Datas e prazos"
+              badges={[]}
             />
-            <Badge text="Etapa 02 de 05" color={ColorType.Blue} />
+            <div>
+              <Badge text="Preenchido sem erros" color={ColorType.Green} />
+              <Badge text="Etapa 02 de 05" color={ColorType.Blue} />
+            </div>
           </SingleCardHeader>
         </CardHeader>
         <SingleCardContent>
@@ -54,12 +56,13 @@ export const TaskForm = () => {
         <CardHeader>
           <SingleCardHeader>
             <CardTitle
-              title="Ativos relacionados à tarefa"
-              badges={[
-                <Badge text="Preenchido com erros" color={ColorType.Red} />,
-              ]}
+              title="Vincular ativos"
+              badges={[]}
             />
-            <Badge text="Etapa 03 de 05" color={ColorType.Blue} />
+            <div>
+              <Badge text="Preenchido com erros" color={ColorType.Red} />
+              <Badge text="Etapa 02 de 05" color={ColorType.Blue} />
+            </div>
           </SingleCardHeader>
         </CardHeader>
         <SingleCardContent>
