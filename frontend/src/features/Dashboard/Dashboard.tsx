@@ -6,6 +6,7 @@ import style from './Dashboard.module.scss';
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
 import { ButtonWithDropdown, AlignListType } from '../../components/Buttons';
+import { Modal } from '../../components/Modals';
 
 type DashProps = {
   location: {

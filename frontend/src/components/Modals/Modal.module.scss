@@ -21,7 +21,7 @@
   background-color: #fff;
   margin:  10px;
   border-radius: 4px;
-  width: 60%;
+  width: 50%;
   border: 1px solid #DFDFDF;
   box-shadow: 0 5px 10px 0 rgba(68, 68, 68, 0.671);
 }
@@ -30,7 +30,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   height: 65px;
   padding: 15px;
   background-color: #F5F5F5;
@@ -62,8 +61,6 @@
 }
 
 .ModalContent {
-  width: 100%;
-  height: 300px;
   background-color: #fff;
   padding: 20px;
 }
@@ -73,7 +70,6 @@
   align-items: center;
   justify-content: flex-end;
   padding: 15px;
-  width: 100%;
   height: 65px;
   background-color: #F5F5F5;
   border-top: 1px solid #DFDFDF;
