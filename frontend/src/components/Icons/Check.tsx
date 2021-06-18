@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * Check component
@@ -26,13 +26,12 @@ function SvgCheck({
     <svg
       width={width}
       height={height}
-      fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
       <path
         d="M13.333 4L6 11.333 2.667 8"
-        stroke={strokeColor}
+        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

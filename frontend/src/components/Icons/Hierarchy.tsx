@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * Hierarchy component
@@ -26,13 +26,12 @@ function SvgHierarchy({
     <svg
       width={width}
       height={height}
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
       <g
         clipPath="url(#hierarchy_svg__clip0)"
-        stroke={strokeColor}
+        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

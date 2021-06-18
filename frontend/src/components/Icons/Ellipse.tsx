@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * Ellipse component
@@ -26,7 +26,6 @@ function SvgEllipseBlue({
     <svg
       width={width}
       height={height}
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
@@ -34,8 +33,8 @@ function SvgEllipseBlue({
         cx={5}
         cy={5}
         r={4}
-        fill={fillColor}
-        stroke={strokeColor}
+        
+        
         strokeWidth={strokeWidth}
       />
     </svg>

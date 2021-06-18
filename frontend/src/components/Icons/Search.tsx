@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * Search component
@@ -25,13 +25,11 @@ function SvgSearch({
     <svg
       width={width}
       height={height}
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
       <path
         d="M7.333 12.667A5.333 5.333 0 107.333 2a5.333 5.333 0 000 10.667zM14 14l-2.9-2.9"
-        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

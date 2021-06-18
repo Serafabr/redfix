@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * Headphones component
@@ -25,20 +25,19 @@ function SvgHeadphones({
     <svg
       width={width}
       height={height}
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
       <path
         d="M2 12V8a6 6 0 1112 0v4"
-        stroke={strokeColor}
+        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M14 12.667A1.333 1.333 0 0112.667 14H12a1.333 1.333 0 01-1.333-1.333v-2A1.333 1.333 0 0112 9.333h2v3.334zm-12 0A1.333 1.333 0 003.333 14H4a1.333 1.333 0 001.333-1.333v-2A1.333 1.333 0 004 9.333H2v3.334z"
-        stroke={strokeColor}
+        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

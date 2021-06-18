@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * Filter component
@@ -26,14 +26,12 @@ function SvgFilter({
     <svg
       width={width}
       height={height}
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
       <path
         d="M12.5 3.5h-9l3.6 4.73v3.27l1.8 1V8.23l3.6-4.73z"
-        fill={fillColor}
-        stroke={strokeColor}
+        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

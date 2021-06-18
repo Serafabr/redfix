@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { AlertCircle } from '../../Icons';
+import { CircleAlert } from '../../Icons';
 import style from './Input.module.scss';
 
 // Prop Types
@@ -44,7 +44,7 @@ export const Input = ({
       <input className={inputClasses} {...rest}/>
       {error && errorMessage && (
         <div className={style.ErrorMessageWrapper}>
-          <AlertCircle className={style.ErrorIcon} />
+          <CircleAlert strokeColor="#c23934" />
           <div className={style.ErrorTextMessage}>{errorMessage}</div>
         </div>
       )}

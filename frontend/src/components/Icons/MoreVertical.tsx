@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * MoreVertical component
@@ -26,14 +26,13 @@ function SvgMoreVertical({
     <svg
       width={width}
       height={height}
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
       <path
         d="M7.333 8a.667.667 0 101.334 0 .667.667 0 00-1.334 0zM7.333 12.667a.667.667 0 101.334 0 .667.667 0 00-1.334 0zM7.333 3.333a.667.667 0 101.334 0 .667.667 0 00-1.334 0z"
-        fill={fillColor}
-        stroke={strokeColor}
+        
+        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

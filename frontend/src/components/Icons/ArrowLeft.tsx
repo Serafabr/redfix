@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * ArrowLeft component
@@ -26,13 +26,12 @@ function SvgArrowLeft({
     <svg
       width={width}
       height={height}
-      fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
       <path
         d="M10 4L6 8l4 4"
-        stroke={strokeColor}
+        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

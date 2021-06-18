@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * FilterUp component
@@ -26,20 +26,18 @@ function SvgFilterUp({
     <svg
       width={width}
       height={height}
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
       <path
         d="M2.5 12V5m0 0L1 6.556M2.5 5L4 6.556"
-        stroke={strokeColor}
+        
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M15 5H7l3.2 3.679v2.543l1.6.778V8.679L15 5z"
-        fill={fillColor}
-        stroke={strokeColor}
+        
         strokeLinecap="round"
         strokeLinejoin="round"
       />

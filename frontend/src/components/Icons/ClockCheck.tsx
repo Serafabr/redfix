@@ -2,13 +2,13 @@
  * General types
 \*************************/
 
-import { ColorType, SizeType } from './_types';
+import { BasicIconProps } from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type Props = SizeType & ColorType;
+type Props = BasicIconProps;
 
 /*************************\
  * ClockCheck component
@@ -26,7 +26,6 @@ function SvgClockCheck({
     <svg
       width={width}
       height={height}
-      fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
@@ -38,7 +37,7 @@ function SvgClockCheck({
       />
       <path
         d="M8 4v4l2.667 1.333"
-        stroke={strokeColor}
+        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
