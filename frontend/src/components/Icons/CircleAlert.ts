@@ -1,20 +1,17 @@
-import style from './Icons.module.scss';
+import * as React from "react";
 
-type Props = {
-  className?: string | null,
-}
-
-function SvgPlus({ className = null }: Props) {
+function SvgCircleAlert(props) {
   return (
     <svg
       width={16}
       height={16}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`${className || style.Icon}`}
+      {...props}
     >
       <path
-        d="M8 3.333v9.334M3.333 8h9.334"
+        d="M8 14.667A6.667 6.667 0 108 1.333a6.667 6.667 0 000 13.334zM8 5.333V8M8 10.667h.007"
+        stroke="#767676"
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -23,4 +20,4 @@ function SvgPlus({ className = null }: Props) {
   );
 }
 
-export default SvgPlus;
+export default SvgCircleAlert;
