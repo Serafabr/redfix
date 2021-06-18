@@ -8,7 +8,7 @@ import { ColorType, SizeType } from './_types';
  * PropTypes
 \*************************/
 
-type Props = ColorType & SizeType;
+type Props = SizeType & ColorType;
 
 function SvgArrowDown({
   width = 16,
