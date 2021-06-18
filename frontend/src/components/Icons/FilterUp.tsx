@@ -27,6 +27,7 @@ function SvgFilterUp({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
@@ -37,7 +38,6 @@ function SvgFilterUp({
       />
       <path
         d="M15 5H7l3.2 3.679v2.543l1.6.778V8.679L15 5z"
-        
         strokeLinecap="round"
         strokeLinejoin="round"
       />

@@ -26,11 +26,11 @@ function SvgList({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
         d="M5.333 4H14M5.333 8H14M5.333 12H14M2 4h.007M2 8h.007M2 12h.007"
-        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

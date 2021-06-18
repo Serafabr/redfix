@@ -27,11 +27,11 @@ function SvgFilter({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
         d="M12.5 3.5h-9l3.6 4.73v3.27l1.8 1V8.23l3.6-4.73z"
-        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

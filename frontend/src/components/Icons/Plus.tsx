@@ -26,11 +26,11 @@ function SvgPlus({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
         d="M8 3.333v9.334M3.333 8h9.334"
-        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

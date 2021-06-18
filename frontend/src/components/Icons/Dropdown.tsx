@@ -27,11 +27,11 @@ function SvgDropdown({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
         d="M1 1l4 4 4-4"
-        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

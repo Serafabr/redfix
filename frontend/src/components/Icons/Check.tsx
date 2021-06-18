@@ -27,11 +27,11 @@ function SvgCheck({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
         d="M13.333 4L6 11.333 2.667 8"
-        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

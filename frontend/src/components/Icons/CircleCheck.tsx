@@ -30,6 +30,7 @@ function SvgCircleCheck({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path

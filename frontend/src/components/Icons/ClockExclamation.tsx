@@ -27,6 +27,7 @@ function SvgClockExclamation({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
@@ -37,7 +38,6 @@ function SvgClockExclamation({
       />
       <path
         d="M8 4v4l2.667 1.333"
-        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

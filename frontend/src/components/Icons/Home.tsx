@@ -26,6 +26,7 @@ function SvgHome({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
@@ -37,7 +38,6 @@ function SvgHome({
       />
       <path
         d="M6 14.667V8h4v6.667"
-        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

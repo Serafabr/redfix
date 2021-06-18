@@ -26,11 +26,11 @@ function SvgFilterWhite({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
         d="M14.667 2H1.333l5.334 6.307v4.36L9.333 14V8.307L14.667 2z"
-        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

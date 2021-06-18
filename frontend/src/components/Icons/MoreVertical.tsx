@@ -27,12 +27,11 @@ function SvgMoreVertical({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
         d="M7.333 8a.667.667 0 101.334 0 .667.667 0 00-1.334 0zM7.333 12.667a.667.667 0 101.334 0 .667.667 0 00-1.334 0zM7.333 3.333a.667.667 0 101.334 0 .667.667 0 00-1.334 0z"
-        
-        
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -27,6 +27,7 @@ function SvgFilterCancel({
       width={width}
       height={height}
       xmlns="http://www.w3.org/2000/svg"
+      fill-opacity="0"
       {...rest}
     >
       <path
@@ -38,7 +39,6 @@ function SvgFilterCancel({
         fillRule="evenodd"
         clipRule="evenodd"
         d="M1.333 1.25a.75.75 0 00-.572 1.234l5.156 6.097v4.086c0 .284.16.543.414.67l2.667 1.334A.75.75 0 0010.083 14v-2.299a3.514 3.514 0 01-1.5-1.266v2.351l-1.166-.583V8.307a.75.75 0 00-.178-.485L2.95 2.75H13.05l-1.919 2.27a3.54 3.54 0 011.744.26l2.364-2.796a.75.75 0 00-.572-1.234H1.333z"
-        
       />
     </svg>
   );
