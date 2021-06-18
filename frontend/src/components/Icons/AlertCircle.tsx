@@ -1,14 +1,6 @@
-type Props = {
-  width: number,
-  height: number,
-  strokeWidth: number,
-}
+import * as React from "react";
 
-function SvgAlertCircle({
-  width,
-  height,
-  strokeWidth
-}: Props) {
+function SvgAlertCircle(props) {
   return (
     <svg
       width={16}
