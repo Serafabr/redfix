@@ -1,7 +1,0 @@
-export { default as CircleAlertBrown } from './CircleAlertBrown'
-export { default as CircleAlertLime } from './CircleAlertLime'
-export { default as CircleCheckGreen } from './CircleCheckGreen'
-export { default as ClockBlue } from './ClockBlue'
-export { default as ClockOrange } from './ClockOrange'
-export { default as MoreHorizontal } from './MoreHorizontal'
-export { default as XCircleRed } from './XCircleRed'

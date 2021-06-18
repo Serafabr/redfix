@@ -1,25 +1,31 @@
 import * as React from "react";
 
-function SvgCircleCheckGreen(props) {
+function SvgNormalPriority(props) {
   return (
     <svg
-      width={12}
-      height={12}
-      viewBox="0 0 16 16"
+      width={18}
+      height={18}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
-        d="M8 14.667A6.667 6.667 0 108 1.333a6.667 6.667 0 000 13.334z"
-        stroke="#44ad70"
+        d="M9 15V7.5"
+        stroke="#FF9E2C"
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M11 6l-4.125 4L5 8.182"
-        stroke="#44ad70"
+        d="M13.5 15V3"
+        stroke="#DFDFDF"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4.5 15v-3"
+        stroke="#FF9E2C"
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -28,4 +34,4 @@ function SvgCircleCheckGreen(props) {
   );
 }
 
-export default SvgCircleCheckGreen;
+export default SvgNormalPriority;
