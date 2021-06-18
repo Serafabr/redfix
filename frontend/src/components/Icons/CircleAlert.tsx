@@ -1,18 +1,39 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgCircleAlert(props) {
+import { ColorType, SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & ColorType;
+
+/*************************\
+ * CircleAlert component
+\*************************/
+
+function SvgCircleAlert({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.5,
+  strokeColor = "#767676",
+  fillColor = "none",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
-      fill="none"
+      width={width}
+      height={height}
+      fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         d="M8 14.667A6.667 6.667 0 108 1.333a6.667 6.667 0 000 13.334zM8 5.333V8M8 10.667h.007"
-        stroke="#767676"
-        strokeWidth={1.5}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

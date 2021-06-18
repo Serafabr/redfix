@@ -1,18 +1,38 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgExternalLink(props) {
+import { ColorType, SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & ColorType;
+
+/*************************\
+ * ExternalLink component
+\*************************/
+
+function SvgExternalLink({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.5,
+  strokeColor = "#B1B1B1",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
+      width={width}
+      height={height}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         d="M12 8.667v4A1.334 1.334 0 0110.667 14H3.333A1.334 1.334 0 012 12.667V5.333A1.333 1.333 0 013.333 4h4M10 2h4v4M6.667 9.333L14 2"
-        stroke="#B1B1B1"
-        strokeWidth={1.5}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

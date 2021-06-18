@@ -10,11 +10,15 @@ import { ColorType, SizeType } from './_types';
 
 type Props = SizeType & ColorType;
 
+/*************************\
+ * ArrowDown component
+\*************************/
+
 function SvgArrowDown({
   width = 16,
   height = 16,
   strokeWidth = 1.5,
-  strokeColor = "767676",
+  strokeColor = "#767676",
   fillColor = "none",
   ...rest
 }: Props) {

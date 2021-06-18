@@ -1,25 +1,49 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgCircleCheck(props) {
+import { SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & {
+  firstColor?: string,
+  secondColor?: string,
+};
+
+/*************************\
+ * CircleCheck component
+\*************************/
+
+function SvgCircleCheck({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.5,
+  firstColor = "#767676",
+  secondColor = "#767676",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
+      width={width}
+      height={height}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         d="M8 14.667A6.667 6.667 0 108 1.333a6.667 6.667 0 000 13.334z"
-        stroke="#767676"
-        strokeWidth={1.5}
+        stroke={firstColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M11 6l-4.125 4L5 8.182"
-        stroke="#767676"
-        strokeWidth={1.5}
+        stroke={secondColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

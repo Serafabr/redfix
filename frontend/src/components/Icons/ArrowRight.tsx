@@ -1,18 +1,39 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgArrowRight(props) {
+import { ColorType, SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & ColorType;
+
+/*************************\
+ * ArrowRight component
+\*************************/
+
+function SvgArrowRight({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.5,
+  strokeColor = "#767676",
+  fillColor = "none",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
-      fill="none"
+      width={width}
+      height={height}
+      fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         d="M6 12l4-4-4-4"
-        stroke="#767676"
-        strokeWidth={1.5}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

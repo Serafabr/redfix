@@ -1,25 +1,45 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgHeadphones(props) {
+import { ColorType, SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & ColorType;
+
+/*************************\
+ * Headphones component
+\*************************/
+
+function SvgHeadphones({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.8,
+  strokeColor = "#767676",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
+      width={width}
+      height={height}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         d="M2 12V8a6 6 0 1112 0v4"
-        stroke="#767676"
-        strokeWidth={1.8}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M14 12.667A1.333 1.333 0 0112.667 14H12a1.333 1.333 0 01-1.333-1.333v-2A1.333 1.333 0 0112 9.333h2v3.334zm-12 0A1.333 1.333 0 003.333 14H4a1.333 1.333 0 001.333-1.333v-2A1.333 1.333 0 004 9.333H2v3.334z"
-        stroke="#767676"
-        strokeWidth={1.8}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

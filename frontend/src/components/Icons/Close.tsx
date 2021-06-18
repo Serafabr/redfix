@@ -1,18 +1,39 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgClose(props) {
+import { ColorType, SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & ColorType;
+
+/*************************\
+ * Close component
+\*************************/
+
+function SvgClose({
+  width = 16,
+  height = 16,
+  strokeWidth = 2,
+  strokeColor = "#C8C8C8",
+  fillColor = "none",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
-      fill="none"
+      width={width}
+      height={height}
+      fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         d="M12 4l-8 8M4 4l8 8"
-        stroke="#C8C8C8"
-        strokeWidth={2}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

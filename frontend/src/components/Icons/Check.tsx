@@ -1,18 +1,39 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgCheck(props) {
+import { ColorType, SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & ColorType;
+
+/*************************\
+ * Check component
+\*************************/
+
+function SvgCheck({
+  width = 16,
+  height = 16,
+  strokeWidth = 2,
+  strokeColor = "#767676",
+  fillColor = "none",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
-      fill="none"
+      width={width}
+      height={height}
+      fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         d="M13.333 4L6 11.333 2.667 8"
-        stroke="#767676"
-        strokeWidth={2}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

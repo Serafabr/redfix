@@ -1,13 +1,35 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgGraph(props) {
+import { SizeType } from './../../_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & {
+  hovered?: boolean,
+};
+
+/*************************\
+ * Graph component
+\*************************/
+
+function SvgGraph({
+  width = 16,
+  height = 16,
+  hovered = false,
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
+      width={width}
+      height={height}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      opacity={hovered ? 1.0 : 0.3}
+      {...rest}
     >
       <g
         clipPath="url(#graph_svg__clip0)"
@@ -20,7 +42,7 @@ function SvgGraph(props) {
         />
         <path
           d="M1.497 1.1a.4.4 0 00-.4.4v13c0 .22.18.4.4.4h13a.4.4 0 00.4-.4v-13a.4.4 0 00-.4-.4h-13zm-1.6.4a1.6 1.6 0 011.6-1.6h13a1.6 1.6 0 011.6 1.6v13a1.6 1.6 0 01-1.6 1.6h-13a1.6 1.6 0 01-1.6-1.6v-13z"
-          fill="#1589EE"
+          fill={hovered ? "#1589EE" : "#FFF"}
         />
         <path
           d="M5.497 3.1a2.4 2.4 0 100 4.8 2.4 2.4 0 000-4.8zm-3.6 2.4a3.6 3.6 0 117.2 0 3.6 3.6 0 01-7.2 0z"
@@ -32,7 +54,7 @@ function SvgGraph(props) {
         />
         <path
           d="M10.397 3.5a.6.6 0 01.6-.6h2a.6.6 0 110 1.2h-2a.6.6 0 01-.6-.6zM10.397 5.5a.6.6 0 01.6-.6h2a.6.6 0 110 1.2h-2a.6.6 0 01-.6-.6z"
-          fill="#1589EE"
+          fill={hovered ? "#1589EE" : "#FFF"}
         />
       </g>
       <defs>

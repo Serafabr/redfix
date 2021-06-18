@@ -1,18 +1,38 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgPlus(props) {
+import { ColorType, SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & ColorType;
+
+/*************************\
+ * Plus component
+\*************************/
+
+function SvgPlus({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.5,
+  strokeColor = "#767676",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
+      width={width}
+      height={height}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         d="M8 3.333v9.334M3.333 8h9.334"
-        stroke="#767676"
-        strokeWidth={1.5}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

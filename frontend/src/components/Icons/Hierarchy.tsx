@@ -1,18 +1,39 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgHierarchy(props) {
+import { ColorType, SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & ColorType;
+
+/*************************\
+ * Hierarchy component
+\*************************/
+
+function SvgHierarchy({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.2,
+  strokeColor = "#767676",
+  fillColor = "#FFF",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
+      width={width}
+      height={height}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <g
         clipPath="url(#hierarchy_svg__clip0)"
-        stroke="#767676"
-        strokeWidth={1.2}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       >
@@ -20,7 +41,7 @@ function SvgHierarchy(props) {
       </g>
       <defs>
         <clipPath id="hierarchy_svg__clip0">
-          <path fill="#fff" d="M0 0h16v16H0z" />
+          <path fill={fillColor} d="M0 0h16v16H0z" />
         </clipPath>
       </defs>
     </svg>

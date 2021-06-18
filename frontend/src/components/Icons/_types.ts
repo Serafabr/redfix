@@ -8,3 +8,5 @@ export type ColorType = {
   fillColor: string,
   strokeColor: string,
 }
+
+export enum PriorityType { Low, Normal, High };

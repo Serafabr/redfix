@@ -1,19 +1,40 @@
-import * as React from "react";
+/*************************\
+ * General types
+\*************************/
 
-function SvgFilter(props) {
+import { ColorType, SizeType } from './_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = SizeType & ColorType;
+
+/*************************\
+ * Filter component
+\*************************/
+
+function SvgFilter({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.5,
+  strokeColor = "#767676",
+  fillColor = "#767676",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
+      width={width}
+      height={height}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <path
         d="M12.5 3.5h-9l3.6 4.73v3.27l1.8 1V8.23l3.6-4.73z"
-        fill="#767676"
-        stroke="#767676"
-        strokeWidth={1.5}
+        fill={fillColor}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
