@@ -46,5 +46,5 @@ create type invoice_item_type as (
 drop type if exists job_type cascade;
 create type job_type as (
   job text,
-  done boolean
+  is_done boolean
 );
