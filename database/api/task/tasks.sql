@@ -20,7 +20,7 @@ create or replace view api.tasks as
     t.date_start,
     t.date_end,
     t.request_id,
-    to_jsonb(t.todos) as todos,
+    to_jsonb(t.jobs) as jobs,
     -- data from joins
     ts.task_status_text,
     tp.task_priority_text,

@@ -170,7 +170,7 @@ create table task_templates (
   plan_id integer not null references plans (plan_id),
   periodicity_id integer not null references periodicities (periodicity_id),
   next_team_id integer not null references teams (team_id),
-  todos todo_type[] not null default array[]::todo_type[]
+  jobs job_type[] not null default array[]::job_type[]
 );
 
 create table task_template_assets (
@@ -218,7 +218,7 @@ create table tasks (
   date_start timestamptz,
   date_end timestamptz,
   request_id integer references requests (request_id),
-  todos todo_type[] not null default array[]::todo_type[]
+  jobs job_type[] not null default array[]::job_type[]
 );
 
 create table task_assets (

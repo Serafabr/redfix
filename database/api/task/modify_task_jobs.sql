@@ -1,15 +1,15 @@
-\set function_name api.modify_task_todos
+\set function_name api.modify_task_jobs
 
 drop function if exists :function_name;
 create or replace function :function_name (
   in "taskId" integer,
-  in "TODOS" todo_type[],
+  in "JOBS" job_type[],
   out id integer
 )
   language plpgsql
   as $$
     begin
-      update tasks set todos = "TODOS" where task_id = "taskId";
+      update tasks set jobs = "JOBS" where task_id = "taskId";
       id = "taskId";
     end;
   $$

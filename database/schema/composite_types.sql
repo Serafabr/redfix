@@ -43,8 +43,8 @@ create type invoice_item_type as (
   valorbcicms text
 );
 
-drop type if exists todo_type cascade;
-create type todo_type as (
-  todo text,
+drop type if exists job_type cascade;
+create type job_type as (
+  job text,
   done boolean
 );

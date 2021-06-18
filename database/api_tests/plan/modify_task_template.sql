@@ -13,11 +13,11 @@ select api.modify_task_template(
     (
       'Atividade inicial',
       false
-    )::todo_type,
+    )::job_type,
     (
       'Atividade final',
       false
-    )::todo_type
+    )::job_type
   ]
 ) as not_used_output \gset
 

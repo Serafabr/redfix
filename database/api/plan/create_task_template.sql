@@ -10,7 +10,7 @@ create or replace function :function_name (
   in "planId" integer,
   in "periodicityId" integer,
   in "nextTeamId" integer,
-  in "TODOS" todo_type[] default array[]::todo_type[],
+  in "JOBS" job_type[] default array[]::job_type[],
   out id integer
 )
   language plpgsql
@@ -28,7 +28,7 @@ create or replace function :function_name (
         "planId",
         "periodicityId",
         "nextTeamId",
-        "TODOS"
+        "JOBS"
       ) returning task_template_id into id;
 
       insert into task_template_assets select id, unnest("assets");
