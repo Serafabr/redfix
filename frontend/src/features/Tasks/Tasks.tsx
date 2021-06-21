@@ -19,7 +19,6 @@ import { columnsTasks, dataTasks, columnStyle } from './utils/fakeDataTasks';
 import { useTable } from 'react-table';
 import { ItemsPerPage } from '../../components/Tables/ItemsPerPage/ItemsPerPage';
 import { Pagination } from '../../components/Tables/Pagination/Pagination';
-import { DropdownButton } from '../../components/Buttons/Dropdown/DropdownButton';
 import { Card } from '../../components/Cards';
 import { TableCardButtons, TableCardContent } from '../../components/Cards/TableCard';
 import { CardHeader } from '../../components/Cards/CardHeader';

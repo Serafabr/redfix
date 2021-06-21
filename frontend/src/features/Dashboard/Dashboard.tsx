@@ -5,10 +5,11 @@ import { ButtonType } from '../../components/Buttons/Button/_types';
 import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
-import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
+import { Dropdown } from '../../components/Buttons';
 import { ButtonWithDropdown } from '../../components/Buttons';
 import { AlignListType } from '../../components/Buttons/ButtonWithDropdown/_types';
 import { Modal } from '../../components/Modals';
+import { Card } from '../../components/Cards';
 
 type DashProps = {
   location: {
@@ -44,7 +45,15 @@ export const Dashboard = ({
         path={location.pathname}
         buttons={dashButtons}
       />
-      <Dropdown />
+      <Card>
+        <div style={{ padding: "20px" }}>
+          <Dropdown 
+            value="Testetestestesesasdfasfdasfdte"
+            isOpen={false}
+            handleOnClick={()=>{}}
+          />
+        </div>
+      </Card>
     </div>
   )
 }
