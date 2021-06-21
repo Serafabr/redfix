@@ -3,7 +3,7 @@ import style from './Cells.module.scss';
 import moreButton from '../../../assets/icons/tables/more-vertical.svg';
 import { ButtonWithDropdown } from '../../Buttons/';
 import { OptionType, OptionsType } from '../../SelectBox/SelectBox';
-import { AlignListType } from '../../Buttons/';
+import { AlignListType } from '../../Buttons/ButtonWithDropdown/_types';
 
 const options: OptionsType = {
   editSupply: { name: 'Editar item' },

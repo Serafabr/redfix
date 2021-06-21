@@ -1,12 +1,19 @@
+// Third party
 import { useState, useRef } from 'react';
-import classNames from 'classnames';
-
+// Custom Hooks
 import { useClickOutsideListener } from '../../../hooks';
 
-type Props = {
-};
+/*************************\
+ * PropTypes
+\*************************/
 
-export const useDropdown = () => {
+type Signature = () => ({ isOpen: boolean });
+
+/*************************\
+ * Custom Hook
+\*************************/
+
+export const useDropdown: Signature = () => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   
@@ -18,11 +25,6 @@ export const useDropdown = () => {
   // Hook that executes a callback if you click outside an element.
   const wrapperRef = useRef(null);
   useClickOutsideListener(wrapperRef, handleOutsideClick);
-  
-  const handleOnClick = () => {
-    setIsOpen((prevState) => (!prevState));
-  };
-  
   
   return { isOpen };
 }

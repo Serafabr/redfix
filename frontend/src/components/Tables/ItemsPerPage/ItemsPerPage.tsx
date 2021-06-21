@@ -1,6 +1,6 @@
 import { ButtonWithDropdown } from '../../Buttons';
 import { DropdownButton } from '../../Buttons/Dropdown/DropdownButton';
-import { AlignListType } from '../../Buttons/ButtonWithDropdown/ButtonWithDropdown';
+import { AlignListType } from '../../Buttons/ButtonWithDropdown/_types';
 import style from './ItemsPerPage.module.scss';
 
 const options = {

@@ -1,7 +1,8 @@
 // Third party libraries
 import { useState, useCallback } from 'react';
 // Components
-import { FilterButton, AlignListType } from '../../../../components/Buttons';
+import { FilterButton, } from '../../../../components/Buttons';
+import { AlignListType } from '../../../../components/Buttons/ButtonWithDropdown/_types';
 import { FilterDropdown } from '../../../../components/Buttons';
 // Utils
 import { 

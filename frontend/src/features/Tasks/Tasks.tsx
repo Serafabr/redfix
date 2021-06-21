@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
 import { TitleArea } from '../../components/TitleArea/TitleArea';
 import { Button } from '../../components/Buttons';
-import { ButtonWithDropdown, AlignListType } from '../../components/Buttons';
+import { ButtonWithDropdown } from '../../components/Buttons';
+import { AlignListType } from '../../components/Buttons/ButtonWithDropdown/_types';
 import { useHistory } from 'react-router-dom';
 
-import { ButtonType } from '../../components/Buttons/_types';
+import { ButtonType } from '../../components/Buttons/Button/_types';
 
 import style from './Tasks.module.scss';
 

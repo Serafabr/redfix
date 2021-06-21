@@ -5,31 +5,32 @@ import classnames from 'classnames';
 import { SelectBox } from '../../SelectBox';
 // Types
 import { OptionsType, OnSelectItemType } from '../../SelectBox/SelectBox';
+import { AlignListType } from './_types';
+import { StyleType } from '../../../types/_general';
 // CSS
 import style from './ButtonWithDropdown.module.scss';
 
 /*************************\
- * General types
+ * Auxiliary types
 \*************************/
 
-export enum AlignListType { Left, Right };
-
-type Style = {
-  [key: string]: string,
-}
+type RenderFunctionType = (
+  onClick: () => void, 
+  isOpen: boolean
+) => ReactElement<HTMLButtonElement>;
 
 /*************************\
- * Prop types
+ * PropTypes
 \*************************/
 
 type Props = {
   // This ReactElement is the Button that will be rendered with the dropdown
-  children: (onClick: () => void, isOpen: boolean) => ReactElement<HTMLButtonElement>, 
+  children: RenderFunctionType, 
   options: OptionsType,
   alignList?: AlignListType,
   openOnTop?: boolean,
   boxWidth?: number,
-  listStyle?: Style, 
+  listStyle?: StyleType, 
   searchable?: boolean,
   onSelectItem: OnSelectItemType,
   sortItems?: boolean
@@ -63,7 +64,7 @@ export const ButtonWithDropdown = ({
   
   // ListWrapper classes
   const listWrapperClasses = classnames(
-    style.ListWrapper,
+    style.ListPosition,
     {
       [style.Right]: alignList === AlignListType.Right,
       [style.Left]: alignList === AlignListType.Left,

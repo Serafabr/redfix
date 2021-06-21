@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 import { Button } from '../Buttons';
-import { ButtonType } from '../Buttons/_types';
+import { ButtonType } from '../Buttons/Button/_types';
 import { PageTitle } from '../PageTitle/PageTitle';
 import style from './TitleArea.module.scss';
 

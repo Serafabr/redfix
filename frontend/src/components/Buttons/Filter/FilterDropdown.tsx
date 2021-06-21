@@ -1,9 +1,9 @@
 // Components
 import { 
   ButtonWithDropdown, 
-  FilterButton, 
-  AlignListType 
+  FilterButton 
 } from '../';
+import { AlignListType } from '../ButtonWithDropdown/_types';
 import { 
   OnSelectItemType, 
   OptionsType, 
