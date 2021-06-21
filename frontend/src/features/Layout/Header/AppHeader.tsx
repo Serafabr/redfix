@@ -17,7 +17,10 @@ export const AppHeader = () => {
         <div className={style.AvatarWrapper}>
             <Support />
             <Notification />
-            <AvatarDropdown />
+            <AvatarDropdown 
+              name="Pedro Serafim"
+              team="Coemant"
+            />
         </div>
       </div>
     </div>

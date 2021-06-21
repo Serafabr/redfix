@@ -19,8 +19,10 @@ html {
 body {
   margin: 0;
   
-  font-family:              'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-style: normal;
+  line-height: 21px;
+  font-weight: 400;
   --webkit-font-smoothing:   antialiased;
   --moz-osx-font-smoothing:  grayscale;
 }
