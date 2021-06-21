@@ -1,11 +1,18 @@
 import defaultAvatar from '../../../assets/avatar/avatar.png';
 import style from './Avatar.module.scss';
 
+/*************************\
+ * PropTypes
+\*************************/
+
 type Props = {
   avatar?: string,
 };
 
-// Avatar image
+/*************************\
+ * Component
+\*************************/
+
 export const Avatar = ({
   avatar = defaultAvatar
 }: Props) => {
