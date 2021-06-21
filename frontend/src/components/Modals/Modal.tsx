@@ -1,6 +1,7 @@
 import { ReactNode, useState } from 'react';
 
-import { Button, ButtonType } from '../Buttons';
+import { Button } from '../Buttons';
+import { ButtonType } from '../Buttons/_types';
 import style from './Modal.module.scss';
 import closeIcon from '../../assets/icons/modal/close.svg';
 import closeIconHovered from '../../assets/icons/modal/hovered/close.svg';

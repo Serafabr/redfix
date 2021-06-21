@@ -1,5 +1,6 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
-import { Button, ButtonType } from '../../components/Buttons';
+import { Button } from '../../components/Buttons';
+import { ButtonType } from '../../components/Buttons/_types';
 
 import style from './Receipts.module.scss';
 
@@ -14,7 +15,7 @@ type ReceiptsProps = {
 
 const receiptsButtons = [
   <Button text="Novo comprovante" iconComponent={PlusIcon} />,
-  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={MoreIcon} />
+  <Button buttonType={ButtonType.Secondary} iconComponent={MoreIcon} />
 ];
 
 export const Receipts = ({

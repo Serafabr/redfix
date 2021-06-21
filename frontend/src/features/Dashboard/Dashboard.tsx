@@ -1,5 +1,6 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
-import { Button, ButtonType, FilterDropdown } from '../../components/Buttons';
+import { Button } from '../../components/Buttons';
+import { ButtonType } from '../../components/Buttons/_types';
 
 import style from './Dashboard.module.scss';
 
@@ -26,7 +27,7 @@ const dashButtons = [
   >
     {(onClick, isOpen) => {
       return (
-        <Button className={isOpen && style.OpenMoreButton} buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+        <Button className={isOpen && style.OpenMoreButton} buttonType={ButtonType.Secondary} onClick={onClick} iconComponent={MoreIcon} />
       );
     }}
   </ButtonWithDropdown>

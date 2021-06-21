@@ -1,8 +1,10 @@
 import { useState, useMemo } from 'react';
 import { TitleArea } from '../../components/TitleArea/TitleArea';
-import { Button, ButtonType } from '../../components/Buttons';
+import { Button } from '../../components/Buttons';
 import { ButtonWithDropdown, AlignListType } from '../../components/Buttons';
 import { useHistory } from 'react-router-dom';
+
+import { ButtonType } from '../../components/Buttons/_types';
 
 import style from './Tasks.module.scss';
 
@@ -67,7 +69,7 @@ const taskButtons = [
   >
     {(onClick, isOpen) => {
       return (
-        <Button buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+        <Button buttonType={ButtonType.Secondary} onClick={onClick} iconComponent={MoreIcon} />
       );
     }}
   </ButtonWithDropdown>

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-import { Button, ButtonType, PlainButton } from '../../../components/Buttons';
+import { Button, PlainButton } from '../../../components/Buttons';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { ButtonWithDropdown, AlignListType } from '../../../components/Buttons';
+import { ButtonType } from '../../../components/Buttons/_types';
 
 import { Plus as PlusIcon } from '../../../components/Icons';
 import { MoreHorizontal as MoreIcon } from '../../../components/Icons';
@@ -58,7 +59,7 @@ const taskButtons = [
   >
     {(onClick, isOpen) => {
       return (
-        <Button buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+        <Button buttonType={ButtonType.Secondary} onClick={onClick} iconComponent={MoreIcon} />
       );
     }}
   </ButtonWithDropdown>

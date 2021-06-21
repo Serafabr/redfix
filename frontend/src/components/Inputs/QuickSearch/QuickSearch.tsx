@@ -12,7 +12,7 @@ export const QuickSearch = () => {
       <div className={style.InputWrapper}>
         <Input />
       </div>
-      <Button justIcon iconComponent={Search} buttonStyle={{ borderRadius: "0 4px 4px 0" }} />
+      <Button iconComponent={Search} buttonStyle={{ borderRadius: "0 4px 4px 0" }} />
     </div>
   )
 }

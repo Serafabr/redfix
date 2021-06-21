@@ -3,22 +3,27 @@ import classNames from 'classnames';
 // Style
 import style from './Button.module.scss';
 
-// Prop types
-// Button Styles
-export enum ButtonType { Primary, Secondary }
+// Types
+import { ButtonType } from '../_types';
+
+/*************************\
+ * General types
+\*************************/
 
 type IconProps = {
   className: string,
 };
 
-// Button Props
-type ButtonProps = {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
   text?: string | null,
   buttonType?: ButtonType,
   buttonStyle?: any,
   className?: string | false,
   iconComponent?: React.ComponentType<IconProps> | null,
-  justIcon?: boolean,
   disabled?: boolean,
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
@@ -30,10 +35,9 @@ export const Button = ({
   buttonStyle,
   className,
   iconComponent: Icon = null,
-  justIcon = false,
   disabled = false,
   onClick
- }: ButtonProps) => {
+ }: Props) => {
   
   // Button classes logic
   const btnClasses = classNames(
@@ -42,7 +46,7 @@ export const Button = ({
     {
       [style.PrimaryButton]: buttonType === ButtonType.Primary,
       [style.SecondaryButton]: buttonType === ButtonType.Secondary,
-      [style.Square]: justIcon,
+      [style.Square]: (!text ? true : false),
       [style.Disabled]: disabled,
     }
   );
@@ -51,7 +55,7 @@ export const Button = ({
   return (
     <button className={btnClasses} onClick={onClick} style={buttonStyle}>
       <div className={style.ContentWrapper}>
-        {!justIcon && (
+        {text && (
           <div className={style.Text}>
             {text}
           </div>
