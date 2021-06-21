@@ -16,7 +16,7 @@ import { DataField, DataFieldPriority, DataGrid } from '../../../components/Data
 
 import { PercentageBar } from '../../../components/PercentageBar';
 import { Badge } from '../../../components/Badges';
-import { ColorType } from '../../../components/Badges/Badge';
+import { ColorType } from '../../../components/Badges/_types';
 import { CardTitle } from '../../../components/Cards/CardTitle';
 import { SingleCardContent, SingleCardHeader } from '../../../components/Cards/SingleCard';
 import { PrioritiesT } from '../../../components/DataDisplay/DataFieldPriority';

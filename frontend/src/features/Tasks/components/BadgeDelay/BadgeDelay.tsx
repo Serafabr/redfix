@@ -1,6 +1,6 @@
 import style from './BadgeDelay.module.scss';
 import { Badge } from '../../../../components/Badges'; 
-import { ColorType } from '../../../../components/Badges/Badge'; 
+import { ColorType } from '../../../../components/Badges/_types'; 
 
 export enum DelayT { Overdue, OnTime, Tomorrow, Today };
 

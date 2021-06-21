@@ -9,7 +9,7 @@ import { SingleCardHeader } from '../../../components/Cards/SingleCard';
 import { SingleCardContent } from '../../../components/Cards/SingleCard';
 
 import { Badge } from '../../../components/Badges';
-import { ColorType } from '../../../components/Badges/Badge';
+import { ColorType } from '../../../components/Badges/_types';
 
 export const TaskForm = () => {
   

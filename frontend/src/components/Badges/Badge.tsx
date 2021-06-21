@@ -1,21 +1,20 @@
+// Types
+import { ColorType } from './_types';
+//CSS
 import style from './Badge.module.scss';
 
-export enum ColorType { 
-  Red, 
-  Blue, 
-  Green, 
-  Yellow, 
-  Orange, 
-  Purple, 
-  Brown, 
-  Peach, 
-  Pink 
-}
+/*************************\
+ * PropTypes
+\*************************/
 
-type BadgeT = {
+type Props = {
   text: string,
   color: ColorType
 }
+
+/*************************\
+ * Style selection by color type
+\*************************/
 
 const ColorTypeObj = {
   [ColorType.Red]: style.Red, 
@@ -29,10 +28,14 @@ const ColorTypeObj = {
   [ColorType.Pink]: style.Pink, 
 }
 
+/*************************\
+ * Component
+\*************************/
+
 export const Badge = ({
   text,
   color
-}: BadgeT) => {
+}: Props) => {
   return (
     <div className={style.BadgeWrapper}>
       <div className={`${style.Badge} ${ColorTypeObj[color]}`}>{text}</div>

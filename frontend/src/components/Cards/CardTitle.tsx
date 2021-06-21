@@ -43,7 +43,7 @@ export const CardTitle = ({
       )}
       {badges && (
         <div className={style.CardHeaderTags}>
-          {badges}
+          {badges.map((badge) => <div style={{ marginRight: "12px" }}>{badge}</div>)}
         </div>
       )}
     </div>

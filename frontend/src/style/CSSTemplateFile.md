@@ -85,6 +85,7 @@
 * font-family
 * font-size
 * font-weight
+* line-height
 * color
 
 
@@ -95,7 +96,6 @@
 * text-transform
 * text-decoration
 * font-style
-* line-height
 * word-spacing
 * letter-spacing
 * white-space

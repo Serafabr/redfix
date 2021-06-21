@@ -1,17 +1,26 @@
+/*------------------------------------*\
+  #Badge Overall Style
+\*------------------------------------*/
+
 .BadgeWrapper {
   display: inline-block;
-  margin-right: 12px;
 }
 
 .Badge {
-  padding: 4px 12px;
   display: inline-block;
-  font: inherit;
-  font-weight: 600;
-  font-size: 0.8rem;
-  line-height: 16px;
+  
+  padding: 4px 12px;
   border-radius: 4px;
+  
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 16px;
 }
+
+/*------------------------------------*\
+  #Badge Colors
+\*------------------------------------*/
 
 .Red {
   background-color: #C2393425;
