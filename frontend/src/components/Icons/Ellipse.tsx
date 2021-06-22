@@ -34,6 +34,7 @@ function SvgEllipseBlue({
         cx={5}
         cy={5}
         r={4}
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
       />
     </svg>

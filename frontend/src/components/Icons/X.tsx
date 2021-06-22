@@ -30,7 +30,7 @@ function SvgX({
     >
       <path
         d="M12 4l-8 8M4 4l8 8"
-        
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

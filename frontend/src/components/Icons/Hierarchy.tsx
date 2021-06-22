@@ -32,7 +32,7 @@ function SvgHierarchy({
     >
       <g
         clipPath="url(#hierarchy_svg__clip0)"
-        
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

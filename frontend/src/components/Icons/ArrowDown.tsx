@@ -32,6 +32,7 @@ function SvgArrowDown({
     >
       <path
         d="M4 7l4 4 4-4"
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

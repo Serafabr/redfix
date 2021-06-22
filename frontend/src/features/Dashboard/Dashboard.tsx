@@ -6,10 +6,12 @@ import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 import { Dropdown } from '../../components/Buttons';
+import { FilterWithDropdown } from '../../components/Filters';
 import { ButtonWithDropdown } from '../../components/Buttons';
 import { AlignListType } from '../../components/Buttons/ButtonWithDropdown/_types';
 import { Modal } from '../../components/Modals';
 import { Card } from '../../components/Cards';
+import { Quick } from '../../components/Icons';
 
 type DashProps = {
   location: {
@@ -35,6 +37,12 @@ const dashButtons = [
   </ButtonWithDropdown>
 ];
 
+const options = {
+  a: {name: "teste"},
+  b: {name: "teste1"},
+  c: {name: "teste2"},
+}
+
 export const Dashboard = ({
   location
 }: DashProps) => {
@@ -47,10 +55,12 @@ export const Dashboard = ({
       />
       <Card>
         <div style={{ padding: "20px" }}>
-          <Dropdown 
-            value="Testetestestesesasdfasfdasfdte"
-            isOpen={false}
-            handleOnClick={()=>{}}
+          <FilterWithDropdown 
+            fixedName="Nome1"
+            manyOptionsName="Muitos"
+            options={options}
+            onSelectItem={()=>{}}
+            icon={Quick}
           />
         </div>
       </Card>

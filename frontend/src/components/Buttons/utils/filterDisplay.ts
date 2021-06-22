@@ -1,8 +1,11 @@
+// Types
+import { ColorType } from '../../Icons/_types';
 import { 
   OptionsType, 
   OptionType 
 } from '../../SelectBox/SelectBox';
 
+// Return an array of the selected items
 const getSelectedOptions = (options: OptionsType) => {
   return (
     Object.keys(options).reduce((selected: Array<OptionType>, nextId: string) => {
@@ -14,28 +17,30 @@ const getSelectedOptions = (options: OptionsType) => {
   );
 };
 
+// Return the display for the filter button (with dropdown)
 export const getFilterButtonDisplay = (
   options: OptionsType, 
   fixedName: string, 
   manyOptionsName: string, 
-  icon: string, 
-  activatedIcon: string
-) => {
+  iconColor?: ColorType, 
+  activatedIconColor?: ColorType, 
+): [name: string , color: ColorType | undefined ] => {
   
   // Start with the fixedName and the normal icon
-  let displayName = fixedName;
-  let displayIcon = icon;
+  let displayName: string = fixedName;
+  let displayColor: ColorType | undefined = iconColor;
   
+  // Get selected items (Array)
   const selectedItems = getSelectedOptions(options);
   
   if (selectedItems.length === 1 && selectedItems[0]) {
     displayName = selectedItems[0].name;
-    displayIcon = activatedIcon;
+    displayColor = iconColor;
   }
   if (selectedItems.length > 1) {
     displayName = `${manyOptionsName} (${selectedItems.length}) ...`;
-    displayIcon = activatedIcon;
+    displayColor = activatedIconColor;
   }
   
-  return [displayName, displayIcon];
+  return [displayName, displayColor];
 };

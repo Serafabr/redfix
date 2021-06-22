@@ -32,6 +32,7 @@ function SvgBlueCheck({
     >
       <path
         d="M12.333 1L5 8.333 1.667 5"
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

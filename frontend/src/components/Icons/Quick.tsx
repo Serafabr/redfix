@@ -32,6 +32,7 @@ function SvgQuick({
       <path
         d="M8.667 1.333L2 9.333h6l-.667 5.334 6.667-8H8l.667-5.334z"
         strokeWidth={strokeWidth}
+        stroke={strokeColor}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

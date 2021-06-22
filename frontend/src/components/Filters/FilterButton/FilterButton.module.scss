@@ -1,9 +1,5 @@
 @import "../../../style/variables";
 
-.FilterDropdown {
-  width: 250px;
-}
-
 .Button {
   background-color: white;
   border: 1px solid $gray_200;
@@ -33,31 +29,9 @@
   } 
 }
 
-.Image {
-  img {
-    height: 100%;
-  }
-}
-
 .JustIcon {
   padding: none;
   width: 40px;
-}
-
-/*------------------------------------*\
-  #If the dropdown is open, the button will change the style
-\*------------------------------------*/
-
-.Opened {
-  border:     1px solid $primary_color;
-  //box-shadow: 0px 0px 3px 1px rgba(21, 137, 238, 0.3);
-  
-  
-  &:hover,
-  &:active {
-    border:     1px solid $hovered_primary;
-    //box-shadow: 0px 0px 3px 1px rgba(21, 137, 238, 0.4);
-  }
 }
 
 .ContentWrapper {

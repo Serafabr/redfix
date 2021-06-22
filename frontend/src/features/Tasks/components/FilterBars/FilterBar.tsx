@@ -1,9 +1,8 @@
 // Third party libraries
 import { useState, useCallback } from 'react';
 // Components
-import { FilterButton, } from '../../../../components/Buttons';
+import { FilterButton, FilterWithDropdown } from '../../../../components/Filters';
 import { AlignListType } from '../../../../components/Buttons/ButtonWithDropdown/_types';
-import { FilterDropdown } from '../../../../components/Buttons';
 // Utils
 import { 
   quickInitial,
@@ -11,15 +10,20 @@ import {
   statusInitial,
 } from './config/initialFilterStates';
 // Icons
+import { Quick } from '../../../../components/Icons';
 import quickIcon from '../../../../assets/icons/quick.svg';
-import quickOrangeIcon from '../../../../assets/icons/quick-orange.svg';
+import { Users } from '../../../../components/Icons';
 import teamsIcon from '../../../../assets/icons/users.svg';
 import teamPurpleIcon from '../../../../assets/icons/users-purple.svg';
+import { List } from '../../../../components/Icons';
 import statusIcon from '../../../../assets/icons/list.svg';
 import statusGreenIcon from '../../../../assets/icons/list-green.svg';
+import { Bookmark as BookmarkIcon } from '../../../../components/Icons';
 import bookmarkIcon from '../../../../assets/icons/bookmark.svg';
 import bookmarkCheckedIcon from '../../../../assets/icons/bookmark-checked.svg';
+import { FilterWhite } from '../../../../components/Icons';
 import filterIcon from '../../../../assets/icons/filter-white.svg';
+import { FilterCancel } from '../../../../components/Icons';
 import filterIconCancel from '../../../../assets/icons/filter-cancel.svg';
 import filterIconCancelRed from '../../../../assets/icons/filter-cancel-red.svg';
 import { handleOptionSelection } from './config/handleOptionSelection';
@@ -63,13 +67,12 @@ export const FilterBar = ({
     <div className={style.FilterBar}>
       <div className={style.FilterContainer}>
         <div className={style.RightDivider}>
-          <FilterDropdown 
+          <FilterWithDropdown 
             fixedName="Filtro Rápido"
             options={quickFilter}
             onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
-            icon={quickIcon}
-            iconHeight={16}
-            activatedIcon={quickOrangeIcon}
+            icon={Quick}
+            iconSize={{ width: 16, height: 16 }}
             alignList={AlignListType.Left}
             searchable={true}
             sortItems={false}
@@ -77,28 +80,26 @@ export const FilterBar = ({
         </div>
       </div>
       <div className={style.FilterContainer}>
-        <FilterDropdown 
+        <FilterWithDropdown 
           fixedName="Equipes"
           manyOptionsName="Equipes"
           options={teamsFilter}
           onSelectItem={handleManyItemsSelection(teamsFilter, setTeamsFilter)}
-          icon={teamsIcon}
-          iconHeight={17}
-          activatedIcon={teamPurpleIcon}
+          icon={Users}
+          iconSize={{ width: 17, height: 17 }}
           alignList={AlignListType.Left}
           searchable={true}
           sortItems={true}
         />
       </div>
       <div className={style.FilterContainer}>
-        <FilterDropdown 
+        <FilterWithDropdown 
           fixedName="Status"
           manyOptionsName="Status"
           options={statusFilter}
           onSelectItem={handleManyItemsSelection(statusFilter, setStatusFilter)}
-          icon={statusIcon}
-          iconHeight={16}
-          activatedIcon={statusGreenIcon}
+          icon={List}
+          iconSize={{ width: 16, height: 16 }}
           alignList={AlignListType.Left}
           searchable={false}
           sortItems={true}
@@ -107,19 +108,19 @@ export const FilterBar = ({
       <div className={style.FilterContainer}>
         <FilterButton 
           onClick={() => {console.log('Clicked!')}}
-          iconComponent={filterIcon}
+          iconComponent={FilterWhite}
         />
       </div>
       <div className={`${style.FilterContainer} ${style.FilterAtEnd}`}>
         <FilterButton 
           onClick={handleSetBookmark}
-          iconComponent={bookmark ? bookmarkCheckedIcon : bookmarkIcon}
+          iconComponent={BookmarkIcon}
         />
       </div>
       <div className={`${style.FilterContainer} ${style.LastFilter}`}>
         <FilterButton 
           onClick={() => {console.log('Clicked!')}}
-          iconComponent={filterIconCancelRed}
+          iconComponent={FilterCancel}
         />
       </div>
     </div>

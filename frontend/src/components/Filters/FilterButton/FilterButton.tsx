@@ -1,5 +1,7 @@
 // CSS
-import style from './Filter.module.scss';
+import style from './FilterButton.module.scss';
+// Types
+import { BasicIconProps, SizeType, ColorType } from '../../Icons/_types';
 
 /*************************\
  * PropTypes
@@ -9,8 +11,9 @@ type Props = {
   text?: string,
   buttonStyle?: object,
   className?: string,
-  iconComponent?: string,
-  iconHeight?: number,
+  iconComponent?: React.ComponentType<BasicIconProps> | null,
+  iconSize?: SizeType,
+  iconColor?: ColorType,
   disabled?: boolean,
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
@@ -23,8 +26,9 @@ export const FilterButton = ({
   text,
   buttonStyle,
   className,
-  iconComponent,
-  iconHeight = 15,
+  iconComponent: Icon = null,
+  iconSize,
+  iconColor,
   onClick
 }: Props) => {
   
@@ -32,10 +36,11 @@ export const FilterButton = ({
   return (
     <button className={`${style.Button} ${className} ${!text && style.JustIcon}`} onClick={onClick} style={buttonStyle}>
       <div className={style.ContentWrapper}>
-        {iconComponent && (
-          <div className={style.Image} style={{ height: `${iconHeight}px` }}>
-            <img src={iconComponent} alt="Pesquisa rápida"/>
-          </div>
+        {Icon && (
+          <Icon 
+            {...iconSize}
+            {...iconColor}
+          />
         )}
         {text && (
           <div className={style.Text}>{text}</div>

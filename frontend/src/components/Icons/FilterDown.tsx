@@ -32,11 +32,13 @@ function SvgFilterDown({
     >
       <path
         d="M2.5 5v7m0 0L4 10.444M2.5 12L1 10.444"
+        stroke={strokeColor}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M15 5H7l3.2 3.679v2.543l1.6.778V8.679L15 5z"
+        stroke={strokeColor}
         fill="fillColor"
         strokeLinecap="round"
         strokeLinejoin="round"

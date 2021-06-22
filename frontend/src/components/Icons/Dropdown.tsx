@@ -32,6 +32,7 @@ function SvgDropdown({
     >
       <path
         d="M1 1l4 4 4-4"
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

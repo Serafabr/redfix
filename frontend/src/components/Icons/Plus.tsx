@@ -31,6 +31,7 @@ function SvgPlus({
     >
       <path
         d="M8 3.333v9.334M3.333 8h9.334"
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"

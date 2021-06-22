@@ -32,6 +32,7 @@ function SvgArrowLeft({
     >
       <path
         d="M10 4L6 8l4 4"
+        stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
