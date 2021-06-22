@@ -4,7 +4,7 @@ import { useTable } from 'react-table';
 import { Table } from '../../../../../components/Tables';
 import { dataBillings, columnsBillings, columnStyle } from './tableConfig';
 import style from './Billings.module.scss';
-import { DataField, DataGrid } from '../../../../../components/DataDisplay';
+import { DataField, DataGrid } from '../../../../../components/DataDisplays';
 import { TabPaneTitle } from '../../../../../components/TabPane';
 
 export const Billings = () => {

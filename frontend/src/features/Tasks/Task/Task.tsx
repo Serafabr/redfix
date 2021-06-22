@@ -13,14 +13,14 @@ import style from './Task.module.scss';
 import { useLocation, useParams } from 'react-router';
 import { Card, CardHeader } from '../../../components/Cards';
 import { Tabs } from '../../../components/Tabs';
-import { DataField, DataFieldPriority, DataGrid } from '../../../components/DataDisplay';
+import { DataField, DataFieldPriority, DataGrid } from '../../../components/DataDisplays';
 
 import { PercentageBar } from '../../../components/PercentageBar';
 import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/_types';
 import { CardTitle } from '../../../components/Cards/CardTitle/CardTitle';
 import { SingleCardContent, SingleCardHeader } from '../../../components/Cards';
-import { PrioritiesType } from '../../../components/DataDisplay/DataField/_types';
+import { PrioritiesType } from '../../../components/DataDisplays/DataField/_types';
 import { BadgeDelay } from '../components/BadgeDelay';
 import { DelayT } from '../components/BadgeDelay/BadgeDelay';
 

@@ -5,10 +5,10 @@ import { Line } from 'react-chartjs-2';
 import { Table } from '../../../../../components/Tables';
 import { dataMonitors, columnsMonitors, columnStyle } from './tableConfig';
 import style from './Monitors.module.scss';
-import { DataField, DataGrid } from '../../../../../components/DataDisplay';
+import { DataField, DataGrid } from '../../../../../components/DataDisplays';
 import { Dropdown } from '../../../../../components/Buttons';
 import { TabPaneTitle } from '../../../../../components/TabPane';
-import { Input, InputField } from '../../../../../components/Form';
+import { Input, InputField } from '../../../../../components/Forms';
 
 const data2 = {
   labels: ['10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021'],
