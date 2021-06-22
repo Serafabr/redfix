@@ -4,7 +4,6 @@ import { FilterButton } from '../FilterButton/FilterButton';
 import { 
   OnSelectItemType, 
   OptionsType, 
-  OptionType 
 } from '../../SelectBox/SelectBox';
 // CSS
 import style from './FilterWithDropdown.module.scss';
