@@ -5,15 +5,28 @@ import style from './Button.module.scss';
 
 // Types
 import { ButtonType } from './_types';
+import { ColorType, BasicIconProps } from '../../Icons/_types';
 
 /*************************\
- * General types
+ * Util Function
 \*************************/
 
-type IconProps = {
-  className: string,
-};
-
+const getIconColor = (buttonType: ButtonType, disabled: boolean = false) => {
+  
+  if (disabled) {
+    return { strokeColor: "#c8c8c8" };
+  }
+  
+  if (buttonType === ButtonType.Primary) {
+    return { strokeColor: "#ffffff" };
+  }
+  
+  if (buttonType === ButtonType.Secondary) {
+    return { strokeColor: "#1589EE" };
+  }
+  
+  return {};
+}
 /*************************\
  * PropTypes
 \*************************/
@@ -23,12 +36,15 @@ type Props = {
   buttonType?: ButtonType,
   buttonStyle?: any,
   className?: string | false,
-  iconComponent?: React.ComponentType<IconProps> | null,
+  iconComponent?: React.ComponentType<BasicIconProps> | null,
   disabled?: boolean,
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
 
-// Button Component
+/*************************\
+ * Component
+\*************************/
+
 export const Button = ({ 
   text = null,
   buttonType = ButtonType.Primary,
@@ -51,6 +67,7 @@ export const Button = ({
     }
   );
   
+  const iconColor: ColorType = getIconColor(buttonType, disabled);
   
   return (
     <button className={btnClasses} onClick={onClick} style={buttonStyle}>
@@ -62,7 +79,7 @@ export const Button = ({
         )}
         {Icon ? (
           <div className={style.IconWrapper}>
-            <Icon className={style.Icon} />
+            <Icon {...iconColor} />
           </div>
         ) : null}
       </div>
