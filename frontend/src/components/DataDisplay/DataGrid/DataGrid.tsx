@@ -1,15 +1,26 @@
 import { ReactNode } from 'react';
+// Style
 import style from './DataDisplay.module.scss';
 
-type DataGridT = {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
   className: string,
   children: ReactNode
 };
 
+/*************************\
+ * DataGrid Component
+ * *
+ * ClassName MUST HAVE the grid template
+\*************************/
+
 export const DataGrid = ({
   className,
   children
-}: DataGridT) => {
+}: Props) => {
   return (
     <div className={`${style.GridArea} ${className}`}>
       {children}

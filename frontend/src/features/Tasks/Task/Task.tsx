@@ -21,7 +21,7 @@ import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/_types';
 import { CardTitle } from '../../../components/Cards/CardTitle/CardTitle';
 import { SingleCardContent, SingleCardHeader } from '../../../components/Cards/SingleCard';
-import { PrioritiesT } from '../../../components/DataDisplay/DataFieldPriority';
+import { PrioritiesT } from '../../../components/DataDisplay/DataField/DataFieldPriority';
 import { BadgeDelay } from '../components/BadgeDelay';
 import { DelayT } from '../components/BadgeDelay/BadgeDelay';
 
