@@ -1,9 +1,24 @@
-import style from './Form.module.scss';
+// Components
+import { SingleCardContent } from '../../Cards';
+// Style
+import style from './FormContent.module.scss';
 
-export const FormContent = () => {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
+  children: React.ReactNode,
+};
+
+/*************************\
+ * SingleCardContent Component
+\*************************/
+
+export const FormContent = ({ children }: Props) => {
   return (
-    <div>
-      
-    </div>
+    <SingleCardContent>
+      {children}
+    </SingleCardContent>
   )
 }
