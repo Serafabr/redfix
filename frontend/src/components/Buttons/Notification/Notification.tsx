@@ -1,8 +1,14 @@
 import style from './Notification.module.scss';
 
+/*************************\
+ * Notification Component
+\*************************/
+
 export function Notification() {
   return (
-    <button className={style.Notification}>
+    <button 
+      className={style.Notification}
+    >
       <svg
         width={22}
         height={22}
