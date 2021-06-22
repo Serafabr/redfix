@@ -1,23 +1,30 @@
 import { ReactNode } from 'react';
+// Style
 import style from './DataDisplay.module.scss';
-
+// Icons
 import linkIcon from '../../assets/icons/external-link.svg';
 
-export enum IconPositionT { Start, End };
+/*************************\
+ * PropTypes
+\*************************/
 
-type DataFieldT = {
+type Props = {
   label: string,
   gridArea?: string,
   withLink?: boolean,
   children: ReactNode
 };
 
+/*************************\
+ * DataField Component
+\*************************/
+
 export const DataField = ({
   label,
   gridArea,
   withLink = false,
   children,
-}: DataFieldT) => {
+}: Props) => {
   
   const dataDisplayStyle = { gridArea };
   

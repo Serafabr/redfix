@@ -1,3 +1,3 @@
-export { DataField } from './DataField';
-export { DataFieldPriority } from './DataFieldPriority';
-export { DataGrid } from './DataGrid';
+export { DataField } from './DataField/DataField';
+export { DataFieldPriority } from './DataField/DataFieldPriority';
+export { DataGrid } from './DataGrid/DataGrid';
