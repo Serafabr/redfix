@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 // Style
-import style from './DataDisplay.module.scss';
+import style from './DataField.module.scss';
 // Icons
 import linkIcon from '../../assets/icons/external-link.svg';
 

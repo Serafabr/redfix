@@ -1,0 +1,1 @@
+export enum PrioritiesType { Low, Normal, High, Urgent };
