@@ -5,7 +5,7 @@ import { Badge } from '../../Badges';
 import style from './FormHeader.module.scss';
 // Types
 import { ColorType } from '../../Badges/_types';
-import { SituationType } from '../_types';
+import { FormSituationType } from '../_types';
 
 /*************************\
  * PropTypes
@@ -15,15 +15,15 @@ type Props = {
   title: string,
   subtitle: string,
   badgeText: string,
-  situation: SituationType,
+  situation: FormSituationType,
 };
 
 // Select badge color based on situation
 
 const badgeColor = {
-  [SituationType.Ok]: ColorType.Green,
-  [SituationType.Incomplete]: ColorType.Orange,
-  [SituationType.Error]: ColorType.Red,
+  [FormSituationType.Ok]: ColorType.Green,
+  [FormSituationType.Incomplete]: ColorType.Orange,
+  [FormSituationType.Error]: ColorType.Red,
 }
 
 /*************************\
