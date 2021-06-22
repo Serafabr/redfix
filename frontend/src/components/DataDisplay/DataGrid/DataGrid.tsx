@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 // Style
-import style from './DataDisplay.module.scss';
+import style from './DataGrid.module.scss';
 
 /*************************\
  * PropTypes

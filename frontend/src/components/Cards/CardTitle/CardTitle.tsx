@@ -4,8 +4,8 @@ import { Badge } from '../../Badges';
 // Style
 import style from './CardTitle.module.scss';
 // Icons
-import BookmarkIcon from '../../assets/icons/bookmark.svg';
-import BlueBookmarkIcon from '../../assets/icons/bookmark-checked.svg';
+import BookmarkIcon from '../../../assets/icons/bookmark.svg';
+import BlueBookmarkIcon from '../../../assets/icons/bookmark-checked.svg';
 
 /*************************\
  * PropTypes

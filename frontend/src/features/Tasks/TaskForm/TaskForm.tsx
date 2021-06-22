@@ -2,11 +2,10 @@ import style from './TaskForm.module.scss';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { useLocation, useParams } from 'react-router';
 
-import { Card } from '../../../components/Cards';
+import { Card, CardHeader } from '../../../components/Cards';
 import { CardTitle } from '../../../components/Cards/CardTitle/CardTitle';
-import { CardHeader } from '../../../components/Cards/CardHeader';
-import { SingleCardHeader } from '../../../components/Cards/SingleCard';
-import { SingleCardContent } from '../../../components/Cards/SingleCard';
+import { SingleCardHeader } from '../../../components/Cards';
+import { SingleCardContent } from '../../../components/Cards';
 
 import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/_types';

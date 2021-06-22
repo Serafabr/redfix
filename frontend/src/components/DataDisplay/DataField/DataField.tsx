@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 // Style
 import style from './DataField.module.scss';
 // Icons
-import linkIcon from '../../assets/icons/external-link.svg';
+import linkIcon from '../../../assets/icons/external-link.svg';
 
 /*************************\
  * PropTypes

@@ -3,9 +3,9 @@ import { DataField } from './DataField';
 // Style
 import style from './DataField.module.scss';
 // Icons
-import lowIcon from '../../assets/icons/priority/low-priority.svg';
-import normalIcon from '../../assets/icons/priority/normal-priority.svg';
-import highIcon from '../../assets/icons/priority/high-priority.svg';
+import lowIcon from '../../../assets/icons/priority/low-priority.svg';
+import normalIcon from '../../../assets/icons/priority/normal-priority.svg';
+import highIcon from '../../../assets/icons/priority/high-priority.svg';
 // Types
 import { PrioritiesType } from './_types';
 

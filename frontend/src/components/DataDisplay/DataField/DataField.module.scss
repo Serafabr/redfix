@@ -1,4 +1,4 @@
-@import "../../style/variables";
+@import "../../../style/variables";
 
 /*------------------------------------*\
   #DataField Overall Style
@@ -23,7 +23,7 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 21px;
-  color: #494949;
+  color: $gray_750;
 }
 
 .IconEndLine {

@@ -20,8 +20,8 @@ import { useTable } from 'react-table';
 import { ItemsPerPage } from '../../components/Tables/ItemsPerPage/ItemsPerPage';
 import { Pagination } from '../../components/Tables/Pagination/Pagination';
 import { Card } from '../../components/Cards';
-import { TableCardButtons, TableCardContent } from '../../components/Cards/TableCard';
-import { CardHeader } from '../../components/Cards/CardHeader';
+import { TableCardButtons, TableCardContent } from '../../components/Cards';
+import { CardHeader } from '../../components/Cards';
 import { columnsSupplies } from './Task/tabs/Supplies/tableConfig';
 
 const quickFilterInitial = {
