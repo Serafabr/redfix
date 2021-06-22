@@ -1,5 +1,9 @@
 @import "../../../style/variables";
 
+/*------------------------------------*\
+  #PlainButton Overall Style
+\*------------------------------------*/
+
 .PlainButton {
   border: none;
   margin: 0;
@@ -19,6 +23,10 @@
     color: $hovered_primary;
   }
 }
+
+/*------------------------------------*\
+  #Icon inside the button
+\*------------------------------------*/
 
 .IconContainer {
   display: inline-block;
