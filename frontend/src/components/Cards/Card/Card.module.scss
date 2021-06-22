@@ -1,0 +1,10 @@
+@import "../../../style/variables";
+
+.Card {
+  margin-top: 26px;
+  border: 1px solid $gray_300;
+  border-radius: 4px;
+  box-shadow: 0px 4px 10px rgba(150, 150, 150, 0.5);
+  
+  background-color: white;
+}
