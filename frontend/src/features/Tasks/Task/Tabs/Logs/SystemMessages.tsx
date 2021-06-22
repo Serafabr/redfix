@@ -16,7 +16,7 @@ export const StatusMessage = ({
   oldStatus,
   newStatus
 }: StatusMessageT) => (
-  <><span className={style.Highlight}>{user}</span> alterou o status desta tarefa de <span className={style.Highlight}>{oldStatus}</span> para <span className={style.Highlight}>{newStatus}</span></>
+  <><span className={style.Highlight}>{user}</span> alterou o status desta tarefa de <span className={style.Highlight}>{oldStatus}</span> para <span className={style.Highlight}>{newStatus}</span>.</>
 );
 
 export const DispatchMessage = ({
@@ -24,7 +24,7 @@ export const DispatchMessage = ({
   origin,
   destiny
 }: DispatchMessageT) => (
-  <><span className={style.Highlight}>{user}</span> tramitou a tarefa de <span className={style.Highlight}>{origin}</span> para <span className={style.Highlight}>{destiny}</span></>
+  <><span className={style.Highlight}>{user}</span> tramitou a tarefa de <span className={style.Highlight}>{origin}</span> para <span className={style.Highlight}>{destiny}</span>, com o seguinte despacho:</>
 );
 
 export const CreationMessage = ({
