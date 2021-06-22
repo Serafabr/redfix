@@ -1,0 +1,33 @@
+/*------------------------------------*\
+  #CardTitle Overall Style
+\*------------------------------------*/
+
+.CardTitle {
+  font: inherit;
+  color: $gray_700;
+  font-weight: 600;
+  line-height: 28px;
+  font-size: 1.428rem;
+}
+
+.CardSubtitle {
+  font: inherit;
+  font-weight: 400;
+  line-height: 21px;
+  font-size: 1rem;
+  color: $gray_400;
+  margin-top: 6px;
+}
+
+.CardBookmark {
+  margin-left: 5px;
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.CardHeaderTags {
+  display: flex;
+  margin-top: 8px;
+}

@@ -3,7 +3,7 @@ import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { useLocation, useParams } from 'react-router';
 
 import { Card } from '../../../components/Cards';
-import { CardTitle } from '../../../components/Cards/CardTitle';
+import { CardTitle } from '../../../components/Cards/CardTitle/CardTitle';
 import { CardHeader } from '../../../components/Cards/CardHeader';
 import { SingleCardHeader } from '../../../components/Cards/SingleCard';
 import { SingleCardContent } from '../../../components/Cards/SingleCard';

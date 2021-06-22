@@ -1,10 +1,17 @@
 import { ReactElement } from 'react';
-import style from './Card.module.scss';
+// Components
+import { Badge } from '../../Badges';
+// Style
+import style from './CardTitle.module.scss';
+// Icons
 import BookmarkIcon from '../../assets/icons/bookmark.svg';
 import BlueBookmarkIcon from '../../assets/icons/bookmark-checked.svg';
-import { Badge } from '../Badges';
 
-type CardTitleT = {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
   title: string,
   subtitle?: string,
   withBookmark?: boolean,
@@ -13,6 +20,10 @@ type CardTitleT = {
   badges?: Array<ReactElement<typeof Badge>>
 }
 
+/*************************\
+ * CardTitle Component
+\*************************/
+
 export const CardTitle = ({
   title,
   subtitle,
@@ -20,7 +31,7 @@ export const CardTitle = ({
   bookmarkState = false,
   setBookmarkState,
   badges,
-}: CardTitleT) => {
+}: Props) => {
   
   const handleBookmarkClick = () => {
     setBookmarkState && setBookmarkState(!bookmarkState);
