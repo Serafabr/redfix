@@ -6,7 +6,7 @@ import { Card, CardHeader } from '../../../components/Cards';
 import { CardTitle } from '../../../components/Cards/CardTitle/CardTitle';
 import { SingleCardHeader } from '../../../components/Cards';
 import { SingleCardContent } from '../../../components/Cards';
-import { FormHeader, FormContent } from '../../../components/Forms';
+import { FormHeader, FormContent, FormContainer } from '../../../components/Forms';
 import { SituationType } from '../../../components/Forms/_types';
 
 import { Badge } from '../../../components/Badges';
@@ -17,13 +17,13 @@ export const TaskForm = () => {
   const location = useLocation<string>();
   
   return (
-    <div>
+    <>
       <TitleArea 
         title={`Cadastrar tarefa`}
         path={location.pathname}
         buttons={[]}
       />
-      <Card>
+      <FormContainer>
         <FormHeader
           title="Informações gerais"
           subtitle="Informações que serão necessárias para a execução da tarefa."
@@ -42,7 +42,7 @@ export const TaskForm = () => {
         <FormContent>
           Hello
         </FormContent>
-      </Card>
-    </div>
+      </FormContainer>
+    </>
   )
 }

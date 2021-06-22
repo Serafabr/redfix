@@ -1,9 +1,24 @@
-import style from './Form.module.scss';
+// Components
+import { Card } from '../../Cards';
+// Style
+import style from './FormContainer.module.scss';
 
-export const FormContainer = () => {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
+  children: React.ReactNode,
+};
+
+/*************************\
+ * SingleCardContent Component
+\*************************/
+
+export const FormContainer = ({ children }: Props) => {
   return (
-    <div>
-      
-    </div>
+    <Card>
+      {children}
+    </Card>
   )
 }
