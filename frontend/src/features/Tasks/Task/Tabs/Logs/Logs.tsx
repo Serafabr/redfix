@@ -47,8 +47,8 @@ export const Logs = () => {
           newStatus="Em execução"
         />
         <LogItem 
-          action={LogItemActionT.Status}
-          innerMessage="Aguardando a chegada dos materiais elétricos."
+          action={LogItemActionT.Message}
+          innerMessage="Aguardando a chegada dos materiais elétricos. Aguardando a chegada dos materiais elétricos. Aguardando a chegada dos materiais elétricos. Aguardando a chegada dos materiais elétricos. Aguardando a chegada dos materiais elétricos."
           user="Felipe Brandão"
           logTime="18/01/2021 às 02:03:54 pm"
           oldStatus="Fila de espera"
