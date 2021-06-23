@@ -8,7 +8,6 @@
   position: relative;
 }
 
-
 /*------------------------------------*\
   #Dropdown Button
 \*------------------------------------*/
@@ -17,17 +16,8 @@
   display:      flex;
   align-items:  center;
   
-  padding:        10px 12px 10px 16px;
-  border:         1px solid $gray_300;
-  border-radius:  4px;
-  
-  height: 40px;
-  
-  background-color: $white_0;
-  
   // STATES
   &:hover {
-    border: 1px solid $gray_500;
     cursor: pointer;
   }
   
@@ -40,8 +30,8 @@
 .Text {
   font:         inherit;
   font-size:    1rem;
-  font-weight:  normal;
-  color:        $gray_650;
+  font-weight:  400;
+  color:        $gray_700;
   
   white-space: nowrap;
   overflow: hidden;
@@ -50,11 +40,17 @@
 }
 
 /*------------------------------------*/
-.ButtonDownArrow {
+.IconArrow {
   margin-left: auto;
   
   height: 16px;
   width:  16px;
+  
+  transition: transform 0.3s linear;
+}
+
+.IconArrowUp {
+  transform: rotate(180deg);
 }
 
 
@@ -63,13 +59,11 @@
 \*------------------------------------*/
 
 .Opened {
-  border:     1px solid $primary_color;
-  //box-shadow: 0px 0px 3px 1px rgba(21, 137, 238, 0.3);
+  border:     1px solid #1589eecc;
+  box-shadow: 0px 0px 2px 1px rgba(21, 137, 238, 0.4);
+  outline:    none;
   
-  
-  &:hover,
-  &:active {
-    border:     1px solid $hovered_primary;
-    //box-shadow: 0px 0px 3px 1px rgba(21, 137, 238, 0.4);
+  &:hover {
+    border: 1px solid #1589eeaa;
   }
 }

@@ -1,7 +1,9 @@
+import classNames from 'classnames';
 // Components
 import ArrowDown from '../../../assets/icons/arrow-down.svg';
 // Style
 import style from './Dropdown.module.scss';
+import inputBasicStyle from '../Inputs.module.scss';
 // Types
 import { StyleType } from '../../../types/_general'
 
@@ -14,6 +16,7 @@ type Props = {
   isOpen: boolean,
   handleOnClick: () => void,
   buttonStyle?: StyleType,
+  error?: boolean,
 };
 
 /*************************\
@@ -25,16 +28,34 @@ export const Dropdown = ({
   isOpen,
   handleOnClick,
   buttonStyle,
+  error = false,
 }: Props) => {
+  
+  const dropdownClasses = classNames(
+    inputBasicStyle.Input,
+    inputBasicStyle.ActiveInput,
+    style.DropdownButton,
+    {
+      [style.Opened]: isOpen,
+      [inputBasicStyle.InputError]: error,
+    },
+  );
+  
+  const iconClasses = classNames(
+    style.IconArrow,
+    {
+      [style.IconArrowUp]: isOpen,
+    },
+  );
   
   return (
     <button
-      className={`${style.DropdownButton} ${isOpen && style.Opened}`}
+      className={dropdownClasses}
       onClick={handleOnClick}
       style={buttonStyle}
     >
       <div className={style.Text}>{value}</div>
-      <div className={style.ButtonDownArrow}>
+      <div className={iconClasses}>
         <img src={ArrowDown} alt="Ícone dropdown"/>
       </div>
     </button>

@@ -24,10 +24,11 @@ export const Input = ({
 }: Props) => {
   
   const inputClasses = classNames(
-    inputBasicStyle.BasicInput,
+    inputBasicStyle.Input,
+    inputBasicStyle.ActiveInput,
     inputClassName,
     {
-      [inputBasicStyle.BasicInputError]: error
+      [inputBasicStyle.InputError]: error
     },
   );
   

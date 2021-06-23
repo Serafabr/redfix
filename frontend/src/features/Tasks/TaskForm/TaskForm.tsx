@@ -8,6 +8,7 @@ import { SingleCardHeader } from '../../../components/Cards';
 import { SingleCardContent } from '../../../components/Cards';
 import { FormHeader, FormContent, FormContainer } from '../../../components/Forms';
 import { FormSituationType } from '../../../components/Forms/_types';
+import { AddSelectBox } from '../../../components/Buttons';
 
 import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/_types';
@@ -34,7 +35,7 @@ export const TaskForm = () => {
         />
         <FormContent>
           <InputField
-            label="Título da tarefa"
+            label="Tarefa"
             error={false}
             errorMessage={"Valor incorreto!"}
           >
@@ -46,12 +47,19 @@ export const TaskForm = () => {
               error={false}
               errorMessage={"Valor incorreto!"}
             >
-              <Dropdown 
-                value={"Teste"}
-                isOpen={false}
-                handleOnClick={()=>{}}
-                buttonStyle={{ width: "100%" }}
-              />
+              <AddSelectBox
+                options={{a: {name: "AAAA"}}}
+                onSelectItem={()=>{}}
+              >
+                {(onClick, isOpen) => (
+                  <Dropdown 
+                    value={"Teste"}
+                    isOpen={isOpen}
+                    handleOnClick={onClick}
+                    error={false}
+                  />
+                )}
+              </AddSelectBox>
             </InputField>
           </div>
         </FormContent>
