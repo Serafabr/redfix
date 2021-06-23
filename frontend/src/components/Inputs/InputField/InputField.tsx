@@ -38,8 +38,14 @@ export const InputField = ({
   // Render component
   return (
     <div>
-      {label && <label className={labelClasses}>{label}</label>}
-      {children}
+      {label && (
+        <div>
+          <label className={labelClasses}>{label}</label>
+        </div>
+      )}
+      <div>
+        {children}
+      </div>
       {error && errorMessage && (
         <div className={style.ErrorMessageWrapper}>
           <CircleAlert strokeColor="#c23934" />

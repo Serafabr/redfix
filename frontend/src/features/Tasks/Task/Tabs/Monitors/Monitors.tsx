@@ -6,7 +6,7 @@ import { Table } from '../../../../../components/Tables';
 import { dataMonitors, columnsMonitors, columnStyle } from './tableConfig';
 import style from './Monitors.module.scss';
 import { DataField, DataGrid } from '../../../../../components/DataDisplays';
-import { Dropdown } from '../../../../../components/Buttons';
+import { Dropdown } from '../../../../../components/Inputs';
 import { TabPaneTitle } from '../../../../../components/TabPane';
 import { Input, InputField } from '../../../../../components/Inputs';
 

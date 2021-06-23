@@ -1,9 +1,9 @@
 import style from './Cells.module.scss';
 
 import moreButton from '../../../assets/icons/tables/more-vertical.svg';
-import { ButtonWithDropdown } from '../../Buttons/';
+import { AddSelectBox } from '../../Buttons/';
 import { OptionType, OptionsType } from '../../SelectBox/SelectBox';
-import { AlignListType } from '../../Buttons/ButtonWithDropdown/_types';
+import { AlignListType } from '../../Buttons/AddSelectBox/_types';
 
 const options: OptionsType = {
   editSupply: { name: 'Editar item' },
@@ -19,7 +19,7 @@ export const MoreButton = () => {
   };
   
   return (
-      <ButtonWithDropdown
+      <AddSelectBox
         options={options}
         alignList={AlignListType.Right}
         boxWidth={140}
@@ -31,12 +31,12 @@ export const MoreButton = () => {
             <img src={moreButton} alt="Opções" />
           </div>
         )}
-      </ButtonWithDropdown>
+      </AddSelectBox>
   )
 }
 
 
-{/* <ButtonWithDropdown 
+{/* <AddSelectBox 
         options={options}
         alignList={alignList}
         boxWidth={220}
@@ -52,4 +52,4 @@ export const MoreButton = () => {
             onClick={onClick}
           />
         )}
-      </ButtonWithDropdown> */}
+      </AddSelectBox> */}

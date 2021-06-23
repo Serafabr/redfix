@@ -12,6 +12,7 @@ import { FormSituationType } from '../../../components/Forms/_types';
 import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/_types';
 import { Input, InputField } from '../../../components/Inputs';
+import { Dropdown } from '../../../components/Inputs'; 
 
 export const TaskForm = () => {
   
@@ -39,6 +40,20 @@ export const TaskForm = () => {
           >
             <Input placeholder="Teste" error={false} />
           </InputField>
+          <div style={{ width: "40%", marginTop: "30px" }}>
+            <InputField
+              label="Status"
+              error={false}
+              errorMessage={"Valor incorreto!"}
+            >
+              <Dropdown 
+                value={"Teste"}
+                isOpen={false}
+                handleOnClick={()=>{}}
+                buttonStyle={{ width: "100%" }}
+              />
+            </InputField>
+          </div>
         </FormContent>
         <FormHeader
           title="Datas e prazos"

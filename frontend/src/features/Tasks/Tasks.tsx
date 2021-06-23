@@ -1,8 +1,8 @@
 import { useState, useMemo } from 'react';
 import { TitleArea } from '../../components/TitleArea/TitleArea';
 import { Button } from '../../components/Buttons';
-import { ButtonWithDropdown } from '../../components/Buttons';
-import { AlignListType } from '../../components/Buttons/ButtonWithDropdown/_types';
+import { AddSelectBox } from '../../components/Buttons';
+import { AlignListType } from '../../components/Buttons/AddSelectBox/_types';
 import { useHistory } from 'react-router-dom';
 
 import { ButtonType } from '../../components/Buttons/Button/_types';
@@ -56,7 +56,7 @@ type TasksProps = {
 
 const taskButtons = [
   <Button text="Nova tarefa" iconComponent={PlusIcon} />,
-  <ButtonWithDropdown 
+  <AddSelectBox 
     options={{
       customize: { name: 'Customizar tabela' },
       exportCSV: { name: 'Exportar para CSV' },
@@ -72,7 +72,7 @@ const taskButtons = [
         <Button buttonType={ButtonType.Secondary} onClick={onClick} iconComponent={MoreIcon} />
       );
     }}
-  </ButtonWithDropdown>
+  </AddSelectBox>
 ];
 
 

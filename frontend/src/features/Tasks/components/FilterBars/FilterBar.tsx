@@ -2,7 +2,7 @@
 import { useState, useCallback } from 'react';
 // Components
 import { FilterButton, FilterWithDropdown } from '../../../../components/Filters';
-import { AlignListType } from '../../../../components/Buttons/ButtonWithDropdown/_types';
+import { AlignListType } from '../../../../components/Buttons/AddSelectBox/_types';
 // Utils
 import { 
   quickInitial,

@@ -1,6 +1,6 @@
-import { ButtonWithDropdown } from '../../Buttons';
-import { Dropdown } from '../../Buttons';
-import { AlignListType } from '../../Buttons/ButtonWithDropdown/_types';
+import { AddSelectBox } from '../../Buttons';
+import { Dropdown } from '../../Inputs';
+import { AlignListType } from '../../Buttons/AddSelectBox/_types';
 import style from './ItemsPerPage.module.scss';
 
 const options = {
@@ -18,7 +18,7 @@ export const ItemsPerPage = () => {
         Itens por página
       </div>
       <div>
-        <ButtonWithDropdown 
+        <AddSelectBox 
           options={options}
           alignList={AlignListType.Left}
           openOnTop
@@ -35,7 +35,7 @@ export const ItemsPerPage = () => {
               }}
             />
           )}
-        </ButtonWithDropdown>
+        </AddSelectBox>
       </div>
     </div>
   )

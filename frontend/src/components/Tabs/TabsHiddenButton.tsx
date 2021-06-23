@@ -1,5 +1,5 @@
 // Components
-import { ButtonWithDropdown } from '../Buttons';
+import { AddSelectBox } from '../Buttons';
 // Types
 import { TabViews } from './Tabs';
 import { OptionsType } from '../SelectBox/SelectBox';
@@ -28,7 +28,7 @@ export const TabsHiddenButton = ({
   }
   
   return (
-    <ButtonWithDropdown
+    <AddSelectBox
       options={options}
       boxWidth={150}
       onSelectItem={setActivateKey}
@@ -38,6 +38,6 @@ export const TabsHiddenButton = ({
         <div className={`${style.TabItem} ${style.HiddenButton} ${Object.keys(hiddenTabs).includes(activateKey) && style.Activated}`} onClick={onClick}>...</div>
         //<div onClick={onClick}>...</div>
       )}
-    </ButtonWithDropdown>
+    </AddSelectBox>
   );
 };

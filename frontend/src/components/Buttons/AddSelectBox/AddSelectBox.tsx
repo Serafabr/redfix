@@ -8,7 +8,7 @@ import { OptionsType, OnSelectItemType } from '../../SelectBox/SelectBox';
 import { AlignListType } from './_types';
 import { StyleType } from '../../../types/_general';
 // CSS
-import style from './ButtonWithDropdown.module.scss';
+import style from './AddSelectBox.module.scss';
 
 /*************************\
  * Auxiliary types
@@ -37,10 +37,10 @@ type Props = {
 };
 
 /*************************\
- * ButtonWithDropdown Component
+ * AddSelectBox Component
 \*************************/
 
-export const ButtonWithDropdown = ({ 
+export const AddSelectBox = ({ 
   children,
   options, 
   alignList = AlignListType.Left,

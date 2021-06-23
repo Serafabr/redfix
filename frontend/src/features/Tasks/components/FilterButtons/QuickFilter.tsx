@@ -1,6 +1,6 @@
 export {};
 
-// import { ButtonWithDropdown, FilterButton, AlignList } from '../../../../components/Buttons';
+// import { AddSelectBox, FilterButton, AlignList } from '../../../../components/Buttons';
 // import { OnSelectItemType } from '../../../../components/SelectBox/SelectBox';
 // import style from './FilterButton.module.scss';
 
@@ -60,7 +60,7 @@ export {};
   
 //   return (
 //     <div>
-//       <ButtonWithDropdown 
+//       <AddSelectBox 
 //         listItems={quickFilterItems}
 //         selected={selected}
 //         alignList={AlignList.Left}
@@ -75,7 +75,7 @@ export {};
 //             onClick={onClick}
 //           />
 //         )}
-//       </ButtonWithDropdown>
+//       </AddSelectBox>
 //     </div>
 //   )
 // }

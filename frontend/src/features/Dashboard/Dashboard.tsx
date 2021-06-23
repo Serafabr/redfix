@@ -5,10 +5,10 @@ import { ButtonType } from '../../components/Buttons/Button/_types';
 import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
-import { Dropdown } from '../../components/Buttons';
+import { Dropdown } from '../../components/Inputs';
 import { FilterWithDropdown } from '../../components/Filters';
-import { ButtonWithDropdown } from '../../components/Buttons';
-import { AlignListType } from '../../components/Buttons/ButtonWithDropdown/_types';
+import { AddSelectBox } from '../../components/Buttons';
+import { AlignListType } from '../../components/Buttons/AddSelectBox/_types';
 import { Modal } from '../../components/Modals';
 import { Card } from '../../components/Cards';
 import { Quick } from '../../components/Icons';
@@ -20,7 +20,7 @@ type DashProps = {
 };
 
 const dashButtons = [
-  <ButtonWithDropdown 
+  <AddSelectBox 
     options={{
       '1': { name: 'Teste1' },
       '2': { name: 'Teste2' }
@@ -34,7 +34,7 @@ const dashButtons = [
         <Button className={isOpen && style.OpenMoreButton} buttonType={ButtonType.Secondary} onClick={onClick} iconComponent={MoreIcon} />
       );
     }}
-  </ButtonWithDropdown>
+  </AddSelectBox>
 ];
 
 const options = {

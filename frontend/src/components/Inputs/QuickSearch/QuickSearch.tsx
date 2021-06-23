@@ -2,8 +2,8 @@
 import { Button } from '../../Buttons';
 import style from './QuickSearch.module.scss';
 import { Search } from '../../Icons';
-import { Dropdown } from '../../Buttons';
-import { Input } from '../Input/Input';
+import { Dropdown } from '../../Inputs';
+import { Input } from '../../Inputs';
 
 export const QuickSearch = () => {
   return (
