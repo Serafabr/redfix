@@ -336,11 +336,11 @@ create table billings (
   billing_id integer primary key generated always as identity,
   depot_id integer not null references depots (depot_id),
   description text not null,
-  paid boolean not null,
+  is_paid boolean not null,
   date_start date not null,
   date_end date not null,
   date_payment date,
-  amount_paid numeric,
+  amount numeric,
   note text
 );
 
