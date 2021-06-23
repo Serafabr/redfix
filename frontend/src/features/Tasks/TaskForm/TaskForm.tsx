@@ -11,6 +11,7 @@ import { FormSituationType } from '../../../components/Forms/_types';
 
 import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/_types';
+import { Input, InputField } from '../../../components/Inputs';
 
 export const TaskForm = () => {
   
@@ -31,7 +32,13 @@ export const TaskForm = () => {
           situation={FormSituationType.Incomplete}
         />
         <FormContent>
-          Hello
+          <InputField
+            label="Título da tarefa"
+            error={false}
+            errorMessage={"Valor incorreto!"}
+          >
+            <Input placeholder="Teste" error={false} />
+          </InputField>
         </FormContent>
         <FormHeader
           title="Datas e prazos"

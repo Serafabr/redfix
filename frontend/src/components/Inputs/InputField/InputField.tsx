@@ -1,47 +1,44 @@
 import classNames from 'classnames';
 import { ReactNode } from 'react';
-
+// Icons
 import { CircleAlert } from '../../Icons';
+// Style
 import style from './InputField.module.scss';
 
-// Prop Types
+/*************************\
+ * PropTypes
+\*************************/
+
 type Props = {
   label?: string | null,
-  inputClassName?: string,
   error?: boolean,
   errorMessage?: string | null,
   children: ReactNode,
 };
 
-// Input Component
+/*************************\
+ * InputField Component
+\*************************/
+
 export const InputField = ({
   label = null,
-  inputClassName,
   error = false,
   errorMessage = null,
   children,
 }: Props) => {
   
-  // Classes
-  const legendClasses = classNames(
+  // Label classes
+  const labelClasses = classNames(
     style.Legend,
     {
       [style.LegendError]: error
     },
   );
   
-  const inputClasses = classNames(
-    style.Input,
-    inputClassName,
-    {
-      [style.InputError]: error
-    },
-  );
-  
   // Render component
   return (
     <div>
-      {label && <label className={legendClasses}>{label}</label>}
+      {label && <label className={labelClasses}>{label}</label>}
       {children}
       {error && errorMessage && (
         <div className={style.ErrorMessageWrapper}>
