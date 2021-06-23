@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 //Style
 import style from './Input.module.scss';
+import inputBasicStyle from '../Inputs.module.scss';
 
 /*************************\
  * PropTypes
@@ -23,10 +24,10 @@ export const Input = ({
 }: Props) => {
   
   const inputClasses = classNames(
-    style.Input,
+    inputBasicStyle.BasicInput,
     inputClassName,
     {
-      [style.InputError]: error
+      [inputBasicStyle.BasicInputError]: error
     },
   );
   
