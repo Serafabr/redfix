@@ -1,33 +1,26 @@
 import classNames from 'classnames';
-
-import { CircleAlert } from '../../Icons';
+//Style
 import style from './Input.module.scss';
 
-// Prop Types
+/*************************\
+ * PropTypes
+\*************************/
+
 type Props = {
-  label?: string | null,
   inputClassName?: string,
   error?: boolean,
-  errorMessage?: string | null,
   [any: string]: any
 };
 
-// Input Component
+/*************************\
+ * Input component
+\*************************/
+
 export const Input = ({
-  label = null,
   inputClassName,
   error = false,
-  errorMessage = null,
   ...rest
 }: Props) => {
-  
-  // Classes
-  const legendClasses = classNames(
-    style.Legend,
-    {
-      [style.LegendError]: error
-    },
-  );
   
   const inputClasses = classNames(
     style.Input,
@@ -37,17 +30,7 @@ export const Input = ({
     },
   );
   
-  // Render component
   return (
-    <div>
-      {label && <label className={legendClasses}>{label}:</label>}
-      <input className={inputClasses} {...rest}/>
-      {error && errorMessage && (
-        <div className={style.ErrorMessageWrapper}>
-          <CircleAlert strokeColor="#c23934" />
-          <div className={style.ErrorTextMessage}>{errorMessage}</div>
-        </div>
-      )}
-    </div>
+    <input className={inputClasses} {...rest}/>
   )
 }

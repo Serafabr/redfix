@@ -8,7 +8,7 @@ import style from './Monitors.module.scss';
 import { DataField, DataGrid } from '../../../../../components/DataDisplays';
 import { Dropdown } from '../../../../../components/Buttons';
 import { TabPaneTitle } from '../../../../../components/TabPane';
-import { Input, InputField } from '../../../../../components/Forms';
+import { Input, InputField } from '../../../../../components/Inputs';
 
 const data2 = {
   labels: ['10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021', '10/01/2021'],
