@@ -14,6 +14,7 @@ import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/_types';
 import { Input, InputField } from '../../../components/Inputs';
 import { Dropdown } from '../../../components/Inputs'; 
+import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch';
 
 export const TaskForm = () => {
   
@@ -61,6 +62,9 @@ export const TaskForm = () => {
                 )}
               </AddSelectBox>
             </InputField>
+          </div>
+          <div style={{ width: "50%", marginTop: "30px" }}>
+            <QuickSearch />
           </div>
         </FormContent>
         <FormHeader
