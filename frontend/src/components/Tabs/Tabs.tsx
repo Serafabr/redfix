@@ -1,48 +1,31 @@
-// Third-party imports
 import { useState, useRef, ReactNode, MouseEvent } from 'react';
-// Hooks
+// Components
+import { TabsHiddenButton } from './TabsHiddenButton';
+// Custom hooks
 import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
 // Utilities
 import { getNumberOfTabs, getVisibleTabs, getHiddenTabsObject } from './utils/tabs';
-// CSS
+// Style
 import style from './Tabs.module.scss';
-import { TabsHiddenButton } from './TabsHiddenButton';
-// Icons
-import checkIcon from '../../assets/icons/check-blue.svg';
-import plusIcon from '../../assets/icons/plus-blue.svg';
-
-/*************************\
- * General types
-\*************************/
-
-export type TabsType = Array<string>;
-
-export type TabView = {
-  name: string,
-  view: ReactNode;
-  buttons: Array<ReactNode>
-};
-
-export type TabViews = {
-  [id: string]: TabView
-};
-
-export type TabsPerSize = {
-  [size: number]: number
-};
-
-export type ActivateKey = string;
+// Types
+import {
+  TabsType,
+  TabViewType,
+  TabViewsType,
+  TabsPerSizeType,
+  ActiveKeyType
+} from './_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
-type TabsProps = {
+type Props = {
   tabs: TabsType,
-  tabViews: TabViews,
-  tabsPerSize?: TabsPerSize,
-  activateKey: ActivateKey,
-  setActivateKey: (id: string) => void
+  tabViews: TabViewsType,
+  tabsPerSize?: TabsPerSizeType,
+  activeKey: ActiveKeyType,
+  setActiveKey: (id: string) => void
 }
 
 /*************************\
@@ -53,9 +36,9 @@ export const Tabs = ({
   tabs,
   tabViews,
   tabsPerSize = {},
-  activateKey,
-  setActivateKey
-}: TabsProps) => {
+  activeKey,
+  setActiveKey
+}: Props) => {
   
   const tabsLength = tabs.length;
   
@@ -74,52 +57,38 @@ export const Tabs = ({
   const hiddenTabsLength = hiddenTabKeys.length;
   
   // Handle functions
-  
   const handleTabOnClick = (event: MouseEvent) => {
-    setActivateKey((event.target as any).id);
+    setActiveKey((event.target as any).id);
   }  
   
+  // Render component
   return (
     <div>
       <div className={style.Tabs}>
         <div className={style.TabsContainer} ref={tabsRef}>
           <ul className={style.TabList}>
             {visibleTabKeys.map((tab: string) => (
-              <li id={tab} className={`${style.TabItem} ${activateKey === tab && style.Activated}`} onClick={handleTabOnClick}>{tabViews[tab].name}</li>
+              <li id={tab} className={`${style.TabItem} ${activeKey === tab && style.Activated}`} onClick={handleTabOnClick}>{tabViews[tab].name}</li>
             ))}
             {hiddenTabsLength > 0 && (
               <TabsHiddenButton 
                 hiddenTabs={getHiddenTabsObject(tabViews, hiddenTabKeys)}
-                activateKey={activateKey}
-                setActivateKey={setActivateKey}
+                activeKey={activeKey}
+                setActiveKey={setActiveKey}
               />
             )}
           </ul>
         </div>
         <div className={style.ButtonsContainer}>
-          {tabViews[activateKey].buttons.map((button: any) => (
+          {tabViews[activeKey].buttons.map((button: any) => (
             <div className={style.ButtonDivider}>
               {button}
             </div>
           ))}
-          {/* <div className={style.TabButtonDivider}>
-            <button className={style.TabButton}>
-              Aprovar
-              <div className={style.ImgContainer}>
-                <img src={checkIcon} alt="Aprovar" />
-              </div>
-            </button>
-          </div>
-          <button className={style.TabButton}>
-            Adicionar
-            <div className={style.ImgContainer}>
-              <img src={plusIcon} alt="Adicionar" />
-            </div>
-          </button> */}
         </div>
       </div>
       <div className={style.TabPane}>
-        {tabViews[activateKey].view}
+        {tabViews[activeKey].view}
       </div>
     </div>
   )

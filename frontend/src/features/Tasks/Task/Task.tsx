@@ -135,8 +135,8 @@ export const Task = () => {
           tabs={tabs}
           tabViews={tabConfig}
           tabsPerSize={tabsPerSize}
-          activateKey={activateKeyTabs}
-          setActivateKey={setActivateKeyTabs}
+          activeKey={activateKeyTabs}
+          setActiveKey={setActivateKeyTabs}
         />
       </Card>
     </div>

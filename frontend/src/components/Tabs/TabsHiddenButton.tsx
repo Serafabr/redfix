@@ -1,7 +1,7 @@
 // Components
 import { AddSelectBox } from '../Buttons';
 // Types
-import { TabViews } from './Tabs';
+import { TabViewsType } from './_types';
 import { OptionsType } from '../SelectBox/_types';
 //CSS
 import style from './Tabs.module.scss';
@@ -10,33 +10,37 @@ import style from './Tabs.module.scss';
  * PropTypes
 \*************************/
 
-type TabsHiddenButtonProps = {
-  hiddenTabs: TabViews,
-  activateKey: string,
-  setActivateKey: (key: string) => void
+type Props = {
+  hiddenTabs: TabViewsType,
+  activeKey: string,
+  setActiveKey: (key: string) => void
 }
+
+/*************************\
+ * TabsHiddenButton component
+\*************************/
 
 export const TabsHiddenButton = ({
   hiddenTabs,
-  activateKey,
-  setActivateKey
-}: TabsHiddenButtonProps) => {
+  activeKey,
+  setActiveKey
+}: Props) => {
   
+  // Tab selection
   const options: OptionsType = {...hiddenTabs};
-  if (Object.keys(options).includes(activateKey)) {
-    options[activateKey] = {...options[activateKey], selected: true}
+  if (Object.keys(options).includes(activeKey)) {
+    options[activeKey] = {...options[activeKey], selected: true}
   }
   
+  // Render
   return (
     <AddSelectBox
       options={options}
       boxWidth={150}
-      onSelectItem={setActivateKey}
+      onSelectItem={setActiveKey}
     >
       {(onClick, isOpen) => (
-        //<li className={`${style.TabItem} ${style.HiddenButton}`} onClick={onClick}>...</li>
-        <div className={`${style.TabItem} ${style.HiddenButton} ${Object.keys(hiddenTabs).includes(activateKey) && style.Activated}`} onClick={onClick}>...</div>
-        //<div onClick={onClick}>...</div>
+        <div className={`${style.TabItem} ${style.HiddenButton} ${Object.keys(hiddenTabs).includes(activeKey) && style.Activated}`} onClick={onClick}>...</div>
       )}
     </AddSelectBox>
   );
