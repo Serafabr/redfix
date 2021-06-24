@@ -15,7 +15,7 @@ import { Card, CardHeader } from '../../../components/Cards';
 import { Tabs } from '../../../components/Tabs';
 import { DataField, DataFieldPriority, DataGrid } from '../../../components/DataDisplays';
 
-import { PercentageBar } from '../../../components/PercentageBar';
+import { PercentageBar } from '../../../components/ProgressBar';
 import { Badge } from '../../../components/Badges';
 import { ColorType } from '../../../components/Badges/_types';
 import { CardTitle } from '../../../components/Cards/CardTitle/CardTitle';
