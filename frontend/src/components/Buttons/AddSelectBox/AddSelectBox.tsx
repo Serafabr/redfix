@@ -4,7 +4,7 @@ import classnames from 'classnames';
 // Components
 import { SelectBox } from '../../SelectBox';
 // Types
-import { OptionsType, OnSelectItemType } from '../../SelectBox/SelectBox';
+import { OptionsType, OnSelectItemType } from '../../SelectBox/_types';
 import { AlignListType } from './_types';
 import { StyleType } from '../../../types/_general';
 // CSS

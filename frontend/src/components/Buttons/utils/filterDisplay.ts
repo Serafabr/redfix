@@ -3,7 +3,7 @@ import { ColorType } from '../../Icons/_types';
 import { 
   OptionsType, 
   OptionType 
-} from '../../SelectBox/SelectBox';
+} from '../../SelectBox/_types';
 
 // Return an array of the selected items
 const getSelectedOptions = (options: OptionsType) => {

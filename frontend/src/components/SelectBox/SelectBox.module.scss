@@ -1,11 +1,6 @@
 @import "../../style/variables";
 
 .SelectBox {
-  // position: absolute;
-  // top:      8px;
-  // left:     0px;
-  // z-index:  10;
-  
   width: 100%;
   
   padding-bottom: 10px;
@@ -13,9 +8,9 @@
 }
 
 .ListWrapper {
-  border:         1px solid #d0d0d0;
+  border:         1px solid #cccccc;
   border-radius:  4px;
-  box-shadow:     0px 4px 10px rgba(203, 203, 203, 0.40);
+  box-shadow:     0px 4px 6px rgba(203, 203, 203, 0.60);
   
   background-color: $white_0;
 }
@@ -69,10 +64,10 @@
   display: flex;
   justify-content: space-between;
   
-  font:   inherit;
-  color:  $gray_500;
+  // font:   inherit;
+  // color:  $gray_500;
   
-  line-height: 21px;
+  // line-height: 21px;
   
   overflow-x: hidden;
   
@@ -80,28 +75,42 @@
   &:hover {
     background-color: $gray_50;
     cursor:           pointer;
-    color:            $gray_700;
+    
+    .TextItem {
+      color: $gray_800;
+    }
   }
 
 }
 
 .TextItem {
   max-width: 100%;
+  
+  font:   inherit;
+  color:  $gray_600;
+  line-height: 21px;
+  
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .Selected {
-  font-weight: 600;
-  color: $gray_700;
+  background-color: $gray_25;
+  
+  .TextItem {
+    font-weight: 600;
+    color: $gray_900;
+  }
 }
 
 .NoResult {
-  text-align: center;
   margin:   0;
   padding:  8px 15px;
+  
   font:   inherit;
-  color: #d6827f;
   font-size: 0.95rem;
+  color: #d6827f;
+  
+  text-align: center;
 }

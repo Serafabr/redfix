@@ -1,14 +1,14 @@
-import { Button } from '../../Buttons';
-
-import style from './QuickSearch.module.scss';
-import { Search } from '../../Icons';
-import { Dropdown } from '../../Inputs';
-import { Input } from '../../Inputs';
-import { AddSelectBox } from '../../Buttons';
 import { useState } from 'react';
+// Components
+import { Button } from '../../Buttons';
+import { Search } from '../../Icons';
+import { Dropdown, Input } from '../../Inputs';
+import { AddSelectBox } from '../../Buttons';
+// Style
+import style from './QuickSearch.module.scss';
+// Types
+import { OptionsType, OnSelectItemType } from '../../SelectBox/_types';
 
-import { OptionsType } from '../../SelectBox/SelectBox';
-import { OnSelectItemType } from '../../SelectBox/SelectBox';
 
 /*************************\
  * Configuration
@@ -47,7 +47,7 @@ export const QuickSearch = () => {
         <AddSelectBox
           options={options}
           onSelectItem={handleSelectItem}
-          boxWidth={180}
+          boxWidth={190}
         >
           {(onClick, isOpen)=> (
             <Dropdown buttonStyle={{ borderRadius: "4px 0 0 4px", zIndex: "10" }} value={options[searchEntity].name} isOpen={isOpen} handleOnClick={onClick} />

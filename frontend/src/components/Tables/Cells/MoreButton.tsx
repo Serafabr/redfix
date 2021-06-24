@@ -2,7 +2,7 @@ import style from './Cells.module.scss';
 
 import moreButton from '../../../assets/icons/tables/more-vertical.svg';
 import { AddSelectBox } from '../../Buttons/';
-import { OptionType, OptionsType } from '../../SelectBox/SelectBox';
+import { OptionType, OptionsType } from '../../SelectBox/_types';
 import { AlignListType } from '../../Buttons/AddSelectBox/_types';
 
 const options: OptionsType = {

@@ -1,4 +1,4 @@
-import { OptionsType } from '../SelectBox';
+import { OptionsType } from '../_types';
 
 /*************************\
  * General types

@@ -2,35 +2,20 @@
 import { FormEvent, useState } from 'react';
 // Components
 import { SearchInput } from '../Inputs'
-import blueCheckIcon from '../../assets/icons/blue-check.svg';
 // Hooks
 import { useClickOutsideListener } from '../../hooks';
 // Types
+import { 
+  OptionType, 
+  OptionsType, 
+  OnSelectItemType, 
+} from './_types';
 import { refProps } from '../../hooks/useClickOutsideListener';
 // CSS
 import style from './SelectBox.module.scss';
 import { sortAndFilterOptionIds } from './utils/orderItems';
-
-/*************************\
- * General types
-\*************************/
-
-type Style = {
-  [key: string]: string,
-}
-
-export type OptionType = {
-  name: string,
-  selected?: boolean,
-}
-
-export type OptionsType = {
-  [itemId: string]: OptionType,
-};
-
-export type OnSelectItemType = (id: string) => void;
-
-export type clickOutsideRefType = refProps;
+// Icons
+import blueCheckIcon from '../../assets/icons/blue-check.svg';
 
 /*************************\
  * PropTypes
@@ -40,7 +25,7 @@ type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
   items: OptionsType,
-  clickOutsideRef: clickOutsideRefType,
+  clickOutsideRef: refProps,
   onSelectItem: OnSelectItemType,
   sortItems: boolean,
 };

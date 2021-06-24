@@ -2,7 +2,7 @@
 import { AddSelectBox } from '../Buttons';
 // Types
 import { TabViews } from './Tabs';
-import { OptionsType } from '../SelectBox/SelectBox';
+import { OptionsType } from '../SelectBox/_types';
 //CSS
 import style from './Tabs.module.scss';
 
