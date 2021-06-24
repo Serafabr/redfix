@@ -1,0 +1,1 @@
+export { TitleArea } from './TitleArea';
