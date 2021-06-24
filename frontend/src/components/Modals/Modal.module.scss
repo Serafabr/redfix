@@ -1,54 +1,72 @@
+/*------------------------------------*\
+  #Modal Overall Style
+\*------------------------------------*/
+
 .Modal {
   position: fixed;
+  top: -100%;
+  left: 0;
+  z-index: 20;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 20;
-  left: 0;
-  top: 0;
+  
   height: 100%;
   width: 100%;
+  
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  
+  transition: top 0.4s, opacity 0.4s;
 }
 
-.Closed {
-  display: none;
+// Modal disappears
+.Modal.Opened {
+  top: 0;
+  opacity: 1;
 }
 
 .ModalBox {
-  background-color: #fff;
   margin:  10px;
-  border-radius: 4px;
-  width: 50%;
   border: 1px solid #DFDFDF;
+  border-radius: 4px;
   box-shadow: 0 5px 10px 0 rgba(68, 68, 68, 0.671);
+  
+  width: 50%;
+  
+  background-color: #fff;
 }
 
 .ModalHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 65px;
+  
   padding: 15px;
-  background-color: #F5F5F5;
   border-bottom: 1px solid #DFDFDF;
+  
+  height: 65px;
+  
+  background-color: #F5F5F5;
 }
 
 .Title {
   margin: auto 0;
-  font-family: inherit;
+  
+  font: inherit;
   font-style: normal;
-  font-weight: 600;
   font-size: 20px;
+  font-weight: 600;
   line-height: 30px;
 }
 
 .IconWrapper {
+  margin-right: 10px;
+  
   height: 16px;
   width: 16px;
-  margin-right: 10px;
   
   img {
     width: 100%;
@@ -69,8 +87,11 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  
   padding: 15px;
-  height: 65px;
-  background-color: #F5F5F5;
   border-top: 1px solid #DFDFDF;
+  
+  height: 65px;
+  
+  background-color: #F5F5F5;
 }

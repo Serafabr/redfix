@@ -1,10 +1,13 @@
 import { ReactNode, useState } from 'react';
-
-import { Button } from '../Buttons';
-import { ButtonType } from '../Buttons/Button/_types';
+// Style
 import style from './Modal.module.scss';
+// Icons
 import closeIcon from '../../assets/icons/modal/close.svg';
 import closeIconHovered from '../../assets/icons/modal/hovered/close.svg';
+
+/*************************\
+ * PropTypes
+\*************************/
 
 type Props = {
   isOpened: boolean,
@@ -15,6 +18,10 @@ type Props = {
   children?: ReactNode,
 };
 
+/*************************\
+ * Modal Component
+\*************************/
+
 export const Modal = ({
   isOpened,
   setIsOpened,
@@ -24,20 +31,22 @@ export const Modal = ({
   children
 }: Props) => {
   
+  // Control close icon hover
   const [ isCloseIconHovered, setIsCloseIconHovered ] = useState<boolean>(false);
   
-  const handleBackgroundOnClick = (e: React.MouseEvent<HTMLElement>) => {
-    if ((e.target as any).id === "modal") {
-      setIsOpened(false);
-    }
-  };
-  
+  // Handlers
   const handleCloseIconHover = (mouseEntered: boolean) => {
     setIsCloseIconHovered(mouseEntered)
   }
   
+  const handleBackgroundOnClick = (e: React.MouseEvent<HTMLElement>) => {
+    if ((e.target as any).id === "modal") {
+      setIsOpened(false);
+    }};
+  
+  // Render component
   return (
-    <div id="modal" className={`${style.Modal} ${!isOpened && style.Closed}`} onClick={handleBackgroundOnClick}>
+    <div id="modal" className={`${style.Modal} ${isOpened && style.Opened}`} onClick={handleBackgroundOnClick}>
       <div className={style.ModalBox}>
         <div className={style.ModalHeader}>
           <span className={style.Title}>{title}</span>
