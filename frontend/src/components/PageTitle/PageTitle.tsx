@@ -1,13 +1,20 @@
+// Style
 import style from './PageTitle.module.scss';
-
 // Icons
 import home from '../../assets/icons/home.svg';
 
-// Prop types
+/*************************\
+ * PropTypes
+\*************************/
+
 type Props = {
   title: string,
   path: string,
 };
+
+/*************************\
+ * PageTitle component
+\*************************/
 
 export const PageTitle = ({title, path}: Props) => {
   // Get all elements from path. If there's an empty element, remove it.
