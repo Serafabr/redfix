@@ -1,2 +1,6 @@
+// Item
 export { TimelineItem } from './TimelineItem/TimelineItem';
-export { TimelineCleanFilter } from './TimelineCleanFilter';
+// Butons
+export { TimelineCleanFilter } from './TimelineButtons/TimelineCleanFilter';
+export { TimelineFilter } from './TimelineButtons/TimelineFilter';
+export { TimelineButtonContainer } from './TimelineButtons/TimelineButtonContainer';

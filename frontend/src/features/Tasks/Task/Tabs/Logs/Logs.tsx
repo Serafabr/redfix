@@ -4,8 +4,8 @@ import ellipseBlue from '../../../../../assets/icons/logTab/ellipse-blue.svg';
 import ellipseRed from '../../../../../assets/icons/logTab/ellipse-red.svg';
 import ellipseOrange from '../../../../../assets/icons/logTab/ellipse-orange.svg';
 import ellipseGray from '../../../../../assets/icons/logTab/ellipse-gray.svg';
-import { TimelineFilterButton } from '../../../../../components/Timeline/TimelineFilterButton';
-import { TimelineButtonContainer } from '../../../../../components/Timeline/TimelineButtonContainer';
+import { TimelineFilter } from '../../../../../components/Timeline';
+import { TimelineButtonContainer } from '../../../../../components/Timeline/TimelineButtons/TimelineButtonContainer';
 import { TimelineCleanFilter, TimelineItem } from '../../../../../components/Timeline';
 import { LogItem, LogItemActionT } from './LogItem';
 import { PlainButton } from '../../../../../components/Buttons/PlainButton/PlainButton';
@@ -15,15 +15,15 @@ export const Logs = () => {
   return (
     <>
       <TimelineButtonContainer>
-        <TimelineFilterButton 
+        <TimelineFilter 
           text="Mensagens"
           icon={ellipseBlue}
         />
-        <TimelineFilterButton 
+        <TimelineFilter 
           text="Alterações de Status"
           icon={ellipseRed}
         />
-        <TimelineFilterButton 
+        <TimelineFilter 
           text="Tramitações"
           icon={ellipseOrange}
         />
