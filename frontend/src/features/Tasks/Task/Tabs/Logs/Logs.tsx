@@ -7,7 +7,6 @@ import ellipseGray from '../../../../../assets/icons/logTab/ellipse-gray.svg';
 import { TimelineFilterButton } from '../../../../../components/Timeline/TimelineFilterButton';
 import { TimelineButtonContainer } from '../../../../../components/Timeline/TimelineButtonContainer';
 import { TimelineCleanFilter, TimelineItem } from '../../../../../components/Timeline';
-import { IconColorT } from '../../../../../components/Timeline/TimelineItem';
 import { LogItem, LogItemActionT } from './LogItem';
 import { PlainButton } from '../../../../../components/Buttons/PlainButton/PlainButton';
 import { NewMessage } from './LogButtons';

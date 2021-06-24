@@ -1,15 +1,15 @@
 import style from './Logs.module.scss';
 import { TimelineItem } from '../../../../../components/Timeline';
-import { IconColorT } from '../../../../../components/Timeline/TimelineItem';
+import { IconColorType } from '../../../../../components/Timeline/_types';
 import { UserMessage, StatusMessage, DispatchMessage, CreationMessage } from './SystemMessages';
 
 export enum LogItemActionT { Message, Status, Dispatch, Creation };
 
 const iconColor = {
-  [LogItemActionT.Message]: IconColorT.Blue, 
-  [LogItemActionT.Status]: IconColorT.Red, 
-  [LogItemActionT.Dispatch]: IconColorT.Orange, 
-  [LogItemActionT.Creation]: IconColorT.Red,
+  [LogItemActionT.Message]: IconColorType.Blue, 
+  [LogItemActionT.Status]: IconColorType.Red, 
+  [LogItemActionT.Dispatch]: IconColorType.Orange, 
+  [LogItemActionT.Creation]: IconColorType.Red,
 }
 
 type LogItemT = {

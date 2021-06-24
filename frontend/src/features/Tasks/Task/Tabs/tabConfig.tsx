@@ -30,5 +30,5 @@ export const tabConfig: any = {
     view: <Monitors />, 
     buttons:[<AddMeasure />] },
   files: { name: "Arquivos", view: <div>Arquivos</div>, buttons:[] },
-  // checklist: { name: "Checklist", view: <div>Checklist</div>, buttons:[] },
+  checklist: { name: "Checklist", view: <div>Checklist</div>, buttons:[] },
 }
