@@ -1,10 +1,11 @@
 // Components
-import { AddSelectBox } from '../Buttons';
+import { AddSelectBox } from '../../Buttons';
 // Types
-import { TabViewsType } from './_types';
-import { OptionsType } from '../SelectBox/_types';
+import { TabViewsType } from '../_types';
+import { OptionsType } from '../../SelectBox/_types';
 //CSS
-import style from './Tabs.module.scss';
+import tabStyle from '../Tabs.module.scss';
+import style from './TabHiddenButton.module.scss';
 
 /*************************\
  * PropTypes
@@ -40,7 +41,7 @@ export const TabsHiddenButton = ({
       onSelectItem={setActiveKey}
     >
       {(onClick, isOpen) => (
-        <div className={`${style.TabItem} ${style.HiddenButton} ${Object.keys(hiddenTabs).includes(activeKey) && style.Activated}`} onClick={onClick}>...</div>
+        <div className={`${tabStyle.TabItem} ${style.HiddenButton} ${Object.keys(hiddenTabs).includes(activeKey) && tabStyle.Activated}`} onClick={onClick}>...</div>
       )}
     </AddSelectBox>
   );

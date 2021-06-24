@@ -1,6 +1,6 @@
 import { useState, useRef, ReactNode, MouseEvent } from 'react';
 // Components
-import { TabsHiddenButton } from './TabsHiddenButton';
+import { TabsHiddenButton } from './TabHiddenButton/TabsHiddenButton';
 // Custom hooks
 import { useGetNewNumberOfTabs } from '../../hooks/useGetNewNumberOfTabs';
 // Utilities
