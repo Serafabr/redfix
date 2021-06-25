@@ -8,7 +8,7 @@ import {
 // CSS
 import style from './FilterWithDropdown.module.scss';
 // Util functions
-import { getFilterButtonDisplay } from '../../Buttons/utils/filterDisplay';
+import { getFilterButtonDisplay } from '../utils/filterDisplay';
 //Types
 import { AlignListType } from '../../Buttons/AddSelectBox/_types';
 import { BasicIconProps, SizeType, ColorType } from '../../Icons/_types';
@@ -22,10 +22,9 @@ type Props = {
   manyOptionsName?: string,
   options: OptionsType,
   onSelectItem: OnSelectItemType,
-  icon?: React.ComponentType<BasicIconProps> | null,
-  iconSize?: SizeType,
-  iconColor?: ColorType,
-  activatedIconColor?: ColorType,
+  icon?: string,
+  activatedIcon?:string,
+  iconWidth?: number,
   alignList?: AlignListType,
   searchable?: boolean,
   sortItems?: boolean
@@ -41,15 +40,14 @@ export const FilterWithDropdown = ({
   options,
   onSelectItem,
   icon,
-  iconSize = {},
-  iconColor = {},
-  activatedIconColor = {},
+  activatedIcon,
+  iconWidth,
   alignList = AlignListType.Left,
   searchable = false,
   sortItems = true
 }: Props) => {
   
-  const [name, currentColor] = getFilterButtonDisplay(options, fixedName, manyOptionsName, iconColor, activatedIconColor);
+  const [name, currentIcon, isActive] = getFilterButtonDisplay(options, fixedName, manyOptionsName, icon, activatedIcon);
   
   return (
     <div>
@@ -64,9 +62,9 @@ export const FilterWithDropdown = ({
         {(onClick, isOpen) => (
           <FilterButton 
             text={name}
-            iconComponent={icon}
-            {...iconSize}
-            {...currentColor}
+            iconComponent={currentIcon}
+            iconWidth={iconWidth}
+            isActive={isActive}
             onClick={onClick}
           />
         )}

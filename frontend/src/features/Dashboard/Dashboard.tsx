@@ -64,13 +64,6 @@ export const Dashboard = ({
       />
       <Card>
         <div style={{ padding: "20px" }}>
-          <FilterWithDropdown 
-            fixedName="Nome1"
-            manyOptionsName="Muitos"
-            options={options}
-            onSelectItem={()=>{}}
-            icon={Quick}
-          />
         </div>
         <Button 
           text="Modal"

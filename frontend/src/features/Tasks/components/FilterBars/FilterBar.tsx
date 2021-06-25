@@ -12,20 +12,21 @@ import {
 // Icons
 import { Quick } from '../../../../components/Icons';
 import quickIcon from '../../../../assets/icons/quick.svg';
+import quickIconActive from '../../../../assets/icons/filters/quick-active.svg';
 import { Users } from '../../../../components/Icons';
 import teamsIcon from '../../../../assets/icons/users.svg';
-import teamPurpleIcon from '../../../../assets/icons/users-purple.svg';
+import teamIconActive from '../../../../assets/icons/filters/users-purple.svg';
 import { List } from '../../../../components/Icons';
 import statusIcon from '../../../../assets/icons/list.svg';
-import statusGreenIcon from '../../../../assets/icons/list-green.svg';
+import statusIconActive from '../../../../assets/icons/filters/list-green.svg';
 import { Bookmark as BookmarkIcon } from '../../../../components/Icons';
 import bookmarkIcon from '../../../../assets/icons/bookmark.svg';
-import bookmarkCheckedIcon from '../../../../assets/icons/bookmark-checked.svg';
+import bookmarkIconActive from '../../../../assets/icons/bookmark-checked.svg';
 import { FilterWhite } from '../../../../components/Icons';
 import filterIcon from '../../../../assets/icons/filter-white.svg';
 import { FilterCancel } from '../../../../components/Icons';
 import filterIconCancel from '../../../../assets/icons/filter-cancel.svg';
-import filterIconCancelRed from '../../../../assets/icons/filter-cancel-red.svg';
+import filterIconCancelActive from '../../../../assets/icons/filter-cancel-red.svg';
 import { handleOptionSelection } from './config/handleOptionSelection';
 // CSS
 import style from './FilterBar.module.scss';
@@ -71,8 +72,9 @@ export const FilterBar = ({
             fixedName="Filtro Rápido"
             options={quickFilter}
             onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
-            icon={Quick}
-            iconSize={{ width: 16, height: 16 }}
+            icon={quickIcon}
+            activatedIcon={quickIconActive}
+            iconWidth={17}
             alignList={AlignListType.Left}
             searchable={true}
             sortItems={false}
@@ -85,8 +87,9 @@ export const FilterBar = ({
           manyOptionsName="Equipes"
           options={teamsFilter}
           onSelectItem={handleManyItemsSelection(teamsFilter, setTeamsFilter)}
-          icon={Users}
-          iconSize={{ width: 17, height: 17 }}
+          icon={teamsIcon}
+          activatedIcon={teamIconActive}
+          iconWidth={17}
           alignList={AlignListType.Left}
           searchable={true}
           sortItems={true}
@@ -98,8 +101,9 @@ export const FilterBar = ({
           manyOptionsName="Status"
           options={statusFilter}
           onSelectItem={handleManyItemsSelection(statusFilter, setStatusFilter)}
-          icon={List}
-          iconSize={{ width: 16, height: 16 }}
+          icon={statusIcon}
+          activatedIcon={statusIconActive}
+          iconWidth={17}
           alignList={AlignListType.Left}
           searchable={false}
           sortItems={true}
@@ -108,19 +112,19 @@ export const FilterBar = ({
       <div className={style.FilterContainer}>
         <FilterButton 
           onClick={() => {console.log('Clicked!')}}
-          iconComponent={FilterWhite}
+          iconComponent={filterIcon}
         />
       </div>
       <div className={`${style.FilterContainer} ${style.FilterAtEnd}`}>
         <FilterButton 
           onClick={handleSetBookmark}
-          iconComponent={BookmarkIcon}
+          iconComponent={bookmarkIcon}
         />
       </div>
       <div className={`${style.FilterContainer} ${style.LastFilter}`}>
         <FilterButton 
           onClick={() => {console.log('Clicked!')}}
-          iconComponent={FilterCancel}
+          iconComponent={filterIconCancel}
         />
       </div>
     </div>

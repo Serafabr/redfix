@@ -11,9 +11,9 @@ type Props = {
   text?: string,
   buttonStyle?: object,
   className?: string,
-  iconComponent?: React.ComponentType<BasicIconProps> | null,
-  iconSize?: SizeType,
-  iconColor?: ColorType,
+  iconComponent?: string,
+  iconWidth?: number,
+  isActive?: boolean,
   disabled?: boolean,
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
@@ -26,21 +26,23 @@ export const FilterButton = ({
   text,
   buttonStyle,
   className,
-  iconComponent: Icon = null,
-  iconSize,
-  iconColor,
-  onClick
+  iconComponent,
+  iconWidth = 16,
+  isActive = false,
+  onClick,
 }: Props) => {
+  
+  console.log("isActive");
+  console.log(isActive);
   
   // Render component
   return (
-    <button className={`${style.Button} ${className} ${!text && style.JustIcon}`} onClick={onClick} style={buttonStyle}>
+    <button className={`${style.Button} ${className} ${!text && style.JustIcon} ${isActive && style.Active}`} onClick={onClick} style={buttonStyle}>
       <div className={style.ContentWrapper}>
-        {Icon && (
-          <Icon 
-            {...iconSize}
-            {...iconColor}
-          />
+        {iconComponent && (
+          <div className={style.Image} style={{ width: `${iconWidth}px` }}>
+            <img src={iconComponent} alt="Pesquisa rápida"/>
+          </div>
         )}
         {text && (
           <div className={style.Text}>{text}</div>

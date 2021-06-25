@@ -33,6 +33,17 @@
   } 
 }
 
+.Active.Button {
+  border: 1px solid $gray_400;
+  
+  font-weight:  600;
+  color:        $gray_700;
+  
+  &:hover {
+    border: 1px solid $gray_500;
+  }
+}
+
 .JustIcon {
   padding: 0;
   width: 40px;
@@ -42,6 +53,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.Image {
+  display: flex;
+  align-items: center;
+  
+  img {
+    width: 100%;
+  }
 }
 
 .Text {
