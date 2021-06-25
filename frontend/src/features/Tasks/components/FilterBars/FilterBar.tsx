@@ -12,13 +12,13 @@ import {
 // Icons
 import { Quick } from '../../../../components/Icons';
 import quickIcon from '../../../../assets/icons/quick.svg';
-import quickIconActive from '../../../../assets/icons/filters/quick-active.svg';
+import quickIconActive from '../../../../assets/icons/filters/quick-color.svg';
 import { Users } from '../../../../components/Icons';
 import teamsIcon from '../../../../assets/icons/users.svg';
-import teamIconActive from '../../../../assets/icons/filters/users-purple.svg';
+import teamIconActive from '../../../../assets/icons/filters/users-color.svg';
 import { List } from '../../../../components/Icons';
 import statusIcon from '../../../../assets/icons/list.svg';
-import statusIconActive from '../../../../assets/icons/filters/list-green.svg';
+import statusIconActive from '../../../../assets/icons/filters/list-color.svg';
 import { Bookmark as BookmarkIcon } from '../../../../components/Icons';
 import bookmarkIcon from '../../../../assets/icons/bookmark.svg';
 import bookmarkIconActive from '../../../../assets/icons/bookmark-checked.svg';
@@ -88,7 +88,6 @@ export const FilterBar = ({
           options={teamsFilter}
           onSelectItem={handleManyItemsSelection(teamsFilter, setTeamsFilter)}
           icon={teamsIcon}
-          activatedIcon={teamIconActive}
           iconWidth={17}
           alignList={AlignListType.Left}
           searchable={true}
@@ -102,7 +101,6 @@ export const FilterBar = ({
           options={statusFilter}
           onSelectItem={handleManyItemsSelection(statusFilter, setStatusFilter)}
           icon={statusIcon}
-          activatedIcon={statusIconActive}
           iconWidth={17}
           alignList={AlignListType.Left}
           searchable={false}
