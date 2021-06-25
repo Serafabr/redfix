@@ -1,4 +1,4 @@
-@import "../../style/variables";
+@import "../../../style/variables";
 
 .Card {
   margin-top: 26px;
@@ -21,7 +21,7 @@
   padding: 8px 16px;
 }
 
-.Footer {
+.PagionationContainer {
   margin: 24px;
   display: flex;
   justify-content: space-between;

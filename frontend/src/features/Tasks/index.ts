@@ -1,1 +1,1 @@
-export { Tasks as default } from './Tasks';
+export { Tasks as default } from './MainPage/Tasks';

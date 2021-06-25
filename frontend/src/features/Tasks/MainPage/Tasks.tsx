@@ -1,28 +1,28 @@
 import { useState, useMemo } from 'react';
-import { TitleArea } from '../../components/TitleArea/TitleArea';
-import { Button } from '../../components/Buttons';
-import { AddSelectBox } from '../../components/Buttons';
-import { AlignListType } from '../../components/Buttons/AddSelectBox/_types';
+import { TitleArea } from '../../../components/TitleArea/TitleArea';
+import { Button } from '../../../components/Buttons';
+import { AddSelectBox } from '../../../components/Buttons';
+import { AlignListType } from '../../../components/Buttons/AddSelectBox/_types';
 import { useHistory } from 'react-router-dom';
 
-import { ButtonType } from '../../components/Buttons/Button/_types';
+import { ButtonType } from '../../../components/Buttons/Button/_types';
 
 import style from './Tasks.module.scss';
 
-import { Plus as PlusIcon } from '../../components/Icons';
-import { MoreHorizontal as MoreIcon } from '../../components/Icons';
+import { Plus as PlusIcon } from '../../../components/Icons';
+import { MoreHorizontal as MoreIcon } from '../../../components/Icons';
 
-import { FilterBar } from './components/FilterBars';
-import { Table } from '../../components/Tables';
+import { FilterBar } from '../components/FilterBars';
+import { Table } from '../../../components/Tables';
 
-import { columnsTasks, dataTasks, columnStyle } from './utils/fakeDataTasks';
+import { columnsTasks, dataTasks, columnStyle } from '../utils/fakeDataTasks';
 import { useTable } from 'react-table';
-import { ItemsPerPage } from '../../components/Tables/ItemsPerPage/ItemsPerPage';
-import { Pagination } from '../../components/Tables/Pagination/Pagination';
-import { Card } from '../../components/Cards';
-import { TableCardButtons, TableCardContent } from '../../components/Cards';
-import { CardHeader } from '../../components/Cards';
-import { columnsSupplies } from './Task/tabs/Supplies/tableConfig';
+import { ItemsPerPage } from '../../../components/Tables/ItemsPerPage/ItemsPerPage';
+import { Pagination } from '../../../components/Tables/Pagination/Pagination';
+import { Card } from '../../../components/Cards';
+import { TableCardButtons, TableCardContent } from '../../../components/Cards';
+import { CardHeader } from '../../../components/Cards';
+import { columnsSupplies } from '../Task/tabs/Supplies/tableConfig';
 
 const quickFilterInitial = {
     entryBox: {
@@ -127,7 +127,7 @@ export const Tasks = ({
             columnStyle={columnStyle}
             smallTable
           />
-          <div className={style.Footer}>
+          <div className={style.PagionationContainer}>
             <ItemsPerPage />
             <Pagination 
               currentPage={currentPage}
