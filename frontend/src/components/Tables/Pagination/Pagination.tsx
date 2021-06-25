@@ -1,17 +1,27 @@
-import style from './Pagination.module.scss';
+// Util functions
 import { fillArrayWithPageNumbers, checkAndFixCurrentPage, getDisplayItem } from '../utils/pagination';
-
+// Style
+import style from './Pagination.module.scss';
+// Icons
 import leftIcon from '../../../assets/icons/arrow-left.svg';
 import rightIcon from '../../../assets/icons/arrow-right.svg';
 
+// Constants
 const NUM_PAGE_BUTTONS_LARGE = 9;
 
+/*************************\
+ * PropTypes
+\*************************/
 
 type Props = {
   currentPage?: number,
   pages: number,
   setCurrentPage: (page: number) => void
 }
+
+/*************************\
+ * SelectBox Component
+\*************************/
 
 export const Pagination = ({
   currentPage = 10,
@@ -22,10 +32,9 @@ export const Pagination = ({
   const maxPageButtons = NUM_PAGE_BUTTONS_LARGE;
   
   const fixedCurrentPage = checkAndFixCurrentPage(currentPage, pages);
-  
   const displayListNumbers = fillArrayWithPageNumbers(maxPageButtons, fixedCurrentPage, pages);
   
-  // Handle Clic
+  // Handle Click
   const handleClickPagination = (pageClicked: number) => () => {
     if (pageClicked < 1) {
       return;
@@ -38,6 +47,7 @@ export const Pagination = ({
     }
   }
   
+  // Render component
   return (
     <ul className={style.Pagination}>
       <li className={style.PaginationItem} onClick={handleClickPagination(currentPage - 1)}>

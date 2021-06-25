@@ -1,7 +1,9 @@
+// Style
 import style from './Table.module.scss';
 
-import doneIcon from '../../assets/icons/check.svg'
-import cancelIcon from '../../assets/icons/x.svg'
+/*************************\
+ * PropTypes
+\*************************/
 
 type Props = any;
 
@@ -9,7 +11,15 @@ export type ColumnStyleT = {
   [id: string]: any,
 }
 
+/*************************\
+ * Default props
+\*************************/
+
 const defaultPropsGetter = () => ({})
+
+/*************************\
+ * Utils
+\*************************/
 
 const getHeaderStyle = (columnStyle: ColumnStyleT, id: string) => {
   const style = (columnStyle && id) ? columnStyle[id] : {}
@@ -17,6 +27,10 @@ const getHeaderStyle = (columnStyle: ColumnStyleT, id: string) => {
     style: { ...style }
   };
 }
+
+/*************************\
+ * Table component
+\*************************/
 
 export const Table = ({ 
   data: {

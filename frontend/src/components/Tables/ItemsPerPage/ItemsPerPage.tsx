@@ -3,6 +3,10 @@ import { Dropdown } from '../../Inputs';
 import { AlignListType } from '../../Buttons/AddSelectBox/_types';
 import style from './ItemsPerPage.module.scss';
 
+/*************************\
+ * Configuration
+\*************************/
+
 const options = {
   '10': { name: '10' },
   '25': { name: '25' },
@@ -11,7 +15,17 @@ const options = {
   '150': { name: '150' },
 }
 
-export const ItemsPerPage = () => {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {};
+
+/*************************\
+ * ItemsPerPage component
+\*************************/
+
+export const ItemsPerPage = ({}: Props) => {
   return (
     <div className={style.ItemsPerPage}>
       <div className={style.Label}>
