@@ -6,7 +6,7 @@
 
 .Input {
   padding:       10px 16px;
-  border:        1px solid $gray_300;
+  border:        1px solid $gray_200;
   border-radius: 4px;
   
   width:  100%;
@@ -27,7 +27,7 @@
   
   
   &:hover {
-    border: 1px solid $gray_400;
+    border: 1px solid $gray_300;
   }
 }
 
