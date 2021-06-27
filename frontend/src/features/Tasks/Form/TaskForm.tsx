@@ -30,7 +30,7 @@ export const TaskForm = () => {
       <FormContainer>
         <FormHeader
           title="Informações gerais"
-          subtitle="Informações que serão necessárias para a execução da tarefa."
+          subtitle="Aqui estão as informações essenciais para a execução da tarefa. No campo 'Tarefa' descreva brevemente o serviço que será realizado, enquanto que no campo 'Descrição' faça um detalhamento de tudo o que será necessário."
           badgeText="Etapa 01 de 05"
           situation={FormSituationType.Incomplete}
         />

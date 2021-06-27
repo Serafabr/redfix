@@ -15,19 +15,20 @@ import { MoreHorizontal as MoreIcon } from '../../../components/Icons';
 import { FilterBar } from '../components/FilterBars';
 import { Table } from '../../../components/Tables';
 
-import { columnsTasks, dataTasks, columnStyle } from '../utils/fakeDataTasks';
+import { dataTasks } from '../utils/fakeDataTasks';
+import { columnsTasks, columnStyle } from './tableConfig';
 import { useTable } from 'react-table';
 import { ItemsPerPage } from '../../../components/Tables/ItemsPerPage/ItemsPerPage';
 import { Pagination } from '../../../components/Tables/Pagination/Pagination';
 import { Card } from '../../../components/Cards';
 import { TableCardButtons, TableCardContent } from '../../../components/Cards';
 import { CardHeader } from '../../../components/Cards';
-import { columnsSupplies } from '../Task/tabs/Supplies/tableConfig';
+
 
 const quickFilterInitial = {
     entryBox: {
       name: 'Caixa de entrada',
-      selected: false,
+      selected: true,
     },
     myTasks: {
       name: 'Minhas tarefas',
@@ -104,7 +105,7 @@ export const Tasks = ({
     }
     return {};
   }
-  
+
   return (
     <div>
       <TitleArea 
