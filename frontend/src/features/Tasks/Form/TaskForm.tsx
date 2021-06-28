@@ -15,6 +15,7 @@ import { ColorType } from '../../../components/Badges/_types';
 import { Input, InputField } from '../../../components/Inputs';
 import { Dropdown } from '../../../components/Inputs'; 
 import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch';
+import { TextArea } from '../../../components/Inputs/TextArea/TextArea';
 
 export const TaskForm = () => {
   
@@ -61,6 +62,13 @@ export const TaskForm = () => {
                   />
                 )}
               </AddSelectBox>
+            </InputField>
+            <InputField
+              label="Status"
+              error={false}
+              errorMessage={"Valor incorreto!"}
+            >
+              <TextArea />
             </InputField>
           </div>
           <div style={{ width: "50%", marginTop: "30px" }}>
