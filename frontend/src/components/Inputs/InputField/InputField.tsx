@@ -11,6 +11,7 @@ import style from './InputField.module.scss';
 
 type Props = {
   label?: string | null,
+  gridArea?: string,
   error?: boolean,
   errorMessage?: string | null,
   children: ReactNode,
@@ -22,6 +23,7 @@ type Props = {
 
 export const InputField = ({
   label = null,
+  gridArea,
   error = false,
   errorMessage = null,
   children,
@@ -35,9 +37,11 @@ export const InputField = ({
     },
   );
   
+  const inputDisplayStyle = { gridArea };
+  
   // Render component
   return (
-    <div>
+    <div style={inputDisplayStyle}>
       {label && (
         <div>
           <label className={labelClasses}>{label}</label>

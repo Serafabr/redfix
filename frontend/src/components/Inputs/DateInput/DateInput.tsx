@@ -22,16 +22,8 @@ export const DateInput = ({...props}) => {
         inputClassName={style.DateInput} 
         error={false} 
         placeholder="dd/mm/aaaa" 
-        value={2456981}
-        thousandSeparator={true} 
-        prefix={'$'}
+        format={"##/##/####"}
       />
-      {/* <Input 
-        inputClassName={style.DateInput} 
-        error={false} 
-        placeholder="dd/mm/aaaa" 
-        {...props}
-      /> */}
     </>
   )
 }

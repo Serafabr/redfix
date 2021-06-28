@@ -18,6 +18,10 @@ import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch'
 import { TextArea } from '../../../components/Inputs/TextArea/TextArea';
 import { DateInput } from '../../../components/Inputs/DateInput/DateInput';
 
+import { PlainButton } from '../../../components/Buttons';
+
+import plusIcon from '../../../assets/icons/plus-blue.svg';
+
 export const TaskForm = () => {
   
   const location = useLocation<string>();
@@ -31,8 +35,8 @@ export const TaskForm = () => {
       />
       <FormContainer>
         <FormHeader
-          title="Informações gerais"
-          subtitle="Aqui estão as informações essenciais para a execução da tarefa. No campo 'Tarefa' descreva brevemente o serviço que será realizado, enquanto que no campo 'Descrição' faça um detalhamento de tudo o que será necessário."
+          title="Descrição da tarefa"
+          subtitle="Informações essenciais para a execução da tarefa. No campo 'Tarefa' descreva brevemente o serviço que será realizado, enquanto que no campo 'Descrição' faça um detalhamento de tudo o que será necessário."
           badgeText="Etapa 01 de 05"
           situation={FormSituationType.Incomplete}
         />
@@ -90,6 +94,11 @@ export const TaskForm = () => {
           situation={FormSituationType.Ok}
         />
         <FormContent>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <PlainButton icon={plusIcon}>
+              Adicionar Ativo
+            </PlainButton>
+          </div>
           Hello
         </FormContent>
       </FormContainer>
