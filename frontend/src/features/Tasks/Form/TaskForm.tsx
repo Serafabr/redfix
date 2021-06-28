@@ -16,6 +16,7 @@ import { Input, InputField } from '../../../components/Inputs';
 import { Dropdown } from '../../../components/Inputs'; 
 import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch';
 import { TextArea } from '../../../components/Inputs/TextArea/TextArea';
+import { DateInput } from '../../../components/Inputs/DateInput/DateInput';
 
 export const TaskForm = () => {
   
@@ -69,6 +70,13 @@ export const TaskForm = () => {
               errorMessage={"Valor incorreto!"}
             >
               <TextArea />
+            </InputField>
+            <InputField
+              label="Status"
+              error={false}
+              errorMessage={"Valor incorreto!"}
+            >
+              <DateInput />
             </InputField>
           </div>
           <div style={{ width: "50%", marginTop: "30px" }}>
