@@ -50,12 +50,12 @@ export const QuickSearch = () => {
           boxWidth={190}
         >
           {(onClick, isOpen)=> (
-            <Dropdown buttonStyle={{ borderRadius: "4px 0 0 4px", zIndex: "10" }} value={options[searchEntity].name} isOpen={isOpen} handleOnClick={onClick} />
+            <Dropdown buttonStyle={{ borderRadius: "4px 0 0 4px", zIndex: "10" }} addShadow={false} value={options[searchEntity].name} isOpen={isOpen} handleOnClick={onClick} />
           )}
         </AddSelectBox>
       </div>
       <div className={style.InputWrapper}>
-        <Input />
+        <Input addShadow={false} />
       </div>
       <Button iconComponent={Search} buttonStyle={{ borderRadius: "0 4px 4px 0" }} />
     </div>

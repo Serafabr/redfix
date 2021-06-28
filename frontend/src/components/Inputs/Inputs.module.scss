@@ -6,7 +6,7 @@
 
 .Input {
   padding:       10px 16px;
-  border:        1px solid $gray_250;
+  border:        1px solid $gray_300;
   border-radius: 4px;
   
   width:  100%;
@@ -17,7 +17,7 @@
   font:        inherit;
   font-size:   1rem;
   font-weight: 400;
-  color:       $gray_700;
+  color:       $gray_750;
   
   line-height: 21px;
   
@@ -25,6 +25,15 @@
     color: $gray_200;
   }
   
+  
+  &:hover {
+    border: 1px solid $gray_350;
+  }
+}
+
+.Shadow {
+  border:     1px solid $gray_200;
+  box-shadow: 0 0 4px 1px #d4d4d480;
   
   &:hover {
     border: 1px solid $gray_300;

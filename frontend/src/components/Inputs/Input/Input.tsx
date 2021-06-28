@@ -9,6 +9,7 @@ import inputBasicStyle from '../Inputs.module.scss';
 
 type Props = {
   inputClassName?: string,
+  addShadow?: boolean,
   error?: boolean,
   [any: string]: any
 };
@@ -19,6 +20,7 @@ type Props = {
 
 export const Input = ({
   inputClassName,
+  addShadow = true,
   error = false,
   ...rest
 }: Props) => {
@@ -28,7 +30,8 @@ export const Input = ({
     inputBasicStyle.ActiveInput,
     inputClassName,
     {
-      [inputBasicStyle.InputError]: error
+      [inputBasicStyle.InputError]: error,
+      [inputBasicStyle.Shadow]: addShadow,
     },
   );
   

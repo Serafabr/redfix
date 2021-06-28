@@ -13,6 +13,7 @@ import { StyleType } from '../../../types/_general'
 
 type Props = {
   value: string | number,
+  addShadow?: boolean,
   isOpen: boolean,
   handleOnClick: () => void,
   buttonStyle?: StyleType,
@@ -25,6 +26,7 @@ type Props = {
 
 export const Dropdown = ({
   value,
+  addShadow = true,
   isOpen,
   handleOnClick,
   buttonStyle,
@@ -38,6 +40,7 @@ export const Dropdown = ({
     {
       [style.Opened]: isOpen,
       [inputBasicStyle.InputError]: error,
+      [inputBasicStyle.Shadow]: addShadow,
     },
   );
   

@@ -8,6 +8,7 @@ import style from './FormContent.module.scss';
 \*************************/
 
 type Props = {
+  marginBottom?: boolean,
   children: React.ReactNode,
 };
 
@@ -15,10 +16,12 @@ type Props = {
  * SingleCardContent Component
 \*************************/
 
-export const FormContent = ({ children }: Props) => {
+export const FormContent = ({ marginBottom = false, children }: Props) => {
   return (
-    <SingleCardContent>
-      {children}
-    </SingleCardContent>
+    <div className={`${marginBottom ? style.AddMarginBottom : ""}`}>
+      <SingleCardContent>
+        {children}
+      </SingleCardContent>
+    </div>
   )
 }
