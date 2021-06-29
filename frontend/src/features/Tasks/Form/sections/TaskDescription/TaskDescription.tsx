@@ -8,7 +8,7 @@ import { AddSelectBox } from "../../../../../components/Buttons";
 import style from './TaskDescription.module.scss';
 // Types
 import { FormSituationType } from "../../../../../components/Forms/_types";
-import { OptionsType, OptionType } from '../../../../../components/SelectBox/_types';
+import { OptionsType, OptionType, OnSelectItemType } from '../../../../../components/SelectBox/_types';
 
 /*************************\
  * General types
@@ -16,19 +16,19 @@ import { OptionsType, OptionType } from '../../../../../components/SelectBox/_ty
 
 type InputDescriptionData = {
   task?: string | null,
-  handleTaskChange?: () => void,
+  handleTaskChange?: OnSelectItemType,
   place?: string | null,
-  handlePlaceChange?: () => void,
+  handlePlaceChange?: OnSelectItemType,
   description?: string | null,
-  handleDescriptionChange?: (id: string) => void,
+  handleDescriptionChange?: OnSelectItemType,
   categoryId?: string | null,
-  handleCategoryChange?: (id: string) => void,
+  handleCategoryChange?: OnSelectItemType,
   teamId?: string | null,
-  handleTeamChange?: (id: string) => void,
+  handleTeamChange?: OnSelectItemType,
   statusId?: string | null,
-  handleStatusChange?: () => void,
+  handleStatusChange?: OnSelectItemType,
   projectId?: string | null,
-  handleProjectChange?: () => void,
+  handleProjectChange?: OnSelectItemType,
 };
 
 /*************************\
@@ -139,6 +139,7 @@ export const TaskDescription = ({
               boxWidth={250}
               selectedId={teamId}
               searchable={true}
+              sortItems={true}
             />
           </InputField>
           <InputField
@@ -147,19 +148,13 @@ export const TaskDescription = ({
             error={false}
             errorMessage={"Valor incorreto!"}
           >
-            <AddSelectBox
-              options={{a: {name: "AAAA"}}}
-              onSelectItem={()=>{}}
-            >
-              {(onClick, isOpen) => (
-                <DropdownButton 
-                  value={"Fila de espera"}
-                  isOpen={isOpen}
-                  handleOnClick={onClick}
-                  error={false}
-                />
-              )}
-            </AddSelectBox>
+            <Dropdown 
+              options={statusOptions}
+              onSelectItem={handleStatusChange}
+              boxWidth={250}
+              selectedId={statusId}
+              searchable={true}
+            />
           </InputField>
           <InputField
             label="Projeto"

@@ -27,6 +27,7 @@ import { PlainButton } from '../../../components/Buttons';
 
 import plusIcon from '../../../assets/icons/plus-blue.svg';
 import { useState } from 'react';
+import { OptionsType } from '../../../components/SelectBox/_types';
 
 
 const categoryOptions = {
@@ -39,7 +40,7 @@ const categoryOptions = {
   hidraulic: { name: 'Manutenção hidráulica' },
 }
 
-const teamOptions = {
+const teamOptions: OptionsType = {
   sinfra: { name: 'Sinfra' },
   coemant: { name: 'Coemant' },
   seau: { name: 'Seau' },
@@ -52,12 +53,23 @@ const teamOptions = {
   gabinete16: { name: 'Gabinete Senador Thiago' },
 }
 
+const statusOptions = {
+  done: { name: "Concluído" },
+  finished: { name: "Finalizado" },
+  waiting: { name: "Fila de espera" },
+  canceled: { name: "Cancelado" },
+  suspensed: { name: "Suspenso" },
+  analysing: { name: "Em análise" },
+  executing: { name: "Em execução" },
+}
+
 export const TaskForm = () => {
   
   const location = useLocation<string>();
   
   const [ categoryId, setCategoryId ] = useState<string>();
   const [ teamId, setTeamId ] = useState<string>();
+  const [ statusId, setStatusId ] = useState<string>();
   
   const handleCategoryChange = (id: string) => {
     setCategoryId(id);
@@ -67,12 +79,22 @@ export const TaskForm = () => {
     setTeamId(id);
   };
   
+  const handleStatusChange = (id: string) => {
+    setStatusId(id);
+  };
+  
   const descriptionData = {
     categoryId,
     teamId,
+    statusId,
     handleCategoryChange,
     handleTeamChange,
+    handleStatusChange
   };
+  
+  if (teamId) {
+    teamOptions[teamId].selected = true;
+  }
   
   return (
     <>
@@ -86,6 +108,7 @@ export const TaskForm = () => {
           descriptionData={descriptionData}
           categoryOptions={categoryOptions}
           teamOptions={teamOptions}
+          statusOptions={statusOptions}
         />
         <FormHeader
           title="Datas e prazos"
