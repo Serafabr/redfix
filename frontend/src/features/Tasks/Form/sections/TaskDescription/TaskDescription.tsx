@@ -16,11 +16,11 @@ import { OptionsType, OptionType } from '../../../../../components/SelectBox/_ty
 type InputDescriptionData = {
   task?: string,
   place?: string,
-  category?: string,
-  team?: string,
-  status?: string,
-  project?: string,
   description?: string,
+  categoryId?: string,
+  teamId?: string,
+  statusId?: string,
+  projectId?: string,
 };
 
 /*************************\
@@ -65,11 +65,11 @@ export const TaskDescription = ({
   const {
     task,
     place,
-    category,
-    team,
-    status,
-    project,
     description,
+    categoryId,
+    teamId,
+    statusId,
+    projectId,
   } = inputDescriptionData;
   
   return (
