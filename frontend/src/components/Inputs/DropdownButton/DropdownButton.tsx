@@ -12,7 +12,7 @@ import { StyleType } from '../../../types/_general'
 \*************************/
 
 type Props = {
-  value: string | number,
+  value: string | number | undefined,
   addShadow?: boolean,
   isOpen: boolean,
   handleOnClick: () => void,
