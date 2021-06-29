@@ -1,7 +1,8 @@
+import { useState } from 'react';
 // Components
 import { FormHeader, FormContent } from "../../../../../components/Forms";
 import { DataGrid } from "../../../../../components/DataDisplays";
-import { InputField, Input, DropdownButton, TextArea } from "../../../../../components/Inputs";
+import { InputField, Input, DropdownButton, TextArea, Dropdown } from "../../../../../components/Inputs";
 import { AddSelectBox } from "../../../../../components/Buttons";
 // Style
 import style from './TaskDescription.module.scss';
@@ -14,13 +15,20 @@ import { OptionsType, OptionType } from '../../../../../components/SelectBox/_ty
 \*************************/
 
 type InputDescriptionData = {
-  task?: string,
-  place?: string,
-  description?: string,
-  categoryId?: string,
-  teamId?: string,
-  statusId?: string,
-  projectId?: string,
+  task?: string | null,
+  handleTaskChange?: () => void,
+  place?: string | null,
+  handlePlaceChange?: () => void,
+  description?: string | null,
+  handleDescriptionChange?: (id: string) => void,
+  categoryId?: string | null,
+  handleCategoryChange?: (id: string) => void,
+  teamId?: string | null,
+  handleTeamChange?: () => void,
+  statusId?: string | null,
+  handleStatusChange?: () => void,
+  projectId?: string | null,
+  handleProjectChange?: () => void,
 };
 
 /*************************\
@@ -28,10 +36,10 @@ type InputDescriptionData = {
 \*************************/
 
 type Props = {
-  step?: number,
-  totalSteps?: number,
-  situation?: FormSituationType,
-  inputDescriptionData?: InputDescriptionData,
+  step?: number | null,
+  totalSteps?: number | null,
+  situation?: FormSituationType | null,
+  descriptionData?: InputDescriptionData,
   categoryOptions?: OptionsType,
   teamOptions?: OptionsType,
   statusOptions?: OptionsType,
@@ -46,15 +54,16 @@ const defaultOptions = {
   loading: { name: "Carregando opções..." }
 }
 
+const defaultSetter = () => {};
+
 /*************************\
  * TaskDescription Component
 \*************************/
 
 export const TaskDescription = ({
-  step,
-  totalSteps,
-  situation,
-  inputDescriptionData = {},
+  step = 1,
+  totalSteps = 1,
+  descriptionData = {},
   categoryOptions = defaultOptions,
   teamOptions = defaultOptions,
   statusOptions = defaultOptions,
@@ -64,13 +73,20 @@ export const TaskDescription = ({
   // Input Values
   const {
     task,
+    handleTaskChange = defaultSetter,
     place,
+    handlePlaceChange = defaultSetter,
     description,
+    handleDescriptionChange = defaultSetter,
     categoryId,
+    handleCategoryChange = defaultSetter,
     teamId,
+    handleTeamChange = defaultSetter,
     statusId,
+    handleStatusChange = defaultSetter,
     projectId,
-  } = inputDescriptionData;
+    handleProjectChange = defaultSetter,
+    } = descriptionData; 
   
   return (
     <>
@@ -104,20 +120,12 @@ export const TaskDescription = ({
             error={false}
             errorMessage={"Valor incorreto!"}
           >
-            <AddSelectBox
+            <Dropdown 
               options={categoryOptions}
-              onSelectItem={()=>{}}
+              onSelectItem={handleCategoryChange}
               boxWidth={250}
-            >
-              {(onClick, isOpen) => (
-                <DropdownButton 
-                  value={"Manutenção Elétrica"}
-                  isOpen={isOpen}
-                  handleOnClick={onClick}
-                  error={false}
-                />
-              )}
-            </AddSelectBox>
+              selectedId={categoryId}
+            />
           </InputField>
           <InputField
             label="Equipe"

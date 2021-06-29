@@ -2,7 +2,7 @@
 import { AddSelectBox } from "../../Buttons"
 import { DropdownButton } from "..";
 // Types
-import { OptionsType, OptionType } from "../../SelectBox/_types"
+import { OptionsType, OptionType, OnSelectItemType } from "../../SelectBox/_types"
 
 /*************************\
  * PropTypes
@@ -10,9 +10,9 @@ import { OptionsType, OptionType } from "../../SelectBox/_types"
 
 type Props = {
   options: OptionsType,
-  onSelectItem: () => void,
+  onSelectItem: OnSelectItemType,
   boxWidth?: number,
-  selectedId?: string | undefined,
+  selectedId?: string | null,
   error?: boolean,
 };
 
@@ -27,6 +27,9 @@ export const Dropdown = ({
   selectedId,
   error = false,
 }: Props) => {
+  
+  const value = selectedId && options[selectedId]?.name;
+  
   return (
     <AddSelectBox
       options={options}
@@ -35,7 +38,7 @@ export const Dropdown = ({
     >
       {(onClick, isOpen) => (
         <DropdownButton 
-          value={selectedId && options[selectedId]?.name}
+          value={value}
           isOpen={isOpen}
           handleOnClick={onClick}
           error={error}

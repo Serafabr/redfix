@@ -6,13 +6,14 @@ import style from './DropdownButton.module.scss';
 import inputBasicStyle from '../Inputs.module.scss';
 // Types
 import { StyleType } from '../../../types/_general'
+import { OnSelectItemType } from '../../SelectBox/_types';
 
 /*************************\
  * PropTypes
 \*************************/
 
 type Props = {
-  value: string | number | undefined,
+  value?: string | number | null,
   addShadow?: boolean,
   isOpen: boolean,
   handleOnClick: () => void,

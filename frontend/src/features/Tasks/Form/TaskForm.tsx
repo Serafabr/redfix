@@ -26,6 +26,7 @@ import { DataGrid } from '../../../components/DataDisplays';
 import { PlainButton } from '../../../components/Buttons';
 
 import plusIcon from '../../../assets/icons/plus-blue.svg';
+import { useState } from 'react';
 
 
 const categoryOptions = {
@@ -42,6 +43,17 @@ export const TaskForm = () => {
   
   const location = useLocation<string>();
   
+  const [ categoryId, setCategoryId ] = useState<string>();
+  
+  const handleCategoryChange = (id: string) => {
+    setCategoryId(id);
+  };
+  
+  const descriptionData = {
+    categoryId,
+    handleCategoryChange,
+  };
+  
   return (
     <>
       <TitleArea 
@@ -52,6 +64,7 @@ export const TaskForm = () => {
       <FormContainer>
         <TaskDescription 
           categoryOptions={categoryOptions}
+          descriptionData={descriptionData}
         />
         <FormHeader
           title="Datas e prazos"
