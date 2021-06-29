@@ -32,11 +32,11 @@
 }
 
 .Shadow {
-  border:     1px solid $gray_200;
-  box-shadow: 0 0 4px 1px #dddddd8f;
+  border:     1px solid $gray_300;
+  box-shadow: 0 0 3px 1px #dadada9a;
   
   &:hover {
-    border: 1px solid $gray_300;
+    border: 1px solid $gray_350;
   }
 }
 
