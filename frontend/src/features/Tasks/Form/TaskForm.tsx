@@ -18,6 +18,8 @@ import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch'
 import { TextArea } from '../../../components/Inputs/TextArea/TextArea';
 import { DateInput } from '../../../components/Inputs/DateInput/DateInput';
 
+import { Table } from '../../../components/Tables';
+
 import { DataGrid } from '../../../components/DataDisplays';
 
 import { PlainButton } from '../../../components/Buttons';
