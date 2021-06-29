@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 import { Button, PlainButton } from '../../../components/Buttons';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
-import { AddSelectBox } from '../../../components/Buttons';
-import { AlignListType } from '../../../components/Buttons/AddSelectBox/_types';
+import { AddSelectBox } from '../../../components/SelectBox';
+import { AlignListType } from '../../../components/SelectBox/AddSelectBox/_types';
 import { ButtonType } from '../../../components/Buttons/Button/_types';
 
 import { Plus as PlusIcon } from '../../../components/Icons';

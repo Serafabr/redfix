@@ -1,5 +1,5 @@
 // Components
-import { AddSelectBox } from "../../Buttons"
+import { AddSelectBox } from "../../SelectBox"
 import { DropdownButton } from "..";
 // Types
 import { OptionsType, OptionType, OnSelectItemType } from "../../SelectBox/_types"

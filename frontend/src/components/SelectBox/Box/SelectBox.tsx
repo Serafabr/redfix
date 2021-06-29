@@ -1,21 +1,21 @@
 // Third party imports
 import { FormEvent, useState } from 'react';
 // Components
-import { SearchInput } from '../Inputs'
+import { SearchInput } from '../../Inputs'
 // Hooks
-import { useClickOutsideListener } from '../../hooks';
+import { useClickOutsideListener } from '../../../hooks';
 // Types
 import { 
   OptionType, 
   OptionsType, 
   OnSelectItemType, 
-} from './_types';
-import { refProps } from '../../hooks/useClickOutsideListener';
+} from '../_types';
+import { refProps } from '../../../hooks/useClickOutsideListener';
 // CSS
 import style from './SelectBox.module.scss';
-import { sortAndFilterOptionIds } from './utils/orderItems';
+import { sortAndFilterOptionIds } from '../utils/orderItems';
 // Icons
-import blueCheckIcon from '../../assets/icons/blue-check.svg';
+import blueCheckIcon from '../../../assets/icons/blue-check.svg';
 
 /*************************\
  * PropTypes

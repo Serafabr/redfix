@@ -6,8 +6,8 @@ import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
 import { FilterWithDropdown } from '../../components/Filters';
-import { AddSelectBox } from '../../components/Buttons';
-import { AlignListType } from '../../components/Buttons/AddSelectBox/_types';
+import { AddSelectBox } from '../../components/SelectBox';
+import { AlignListType } from '../../components/SelectBox/AddSelectBox/_types';
 import { Modal } from '../../components/Modals';
 import { Card } from '../../components/Cards';
 import { Quick } from '../../components/Icons';

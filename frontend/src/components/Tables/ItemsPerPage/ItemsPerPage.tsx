@@ -1,6 +1,6 @@
-import { AddSelectBox } from '../../Buttons';
+import { AddSelectBox } from '../../SelectBox';
 import { DropdownButton } from '../../Inputs';
-import { AlignListType } from '../../Buttons/AddSelectBox/_types';
+import { AlignListType } from '../../SelectBox/AddSelectBox/_types';
 import style from './ItemsPerPage.module.scss';
 
 /*************************\

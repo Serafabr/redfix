@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { FormHeader, FormContent } from "../../../../../components/Forms";
 import { DataGrid } from "../../../../../components/DataDisplays";
 import { InputField, Input, DropdownButton, TextArea, Dropdown } from "../../../../../components/Inputs";
-import { AddSelectBox } from "../../../../../components/Buttons";
+import { AddSelectBox } from "../../../../../components/SelectBox";
 // Style
 import style from './TaskDescription.module.scss';
 // Types

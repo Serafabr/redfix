@@ -1,5 +1,5 @@
 import { Button, Notification, Support } from '../../../components/Buttons';
-import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch';
+import { QuickSearch } from '../../../components/Inputs';
 import style from './AppHeader.module.scss';
 import { Plus } from '../../../components/Icons';
 import { AvatarDropdown } from '../../../components/Avatars';

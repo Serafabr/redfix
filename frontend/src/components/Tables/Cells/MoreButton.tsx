@@ -1,9 +1,9 @@
 import style from './Cells.module.scss';
 
 import moreButton from '../../../assets/icons/tables/more-vertical.svg';
-import { AddSelectBox } from '../../Buttons/';
+import { AddSelectBox } from '../../SelectBox';
 import { OptionType, OptionsType } from '../../SelectBox/_types';
-import { AlignListType } from '../../Buttons/AddSelectBox/_types';
+import { AlignListType } from '../../SelectBox/AddSelectBox/_types';
 
 const options: OptionsType = {
   editSupply: { name: 'Editar item' },

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button } from '../../Buttons';
 import { Search } from '../../Icons';
 import { DropdownButton, Input } from '../../Inputs';
-import { AddSelectBox } from '../../Buttons';
+import { AddSelectBox } from '../../SelectBox';
 // Style
 import style from './QuickSearch.module.scss';
 // Types

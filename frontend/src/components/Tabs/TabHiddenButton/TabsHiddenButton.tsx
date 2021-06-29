@@ -1,5 +1,5 @@
 // Components
-import { AddSelectBox } from '../../Buttons';
+import { AddSelectBox } from '../../SelectBox';
 // Types
 import { TabViewsType } from '../_types';
 import { OptionsType } from '../../SelectBox/_types';

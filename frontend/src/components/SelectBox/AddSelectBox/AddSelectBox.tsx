@@ -2,9 +2,9 @@
 import { useState, useRef, ReactElement } from 'react';
 import classnames from 'classnames';
 // Components
-import { SelectBox } from '../../SelectBox';
+import { SelectBox } from '..';
 // Types
-import { OptionsType, OnSelectItemType } from '../../SelectBox/_types';
+import { OptionsType, OnSelectItemType } from '../_types';
 import { AlignListType } from './_types';
 import { StyleType } from '../../../types/_general';
 // CSS

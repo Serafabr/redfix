@@ -1,5 +1,5 @@
 // Components
-import { AddSelectBox, } from '../../Buttons';
+import { AddSelectBox, } from '../../SelectBox';
 import { FilterButton } from '../FilterButton/FilterButton';
 import { 
   OnSelectItemType, 
@@ -10,7 +10,7 @@ import style from './FilterWithDropdown.module.scss';
 // Util functions
 import { getFilterButtonDisplay } from '../utils/filterDisplay';
 //Types
-import { AlignListType } from '../../Buttons/AddSelectBox/_types';
+import { AlignListType } from '../../SelectBox/AddSelectBox/_types';
 import { BasicIconProps, SizeType, ColorType } from '../../Icons/_types';
 
 /*************************\
