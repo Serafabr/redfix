@@ -39,6 +39,14 @@ type Props = {
 };
 
 /*************************\
+ * Default Types
+\*************************/
+
+const defaultOptions = {
+  loading: { name: "Carregando opções..." }
+}
+
+/*************************\
  * TaskDescription Component
 \*************************/
 
@@ -47,10 +55,10 @@ export const TaskDescription = ({
   totalSteps,
   situation,
   inputDescriptionData = {},
-  categoryOptions,
-  teamOptions,
-  statusOptions,
-  projectOptions,
+  categoryOptions = defaultOptions,
+  teamOptions = defaultOptions,
+  statusOptions = defaultOptions,
+  projectOptions = defaultOptions,
 }: Props) => {
   
   // Input Values
@@ -97,8 +105,9 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <AddSelectBox
-              options={{a: {name: "AAAA"}}}
+              options={categoryOptions}
               onSelectItem={()=>{}}
+              boxWidth={250}
             >
               {(onClick, isOpen) => (
                 <Dropdown 

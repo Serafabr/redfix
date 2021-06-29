@@ -28,6 +28,17 @@ import { PlainButton } from '../../../components/Buttons';
 
 import plusIcon from '../../../assets/icons/plus-blue.svg';
 
+
+const categoryOptions = {
+  eletric: { name: 'Manutenção elétrica' },
+  paint: { name: 'Pintura' },
+  civil: { name: 'Manutenção civil' },
+  airCondicioner: { name: 'Manutenção de climatização' },
+  mechanic: { name: 'Manutenção mecânica' },
+  lifter: { name: 'Manutenção de elevadores' },
+  hidraulic: { name: 'Manutenção hidráulica' },
+}
+
 export const TaskForm = () => {
   
   const location = useLocation<string>();
@@ -40,7 +51,9 @@ export const TaskForm = () => {
         buttons={[]}
       />
       <FormContainer>
-        <TaskDescription />
+        <TaskDescription 
+          categoryOptions={categoryOptions}
+        />
         <FormHeader
           title="Datas e prazos"
           subtitle="Prazos para o ínicio e término da tarefa. Tais informações podem ser preenchidas posteriormente."
