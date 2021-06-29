@@ -2,7 +2,7 @@ import { useState } from 'react';
 // Components
 import { Button } from '../../Buttons';
 import { Search } from '../../Icons';
-import { Dropdown, Input } from '../../Inputs';
+import { DropdownButton, Input } from '../../Inputs';
 import { AddSelectBox } from '../../Buttons';
 // Style
 import style from './QuickSearch.module.scss';
@@ -50,7 +50,7 @@ export const QuickSearch = () => {
           boxWidth={190}
         >
           {(onClick, isOpen)=> (
-            <Dropdown buttonStyle={{ borderRadius: "4px 0 0 4px", zIndex: "10" }} addShadow={false} value={options[searchEntity].name} isOpen={isOpen} handleOnClick={onClick} />
+            <DropdownButton buttonStyle={{ borderRadius: "4px 0 0 4px", zIndex: "10" }} addShadow={false} value={options[searchEntity].name} isOpen={isOpen} handleOnClick={onClick} />
           )}
         </AddSelectBox>
       </div>

@@ -5,7 +5,6 @@ import { ButtonType } from '../../components/Buttons/Button/_types';
 import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
-import { Dropdown } from '../../components/Inputs';
 import { FilterWithDropdown } from '../../components/Filters';
 import { AddSelectBox } from '../../components/Buttons';
 import { AlignListType } from '../../components/Buttons/AddSelectBox/_types';

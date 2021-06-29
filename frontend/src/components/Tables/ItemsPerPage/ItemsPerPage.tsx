@@ -1,5 +1,5 @@
 import { AddSelectBox } from '../../Buttons';
-import { Dropdown } from '../../Inputs';
+import { DropdownButton } from '../../Inputs';
 import { AlignListType } from '../../Buttons/AddSelectBox/_types';
 import style from './ItemsPerPage.module.scss';
 
@@ -40,7 +40,7 @@ export const ItemsPerPage = ({}: Props) => {
           onSelectItem={(id) => {console.log(id)}}
         >
           {(onClick, isOpen) => (
-            <Dropdown
+            <DropdownButton
               value={10}
               isOpen={isOpen}
               handleOnClick={onClick}

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 // Components
 import ArrowDown from '../../../assets/icons/arrow-down.svg';
 // Style
-import style from './Dropdown.module.scss';
+import style from './DropdownButton.module.scss';
 import inputBasicStyle from '../Inputs.module.scss';
 // Types
 import { StyleType } from '../../../types/_general'
@@ -24,7 +24,7 @@ type Props = {
  * Dropdown Component
 \*************************/
 
-export const Dropdown = ({
+export const DropdownButton = ({
   value,
   addShadow = true,
   isOpen,

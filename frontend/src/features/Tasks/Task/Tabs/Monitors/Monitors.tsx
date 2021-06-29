@@ -6,7 +6,7 @@ import { Table } from '../../../../../components/Tables';
 import { dataMonitors, columnsMonitors, columnStyle } from './tableConfig';
 import style from './Monitors.module.scss';
 import { DataField, DataGrid } from '../../../../../components/DataDisplays';
-import { Dropdown } from '../../../../../components/Inputs';
+import { DropdownButton } from '../../../../../components/Inputs';
 import { TabPaneTitle } from '../../../../../components/TabPane';
 import { Input, InputField } from '../../../../../components/Inputs';
 
@@ -66,7 +66,7 @@ export const Monitors = () => {
         <div className={style.SelectButtonsContainer}>
           <div style={{ width: "40%" }}>
             <InputField label="Ativo" >
-              <Dropdown 
+              <DropdownButton 
                 value="Grupo Motor Gerador" 
                 handleOnClick={() => {}} 
                 isOpen={false} 
@@ -76,7 +76,7 @@ export const Monitors = () => {
           </div>
           <div style={{ width: "40%" }}>
             <InputField label="Monitor" >
-              <Dropdown 
+              <DropdownButton 
                 value="Medição de votlagem nas baterias do Nobreak" 
                 handleOnClick={() => {}} 
                 isOpen={false} 

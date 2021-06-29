@@ -1,7 +1,7 @@
 // Components
 import { FormHeader, FormContent } from "../../../../../components/Forms";
 import { DataGrid } from "../../../../../components/DataDisplays";
-import { InputField, Input, Dropdown, TextArea } from "../../../../../components/Inputs";
+import { InputField, Input, DropdownButton, TextArea } from "../../../../../components/Inputs";
 import { AddSelectBox } from "../../../../../components/Buttons";
 // Style
 import style from './TaskDescription.module.scss';
@@ -110,7 +110,7 @@ export const TaskDescription = ({
               boxWidth={250}
             >
               {(onClick, isOpen) => (
-                <Dropdown 
+                <DropdownButton 
                   value={"Manutenção Elétrica"}
                   isOpen={isOpen}
                   handleOnClick={onClick}
@@ -130,7 +130,7 @@ export const TaskDescription = ({
               onSelectItem={()=>{}}
             >
               {(onClick, isOpen) => (
-                <Dropdown 
+                <DropdownButton 
                   value={"Coemant"}
                   isOpen={isOpen}
                   handleOnClick={onClick}
@@ -150,7 +150,7 @@ export const TaskDescription = ({
               onSelectItem={()=>{}}
             >
               {(onClick, isOpen) => (
-                <Dropdown 
+                <DropdownButton 
                   value={"Fila de espera"}
                   isOpen={isOpen}
                   handleOnClick={onClick}
@@ -170,7 +170,7 @@ export const TaskDescription = ({
               onSelectItem={()=>{}}
             >
               {(onClick, isOpen) => (
-                <Dropdown 
+                <DropdownButton 
                   value={"Sem projeto"}
                   isOpen={isOpen}
                   handleOnClick={onClick}
