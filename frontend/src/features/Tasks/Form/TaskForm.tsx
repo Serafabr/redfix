@@ -18,6 +18,8 @@ import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch'
 import { TextArea } from '../../../components/Inputs/TextArea/TextArea';
 import { DateInput } from '../../../components/Inputs/DateInput/DateInput';
 
+import { TaskDescription } from './sections/TaskDescription/TaskDescription';
+
 import { Table } from '../../../components/Tables';
 
 import { DataGrid } from '../../../components/DataDisplays';
@@ -38,120 +40,7 @@ export const TaskForm = () => {
         buttons={[]}
       />
       <FormContainer>
-        <FormHeader
-          title="Descrição da tarefa"
-          subtitle="Informações essenciais para a execução da tarefa. No campo 'Tarefa' descreva brevemente o serviço que será realizado, enquanto que no campo 'Descrição' faça um detalhamento de tudo o que será necessário."
-          badgeText="Etapa 01 de 04"
-          situation={FormSituationType.Error}
-        />
-        <FormContent marginBottom={true}>
-          <DataGrid className={style.DescriptionGrid}>
-            <InputField
-              label="Tarefa"
-              gridArea="task"
-              error={false}
-              errorMessage={"Valor incorreto!"}
-            >
-              <Input error={false} />
-            </InputField>
-            <InputField
-              label="Localização"
-              gridArea="place"
-              error={false}
-              errorMessage={"Valor incorreto!"}
-            >
-              <Input error={false} />
-            </InputField>
-            <InputField
-              label="Categoria"
-              gridArea="category"
-              error={false}
-              errorMessage={"Valor incorreto!"}
-            >
-              <AddSelectBox
-                options={{a: {name: "AAAA"}}}
-                onSelectItem={()=>{}}
-              >
-                {(onClick, isOpen) => (
-                  <Dropdown 
-                    value={"Manutenção Elétrica"}
-                    isOpen={isOpen}
-                    handleOnClick={onClick}
-                    error={false}
-                  />
-                )}
-              </AddSelectBox>
-            </InputField>
-            <InputField
-              label="Equipe"
-              gridArea="team"
-              error={false}
-              errorMessage={"Valor incorreto!"}
-            >
-              <AddSelectBox
-                options={{a: {name: "AAAA"}}}
-                onSelectItem={()=>{}}
-              >
-                {(onClick, isOpen) => (
-                  <Dropdown 
-                    value={"Coemant"}
-                    isOpen={isOpen}
-                    handleOnClick={onClick}
-                    error={false}
-                  />
-                )}
-              </AddSelectBox>
-            </InputField>
-            <InputField
-              label="Status"
-              gridArea="status"
-              error={false}
-              errorMessage={"Valor incorreto!"}
-            >
-              <AddSelectBox
-                options={{a: {name: "AAAA"}}}
-                onSelectItem={()=>{}}
-              >
-                {(onClick, isOpen) => (
-                  <Dropdown 
-                    value={"Fila de espera"}
-                    isOpen={isOpen}
-                    handleOnClick={onClick}
-                    error={false}
-                  />
-                )}
-              </AddSelectBox>
-            </InputField>
-            <InputField
-              label="Projeto"
-              gridArea="project"
-              error={false}
-              errorMessage={"Valor incorreto!"}
-            >
-              <AddSelectBox
-                options={{a: {name: "AAAA"}}}
-                onSelectItem={()=>{}}
-              >
-                {(onClick, isOpen) => (
-                  <Dropdown 
-                    value={"Sem projeto"}
-                    isOpen={isOpen}
-                    handleOnClick={onClick}
-                    error={false}
-                  />
-                )}
-              </AddSelectBox>
-            </InputField>
-            <InputField
-              label="Descrição"
-              gridArea="desc"
-              error={false}
-              errorMessage={"Valor incorreto!"}
-            >
-              <TextArea />
-            </InputField>
-          </DataGrid>
-        </FormContent>
+        <TaskDescription />
         <FormHeader
           title="Datas e prazos"
           subtitle="Prazos para o ínicio e término da tarefa. Tais informações podem ser preenchidas posteriormente."

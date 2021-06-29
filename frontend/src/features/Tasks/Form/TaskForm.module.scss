@@ -1,13 +1,3 @@
-.DescriptionGrid {
-  grid-template: 
-    "task task task task"
-    "place place desc desc"
-    "category category desc desc"
-    "team status desc desc"
-    "project project desc desc" / 
-    1fr 1fr 1fr 1fr;
-}
-
 .DatesGrid {
   grid-template: 
     "startDate startDate limitDate limitDate" / 

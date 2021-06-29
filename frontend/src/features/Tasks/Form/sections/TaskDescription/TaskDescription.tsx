@@ -7,9 +7,63 @@ import { AddSelectBox } from "../../../../../components/Buttons";
 import style from './TaskDescription.module.scss';
 // Types
 import { FormSituationType } from "../../../../../components/Forms/_types";
+import { OptionsType, OptionType } from '../../../../../components/SelectBox/_types';
 
+/*************************\
+ * General types
+\*************************/
 
-export const TaskDescription = () => {
+type InputDescriptionData = {
+  task?: string,
+  place?: string,
+  category?: string,
+  team?: string,
+  status?: string,
+  project?: string,
+  description?: string,
+};
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
+  step?: number,
+  totalSteps?: number,
+  situation?: FormSituationType,
+  inputDescriptionData?: InputDescriptionData,
+  categoryOptions?: OptionsType,
+  teamOptions?: OptionsType,
+  statusOptions?: OptionsType,
+  projectOptions?: OptionsType,
+};
+
+/*************************\
+ * TaskDescription Component
+\*************************/
+
+export const TaskDescription = ({
+  step,
+  totalSteps,
+  situation,
+  inputDescriptionData = {},
+  categoryOptions,
+  teamOptions,
+  statusOptions,
+  projectOptions,
+}: Props) => {
+  
+  // Input Values
+  const {
+    task,
+    place,
+    category,
+    team,
+    status,
+    project,
+    description,
+  } = inputDescriptionData;
+  
   return (
     <>
       <FormHeader
