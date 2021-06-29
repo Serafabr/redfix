@@ -39,19 +39,39 @@ const categoryOptions = {
   hidraulic: { name: 'Manutenção hidráulica' },
 }
 
+const teamOptions = {
+  sinfra: { name: 'Sinfra' },
+  coemant: { name: 'Coemant' },
+  seau: { name: 'Seau' },
+  dger: { name: 'Dger' },
+  Seplag: { name: 'Seplag' },
+  Semac: { name: 'Semac' },
+  rcs: { name: 'Rcs Tecnologia - Posto 2' },
+  entherm: { name: 'Entherm - Administração' },
+  gabinete12: { name: 'Gabinete Senador Alvaro' },
+  gabinete16: { name: 'Gabinete Senador Thiago' },
+}
+
 export const TaskForm = () => {
   
   const location = useLocation<string>();
   
   const [ categoryId, setCategoryId ] = useState<string>();
+  const [ teamId, setTeamId ] = useState<string>();
   
   const handleCategoryChange = (id: string) => {
     setCategoryId(id);
   };
   
+  const handleTeamChange = (id: string) => {
+    setTeamId(id);
+  };
+  
   const descriptionData = {
     categoryId,
+    teamId,
     handleCategoryChange,
+    handleTeamChange,
   };
   
   return (
@@ -63,8 +83,9 @@ export const TaskForm = () => {
       />
       <FormContainer>
         <TaskDescription 
-          categoryOptions={categoryOptions}
           descriptionData={descriptionData}
+          categoryOptions={categoryOptions}
+          teamOptions={teamOptions}
         />
         <FormHeader
           title="Datas e prazos"

@@ -76,6 +76,7 @@ export const SelectBox = ({
           <div className={style.InputWrapper}>
             <SearchInput 
               onChange={handleChangeInput}
+              addShadow={false}
             />
           </div>
         )}

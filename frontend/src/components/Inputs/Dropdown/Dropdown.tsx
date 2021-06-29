@@ -13,6 +13,7 @@ type Props = {
   onSelectItem: OnSelectItemType,
   boxWidth?: number,
   selectedId?: string | null,
+  searchable?: boolean,
   error?: boolean,
 };
 
@@ -25,6 +26,7 @@ export const Dropdown = ({
   onSelectItem,
   boxWidth = 200,
   selectedId,
+  searchable = false,
   error = false,
 }: Props) => {
   
@@ -35,6 +37,7 @@ export const Dropdown = ({
       options={options}
       onSelectItem={onSelectItem}
       boxWidth={boxWidth}
+      searchable={searchable}
     >
       {(onClick, isOpen) => (
         <DropdownButton 

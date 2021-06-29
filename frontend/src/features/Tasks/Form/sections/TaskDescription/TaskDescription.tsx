@@ -24,7 +24,7 @@ type InputDescriptionData = {
   categoryId?: string | null,
   handleCategoryChange?: (id: string) => void,
   teamId?: string | null,
-  handleTeamChange?: () => void,
+  handleTeamChange?: (id: string) => void,
   statusId?: string | null,
   handleStatusChange?: () => void,
   projectId?: string | null,
@@ -133,19 +133,13 @@ export const TaskDescription = ({
             error={false}
             errorMessage={"Valor incorreto!"}
           >
-            <AddSelectBox
-              options={{a: {name: "AAAA"}}}
-              onSelectItem={()=>{}}
-            >
-              {(onClick, isOpen) => (
-                <DropdownButton 
-                  value={"Coemant"}
-                  isOpen={isOpen}
-                  handleOnClick={onClick}
-                  error={false}
-                />
-              )}
-            </AddSelectBox>
+            <Dropdown 
+              options={teamOptions}
+              onSelectItem={handleTeamChange}
+              boxWidth={250}
+              selectedId={teamId}
+              searchable={true}
+            />
           </InputField>
           <InputField
             label="Status"
