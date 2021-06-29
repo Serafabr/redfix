@@ -10,7 +10,7 @@ import style from './FilterWithDropdown.module.scss';
 // Util functions
 import { getFilterButtonDisplay } from '../utils/filterDisplay';
 //Types
-import { AlignListType } from '../../SelectBox/AddSelectBox/_types';
+import { AlignListType } from '../../SelectBox/_types';
 import { BasicIconProps, SizeType, ColorType } from '../../Icons/_types';
 
 /*************************\

@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { SelectBox } from '..';
 // Types
 import { OptionsType, OnSelectItemType } from '../_types';
-import { AlignListType } from './_types';
+import { AlignListType } from '../_types';
 import { StyleType } from '../../../types/_general';
 // CSS
 import style from './AddSelectBox.module.scss';

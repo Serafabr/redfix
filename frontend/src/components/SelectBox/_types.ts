@@ -12,3 +12,5 @@ export type OptionsType = {
 };
 
 export type OnSelectItemType = (id: string) => void;
+
+export enum AlignListType { Left, Right };

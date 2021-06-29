@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { Button } from '../../../components/Buttons';
 import { AddSelectBox } from '../../../components/SelectBox';
-import { AlignListType } from '../../../components/SelectBox/AddSelectBox/_types';
+import { AlignListType } from '../../../components/SelectBox/_types';
 import { useHistory } from 'react-router-dom';
 
 import { ButtonType } from '../../../components/Buttons/Button/_types';
