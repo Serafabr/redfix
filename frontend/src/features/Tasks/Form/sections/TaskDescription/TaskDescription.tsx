@@ -4,6 +4,8 @@ import { FormHeader, FormContent } from "../../../../../components/Forms";
 import { DataGrid } from "../../../../../components/DataDisplays";
 import { InputField, Input, DropdownButton, TextArea, Dropdown } from "../../../../../components/Inputs";
 import { AddSelectBox } from "../../../../../components/SelectBox";
+// Functions
+import { handleTextInput } from '../../data/handleTextInput';
 // Style
 import style from './TaskDescription.module.scss';
 // Types
@@ -17,19 +19,22 @@ import { handleOneItemSelection } from '../../../../../components/SelectBox';
 
 type InputDescriptionData = {
   task?: string,
-  setTask?: React.Dispatch<string>,
   place?: string,
-  setPlace?: React.Dispatch<string>,
   description?: string,
-  setDescription?: React.Dispatch<string>,
   category?: string[],
-  setCategory?: React.Dispatch<Array<string>>,
   team?: string[],
-  setTeam?: React.Dispatch<Array<string>>,
   status?: string[],
-  setStatus?: React.Dispatch<Array<string>>,
   project?: string[],
-  setProject?: React.Dispatch<Array<string>>,
+};
+
+type InputSetDescriptionData = {
+  task: React.Dispatch<string>,
+  place: React.Dispatch<string>,
+  description: React.Dispatch<string>,
+  category: React.Dispatch<Array<string>>,
+  team: React.Dispatch<Array<string>>,
+  status: React.Dispatch<Array<string>>,
+  project: React.Dispatch<Array<string>>,
 };
 
 /*************************\
@@ -41,11 +46,36 @@ type Props = {
   totalSteps?: number | null,
   situation?: FormSituationType | null,
   descriptionData?: InputDescriptionData,
+  setDescriptionData?: InputSetDescriptionData,
   categoryOptions?: OptionsType,
   teamOptions?: OptionsType,
   statusOptions?: OptionsType,
   projectOptions?: OptionsType,
 };
+
+/*************************\
+ * Default props
+\*************************/
+
+const defeaultSetDescriptionData = {
+  task: () => {},
+  place: () => {},
+  description: () => {},
+  category: () => {},
+  team: () => {},
+  status: () => {},
+  project: () => {},
+}
+
+const defaultDescriptionData = {
+  task: '',
+  place: '',
+  description: '',
+  category: [],
+  team: [],
+  status: [],
+  project: [],
+}
 
 /*************************\
  * Default Types
@@ -64,7 +94,8 @@ const defaultSetter = () => {};
 export const TaskDescription = ({
   step = 1,
   totalSteps = 1,
-  descriptionData = {},
+  descriptionData = defaultDescriptionData,
+  setDescriptionData = defeaultSetDescriptionData,
   categoryOptions = defaultOptions,
   teamOptions = defaultOptions,
   statusOptions = defaultOptions,
@@ -74,20 +105,13 @@ export const TaskDescription = ({
   // Input Values
   const {
     task,
-    setTask = defaultSetter,
     place,
-    setPlace = defaultSetter,
     description,
-    setDescription = defaultSetter,
     category,
-    setCategory = defaultSetter,
     team,
-    setTeam = defaultSetter,
     status,
-    setStatus = defaultSetter,
     project,
-    setProject = defaultSetter,
-    } = descriptionData; 
+  } = descriptionData; 
   
   return (
     <>
@@ -105,7 +129,10 @@ export const TaskDescription = ({
             error={false}
             errorMessage={"Valor incorreto!"}
           >
-            <Input error={false} />
+            <Input 
+              onChange={handleTextInput('task', setDescriptionData)}
+              error={false}
+            />
           </InputField>
           <InputField
             label="Localização"
@@ -124,7 +151,7 @@ export const TaskDescription = ({
             <Dropdown 
               options={categoryOptions}
               selectionArray={category}
-              onSelectItem={handleOneItemSelection(setCategory)}
+              onSelectItem={handleOneItemSelection(setDescriptionData.category)}
               boxWidth={250}
               sortItems={true}
             />
@@ -138,7 +165,7 @@ export const TaskDescription = ({
             <Dropdown 
               options={teamOptions}
               selectionArray={team}
-              onSelectItem={handleOneItemSelection(setTeam)}
+              onSelectItem={handleOneItemSelection(setDescriptionData.team)}
               boxWidth={250}
               searchable={true}
               sortItems={true}
@@ -153,7 +180,7 @@ export const TaskDescription = ({
             <Dropdown 
               options={statusOptions}
               selectionArray={status}
-              onSelectItem={handleOneItemSelection(setStatus)}
+              onSelectItem={handleOneItemSelection(setDescriptionData.status)}
               boxWidth={250}
               searchable={false}
               sortItems={true}
@@ -168,7 +195,7 @@ export const TaskDescription = ({
             <Dropdown 
               options={projectOptions}
               selectionArray={project}
-              onSelectItem={handleOneItemSelection(setProject)}
+              onSelectItem={handleOneItemSelection(setDescriptionData.project)}
               boxWidth={400}
               searchable={true}
               sortItems={true}

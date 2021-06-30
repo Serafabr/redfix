@@ -26,6 +26,9 @@ import { PlainButton } from '../../../components/Buttons';
 import plusIcon from '../../../assets/icons/plus-blue.svg';
 import { useState } from 'react';
 import { OptionsType } from '../../../components/SelectBox/_types';
+import { useFormState } from './data/useFormState';
+
+import { TaskFormStateType, TaskFormSetStateType } from './_types';
 
 
 const categoryOptions = {
@@ -87,20 +90,45 @@ export const TaskForm = () => {
   
   const location = useLocation<string>();
   
-  const [ category, setCategory ] = useState<string[]>([]);
-  const [ team, setTeam ] = useState<string[]>([]);
-  const [ status, setStatus ] = useState<string[]>([]);
-  const [ project, setProject ] = useState<string[]>([]);
+  const [ formState, setFormState ] = useFormState();
   
-  const descriptionData = {
+  const {
+    task,
+    place,
+    description,
     category,
     team,
     status,
     project,
+  } = formState;
+  const {
+    setTask,
+    setPlace,
+    setDescription,
     setCategory,
     setTeam,
     setStatus,
-    setProject
+    setProject,
+  } = setFormState;
+  
+  const descriptionData = {
+    task,
+    place,
+    description,
+    category,
+    team,
+    status,
+    project,
+  };
+  
+  const setDescriptionData = {
+    task: setTask,
+    place: setPlace,
+    description: setDescription,
+    category: setCategory,
+    team: setTeam,
+    status: setStatus,
+    project: setProject,
   };
 
   
@@ -114,6 +142,7 @@ export const TaskForm = () => {
       <FormContainer>
         <TaskDescription 
           descriptionData={descriptionData}
+          setDescriptionData={setDescriptionData}
           categoryOptions={categoryOptions}
           teamOptions={teamOptions}
           projectOptions={projectOptions}

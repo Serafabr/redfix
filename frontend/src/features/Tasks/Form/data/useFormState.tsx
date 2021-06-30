@@ -1,0 +1,58 @@
+import { useState } from 'react';
+// Types
+import { TaskFormStateType, TaskFormSetStateType } from '../_types';
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {};
+
+/*************************\
+ * Custom Hook
+\*************************/
+
+export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
+  
+  // Text input
+  const [ task, setTask ] = useState<string>('');
+  const [ place, setPlace ] = useState<string>('');
+  const [ description, setDescription ] = useState<string>('');
+  
+  // Dropdown
+  const [ category, setCategory ] = useState<string[]>([]);
+  const [ team, setTeam ] = useState<string[]>([]);
+  const [ status, setStatus ] = useState<string[]>([]);
+  const [ project, setProject ] = useState<string[]>([]);
+  
+  // Dates
+  const [ startDate, setStartDate ] = useState<number>();
+  const [ limitDate, setLimitDate ] = useState<number>();
+  
+  
+  const formState: TaskFormStateType = {
+    task,
+    place,
+    description,
+    category,
+    team,
+    status,
+    project,
+    startDate,
+    limitDate,
+  }
+  
+  const setFormState: TaskFormSetStateType = {
+    setTask,
+    setPlace,
+    setDescription,
+    setCategory,
+    setTeam,
+    setStatus,
+    setProject,
+    setStartDate,
+    setLimitDate,
+  }
+  
+  return [ formState, setFormState ];
+}
