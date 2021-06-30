@@ -45,8 +45,8 @@ type Props = {
   step?: number | null,
   totalSteps?: number | null,
   situation?: FormSituationType | null,
-  descriptionData?: InputDescriptionData,
-  setDescriptionData?: InputSetDescriptionData,
+  formData?: InputDescriptionData,
+  setFormData?: InputSetDescriptionData,
   categoryOptions?: OptionsType,
   teamOptions?: OptionsType,
   statusOptions?: OptionsType,
@@ -54,7 +54,7 @@ type Props = {
 };
 
 /*************************\
- * Default props
+ * Default Types
 \*************************/
 
 const defeaultSetDescriptionData = {
@@ -77,10 +77,6 @@ const defaultDescriptionData = {
   project: [],
 }
 
-/*************************\
- * Default Types
-\*************************/
-
 const defaultOptions = {
   loading: { name: "Carregando opções..." }
 }
@@ -94,8 +90,8 @@ const defaultSetter = () => {};
 export const TaskDescription = ({
   step = 1,
   totalSteps = 1,
-  descriptionData = defaultDescriptionData,
-  setDescriptionData = defeaultSetDescriptionData,
+  formData = defaultDescriptionData,
+  setFormData = defeaultSetDescriptionData,
   categoryOptions = defaultOptions,
   teamOptions = defaultOptions,
   statusOptions = defaultOptions,
@@ -111,7 +107,7 @@ export const TaskDescription = ({
     team,
     status,
     project,
-  } = descriptionData; 
+  } = formData; 
   
   return (
     <>
@@ -131,7 +127,7 @@ export const TaskDescription = ({
           >
             <Input 
               value={task}
-              onChange={handleTextInput('task', setDescriptionData)}
+              onChange={handleTextInput('task', setFormData)}
               error={false}
             />
           </InputField>
@@ -143,7 +139,7 @@ export const TaskDescription = ({
           >
             <Input 
               value={place}
-              onChange={handleTextInput('place', setDescriptionData)}
+              onChange={handleTextInput('place', setFormData)}
               error={false} 
             />
           </InputField>
@@ -156,7 +152,7 @@ export const TaskDescription = ({
             <Dropdown 
               options={categoryOptions}
               selectionArray={category}
-              onSelectItem={handleOneItemSelection(setDescriptionData.category)}
+              onSelectItem={handleOneItemSelection(setFormData.category)}
               boxWidth={250}
               sortItems={true}
             />
@@ -170,7 +166,7 @@ export const TaskDescription = ({
             <Dropdown 
               options={teamOptions}
               selectionArray={team}
-              onSelectItem={handleOneItemSelection(setDescriptionData.team)}
+              onSelectItem={handleOneItemSelection(setFormData.team)}
               boxWidth={250}
               searchable={true}
               sortItems={true}
@@ -185,7 +181,7 @@ export const TaskDescription = ({
             <Dropdown 
               options={statusOptions}
               selectionArray={status}
-              onSelectItem={handleOneItemSelection(setDescriptionData.status)}
+              onSelectItem={handleOneItemSelection(setFormData.status)}
               boxWidth={250}
               searchable={false}
               sortItems={true}
@@ -200,7 +196,7 @@ export const TaskDescription = ({
             <Dropdown 
               options={projectOptions}
               selectionArray={project}
-              onSelectItem={handleOneItemSelection(setDescriptionData.project)}
+              onSelectItem={handleOneItemSelection(setFormData.project)}
               boxWidth={400}
               searchable={true}
               sortItems={true}
@@ -215,7 +211,7 @@ export const TaskDescription = ({
           >
             <TextArea 
               value={description}
-              onChange={handleTextInput('description', setDescriptionData)}
+              onChange={handleTextInput('description', setFormData)}
             />
           </InputField>
         </DataGrid>

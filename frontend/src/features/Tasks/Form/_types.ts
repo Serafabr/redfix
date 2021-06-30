@@ -11,13 +11,13 @@ export type TaskFormStateType = {
 }
 
 export type TaskFormSetStateType = {
-  setTask: React.Dispatch<string>,
-  setPlace: React.Dispatch<string>,
-  setDescription: React.Dispatch<string>,
-  setCategory: React.Dispatch<string[]>,
-  setTeam: React.Dispatch<string[]>,
-  setStatus: React.Dispatch<string[]>,
-  setProject: React.Dispatch<string[]>,
-  setStartDate: React.Dispatch<number>,
-  setLimitDate: React.Dispatch<number>
+  task: React.Dispatch<string>,
+  place: React.Dispatch<string>,
+  description: React.Dispatch<string>,
+  category: React.Dispatch<string[]>,
+  team: React.Dispatch<string[]>,
+  status: React.Dispatch<string[]>,
+  project: React.Dispatch<string[]>,
+  startDate: React.Dispatch<number>,
+  limitDate: React.Dispatch<number>
 }

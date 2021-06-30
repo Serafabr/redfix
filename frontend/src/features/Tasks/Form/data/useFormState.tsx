@@ -43,15 +43,15 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
   }
   
   const setFormState: TaskFormSetStateType = {
-    setTask,
-    setPlace,
-    setDescription,
-    setCategory,
-    setTeam,
-    setStatus,
-    setProject,
-    setStartDate,
-    setLimitDate,
+    task: setTask,
+    place: setPlace,
+    description: setDescription,
+    category: setCategory,
+    team: setTeam,
+    status: setStatus,
+    project: setProject,
+    startDate: setStartDate,
+    limitDate: setLimitDate,
   }
   
   return [ formState, setFormState ];

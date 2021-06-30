@@ -16,6 +16,7 @@ import { TextArea } from '../../../components/Inputs/TextArea/TextArea';
 import { DateInput } from '../../../components/Inputs/DateInput/DateInput';
 
 import { TaskDescription } from './sections/TaskDescription/TaskDescription';
+import { TaskDates } from './sections/TaskDates/TaskDates';
 
 import { Table } from '../../../components/Tables';
 
@@ -92,46 +93,6 @@ export const TaskForm = () => {
   
   const [ formState, setFormState ] = useFormState();
   
-  const {
-    task,
-    place,
-    description,
-    category,
-    team,
-    status,
-    project,
-  } = formState;
-  const {
-    setTask,
-    setPlace,
-    setDescription,
-    setCategory,
-    setTeam,
-    setStatus,
-    setProject,
-  } = setFormState;
-  
-  const descriptionData = {
-    task,
-    place,
-    description,
-    category,
-    team,
-    status,
-    project,
-  };
-  
-  const setDescriptionData = {
-    task: setTask,
-    place: setPlace,
-    description: setDescription,
-    category: setCategory,
-    team: setTeam,
-    status: setStatus,
-    project: setProject,
-  };
-
-  
   return (
     <>
       <TitleArea 
@@ -141,39 +102,17 @@ export const TaskForm = () => {
       />
       <FormContainer>
         <TaskDescription 
-          descriptionData={descriptionData}
-          setDescriptionData={setDescriptionData}
+          formData={formState}
+          setFormData={setFormState}
           categoryOptions={categoryOptions}
           teamOptions={teamOptions}
           projectOptions={projectOptions}
           statusOptions={statusOptions}
         />
-        <FormHeader
-          title="Datas e prazos"
-          subtitle="Prazos para o ínicio e término da tarefa. Campos NÃO obrigatórios, tais informações podem ser preenchidas posteriormente."
-          badgeText="Etapa 02 de 04"
-          situation={FormSituationType.Ok}
+        <TaskDates 
+          formData={formState}
+          setFormData={setFormState}
         />
-        <FormContent marginBottom={true}>
-          <DataGrid className={style.DatesGrid}>
-            <InputField
-                label="Início da execução"
-                gridArea="startDate"
-                error={false}
-                errorMessage={"Valor incorreto!"}
-              >
-              <DateInput />
-            </InputField>
-            <InputField
-                label="Prazo final"
-                gridArea="limitDate"
-                error={false}
-                errorMessage={"Valor incorreto!"}
-              >
-              <DateInput />
-            </InputField>
-          </DataGrid>
-        </FormContent>
         <FormHeader
           title="Ativos"
           subtitle="Adicione todos os ativos que serão objetos desta manutenção / serviço. Campo obrigatório. O usuário deverá anexar, pelo menos, UM ativo."
