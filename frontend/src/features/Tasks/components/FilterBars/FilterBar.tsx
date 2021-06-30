@@ -5,9 +5,9 @@ import { FilterButton, FilterWithDropdown } from '../../../../components/Filters
 import { AlignListType } from '../../../../components/SelectBox/_types';
 // Utils
 import { 
-  quickInitial,
-  teamsInitial,
-  statusInitial,
+  quickOptions,
+  teamOptions,
+  statusOptions,
 } from './config/initialFilterStates';
 // Icons
 import { Quick } from '../../../../components/Icons';
@@ -48,10 +48,10 @@ export const FilterBar = ({
 }: Props) => {
   
   // State of all filters
-  const [ quickFilter, setQuickFilter ] = useState(quickInitial);
-  const [ teamsFilter, setTeamsFilter ] = useState(teamsInitial);
-  const [ statusFilter, setStatusFilter ] = useState(statusInitial);
-  const [ bookmark, setBookmark ] = useState(false);
+  const [ quickFilter, setQuickFilter ] = useState<Array<string>>([]);
+  const [ teamsFilter, setTeamsFilter ] = useState<Array<string>>([]);
+  const [ statusFilter, setStatusFilter ] = useState<Array<string>>([]);
+  const [ bookmark, setBookmark ] = useState<boolean>(false);
   
   const handleSetBookmark = useCallback(
     () => {
@@ -70,14 +70,15 @@ export const FilterBar = ({
         <div className={style.RightDivider}>
           <FilterWithDropdown 
             fixedName="Filtro Rápido"
-            options={quickFilter}
-            onSelectItem={handleOneItemSelection(quickFilter, setQuickFilter)}
+            options={quickOptions}
+            filterArray={quickFilter}
+            setFilter={setQuickFilter}
             icon={quickIcon}
             activatedIcon={quickIconActive}
             iconWidth={17}
             alignList={AlignListType.Left}
             searchable={true}
-            sortItems={false}
+            sortItems={true}
           />
         </div>
       </div>
@@ -85,8 +86,10 @@ export const FilterBar = ({
         <FilterWithDropdown 
           fixedName="Equipes"
           manyOptionsName="Equipes"
-          options={teamsFilter}
-          onSelectItem={handleManyItemsSelection(teamsFilter, setTeamsFilter)}
+          options={teamOptions}
+          filterArray={teamsFilter}
+          setFilter={setTeamsFilter}
+          manySelection={true}
           icon={teamsIcon}
           iconWidth={17}
           alignList={AlignListType.Left}
@@ -98,8 +101,10 @@ export const FilterBar = ({
         <FilterWithDropdown 
           fixedName="Status"
           manyOptionsName="Status"
-          options={statusFilter}
-          onSelectItem={handleManyItemsSelection(statusFilter, setStatusFilter)}
+          options={statusOptions}
+          filterArray={statusFilter}
+          setFilter={setStatusFilter}
+          manySelection={true}
           icon={statusIcon}
           iconWidth={17}
           alignList={AlignListType.Left}

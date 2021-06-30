@@ -35,10 +35,10 @@ type Props = {};
 
 export const QuickSearch = () => {
   
-  const [ searchEntity, setSearchEntity ] = useState('task')
+  const [ selectionArray, setSelectionArray ] = useState<Array<string>>([])
   
-  const handleSelectItem: OnSelectItemType = (id) => {
-    setSearchEntity(id);
+  const handleSelectItem: OnSelectItemType = (id: string) => {
+    setSelectionArray([id]);
   };
   
   return (
@@ -46,11 +46,12 @@ export const QuickSearch = () => {
       <div className={style.ButtonWrapper}>
         <AddSelectBox
           options={options}
+          selectionArray={selectionArray}
           onSelectItem={handleSelectItem}
           boxWidth={190}
         >
           {(onClick, isOpen)=> (
-            <DropdownButton buttonStyle={{ borderRadius: "4px 0 0 4px", zIndex: "10" }} addShadow={false} value={options[searchEntity].name} isOpen={isOpen} handleOnClick={onClick} />
+            <DropdownButton buttonStyle={{ borderRadius: "4px 0 0 4px", zIndex: "10" }} addShadow={false} value={options[selectionArray[0]]?.name} isOpen={isOpen} handleOnClick={onClick} />
           )}
         </AddSelectBox>
       </div>

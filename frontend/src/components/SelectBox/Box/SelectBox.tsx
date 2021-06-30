@@ -1,5 +1,5 @@
 // Third party imports
-import { FormEvent, useState } from 'react';
+import { FormEvent, useMemo, useState } from 'react';
 // Components
 import { SearchInput } from '../../Inputs'
 // Hooks
@@ -25,6 +25,7 @@ type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
   items: OptionsType,
+  selectionArray: Array<string>,
   clickOutsideRef: refProps,
   onSelectItem: OnSelectItemType,
   sortItems: boolean,
@@ -38,6 +39,7 @@ export const SelectBox = ({
   setIsOpen,
   searchable = false,
   items,
+  selectionArray,
   clickOutsideRef,
   onSelectItem,
   sortItems,
@@ -45,7 +47,21 @@ export const SelectBox = ({
   
   const [ searchInput, setSearchInput ] = useState<string | null>(null);
   
-  const optionIds = sortAndFilterOptionIds(items, searchInput, sortItems);
+  
+  /*****
+    Get the selection items on an object
+  *****/
+  
+  const selectionObject: {[itemId: string]: boolean} = useMemo(()=> {
+    
+    const result: {[itemId: string]: boolean} = {};
+    selectionArray?.forEach((itemId) => { result[itemId] = true })
+    
+    return result;
+  }, [selectionArray])
+  
+  
+  const optionIds = sortAndFilterOptionIds(items, selectionObject, searchInput, sortItems);
   
   /*****
     Event Handlers
@@ -84,11 +100,11 @@ export const SelectBox = ({
           {optionIds.map((itemId: string) => (
             <li 
               key={itemId} 
-              className={`${style.Item} ${items[itemId].selected && style.Selected}`}
+              className={`${style.Item} ${selectionObject[itemId] && style.Selected}`}
               onClick={handleOnClick(itemId)}
             >
               <span className={style.TextItem}>{items[itemId].name}</span>
-              {items[itemId].selected && (<img src={blueCheckIcon} alt="Selected" />)}
+              {selectionObject[itemId] && (<img src={blueCheckIcon} alt="Selected" />)}
             </li>
           ))}
           {optionIds.length === 0 && (

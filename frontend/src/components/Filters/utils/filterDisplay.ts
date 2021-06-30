@@ -6,7 +6,7 @@ import {
 } from '../../SelectBox/_types';
 
 // Return an array of the selected items
-const getSelectedOptions = (options: OptionsType) => {
+const getSelectedOptions = (options: any) => {
   return (
     Object.keys(options).reduce((selected: Array<OptionType>, nextId: string) => {
       if (options[nextId].selected) {
@@ -19,7 +19,8 @@ const getSelectedOptions = (options: OptionsType) => {
 
 // Return the display for the filter button (with dropdown)
 export const getFilterButtonDisplay = (
-  options: OptionsType, 
+  options: OptionsType,
+  selectionArray: Array<string>, 
   fixedName: string, 
   manyOptionsName: string, 
   icon?: string | undefined, 
@@ -31,17 +32,14 @@ export const getFilterButtonDisplay = (
   let displayIcon: string | undefined = icon;
   let isActive = false;
   
-  // Get selected items (Array)
-  const selectedItems = getSelectedOptions(options);
-  
-  if (selectedItems.length === 1 && selectedItems[0]) {
-    displayName = selectedItems[0].name;
+  if (selectionArray.length === 1 && selectionArray[0]) {
+    displayName = options[selectionArray[0]].name;
     displayIcon = activatedIcon || icon;
     isActive = true;
   }
   
-  if (selectedItems.length > 1) {
-    displayName = `${manyOptionsName} (${selectedItems.length}) ...`;
+  if (selectionArray.length > 1) {
+    displayName = `${manyOptionsName} (${selectionArray.length}) ...`;
     displayIcon = activatedIcon || icon;
     isActive = true;
   }

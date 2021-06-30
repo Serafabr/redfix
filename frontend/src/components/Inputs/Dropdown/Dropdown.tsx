@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 // Components
 import { AddSelectBox } from "../../SelectBox"
 import { DropdownButton } from "..";
@@ -10,9 +11,9 @@ import { OptionsType, OptionType, OnSelectItemType } from "../../SelectBox/_type
 
 type Props = {
   options: OptionsType,
+  selectionArray?: Array<string>, 
   onSelectItem: OnSelectItemType,
   boxWidth?: number,
-  selectedId?: string | null,
   searchable?: boolean,
   sortItems?: boolean,
   error?: boolean,
@@ -24,19 +25,18 @@ type Props = {
 
 export const Dropdown = ({
   options,
+  selectionArray,
   onSelectItem,
   boxWidth = 200,
-  selectedId,
   searchable = false,
   sortItems = false,
   error = false,
 }: Props) => {
   
-  const value = selectedId && options[selectedId]?.name;
-  
   return (
     <AddSelectBox
       options={options}
+      selectionArray={selectionArray}
       onSelectItem={onSelectItem}
       boxWidth={boxWidth}
       searchable={searchable}
@@ -44,7 +44,7 @@ export const Dropdown = ({
     >
       {(onClick, isOpen) => (
         <DropdownButton 
-          value={value}
+          value={selectionArray && options[selectionArray[0]].name}
           isOpen={isOpen}
           handleOnClick={onClick}
           error={error}

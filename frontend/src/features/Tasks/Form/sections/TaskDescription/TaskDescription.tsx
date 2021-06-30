@@ -9,26 +9,27 @@ import style from './TaskDescription.module.scss';
 // Types
 import { FormSituationType } from "../../../../../components/Forms/_types";
 import { OptionsType, OptionType, OnSelectItemType } from '../../../../../components/SelectBox/_types';
+import { handleOneItemSelection } from '../../../../../components/SelectBox';
 
 /*************************\
  * General types
 \*************************/
 
 type InputDescriptionData = {
-  task?: string | null,
-  handleTaskChange?: OnSelectItemType,
-  place?: string | null,
-  handlePlaceChange?: OnSelectItemType,
-  description?: string | null,
-  handleDescriptionChange?: OnSelectItemType,
-  categoryId?: string | null,
-  handleCategoryChange?: OnSelectItemType,
-  teamId?: string | null,
-  handleTeamChange?: OnSelectItemType,
-  statusId?: string | null,
-  handleStatusChange?: OnSelectItemType,
-  projectId?: string | null,
-  handleProjectChange?: OnSelectItemType,
+  task?: string,
+  setTask?: React.Dispatch<string>,
+  place?: string,
+  setPlace?: React.Dispatch<string>,
+  description?: string,
+  setDescription?: React.Dispatch<string>,
+  category?: string[],
+  setCategory?: React.Dispatch<Array<string>>,
+  team?: string[],
+  setTeam?: React.Dispatch<Array<string>>,
+  status?: string[],
+  setStatus?: React.Dispatch<Array<string>>,
+  project?: string[],
+  setProject?: React.Dispatch<Array<string>>,
 };
 
 /*************************\
@@ -73,19 +74,19 @@ export const TaskDescription = ({
   // Input Values
   const {
     task,
-    handleTaskChange = defaultSetter,
+    setTask = defaultSetter,
     place,
-    handlePlaceChange = defaultSetter,
+    setPlace = defaultSetter,
     description,
-    handleDescriptionChange = defaultSetter,
-    categoryId,
-    handleCategoryChange = defaultSetter,
-    teamId,
-    handleTeamChange = defaultSetter,
-    statusId,
-    handleStatusChange = defaultSetter,
-    projectId,
-    handleProjectChange = defaultSetter,
+    setDescription = defaultSetter,
+    category,
+    setCategory = defaultSetter,
+    team,
+    setTeam = defaultSetter,
+    status,
+    setStatus = defaultSetter,
+    project,
+    setProject = defaultSetter,
     } = descriptionData; 
   
   return (
@@ -122,9 +123,9 @@ export const TaskDescription = ({
           >
             <Dropdown 
               options={categoryOptions}
-              onSelectItem={handleCategoryChange}
+              selectionArray={category}
+              onSelectItem={handleOneItemSelection(setCategory)}
               boxWidth={250}
-              selectedId={categoryId}
             />
           </InputField>
           <InputField
@@ -135,9 +136,9 @@ export const TaskDescription = ({
           >
             <Dropdown 
               options={teamOptions}
-              onSelectItem={handleTeamChange}
+              selectionArray={team}
+              onSelectItem={handleOneItemSelection(setTeam)}
               boxWidth={250}
-              selectedId={teamId}
               searchable={true}
               sortItems={true}
             />
@@ -150,9 +151,9 @@ export const TaskDescription = ({
           >
             <Dropdown 
               options={statusOptions}
-              onSelectItem={handleStatusChange}
+              selectionArray={status}
+              onSelectItem={handleOneItemSelection(setStatus)}
               boxWidth={250}
-              selectedId={statusId}
               searchable={true}
             />
           </InputField>

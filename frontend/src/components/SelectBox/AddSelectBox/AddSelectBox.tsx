@@ -27,6 +27,7 @@ type Props = {
   // This ReactElement is the Button that will be rendered with the dropdown
   children: RenderFunctionType, 
   options: OptionsType,
+  selectionArray?: Array<string>,
   alignList?: AlignListType,
   openOnTop?: boolean,
   boxWidth?: number,
@@ -43,6 +44,7 @@ type Props = {
 export const AddSelectBox = ({ 
   children,
   options, 
+  selectionArray = [],
   alignList = AlignListType.Left,
   openOnTop = false,
   boxWidth = 160,
@@ -88,6 +90,7 @@ export const AddSelectBox = ({
           <SelectBox 
             setIsOpen={setIsOpen}
             items={options}
+            selectionArray={selectionArray}
             clickOutsideRef={wrapperRef}
             searchable={searchable}
             onSelectItem={onSelectItem}

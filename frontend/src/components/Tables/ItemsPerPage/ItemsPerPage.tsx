@@ -41,7 +41,7 @@ export const ItemsPerPage = ({}: Props) => {
         >
           {(onClick, isOpen) => (
             <DropdownButton
-              value={10}
+              value={'10'}
               isOpen={isOpen}
               handleOnClick={onClick}
               buttonStyle={{

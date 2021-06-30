@@ -27,16 +27,11 @@ export const TabsHiddenButton = ({
   setActiveKey
 }: Props) => {
   
-  // Tab selection
-  const options: OptionsType = {...hiddenTabs};
-  if (Object.keys(options).includes(activeKey)) {
-    options[activeKey] = {...options[activeKey], selected: true}
-  }
-  
   // Render
   return (
     <AddSelectBox
-      options={options}
+      options={hiddenTabs}
+      selectionArray={[activeKey]}
       boxWidth={150}
       onSelectItem={setActiveKey}
     >

@@ -4,11 +4,14 @@
 
 export type OptionType = {
   name: string,
-  selected?: boolean,
 }
 
 export type OptionsType = {
   [itemId: string]: OptionType,
+};
+
+export type SelectionObjectType = {
+  [itemId: string]: boolean
 };
 
 export type OnSelectItemType = (id: string) => void;

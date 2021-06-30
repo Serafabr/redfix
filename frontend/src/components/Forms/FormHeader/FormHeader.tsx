@@ -43,6 +43,7 @@ export const FormHeader = ({
             <CardTitle
               title={title}
               subtitle={subtitle}
+              badges={[<Badge text="Etapa 01 de 04" color={ColorType.Orange} />, <Badge text="Seção preenchida" color={ColorType.Green} />]}
             />
           </div>
           <div className={style.FormBadge}>

@@ -65,34 +65,19 @@ export const TaskForm = () => {
   
   const location = useLocation<string>();
   
-  const [ categoryId, setCategoryId ] = useState<string>();
-  const [ teamId, setTeamId ] = useState<string>();
-  const [ statusId, setStatusId ] = useState<string>();
-  
-  const handleCategoryChange = (id: string) => {
-    setCategoryId(id);
-  };
-  
-  const handleTeamChange = (id: string) => {
-    setTeamId(id);
-  };
-  
-  const handleStatusChange = (id: string) => {
-    setStatusId(id);
-  };
+  const [ category, setCategory ] = useState<string[]>([]);
+  const [ team, setTeam ] = useState<string[]>([]);
+  const [ status, setStatus ] = useState<string[]>([]);
   
   const descriptionData = {
-    categoryId,
-    teamId,
-    statusId,
-    handleCategoryChange,
-    handleTeamChange,
-    handleStatusChange
+    category,
+    team,
+    status,
+    setCategory,
+    setTeam,
+    setStatus,
   };
-  
-  if (teamId) {
-    teamOptions[teamId].selected = true;
-  }
+
   
   return (
     <>

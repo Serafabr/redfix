@@ -13,7 +13,7 @@ import { OnSelectItemType } from '../../SelectBox/_types';
 \*************************/
 
 type Props = {
-  value?: string | number | null,
+  value?: string,
   addShadow?: boolean,
   isOpen: boolean,
   handleOnClick: () => void,
@@ -33,6 +33,10 @@ export const DropdownButton = ({
   buttonStyle,
   error = false,
 }: Props) => {
+  
+  /*****
+    Style the component (logic)
+  *****/
   
   const dropdownClasses = classNames(
     inputBasicStyle.Input,
