@@ -126,6 +126,7 @@ export const TaskDescription = ({
               selectionArray={category}
               onSelectItem={handleOneItemSelection(setCategory)}
               boxWidth={250}
+              sortItems={true}
             />
           </InputField>
           <InputField
@@ -154,7 +155,8 @@ export const TaskDescription = ({
               selectionArray={status}
               onSelectItem={handleOneItemSelection(setStatus)}
               boxWidth={250}
-              searchable={true}
+              searchable={false}
+              sortItems={true}
             />
           </InputField>
           <InputField
@@ -163,19 +165,13 @@ export const TaskDescription = ({
             error={false}
             errorMessage={"Valor incorreto!"}
           >
-            <AddSelectBox
-              options={{a: {name: "AAAA"}}}
-              onSelectItem={()=>{}}
-            >
-              {(onClick, isOpen) => (
-                <DropdownButton 
-                  value={"Sem projeto"}
-                  isOpen={isOpen}
-                  handleOnClick={onClick}
-                  error={false}
-                />
-              )}
-            </AddSelectBox>
+            <Dropdown 
+              options={projectOptions}
+              selectionArray={project}
+              onSelectItem={handleOneItemSelection(setProject)}
+              boxWidth={400}
+              searchable={true}
+            />
           </InputField>
           <InputField
             label="Descrição"

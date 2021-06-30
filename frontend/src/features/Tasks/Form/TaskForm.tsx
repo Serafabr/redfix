@@ -61,6 +61,27 @@ const statusOptions = {
   executing: { name: "Em execução" },
 }
 
+const projectOptions = {
+  P001: { name: "Projeto n. 001 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P002: { name: "Projeto n. 002 - Reforma das guaritas de entrada do Senado Federal." },
+  P003: { name: "Projeto n. 003 - Reforma do gabinete XXX." },
+  P004: { name: "Projeto n. 004 - Troca de todos os grupo motores geradores." },
+  P005: { name: "Projeto n. 005 - Pintar todas as salas da Sinfra. Fazer o teste em todos os disjutores e todas as lâmpadas. Trocar todos os móveis. Pintura em cores metálicas." },
+  P006: { name: "Projeto n. 006 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P007: { name: "Projeto n. 007 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P008: { name: "Projeto n. 008 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P009: { name: "Projeto n. 009 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P010: { name: "Projeto n. 010 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P011: { name: "Projeto n. 011 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P012: { name: "Projeto n. 012 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P013: { name: "Projeto n. 013 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P014: { name: "Projeto n. 014 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P015: { name: "Projeto n. 015 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P016: { name: "Projeto n. 016 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P017: { name: "Projeto n. 017 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+  P018: { name: "Projeto n. 018 - Projetar a troca de todas as lâmpadas do gabinete ZZZZ." },
+}
+
 export const TaskForm = () => {
   
   const location = useLocation<string>();
@@ -68,14 +89,17 @@ export const TaskForm = () => {
   const [ category, setCategory ] = useState<string[]>([]);
   const [ team, setTeam ] = useState<string[]>([]);
   const [ status, setStatus ] = useState<string[]>([]);
+  const [ project, setProject ] = useState<string[]>([]);
   
   const descriptionData = {
     category,
     team,
     status,
+    project,
     setCategory,
     setTeam,
     setStatus,
+    setProject
   };
 
   
@@ -91,6 +115,7 @@ export const TaskForm = () => {
           descriptionData={descriptionData}
           categoryOptions={categoryOptions}
           teamOptions={teamOptions}
+          projectOptions={projectOptions}
           statusOptions={statusOptions}
         />
         <FormHeader
