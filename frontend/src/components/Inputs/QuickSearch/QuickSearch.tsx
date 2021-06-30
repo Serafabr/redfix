@@ -35,7 +35,7 @@ type Props = {};
 
 export const QuickSearch = () => {
   
-  const [ selectionArray, setSelectionArray ] = useState<Array<string>>([])
+  const [ selectionArray, setSelectionArray ] = useState<Array<string>>(['task'])
   
   const handleSelectItem: OnSelectItemType = (id: string) => {
     setSelectionArray([id]);
@@ -49,6 +49,7 @@ export const QuickSearch = () => {
           selectionArray={selectionArray}
           onSelectItem={handleSelectItem}
           boxWidth={190}
+          sortItems={true}
         >
           {(onClick, isOpen)=> (
             <DropdownButton buttonStyle={{ borderRadius: "4px 0 0 4px", zIndex: "10" }} addShadow={false} value={options[selectionArray[0]]?.name} isOpen={isOpen} handleOnClick={onClick} />
