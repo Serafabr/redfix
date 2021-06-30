@@ -130,6 +130,7 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <Input 
+              value={task}
               onChange={handleTextInput('task', setDescriptionData)}
               error={false}
             />
@@ -140,7 +141,11 @@ export const TaskDescription = ({
             error={false}
             errorMessage={"Valor incorreto!"}
           >
-            <Input error={false} />
+            <Input 
+              value={place}
+              onChange={handleTextInput('place', setDescriptionData)}
+              error={false} 
+            />
           </InputField>
           <InputField
             label="Categoria"
@@ -204,11 +209,14 @@ export const TaskDescription = ({
           </InputField>
           <InputField
             label="Descrição"
-            gridArea="desc"
+            gridArea="description"
             error={false}
             errorMessage={"Valor incorreto!"}
           >
-            <TextArea />
+            <TextArea 
+              value={description}
+              onChange={handleTextInput('description', setDescriptionData)}
+            />
           </InputField>
         </DataGrid>
       </FormContent>

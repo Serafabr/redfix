@@ -1,9 +1,9 @@
 .DescriptionGrid {
   grid-template: 
     "task task task task"
-    "place place desc desc"
-    "category category desc desc"
-    "team status desc desc"
-    "project project desc desc" / 
+    "place place description description"
+    "category category description description"
+    "team status description description"
+    "project project description description" / 
     1fr 1fr 1fr 1fr;
 }

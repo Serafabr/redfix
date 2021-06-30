@@ -13,8 +13,6 @@ export const DateInput = ({...props}) => {
   
   const dateFormatInputRef = useRef(null);
   
-  console.log(dateFormatInputRef)
-  
   return (
     <>
       <NumberFormat 
