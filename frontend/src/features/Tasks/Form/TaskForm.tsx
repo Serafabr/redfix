@@ -95,7 +95,7 @@ export const TaskForm = () => {
         />
         <FormHeader
           title="Datas e prazos"
-          subtitle="Prazos para o ínicio e término da tarefa. Tais informações podem ser preenchidas posteriormente."
+          subtitle="Prazos para o ínicio e término da tarefa. Campos NÃO obrigatórios, tais informações podem ser preenchidas posteriormente."
           badgeText="Etapa 02 de 04"
           situation={FormSituationType.Ok}
         />
@@ -121,7 +121,7 @@ export const TaskForm = () => {
         </FormContent>
         <FormHeader
           title="Ativos"
-          subtitle="Adicione todos os ativos que serão objetos desta manutenção / serviço."
+          subtitle="Adicione todos os ativos que serão objetos desta manutenção / serviço. Campo obrigatório. O usuário deverá anexar, pelo menos, UM ativo."
           badgeText="Etapa 03 de 04"
           situation={FormSituationType.Ok}
         />

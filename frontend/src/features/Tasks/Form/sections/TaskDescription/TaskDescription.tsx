@@ -93,14 +93,14 @@ export const TaskDescription = ({
     <>
       <FormHeader
         title="Descrição da tarefa"
-        subtitle="Informações essenciais para a execução da tarefa. No campo 'Tarefa' descreva brevemente o serviço que será realizado, enquanto que no campo 'Descrição' faça um detalhamento de tudo o que será necessário."
+        subtitle="Informações essenciais para a execução da tarefa. Todos os campos desta seção, exceto 'Projeto', são obrigatórios."
         badgeText="Etapa 01 de 04"
         situation={FormSituationType.Error}
       />
       <FormContent marginBottom={true}>
         <DataGrid className={style.DescriptionGrid}>
           <InputField
-            label="Tarefa"
+            label="Tarefa (descrição breve)"
             gridArea="task"
             error={false}
             errorMessage={"Valor incorreto!"}

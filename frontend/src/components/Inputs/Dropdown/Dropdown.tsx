@@ -44,7 +44,7 @@ export const Dropdown = ({
     >
       {(onClick, isOpen) => (
         <DropdownButton 
-          value={selectionArray && options[selectionArray[0]].name}
+          value={selectionArray && options[selectionArray[0]]?.name}
           isOpen={isOpen}
           handleOnClick={onClick}
           error={error}
