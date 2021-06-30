@@ -34,7 +34,8 @@ type Props = {
   listStyle?: StyleType, 
   searchable?: boolean,
   onSelectItem: OnSelectItemType,
-  sortItems?: boolean
+  sortItems?: boolean,
+  wrapText?: boolean,
 };
 
 /*************************\
@@ -52,6 +53,7 @@ export const AddSelectBox = ({
   searchable = false,
   onSelectItem,
   sortItems = false,
+  wrapText = false,
 }: Props) => {
   // Control whether the dropdown is open or closed.
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
@@ -95,6 +97,7 @@ export const AddSelectBox = ({
             searchable={searchable}
             onSelectItem={onSelectItem}
             sortItems={sortItems}
+            wrapText={wrapText}
           />
         </div>
       )}

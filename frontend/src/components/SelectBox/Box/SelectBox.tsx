@@ -29,6 +29,7 @@ type Props = {
   clickOutsideRef: refProps,
   onSelectItem: OnSelectItemType,
   sortItems: boolean,
+  wrapText?: boolean,
 };
 
 /*************************\
@@ -43,6 +44,7 @@ export const SelectBox = ({
   clickOutsideRef,
   onSelectItem,
   sortItems,
+  wrapText = false,
 }: Props) => {
   
   const [ searchInput, setSearchInput ] = useState<string | null>(null);
@@ -103,7 +105,7 @@ export const SelectBox = ({
               className={`${style.Item} ${selectionObject[itemId] && style.Selected}`}
               onClick={handleOnClick(itemId)}
             >
-              <span className={style.TextItem}>{items[itemId].name}</span>
+              <span className={`${style.TextItem} ${wrapText && style.WrapText}`}>{items[itemId].name}</span>
               {selectionObject[itemId] && (<img src={blueCheckIcon} alt="Selected" />)}
             </li>
           ))}

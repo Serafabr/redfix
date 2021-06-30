@@ -171,6 +171,8 @@ export const TaskDescription = ({
               onSelectItem={handleOneItemSelection(setProject)}
               boxWidth={400}
               searchable={true}
+              sortItems={true}
+              wrapText={true}
             />
           </InputField>
           <InputField
