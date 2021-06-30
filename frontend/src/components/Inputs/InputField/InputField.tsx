@@ -41,7 +41,7 @@ export const InputField = ({
   
   // Render component
   return (
-    <div style={inputDisplayStyle}>
+    <div className={style.InputField} style={inputDisplayStyle}>
       {label && (
         <div>
           <label className={labelClasses}>{label}</label>

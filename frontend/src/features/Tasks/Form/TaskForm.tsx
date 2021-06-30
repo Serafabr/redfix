@@ -47,6 +47,7 @@ const teamOptions: OptionsType = {
   Semac: { name: 'Semac' },
   rcs: { name: 'Rcs Tecnologia - Posto 2' },
   entherm: { name: 'Entherm - Administração' },
+  enthermC: { name: 'Entherm - Posto da direção central. Entherm - Posto da direção central.' },
   gabinete12: { name: 'Gabinete Senador Alvaro' },
   gabinete16: { name: 'Gabinete Senador Thiago' },
 }
