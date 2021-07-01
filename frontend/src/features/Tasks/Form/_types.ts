@@ -21,3 +21,13 @@ export type TaskFormSetStateType = {
   startDate: React.Dispatch<string>,
   limitDate: React.Dispatch<string>
 }
+
+export type TaskFormStateErrorType = {
+  startDate?: boolean,
+  limitDate?: boolean,
+}
+
+export type TaskFormSetStateErrorType = {
+  startDate: React.Dispatch<boolean>,
+  limitDate: React.Dispatch<boolean>
+}

@@ -15,7 +15,8 @@ import style from './TaskDates.module.scss';
 \*************************/
 
 const checkDateStringOnBlur = (inputId: string, setFunctionObject: any) => (e: React.SyntheticEvent<HTMLInputElement>) => {
-  
+  const target = e.target as HTMLInputElement;
+  setFunctionObject[inputId](isDateStringValid(target.value));
 }
 
 /*************************\
