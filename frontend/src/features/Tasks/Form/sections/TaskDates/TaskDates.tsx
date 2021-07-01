@@ -2,6 +2,7 @@
 import { FormHeader, FormContent } from '../../../../../components/Forms';
 import { DataGrid } from '../../../../../components/DataDisplays';
 import { InputField, DateInput } from '../../../../../components/Inputs';
+import { useErrorFormState } from '../../data/useErrorFormState';
 // Functions
 import { handleTextInput } from '../../data/handleTextInput';
 import { isDateStringValid } from '../../data/dateFunctions';
@@ -15,8 +16,19 @@ import style from './TaskDates.module.scss';
 \*************************/
 
 const checkDateStringOnBlur = (inputId: string, setFunctionObject: any) => (e: React.SyntheticEvent<HTMLInputElement>) => {
+  const { value } = e.target as HTMLInputElement;
+  
+  if (value.length === 0) {
+    setFunctionObject[inputId](false);
+  } else {
+    setFunctionObject[inputId](!isDateStringValid(value));
+  }
+  
+}
+
+const cleanErrorOnFocus = (inputId: string, setFunctionObject: any) => (e: React.SyntheticEvent<HTMLInputElement>) => {
   const target = e.target as HTMLInputElement;
-  setFunctionObject[inputId](isDateStringValid(target.value));
+  setFunctionObject[inputId](false);
 }
 
 /*************************\
@@ -73,6 +85,8 @@ export const TaskDates = ({
   setFormData,
 }: Props) => {
   
+  const [ formStateError, setFormStateError ] = useErrorFormState(); 
+  
   return (
     <>
     <FormHeader
@@ -86,24 +100,29 @@ export const TaskDates = ({
         <InputField
             label="Início da execução"
             gridArea="startDate"
-            error={false}
+            error={formStateError.startDate}
             errorMessage={"Data incorreta!"}
           >
           <DateInput 
             value={formData.startDate}
             onChange={handleTextInput('startDate', setFormData)}
-            onBlur={(e: any)=>{console.log('onblur', e.target.value)}}
+            onFocus={cleanErrorOnFocus('startDate', setFormStateError)}
+            onBlur={checkDateStringOnBlur('startDate', setFormStateError)}
+            error={formStateError.startDate}
           />
         </InputField>
         <InputField
           label="Prazo final"
           gridArea="limitDate"
-          error={false}
+          error={formStateError.limitDate}
           errorMessage={"Valor incorreto!"}
         >
         <DateInput 
           value={formData.limitDate}
           onChange={handleTextInput('limitDate', setFormData)}
+          onFocus={cleanErrorOnFocus('limitDate', setFormStateError)}
+          onBlur={checkDateStringOnBlur('limitDate', setFormStateError)}
+          error={formStateError.limitDate}
         />
         </InputField>
       </DataGrid>

@@ -93,10 +93,6 @@ export const TaskForm = () => {
   
   const [ formState, setFormState ] = useFormState();
   
-  console.log("Data inicial: ");
-  console.log(formState.startDate);
-  console.log(typeof formState.startDate);
-  
   return (
     <>
       <TitleArea 

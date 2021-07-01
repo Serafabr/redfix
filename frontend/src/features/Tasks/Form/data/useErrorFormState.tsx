@@ -12,11 +12,11 @@ type Props = {};
  * Custom Hook
 \*************************/
 
-export const useFormState = (): [TaskFormStateErrorType, TaskFormSetStateErrorType] => {
+export const useErrorFormState = (): [TaskFormStateErrorType, TaskFormSetStateErrorType] => {
 
   // Dates
-  const [ startDate, setStartDate ] = useState<boolean>();
-  const [ limitDate, setLimitDate ] = useState<boolean>();
+  const [ startDate, setStartDate ] = useState<boolean>(false);
+  const [ limitDate, setLimitDate ] = useState<boolean>(false);
   
   
   const formStateError: TaskFormStateErrorType = {
