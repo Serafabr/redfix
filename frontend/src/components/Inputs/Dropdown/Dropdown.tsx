@@ -17,6 +17,7 @@ type Props = {
   searchable?: boolean,
   sortItems?: boolean,
   wrapText?: boolean,
+  placeholder?: string,
   error?: boolean,
 };
 
@@ -32,6 +33,7 @@ export const Dropdown = ({
   searchable = false,
   sortItems = false,
   wrapText,
+  placeholder,
   error = false,
 }: Props) => {
   
@@ -51,6 +53,7 @@ export const Dropdown = ({
           isOpen={isOpen}
           handleOnClick={onClick}
           error={error}
+          placeholder={placeholder}
         />
       )}
     </AddSelectBox>

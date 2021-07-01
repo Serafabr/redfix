@@ -18,6 +18,7 @@ type Props = {
   isOpen: boolean,
   handleOnClick: () => void,
   buttonStyle?: StyleType,
+  placeholder?: string,
   error?: boolean,
 };
 
@@ -31,6 +32,7 @@ export const DropdownButton = ({
   isOpen,
   handleOnClick,
   buttonStyle,
+  placeholder,
   error = false,
 }: Props) => {
   
@@ -63,6 +65,9 @@ export const DropdownButton = ({
       style={buttonStyle}
     >
       <div className={style.Text}>{value}</div>
+      {(!value || value.length === 0) && placeholder && (
+        <div className={`${style.Text} ${style.Placeholder}`}>{placeholder}</div>
+      )}
       <div className={iconClasses}>
         <img src={ArrowDown} alt="Ícone dropdown"/>
       </div>

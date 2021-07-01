@@ -201,6 +201,7 @@ export const TaskDescription = ({
               searchable={true}
               sortItems={true}
               wrapText={true}
+              placeholder="Sem projeto"
             />
           </InputField>
           <InputField
