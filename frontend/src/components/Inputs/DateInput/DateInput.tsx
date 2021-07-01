@@ -10,8 +10,9 @@ import style from './DateInput.module.scss';
 \*************************/
 
 type Props = {
-  value: string,
-  onChange: () => void,
+  value?: string,
+  onChange: (event: React.FormEvent<HTMLInputElement>) => void,
+  [rest: string]: any,
 }
 
 /*************************\

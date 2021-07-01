@@ -6,8 +6,8 @@ export type TaskFormStateType = {
   team?: string[],
   status?: string[],
   project?: string[],
-  startDate?: number,
-  limitDate?: number,
+  startDate?: string,
+  limitDate?: string,
 }
 
 export type TaskFormSetStateType = {
@@ -18,6 +18,6 @@ export type TaskFormSetStateType = {
   team: React.Dispatch<string[]>,
   status: React.Dispatch<string[]>,
   project: React.Dispatch<string[]>,
-  startDate: React.Dispatch<number>,
-  limitDate: React.Dispatch<number>
+  startDate: React.Dispatch<string>,
+  limitDate: React.Dispatch<string>
 }

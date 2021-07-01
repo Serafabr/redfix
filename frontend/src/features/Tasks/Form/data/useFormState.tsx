@@ -26,8 +26,8 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
   const [ project, setProject ] = useState<string[]>([]);
   
   // Dates
-  const [ startDate, setStartDate ] = useState<number>();
-  const [ limitDate, setLimitDate ] = useState<number>();
+  const [ startDate, setStartDate ] = useState<string>();
+  const [ limitDate, setLimitDate ] = useState<string>();
   
   
   const formState: TaskFormStateType = {

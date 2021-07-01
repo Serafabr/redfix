@@ -4,24 +4,32 @@ import { DataGrid } from '../../../../../components/DataDisplays';
 import { InputField, DateInput } from '../../../../../components/Inputs';
 // Functions
 import { handleTextInput } from '../../data/handleTextInput';
+import { isDateStringValid } from '../../data/dateFunctions';
 // Types
 import { FormSituationType } from '../../../../../components/Forms/_types';
 // Style
 import style from './TaskDates.module.scss';
-import { useFormState } from '../../data/useFormState';
+
+/*************************\
+ * Functions
+\*************************/
+
+const checkDateStringOnBlur = (inputId: string, setFunctionObject: any) => (e: React.SyntheticEvent<HTMLInputElement>) => {
+  
+}
 
 /*************************\
  * General types
 \*************************/
 
 type InputDescriptionData = {
-  startDate?: number,
-  limitDate?: number,
+  startDate?: string,
+  limitDate?: string,
 };
 
 type InputSetDescriptionData = {
-  startDate: React.Dispatch<number>,
-  limitDate: React.Dispatch<number>,
+  startDate: React.Dispatch<string>,
+  limitDate: React.Dispatch<string>,
 };
 
 /*************************\
@@ -83,6 +91,7 @@ export const TaskDates = ({
           <DateInput 
             value={formData.startDate}
             onChange={handleTextInput('startDate', setFormData)}
+            onBlur={(e: any)=>{console.log('onblur', e.target.value)}}
           />
         </InputField>
         <InputField
@@ -91,7 +100,10 @@ export const TaskDates = ({
           error={false}
           errorMessage={"Valor incorreto!"}
         >
-        <DateInput />
+        <DateInput 
+          value={formData.limitDate}
+          onChange={handleTextInput('limitDate', setFormData)}
+        />
         </InputField>
       </DataGrid>
     </FormContent>
