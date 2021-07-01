@@ -8,6 +8,7 @@ import style from './TaskAssets.module.scss';
 import plusIcon from '../../../../../assets/icons/plus-blue.svg';
 // Types
 import { FormSituationType } from '../../../../../components/Forms/_types';
+import { Table } from '../../../../../components/Tables';
 
 export const TaskAssets = () => {
   return (
@@ -24,7 +25,7 @@ export const TaskAssets = () => {
             Adicionar Ativo
           </PlainButton>
         </div>
-        <EmptyTable />
+        <Table />
       </FormContent>
     </>
   )
