@@ -5,7 +5,7 @@ type ColumnStyle = {
   [id: string]: any,
 }
 
-export const columnsTasks = [
+export const columnsAssets = [
   {
     Header: 'Código',
     id: 'id',
@@ -24,12 +24,6 @@ export const columnsTasks = [
     Cell: CellFormat({ isCenter: true }),
   },
   {
-    Header: 'Ativo pai',
-    id: 'parent',
-    accessor: (row: any) => row.parent,
-    Cell: CellFormat({ isCenter: true })
-  },
-  {
     id: 'moreButton',
     Header: '',
     accessor: (row: any) => row.id,
@@ -38,7 +32,7 @@ export const columnsTasks = [
 ];
 
 export const columnStyle: ColumnStyle = {
-  id: { width: '120px', textAlign: 'center' },
+  id: { width: '160px', textAlign: 'center' },
   asset: { width: '60%' },
   category: { width: '40%', textAlign: 'center' },
   moreButton: { width: '40px', textAlign: 'center' },

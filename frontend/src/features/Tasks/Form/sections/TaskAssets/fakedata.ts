@@ -6,12 +6,12 @@ export const dataAssets = [
   },
   {
     id: 'EDPR-MEZ-467',
-    facility: 'Edifício Principal',
+    asset: 'Edifício Principal',
     category: 'Sistema de endereçamento',
   },
   {
     id: 'ELET-0459294',
-    facility: 'Nobreak do grupo motor gerador 01',
-    parent: 'Sistema elétrico',
+    asset: 'Nobreak do grupo motor gerador 01',
+    category: 'Sistema elétrico',
   },
 ];
