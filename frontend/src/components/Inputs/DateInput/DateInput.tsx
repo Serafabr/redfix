@@ -6,21 +6,34 @@ import { Input } from '../.';
 import style from './DateInput.module.scss';
 
 /*************************\
+ * Proptypes
+\*************************/
+
+type Props = {
+  value: string,
+  onChange: () => void,
+}
+
+/*************************\
  * DateInput Component
 \*************************/
 
-export const DateInput = ({...props}) => {
-  
-  const dateFormatInputRef = useRef(null);
-  
+export const DateInput = ({
+  value,
+  onChange,
+  ...rest
+}: Props) => {
   return (
     <>
       <NumberFormat 
         customInput={Input} 
         inputClassName={style.DateInput} 
-        error={false} 
-        placeholder="dd/mm/aaaa" 
+        value={value}
+        onChange={onChange}
         format={"##/##/####"}
+        placeholder="dd/mm/aaaa" 
+        error={false} 
+        {...rest}
       />
     </>
   )
