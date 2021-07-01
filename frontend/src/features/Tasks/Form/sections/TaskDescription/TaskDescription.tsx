@@ -196,7 +196,7 @@ export const TaskDescription = ({
             <Dropdown 
               options={projectOptions}
               selectionArray={project}
-              onSelectItem={handleOneItemSelection(setFormData.project)}
+              onSelectItem={handleOneItemSelection(setFormData.project, project, true)}
               boxWidth={400}
               searchable={true}
               sortItems={true}

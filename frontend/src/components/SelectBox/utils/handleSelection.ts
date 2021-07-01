@@ -7,10 +7,17 @@ import { SelectionObjectType } from "../_types";
 \*************************/
 
 export const handleOneItemSelection = (
-  setSelection: React.Dispatch<Array<string>>
+  setSelection: React.Dispatch<Array<string>>,
+  selectedItems: Array<string> = [],
+  noSelectionAble: boolean = false,
 ) => (itemId: string) => {
   
-  setSelection([itemId]);
+  if (noSelectionAble && selectedItems.includes(itemId)) {
+    setSelection([])
+  } else {
+    setSelection([itemId]);
+  }
+  
 };
   
 /*************************\
