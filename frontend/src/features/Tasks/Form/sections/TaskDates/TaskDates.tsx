@@ -100,7 +100,7 @@ export const TaskDates = ({
             label="Início da execução"
             gridArea="startDate"
             error={formStateError.startDate}
-            errorMessage={"Data incorreta!"}
+            errorMessage={"Data inválida! Utilizar o formato: DD/MM/AAAA."}
           >
           <DateInput 
             value={formData.startDate}
@@ -114,7 +114,7 @@ export const TaskDates = ({
           label="Prazo final"
           gridArea="limitDate"
           error={formStateError.limitDate}
-          errorMessage={"Valor incorreto!"}
+          errorMessage={"Data inválida! Utilizar o formato: DD/MM/AAAA."}
         >
         <DateInput 
           value={formData.limitDate}

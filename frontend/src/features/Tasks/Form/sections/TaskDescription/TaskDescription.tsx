@@ -113,7 +113,7 @@ export const TaskDescription = ({
     <>
       <FormHeader
         title="Descrição da tarefa"
-        subtitle="Informações essenciais para a execução da tarefa. Todos os campos desta seção, exceto 'Projeto', devem obrigatoriamente ser preenchidos."
+        subtitle="Informações essenciais para a execução da tarefa. Todos os campos desta seção, exceto 'Projeto', devem ser obrigatoriamente preenchidos. E, caso necessário, alterações poderão ser realizadas posteriormente."
         badgeText="Etapa 01 de 04"
         situation={FormSituationType.Error}
       />
