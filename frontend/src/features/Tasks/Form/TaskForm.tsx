@@ -1,35 +1,22 @@
 import style from './TaskForm.module.scss';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
-import { useLocation, useParams } from 'react-router';
+import { useLocation } from 'react-router';
 
-import { Card, CardHeader } from '../../../components/Cards';
-import { CardTitle } from '../../../components/Cards/CardTitle/CardTitle';
-import { SingleCardHeader } from '../../../components/Cards';
-import { SingleCardContent } from '../../../components/Cards';
+
 import { FormHeader, FormContent, FormContainer } from '../../../components/Forms';
 import { FormSituationType } from '../../../components/Forms/_types';
 
-import { Badge } from '../../../components/Badges';
-import { ColorType } from '../../../components/Badges/_types';
-import { Input, InputField } from '../../../components/Inputs';
-import { TextArea } from '../../../components/Inputs/TextArea/TextArea';
-import { DateInput } from '../../../components/Inputs/DateInput/DateInput';
 
 import { TaskDescription } from './sections/TaskDescription/TaskDescription';
 import { TaskDates } from './sections/TaskDates/TaskDates';
 
-import { Table } from '../../../components/Tables';
-
-import { DataGrid } from '../../../components/DataDisplays';
-
 import { PlainButton } from '../../../components/Buttons';
 
 import plusIcon from '../../../assets/icons/plus-blue.svg';
-import { useState } from 'react';
 import { OptionsType } from '../../../components/SelectBox/_types';
 import { useFormState } from './data/useFormState';
 
-import { TaskFormStateType, TaskFormSetStateType } from './_types';
+import { TaskAssets } from './sections/TaskAssets/TaskAssets';
 
 
 const categoryOptions = {
@@ -101,6 +88,7 @@ export const TaskForm = () => {
         buttons={[]}
       />
       <FormContainer>
+        {/* Task Description Section */}
         <TaskDescription 
           formData={formState}
           setFormData={setFormState}
@@ -109,24 +97,13 @@ export const TaskForm = () => {
           projectOptions={projectOptions}
           statusOptions={statusOptions}
         />
+        {/* Task Dates Section */}
         <TaskDates 
           formData={formState}
           setFormData={setFormState}
         />
-        <FormHeader
-          title="Ativos"
-          subtitle="Adicione todos os ativos que serão objetos desta manutenção / serviço. Campo obrigatório. O usuário deverá anexar, pelo menos, UM ativo."
-          badgeText="Etapa 03 de 04"
-          situation={FormSituationType.Ok}
-        />
-        <FormContent marginBottom={true}>
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <PlainButton icon={plusIcon}>
-              Adicionar Ativo
-            </PlainButton>
-          </div>
-          Table
-        </FormContent>
+        {/* Task Assets Section */}
+        <TaskAssets />
         <FormHeader
           title="Arquivos"
           subtitle="O usuário poderá anexar qualquer arquivo, relacionado a esta tarefa, sempre que achar necessário."

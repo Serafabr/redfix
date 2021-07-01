@@ -36,6 +36,7 @@ type Props = {
   buttonType?: ButtonType,
   buttonStyle?: any,
   className?: string | false,
+  icon?: string,
   iconComponent?: React.ComponentType<BasicIconProps> | null,
   disabled?: boolean,
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
@@ -50,6 +51,7 @@ export const Button = ({
   buttonType = ButtonType.Primary,
   buttonStyle,
   className,
+  icon,
   iconComponent: Icon = null,
   disabled = false,
   onClick
@@ -77,7 +79,12 @@ export const Button = ({
             {text}
           </div>
         )}
-        {Icon ? (
+        {icon && (
+          <div className={style.Image}>
+            <img src={icon} alt="Botão" />
+          </div>
+        )}
+        {!icon && Icon ? (
           <div className={style.IconWrapper}>
             <Icon {...iconColor} />
           </div>

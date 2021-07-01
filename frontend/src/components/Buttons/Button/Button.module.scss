@@ -128,6 +128,15 @@
   font-style:  normal;
 }
 
+.Image {
+  display: flex;
+  align-items: center;
+  
+  img {
+    width: 100%;
+  }
+}
+
 .IconWrapper {
   display:     flex;
   align-items: center;
