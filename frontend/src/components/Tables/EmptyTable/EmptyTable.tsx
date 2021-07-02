@@ -3,7 +3,7 @@ import { Button } from '../../Buttons';
 // Style
 import style from './EmptyTable.module.scss';
 // Icon
-import plusBlus from '../../../assets/icons/plus-blue.svg';
+import plusBlue from '../../../assets/icons/plus-blue.svg';
 // Types
 import { ButtonType } from '../../Buttons/_types';
 
@@ -21,7 +21,7 @@ export const EmptyTable = () => {
         <Button 
           text="Adicionar suprimento"
           buttonType={ButtonType.Secondary}
-          icon={plusBlus}
+          icon={plusBlue}
         />
       </div>
     </div>

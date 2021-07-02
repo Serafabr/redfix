@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useTable } from 'react-table';
 // Components
 import { FormHeader, FormContent } from '../../../../../components/Forms';
-import { PlainButton } from '../../../../../components/Buttons';
+import { PlainButton, Button } from '../../../../../components/Buttons';
 import { EmptyTable } from '../../../../../components/Tables/EmptyTable/EmptyTable';
 // Helpers
 import { columnsAssets, columnStyle } from './tableConfig';
@@ -14,6 +14,7 @@ import plusIcon from '../../../../../assets/icons/plus-blue.svg';
 // Types
 import { FormSituationType } from '../../../../../components/Forms/_types';
 import { Table } from '../../../../../components/Tables';
+import { ButtonType } from '../../../../../components/Buttons/_types';
 
 export const TaskAssets = () => {
   
@@ -28,13 +29,10 @@ export const TaskAssets = () => {
         title="Ativos"
         subtitle="Adicione todos os ativos que serão objetos desta manutenção / serviço. Campo obrigatório. O usuário deverá anexar, pelo menos, UM ativo."
         situation={FormSituationType.Ok}
+        //button={<PlainButton icon={plusIcon}>Adicionar Ativo</PlainButton>}
+        button={<Button text="Adicionar ativo" buttonType={ButtonType.Secondary} icon={plusIcon}/>}
       />
       <FormContent marginBottom={true}>
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
-          <PlainButton icon={plusIcon}>
-            Adicionar Ativo
-          </PlainButton>
-        </div>
         <Table 
           data={table}
           columnStyle={columnStyle}
