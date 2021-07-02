@@ -90,7 +90,7 @@ export const TaskDates = ({
     <>
     <FormHeader
       title="Datas e prazos"
-      subtitle="Prazos para o ínicio e término da tarefa. Campos NÃO obrigatórios, tais informações podem ser preenchidas posteriormente."
+      subtitle="Prazos para o ínicio e término da tarefa. Estes campos NÃO são precisam ser obrigatoriamente preenchidos. O usuário poderá preenchê-los posteriormente."
       situation={situation}
     />
     <FormContent marginBottom={true}>
