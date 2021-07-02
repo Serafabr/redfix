@@ -6,7 +6,7 @@ import { Button } from '../../../../../components/Buttons';
 import { EmptyTable } from '../../../../../components/Tables/EmptyTable/EmptyTable';
 // Helpers
 import { columnsAssets, columnStyle } from './tableConfig';
-import { dataAssets } from './fakedata';
+import { dataFiles } from './fakeData';
 // Style
 import style from './TaskFiles.module.scss';
 // Icons
@@ -18,7 +18,7 @@ import { ButtonType } from '../../../../../components/Buttons/_types';
 
 export const TaskFiles = () => {
   
-  const data = useMemo(() => dataAssets, []);
+  const data = useMemo(() => dataFiles, []);
   const columns = useMemo(() => columnsAssets, []);
   
   const table = useTable({ columns, data });
