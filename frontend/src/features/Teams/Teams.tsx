@@ -1,7 +1,7 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
 import { Button } from '../../components/Buttons';
 
-import { ButtonType } from '../../components/Buttons/Button/_types';
+import { ButtonType } from '../../components/Buttons/_types';
 
 import style from './Teams.module.scss';
 

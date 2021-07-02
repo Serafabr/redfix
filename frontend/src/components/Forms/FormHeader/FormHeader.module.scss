@@ -24,3 +24,10 @@
     text-align: center;
   }
 }
+
+.ButtonsContainer {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 120px;
+  width: 30%;
+}

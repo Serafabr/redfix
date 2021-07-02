@@ -17,6 +17,7 @@ type Props = {
   step?: number,
   totalSteps?: number,
   situation?: FormSituationType,
+  button?: React.ReactElement,
 };
 
 // Select badge color based on situation
@@ -43,6 +44,7 @@ export const FormHeader = ({
   step = 1,
   totalSteps = 1,
   situation = FormSituationType.Ok,
+  button,
 }: Props) => {
   return (
     <CardHeader>
@@ -57,8 +59,8 @@ export const FormHeader = ({
               ]}
             />
           </div>
-          <div className={style.FormBadge}>
-            Botão
+          <div className={style.ButtonsContainer}>
+            {button}
           </div>
         </div>
     </CardHeader>

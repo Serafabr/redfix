@@ -4,7 +4,7 @@ import { Button, PlainButton } from '../../../components/Buttons';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { AddSelectBox } from '../../../components/SelectBox';
 import { AlignListType } from '../../../components/SelectBox/_types';
-import { ButtonType } from '../../../components/Buttons/Button/_types';
+import { ButtonType } from '../../../components/Buttons/_types';
 
 import { Plus as PlusIcon } from '../../../components/Icons';
 import { MoreHorizontal as MoreIcon } from '../../../components/Icons';

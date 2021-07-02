@@ -5,7 +5,7 @@ import style from './EmptyTable.module.scss';
 // Icon
 import plusBlus from '../../../assets/icons/plus-blue.svg';
 // Types
-import { ButtonType } from '../../Buttons/Button/_types';
+import { ButtonType } from '../../Buttons/_types';
 
 
 export const EmptyTable = () => {

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import style from './Button.module.scss';
 
 // Types
-import { ButtonType } from './_types';
+import { ButtonType } from '../_types';
 import { ColorType, BasicIconProps } from '../../Icons/_types';
 
 /*************************\

@@ -5,7 +5,7 @@ import { AddSelectBox } from '../../../components/SelectBox';
 import { AlignListType } from '../../../components/SelectBox/_types';
 import { useHistory } from 'react-router-dom';
 
-import { ButtonType } from '../../../components/Buttons/Button/_types';
+import { ButtonType } from '../../../components/Buttons/_types';
 
 import style from './Tasks.module.scss';
 
