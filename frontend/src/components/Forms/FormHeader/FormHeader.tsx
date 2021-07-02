@@ -14,16 +14,23 @@ import { FormSituationType } from '../_types';
 type Props = {
   title: string,
   subtitle: string,
-  badgeText: string,
-  situation: FormSituationType,
+  step?: number,
+  totalSteps?: number,
+  situation?: FormSituationType,
 };
 
 // Select badge color based on situation
 
 const badgeColor = {
   [FormSituationType.Ok]: ColorType.Green,
-  [FormSituationType.Incomplete]: ColorType.Orange,
   [FormSituationType.Error]: ColorType.Red,
+}
+
+// Select text based on situation
+
+const badgeText = {
+  [FormSituationType.Ok]: 'Preenchimento correto',
+  [FormSituationType.Error]: 'Preenchimento incorreto',
 }
 
 /*************************\
@@ -33,8 +40,9 @@ const badgeColor = {
 export const FormHeader = ({
   title,
   subtitle,
-  badgeText,
-  situation
+  step = 1,
+  totalSteps = 1,
+  situation = FormSituationType.Ok,
 }: Props) => {
   return (
     <CardHeader>
@@ -43,11 +51,14 @@ export const FormHeader = ({
             <CardTitle
               title={title}
               subtitle={subtitle}
-              badges={[<Badge text="Etapa 01 de 04" color={ColorType.Orange} />, <Badge text="Seção preenchida" color={ColorType.Green} />]}
+              badges={[
+                <Badge text={`Etapa ${step} de ${totalSteps}`} color={ColorType.Orange} />, 
+                <Badge text={badgeText[situation]} color={badgeColor[situation]} />
+              ]}
             />
           </div>
           <div className={style.FormBadge}>
-            <Badge text={badgeText} color={badgeColor[situation]} />
+            Botão
           </div>
         </div>
     </CardHeader>

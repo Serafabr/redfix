@@ -107,7 +107,6 @@ export const TaskForm = () => {
         <FormHeader
           title="Arquivos"
           subtitle="O usuário poderá anexar qualquer arquivo, relacionado a esta tarefa, sempre que achar necessário."
-          badgeText="Etapa 04 de 04"
           situation={FormSituationType.Ok}
         />
         <FormContent>

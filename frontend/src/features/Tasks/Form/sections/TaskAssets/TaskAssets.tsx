@@ -27,7 +27,6 @@ export const TaskAssets = () => {
       <FormHeader
         title="Ativos"
         subtitle="Adicione todos os ativos que serão objetos desta manutenção / serviço. Campo obrigatório. O usuário deverá anexar, pelo menos, UM ativo."
-        badgeText="Etapa 03 de 04"
         situation={FormSituationType.Ok}
       />
       <FormContent marginBottom={true}>

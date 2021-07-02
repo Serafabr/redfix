@@ -1,1 +1,1 @@
-export enum FormSituationType {Ok, Incomplete, Error};
+export enum FormSituationType {Ok, Error};
