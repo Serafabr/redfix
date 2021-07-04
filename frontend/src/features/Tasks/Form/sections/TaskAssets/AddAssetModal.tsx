@@ -9,6 +9,8 @@ import { defaultOptions } from '../../../../../components/Inputs/Dropdown/defaul
 // Style
 import style from './TaskAssets.module.scss';
 import { useState } from 'react';
+// Types
+import { ButtonType } from '../../../../../components/Buttons/_types';
 
 
 export const AddAssetModal = () => {
@@ -22,22 +24,31 @@ export const AddAssetModal = () => {
       title="Adicionar ativo"
       isOpened={true}
       setIsOpened={()=>{}}
-      buttons={[<Button text="Adicionar"/>]}
+      buttons={[ <Button text="Mapa Interativo" buttonType={ButtonType.Warning} />,<Button text="Adicionar"/>]}
     >
-      <InputField
-        label="Categoria"
-        gridArea="category"
-        error={false}
-        errorMessage={"Valor incorreto!"}
-      >
-        <Dropdown 
-          options={assetOptions}
-          selectionArray={asset}
-          onSelectItem={handleOneItemSelection(setAsset)}
-          boxWidth={250}
-          sortItems={true}
-        />
-      </InputField>
+      <div className={style.ModalExplanation}>
+        Ativo compreende de todo imóvel, área, dependência, sistema, subsistema ou equipamento que pode ser objeto de manutenção.
+      </div>
+      <div className={style.ModalInputs}>
+        <InputField
+          label="Selecionar ativo**"
+          gridArea="asset"
+          error={false}
+          errorMessage={"Valor incorreto!"}
+        >
+          <Dropdown 
+            options={assetOptions}
+            selectionArray={asset}
+            onSelectItem={handleOneItemSelection(setAsset)}
+            boxWidth={410}
+            searchable={true}
+            sortItems={true}
+          />
+        </InputField>
+      </div>
+      <div className={style.ModalEndExplanation}>
+        ** A seleção pode ser realizada pelo mapa interativo do Senado Federal.
+      </div>
     </Modal>
   )
 }

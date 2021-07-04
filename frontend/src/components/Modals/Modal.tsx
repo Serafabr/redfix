@@ -14,7 +14,7 @@ type Props = {
   setIsOpened: (isOpened: boolean) => void,
   title: string,
   hasFooter?: boolean,
-  buttons?: ReactNode | Array<ReactNode>,
+  buttons?: Array<ReactNode>,
   modalBoxClasses?: string,
   children?: ReactNode,
 };
@@ -61,7 +61,11 @@ export const Modal = ({
         </div>
         {hasFooter && (
           <div className={style.ModalFooter}>
-            {buttons}
+            {buttons?.map((button) => (
+              <div className={style.ButtonWrapper}>
+                {button}
+              </div>
+            ))}
           </div>
         )}
       </div>

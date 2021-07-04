@@ -1,3 +1,29 @@
+@import "../../../../../style/variables";
+
 .ModalBox {
-  width: 400px;
+  width: 450px;
+}
+
+.ModalExplanation {
+  padding: 4px;
+  margin-bottom: 16px;
+  text-align: justify;
+  
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 21px;
+  color: $gray_500;
+}
+
+.ModalInputs {
+  margin-bottom: 24px;
+}
+
+.ModalEndExplanation {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 21px;
+  color: #fd6161;
 }

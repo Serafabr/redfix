@@ -99,3 +99,11 @@
   
   background-color: #F5F5F5;
 }
+
+.ButtonWrapper {
+  margin-right: 16px;
+  
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
