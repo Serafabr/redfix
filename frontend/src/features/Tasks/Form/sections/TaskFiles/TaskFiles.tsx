@@ -28,7 +28,8 @@ export const TaskFiles = () => {
       <FormHeader
         title="Arquivos"
         subtitle="Adicione, a qualquer momento, arquivos relacionados a tarefa (memorandos, notas técnicas, notas fiscais, e-mails, ....)."
-        situation={FormSituationType.Ok}
+        step={4}
+        totalSteps={4}
         button={<Button text="Adicionar arquivo" buttonType={ButtonType.Secondary} icon={plusIcon}/>}
       />
       <FormContent>
