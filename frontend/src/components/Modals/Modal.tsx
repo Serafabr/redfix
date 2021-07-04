@@ -15,6 +15,7 @@ type Props = {
   title: string,
   hasFooter?: boolean,
   buttons?: ReactNode | Array<ReactNode>,
+  modalBoxClasses?: string,
   children?: ReactNode,
 };
 
@@ -28,6 +29,7 @@ export const Modal = ({
   title,
   hasFooter = true,
   buttons,
+  modalBoxClasses,
   children
 }: Props) => {
   
@@ -47,7 +49,7 @@ export const Modal = ({
   // Render component
   return (
     <div id="modal" className={`${style.Modal} ${isOpened && style.Opened}`} onClick={handleBackgroundOnClick}>
-      <div className={style.ModalBox}>
+      <div className={`${style.ModalBox} ${modalBoxClasses}`}>
         <div className={style.ModalHeader}>
           <span className={style.Title}>{title}</span>
           <div className={style.IconWrapper} onMouseEnter={() => {handleCloseIconHover(true)}} onMouseLeave={() => {handleCloseIconHover(false)}}>
