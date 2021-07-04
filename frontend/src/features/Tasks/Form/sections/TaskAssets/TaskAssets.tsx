@@ -29,7 +29,6 @@ export const TaskAssets = () => {
         title="Ativos"
         subtitle="Adicione todos os ativos que serão objetos desta manutenção / serviço. Campo obrigatório. O usuário deverá anexar, pelo menos, UM ativo."
         situation={FormSituationType.Ok}
-        //button={<PlainButton icon={plusIcon}>Adicionar Ativo</PlainButton>}
         button={<Button text="Adicionar ativo" buttonType={ButtonType.Secondary} icon={plusIcon}/>}
       />
       <FormContent marginBottom={true}>

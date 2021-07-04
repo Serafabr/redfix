@@ -11,13 +11,14 @@ import { TaskDescription } from './sections/TaskDescription/TaskDescription';
 import { TaskDates } from './sections/TaskDates/TaskDates';
 import { TaskFiles } from './sections/TaskFiles/TaskFiles';
 
-import { PlainButton } from '../../../components/Buttons';
+import { Button } from '../../../components/Buttons';
 
 import plusIcon from '../../../assets/icons/plus-blue.svg';
 import { OptionsType } from '../../../components/SelectBox/_types';
 import { useFormState } from './data/useFormState';
 
 import { TaskAssets } from './sections/TaskAssets/TaskAssets';
+import { ButtonType } from '../../../components/Buttons/_types';
 
 
 const categoryOptions = {
@@ -109,7 +110,17 @@ export const TaskForm = () => {
         <TaskFiles />
       </FormContainer>
       <div className={style.ForwardBox}>
-        teste
+        <div className={style.ButtonWrapper}>
+          <Button 
+            text="Cancelar"
+            buttonType={ButtonType.Secondary}
+          />
+        </div>
+        <div>
+          <Button 
+            text="Cadastrar tarefa"
+          />
+        </div>
       </div>
     </>
   )
