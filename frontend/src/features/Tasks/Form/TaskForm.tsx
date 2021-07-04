@@ -110,10 +110,16 @@ export const TaskForm = () => {
         <TaskFiles />
       </FormContainer>
       <div className={style.ForwardBox}>
+      <div className={style.ButtonWrapper}>
+          <Button 
+            text="Limpar"
+            buttonType={ButtonType.Warning}
+          />
+        </div>
         <div className={style.ButtonWrapper}>
           <Button 
             text="Cancelar"
-            buttonType={ButtonType.Secondary}
+            buttonType={ButtonType.Danger}
           />
         </div>
         <div>

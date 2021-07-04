@@ -64,10 +64,16 @@ export const Button = ({
     {
       [style.PrimaryButton]: buttonType === ButtonType.Primary,
       [style.SecondaryButton]: buttonType === ButtonType.Secondary,
+      [style.WarningButton]: buttonType === ButtonType.Warning,
+      [style.DangerButton]: buttonType === ButtonType.Danger,
       [style.Square]: (!text ? true : false),
       [style.Disabled]: disabled,
     }
   );
+  
+  console.log('buttonType');
+  console.log(buttonType === ButtonType.Warning);
+  console.log(btnClasses);
   
   const iconColor: ColorType = getIconColor(buttonType, disabled);
   

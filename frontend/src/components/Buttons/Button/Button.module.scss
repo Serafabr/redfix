@@ -87,8 +87,6 @@
     stroke: $primary_color;
   }
   
-  
-  
   /*****
     >>Disabled Button
   *****/
@@ -110,7 +108,75 @@
   }
 }
 
+/*------------------------------------*\
+  #Warning Button Styles
+\*------------------------------------*/
 
+.WarningButton {
+  background-color: $warning_color;
+  color:          $gray_700;
+  
+  &:hover,
+  &:active {
+    background-color:  $hovered_warning;
+    cursor: pointer;
+  }
+  
+  .Icon {
+    stroke: #ffffff;
+  }
+  
+  
+  /*****
+    >>Disabled Button
+  *****/
+
+  &.Disabled,
+  &.Disabled:hover,
+  &.Disabled:active {
+    background-color: $gray_300;
+    cursor: auto;
+  }
+
+  &.Disabled:focus {
+    outline: none;
+  }
+}
+
+/*------------------------------------*\
+  #Danger Button Styles
+\*------------------------------------*/
+
+.DangerButton {
+  background-color: $light_danger_color;
+  color:          $white_0;
+  
+  &:hover,
+  &:active {
+    background-color:  $hovered_light_danger;
+    cursor: pointer;
+  }
+  
+  .Icon {
+    stroke: #ffffff;
+  }
+  
+  
+  /*****
+    >>Disabled Button
+  *****/
+
+  &.Disabled,
+  &.Disabled:hover,
+  &.Disabled:active {
+    background-color: $gray_300;
+    cursor: auto;
+  }
+
+  &.Disabled:focus {
+    outline: none;
+  }
+}
 
 /*------------------------------------*\
   #Other Components
