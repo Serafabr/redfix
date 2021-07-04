@@ -1,4 +1,4 @@
-import React from 'react'
+import { Button } from '../../../../../components/Buttons'
 import { Modal } from '../../../../../components/Modals'
 
 export const AddAssetModal = () => {
@@ -7,7 +7,7 @@ export const AddAssetModal = () => {
       title="Adicionar ativo"
       isOpened={true}
       setIsOpened={()=>{}}
-      buttons={[]}
+      buttons={[<Button text="Adicionar"/>]}
     >
       Adicionar um novo ativo
     </Modal>

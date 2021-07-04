@@ -4,6 +4,7 @@ import { useTable } from 'react-table';
 import { FormHeader, FormContent } from '../../../../../components/Forms';
 import { PlainButton, Button } from '../../../../../components/Buttons';
 import { EmptyTable } from '../../../../../components/Tables/EmptyTable/EmptyTable';
+import { AddAssetModal } from './AddAssetModal';
 // Helpers
 import { columnsAssets, columnStyle } from './tableConfig';
 import { dataAssets } from './fakedata';
@@ -38,6 +39,7 @@ export const TaskAssets = () => {
           smallTable
         />
       </FormContent>
+      <AddAssetModal />
     </>
   )
 }
