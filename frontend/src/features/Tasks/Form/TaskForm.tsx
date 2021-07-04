@@ -9,6 +9,7 @@ import { FormSituationType } from '../../../components/Forms/_types';
 
 import { TaskDescription } from './sections/TaskDescription/TaskDescription';
 import { TaskDates } from './sections/TaskDates/TaskDates';
+import { TaskFiles } from './sections/TaskFiles/TaskFiles';
 
 import { PlainButton } from '../../../components/Buttons';
 
@@ -104,19 +105,8 @@ export const TaskForm = () => {
         />
         {/* Task Assets Section */}
         <TaskAssets />
-        <FormHeader
-          title="Arquivos"
-          subtitle="O usuário poderá anexar qualquer arquivo, relacionado a esta tarefa, sempre que achar necessário."
-          situation={FormSituationType.Ok}
-        />
-        <FormContent>
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <PlainButton icon={plusIcon}>
-              Adicionar Arquivo
-            </PlainButton>
-          </div>
-          Table
-        </FormContent>
+        {/* Task Assets Section */}
+        <TaskFiles />
       </FormContainer>
     </>
   )

@@ -31,7 +31,7 @@ export const TaskFiles = () => {
         situation={FormSituationType.Ok}
         button={<Button text="Adicionar arquivo" buttonType={ButtonType.Secondary} icon={plusIcon}/>}
       />
-      <FormContent marginBottom={true}>
+      <FormContent>
         <Table 
           data={table}
           columnStyle={columnStyle}

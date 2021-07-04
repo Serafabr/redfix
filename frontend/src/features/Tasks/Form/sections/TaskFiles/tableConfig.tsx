@@ -24,14 +24,14 @@ export const columnsAssets = [
     Cell: CellFormat({ isCenter: true }),
   },
   {
-    id: 'Tamanho',
-    Header: 'size',
+    Header: 'Tamanho',
+    id: 'size',
     accessor: (row: any) => row.size,
     Cell: CellFormat({ isCenter: true }),
   },
   {
-    id: 'moreButton',
     Header: '',
+    id: 'moreButton',
     accessor: (row: any) => row.id,
     Cell: MoreButton,
   },
