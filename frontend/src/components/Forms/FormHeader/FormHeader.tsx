@@ -55,7 +55,7 @@ export const FormHeader = ({
               subtitle={subtitle}
               badges={[
                 <Badge text={`Etapa ${step} de ${totalSteps}`} color={ColorType.Orange} />, 
-                <Badge text={badgeText[situation]} color={badgeColor[situation]} />
+                // <Badge text={badgeText[situation]} color={badgeColor[situation]} />
               ]}
             />
           </div>
