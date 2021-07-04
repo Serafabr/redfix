@@ -1,5 +1,17 @@
+@import "../../../style/variables";
+
 .DatesGrid {
   grid-template: 
     "startDate startDate limitDate limitDate" / 
     1fr 1fr 1fr 1fr;
+}
+
+.ForwardBox {
+  position: sticky;
+  position: -webkit-sticky;
+  bottom: -24px;
+  margin: 16px -12px -24px -12px;
+  background-color: white;
+  border-top: 1px solid $gray_200;
+  box-shadow: 0 -1px 5px 2px rgba(184, 184, 184, 0.3);
 }

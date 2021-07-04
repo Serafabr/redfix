@@ -108,6 +108,9 @@ export const TaskForm = () => {
         {/* Task Assets Section */}
         <TaskFiles />
       </FormContainer>
+      <div className={style.ForwardBox}>
+        teste
+      </div>
     </>
   )
 }
