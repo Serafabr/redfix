@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useTable } from 'react-table';
 // Components
 import { FormHeader, FormContent } from '../../../../../components/Forms';
@@ -19,9 +19,14 @@ import { ButtonType } from '../../../../../components/Buttons/_types';
 
 export const TaskAssets = () => {
   
+  const [ assetModalOpen, setAssetModalOpen ] = useState(false);
+  
+  const handleOpenAssetModal = () => {
+    setAssetModalOpen(true);
+  }
+  
   const data = useMemo(() => dataAssets, []);
   const columns = useMemo(() => columnsAssets, []);
-  
   const table = useTable({ columns, data });
   
   return (
@@ -30,7 +35,7 @@ export const TaskAssets = () => {
         title="Ativos"
         subtitle="Adicione todos os ativos que serão objetos desta manutenção / serviço. Campo obrigatório. O usuário deverá anexar, pelo menos, UM ativo."
         situation={FormSituationType.Ok}
-        button={<Button text="Adicionar ativo" buttonType={ButtonType.Secondary} icon={plusIcon}/>}
+        button={<Button text="Adicionar ativo" buttonType={ButtonType.Secondary} icon={plusIcon} onClick={handleOpenAssetModal}/>}
       />
       <FormContent marginBottom={true}>
         <Table 
@@ -39,7 +44,10 @@ export const TaskAssets = () => {
           smallTable
         />
       </FormContent>
-      <AddAssetModal />
+      <AddAssetModal 
+        isOpen={assetModalOpen}
+        setIsOpen={setAssetModalOpen}
+      />
     </>
   )
 }

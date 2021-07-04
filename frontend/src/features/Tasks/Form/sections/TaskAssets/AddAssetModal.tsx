@@ -12,8 +12,23 @@ import { useState } from 'react';
 // Types
 import { ButtonType } from '../../../../../components/Buttons/_types';
 
+/*************************\
+ * PropTypes
+\*************************/
 
-export const AddAssetModal = () => {
+type Props = {
+  isOpen: boolean,
+  setIsOpen: React.Dispatch<boolean>,
+};
+
+/*************************\
+ * AddAssetModal Component
+\*************************/
+
+export const AddAssetModal = ({
+  isOpen,
+  setIsOpen,
+}: Props) => {
   
   const [ asset, setAsset ] = useState<Array<string>>([]);
   const assetOptions = defaultOptions;
@@ -22,8 +37,8 @@ export const AddAssetModal = () => {
     <Modal
       modalBoxClasses={style.ModalBox}
       title="Adicionar ativo"
-      isOpened={true}
-      setIsOpened={()=>{}}
+      isOpened={isOpen}
+      setIsOpened={setIsOpen}
       buttons={[ <Button text="Mapa Interativo" buttonType={ButtonType.Warning} />,<Button text="Adicionar"/>]}
     >
       <div className={style.ModalExplanation}>
