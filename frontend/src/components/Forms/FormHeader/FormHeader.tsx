@@ -59,9 +59,11 @@ export const FormHeader = ({
               ]}
             />
           </div>
-          <div className={style.ButtonsContainer}>
-            {button}
-          </div>
+          {button && (
+            <div className={style.ButtonsContainer}>
+              {button}
+            </div>
+          )}
         </div>
     </CardHeader>
   )
