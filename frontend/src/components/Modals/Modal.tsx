@@ -14,7 +14,7 @@ type Props = {
   setIsOpened: (isOpened: boolean) => void,
   title: string,
   hasFooter?: boolean,
-  buttons?: ReactNode,
+  buttons?: ReactNode | Array<ReactNode>,
   children?: ReactNode,
 };
 
