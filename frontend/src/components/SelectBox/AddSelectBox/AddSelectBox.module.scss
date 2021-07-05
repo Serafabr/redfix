@@ -1,0 +1,43 @@
+@import '../../../style/variables';
+
+/*------------------------------------*\
+  #Dropdown Wrapper
+\*------------------------------------*/
+
+.Dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/*------------------------------------*\
+  #Dropdown Components (List and Item)
+\*------------------------------------*/
+
+.ListPosition {
+  position: absolute;
+  right: 0px;
+  z-index: 100;
+  
+  padding-bottom: 10px;
+  
+  //width: 165px;
+  
+  background-color: #00000000;
+  
+  &.Left {
+    left:     0px;
+  }
+  
+  &.Right {
+    right:    0px;
+  }
+  
+  &.Top {
+    bottom:   28px;
+  }
+  
+  &.Bottom {
+    top:      48px;
+  }
+}

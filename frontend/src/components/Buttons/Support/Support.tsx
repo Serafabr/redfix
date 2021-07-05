@@ -1,5 +1,9 @@
 import style from './Support.module.scss';
 
+/*************************\
+ * Support Component
+\*************************/
+
 export function Support() {
   return (
     <button className={style.Support} >

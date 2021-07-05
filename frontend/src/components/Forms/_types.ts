@@ -1,0 +1,1 @@
+export enum FormSituationType {Ok, Error};

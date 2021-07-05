@@ -1,0 +1,69 @@
+@import "../../../style/variables";
+
+/*------------------------------------*\
+  #FilterButton Overall Style
+\*------------------------------------*/
+
+.Button {
+  background-color: white;
+  border: 1px solid $gray_300;
+  border-radius: 4px;
+  padding: 9px 16px;
+  
+  height: 40px;
+  
+  font:         inherit;
+  font-size:    1rem;
+  font-weight:  500;
+  color:        $gray_650;
+  
+  line-height: 21px;
+  
+  // STATES
+  &:hover {
+    border: 1px solid $gray_400;
+    cursor: pointer;
+    
+    color:        $gray_750;
+  }
+  
+  &:focus,
+  &:active {
+    outline: none;
+  } 
+}
+
+.Active.Button {
+  border: 1px solid $gray_400;
+  
+  font-weight:  600;
+  color:        $gray_700;
+  
+  &:hover {
+    border: 1px solid $gray_500;
+  }
+}
+
+.JustIcon {
+  padding: 0;
+  width: 40px;
+}
+
+.ContentWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Image {
+  display: flex;
+  align-items: center;
+  
+  img {
+    width: 100%;
+  }
+}
+
+.Text {
+  margin-left: 14px;
+}

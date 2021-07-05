@@ -1,0 +1,71 @@
+@import "../../style/variables";
+
+/*------------------------------------*\
+  #Input Style
+\*------------------------------------*/
+
+.Input {
+  padding:       10px 16px;
+  border:        1px solid $gray_300;
+  border-radius: 4px;
+  
+  width:  100%;
+  height: 40px;
+  
+  background-color: $white_0;
+  
+  font:        inherit;
+  font-size:   1rem;
+  font-weight: 400;
+  color:       $gray_750;
+  
+  line-height: 21px;
+  
+  ::placeholder {
+    color: $gray_200;
+  }
+  
+  
+  &:hover {
+    border: 1px solid $gray_350;
+  }
+}
+
+.Shadow {
+  border:     1px solid $gray_250;
+  box-shadow: 0 0 3px 1px #e4e4e4bd;
+  
+  &:hover {
+    border: 1px solid $gray_350;
+  }
+}
+
+.ActiveInput {
+  &:focus,
+  &:active {
+    border:     1px solid #1589eeaa;
+    box-shadow: 0px 0px 2px 1px rgba(21, 137, 238, 0.4);
+    outline:    none;
+  }
+}
+
+
+/*------------------------------------*\
+  #Error Style
+\*------------------------------------*/
+
+.InputError {
+  border: 1px solid $danger_color;
+  
+  
+  &:hover {
+    border: 1px solid $hovered_danger;
+  }
+  
+  &:focus,
+  &:active {
+    border:     1px solid $danger_color;
+    box-shadow: 0px 0px 3px 2px rgba(194, 57, 52, 0.4);
+    outline:    none;
+  }
+}

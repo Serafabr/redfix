@@ -3,37 +3,59 @@ import classNames from 'classnames';
 // Style
 import style from './Button.module.scss';
 
-// Prop types
-// Button Styles
-export enum ButtonType { Primary, Secondary }
+// Types
+import { ButtonType } from '../_types';
+import { ColorType, BasicIconProps } from '../../Icons/_types';
 
-type IconProps = {
-  className: string,
-};
+/*************************\
+ * Util Function
+\*************************/
 
-// Button Props
-type ButtonProps = {
+const getIconColor = (buttonType: ButtonType, disabled: boolean = false) => {
+  
+  if (disabled) {
+    return { strokeColor: "#c8c8c8" };
+  }
+  
+  if (buttonType === ButtonType.Primary) {
+    return { strokeColor: "#ffffff" };
+  }
+  
+  if (buttonType === ButtonType.Secondary) {
+    return { strokeColor: "#1589EE" };
+  }
+  
+  return {};
+}
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
   text?: string | null,
   buttonType?: ButtonType,
   buttonStyle?: any,
   className?: string | false,
-  iconComponent?: React.ComponentType<IconProps> | null,
-  justIcon?: boolean,
+  icon?: string,
+  iconComponent?: React.ComponentType<BasicIconProps> | null,
   disabled?: boolean,
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
 };
 
-// Button Component
+/*************************\
+ * Component
+\*************************/
+
 export const Button = ({ 
   text = null,
   buttonType = ButtonType.Primary,
   buttonStyle,
   className,
+  icon,
   iconComponent: Icon = null,
-  justIcon = false,
   disabled = false,
   onClick
- }: ButtonProps) => {
+ }: Props) => {
   
   // Button classes logic
   const btnClasses = classNames(
@@ -42,23 +64,35 @@ export const Button = ({
     {
       [style.PrimaryButton]: buttonType === ButtonType.Primary,
       [style.SecondaryButton]: buttonType === ButtonType.Secondary,
-      [style.Square]: justIcon,
+      [style.WarningButton]: buttonType === ButtonType.Warning,
+      [style.DangerButton]: buttonType === ButtonType.Danger,
+      [style.Square]: (!text ? true : false),
       [style.Disabled]: disabled,
     }
   );
   
+  console.log('buttonType');
+  console.log(buttonType === ButtonType.Warning);
+  console.log(btnClasses);
+  
+  const iconColor: ColorType = getIconColor(buttonType, disabled);
   
   return (
     <button className={btnClasses} onClick={onClick} style={buttonStyle}>
       <div className={style.ContentWrapper}>
-        {!justIcon && (
+        {text && (
           <div className={style.Text}>
             {text}
           </div>
         )}
-        {Icon ? (
+        {icon && (
+          <div className={style.Image}>
+            <img src={icon} alt="Botão" />
+          </div>
+        )}
+        {!icon && Icon ? (
           <div className={style.IconWrapper}>
-            <Icon className={style.Icon} />
+            <Icon {...iconColor} />
           </div>
         ) : null}
       </div>

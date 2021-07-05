@@ -1,0 +1,14 @@
+.TitleContainer {
+  margin-bottom: 20px;
+}
+
+.TabInfo {
+  padding-left: 12px;
+  margin-bottom: 24px;
+}
+
+.DataGrid {
+  grid-template: 
+    "1 2 out" / 
+    1fr 1fr 2fr;
+}

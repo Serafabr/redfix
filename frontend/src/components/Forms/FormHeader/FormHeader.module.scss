@@ -1,0 +1,33 @@
+/*------------------------------------*\
+  #Form Header Overall Style
+\*------------------------------------*/
+
+.FormHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  padding: 24px 40px;
+}
+
+.FormTitle {
+  margin-right: 30px;
+}
+
+.FormBadge {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 120px;
+  
+  div {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.ButtonsContainer {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 180px;
+  width: 30%;
+}

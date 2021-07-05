@@ -1,0 +1,1 @@
+export enum IconColorType { Red, Blue, Orange }; 

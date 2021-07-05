@@ -1,0 +1,24 @@
+.Center {
+  text-align: center;
+}
+
+.Bold {
+  font-weight: 600;
+  color: #404040;
+}
+
+.MoreButton {
+  display: flex;
+  align-items: center;
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.Subtext {
+  color: #a9a9a9;
+  font-size: 0.90rem;
+  font-weight: 400;
+  line-height: 17px;
+}

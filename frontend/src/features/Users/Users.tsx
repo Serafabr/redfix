@@ -1,5 +1,6 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
-import { Button, ButtonType } from '../../components/Buttons';
+import { Button } from '../../components/Buttons';
+import { ButtonType } from '../../components/Buttons/_types';
 
 import style from './Users.module.scss';
 
@@ -14,7 +15,7 @@ type UsersProps = {
 
 const usersButtons = [
   <Button text="Novo usuário" iconComponent={PlusIcon} />,
-  <Button buttonType={ButtonType.Secondary} justIcon iconComponent={MoreIcon} />
+  <Button buttonType={ButtonType.Secondary} iconComponent={MoreIcon} />
 ];
 
 export const Users = ({

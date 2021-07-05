@@ -1,0 +1,25 @@
+@import "../../../style/variables";
+
+/*------------------------------------*\
+  #Button Overall Style
+\*------------------------------------*/
+
+.Percentage {
+  display: flex;
+  align-items: center;
+  
+  margin-left: 80px;
+  
+  width: 40%;
+  max-width: 210px;
+}
+
+.PercentageText {
+  margin-left: 12px;
+  
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 20px;
+  color: $gray_600;
+}

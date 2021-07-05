@@ -10,13 +10,12 @@
   align-items:  center;
   
   height: 33px;
-  width:  165px;
+  width: 170px;
 }
 
 
-
 /*------------------------------------*\
-  #Information about the user: the name and the job
+  #Information about the user: the name and the team
 \*------------------------------------*/
 
 .InfoWrapper {
@@ -28,21 +27,35 @@
 }
 
 .Name {
+  padding-right: 4px;
+  max-width: 100px;
+  
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  
   font:         inherit;
   font-size:    1rem;
   font-weight:  600;
   color:        $gray_700;
-  text-align: left;
   
-  line-height: 21px;
+  text-align: left;
+  white-space: nowrap;
 }
 
-.Job {
+.Team {
+  padding-right: 4px;
+  max-width: 100px;
+  
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  
   font:         inherit;
   font-size:    0.7143rem;
   font-weight:  600;
   color:        $gray_400;
+  
   text-align: left;
+  white-space: nowrap;
   
   line-height: 16px;
 }

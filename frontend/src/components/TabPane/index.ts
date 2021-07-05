@@ -1,0 +1,1 @@
+export { TabPaneTitle } from './TabPaneTitle';

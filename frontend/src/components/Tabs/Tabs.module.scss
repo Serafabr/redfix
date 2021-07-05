@@ -1,0 +1,102 @@
+@import "../../style/variables";
+
+.Tabs {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $gray_100;
+  width: 100%;
+}
+
+.TabsContainer {
+  margin: 0 0 0 36px;
+  //overflow: hidden;
+}
+
+.ButtonsContainer {
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: auto;
+  // overflow: hidden;
+  white-space: nowrap;
+}
+
+.ButtonDivider {
+  display: inline-block;
+  border-right: 1px solid $gray_200;
+  
+  &:last-of-type {
+    border-right: none;
+  }
+}
+
+.TabButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 24px;
+  border: none;
+  margin: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $primary_color;
+  
+  &:hover {
+    color: $hovered_primary;
+    cursor: pointer;
+  }
+}
+
+.TabList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.TabItem {
+  padding: 6px 4px;
+  margin-right: 20px;
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 21px;
+  color: #9B9B9B;
+  border-bottom: 3px solid #00000000;
+  border-radius: 2px;
+  
+  &:last-of-type {
+    margin-right: 0;
+  }
+  
+  &:hover {
+    color: $primary_color;
+    border-bottom: 3px solid $primary_color;
+    cursor: pointer;
+  }
+}
+
+.ImgContainer {
+  width: 12px;
+  vertical-align: middle;
+  margin-left: 10px;
+  
+  img {
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+}
+
+.Activated {
+  color: $primary_color;
+  border-bottom: 3px solid $primary_color;
+}
+
+.TabPane {
+  padding: 32px 40px;
+}

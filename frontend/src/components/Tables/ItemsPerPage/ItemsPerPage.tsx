@@ -1,7 +1,11 @@
-import { ButtonWithDropdown } from '../../Buttons';
-import { DropdownButton } from '../../Buttons/Dropdown/DropdownButton';
-import { AlignListType } from '../../Buttons/ButtonWithDropdown/ButtonWithDropdown';
+import { AddSelectBox } from '../../SelectBox';
+import { DropdownButton } from '../../Inputs';
+import { AlignListType } from '../../SelectBox/_types';
 import style from './ItemsPerPage.module.scss';
+
+/*************************\
+ * Configuration
+\*************************/
 
 const options = {
   '10': { name: '10' },
@@ -11,14 +15,24 @@ const options = {
   '150': { name: '150' },
 }
 
-export const ItemsPerPage = () => {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {};
+
+/*************************\
+ * ItemsPerPage component
+\*************************/
+
+export const ItemsPerPage = ({}: Props) => {
   return (
     <div className={style.ItemsPerPage}>
       <div className={style.Label}>
         Itens por página
       </div>
       <div>
-        <ButtonWithDropdown 
+        <AddSelectBox 
           options={options}
           alignList={AlignListType.Left}
           openOnTop
@@ -27,7 +41,7 @@ export const ItemsPerPage = () => {
         >
           {(onClick, isOpen) => (
             <DropdownButton
-              value={10}
+              value={'10'}
               isOpen={isOpen}
               handleOnClick={onClick}
               buttonStyle={{
@@ -35,7 +49,7 @@ export const ItemsPerPage = () => {
               }}
             />
           )}
-        </ButtonWithDropdown>
+        </AddSelectBox>
       </div>
     </div>
   )

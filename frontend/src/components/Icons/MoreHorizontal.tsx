@@ -1,21 +1,39 @@
-import style from './Icons.module.scss';
+/*************************\
+ * General types
+\*************************/
 
-type Props = {
-  className?: string | null,
-}
+import { BasicIconProps } from './_types';
 
-function SvgMoreHorizontal({ className = null }: Props) {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = BasicIconProps;
+
+/*************************\
+ * MoreHorizontal component
+\*************************/
+
+function SvgMoreHorizontal({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.5,
+  strokeColor = "#767676",
+  fillColor = "#767676",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
-      fill="none"
+      width={width}
+      height={height}
       xmlns="http://www.w3.org/2000/svg"
-      className={`${className || style.Icon}`}
+      fill="none"
+      {...rest}
     >
       <path
         d="M8 8.667a.667.667 0 100-1.334.667.667 0 000 1.334zM12.667 8.667a.667.667 0 100-1.334.667.667 0 000 1.334zM3.333 8.667a.667.667 0 100-1.334.667.667 0 000 1.334z"
-        strokeWidth={1.5}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

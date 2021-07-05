@@ -1,11 +1,17 @@
 import { TitleArea } from '../../components/TitleArea/TitleArea';
-import { Button, ButtonType, FilterDropdown } from '../../components/Buttons';
+import { Button } from '../../components/Buttons';
+import { ButtonType } from '../../components/Buttons/_types';
 
 import style from './Dashboard.module.scss';
 
 import { MoreHorizontal as MoreIcon } from '../../components/Icons';
-import { Dropdown } from '../../components/Buttons/Dropdown/Dropdown';
-import { ButtonWithDropdown, AlignListType } from '../../components/Buttons';
+import { FilterWithDropdown } from '../../components/Filters';
+import { AddSelectBox } from '../../components/SelectBox';
+import { AlignListType } from '../../components/SelectBox/_types';
+import { Modal } from '../../components/Modals';
+import { Card } from '../../components/Cards';
+import { Quick } from '../../components/Icons';
+import { useState } from 'react';
 
 type DashProps = {
   location: {
@@ -14,7 +20,7 @@ type DashProps = {
 };
 
 const dashButtons = [
-  <ButtonWithDropdown 
+  <AddSelectBox 
     options={{
       '1': { name: 'Teste1' },
       '2': { name: 'Teste2' }
@@ -25,23 +31,44 @@ const dashButtons = [
   >
     {(onClick, isOpen) => {
       return (
-        <Button className={isOpen && style.OpenMoreButton} buttonType={ButtonType.Secondary} onClick={onClick} justIcon iconComponent={MoreIcon} />
+        <Button className={isOpen && style.OpenMoreButton} buttonType={ButtonType.Secondary} onClick={onClick} iconComponent={MoreIcon} />
       );
     }}
-  </ButtonWithDropdown>
+  </AddSelectBox>
 ];
+
+const options = {
+  a: {name: "teste"},
+  b: {name: "teste1"},
+  c: {name: "teste2"},
+}
 
 export const Dashboard = ({
   location
 }: DashProps) => {
+  
+  const [ modal, setModal ] = useState(false);
+  
   return (
     <div>
+      <Modal 
+        isOpened={modal}
+        setIsOpened={setModal}
+        title="Modal de teste"
+      />
       <TitleArea 
         title="Painel"
         path={location.pathname}
         buttons={dashButtons}
       />
-      <Dropdown />
+      <Card>
+        <div style={{ padding: "20px" }}>
+        </div>
+        <Button 
+          text="Modal"
+          onClick={() => {setModal(true)}}
+        />
+      </Card>
     </div>
   )
 }

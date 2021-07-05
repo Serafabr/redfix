@@ -3,14 +3,33 @@ import { Avatar } from '../Avatar/Avatar';
 import dropIcon from '../../../assets/icons/dropdown.svg';
 import style from './AvatarDropdown.module.scss';
 
-// Avatar with dropdown
-export const AvatarDropdown = () => {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
+  name: string,
+  team: string,
+  avatar?: string,
+}
+
+/*************************\
+ * AvatarDropdown Component
+\*************************/
+
+export const AvatarDropdown = ({
+  name,
+  team,
+  avatar
+}: Props) => {
   return (
     <div className={style.AvatarDropdown}>
-      <Avatar />
+      <Avatar 
+       avatar={avatar}
+      />
       <div className={style.InfoWrapper}>
-        <div className={style.Name}>Pedro Serafim</div>
-        <div className={style.Job}>Engenheiro</div>
+        <div className={style.Name}>{name}</div>
+        <div className={style.Team}>{team}</div>
       </div>
       <img className={style.DropIcon} src={dropIcon} alt="Dropdown"/>
     </div>

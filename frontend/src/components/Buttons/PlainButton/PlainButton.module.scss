@@ -1,0 +1,41 @@
+@import "../../../style/variables";
+
+/*------------------------------------*\
+  #PlainButton Overall Style
+\*------------------------------------*/
+
+.PlainButton {
+  border: none;
+  margin: 0;
+  padding: 2px 12px;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $primary_color;
+  
+  &:hover {
+    cursor: pointer;
+    color: $hovered_primary;
+  }
+}
+
+/*------------------------------------*\
+  #Icon inside the button
+\*------------------------------------*/
+
+.IconContainer {
+  display: inline-block;
+  margin-left: 10px;
+  
+  vertical-align: middle;
+}
+
+.ButtonIcon {
+  width: 12px;
+  height: 12px;
+}

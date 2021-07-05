@@ -1,4 +1,4 @@
-import { OptionsType } from '../SelectBox';
+import { OptionsType, SelectionObjectType } from '../_types';
 
 /*************************\
  * General types
@@ -6,6 +6,7 @@ import { OptionsType } from '../SelectBox';
 
 export type SortAndFilterOptionsFunction = (
   options: OptionsType,
+  selectionObject: SelectionObjectType,
   filterText: string | null,
   isSorted?: boolean,
 ) => Array<string>; // string is the IDs
@@ -17,8 +18,9 @@ export type SortAndFilterOptionsFunction = (
 
 export const sortAndFilterOptionIds: SortAndFilterOptionsFunction = (
   options,
+  selectionObject,
   filterText,
-  sortOptions = false,
+  isSorted = false,
 ) => {
   // Create arrays to sort options
   const firstOptions = []; // Selected options
@@ -28,11 +30,11 @@ export const sortAndFilterOptionIds: SortAndFilterOptionsFunction = (
   for (const optionId in options) {
     // If there's any text on searchInput
     if (filterText && options[optionId].name.toLowerCase().includes(filterText.toLowerCase())) {
-      sortOptions && options[optionId].selected ? firstOptions.push(optionId) : lastOptions.push(optionId);
+      isSorted && selectionObject[optionId] ? firstOptions.push(optionId) : lastOptions.push(optionId);
     }
     // If there's no text on searchInput
     if (!filterText) {
-      sortOptions && options[optionId].selected ? firstOptions.push(optionId) : lastOptions.push(optionId);
+      isSorted && selectionObject[optionId] ? firstOptions.push(optionId) : lastOptions.push(optionId);
     }
   }
   

@@ -1,22 +1,28 @@
 import { ReactNode } from 'react';
-
-import { Button, ButtonType } from '../Buttons';
+// Component
 import { PageTitle } from '../PageTitle/PageTitle';
+// Style
 import style from './TitleArea.module.scss';
 
-import { Plus as PlusIcon } from '../../components/Icons';
+/*************************\
+ * PropTypes
+\*************************/
 
-type TitleAreaType = {
+type Props = {
   title: string,
   path: string,
   buttons: Array<ReactNode>
 }
 
+/*************************\
+ * SelectBox Component
+\*************************/
+
 export const TitleArea = ({
   title,
   path,
   buttons
-} : TitleAreaType) => {
+} : Props) => {
   return (
     <div className={style.TitleArea}>
       <PageTitle title={title} path={path} />

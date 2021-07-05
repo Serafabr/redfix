@@ -1,18 +1,65 @@
-
+import { useState } from 'react';
+// Components
 import { Button } from '../../Buttons';
-import style from './QuickSearch.module.scss';
 import { Search } from '../../Icons';
-import { Dropdown } from '../../Buttons/Dropdown/Dropdown';
-import { Input } from '../Input/Input';
+import { DropdownButton, Input } from '../../Inputs';
+import { AddSelectBox } from '../../SelectBox';
+// Style
+import style from './QuickSearch.module.scss';
+// Types
+import { OptionsType, OnSelectItemType } from '../../SelectBox/_types';
+
+
+/*************************\
+ * Configuration
+\*************************/
+
+const options: OptionsType = {
+  task: { name: "Tarefa" },
+  projects: { name: "Projeto" },
+  plans: { name: "Plano de Manutenção" },
+  monitors: { name: "Monitor" },
+  facilities: { name: "Edifício" },
+  appliances: { name: "Equipamento" },
+}
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {};
+
+/*************************\
+ * QuickSearch Component
+\*************************/
 
 export const QuickSearch = () => {
+  
+  const [ selectionArray, setSelectionArray ] = useState<Array<string>>(['task'])
+  
+  const handleSelectItem: OnSelectItemType = (id: string) => {
+    setSelectionArray([id]);
+  };
+  
   return (
     <div className={style.QuickSearch}>
-      <Dropdown buttonStyle={{ borderRadius: "4px 0 0 4px" }} />
-      <div className={style.InputWrapper}>
-        <Input />
+      <div className={style.ButtonWrapper}>
+        <AddSelectBox
+          options={options}
+          selectionArray={selectionArray}
+          onSelectItem={handleSelectItem}
+          boxWidth={190}
+          sortItems={true}
+        >
+          {(onClick, isOpen)=> (
+            <DropdownButton buttonStyle={{ borderRadius: "4px 0 0 4px", zIndex: "10" }} addShadow={false} value={options[selectionArray[0]]?.name} isOpen={isOpen} handleOnClick={onClick} />
+          )}
+        </AddSelectBox>
       </div>
-      <Button justIcon iconComponent={Search} buttonStyle={{ borderRadius: "0 4px 4px 0" }} />
+      <div className={style.InputWrapper}>
+        <Input addShadow={false} />
+      </div>
+      <Button iconComponent={Search} buttonStyle={{ borderRadius: "0 4px 4px 0" }} />
     </div>
   )
 }

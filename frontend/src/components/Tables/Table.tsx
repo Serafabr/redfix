@@ -1,9 +1,36 @@
+// Style
 import style from './Table.module.scss';
 
-import doneIcon from '../../assets/icons/check.svg'
-import cancelIcon from '../../assets/icons/x.svg'
+/*************************\
+ * PropTypes
+\*************************/
 
 type Props = any;
+
+export type ColumnStyleT = {
+  [id: string]: any,
+}
+
+/*************************\
+ * Default props
+\*************************/
+
+const defaultPropsGetter = () => ({})
+
+/*************************\
+ * Utils
+\*************************/
+
+const getHeaderStyle = (columnStyle: ColumnStyleT, id: string) => {
+  const style = (columnStyle && id) ? columnStyle[id] : {}
+  return {
+    style: { ...style }
+  };
+}
+
+/*************************\
+ * Table component
+\*************************/
 
 export const Table = ({ 
   data: {
@@ -12,26 +39,21 @@ export const Table = ({
     headerGroups,
     rows,
     prepareRow,
-  }
+  },
+  getCellProps = defaultPropsGetter,
+  columnStyle,
+  smallTable = false,
  }: Props) => {
-  
-  console.log('Inside - tableProps: ');
-  console.log(getTableProps);
   
   return (
     <table className={style.Table} {...getTableProps()}>
-      <colgroup>
-        <col style={{ width: "10%" }}/>
-        <col style={{ width: "40%" }}/>
-        <col style={{ width: "15%" }}/>
-        <col style={{ width: "20%" }}/>
-        <col style={{ width: "15%" }}/>
-      </colgroup>
       <thead className={style.Head}>
         {headerGroups.map((headerGroup: any) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column: any) => (
-              <th {...column.getHeaderProps()}>
+              <th {...column.getHeaderProps([
+                getHeaderStyle(columnStyle, column.id)
+              ])}>
                 {column.render('Header')}
               </th>
             ))}
@@ -44,8 +66,12 @@ export const Table = ({
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map((cell: any) => (
-                <td {...cell.getCellProps()}>
-                  {cell.render('Cell')}
+                <td {...cell.getCellProps([
+                  getCellProps(cell),
+                ])}>
+                  <div className={`${style.Cell} ${smallTable && style.Small}`}>
+                    {cell.render('Cell')}
+                  </div>
                 </td>
               ))}
             </tr>

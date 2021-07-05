@@ -1,8 +1,10 @@
-import { Button, ButtonType, Notification, Support } from '../../../components/Buttons';
-import { QuickSearch } from '../../../components/Inputs/QuickSearch/QuickSearch';
+import { Button, Notification, Support } from '../../../components/Buttons';
+import { QuickSearch } from '../../../components/Inputs';
 import style from './AppHeader.module.scss';
 import { Plus } from '../../../components/Icons';
 import { AvatarDropdown } from '../../../components/Avatars';
+
+import { ButtonType } from '../../../components/Buttons/_types';
 
 export const AppHeader = () => {
   return (
@@ -17,7 +19,10 @@ export const AppHeader = () => {
         <div className={style.AvatarWrapper}>
             <Support />
             <Notification />
-            <AvatarDropdown />
+            <AvatarDropdown 
+              name="Pedro Serafim"
+              team="Coemant"
+            />
         </div>
       </div>
     </div>

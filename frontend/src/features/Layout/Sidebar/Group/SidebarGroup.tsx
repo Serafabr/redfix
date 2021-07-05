@@ -12,8 +12,7 @@ export const SidebarGroup = ({
   items,
   groupLabel
 }: Props) => {
-  console.log("Items: ");
-  console.log(items);
+
   return (
     <div className={style.SidebarGroup}>
       {groupLabel && (

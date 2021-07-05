@@ -1,0 +1,73 @@
+@import '../../../style/variables';
+
+/*------------------------------------*\
+  #Dropdown Wrapper
+\*------------------------------------*/
+
+.Dropdown {
+  position: relative;
+}
+
+/*------------------------------------*\
+  #Dropdown Button
+\*------------------------------------*/
+
+.DropdownButton {
+  display:      flex;
+  align-items:  center;
+  
+  // STATES
+  &:hover {
+    cursor: pointer;
+  }
+  
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+.Text {
+  font:         inherit;
+  font-size:    1rem;
+  font-weight:  400;
+  color:        $gray_700;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 5px;
+}
+
+.Placeholder {
+  color:        $gray_450;
+}
+
+/*------------------------------------*/
+.IconArrow {
+  margin-left: auto;
+  
+  height: 16px;
+  width:  16px;
+  
+  transition: transform 0.2s linear;
+}
+
+.IconArrowUp {
+  transform: rotate(180deg);
+}
+
+
+/*------------------------------------*\
+  #If the dropdown is open, the button will change the style
+\*------------------------------------*/
+
+.Opened {
+  border:     1px solid #1589eecc;
+  box-shadow: 0px 0px 2px 1px rgba(21, 137, 238, 0.4);
+  outline:    none;
+  
+  &:hover {
+    border: 1px solid #1589eeaa;
+  }
+}

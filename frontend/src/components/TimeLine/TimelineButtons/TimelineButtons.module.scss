@@ -1,0 +1,62 @@
+@import "../../../style/variables";
+
+.TimelineButtonContainer {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f5f5f5
+}
+
+.TimelineFilterButton {
+  border: none;
+  margin: 0;
+  padding: 6px 12px;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $gray_600;
+  
+  img {
+    margin-right: 8px;
+  }
+  
+  &:hover {
+    cursor: pointer;
+    color: $gray_700;
+  }
+}
+
+.Inactive {
+  color: $gray_300;
+  
+  &:hover {
+    color: $gray_400;
+  }
+}
+
+.CleanFilter {
+  display: flex;
+  align-items: center;
+  
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $gray_600;
+  
+  img {
+    margin-left: 8px;
+    height: 14px;
+    width: 14px;
+  }
+  
+  &:hover {
+    cursor: pointer;
+    color: $gray_700;
+  }
+}

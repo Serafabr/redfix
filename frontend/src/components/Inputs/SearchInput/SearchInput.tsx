@@ -1,9 +1,13 @@
-import { Input } from '../Input/Input';
+// Components
+import { Input } from '../.';
+// Style
 import style from './SearchInput.module.scss';
 
-// Component SearchInput
+/*************************\
+ * SearchInput Component
+\*************************/
+
 export const SearchInput = ({...props}) => {
-  
   return (
     <Input 
       inputClassName={style.SearchInput} 

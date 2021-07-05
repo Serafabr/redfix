@@ -1,21 +1,38 @@
-import style from './Icons.module.scss';
+/*************************\
+ * General types
+\*************************/
 
-type Props = {
-  className?: string | null,
-}
+import { BasicIconProps } from './_types';
 
-function SvgPlus({ className = null }: Props) {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = BasicIconProps;
+
+/*************************\
+ * Plus component
+\*************************/
+
+function SvgPlus({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.5,
+  strokeColor = "#767676",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
-      fill="none"
+      width={width}
+      height={height}
       xmlns="http://www.w3.org/2000/svg"
-      className={`${className || style.Icon}`}
+      fill="none"
+      {...rest}
     >
       <path
         d="M8 3.333v9.334M3.333 8h9.334"
-        strokeWidth={1.5}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />

@@ -1,21 +1,38 @@
-import style from './Icons.module.scss';
+/*************************\
+ * General types
+\*************************/
 
-type Props = {
-  className?: string | null,
-}
+import { BasicIconProps } from './_types';
 
-function SvgSearch({ className = null }: Props) {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = BasicIconProps;
+
+/*************************\
+ * Search component
+\*************************/
+
+function SvgSearch({
+  width = 16,
+  height = 16,
+  strokeWidth = 1.5,
+  strokeColor = "#9B9B9B",
+  ...rest
+}: Props) {
   return (
     <svg
-      width={16}
-      height={16}
-      fill="none"
+      width={width}
+      height={height}
       xmlns="http://www.w3.org/2000/svg"
-      className={`${className || style.Icon}`}
+      fill="none"
+      {...rest}
     >
       <path
         d="M7.333 12.667A5.333 5.333 0 107.333 2a5.333 5.333 0 000 10.667zM14 14l-2.9-2.9"
-        strokeWidth={1.5}
+        stroke={strokeColor}
+        strokeWidth={strokeWidth}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
