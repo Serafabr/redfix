@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.3.20",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.0",
@@ -13,6 +14,7 @@
     "chart.js": "^3.3.2",
     "classnames": "^2.2.6",
     "dayjs": "^1.10.5",
+    "graphql": "^15.5.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-chartjs-2": "^3.0.3",
