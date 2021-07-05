@@ -1,0 +1,131 @@
+@import "../../../../../style/variables";
+
+.FilterBar {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f5f5f5
+}
+
+.LogButton {
+  border: none;
+  margin: 0;
+  padding: 6px 12px;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $gray_500;
+  
+  img {
+    margin-right: 8px;
+  }
+  
+  &:hover {
+    cursor: pointer;
+    color: $gray_600;
+  }
+}
+
+.Inactive {
+  color: $gray_300;
+  
+  &:hover {
+    color: $gray_400;
+  }
+}
+
+.CleanButtonContainer {
+  display: inline-block;
+  margin-left: auto;
+}
+
+.LogsWrapper {
+  margin-top: 24px;
+}
+
+.Log {
+  position: relative;
+  border-left: 1px solid $gray_200;
+  margin-bottom: 5px;
+}
+
+.Icon {
+  position: absolute;
+  left: -5px;
+  padding: 4px 0 8px 0;
+  background-color: white;
+}
+
+.MessageBox {
+  padding-left: 16px;
+}
+
+.SystemMessage {
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+  color: $gray_500;
+  line-height: 21px;
+}
+
+.UserMessage {
+  display: inline-block;
+  margin: 1px 0;
+  padding: 6px 16px;
+  font-weight: 400;
+  font-size: 0.92rem;
+  color: #737373;
+  line-height: 21px;
+  border-radius: 4px;
+  
+  background-color: rgba(243, 243, 243, 0.75);
+}
+
+.LogTime {
+  padding-bottom: 18px;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 400;
+  line-height: 21px;
+  color: $gray_400;
+}
+
+.Highlight {
+  font-weight: 600;
+  color: $gray_700;
+}
+
+.MoreButton {
+  border: none;
+  margin: 0;
+  padding: 6px 12px;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 21px;
+  color: $primary_color;
+  
+  &:hover {
+    cursor: pointer;
+    color: $hovered_primary;
+  }
+}
+
+.IconContainer {
+  display: inline-block;
+  margin-left: 10px;
+  
+  vertical-align: middle;
+}
+
+.ButtonIcon {
+  width: 12px;
+  height: 12px;
+}
