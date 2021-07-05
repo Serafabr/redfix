@@ -9,6 +9,11 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 // Style
 import './App.scss';
 
+const client = new ApolloClient({
+  uri: 'https://localhost/',
+  cache: new InMemoryCache()
+});
+
 function App() {
   return (
     <div className="App">
