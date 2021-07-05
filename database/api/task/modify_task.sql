@@ -24,7 +24,7 @@ create or replace function :function_name (
     begin
       update tasks set
         updated_at = now(),
-        updated_by = get_person_id(),
+        updated_by = "personId",
         task_priority_id = "taskPriorityId",
         task_category_id = "taskCategoryId",
         task_template_id = "taskTemplateId",
@@ -37,20 +37,6 @@ create or replace function :function_name (
         date_end = "dateEnd",
         request_id = "requestId"
       where task_id = "taskId";
-      insert into task_events values (
-        default,
-        "taskId",
-        'modification',
-        now(),
-        get_person_id(),
-        "teamId",
-        null,
-        null,
-        'Alteração da tarefa',
-        null,
-        null,
-        true
-      );
       id = "taskId";
     end;
   $$

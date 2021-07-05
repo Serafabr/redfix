@@ -1,41 +1,35 @@
-const express = require('express');
-const app = express();
-const loginRoute = require('./routes/login');
-const logoutRoute = require('./routes/logout');
-const uploadRoute = require('./routes/upload');
-const downloadRoute = require('./routes/download');
-const redmineRoute = require('./routes/redmine');
-const paths = require('./paths');
-const cors = require('./middlewares/cors');
-const expressJson = require('./middlewares/express-json');
-const expressStatic = require('./middlewares/express-static');
-const { cookieSession } = require('./middlewares/cookie-session');
-const passport = require('./middlewares/passport');
-const cmmsSession = require('./middlewares/cmms-session');
-const morgan = require('./middlewares/morgan');
-const postgraphile = require('./middlewares/postgraphile');
+import express from 'express';
+import loginRoute from './routes/login.js';
+import logoutRoute from './routes/logout.js';
+import uploadRoute from './routes/upload.js';
+import downloadRoute from './routes/download.js';
+import redmineRoute from './routes/redmine.js';
+import paths from './paths.js';
+import cors from './middlewares/cors.js';
+import cookieSession from './middlewares/cookie-session.js';
+import passport, { setDefaultUser } from './middlewares/passport.js';
+import morgan from './middlewares/morgan.js';
+import postgraphile from './middlewares/postgraphile.js';
+import error404 from './middlewares/error404.js'
 
-// App configuration
+const app = express();
 app.set('x-powered-by', false);
 
-// Middlewares and routes
 app.use(cors);
-app.use(expressJson);
+app.use(express.json());
 app.use(cookieSession);
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(morgan.logConsole);
-app.use(morgan.logFile);
-app.use(cmmsSession);
-app.use(expressStatic);
+app.use(morgan.console);
+app.use(morgan.file);
+app.use(setDefaultUser);
+app.use(express.static(paths.public));
 app.use(paths.login, loginRoute);
 app.use(paths.logout, logoutRoute);
-app.use(paths.upload, uploadRoute);
+app.use(paths.api, uploadRoute);
 app.use(paths.download, downloadRoute);
 app.use(paths.redmine, redmineRoute);
 app.use(postgraphile);
+app.use(error404);
 
-// 404 Error
-app.use((req, res) => res.status(404).send("Página não encontrada\n"));
-
-module.exports = app;
+export default app;

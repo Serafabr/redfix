@@ -11,13 +11,13 @@ create or replace function :function_name (
       uuid_to_remove alias for "uuid";
     begin
       delete from files as f where f.uuid = uuid_to_remove;
-      id = 1;
+      get diagnostics id = row_count;
     end;
   $$
 ;
 
 grant execute on function :function_name to supervisor, inspector, employee;
 
-select generate_api_documentation(:'function_name',E'`1`\n') as new_comment \gset
+select generate_api_documentation(:'function_name',E'the number of processed items\n') as new_comment \gset
 
 comment on function :function_name is :'new_comment';

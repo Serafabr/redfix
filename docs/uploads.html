@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body class="container w-50 text-justify">
+  <h1 class="text-center py-3 font-weight-bold">RedFix</h1>
+  <h3 class="text-center font-weight-bold">Uploads</h3>
+  <hr/>
+
+<p>
+  Os usuários podem fazer 3 tipos de uploads:
+</p>
+
+<p>
+  <ul>
+    <li>upload genérico, de quaisquer arquivos</li>
+    <li>upload de imagens a serem apresentados no browser como tags &lt;img&gt; ou similares</li>
+    <li>upload de "faturas eletrônicas" da CEB (arquivo CSV)</li>
+  </ul>
+</p>
+
+<h2 class="text-center py-3 font-weight-bold">Como funciona</h2>
+
+<p>
+  Os uploads funcionam basicamente com o envio de multipart requests
+  pelo cliente ao servidor. É usado o mesmo endpoint da API GraphQL.
+  A biblioteca
+  <code><a href="https://www.npmjs.com/package/apollo-upload-client">apollo-upload-client</a></code>
+  opera no frontend e a biblioteca
+  <code><a href="https://www.npmjs.com/package/graphql-upload">graphql-upload</a></code>
+  serve como middleware no lado do servidor.
+</p>
+
+<h2 class="text-center py-3 font-weight-bold">Uploads genéricos</h2>
+
+<p>Onde deve estar na request: <code>req.body.variables.files</code></p>
+<p>Ação realizada pelo servidor: salva arquivos no disco, salva metadados no banco de dados</p>
+<p>Path de destino do arquivo no servidor: <code>files/&lt;UUID_DO_ARQUIVO&gt;</code></p>
+<p>Metadados: devem ser enviados juntos (em <code>req.body.variables.filesMetadata</code>)</p>
+
+<h2 class="text-center py-3 font-weight-bold">Uploads de imagem</h2>
+
+<p>Onde deve estar na request: <code>req.body.variables.image</code></p>
+<p>Ação realizada pelo servidor: salva imagem no disco, salva metadados no banco de dados</p>
+<p>Path de destino do arquivo no servidor: <code>public/images/&lt;UUID_DO_ARQUIVO&gt;</code></p>
+<p>Metadados: devem ser enviados juntos (em <code>req.body.variables.imageMetadata</code>)</p>
+
+<h2 class="text-center py-3 font-weight-bold">CSV da CEB</h2>
+
+<p>Onde deve estar na request: <code>req.body.variables.cebFile</code></p>
+<p>Ação realizada pelo servidor: cada linha será uma operação de <code>INSERT</code> no banco de dados</p>
+<p>Path de destino do arquivo no servidor: N/A</p>
+<p>Metadados: N/A</p>
+
+</body>
+</html>

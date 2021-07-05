@@ -3,21 +3,30 @@
 drop function if exists :function_name;
 create or replace function :function_name (
   in "depotId" integer,
-  in "chave" text,
-  -- in "items" ?
+  in "invoice" invoice_type,
+  in "invoiceItems" invoice_item_type[],
   in "invoiceSf" text default null,
   out id integer
 )
   language plpgsql
   as $$
     begin
-      insert into invoices values (
-        default,
-        "invoiceSf",
-        "depotId",
-        "chave"
-      ) returning invoice_id into id;
-      -- insert into invoice_items select unnest(items);
+      insert into invoices values (default, "invoiceSf", "depotId", "invoice".*) returning invoice_id into id;
+      insert into invoice_items (
+        invoice_id,
+        codigoprod,
+        descprod,
+        ncm,
+        ean,
+        unidade,
+        quantidade,
+        valorunit,
+        valoritem,
+        valorbcicms
+      ) select
+        id,
+        (unnest("invoiceItems")).*
+      ;
     end;
   $$
 ;

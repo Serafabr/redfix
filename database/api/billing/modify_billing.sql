@@ -7,7 +7,7 @@ create or replace function :function_name (
   in "dateStart" date,
   in "dateEnd" date,
   in "datePayment" date default null,
-  in "amountPaid" numeric default null,
+  in "AMOUNT" numeric default null,
   in "NOTE" text default null,
   out id integer
 )
@@ -19,7 +19,7 @@ create or replace function :function_name (
         date_start = "dateStart",
         date_end = "dateEnd",
         date_payment = "datePayment",
-        amount_paid = "amountPaid",
+        amount = "AMOUNT",
         note = "NOTE"
       where billing_id = "billingId";
       id = "billingId";

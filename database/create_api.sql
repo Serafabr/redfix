@@ -10,6 +10,7 @@ begin transaction;
 \i api/allocation/allocation_statuses.sql
 \i api/allocation/approve_task_allocations.sql
 \i api/allocation/create_task_allocation.sql
+\i api/allocation/delete_task_allocations.sql
 \i api/allocation/finish_task_allocations.sql
 \i api/allocation/modify_qty_approved.sql
 \i api/allocation/modify_qty_proposed.sql
@@ -93,14 +94,14 @@ begin transaction;
 \i api/project/remove_task_from_project.sql
 -- task
 \i api/task/add_asset_to_task.sql
-\i api/task/clone_task.sql
+\i api/task/close_task.sql
 \i api/task/create_task_note.sql
 \i api/task/create_task.sql
 \i api/task/delete_task_note.sql
 \i api/task/filter_tasks.sql
--- \i api/task/finish_task.sql
 \i api/task/follow_task.sql
 \i api/task/modify_task_note.sql
+\i api/task/modify_task_jobs.sql
 \i api/task/modify_task.sql
 \i api/task/remove_asset_from_task.sql
 \i api/task/send_task.sql
@@ -124,15 +125,15 @@ begin transaction;
 \i api/team/modify_person.sql
 \i api/team/modify_team.sql
 \i api/team/persons.sql
+\i api/team/reactivate_person.sql
 \i api/team/remove_person_from_team.sql
 \i api/team/set_my_team.sql
 \i api/team/teams.sql
 -- utilities
-\i api/utilities/create_energy_bill.sql
-\i api/utilities/create_water_bill.sql
+\i api/utilities/create_energy_bills.sql
 \i api/utilities/energy_bills.sql
 \i api/utilities/modify_energy_bill_note.sql
-\i api/utilities/modify_water_bill.sql
+\i api/utilities/upsert_water_bill.sql
 \i api/utilities/water_bills.sql
 
 commit transaction;

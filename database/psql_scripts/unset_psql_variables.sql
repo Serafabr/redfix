@@ -20,6 +20,7 @@
 \unset new_alloc_id
 \unset new_appliance_id
 \unset new_asset_id
+\unset new_billing_id
 \unset new_comment
 \unset new_db_name
 \unset new_depot_id

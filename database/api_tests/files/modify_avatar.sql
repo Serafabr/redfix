@@ -5,6 +5,7 @@ select api.modify_avatar(
     ext.gen_random_uuid(),
     'filename',
     1000,
+    'mimetype',
     null,
     null
   )::files

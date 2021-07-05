@@ -1,3 +1,2 @@
 data/csv_files/*
 !data/csv_files/.gitkeep
-my_test.sql

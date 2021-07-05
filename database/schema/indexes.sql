@@ -41,6 +41,9 @@ create index on depot_events (depot_id);
 create index on depot_files (depot_id);
 create index on depot_files (uuid);
 
+create index on discounts (referenced_billing_id);
+create index on discounts (discounted_billing_id);
+
 create index on energy_meter_assets (asset_id);
 
 create index on invoices (depot_id);
@@ -49,6 +52,8 @@ create index on monitors (asset_id);
 
 create index on monitor_reads (monitor_id);
 
+create index on persons (team_id);
+
 create index on plans (depot_id);
 
 create index on plan_files (plan_id);
@@ -56,6 +61,8 @@ create index on plan_files (uuid);
 
 create index on project_files (project_id);
 create index on project_files (uuid);
+
+create index on refunds (invoice_item_id);
 
 create index on supplies (depot_id);
 

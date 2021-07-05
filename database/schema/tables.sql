@@ -169,7 +169,8 @@ create table task_templates (
   task_priority_id integer not null references task_priorities (task_priority_id),
   plan_id integer not null references plans (plan_id),
   periodicity_id integer not null references periodicities (periodicity_id),
-  next_team_id integer not null references teams (team_id)
+  next_team_id integer not null references teams (team_id),
+  jobs job_type[] not null default array[]::job_type[]
 );
 
 create table task_template_assets (
@@ -216,7 +217,8 @@ create table tasks (
   date_limit timestamptz,
   date_start timestamptz,
   date_end timestamptz,
-  request_id integer references requests (request_id)
+  request_id integer references requests (request_id),
+  jobs job_type[] not null default array[]::job_type[]
 );
 
 create table task_assets (
@@ -273,53 +275,72 @@ create table invoices (
   invoice_sf text,
   depot_id integer not null references depots (depot_id),
   chave text not null unique,
-  numero integer,
-  datahoraemissao timestamptz,
-  emitcnpj text,
-  emitnome text,
-  destcnpj text,
-  destnome text,
-  vbc text,
-  vicms text,
+  numero text not null,
+  datahoraemissao text not null default '',
+  emitcnpj text not null,
+  emitnome text not null,
+  destcnpj text not null,
+  destnome text not null,
+  vbc text not null,
+  vicms text not null,
   vicmsdeson text,
-  vbcst text,
-  vst text,
-  vprod text,
-  vfrete text,
-  vseg text,
-  vdesc text,
-  vii text,
-  vipi text,
-  vpis text,
-  vcofins text,
-  voutro text,
-  vnf text
+  vbcst text not null,
+  vst text not null,
+  vprod text not null,
+  vfrete text not null,
+  vseg text not null,
+  vdesc text not null,
+  vii text not null,
+  vipi text not null,
+  vpis text not null,
+  vcofins text not null,
+  voutro text not null,
+  vnf text not null
+  -- _vbc numeric generated always as (vbc::numeric) stored,
+  -- _vicms numeric generated always as (vicms::numeric) stored,
+  -- _vicmsdeson numeric generated always as (vicmsdeson::numeric) stored,
+  -- _vbcst numeric generated always as (vbcst::numeric) stored,
+  -- _vst numeric generated always as (vst::numeric) stored,
+  -- _vprod numeric generated always as (vprod::numeric) stored,
+  -- _vfrete numeric generated always as (vfrete::numeric) stored,
+  -- _vseg numeric generated always as (vseg::numeric) stored,
+  -- _vdesc numeric generated always as (vdesc::numeric) stored,
+  -- _vii numeric generated always as (vii::numeric) stored,
+  -- _vipi numeric generated always as (vipi::numeric) stored,
+  -- _vpis numeric generated always as (vpis::numeric) stored,
+  -- _vcofins numeric generated always as (vcofins::numeric) stored,
+  -- _voutro numeric generated always as (voutro::numeric) stored,
+  -- _vnf numeric generated always as (vnf::numeric) stored
 );
 
 create table invoice_items (
   invoice_item_id integer primary key generated always as identity,
   invoice_id integer not null references invoices (invoice_id),
-  numprod integer,
-  codigoprod text,
-  descprod text,
-  ncm integer,
-  ean integer,
-  unidade text,
-  quantidade text,
-  valorunit text,
-  valoritem text,
+  -- numprod integer not null, --???
+  codigoprod text not null,
+  descprod text not null,
+  ncm text not null,
+  ean text,
+  unidade text not null,
+  quantidade text not null,
+  valorunit text not null,
+  valoritem text not null,
   valorbcicms text
+  -- _quantidade numeric generated always as () stored,
+  -- _valorunit numeric generated always as () stored,
+  -- _valoritem numeric generated always as () stored,
+  -- _valorbcicms numeric generated always as () stored
 );
 
 create table billings (
   billing_id integer primary key generated always as identity,
   depot_id integer not null references depots (depot_id),
   description text not null,
-  paid boolean not null,
+  is_paid boolean not null,
   date_start date not null,
   date_end date not null,
   date_payment date,
-  amount_paid numeric,
+  amount numeric,
   note text
 );
 
@@ -380,6 +401,7 @@ create table dashboard (
   total_tasks integer,
   delayed_tasks integer,
   finished_tasks integer,
+  closed_tasks integer,
   cancelled_tasks integer,
   total_assets integer,
   total_facilities integer,

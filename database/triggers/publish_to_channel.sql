@@ -16,4 +16,4 @@ create or replace function :trigger_name ()
 -- example:
 -- create trigger :trigger_name
 -- after insert or update or delete on assets
--- for each row execute procedure :trigger_name();
+-- for each row execute function :trigger_name();

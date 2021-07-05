@@ -1,4 +1,6 @@
-# Documentation: https://www.postgresql.org/docs/12/app-psql.html
+#!/bin/bash
+
+export PGCLIENTENCODING=utf8
 
 psql \
 --username=administrator \

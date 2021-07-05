@@ -5,6 +5,7 @@ create or replace view api.dashboard_data as
     total_tasks,
     delayed_tasks,
     finished_tasks,
+    closed_tasks,
     cancelled_tasks,
     total_assets,
     total_facilities,

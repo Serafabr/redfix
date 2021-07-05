@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "production-on": "npm link node-windows && node windows-service-install.js",
     "production-off": "node windows-service-uninstall.js",
@@ -33,6 +34,9 @@
   },
   "nodemonConfig": {
     "ignore": [
+      "files/*",
+      "logs/*",
+      "public/*",
       "tests/*",
       "windows-service-*"
     ]

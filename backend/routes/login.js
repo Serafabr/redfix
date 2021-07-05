@@ -1,6 +1,8 @@
-const router = require('express').Router();
-const passport = require('../middlewares/passport');
-const { sessionOptions } = require('../middlewares/cookie-session');
+import { Router } from 'express';
+import passport from '../middlewares/passport.js';
+import { sessionOptions } from '../middlewares/cookie-session.js';
+
+const router = Router();
 
 router.post(
   '/',
@@ -11,4 +13,4 @@ router.post(
   }
 );
 
-module.exports = router;
+export default router;

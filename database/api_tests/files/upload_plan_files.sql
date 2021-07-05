@@ -6,6 +6,7 @@ select api.upload_plan_files(
     ext.gen_random_uuid(),
     'filename',
     1000,
+    'mimetype',
     null,
     null
   )::files]

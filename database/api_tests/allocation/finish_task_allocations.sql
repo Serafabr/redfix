@@ -5,7 +5,7 @@ select api.finish_task_allocations(
     (
       :new_alloc_id,
       9
-    )::allocation_quantity
+    )::alloc_type
   ]
 ) as not_used_output \gset
 

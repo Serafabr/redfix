@@ -7,9 +7,11 @@ create or replace function :function_name (
   language plpgsql
   strict
   as $$
+    declare
+      "personId" constant integer = get_person_id();
     begin
-      select team_id into "teamId" from persons where person_id = get_person_id();
-      if ("teamId" is null)
+      select team_id into "teamId" from persons where person_id = "personId";
+      if not found
         then perform raise_exception(602);
       end if;
     end;

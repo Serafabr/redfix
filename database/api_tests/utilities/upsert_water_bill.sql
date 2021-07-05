@@ -1,6 +1,6 @@
-\set tested_mutation api.modify_water_bill
+\set tested_mutation api.upsert_water_bill
 
-select api.modify_water_bill(
+select api.upsert_water_bill(
   1,
   2021,
   1,
@@ -11,8 +11,7 @@ select api.modify_water_bill(
   55,
   50,
   10000.99,
-  10000.99,
-  'Anotação sobre esta fatura da CAESB'
+  10000.99
 ) as not_used_output \gset
 
 \set all_mutations :all_mutations:tested_mutation,

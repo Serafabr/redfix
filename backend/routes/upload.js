@@ -1,127 +1,113 @@
-const router = require('express').Router();
-const { pgPool } = require('../db');
-const csvParse = require('csv-parse');
-const graphqlUpload = require('../middlewares/graphql-upload');
-const path = require('path');
-const fs = require('fs');
-const paths = require('../paths');
+import { Router } from 'express';
+import { graphqlUploadExpress } from 'graphql-upload';
+import { join } from 'path';
+import fs from 'fs';
+import csvParse from 'csv-parse';
+import paths from '../paths.js';
 
-async function decideUploadDestination(req, res, next){
-  const { files, image, avatar, cebFile } = req.body && req.body.variables ? req.body.variables : {};
-  if (!files && !image && !avatar && !cebFile) next();   // no uploads
-  if (files) saveFiles(req, res, next);       // regular uploads
-  if (image) saveImage(req, res, next);       // image
-  if (avatar) saveAvatar(req, res, next);     // avatar
-  if (cebFile) insertCebData(req, res, next); // CEB csv files
-}
+const handleUploadError = (error, res) => {
+  const { name, message } = error;
+  res.status(400).json({ error: { name, message } });
+};
 
 // Helper function to write files to disk from a stream
-function saveLocal(stream, filePath){
-  return new Promise((resolve, reject) =>
-    stream
-    .on("error", error => {
-      if (stream.truncated){ fs.unlinkSync(filePath); }
-      reject(error);
-    })
-    .on("end", () => resolve())
-    .pipe(fs.createWriteStream(filePath))
-  );
-}
-
-async function saveFiles(req, res, next){
-  const { files, filesMetadata } = req.body.variables;
-  Promise.all(files.map(async (file, i) => {
-    const resolvedFile = await file.promise;
-    const { filename, mimetype, encoding, createReadStream } = resolvedFile;
-    const stream = createReadStream();
-    const filePath = path.join(process.cwd(), paths.files, filesMetadata[i].uuid);
-    return saveLocal(stream, filePath);
-  }))
-  .then(() => {
-    next();
-  })
-  .catch(error => {
-    console.log(error);
-  });
-}
-
-async function saveImage(req, res, next){
-  const { image, imageMetadata } = req.body.variables;
-  const resolvedImage = await image.promise;
-  const { filename, mimetype, encoding, createReadStream } = resolvedImage;
-  const stream = createReadStream();
-  const imagePath = path.join(process.cwd(), paths.images, imageMetadata.uuid);
-  saveLocal(stream, imagePath)
-  .then(() => {
-    next();
-  })
-  .catch(error => {
-    console.log(error);
-    res.status(500).end();
-  });
-}
-
-async function saveAvatar(req, res, next){
-  const { avatar, avatarMetadata } = req.body.variables;
-  const resolvedAvatar = await avatar.promise;
-  const { filename, mimetype, encoding, createReadStream } = resolvedAvatar;
-  const stream = createReadStream();
-  const avatarPath = path.join(process.cwd(), paths.images, avatarMetadata.uuid);
-  saveLocal(stream, avatarPath)
-  .then(() => {
-    next();
-  })
-  .catch(error => {
-    console.log(error);
-    res.status(500).end();
-  });
-}
-
-async function insertCebData(req, res, next){
-  const cebFile = req.body.variables.cebFile[0];
-  const resolvedCebFile = await cebFile.promise;
-  const { filename, mimetype, encoding, createReadStream } = resolvedCebFile;
-  const stream = createReadStream();
-  const promises = [];
-  stream
-  .pipe(csvParse({ from_line: 2, delimiter: ';' })) // skip header and set delimiter
-  .on("data", record => { // each record is a line of ceb csv file
-    try {
-      record.pop(); // remove empty string at the end of the record
-      const valuesString = `(${record.map(field => ("'" + field + "'")).join(',')})`;
-      // console.log(valuesString);
-      promises.push(pgPool.query('select web.create_energy_bill($1)', [valuesString]));
-      // console.log(data);
-    } catch(error) {
-      console.log(error);
-      res.json({ cebSuccess: false });
-    }
-  })
-  .on("end", () => {
-    Promise.all(promises)
-    .then(values => {
-      const insertedCount = values.map(value => value.rows[0].insert_ceb_bill).reduce((acc, curr) => acc + curr);
-      // console.log(insertedCount);
-      res.json({
-        cebSuccess: true,
-        insertedCount: insertedCount,
-      });
-    })
-    .catch(error => {
-      console.log(error);
-      res.json({ cebSuccess: false });
-    });
-  })
+const saveLocal = (stream, filePath) => new Promise((resolve, reject) => stream
   .on("error", error => {
-    console.log(error);
-    res.json({ cebSuccess: false });
+    if (stream.truncated) fs.unlinkSync(filePath);
+    reject(error);
   })
-}
+  .on("end", () => resolve())
+  .pipe(fs.createWriteStream(filePath))
+);
+
+const saveFiles = async (req, res, next) => {
+  try {
+    const { files, filesMetadata } = req.body.variables;
+    await Promise.all(files.map(async (file, i) => {
+      const resolvedFile = await file.promise;
+      const { filename, mimetype, encoding, createReadStream } = resolvedFile;
+      const stream = createReadStream();
+      const filePath = join(paths.files, filesMetadata[i].uuid);
+      return saveLocal(stream, filePath);
+    }))
+    next();
+  } catch (error){
+    handleUploadError(error, res);
+  }
+};
+
+const saveImage = async (req, res, next) => {
+  try {
+    const { image, imageMetadata } = req.body.variables;
+    const resolvedImage = await image.promise;
+    const { filename, mimetype, encoding, createReadStream } = resolvedImage;
+    const stream = createReadStream();
+    const imagePath = join(paths.images, imageMetadata.uuid);
+    await saveLocal(stream, imagePath);
+    next();
+  } catch(error){
+    handleUploadError(error, res);
+  }
+};
+
+const saveAvatar = async (req, res, next) => {
+  try {
+    const { avatar, avatarMetadata } = req.body.variables;
+    const resolvedAvatar = await avatar.promise;
+    const { filename, mimetype, encoding, createReadStream } = resolvedAvatar;
+    const stream = createReadStream();
+    const avatarPath = join(paths.images, avatarMetadata.uuid);
+    await saveLocal(stream, avatarPath);
+    next();
+  } catch (error){
+    handleUploadError(error, res);
+  }
+};
+
+const parseEnergyCsv = async (req, res, next) => {
+  try {
+    const energyCsv = req.body.variables.energyCsv;
+    const resolvedEnergyCsv = await energyCsv.promise;
+    const { filename, mimetype, encoding, createReadStream } = resolvedEnergyCsv;
+    const stream = createReadStream();
+    const allValues = [];
+    stream
+    .pipe(csvParse({ from_line: 2, delimiter: ';' })) // skip header and set delimiter
+    .on("data", record => { // each record is a line of energy csv file
+      // remove empty string at the end of the record
+      record.pop();
+      // generate string compatible with VALUES clause format of INSERT
+      const values = `(${record.map(field => ("'" + field + "'")).join(',')})`;
+      allValues.push(values);
+    })
+    .on("end", async () => {
+      req.body.variables.valuesString = allValues.join(',');
+      next();
+    })
+  } catch (error){
+    handleUploadError(error, res);
+  }
+};
+
+const saveUploads = (req, res, next) => {
+  switch (req?.body?.variables?.uploadType){
+    case 'files': saveFiles(req, res, next); break;
+    case 'image': saveImage(req, res, next); break;
+    case 'avatar': saveAvatar(req, res, next); break;
+    case 'energy': parseEnergyCsv(req, res, next); break;
+    default: next();
+  }
+};
+
+const router = Router();
 
 router.post(
   '/',
-  graphqlUpload,           // Processes the multipart request
-  decideUploadDestination, // Checks upload type and calls functions accordingly
+  graphqlUploadExpress({
+    maxFileSize: 100E6,
+    maxFiles: 10,
+  }),
+  saveUploads,
 );
 
-module.exports = router;
+export default router;

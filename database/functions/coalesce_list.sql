@@ -8,7 +8,6 @@ create or replace function :function_name (
   language sql
   stable
   as $$
-    -- returns empty json array if input is null
     select coalesce(json_input, '[]'::jsonb) as json_output;
   $$
 ;

@@ -38,14 +38,6 @@ create or replace function :function_name (
         url = "URL",
         sigad = "SIGAD"
       where depot_id = "depotId";
-      insert into depot_events values (
-        default,
-        "depotId",
-        'modification',
-        now(),
-        get_person_id(),
-        'Modificação do estoque'
-      );
       id = "depotId";
     end;
   $$

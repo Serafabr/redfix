@@ -34,6 +34,9 @@
 \i api_tests/team/create_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/team/modify_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
+\i api_tests/team/deactivate_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/team/reactivate_person.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
 \i api_tests/team/create_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/team/modify_team.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
@@ -75,9 +78,11 @@
 
 \i api_tests/task/set_task_date_limit.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
+\i api_tests/task/modify_task_jobs.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
 \i api_tests/task/set_task_date_end.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
-\i api_tests/task/clone_task.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/task/close_task.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 -- project
 \i api_tests/project/create_project.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
@@ -99,6 +104,7 @@
 
 -- allocation
 \i api_tests/allocation/create_task_allocation.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/allocation/delete_task_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/allocation/modify_qty_proposed.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/allocation/approve_task_allocations.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/allocation/modify_qty_approved.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
@@ -108,6 +114,8 @@
 -- billing
 \i api_tests/billing/create_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/billing/modify_billing.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+
+\i api_tests/billing/create_invoice.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 -- files
 \i api_tests/files/upload_asset_files.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
@@ -121,9 +129,7 @@
 \i api_tests/files/delete_file.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
 -- utilities
-\i api_tests/utilities/create_water_bill.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
-\i api_tests/utilities/modify_water_bill.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
+\i api_tests/utilities/create_energy_bills.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 \i api_tests/utilities/modify_energy_bill_note.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif
 
--- truncate tables
-truncate water_bills;
+\i api_tests/utilities/upsert_water_bill.sql \if :ERROR \set mutation_with_error :tested_mutation \q \endif

@@ -1,12 +1,7 @@
-const { postgraphile, makePluginHook } = require('postgraphile');
-const PgSimplifyInflectorPlugin = require("@graphile-contrib/pg-simplify-inflector");
-const { default: PgPubsub } = require("@graphile/pg-pubsub");
-const paths = require('../paths');
-const { pgPool, adminPgPool } = require('../db');
-const cookieSession = require('./cookie-session');
-const passport = require('./passport');
-
-const pluginHook = makePluginHook([PgPubsub]);
+import { postgraphile } from 'postgraphile';
+import PgSimplifyInflectorPlugin from "@graphile-contrib/pg-simplify-inflector";
+import paths from '../paths.js';
+import { pgPool, adminPgPool } from '../db/index.js';
 
 const {
   NODE_ENV,
@@ -15,7 +10,7 @@ const {
   POSTGRAPHILE_SHOW_ERROR_STACK,
 } = process.env;
 
-module.exports = postgraphile(
+export default postgraphile(
   pgPool,
   JSON.parse(POSTGRAPHILE_SCHEMAS),
   { 
@@ -46,12 +41,12 @@ module.exports = postgraphile(
     allowExplain: NODE_ENV !== 'production',
     showErrorStack: POSTGRAPHILE_SHOW_ERROR_STACK,
     extendedErrors: JSON.parse(POSTGRAPHILE_EXTENDED_ERRORS),
-    // exportJsonSchemaPath: process.env.NODE_ENV === 'development' ? paths.schemaJson : false,
-    // exportGqlSchemaPath: process.env.NODE_ENV === 'development' ? paths.schemaGraphQL : false,
+    // exportJsonSchemaPath: NODE_ENV === 'development' ? paths.schemaJson : false,
+    // exportGqlSchemaPath: NODE_ENV === 'development' ? paths.schemaGraphQL : false,
     // sortExport: true,
     pgSettings: async req => {
       const { personId, role } = req.user;
-      const isTransactionReadOnly = req.body && /^query/.test(req.body.query);
+      const isTransactionReadOnly = /^query/.test(req?.body?.query);
       return {
         'role': role,
         'transaction_read_only': isTransactionReadOnly,

@@ -8,7 +8,17 @@ select api.modify_task_template(
   2,
   :new_plan_id,
   180,
-  :new_team_id
+  :new_team_id,
+  array[
+    (
+      'Atividade inicial',
+      false
+    )::job_type,
+    (
+      'Atividade final',
+      false
+    )::job_type
+  ]
 ) as not_used_output \gset
 
 \set all_mutations :all_mutations:tested_mutation,

@@ -22,4 +22,4 @@ create or replace function :trigger_name ()
 -- example:
 -- create trigger log_data_change
 -- after insert or update or delete on assets
--- for each row execute procedure log_data_change();
+-- for each row execute function log_data_change();
