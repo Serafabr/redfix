@@ -6,11 +6,11 @@ import style from './DragAndDropFiles.module.scss';
 
 export const DragAndDropFiles = () => {
   
-  const inputFile = useRef(null);
-  
+  const inputFile = useRef<HTMLInputElement>(null);
+
   const onButtonClick = () => {
     // `current` points to the mounted file input element
-    inputFile.click();
+    console.log(inputFile.current?.click());
   };
   
   return (
