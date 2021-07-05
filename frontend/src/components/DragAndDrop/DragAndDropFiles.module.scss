@@ -1,0 +1,19 @@
+@import "../../style/variables";
+
+.DragAndDropFile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  height: 150px;
+  border-radius: 4px;
+  background-color: $gray_50;
+}
+
+.DragAndDropText {
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 21px;
+  color: $gray_500;
+}
