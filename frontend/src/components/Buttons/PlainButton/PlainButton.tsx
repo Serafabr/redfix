@@ -3,6 +3,7 @@ import style from './PlainButton.module.scss';
 
 type Props = {
   icon?: string,
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
   children: ReactNode,
 }
 
@@ -12,10 +13,11 @@ type Props = {
   
 export const PlainButton = ({ 
   icon,
+  onClick,
   children, 
 }: Props) => {
 return (
-  <button className={style.PlainButton}>
+  <button className={style.PlainButton} onClick={onClick}>
     {children}
     {icon && (
       <div className={style.IconContainer}>

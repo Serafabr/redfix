@@ -10,14 +10,16 @@ export const DragAndDropFiles = () => {
   
   const onButtonClick = () => {
     // `current` points to the mounted file input element
-    //inputFile.click();
+    inputFile.click();
   };
   
   return (
     <div className={style.DragAndDropFile}>
       <div className={style.DragAndDropText}>
         Solte seus arquivos aqui ou pesquise em seu
-        <PlainButton>
+        <PlainButton
+          onClick={onButtonClick}
+        >
           computador
         </PlainButton>
         <input 
