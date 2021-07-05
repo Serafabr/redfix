@@ -2,8 +2,7 @@ import { useState } from 'react';
 // Components
 import { FormHeader, FormContent } from "../../../../../components/Forms";
 import { DataGrid } from "../../../../../components/DataDisplays";
-import { InputField, Input, DropdownButton, TextArea, Dropdown } from "../../../../../components/Inputs";
-import { AddSelectBox } from "../../../../../components/SelectBox";
+import { InputField, Input, TextArea, Dropdown } from "../../../../../components/Inputs";
 // Functions
 import { handleTextInput } from '../../data/handleTextInput';
 // Style
@@ -42,8 +41,6 @@ type InputSetDescriptionData = {
 \*************************/
 
 type Props = {
-  step?: number | null,
-  totalSteps?: number | null,
   situation?: FormSituationType | null,
   formData?: InputDescriptionData,
   setFormData?: InputSetDescriptionData,
@@ -88,8 +85,6 @@ const defaultSetter = () => {};
 \*************************/
 
 export const TaskDescription = ({
-  step = 1,
-  totalSteps = 1,
   formData = defaultDescriptionData,
   setFormData = defeaultSetDescriptionData,
   categoryOptions = defaultOptions,
