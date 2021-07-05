@@ -71,10 +71,6 @@ export const Button = ({
     }
   );
   
-  console.log('buttonType');
-  console.log(buttonType === ButtonType.Warning);
-  console.log(btnClasses);
-  
   const iconColor: ColorType = getIconColor(buttonType, disabled);
   
   return (

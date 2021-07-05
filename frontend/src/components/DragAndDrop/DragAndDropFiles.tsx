@@ -10,8 +10,11 @@ export const DragAndDropFiles = () => {
 
   const onButtonClick = () => {
     // `current` points to the mounted file input element
-    console.log(inputFile.current?.click());
+    inputFile.current?.click();
   };
+  
+  console.log('File: ');
+  console.log(inputFile.current?.files);
   
   return (
     <div className={style.DragAndDropFile}>

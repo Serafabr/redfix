@@ -32,9 +32,6 @@ export const FilterButton = ({
   onClick,
 }: Props) => {
   
-  console.log("isActive");
-  console.log(isActive);
-  
   // Render component
   return (
     <button className={`${style.Button} ${className} ${!text && style.JustIcon} ${isActive && style.Active}`} onClick={onClick} style={buttonStyle}>
