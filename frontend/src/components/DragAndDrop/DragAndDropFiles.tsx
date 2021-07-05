@@ -4,6 +4,10 @@ import { PlainButton } from '../Buttons';
 // Style
 import style from './DragAndDropFiles.module.scss';
 
+// interface HTMLInputEvent extends Event {
+//   target: HTMLInputElement & EventTarget;
+// }
+
 export const DragAndDropFiles = () => {
   
   const inputFile = useRef<HTMLInputElement>(null);
@@ -13,9 +17,12 @@ export const DragAndDropFiles = () => {
     inputFile.current?.click();
   };
   
-  console.log('File: ');
-  console.log(inputFile.current?.files);
+  const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('File: ');
+    console.log(event.target.files);
+  }
   
+
   return (
     <div className={style.DragAndDropFile}>
       <div className={style.DragAndDropText}>
@@ -30,6 +37,7 @@ export const DragAndDropFiles = () => {
           id='file' 
           ref={inputFile} 
           style={{display: 'none'}} 
+          onChange={inputChangeHandler}
         />
       </div>
     </div>
