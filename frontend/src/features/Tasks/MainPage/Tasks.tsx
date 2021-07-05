@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { Button } from '../../../components/Buttons';
 import { AddSelectBox } from '../../../components/SelectBox';
@@ -23,6 +24,7 @@ import { Pagination } from '../../../components/Tables/Pagination/Pagination';
 import { Card } from '../../../components/Cards';
 import { TableCardButtons, TableCardContent } from '../../../components/Cards';
 import { CardHeader } from '../../../components/Cards';
+import { paths } from '../../../nav/paths';
 
 
 const quickFilterInitial = {
@@ -56,7 +58,14 @@ type TasksProps = {
 };
 
 const taskButtons = [
-  <Button text="Nova tarefa" iconComponent={PlusIcon} />,
+  <Link
+    to={paths.tasks.createForm}
+  >
+    <Button 
+      text="Nova tarefa" 
+      iconComponent={PlusIcon} 
+    />
+  </Link>,
   <AddSelectBox 
     options={{
       customize: { name: 'Customizar tabela' },
@@ -70,7 +79,11 @@ const taskButtons = [
   >
     {(onClick, isOpen) => {
       return (
-        <Button buttonType={ButtonType.Secondary} onClick={onClick} iconComponent={MoreIcon} />
+        <Button 
+          buttonType={ButtonType.Secondary} 
+          onClick={onClick} 
+          iconComponent={MoreIcon} 
+        />
       );
     }}
   </AddSelectBox>
