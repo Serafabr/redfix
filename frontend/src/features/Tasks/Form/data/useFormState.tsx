@@ -20,8 +20,9 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
   const [ description, setDescription ] = useState<string>('');
   
   // Dropdown
-  const [ category, setCategory ] = useState<string[]>([]);
   const [ team, setTeam ] = useState<string[]>([]);
+  const [ category, setCategory ] = useState<string[]>([]);
+  const [ priority, setPriority ] = useState<string[]>([]);
   const [ status, setStatus ] = useState<string[]>([]);
   const [ project, setProject ] = useState<string[]>([]);
   
@@ -34,8 +35,9 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
     task,
     place,
     description,
-    category,
     team,
+    category,
+    priority,
     status,
     project,
     startDate,
@@ -46,8 +48,9 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
     task: setTask,
     place: setPlace,
     description: setDescription,
-    category: setCategory,
     team: setTeam,
+    priority: setPriority,
+    category: setCategory,
     status: setStatus,
     project: setProject,
     startDate: setStartDate,

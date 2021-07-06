@@ -11,6 +11,8 @@ import style from './TaskDescription.module.scss';
 import { FormSituationType } from "../../../../../components/Forms/_types";
 import { OptionsType, OptionType, OnSelectItemType } from '../../../../../components/SelectBox/_types';
 import { handleOneItemSelection } from '../../../../../components/SelectBox';
+// Options for dropdown
+import { taskCategories, taskStatus, taskPriorities } from '../../../../../components/Options';
 
 /*************************\
  * General types
@@ -20,8 +22,9 @@ type InputDescriptionData = {
   task?: string,
   place?: string,
   description?: string,
-  category?: string[],
   team?: string[],
+  category?: string[],
+  priority?: string[],
   status?: string[],
   project?: string[],
 };
@@ -30,8 +33,9 @@ type InputSetDescriptionData = {
   task: React.Dispatch<string>,
   place: React.Dispatch<string>,
   description: React.Dispatch<string>,
-  category: React.Dispatch<Array<string>>,
   team: React.Dispatch<Array<string>>,
+  category: React.Dispatch<Array<string>>,
+  priority: React.Dispatch<Array<string>>,
   status: React.Dispatch<Array<string>>,
   project: React.Dispatch<Array<string>>,
 };
@@ -58,8 +62,9 @@ const defeaultSetDescriptionData = {
   task: () => {},
   place: () => {},
   description: () => {},
-  category: () => {},
   team: () => {},
+  category: () => {},
+  priority: () => {},
   status: () => {},
   project: () => {},
 }
@@ -68,8 +73,9 @@ const defaultDescriptionData = {
   task: '',
   place: '',
   description: '',
-  category: [],
   team: [],
+  category: [],
+  priority: [],
   status: [],
   project: [],
 }
@@ -93,17 +99,6 @@ export const TaskDescription = ({
   projectOptions = defaultOptions,
 }: Props) => {
   
-  // Input Values
-  const {
-    task,
-    place,
-    description,
-    category,
-    team,
-    status,
-    project,
-  } = formData; 
-  
   return (
     <>
       <FormHeader
@@ -122,7 +117,7 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <Input 
-              value={task}
+              value={formData.task}
               onChange={handleTextInput('task', setFormData)}
               error={false}
             />
@@ -134,23 +129,9 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <Input 
-              value={place}
+              value={formData.place}
               onChange={handleTextInput('place', setFormData)}
               error={false} 
-            />
-          </InputField>
-          <InputField
-            label="Categoria"
-            gridArea="category"
-            error={false}
-            errorMessage={"Valor incorreto!"}
-          >
-            <Dropdown 
-              options={categoryOptions}
-              selectionArray={category}
-              onSelectItem={handleOneItemSelection(setFormData.category)}
-              boxWidth={250}
-              sortItems={true}
             />
           </InputField>
           <InputField
@@ -161,10 +142,38 @@ export const TaskDescription = ({
           >
             <Dropdown 
               options={teamOptions}
-              selectionArray={team}
+              selectionArray={formData.team}
               onSelectItem={handleOneItemSelection(setFormData.team)}
               boxWidth={250}
               searchable={true}
+              sortItems={true}
+            />
+          </InputField>
+          <InputField
+            label="Categoria"
+            gridArea="category"
+            error={false}
+            errorMessage={"Valor incorreto!"}
+          >
+            <Dropdown 
+              options={taskCategories}
+              selectionArray={formData.category}
+              onSelectItem={handleOneItemSelection(setFormData.category)}
+              boxWidth={250}
+              sortItems={true}
+            />
+          </InputField>
+          <InputField
+            label="Prioridade"
+            gridArea="priority"
+            error={false}
+            errorMessage={"Valor incorreto!"}
+          >
+            <Dropdown 
+              options={taskPriorities}
+              selectionArray={formData.priority}
+              onSelectItem={handleOneItemSelection(setFormData.priority)}
+              boxWidth={250}
               sortItems={true}
             />
           </InputField>
@@ -175,8 +184,8 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <Dropdown 
-              options={statusOptions}
-              selectionArray={status}
+              options={taskStatus}
+              selectionArray={formData.status}
               onSelectItem={handleOneItemSelection(setFormData.status)}
               boxWidth={250}
               searchable={false}
@@ -191,8 +200,8 @@ export const TaskDescription = ({
           >
             <Dropdown 
               options={projectOptions}
-              selectionArray={project}
-              onSelectItem={handleOneItemSelection(setFormData.project, project, true)}
+              selectionArray={formData.project}
+              onSelectItem={handleOneItemSelection(setFormData.project, formData.project, true)}
               boxWidth={400}
               searchable={true}
               sortItems={true}
@@ -207,7 +216,7 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <TextArea 
-              value={description}
+              value={formData.description}
               onChange={handleTextInput('description', setFormData)}
             />
           </InputField>
