@@ -11,7 +11,7 @@ import { OptionsType, OptionType, OnSelectItemType } from "../../SelectBox/_type
 
 type Props = {
   options?: OptionsType,
-  selectionArray?: Array<string>, 
+  selectionArray?: Array<string | number>, 
   onSelectItem: OnSelectItemType,
   boxWidth?: number,
   searchable?: boolean,

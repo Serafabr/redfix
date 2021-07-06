@@ -6,6 +6,7 @@ import { SearchInput } from '../../Inputs'
 import { useClickOutsideListener } from '../../../hooks';
 // Types
 import { 
+  IdType,
   OptionType, 
   OptionsType, 
   OnSelectItemType, 
@@ -13,7 +14,7 @@ import {
 import { refProps } from '../../../hooks/useClickOutsideListener';
 // CSS
 import style from './SelectBox.module.scss';
-import { sortAndFilterOptionIds } from '../utils/orderItems';
+import { sortAndFilterIdTypes } from '../utils/orderItems';
 // Icons
 import blueCheckIcon from '../../../assets/icons/blue-check.svg';
 
@@ -25,7 +26,7 @@ type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
   items?: OptionsType,
-  selectionArray: Array<string>,
+  selectionArray: Array<IdType>,
   clickOutsideRef: refProps,
   onSelectItem: OnSelectItemType,
   sortItems: boolean,
@@ -54,16 +55,16 @@ export const SelectBox = ({
     Get the selection items on an object
   *****/
   
-  const selectionObject: {[itemId: string]: boolean} = useMemo(()=> {
+  const selectionObject: {[itemId in IdType]: boolean} = useMemo(()=> {
     
-    const result: {[itemId: string]: boolean} = {};
-    selectionArray?.forEach((itemId) => { result[itemId] = true })
+    const result: {[itemId in IdType]: boolean} = {};
+    selectionArray?.forEach((itemId: IdType) => { result[itemId] = true })
     
     return result;
   }, [selectionArray])
   
   
-  const optionIds = sortAndFilterOptionIds(items, selectionObject, searchInput, sortItems);
+  const optionIds = sortAndFilterIdTypes(items, selectionObject, searchInput, sortItems);
   
   /*****
     Event Handlers
@@ -82,7 +83,7 @@ export const SelectBox = ({
   useClickOutsideListener(clickOutsideRef, handleOutsideClick);
   
   // When an option is clicked
-  const handleOnClick = (id: string) => () => {
+  const handleOnClick = (id: IdType) => () => {
     setIsOpen(false);
     onSelectItem(id);
   };
@@ -99,7 +100,7 @@ export const SelectBox = ({
           </div>
         )}
         <ul className={style.List}>
-          {optionIds.map((itemId: string) => (
+          {optionIds.map((itemId: IdType) => (
             <li 
               key={itemId} 
               className={`${style.Item} ${selectionObject[itemId] && style.Selected}`}

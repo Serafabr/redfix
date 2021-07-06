@@ -9,6 +9,7 @@ import { handleOneItemSelection } from '../../../../../components/SelectBox';
 import style from './TaskAssets.module.scss';
 import { useState } from 'react';
 // Types
+import { IdType } from '../../../../../components/SelectBox/_types';
 import { ButtonType } from '../../../../../components/Buttons/_types';
 import { AssetOptions } from './TaskAssets'
 
@@ -20,6 +21,7 @@ type Props = {
   isOpen: boolean,
   setIsOpen: React.Dispatch<boolean>,
   assetOptions?: AssetOptions,
+  addNewAsset: (assetId: Array<IdType>) => () => void,
 };
 
 /*************************\
@@ -30,9 +32,10 @@ export const AddAssetModal = ({
   isOpen,
   setIsOpen,
   assetOptions,
+  addNewAsset,
 }: Props) => {
   
-  const [ asset, setAsset ] = useState<Array<string>>([]);
+  const [ asset, setAsset ] = useState<Array<IdType>>([]);
   
   return (
     <Modal
@@ -40,7 +43,10 @@ export const AddAssetModal = ({
       title="Adicionar ativo"
       isOpened={isOpen}
       setIsOpened={setIsOpen}
-      buttons={[ <Button text="Mapa Interativo" buttonType={ButtonType.Warning} />,<Button text="Adicionar"/>]}
+      buttons={[ 
+        <Button text="Mapa Interativo" buttonType={ButtonType.Warning} />,
+        <Button text="Adicionar" onClick={addNewAsset(asset)}/>
+      ]}
     >
       <div className={style.ModalExplanation}>
         Ativo compreende de todo imóvel, área, dependência, sistema, subsistema ou equipamento que pode ser objeto de manutenção.

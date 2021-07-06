@@ -1,5 +1,6 @@
 import { useState } from 'react';
 // Types
+import { IdType } from '../../../../components/SelectBox/_types';
 import { TaskFormStateType, TaskFormSetStateType } from '../_types';
 
 /*************************\
@@ -20,11 +21,11 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
   const [ description, setDescription ] = useState<string>('');
   
   // Dropdown
-  const [ team, setTeam ] = useState<string[]>([]);
-  const [ category, setCategory ] = useState<string[]>([]);
-  const [ priority, setPriority ] = useState<string[]>([]);
-  const [ status, setStatus ] = useState<string[]>([]);
-  const [ project, setProject ] = useState<string[]>([]);
+  const [ team, setTeam ] = useState<IdType[]>([]);
+  const [ category, setCategory ] = useState<IdType[]>([]);
+  const [ priority, setPriority ] = useState<IdType[]>([]);
+  const [ status, setStatus ] = useState<IdType[]>([]);
+  const [ project, setProject ] = useState<IdType[]>([]);
   
   // Dates
   const [ startDate, setStartDate ] = useState<string>();

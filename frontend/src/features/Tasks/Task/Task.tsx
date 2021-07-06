@@ -23,6 +23,7 @@ import { SingleCardContent, SingleCardHeader } from '../../../components/Cards';
 import { PrioritiesType } from '../../../components/DataDisplays/DataField/_types';
 import { BadgeDelay } from '../components/BadgeDelay';
 import { DelayT } from '../components/BadgeDelay/BadgeDelay';
+import { IdType } from '../../../components/SelectBox/_types';
 
 import { tabConfig } from './tabs/tabConfig';
 
@@ -67,7 +68,7 @@ const taskButtons = [
 
 export const Task = () => {
   
-  const [ activateKeyTabs, setActivateKeyTabs ] = useState(tabs[0]);
+  const [ activateKeyTabs, setActivateKeyTabs ] = useState<IdType>(tabs[0]);
   const [ bookmarkState, setBookmarkState ] = useState(false);
   
   const { id: taskID } = useParams<URLParams>();

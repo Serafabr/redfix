@@ -74,6 +74,7 @@ export const TaskAssets = ({
         isOpen={assetModalOpen}
         setIsOpen={setAssetModalOpen}
         assetOptions={assetOptions}
+        addNewAsset={(id) => () => {console.log(id)}}
       />
     </>
   )

@@ -1,5 +1,5 @@
 // Types
-import { SelectionObjectType } from "../_types";
+import { IdType } from "../_types";
 
 
 /*************************\
@@ -7,10 +7,10 @@ import { SelectionObjectType } from "../_types";
 \*************************/
 
 export const handleOneItemSelection = (
-  setSelection: React.Dispatch<Array<string>>,
-  selectedItems: Array<string> = [],
+  setSelection: React.Dispatch<Array<IdType>>,
+  selectedItems: Array<IdType> = [],
   noSelectionAble: boolean = false,
-) => (itemId: string) => {
+) => (itemId: IdType) => {
   
   if (noSelectionAble && selectedItems.includes(itemId)) {
     setSelection([])
@@ -25,9 +25,9 @@ export const handleOneItemSelection = (
 \*************************/
 
 export const handleManyItemsSelection = (
-  selectionArray: Array<string>, 
-  setSelection: React.Dispatch<Array<string>>
-) => (itemId: string) => {
+  selectionArray: Array<IdType>, 
+  setSelection: React.Dispatch<Array<IdType>>
+) => (itemId: IdType) => {
   
   const result = [...selectionArray];
   

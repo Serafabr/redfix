@@ -1,6 +1,7 @@
 // Types
 import { ColorType } from '../../Icons/_types';
 import { 
+  IdType,
   OptionsType, 
   OptionType 
 } from '../../SelectBox/_types';
@@ -8,7 +9,7 @@ import {
 // Return an array of the selected items
 const getSelectedOptions = (options: any) => {
   return (
-    Object.keys(options).reduce((selected: Array<OptionType>, nextId: string) => {
+    Object.keys(options).reduce((selected: Array<OptionType>, nextId: IdType) => {
       if (options[nextId].selected) {
         selected.push(options[nextId]);
       }
@@ -20,7 +21,7 @@ const getSelectedOptions = (options: any) => {
 // Return the display for the filter button (with dropdown)
 export const getFilterButtonDisplay = (
   options: OptionsType,
-  selectionArray: Array<string>, 
+  selectionArray: Array<IdType>, 
   fixedName: string, 
   manyOptionsName: string, 
   icon?: string | undefined, 

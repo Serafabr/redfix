@@ -15,6 +15,7 @@ import {
   TabsPerSizeType,
   ActiveKeyType
 } from './_types';
+import { IdType } from '../SelectBox/_types';
 
 /*************************\
  * PropTypes
@@ -25,7 +26,7 @@ type Props = {
   tabViews: TabViewsType,
   tabsPerSize?: TabsPerSizeType,
   activeKey: ActiveKeyType,
-  setActiveKey: (id: string) => void
+  setActiveKey: (id: IdType) => void
 }
 
 /*************************\

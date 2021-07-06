@@ -12,7 +12,7 @@ import { FormSituationType } from "../../../../../components/Forms/_types";
 import { handleOneItemSelection } from '../../../../../components/SelectBox';
 // Options for dropdown
 import { taskCategories, taskStatus, taskPriorities } from '../../../../../components/Options';
-import { OptionsType } from "../../../../../components/SelectBox/_types";
+import { IdType, OptionsType } from "../../../../../components/SelectBox/_types";
 
 /*************************\
  * Custom types
@@ -22,22 +22,22 @@ type InputDescriptionData = {
   task?: string,
   place?: string,
   description?: string,
-  team?: string[],
-  category?: string[],
-  priority?: string[],
-  status?: string[],
-  project?: string[],
+  team?: IdType[],
+  category?: IdType[],
+  priority?: IdType[],
+  status?: IdType[],
+  project?: IdType[],
 };
 
 type InputSetDescriptionData = {
   task: React.Dispatch<string>,
   place: React.Dispatch<string>,
   description: React.Dispatch<string>,
-  team: React.Dispatch<Array<string>>,
-  category: React.Dispatch<Array<string>>,
-  priority: React.Dispatch<Array<string>>,
-  status: React.Dispatch<Array<string>>,
-  project: React.Dispatch<Array<string>>,
+  team: React.Dispatch<Array<IdType>>,
+  category: React.Dispatch<Array<IdType>>,
+  priority: React.Dispatch<Array<IdType>>,
+  status: React.Dispatch<Array<IdType>>,
+  project: React.Dispatch<Array<IdType>>,
 };
 
 type TeamOptions = {

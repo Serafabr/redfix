@@ -1,12 +1,14 @@
+import { IdType } from "../../../components/SelectBox/_types"
+
 export type TaskFormStateType = {
   task?: string,
   place?: string,
   description?: string,
-  team?: string[],
-  category?: string[],
-  priority?: string[],
-  status?: string[],
-  project?: string[],
+  team?: IdType[],
+  category?: IdType[],
+  priority?: IdType[],
+  status?: IdType[],
+  project?: IdType[],
   startDate?: string,
   limitDate?: string,
 }
@@ -15,11 +17,11 @@ export type TaskFormSetStateType = {
   task: React.Dispatch<string>,
   place: React.Dispatch<string>,
   description: React.Dispatch<string>,
-  team: React.Dispatch<string[]>,
-  category: React.Dispatch<string[]>,
-  priority: React.Dispatch<string[]>,
-  status: React.Dispatch<string[]>,
-  project: React.Dispatch<string[]>,
+  team: React.Dispatch<IdType[]>,
+  category: React.Dispatch<IdType[]>,
+  priority: React.Dispatch<IdType[]>,
+  status: React.Dispatch<IdType[]>,
+  project: React.Dispatch<IdType[]>,
   startDate: React.Dispatch<string>,
   limitDate: React.Dispatch<string>
 }

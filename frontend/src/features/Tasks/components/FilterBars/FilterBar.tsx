@@ -28,6 +28,7 @@ import { FilterCancel } from '../../../../components/Icons';
 import filterIconCancel from '../../../../assets/icons/filter-cancel.svg';
 import filterIconCancelActive from '../../../../assets/icons/filter-cancel-red.svg';
 import { handleOptionSelection } from './config/handleOptionSelection';
+import { IdType } from '../../../../components/SelectBox/_types';
 // CSS
 import style from './FilterBar.module.scss';
 
@@ -48,9 +49,9 @@ export const FilterBar = ({
 }: Props) => {
   
   // State of all filters
-  const [ quickFilter, setQuickFilter ] = useState<Array<string>>([]);
-  const [ teamsFilter, setTeamsFilter ] = useState<Array<string>>([]);
-  const [ statusFilter, setStatusFilter ] = useState<Array<string>>([]);
+  const [ quickFilter, setQuickFilter ] = useState<Array<IdType>>([]);
+  const [ teamsFilter, setTeamsFilter ] = useState<Array<IdType>>([]);
+  const [ statusFilter, setStatusFilter ] = useState<Array<IdType>>([]);
   const [ bookmark, setBookmark ] = useState<boolean>(false);
   
   const handleSetBookmark = useCallback(

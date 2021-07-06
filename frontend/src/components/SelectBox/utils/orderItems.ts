@@ -1,4 +1,4 @@
-import { OptionsType, SelectionObjectType } from '../_types';
+import { IdType, OptionsType, SelectionObjectType } from '../_types';
 
 /*************************\
  * General types
@@ -9,14 +9,14 @@ export type SortAndFilterOptionsFunction = (
   selectionObject: SelectionObjectType,
   filterText: string | null,
   isSorted?: boolean,
-) => Array<string>; // string is the IDs
+) => Array<IdType>; // string is the IDs
 
 /*************************\
  * Function to sort and filter option IDs
  * Return: An array with the option ids sorted and filtered
 \*************************/
 
-export const sortAndFilterOptionIds: SortAndFilterOptionsFunction = (
+export const sortAndFilterIdTypes: SortAndFilterOptionsFunction = (
   options,
   selectionObject,
   filterText,

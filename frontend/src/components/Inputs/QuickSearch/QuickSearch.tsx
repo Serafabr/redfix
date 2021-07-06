@@ -7,7 +7,7 @@ import { AddSelectBox } from '../../SelectBox';
 // Style
 import style from './QuickSearch.module.scss';
 // Types
-import { OptionsType, OnSelectItemType } from '../../SelectBox/_types';
+import { IdType, OptionsType, OnSelectItemType } from '../../SelectBox/_types';
 
 
 /*************************\
@@ -35,9 +35,9 @@ type Props = {};
 
 export const QuickSearch = () => {
   
-  const [ selectionArray, setSelectionArray ] = useState<Array<string>>(['task'])
+  const [ selectionArray, setSelectionArray ] = useState<Array<IdType>>(['task'])
   
-  const handleSelectItem: OnSelectItemType = (id: string) => {
+  const handleSelectItem: OnSelectItemType = (id: IdType) => {
     setSelectionArray([id]);
   };
   

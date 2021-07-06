@@ -9,6 +9,7 @@ import { getFilterButtonDisplay } from '../utils/filterDisplay';
 //Types
 import { AlignListType } from '../../SelectBox/_types';
 import { 
+  IdType,
   OnSelectItemType, 
   OptionsType, 
 } from '../../SelectBox/_types';
@@ -21,8 +22,8 @@ type Props = {
   fixedName: string,
   manyOptionsName?: string,
   options: OptionsType,
-  filterArray?: Array<string>,
-  setFilter: React.Dispatch<Array<string>>,
+  filterArray?: Array<IdType>,
+  setFilter: React.Dispatch<Array<IdType>>,
   manySelection?: boolean,
   icon?: string,
   activatedIcon?:string,

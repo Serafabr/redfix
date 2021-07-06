@@ -2,18 +2,20 @@
  * General types
 \*************************/
 
+export type IdType = number | string;
+
 export type OptionType = {
   name: string,
 }
 
 export type OptionsType = {
-  [itemId: string]: OptionType,
+  [itemId in IdType]: OptionType;
 };
 
 export type SelectionObjectType = {
-  [itemId: string]: boolean
+  [itemId in IdType]: boolean;
 };
 
-export type OnSelectItemType = (id: string) => void;
+export type OnSelectItemType = (id: IdType) => void;
 
 export enum AlignListType { Left, Right };

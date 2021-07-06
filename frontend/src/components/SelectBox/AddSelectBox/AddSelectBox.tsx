@@ -4,7 +4,7 @@ import classnames from 'classnames';
 // Components
 import { SelectBox } from '..';
 // Types
-import { OptionsType, OnSelectItemType } from '../_types';
+import { IdType, OptionsType, OnSelectItemType } from '../_types';
 import { AlignListType } from '../_types';
 import { StyleType } from '../../../types/_general';
 // CSS
@@ -27,7 +27,7 @@ type Props = {
   // This ReactElement is the Button that will be rendered with the dropdown
   children: RenderFunctionType, 
   options?: OptionsType,
-  selectionArray?: Array<string>,
+  selectionArray?: Array<IdType>,
   alignList?: AlignListType,
   openOnTop?: boolean,
   boxWidth?: number,
