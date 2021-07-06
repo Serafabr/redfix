@@ -1,17 +1,10 @@
-export enum CatetoryOptionsType {
-  AirCondicioning = 1, // Ar-condicionado
-  Eletric = 2, // Elétrica
-  Elevator = 3, // Elevador
-  StructuralAssesment = 4, // Avaliação estrutural
-  Exhauster = 5, // Exaustor
-  Ceiling = 6, // Forro
-  General = 7, // Geral
-  Plumbing = 8, // Hidrossanitário
-  Infiltration = 9, // Infiltração
-  Woodwork = 10, // Marcenaria
-  Floor = 11, // Piso
-  Lining = 12, // Revestimento
-  Locksmith = 13, // Serralheria
-  Sealing = 14, // Vedação
-  Glassware = 15, // Vidraçaria
+export enum StatusOptionsType {
+  Waiting = 1, // Fila de espera
+  Pending = 2, // Pendente
+  Executing = 3, // Em execução
+  Suspended = 4, // Suspensa
+  Analysing = 5, // Em análise
+  Canceled = 6, // Cancelada
+  Executed = 7, // Executada
+  Done = 8, // Encerrada
 }

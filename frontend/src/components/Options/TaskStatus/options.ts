@@ -1,19 +1,12 @@
-import { CatetoryOptionsType } from './_types';
+import { StatusOptionsType } from './_types';
 
 export const taskCategoriesText = {
-  [CatetoryOptionsType.AirCondicioning]: {name: 'Ar-condicionado'},
-  [CatetoryOptionsType.Eletric]: {name: 'Elétrica'},
-  [CatetoryOptionsType.Elevator]: {name: 'Elevador'},
-  [CatetoryOptionsType.StructuralAssesment]: {name: 'Avaliação estrutural'},
-  [CatetoryOptionsType.Exhauster]: {name: 'Exaustor'},
-  [CatetoryOptionsType.Ceiling]: {name: 'Forro'},
-  [CatetoryOptionsType.General]: {name: 'Geral'},
-  [CatetoryOptionsType.Plumbing]: {name: 'Hidrossanitário'},
-  [CatetoryOptionsType.Infiltration]: {name: 'Infiltração'},
-  [CatetoryOptionsType.Woodwork]: {name: 'Marcenaria'},
-  [CatetoryOptionsType.Floor]: {name: 'Piso'},
-  [CatetoryOptionsType.Lining]: {name: 'Revestimento'},
-  [CatetoryOptionsType.Locksmith]: {name: 'Serralheria'},
-  [CatetoryOptionsType.Sealing]: {name: 'Vedação'},
-  [CatetoryOptionsType.Glassware]: {name: 'Vidraçaria'},
+  [StatusOptionsType.Waiting]: {name: 'Fila de espera'},
+  [StatusOptionsType.Pending]: {name: 'Pendente'},
+  [StatusOptionsType.Executing]: {name: 'Em execução'},
+  [StatusOptionsType.Suspended]: {name: 'Suspensa'},
+  [StatusOptionsType.Analysing]: {name: 'Em análise'},
+  [StatusOptionsType.Canceled]: {name: 'Cancelada'},
+  [StatusOptionsType.Executed]: {name: 'Executada'},
+  [StatusOptionsType.Done]: {name: 'Encerrada'},
 }
