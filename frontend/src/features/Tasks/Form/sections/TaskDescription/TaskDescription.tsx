@@ -98,9 +98,6 @@ export const TaskDescription = ({
   
   const { teamOptions } = useOptionsQuery();
   
-  console.log('Equipes');
-  console.log(teamOptions.data);
-  
   return (
     <>
       <FormHeader

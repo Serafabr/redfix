@@ -24,7 +24,7 @@ import blueCheckIcon from '../../../assets/icons/blue-check.svg';
 type Props = {
   setIsOpen: (isOpen: boolean) => void,
   searchable?: boolean,
-  items: OptionsType,
+  items?: OptionsType,
   selectionArray: Array<string>,
   clickOutsideRef: refProps,
   onSelectItem: OnSelectItemType,
@@ -39,7 +39,7 @@ type Props = {
 export const SelectBox = ({
   setIsOpen,
   searchable = false,
-  items,
+  items = {},
   selectionArray,
   clickOutsideRef,
   onSelectItem,

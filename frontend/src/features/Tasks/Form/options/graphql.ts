@@ -10,3 +10,26 @@ export const TEAM_OPTIONS = gql`
     }
   }
 `;
+
+export const PROJECT_OPTIONS = gql`
+  query projectOptions {
+    projects {
+      nodes {
+        name
+        projectId
+      }
+    }
+  }
+`;
+
+export const ASSET_OPTIONS = gql`
+  query assetOptions {
+    assets {
+      nodes {
+        name
+        assetId
+        assetSf
+      }
+    }
+  }
+`;

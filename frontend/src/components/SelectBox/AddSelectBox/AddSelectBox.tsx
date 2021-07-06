@@ -26,7 +26,7 @@ type RenderFunctionType = (
 type Props = {
   // This ReactElement is the Button that will be rendered with the dropdown
   children: RenderFunctionType, 
-  options: OptionsType,
+  options?: OptionsType,
   selectionArray?: Array<string>,
   alignList?: AlignListType,
   openOnTop?: boolean,

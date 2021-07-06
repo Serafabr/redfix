@@ -10,7 +10,7 @@ import { OptionsType, OptionType, OnSelectItemType } from "../../SelectBox/_type
 \*************************/
 
 type Props = {
-  options: OptionsType,
+  options?: OptionsType,
   selectionArray?: Array<string>, 
   onSelectItem: OnSelectItemType,
   boxWidth?: number,
