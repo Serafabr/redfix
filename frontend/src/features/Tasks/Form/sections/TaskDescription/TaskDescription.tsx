@@ -96,7 +96,7 @@ export const TaskDescription = ({
   setFormData = defeaultSetDescriptionData,
 }: Props) => {
   
-  const { teamOptions } = useOptionsQuery();
+  const { teamOptions, projectOptions } = useOptionsQuery();
   
   return (
     <>
@@ -198,7 +198,7 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <Dropdown 
-              options={defaultOptions}
+              options={projectOptions.data}
               selectionArray={formData.project}
               onSelectItem={handleOneItemSelection(setFormData.project, formData.project, true)}
               boxWidth={400}
