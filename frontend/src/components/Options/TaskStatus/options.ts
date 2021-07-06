@@ -1,6 +1,6 @@
 import { StatusOptionsType } from './_types';
 
-export const taskCategoriesText = {
+export const taskStatus = {
   [StatusOptionsType.Waiting]: {name: 'Fila de espera'},
   [StatusOptionsType.Pending]: {name: 'Pendente'},
   [StatusOptionsType.Executing]: {name: 'Em execução'},

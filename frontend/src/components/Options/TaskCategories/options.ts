@@ -1,6 +1,6 @@
 import { CatetoryOptionsType } from './_types';
 
-export const taskCategoriesText = {
+export const taskCategories = {
   [CatetoryOptionsType.AirCondicioning]: {name: 'Ar-condicionado'},
   [CatetoryOptionsType.Eletric]: {name: 'Elétrica'},
   [CatetoryOptionsType.Elevator]: {name: 'Elevador'},

@@ -1,6 +1,6 @@
 import { PriorityOptionsType } from './_types';
 
-export const taskCategoriesText = {
+export const taskPriorities = {
   [PriorityOptionsType.Low]: {name: 'Baixa'},
   [PriorityOptionsType.Normal]: {name: 'Normal'},
   [PriorityOptionsType.High]: {name: 'Alta'},
