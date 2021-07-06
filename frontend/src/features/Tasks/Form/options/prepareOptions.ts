@@ -1,12 +1,12 @@
 // Types
 import { OptionsType } from '../../../../components/SelectBox/_types';
-import { Team, TeamOptions, Project, ProjectOptions, Asset, AssetOptions } from './_types';
+import { Team, Teams, Project, Projects, Asset, Assets } from './_types';
 
 /*************************\
  * Prepare team options
 \*************************/
 
-export const prepareTeams = (teamOptions: TeamOptions) => {
+export const prepareTeams = (teamOptions: Teams) => {
   
   // Get array of teams
   const { teams } = teamOptions;
@@ -27,7 +27,7 @@ export const prepareTeams = (teamOptions: TeamOptions) => {
  * Prepare project options
 \*************************/
 
-export const prepareProjects = (projectOptions: ProjectOptions) => {
+export const prepareProjects = (projectOptions: Projects) => {
   
   // Get array of teams
   const { projects } = projectOptions;
@@ -48,7 +48,7 @@ export const prepareProjects = (projectOptions: ProjectOptions) => {
  * Prepare asset options
 \*************************/
 
-export const prepareAssets = (assetOptions: AssetOptions) => {
+export const prepareAssets = (assetOptions: Assets) => {
   
   // Get array of teams
   const { assets } = assetOptions;

@@ -5,12 +5,12 @@ import { InputField } from '../../../../../components/Inputs';
 import { Dropdown } from '../../../../../components/Inputs';
 // Helper functions
 import { handleOneItemSelection } from '../../../../../components/SelectBox';
-import { defaultOptions } from '../../../../../components/Inputs/Dropdown/defaultOptions';
 // Style
 import style from './TaskAssets.module.scss';
 import { useState } from 'react';
 // Types
 import { ButtonType } from '../../../../../components/Buttons/_types';
+import { AssetOptions } from './TaskAssets'
 
 /*************************\
  * PropTypes
@@ -19,6 +19,7 @@ import { ButtonType } from '../../../../../components/Buttons/_types';
 type Props = {
   isOpen: boolean,
   setIsOpen: React.Dispatch<boolean>,
+  assetOptions?: AssetOptions,
 };
 
 /*************************\
@@ -28,10 +29,10 @@ type Props = {
 export const AddAssetModal = ({
   isOpen,
   setIsOpen,
+  assetOptions,
 }: Props) => {
   
   const [ asset, setAsset ] = useState<Array<string>>([]);
-  const assetOptions = defaultOptions;
   
   return (
     <Modal
@@ -52,7 +53,7 @@ export const AddAssetModal = ({
           errorMessage={"Valor incorreto!"}
         >
           <Dropdown 
-            options={assetOptions}
+            options={assetOptions?.data}
             selectionArray={asset}
             onSelectItem={handleOneItemSelection(setAsset)}
             boxWidth={410}

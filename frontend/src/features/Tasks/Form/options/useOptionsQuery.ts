@@ -4,7 +4,6 @@ import { OptionsType } from '../../../../components/SelectBox/_types';
 // Graphql
 import { TEAM_OPTIONS, PROJECT_OPTIONS, ASSET_OPTIONS } from './graphql';
 import { prepareTeams, prepareProjects, prepareAssets } from './prepareOptions';
-import { TeamOptions } from './_types';
 
 /*************************\
  * Custom hook - Get options for task form

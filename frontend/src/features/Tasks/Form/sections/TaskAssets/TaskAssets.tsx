@@ -2,9 +2,10 @@ import { useMemo, useState } from 'react';
 import { useTable } from 'react-table';
 // Components
 import { FormHeader, FormContent } from '../../../../../components/Forms';
-import { PlainButton, Button } from '../../../../../components/Buttons';
+import { Table } from '../../../../../components/Tables';
 import { EmptyTable } from '../../../../../components/Tables/EmptyTable/EmptyTable';
 import { AddAssetModal } from './AddAssetModal';
+import { Button } from '../../../../../components/Buttons';
 // Helpers
 import { columnsAssets, columnStyle } from './tableConfig';
 import { dataAssets } from './fakedata';
@@ -13,11 +14,35 @@ import style from './TaskAssets.module.scss';
 // Icons
 import plusIcon from '../../../../../assets/icons/plus-blue.svg';
 // Types
-import { FormSituationType } from '../../../../../components/Forms/_types';
-import { Table } from '../../../../../components/Tables';
+import { ApolloError } from '@apollo/client';
 import { ButtonType } from '../../../../../components/Buttons/_types';
+import { OptionsType } from '../../../../../components/SelectBox/_types';
 
-export const TaskAssets = () => {
+/*************************\
+ * Custom types
+\*************************/
+
+export type AssetOptions = {
+  data?: OptionsType,
+  loading?: boolean,
+  error?: ApolloError,
+}
+
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
+  assetOptions?: AssetOptions,
+};
+
+/*************************\
+ * TaskAssets Component
+\*************************/
+
+export const TaskAssets = ({
+  assetOptions,
+}: Props) => {
   
   const [ assetModalOpen, setAssetModalOpen ] = useState(false);
   
@@ -48,6 +73,7 @@ export const TaskAssets = () => {
       <AddAssetModal 
         isOpen={assetModalOpen}
         setIsOpen={setAssetModalOpen}
+        assetOptions={assetOptions}
       />
     </>
   )

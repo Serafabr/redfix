@@ -7,7 +7,7 @@ export type Team = {
   teamId: number,
 }
 
-export type TeamOptions = {
+export type Teams = {
   teams: {
     nodes: Array<Team>,
   },
@@ -22,7 +22,7 @@ export type Project = {
   projectId: number,
 }
 
-export type ProjectOptions = {
+export type Projects = {
   projects: {
     nodes: Array<Project>,
   },
@@ -38,7 +38,7 @@ export type Asset = {
   assetSf: string,
 }
 
-export type AssetOptions = {
+export type Assets = {
   assets: {
     nodes: Array<Asset>,
   },

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 // Components
 import { FormHeader, FormContent } from "../../../../../components/Forms";
 import { DataGrid } from "../../../../../components/DataDisplays";
@@ -8,15 +7,15 @@ import { handleTextInput } from '../../data/handleTextInput';
 // Style
 import style from './TaskDescription.module.scss';
 // Types
+import { ApolloError } from "@apollo/client";
 import { FormSituationType } from "../../../../../components/Forms/_types";
-import { OptionsType, OptionType, OnSelectItemType } from '../../../../../components/SelectBox/_types';
 import { handleOneItemSelection } from '../../../../../components/SelectBox';
 // Options for dropdown
 import { taskCategories, taskStatus, taskPriorities } from '../../../../../components/Options';
-import { useOptionsQuery } from '../../options/useOptionsQuery';
+import { OptionsType } from "../../../../../components/SelectBox/_types";
 
 /*************************\
- * General types
+ * Custom types
 \*************************/
 
 type InputDescriptionData = {
@@ -41,6 +40,18 @@ type InputSetDescriptionData = {
   project: React.Dispatch<Array<string>>,
 };
 
+type TeamOptions = {
+  data?: OptionsType,
+  loading?: boolean,
+  error?: ApolloError,
+}
+
+type ProjectOptions = {
+  data?: OptionsType,
+  loading?: boolean,
+  error?: ApolloError,
+}
+
 /*************************\
  * PropTypes
 \*************************/
@@ -49,10 +60,8 @@ type Props = {
   situation?: FormSituationType | null,
   formData?: InputDescriptionData,
   setFormData?: InputSetDescriptionData,
-  categoryOptions?: OptionsType,
-  teamOptions?: OptionsType,
-  statusOptions?: OptionsType,
-  projectOptions?: OptionsType,
+  teamOptions?: TeamOptions,
+  projectOptions?: ProjectOptions,
 };
 
 /*************************\
@@ -82,7 +91,9 @@ const defaultDescriptionData = {
 }
 
 const defaultOptions = {
-  loading: { name: "Carregando opções..." }
+  data: {},
+  loading: false,
+  error: undefined,
 }
 
 const defaultSetter = () => {};
@@ -94,9 +105,9 @@ const defaultSetter = () => {};
 export const TaskDescription = ({
   formData = defaultDescriptionData,
   setFormData = defeaultSetDescriptionData,
+  teamOptions = defaultOptions,
+  projectOptions = defaultOptions,
 }: Props) => {
-  
-  const { teamOptions, projectOptions } = useOptionsQuery();
   
   return (
     <>
