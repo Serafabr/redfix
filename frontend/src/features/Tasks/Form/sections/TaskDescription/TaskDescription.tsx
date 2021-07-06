@@ -13,6 +13,7 @@ import { OptionsType, OptionType, OnSelectItemType } from '../../../../../compon
 import { handleOneItemSelection } from '../../../../../components/SelectBox';
 // Options for dropdown
 import { taskCategories, taskStatus, taskPriorities } from '../../../../../components/Options';
+import { useOptionsQuery } from '../../options/useOptionsQuery';
 
 /*************************\
  * General types
@@ -93,11 +94,12 @@ const defaultSetter = () => {};
 export const TaskDescription = ({
   formData = defaultDescriptionData,
   setFormData = defeaultSetDescriptionData,
-  categoryOptions = defaultOptions,
-  teamOptions = defaultOptions,
-  statusOptions = defaultOptions,
-  projectOptions = defaultOptions,
 }: Props) => {
+  
+  const { teamOptions } = useOptionsQuery();
+  
+  console.log('Equipes');
+  console.log(teamOptions.data);
   
   return (
     <>
@@ -141,7 +143,7 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <Dropdown 
-              options={teamOptions}
+              options={teamOptions.data}
               selectionArray={formData.team}
               onSelectItem={handleOneItemSelection(setFormData.team)}
               boxWidth={250}
@@ -199,7 +201,7 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <Dropdown 
-              options={projectOptions}
+              options={defaultOptions}
               selectionArray={formData.project}
               onSelectItem={handleOneItemSelection(setFormData.project, formData.project, true)}
               boxWidth={400}

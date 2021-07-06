@@ -1,15 +1,22 @@
 import { useQuery } from '@apollo/client'
 // Graphql
-import { CATEGORY_OPTIONS } from './graphql';
+import { TEAM_OPTIONS } from './graphql';
+import { prepareTeams } from './prepareOptions';
+
+/*************************\
+ * Custom hook - Get options to task form
+\*************************/
 
 export const useOptionsQuery = () => {
   
-  const { loading, error, data } = useQuery(CATEGORY_OPTIONS);
+  // Team options
+  const { loading: loadingTeam, error: errorTeam, data: dataTeam } = useQuery(TEAM_OPTIONS, {
+    onCompleted: (data) => {
+      return prepareTeams(data)
+    },
+  });
+  const teamOptions = { loading: loadingTeam, error: errorTeam, data: dataTeam }
   
-  console.log('loading');
-  console.log(loading);
-  console.log('data');
-  console.log(data);
-  console.log('error');
-  console.log(error);
+  // Result
+  return { teamOptions };  
 }
