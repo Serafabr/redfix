@@ -19,6 +19,7 @@ import { useFormState } from './data/useFormState';
 
 import { TaskAssets } from './sections/TaskAssets/TaskAssets';
 import { ButtonType } from '../../../components/Buttons/_types';
+import { useOptionsQuery } from './options/useOptionsQuery';
 
 
 const categoryOptions = {
@@ -78,9 +79,10 @@ const projectOptions = {
 
 export const TaskForm = () => {
   
-  const location = useLocation<string>();
+  useOptionsQuery();
   
   const [ formState, setFormState ] = useFormState();
+  const location = useLocation<string>();
   
   return (
     <>
