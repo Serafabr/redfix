@@ -216,6 +216,7 @@ export const TaskDescription = ({
             errorMessage={"Valor incorreto!"}
           >
             <TextArea 
+              className={style.TextArea}
               value={formData.description}
               onChange={handleTextInput('description', setFormData)}
             />

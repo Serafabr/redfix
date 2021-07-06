@@ -1,13 +1,29 @@
+// Styles
 import basicStyle from '../Inputs.module.scss';
 import style from './TextArea.module.scss';
 
-export const TextArea = ({...props}) => {
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
+  className?: string,
+  [property: string]: any,
+};
+
+/*************************\
+ * SelectBox Component
+\*************************/
+
+export const TextArea = ({
+  className,
+  ...rest
+}: Props) => {
   return (
     <textarea 
-      className={`${basicStyle.Input} ${basicStyle.ActiveInput} ${basicStyle.Shadow} ${style.TextArea}`}
+      className={`${basicStyle.Input} ${basicStyle.ActiveInput} ${basicStyle.Shadow} ${style.TextArea} ${className}`}
       name="textarea" 
-      style={{ height: "286px" }}
-      {...props}
+      {...rest}
     ></textarea>
   )
 }
