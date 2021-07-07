@@ -8,8 +8,8 @@ type ColumnStyle = {
 export const columnsAssets = [
   {
     Header: 'Código',
-    id: 'id',
-    accessor: (row: any) => row.id, // accessor is the "key" in the data
+    id: 'assetSf',
+    accessor: (row: any) => row.assetSf, // accessor is the "key" in the data
     Cell: CellFormat({ isCenter: true, isBold: true })
   },
   {
@@ -32,7 +32,7 @@ export const columnsAssets = [
 ];
 
 export const columnStyle: ColumnStyle = {
-  id: { width: '160px', textAlign: 'center' },
+  assetSf: { width: '160px', textAlign: 'center' },
   asset: { width: '60%' },
   category: { width: '40%', textAlign: 'center' },
   moreButton: { width: '40px', textAlign: 'center' },

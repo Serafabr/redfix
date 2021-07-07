@@ -16,7 +16,7 @@ import plusIcon from '../../../../../assets/icons/plus-blue.svg';
 // Types
 import { ApolloError } from '@apollo/client';
 import { ButtonType } from '../../../../../components/Buttons/_types';
-import { OptionsType } from '../../../../../components/SelectBox/_types';
+import { IdType, OptionsType } from '../../../../../components/SelectBox/_types';
 
 /*************************\
  * Custom types
@@ -45,10 +45,28 @@ export const TaskAssets = ({
 }: Props) => {
   
   const [ assetModalOpen, setAssetModalOpen ] = useState(false);
+  const [ assets, setAssets ] = useState<Array<IdType>>([]); 
   
+  // Open modal
   const handleOpenAssetModal = () => {
     setAssetModalOpen(true);
   }
+  
+  // Add new assets
+  const handleAddAssets = (addedAssets: Array<IdType>) => {
+    const newAssets = [...assets];
+    // Check whether the asset is already on the list
+    addedAssets.forEach((asset) => {
+      if (!newAssets.includes(asset)) {
+        newAssets.push(asset);
+      }
+    })
+    // Add assets
+    setAssets(newAssets);
+  }
+  
+  console.log('assets');
+  console.log(assets);
   
   const data = useMemo(() => dataAssets, []);
   const columns = useMemo(() => columnsAssets, []);
@@ -74,7 +92,7 @@ export const TaskAssets = ({
         isOpen={assetModalOpen}
         setIsOpen={setAssetModalOpen}
         assetOptions={assetOptions}
-        addNewAsset={(id) => () => {console.log(id)}}
+        addNewAsset={handleAddAssets}
       />
     </>
   )

@@ -21,7 +21,7 @@ type Props = {
   isOpen: boolean,
   setIsOpen: React.Dispatch<boolean>,
   assetOptions?: AssetOptions,
-  addNewAsset: (assetId: Array<IdType>) => () => void,
+  addNewAsset: (assetId: Array<IdType>) => void,
 };
 
 /*************************\
@@ -37,6 +37,10 @@ export const AddAssetModal = ({
   
   const [ asset, setAsset ] = useState<Array<IdType>>([]);
   
+  const handleSubmit = () => {
+    addNewAsset(asset);
+  }
+  
   return (
     <Modal
       modalBoxClasses={style.ModalBox}
@@ -45,7 +49,7 @@ export const AddAssetModal = ({
       setIsOpened={setIsOpen}
       buttons={[ 
         <Button text="Mapa Interativo" buttonType={ButtonType.Warning} />,
-        <Button text="Adicionar" onClick={addNewAsset(asset)}/>
+        <Button text="Adicionar" onClick={handleSubmit}/>
       ]}
     >
       <div className={style.ModalExplanation}>
