@@ -96,11 +96,15 @@ export const TaskAssets = ({
         button={<Button text="Adicionar ativo" buttonType={ButtonType.Secondary} icon={plusIcon} onClick={handleOpenAssetModal}/>}
       />
       <FormContent marginBottom={true}>
-        <Table 
-          data={table}
-          columnStyle={columnStyle}
-          smallTable
-        />
+        {data.length === 0 ? (
+          <EmptyTable />
+        ) : (
+          <Table 
+            data={table}
+            columnStyle={columnStyle}
+            smallTable
+          />
+        )}
       </FormContent>
       <AddAssetModal 
         isOpen={assetModalOpen}
