@@ -5,6 +5,7 @@
 export type IdType = number | string;
 
 export type OptionType = {
+  id?: IdType,
   name: string,
 }
 

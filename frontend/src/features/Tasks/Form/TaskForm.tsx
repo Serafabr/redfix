@@ -51,7 +51,7 @@ export const TaskForm = () => {
         />
         {/* Task Assets Section */}
         <TaskAssets 
-          assetOptions={assetOptions}
+          queryAssetOptions={assetOptions}
         />
         {/* Task Assets Section */}
         <TaskFiles />

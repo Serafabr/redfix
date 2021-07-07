@@ -17,13 +17,14 @@ import plusIcon from '../../../../../assets/icons/plus-blue.svg';
 import { ApolloError } from '@apollo/client';
 import { ButtonType } from '../../../../../components/Buttons/_types';
 import { IdType, OptionsType } from '../../../../../components/SelectBox/_types';
+import { AssetOptions } from '../../options/_types';
 
 /*************************\
  * Custom types
 \*************************/
 
-export type AssetOptions = {
-  data?: OptionsType,
+export type QueryAssets = {
+  data?: AssetOptions,
   loading?: boolean,
   error?: ApolloError,
 }
@@ -33,7 +34,7 @@ export type AssetOptions = {
 \*************************/
 
 type Props = {
-  assetOptions?: AssetOptions,
+  queryAssetOptions?: QueryAssets,
 };
 
 /*************************\
@@ -41,7 +42,7 @@ type Props = {
 \*************************/
 
 export const TaskAssets = ({
-  assetOptions,
+  queryAssetOptions,
 }: Props) => {
   
   const [ assetModalOpen, setAssetModalOpen ] = useState(false);
@@ -67,9 +68,22 @@ export const TaskAssets = ({
   
   console.log('assets');
   console.log(assets);
+  console.log(queryAssetOptions);
   
-  const data = useMemo(() => dataAssets, []);
+  const data = useMemo(() => (
+    assets.map((rowId: IdType) => (
+      {
+        id: rowId,
+        assetSf: queryAssetOptions?.data && queryAssetOptions?.data[rowId].assetSf,
+        asset: queryAssetOptions?.data && queryAssetOptions?.data[rowId].name,
+        category: queryAssetOptions?.data && queryAssetOptions?.data[rowId].category,
+      }
+    ))
+  ), [assets, queryAssetOptions]);
+  
   const columns = useMemo(() => columnsAssets, []);
+  
+  
   const table = useTable({ columns, data });
   
   return (
@@ -91,7 +105,7 @@ export const TaskAssets = ({
       <AddAssetModal 
         isOpen={assetModalOpen}
         setIsOpen={setAssetModalOpen}
-        assetOptions={assetOptions}
+        assetOptions={queryAssetOptions}
         addNewAsset={handleAddAssets}
       />
     </>

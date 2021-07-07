@@ -1,6 +1,6 @@
 // Types
 import { OptionsType } from '../../../../components/SelectBox/_types';
-import { Team, Teams, Project, Projects, Asset, Assets } from './_types';
+import { Team, Teams, Project, Projects, Asset, Assets, AssetOptions } from './_types';
 
 /*************************\
  * Prepare team options
@@ -48,18 +48,22 @@ export const prepareProjects = (projectOptions: Projects) => {
  * Prepare asset options
 \*************************/
 
-export const prepareAssets = (assetOptions: Assets) => {
+export const prepareAssets = ({ assets }: Assets) => {
   
   // Get array of teams
-  const { assets } = assetOptions;
   const { nodes } = assets;
   
   // Result
-  const options: OptionsType = {};
+  const options: AssetOptions = {};
   
   nodes.forEach((asset: Asset) => {
-    const { assetId, assetSf, name } = asset;
-    options[assetId] = { name: `${assetSf} - ${name}` }
+    const { assetId, assetSf, name, assetCategoryText } = asset;
+    options[assetId] = {
+      id: assetId,
+      name: `${assetSf} - ${name}`,
+      assetSf,
+      category: assetCategoryText,
+    }
   });
   
   return options;

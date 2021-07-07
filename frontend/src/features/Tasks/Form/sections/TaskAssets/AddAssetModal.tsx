@@ -11,7 +11,7 @@ import { useState } from 'react';
 // Types
 import { IdType } from '../../../../../components/SelectBox/_types';
 import { ButtonType } from '../../../../../components/Buttons/_types';
-import { AssetOptions } from './TaskAssets'
+import { QueryAssets } from './TaskAssets'
 
 /*************************\
  * PropTypes
@@ -20,7 +20,7 @@ import { AssetOptions } from './TaskAssets'
 type Props = {
   isOpen: boolean,
   setIsOpen: React.Dispatch<boolean>,
-  assetOptions?: AssetOptions,
+  assetOptions?: QueryAssets,
   addNewAsset: (assetId: Array<IdType>) => void,
 };
 

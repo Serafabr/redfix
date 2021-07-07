@@ -2,6 +2,8 @@
  * Team category type
 \*************************/
 
+import { IdType, OptionType } from "../../../../components/SelectBox/_types"
+
 export type Team = {
   name: string,
   teamId: number,
@@ -34,8 +36,9 @@ export type Projects = {
 
 export type Asset = {
   name: string,
-  assetId: number,
+  assetId: IdType,
   assetSf: string,
+  assetCategoryText: string,
 }
 
 export type Assets = {
@@ -43,3 +46,12 @@ export type Assets = {
     nodes: Array<Asset>,
   },
 }
+
+export type AssetOption = OptionType & {
+  assetSf: string,
+  category: string,
+}
+
+export type AssetOptions = {
+  [assetId in IdType]: AssetOption;
+};
