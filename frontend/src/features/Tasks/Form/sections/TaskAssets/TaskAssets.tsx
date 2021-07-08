@@ -18,6 +18,12 @@ import { ApolloError } from '@apollo/client';
 import { ButtonType } from '../../../../../components/Buttons/_types';
 import { IdType, OptionsType } from '../../../../../components/SelectBox/_types';
 import { AssetOptions } from '../../options/_types';
+import { 
+  TaskFormStateType, 
+  TaskFormSetStateType,
+  taskFormStateDefault,
+  taskFormSetStateDefault,
+} from '../../_types';
 
 /*************************\
  * Custom types
@@ -35,6 +41,8 @@ export type QueryAssets = {
 
 type Props = {
   queryAssetOptions?: QueryAssets,
+  formData?: TaskFormStateType,
+  setFormData?: TaskFormSetStateType,
 };
 
 /*************************\
@@ -43,10 +51,11 @@ type Props = {
 
 export const TaskAssets = ({
   queryAssetOptions,
+  formData = taskFormStateDefault,
+  setFormData = taskFormSetStateDefault,
 }: Props) => {
   
   const [ assetModalOpen, setAssetModalOpen ] = useState(false);
-  const [ assets, setAssets ] = useState<Array<IdType>>([]); 
   
   // Open modal
   const handleOpenAssetModal = () => {
@@ -54,24 +63,22 @@ export const TaskAssets = ({
   }
   
   // Add new assets
-  const handleAddAssets = (addedAssets: Array<IdType>) => {
-    const newAssets = [...assets];
+  const handleAddAssets = (newAssets: Array<IdType>) => {
+    const result = [...formData.assets];
     // Check whether the asset is already on the list
-    addedAssets.forEach((asset) => {
-      if (!newAssets.includes(asset)) {
-        newAssets.push(asset);
+    newAssets.forEach((asset) => {
+      if (!result.includes(asset)) {
+        result.push(asset);
       }
     })
     // Add assets
-    setAssets(newAssets);
-  }
-  
-  console.log('assets');
-  console.log(assets);
-  console.log(queryAssetOptions);
+    console.log('result');
+    console.log(result);
+    setFormData.assets(result);
+  };
   
   const data = useMemo(() => (
-    assets.map((rowId: IdType) => (
+    formData.assets.map((rowId: IdType) => (
       {
         id: rowId,
         assetSf: queryAssetOptions?.data && queryAssetOptions?.data[rowId].assetSf,
@@ -79,10 +86,9 @@ export const TaskAssets = ({
         category: queryAssetOptions?.data && queryAssetOptions?.data[rowId].category,
       }
     ))
-  ), [assets, queryAssetOptions]);
+  ), [formData.assets, queryAssetOptions]);
   
   const columns = useMemo(() => columnsAssets, []);
-  
   
   const table = useTable({ columns, data });
   

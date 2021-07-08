@@ -39,6 +39,8 @@ export const AddAssetModal = ({
   
   const handleSubmit = () => {
     addNewAsset(asset);
+    setIsOpen(false);
+    setAsset([]);
   }
   
   return (

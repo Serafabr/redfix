@@ -9,6 +9,12 @@ import style from './TaskDescription.module.scss';
 // Types
 import { ApolloError } from "@apollo/client";
 import { FormSituationType } from "../../../../../components/Forms/_types";
+import { 
+  TaskFormStateType, 
+  TaskFormSetStateType,
+  taskFormStateDefault,
+  taskFormSetStateDefault
+} from "../../_types";
 import { handleOneItemSelection } from '../../../../../components/SelectBox';
 // Options for dropdown
 import { taskCategories, taskStatus, taskPriorities } from '../../../../../components/Options';
@@ -58,8 +64,8 @@ type ProjectOptions = {
 
 type Props = {
   situation?: FormSituationType | null,
-  formData?: InputDescriptionData,
-  setFormData?: InputSetDescriptionData,
+  formData?: TaskFormStateType,
+  setFormData?: TaskFormSetStateType,
   teamOptions?: TeamOptions,
   projectOptions?: ProjectOptions,
 };
@@ -103,8 +109,8 @@ const defaultSetter = () => {};
 \*************************/
 
 export const TaskDescription = ({
-  formData = defaultDescriptionData,
-  setFormData = defeaultSetDescriptionData,
+  formData = taskFormStateDefault,
+  setFormData = taskFormSetStateDefault,
   teamOptions = defaultOptions,
   projectOptions = defaultOptions,
 }: Props) => {

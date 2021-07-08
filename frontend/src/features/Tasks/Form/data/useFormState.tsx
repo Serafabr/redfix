@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // Types
 import { IdType } from '../../../../components/SelectBox/_types';
+import { Asset } from '../options/_types';
 import { TaskFormStateType, TaskFormSetStateType } from '../_types';
 
 /*************************\
@@ -32,7 +33,7 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
   const [ limitDate, setLimitDate ] = useState<string>();
   
   // Assets
-  const [ assets, setAssets ] = useState<string>();
+  const [ assets, setAssets ] = useState<Array<IdType>>([]); 
   
   
   const formState: TaskFormStateType = {
@@ -46,6 +47,7 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
     project,
     startDate,
     limitDate,
+    assets
   }
   
   const setFormState: TaskFormSetStateType = {
@@ -59,6 +61,7 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
     project: setProject,
     startDate: setStartDate,
     limitDate: setLimitDate,
+    assets: setAssets,
   }
   
   return [ formState, setFormState ];

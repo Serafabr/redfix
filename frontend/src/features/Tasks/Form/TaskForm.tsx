@@ -52,6 +52,8 @@ export const TaskForm = () => {
         {/* Task Assets Section */}
         <TaskAssets 
           queryAssetOptions={assetOptions}
+          formData={formState}
+          setFormData={setFormState}
         />
       </FormContainer>
       <div className={style.ForwardBox}>
