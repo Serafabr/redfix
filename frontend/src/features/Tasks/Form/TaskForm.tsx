@@ -53,8 +53,6 @@ export const TaskForm = () => {
         <TaskAssets 
           queryAssetOptions={assetOptions}
         />
-        {/* Task Assets Section */}
-        <TaskFiles />
       </FormContainer>
       <div className={style.ForwardBox}>
         <div className={style.ButtonWrapper}>

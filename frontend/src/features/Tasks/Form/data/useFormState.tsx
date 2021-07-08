@@ -31,6 +31,9 @@ export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
   const [ startDate, setStartDate ] = useState<string>();
   const [ limitDate, setLimitDate ] = useState<string>();
   
+  // Assets
+  const [ assets, setAssets ] = useState<string>();
+  
   
   const formState: TaskFormStateType = {
     task,
