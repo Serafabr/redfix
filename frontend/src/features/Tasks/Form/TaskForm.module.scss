@@ -7,17 +7,11 @@
 }
 
 .ForwardBox {
-  //position: sticky;
-  //position: -webkit-sticky;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  bottom: -24px;
-  margin: 16px -12px -24px -12px;
-  background-color: white;
-  border-top: 1px solid $gray_300;
-  box-shadow: 0 -2px 4px 1px rgba(190, 190, 190, 0.3);
   padding: 14px 20px;
+  border-radius: 4px;
 }
 
 .ButtonWrapper {

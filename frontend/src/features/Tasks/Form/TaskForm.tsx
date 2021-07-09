@@ -55,26 +55,26 @@ export const TaskForm = () => {
           formData={formState}
           setFormData={setFormState}
         />
+        <div className={style.ForwardBox}>
+          <div className={style.ButtonWrapper}>
+            <Button 
+              text="Limpar"
+              buttonType={ButtonType.Warning}
+            />
+          </div>
+          <div className={style.ButtonWrapper}>
+            <Button 
+              text="Cancelar"
+              buttonType={ButtonType.Danger}
+            />
+          </div>
+          <div>
+            <Button 
+              text="Cadastrar tarefa"
+            />
+          </div>
+        </div>
       </FormContainer>
-      <div className={style.ForwardBox}>
-        <div className={style.ButtonWrapper}>
-          <Button 
-            text="Limpar"
-            buttonType={ButtonType.Warning}
-          />
-        </div>
-        <div className={style.ButtonWrapper}>
-          <Button 
-            text="Cancelar"
-            buttonType={ButtonType.Danger}
-          />
-        </div>
-        <div>
-          <Button 
-            text="Cadastrar tarefa"
-          />
-        </div>
-      </div>
     </>
   )
 }
