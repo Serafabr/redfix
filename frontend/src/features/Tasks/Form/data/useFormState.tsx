@@ -1,7 +1,6 @@
 import { useState } from 'react';
 // Types
 import { IdType } from '../../../../components/SelectBox/_types';
-import { Asset } from '../options/_types';
 import { TaskFormStateType, TaskFormSetStateType } from '../_types';
 
 /*************************\
@@ -14,7 +13,7 @@ type Signature = (defaultStates?: TaskFormStateType) => [TaskFormStateType, Task
  * DefaultStates
 \*************************/
 
-const InitialState = {
+const InitialState: TaskFormStateType = {
   task: '',
   place: '',
   description: '',
@@ -35,23 +34,23 @@ const InitialState = {
 export const useFormState: Signature = (defaultStates = InitialState) => {
   
   // Text input
-  const [ task, setTask ] = useState<string>('');
-  const [ place, setPlace ] = useState<string>('');
-  const [ description, setDescription ] = useState<string>('');
+  const [ task, setTask ] = useState<string>(defaultStates.task);
+  const [ place, setPlace ] = useState<string>(defaultStates.place);
+  const [ description, setDescription ] = useState<string>(defaultStates.description);
   
   // Dropdown
-  const [ team, setTeam ] = useState<IdType[]>([]);
-  const [ category, setCategory ] = useState<IdType[]>([]);
-  const [ priority, setPriority ] = useState<IdType[]>([]);
-  const [ status, setStatus ] = useState<IdType[]>([]);
-  const [ project, setProject ] = useState<IdType[]>([]);
+  const [ team, setTeam ] = useState<IdType[]>(defaultStates.team);
+  const [ category, setCategory ] = useState<IdType[]>(defaultStates.category);
+  const [ priority, setPriority ] = useState<IdType[]>(defaultStates.priority);
+  const [ status, setStatus ] = useState<IdType[]>(defaultStates.status);
+  const [ project, setProject ] = useState<IdType[]>(defaultStates.project);
   
   // Dates
-  const [ startDate, setStartDate ] = useState<string>();
-  const [ limitDate, setLimitDate ] = useState<string>();
+  const [ startDate, setStartDate ] = useState<string>(defaultStates.startDate);
+  const [ limitDate, setLimitDate ] = useState<string>(defaultStates.limitDate);
   
   // Assets
-  const [ assets, setAssets ] = useState<Array<IdType>>([]); 
+  const [ assets, setAssets ] = useState<Array<IdType>>(defaultStates.assets); 
   
   
   const formState: TaskFormStateType = {

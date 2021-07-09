@@ -5,16 +5,16 @@ import { IdType } from "../../../components/SelectBox/_types";
 \*************************/
 
 export type TaskFormStateType = {
-  task?: string,
-  place?: string,
-  description?: string,
-  team?: IdType[],
-  category?: IdType[],
-  priority?: IdType[],
-  status?: IdType[],
-  project?: IdType[],
-  startDate?: string,
-  limitDate?: string,
+  task: string,
+  place: string,
+  description: string,
+  team: IdType[],
+  category: IdType[],
+  priority: IdType[],
+  status: IdType[],
+  project: IdType[],
+  startDate: string,
+  limitDate: string,
   assets: IdType[],
 }
 
