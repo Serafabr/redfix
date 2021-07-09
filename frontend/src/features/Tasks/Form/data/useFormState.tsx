@@ -8,13 +8,31 @@ import { TaskFormStateType, TaskFormSetStateType } from '../_types';
  * PropTypes
 \*************************/
 
-type Props = {};
+type Signature = (defaultStates?: TaskFormStateType) => [TaskFormStateType, TaskFormSetStateType];
+
+/*************************\
+ * DefaultStates
+\*************************/
+
+const InitialState = {
+  task: '',
+  place: '',
+  description: '',
+  team: [],
+  category: [],
+  priority: [],
+  status: [],
+  project: [],
+  startDate: '',
+  limitDate: '',
+  assets: []
+}
 
 /*************************\
  * Custom Hook
 \*************************/
 
-export const useFormState = (): [TaskFormStateType, TaskFormSetStateType] => {
+export const useFormState: Signature = (defaultStates = InitialState) => {
   
   // Text input
   const [ task, setTask ] = useState<string>('');
