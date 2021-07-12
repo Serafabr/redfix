@@ -32,7 +32,7 @@ export const TaskForm = () => {
   const [ formState, setFormState ] = useFormState();
   const location = useLocation<string>();
   
-  const [ addTask, { data } ] = useMutation(CREATE_TASK);
+  const [ createTask, { data } ] = useMutation(CREATE_TASK);
   const createTaskVariables = {
     title: formState.task,
     place: formState.place,
@@ -46,6 +46,12 @@ export const TaskForm = () => {
     dateLimit: dayjs(formState.limitDate, 'DD/MM/YYYY').toDate(),
     assets: formState.assets,
   }
+  
+  const handleSubmitButton = () => {
+    createTask({
+      variables: createTaskVariables,
+    });
+  };
   
   return (
     <>
@@ -89,6 +95,7 @@ export const TaskForm = () => {
           <div>
             <Button 
               text="Cadastrar tarefa"
+              onClick={handleSubmitButton}
             />
           </div>
         </div>
