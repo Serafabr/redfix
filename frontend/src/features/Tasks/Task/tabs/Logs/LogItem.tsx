@@ -1,6 +1,6 @@
 import style from './Logs.module.scss';
-import { TimelineItem } from '../../../../../components/temp';
-import { IconColorType } from '../../../../../components/temp/_types';
+import { TimelineItem } from '../../../../../components/Timeline';
+import { IconColorType } from '../../../../../components/Timeline/_types';
 import { UserMessage, StatusMessage, DispatchMessage, CreationMessage } from './SystemMessages';
 
 export enum LogItemActionT { Message, Status, Dispatch, Creation };
