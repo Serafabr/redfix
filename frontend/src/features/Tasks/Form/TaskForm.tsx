@@ -20,6 +20,9 @@ import { useFormState } from './data/useFormState';
 import { TaskAssets } from './sections/TaskAssets/TaskAssets';
 import { ButtonType } from '../../../components/Buttons/_types';
 import { useOptionsQuery } from './options/useOptionsQuery';
+import { useMutation } from '@apollo/client';
+import { CREATE_TASK } from './mutations/graphql';
+import dayjs from 'dayjs';
 
 
 export const TaskForm = () => {
@@ -28,6 +31,21 @@ export const TaskForm = () => {
   
   const [ formState, setFormState ] = useFormState();
   const location = useLocation<string>();
+  
+  const [ addTask, { data } ] = useMutation(CREATE_TASK);
+  const createTaskVariables = {
+    title: formState.task,
+    place: formState.place,
+    description: formState.description,
+    // team: formState.team[0],
+    taskCategoryId: formState.category[0],
+    taskPriorityId: formState.priority[0],
+    // taskStatusId: formState.status[0],
+    projectId: formState.project[0],
+    dateStart: dayjs(formState.startDate, 'DD/MM/YYYY').toDate(),
+    dateLimit: dayjs(formState.limitDate, 'DD/MM/YYYY').toDate(),
+    assets: formState.assets,
+  }
   
   return (
     <>
