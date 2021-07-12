@@ -81,5 +81,8 @@ export const useFormState: Signature = (defaultStates = InitialState) => {
     assets: setAssets,
   }
   
+  console.log('formState');
+  console.log(formState);
+  
   return [ formState, setFormState ];
 }
