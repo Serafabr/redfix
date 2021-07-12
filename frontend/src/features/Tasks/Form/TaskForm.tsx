@@ -38,13 +38,13 @@ export const TaskForm = () => {
     place: formState.place,
     description: formState.description,
     // team: formState.team[0],
-    taskCategoryId: formState.category[0],
-    taskPriorityId: formState.priority[0],
+    taskCategoryId: parseInt(formState.category[0] as string),
+    taskPriorityId: parseInt(formState.priority[0] as string ),
     // taskStatusId: formState.status[0],
-    projectId: formState.project[0],
+    projectId: parseInt(formState.project[0] as string),
     dateStart: dayjs(formState.startDate, 'DD/MM/YYYY').toDate(),
     dateLimit: dayjs(formState.limitDate, 'DD/MM/YYYY').toDate(),
-    assets: formState.assets,
+    assets: formState.assets.map((asset) => parseInt(asset as string)),
   }
   
   const handleSubmitButton = () => {

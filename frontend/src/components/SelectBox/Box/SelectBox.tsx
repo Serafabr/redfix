@@ -63,6 +63,8 @@ export const SelectBox = ({
     return result;
   }, [selectionArray])
   
+  console.log('items');
+  console.log(items);
   
   const optionIds = sortAndFilterIdTypes(items, selectionObject, searchInput, sortItems);
   
