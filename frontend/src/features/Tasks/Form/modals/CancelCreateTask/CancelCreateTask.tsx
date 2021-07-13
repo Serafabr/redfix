@@ -11,7 +11,6 @@ import { ButtonType } from '../../../../../components/Buttons/_types';
 type Props = {
   isOpen: boolean,
   setisOpen: (isOpen: boolean) => void,
-  
 };
 
 /*************************\
