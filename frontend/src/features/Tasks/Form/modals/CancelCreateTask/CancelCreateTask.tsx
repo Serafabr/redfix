@@ -3,6 +3,7 @@ import { Modal } from '../../../../../components/Modals';
 import style from './CancelCreateTask.module.scss';
 
 import { ButtonType } from '../../../../../components/Buttons/_types';
+import { useHistory } from 'react-router-dom';
 
 /*************************\
  * PropTypes
@@ -22,11 +23,14 @@ export const ModalCancelCreateTask = ({
   setIsOpen,
 }: Props) => {
   
+  const history = useHistory();
+  
   const handleBackButton = () => {
     setIsOpen(false);
   }
   
   const handleCancelButton = () => {
+    history.push('/tarefas');
     setIsOpen(false);
   }
   
