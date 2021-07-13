@@ -33,7 +33,7 @@ export const AddFileModal = ({
       modalBoxClasses={style.ModalBox}
       title="Adicionar arquivo"
       isOpen={isOpen}
-      setisOpen={setIsOpen}
+      setIsOpen={setIsOpen}
       buttons={[ <Button text="Adicionar"/>]}
     >
       <div className={style.ModalExplanation}>

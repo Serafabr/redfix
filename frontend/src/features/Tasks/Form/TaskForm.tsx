@@ -1,7 +1,7 @@
 import style from './TaskForm.module.scss';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { useLocation } from 'react-router';
-
+import { useState } from 'react';
 
 import { FormHeader, FormContent, FormContainer } from '../../../components/Forms';
 import { FormSituationType } from '../../../components/Forms/_types';
@@ -23,10 +23,13 @@ import { useOptionsQuery } from './options/useOptionsQuery';
 import { useMutation } from '@apollo/client';
 import { CREATE_TASK } from './mutations/graphql';
 import dayjs from 'dayjs';
-import { CancelCreateTask } from './modals/CancelCreateTask/CancelCreateTask';
+import { ModalCancelCreateTask } from './modals/CancelCreateTask/CancelCreateTask';
 
 
 export const TaskForm = () => {
+  
+  // Modals
+  const [ isCancelModalOpen, setIsCancelModalOpen ] = useState<boolean>(false);
   
   const { teamOptions, projectOptions, assetOptions } = useOptionsQuery();
   
@@ -53,6 +56,10 @@ export const TaskForm = () => {
       variables: createTaskVariables,
     });
   };
+  
+  const handleCancelButton = () => {
+    setIsCancelModalOpen(true);
+  }
   
   return (
     <>
@@ -91,6 +98,7 @@ export const TaskForm = () => {
             <Button 
               text="Cancelar"
               buttonType={ButtonType.Danger}
+              onClick={handleCancelButton}
             />
           </div>
           <div>
@@ -101,7 +109,10 @@ export const TaskForm = () => {
           </div>
         </div>
       </FormContainer>
-      <CancelCreateTask />
+      <ModalCancelCreateTask 
+        isOpen={isCancelModalOpen}
+        setIsOpen={setIsCancelModalOpen}
+      />
     </>
   )
 }

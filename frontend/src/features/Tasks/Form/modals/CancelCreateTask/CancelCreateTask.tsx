@@ -10,22 +10,34 @@ import { ButtonType } from '../../../../../components/Buttons/_types';
 
 type Props = {
   isOpen: boolean,
-  setisOpen: (isOpen: boolean) => void,
+  setIsOpen: (isOpen: boolean) => void,
 };
 
 /*************************\
  * SelectBox Component
 \*************************/
 
-export const CancelCreateTask = () => {
+export const ModalCancelCreateTask = ({
+  isOpen,
+  setIsOpen,
+}: Props) => {
+  
+  const handleBackButton = () => {
+    setIsOpen(false);
+  }
+  
+  const handleCancelButton = () => {
+    setIsOpen(false);
+  }
+  
   return (
     <Modal
-      isOpen={true}
-      setisOpen={()=>{}}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
       title="Cancelar criação"
       buttons={[
-        <Button text="Voltar" buttonType={ButtonType.Warning} onClick={()=>{}} />,
-        <Button text="Cancelar" buttonType={ButtonType.Danger} onClick={()=>{}} />,
+        <Button text="Voltar" buttonType={ButtonType.Warning} onClick={handleBackButton} />,
+        <Button text="Cancelar" buttonType={ButtonType.Danger} onClick={handleCancelButton} />,
       ]}
       modalBoxClasses={style.ModalBox}
     >
