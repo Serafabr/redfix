@@ -7,6 +7,8 @@ create or replace function :function_name (
   in "description" text,
   in "taskPriorityId" integer,
   in "taskCategoryId" integer,
+  in "taskStatusId" integer,
+  in "teamId" integer,
   in "taskTemplateId" integer default null,
   in "projectId" integer default null,
   in "place" text default null,
@@ -20,9 +22,8 @@ create or replace function :function_name (
   language plpgsql
   as $$
     declare
-      task_initial_status integer;
       "personId" constant integer = get_person_id();
-      "teamId" constant integer = get_team_id();
+      "creatorTeamId" constant integer = get_team_id();
     begin
       if array_length("assets", 1) is null
         then perform raise_exception(201);
@@ -36,7 +37,7 @@ create or replace function :function_name (
         "personId",
         "taskPriorityId",
         "taskCategoryId",
-        default,-- task_status_id
+        "taskStatusId",
         "taskTemplateId",
         "teamId",
         "projectId",
@@ -48,13 +49,7 @@ create or replace function :function_name (
         "dateStart",
         "dateEnd",
         "requestId"
-      ) returning
-          task_id,
-          task_status_id
-          into
-          id,
-          task_initial_status
-      ;
+      ) returning task_id into id;
 
       insert into task_assets select id, unnest("assets");
 
@@ -64,9 +59,9 @@ create or replace function :function_name (
         'creation',
         now(),
         "personId",
-        "teamId",
+        "creatorTeamId",
         null,
-        task_initial_status,
+        "taskStatusId",
         'Criação da tarefa',
         null,
         null,
