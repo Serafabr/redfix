@@ -23,6 +23,7 @@ import { useOptionsQuery } from './options/useOptionsQuery';
 import { useMutation } from '@apollo/client';
 import { CREATE_TASK } from './mutations/graphql';
 import dayjs from 'dayjs';
+import { CancelCreateTask } from './modals/CancelCreateTask/CancelCreateTask';
 
 
 export const TaskForm = () => {
@@ -100,6 +101,7 @@ export const TaskForm = () => {
           </div>
         </div>
       </FormContainer>
+      <CancelCreateTask />
     </>
   )
 }
