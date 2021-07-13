@@ -2,7 +2,7 @@
  * General types
 \*************************/
 
-export type IdType = number | string;
+export type IdType = string;
 
 export type OptionType = {
   id?: IdType,

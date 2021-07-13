@@ -121,7 +121,7 @@ export const TaskDescription = ({
         title="Descrição da tarefa"
         subtitle="Informações essenciais para a execução da tarefa. Todos os campos desta seção, exceto 'Projeto', devem ser obrigatoriamente preenchidos. E, caso necessário, alterações poderão ser realizadas posteriormente."
         step={1}
-        totalSteps={4}
+        totalSteps={3}
         situation={FormSituationType.Error}
       />
       <FormContent marginBottom={true}>

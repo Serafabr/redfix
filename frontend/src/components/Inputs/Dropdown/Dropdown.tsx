@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { AddSelectBox } from "../../SelectBox"
 import { DropdownButton } from "..";
 // Types
-import { OptionsType, OptionType, OnSelectItemType } from "../../SelectBox/_types"
+import { OptionsType, OptionType, OnSelectItemType, IdType } from "../../SelectBox/_types"
 
 /*************************\
  * PropTypes
@@ -11,7 +11,7 @@ import { OptionsType, OptionType, OnSelectItemType } from "../../SelectBox/_type
 
 type Props = {
   options?: OptionsType,
-  selectionArray?: Array<string | number>, 
+  selectionArray?: Array<IdType>, 
   onSelectItem: OnSelectItemType,
   boxWidth?: number,
   searchable?: boolean,

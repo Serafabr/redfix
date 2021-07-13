@@ -98,7 +98,7 @@ export const TaskAssets = ({
         title="Ativos"
         subtitle="Adicione todos os ativos que serão objetos desta manutenção / serviço. Campo obrigatório. O usuário deverá anexar, pelo menos, UM ativo."
         step={3}
-        totalSteps={4}
+        totalSteps={3}
         button={<Button text="Adicionar ativo" buttonType={ButtonType.Secondary} icon={plusIcon} onClick={handleOpenAssetModal}/>}
       />
       <FormContent marginBottom={true}>

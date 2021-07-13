@@ -92,7 +92,7 @@ export const TaskDates = ({
       title="Datas e prazos"
       subtitle="Prazos para o ínicio e término da tarefa. Estes campos NÃO precisam ser obrigatoriamente preenchidos. O usuário poderá preenchê-los posteriormente."
       step={2}
-      totalSteps={4}
+      totalSteps={3}
       situation={situation}
     />
     <FormContent marginBottom={true}>
