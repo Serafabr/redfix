@@ -222,7 +222,7 @@ export const TaskDescription = ({
               searchable={true}
               sortItems={true}
               wrapText={true}
-              placeholder="Sem projeto"
+              placeholder="Tarefa sem projeto"
             />
           </InputField>
           <InputField
