@@ -7,7 +7,12 @@ import { TaskFormStateType, TaskFormSetStateType } from '../_types';
  * PropTypes
 \*************************/
 
-type Signature = (defaultStates?: TaskFormStateType) => [TaskFormStateType, TaskFormSetStateType];
+type Signature = (defaultStates?: TaskFormStateType) => 
+[
+  TaskFormStateType, 
+  TaskFormSetStateType, 
+  () => void
+];
 
 /*************************\
  * DefaultStates
@@ -81,8 +86,19 @@ export const useFormState: Signature = (defaultStates = InitialState) => {
     assets: setAssets,
   }
   
-  console.log('formState');
-  console.log(formState);
+  const cleanState = () => {
+    setTask(defaultStates.task);
+    setPlace(defaultStates.place);
+    setDescription(defaultStates.description);
+    setTeam(defaultStates.team);
+    setPriority(defaultStates.priority);
+    setCategory(defaultStates.category);
+    setStatus(defaultStates.status);
+    setProject(defaultStates.project);
+    setStartDate(defaultStates.startDate);
+    setLimitDate(defaultStates.limitDate);
+    setAssets(defaultStates.assets);
+  }
   
-  return [ formState, setFormState ];
+  return [ formState, setFormState, cleanState ];
 }

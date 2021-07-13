@@ -24,16 +24,18 @@ import { useMutation } from '@apollo/client';
 import { CREATE_TASK } from './mutations/graphql';
 import dayjs from 'dayjs';
 import { ModalCancelCreateTask } from './modals/CancelCreateTask/CancelCreateTask';
+import { ModalCleanTaskForm } from './modals/CleanTaskForm/CleanTaskForm';
 
 
 export const TaskForm = () => {
   
   // Modals
   const [ isCancelModalOpen, setIsCancelModalOpen ] = useState<boolean>(false);
+  const [ isCleanModalOpen, setIsCleanModalOpen ] = useState<boolean>(false);
   
   const { teamOptions, projectOptions, assetOptions } = useOptionsQuery();
   
-  const [ formState, setFormState ] = useFormState();
+  const [ formState, setFormState, cleanState ] = useFormState();
   const location = useLocation<string>();
   
   const [ createTask, { data } ] = useMutation(CREATE_TASK);
@@ -59,6 +61,10 @@ export const TaskForm = () => {
   
   const handleCancelButton = () => {
     setIsCancelModalOpen(true);
+  }
+  
+  const handleCleanButton = () => {
+    setIsCleanModalOpen(true);
   }
   
   return (
@@ -92,6 +98,7 @@ export const TaskForm = () => {
             <Button 
               text="Limpar"
               buttonType={ButtonType.Warning}
+              onClick={handleCleanButton}
             />
           </div>
           <div className={style.ButtonWrapper}>
@@ -112,6 +119,11 @@ export const TaskForm = () => {
       <ModalCancelCreateTask 
         isOpen={isCancelModalOpen}
         setIsOpen={setIsCancelModalOpen}
+      />
+      <ModalCleanTaskForm
+        isOpen={isCleanModalOpen}
+        setIsOpen={setIsCleanModalOpen}
+        handleCleanState={cleanState}
       />
     </>
   )
