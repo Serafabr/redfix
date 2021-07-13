@@ -7,8 +7,27 @@ import plusBlue from '../../../assets/icons/plus-blue.svg';
 // Types
 import { ButtonType } from '../../Buttons/_types';
 
+/*************************\
+ * PropTypes
+\*************************/
 
-export const EmptyTable = () => {
+type Props = {
+  title: string,
+  subtitle: string,
+  buttonName: string,
+  buttonOnClick: () => {},
+};
+
+/*************************\
+ * SelectBox Component
+\*************************/
+
+export const EmptyTable = ({
+  title,
+  subtitle,
+  buttonName,
+  buttonOnClick,
+}: Props) => {
   return (
     <div className={style.EmptyTable}>
       <div className={style.Title}>
