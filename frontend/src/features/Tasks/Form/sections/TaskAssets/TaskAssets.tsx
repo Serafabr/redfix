@@ -103,7 +103,12 @@ export const TaskAssets = ({
       />
       <FormContent marginBottom={true}>
         {data.length === 0 ? (
-          <EmptyTable />
+          <EmptyTable 
+            title="Você ainda não adicionou ativos a essa tarefa"
+            subtitle="Ativo é todo imóvel, área, dependência, sistema, subsistema ou equipamento que pode ser objeto de uma manutenção. Toda tarefa deve conter pelo menos um ativo."
+            buttonName="Adicionar ativo"
+            buttonOnClick={() => {}}
+          />
         ) : (
           <Table 
             data={table}

@@ -15,11 +15,11 @@ type Props = {
   title: string,
   subtitle: string,
   buttonName: string,
-  buttonOnClick: () => {},
+  buttonOnClick: () => void,
 };
 
 /*************************\
- * SelectBox Component
+ * EmptyTable Component
 \*************************/
 
 export const EmptyTable = ({
@@ -31,16 +31,17 @@ export const EmptyTable = ({
   return (
     <div className={style.EmptyTable}>
       <div className={style.Title}>
-        Você ainda não anexou suprimentos nessa tarefa
+        {title}
       </div>
       <div className={style.Subtitle}>
-        Suprimento é todo material ou serviço que pode ser utilizado durante a execução de uma tarefa. Este não é um campo obrigatório, e poderá ser preenchido posteriormente.
+        {subtitle}
       </div>
       <div className={style.ButtonWrapper}>
         <Button 
-          text="Adicionar suprimento"
+          text={buttonName}
           buttonType={ButtonType.Secondary}
           icon={plusBlue}
+          onClick={buttonOnClick}
         />
       </div>
     </div>
