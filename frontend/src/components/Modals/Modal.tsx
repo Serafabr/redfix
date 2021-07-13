@@ -10,8 +10,8 @@ import closeIconHovered from '../../assets/icons/modal/hovered/close.svg';
 \*************************/
 
 type Props = {
-  isOpened: boolean,
-  setIsOpened: (isOpened: boolean) => void,
+  isOpen: boolean,
+  setisOpen: (isOpen: boolean) => void,
   title: string,
   hasFooter?: boolean,
   buttons?: Array<ReactNode>,
@@ -24,8 +24,8 @@ type Props = {
 \*************************/
 
 export const Modal = ({
-  isOpened,
-  setIsOpened,
+  isOpen,
+  setisOpen,
   title,
   hasFooter = true,
   buttons,
@@ -43,17 +43,17 @@ export const Modal = ({
   
   const handleBackgroundOnClick = (e: React.MouseEvent<HTMLElement>) => {
     if ((e.target as any).id === "modal") {
-      setIsOpened(false);
+      setisOpen(false);
     }};
   
   // Render component
   return (
-    <div id="modal" className={`${style.Modal} ${isOpened && style.Opened}`} onClick={handleBackgroundOnClick}>
+    <div id="modal" className={`${style.Modal} ${isOpen && style.Opened}`} onClick={handleBackgroundOnClick}>
       <div className={`${style.ModalBox} ${modalBoxClasses}`}>
         <div className={style.ModalHeader}>
           <span className={style.Title}>{title}</span>
           <div className={style.IconWrapper} onMouseEnter={() => {handleCloseIconHover(true)}} onMouseLeave={() => {handleCloseIconHover(false)}}>
-            <img src={isCloseIconHovered ? closeIconHovered : closeIcon} alt="Fechar" onClick={() => setIsOpened(false)}/>
+            <img src={isCloseIconHovered ? closeIconHovered : closeIcon} alt="Fechar" onClick={() => setisOpen(false)}/>
           </div>
         </div>
         <div className={style.ModalContent}>

@@ -52,8 +52,8 @@ export const Dashboard = ({
   return (
     <div>
       <Modal 
-        isOpened={modal}
-        setIsOpened={setModal}
+        isOpen={modal}
+        setisOpen={setModal}
         title="Modal de teste"
       />
       <TitleArea 

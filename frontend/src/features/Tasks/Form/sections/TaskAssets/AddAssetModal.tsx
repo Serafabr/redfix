@@ -47,8 +47,8 @@ export const AddAssetModal = ({
     <Modal
       modalBoxClasses={style.ModalBox}
       title="Adicionar ativo"
-      isOpened={isOpen}
-      setIsOpened={setIsOpen}
+      isOpen={isOpen}
+      setisOpen={setIsOpen}
       buttons={[ 
         <Button text="Mapa Interativo" buttonType={ButtonType.Warning} />,
         <Button text="Adicionar" onClick={handleSubmit}/>

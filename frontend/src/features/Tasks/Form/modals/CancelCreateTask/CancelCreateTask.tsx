@@ -4,11 +4,25 @@ import style from './CancelCreateTask.module.scss';
 
 import { ButtonType } from '../../../../../components/Buttons/_types';
 
+/*************************\
+ * PropTypes
+\*************************/
+
+type Props = {
+  isOpen: boolean,
+  setisOpen: (isOpen: boolean) => void,
+  
+};
+
+/*************************\
+ * SelectBox Component
+\*************************/
+
 export const CancelCreateTask = () => {
   return (
     <Modal
-      isOpened={true}
-      setIsOpened={()=>{}}
+      isOpen={true}
+      setisOpen={()=>{}}
       title="Cancelar criação"
       buttons={[
         <Button text="Voltar" buttonType={ButtonType.Warning} onClick={()=>{}} />,
@@ -16,11 +30,13 @@ export const CancelCreateTask = () => {
       ]}
       modalBoxClasses={style.ModalBox}
     >
-      <div className={style.Title}>
-        Você tem certeza que deseja cancelar?
-      </div>
-      <div className={style.Subtitle}>
-        Ao cancelar a criação de uma tarefa, todas as informações preenchidas serão permanentemente deletadas.
+      <div style={{ minHeight: '130px' }}>
+        <div className={style.Title}>
+          Você tem certeza que deseja cancelar?
+        </div>
+        <div className={style.Subtitle}>
+          Ao cancelar a criação de uma tarefa, todas as informações preenchidas serão permanentemente deletadas.
+        </div>
       </div>
     </Modal>
   )
