@@ -1,3 +1,4 @@
+import { useState } from 'react';
 // Components
 import { FormHeader, FormContent } from '../../../../../components/Forms';
 import { DataGrid } from '../../../../../components/DataDisplays';
@@ -10,25 +11,6 @@ import { isDateStringValid } from '../../data/dateFunctions';
 import { FormSituationType } from '../../../../../components/Forms/_types';
 // Style
 import style from './TaskDates.module.scss';
-
-/*************************\
- * Functions
-\*************************/
-
-const checkDateStringOnBlur = (inputId: string, setFunctionObject: any) => (e: React.SyntheticEvent<HTMLInputElement>) => {
-  const { value } = e.target as HTMLInputElement;
-  
-  if (value.length === 0) {
-    setFunctionObject[inputId](false);
-  } else {
-    setFunctionObject[inputId](!isDateStringValid(value));
-  }
-  
-}
-
-const cleanErrorOnFocus = (inputId: string, setFunctionObject: any) => (e: React.SyntheticEvent<HTMLInputElement>) => {
-  setFunctionObject[inputId](false);
-}
 
 /*************************\
  * General types
@@ -84,7 +66,31 @@ export const TaskDates = ({
   setFormData,
 }: Props) => {
   
-  const [ formStateError, setFormStateError ] = useErrorFormState(); 
+  const [ hasFocus, setHasFocus ] = useState({
+    startDate: false,
+    limitDate: false,
+  });
+  
+  const dateError = {
+    startDate: !hasFocus.startDate && !isDateStringValid(formData.startDate),
+    limitDate: !hasFocus.limitDate && !isDateStringValid(formData.limitDate),
+  }
+  
+  console.log('Error startDate:');
+  console.log(hasFocus.startDate);
+  console.log(formData.startDate);
+  
+  const handleOnFocus = (dateId: "startDate" | "limitDate") => () => {
+    const newHasFocus = {...hasFocus};
+    newHasFocus[dateId] = true;
+    setHasFocus(newHasFocus);
+  }
+  
+  const handleOnBlur = (dateId: "startDate" | "limitDate") => () => {
+    const newHasFocus = {...hasFocus};
+    newHasFocus[dateId] = false;
+    setHasFocus(newHasFocus);
+  }
   
   return (
     <>
@@ -100,29 +106,29 @@ export const TaskDates = ({
         <InputField
             label="Início da execução"
             gridArea="startDate"
-            error={formStateError.startDate}
+            error={dateError.startDate}
             errorMessage={"Data inválida! Utilizar o formato: DD/MM/AAAA."}
           >
           <DateInput 
             value={formData.startDate}
             onChange={handleTextInput('startDate', setFormData)}
-            onFocus={cleanErrorOnFocus('startDate', setFormStateError)}
-            onBlur={checkDateStringOnBlur('startDate', setFormStateError)}
-            error={formStateError.startDate}
+            onFocus={handleOnFocus('startDate')}
+            onBlur={handleOnBlur('startDate')}
+            error={dateError.startDate}
           />
         </InputField>
         <InputField
           label="Prazo final"
           gridArea="limitDate"
-          error={formStateError.limitDate}
+          error={dateError.limitDate}
           errorMessage={"Data inválida! Utilizar o formato: DD/MM/AAAA."}
         >
         <DateInput 
           value={formData.limitDate}
           onChange={handleTextInput('limitDate', setFormData)}
-          onFocus={cleanErrorOnFocus('limitDate', setFormStateError)}
-          onBlur={checkDateStringOnBlur('limitDate', setFormStateError)}
-          error={formStateError.limitDate}
+          onFocus={handleOnFocus('limitDate')}
+          onBlur={handleOnBlur('limitDate')}
+          error={dateError.limitDate}
         />
         </InputField>
       </DataGrid>
