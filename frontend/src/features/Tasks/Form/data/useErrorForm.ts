@@ -1,5 +1,12 @@
-import { TaskFormStateType } from "../_types"
+import { useState } from "react";
+// Functions
 import { isDateStringValid } from "./dateFunctions";
+// Types
+import { TaskFormStateType } from "../_types"
+
+/*************************\
+ * Helper Function
+\*************************/
 
 const checkRequiredInput = (input?: string | string[]) => {
   if (input === undefined || input.length === 0) {
@@ -8,7 +15,11 @@ const checkRequiredInput = (input?: string | string[]) => {
   return false;
 }
 
-export const checkFormState = (formState: TaskFormStateType) => {
+/*************************\
+ * userErrorForm custom hook
+\*************************/
+
+export const useErrorForm = (formState: TaskFormStateType) => {
   const {
     task,
     place,
@@ -36,6 +47,8 @@ export const checkFormState = (formState: TaskFormStateType) => {
     limitDate: isDateStringValid(startDate),
     assets: checkRequiredInput(assets)
   };
+  
+  const { errorForm, setErrorForm } = useState();
   
   return errorTaskForm;
 }

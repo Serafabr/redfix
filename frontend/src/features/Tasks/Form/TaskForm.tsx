@@ -42,6 +42,7 @@ export const TaskForm = ({ bodyRef }: Props) => {
   const location = useLocation<string>();
   
   const [ createTask, { data } ] = useMutation(CREATE_TASK);
+  
   const createTaskVariables = {
     title: formState.task,
     place: formState.place,
