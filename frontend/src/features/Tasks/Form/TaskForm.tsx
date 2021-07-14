@@ -25,6 +25,7 @@ import { CREATE_TASK } from './mutations/graphql';
 import dayjs from 'dayjs';
 import { ModalCancelCreateTask } from './modals/CancelCreateTask/CancelCreateTask';
 import { ModalCleanTaskForm } from './modals/CleanTaskForm/CleanTaskForm';
+import { useErrorForm } from './data/useErrorForm';
 
 type Props = {
   bodyRef: any,
@@ -39,6 +40,12 @@ export const TaskForm = ({ bodyRef }: Props) => {
   const { teamOptions, projectOptions, assetOptions } = useOptionsQuery();
   
   const [ formState, setFormState, cleanState ] = useFormState();
+  
+  const [ errorForm, setErrorForm, checkAllErrors ] = useErrorForm();
+  
+  console.log('errorForm');
+  console.log(errorForm);
+  
   const location = useLocation<string>();
   
   const [ createTask, { data } ] = useMutation(CREATE_TASK);
@@ -58,6 +65,8 @@ export const TaskForm = ({ bodyRef }: Props) => {
   }
   
   const handleSubmitButton = () => {
+    checkAllErrors(formState);
+    
     createTask({
       variables: createTaskVariables,
     });
