@@ -33,7 +33,7 @@ export const MainPage = () => {
                   path={route.path}
                   exact={route.exact}
                   //name={route.name}
-                  render={routerProps => <route.component {...routerProps} /*{...route.props}*/ />}
+                  render={routerProps => <route.component {...routerProps} bodyRef={bodyRef} /*{...route.props}*/ />}
                 />
               ) : null;
             })}

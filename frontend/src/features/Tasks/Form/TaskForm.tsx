@@ -1,7 +1,7 @@
 import style from './TaskForm.module.scss';
 import { TitleArea } from '../../../components/TitleArea/TitleArea';
 import { useLocation } from 'react-router';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import { FormHeader, FormContent, FormContainer } from '../../../components/Forms';
 import { FormSituationType } from '../../../components/Forms/_types';
@@ -26,8 +26,11 @@ import dayjs from 'dayjs';
 import { ModalCancelCreateTask } from './modals/CancelCreateTask/CancelCreateTask';
 import { ModalCleanTaskForm } from './modals/CleanTaskForm/CleanTaskForm';
 
+type Props = {
+  bodyRef: any,
+}
 
-export const TaskForm = () => {
+export const TaskForm = ({ bodyRef }: Props) => {
   
   // Modals
   const [ isCancelModalOpen, setIsCancelModalOpen ] = useState<boolean>(false);
@@ -65,6 +68,11 @@ export const TaskForm = () => {
   
   const handleCleanButton = () => {
     setIsCleanModalOpen(true);
+  }
+  
+  const handleCleanState = () => {
+    bodyRef?.current?.scrollTo(0, 0);
+    cleanState();
   }
   
   return (
@@ -116,14 +124,14 @@ export const TaskForm = () => {
           </div>
         </div>
       </FormContainer>
-      <ModalCancelCreateTask 
-        isOpen={isCancelModalOpen}
-        setIsOpen={setIsCancelModalOpen}
-      />
       <ModalCleanTaskForm
         isOpen={isCleanModalOpen}
         setIsOpen={setIsCleanModalOpen}
-        handleCleanState={cleanState}
+        handleCleanState={handleCleanState}
+      />
+      <ModalCancelCreateTask 
+        isOpen={isCancelModalOpen}
+        setIsOpen={setIsCancelModalOpen}
       />
     </>
   )
