@@ -27,6 +27,8 @@ import { ModalCancelCreateTask } from './modals/CancelCreateTask/CancelCreateTas
 import { ModalCleanTaskForm } from './modals/CleanTaskForm/CleanTaskForm';
 import { useErrorForm } from './data/useErrorForm';
 
+import { hasError } from './data/checkErrors';
+
 type Props = {
   bodyRef: any,
 }
@@ -41,7 +43,7 @@ export const TaskForm = ({ bodyRef }: Props) => {
   
   const [ formState, setFormState, cleanState ] = useFormState();
   
-  const [ errorForm, setErrorForm, checkAllErrors ] = useErrorForm();
+  const [ errorForm, setErrorForm, updateAllErrors ] = useErrorForm();
   
   console.log('errorForm');
   console.log(errorForm);
@@ -65,8 +67,15 @@ export const TaskForm = ({ bodyRef }: Props) => {
   }
   
   const handleSubmitButton = () => {
-    checkAllErrors(formState);
+    console.log('submiting...')
+    updateAllErrors(formState);
+    console.log(hasError(formState));
     
+    if (hasError(formState)) {
+      return; 
+    }
+    
+    console.log('creating task...');
     createTask({
       variables: createTaskVariables,
     });

@@ -32,7 +32,7 @@ export type UseFormError = () => [ErrorFormType, SetErrorFormType, CheckAllError
  * Helper Function
 \*************************/
 
-const checkRequiredInput = (input?: string | string[]) => {
+export const checkRequiredInput = (input?: string | string[]) => {
   if (input === undefined || input.length === 0) {
     return true;
   }
@@ -64,7 +64,7 @@ export const useErrorForm: UseFormError = () => {
   const [ errorForm, setErrorForm ] = useState(defaultErrorForm);
   
   // Check errors on all inputs
-  const checkAllErrors = (formState: TaskFormStateType) => {
+  const updateAllErrors = (formState: TaskFormStateType) => {
     // Get all values from form state
     const {
       task,
@@ -89,13 +89,13 @@ export const useErrorForm: UseFormError = () => {
       priority: checkRequiredInput(priority),
       status: checkRequiredInput(status),
       project: false,
-      startDate: isDateStringValid(startDate),
-      limitDate: isDateStringValid(limitDate),
+      startDate: !isDateStringValid(startDate),
+      limitDate: !isDateStringValid(limitDate),
       assets: checkRequiredInput(assets),
     };
     
     setErrorForm(newErrorForm);
   }
   
-  return [ errorForm, setErrorForm, checkAllErrors ];
+  return [ errorForm, setErrorForm, updateAllErrors ];
 }
