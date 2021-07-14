@@ -76,10 +76,6 @@ export const TaskDates = ({
     limitDate: !hasFocus.limitDate && !isDateStringValid(formData.limitDate),
   }
   
-  console.log('Error startDate:');
-  console.log(hasFocus.startDate);
-  console.log(formData.startDate);
-  
   const handleOnFocus = (dateId: "startDate" | "limitDate") => () => {
     const newHasFocus = {...hasFocus};
     newHasFocus[dateId] = true;

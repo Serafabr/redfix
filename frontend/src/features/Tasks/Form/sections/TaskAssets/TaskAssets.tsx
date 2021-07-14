@@ -72,8 +72,6 @@ export const TaskAssets = ({
       }
     })
     // Add assets
-    console.log('result');
-    console.log(result);
     setFormData.assets(result);
   };
   
