@@ -46,10 +46,8 @@ export const TaskForm = ({ bodyRef }: Props) => {
   
   const [ formState, setFormState, cleanState ] = useFormState();
   
-  const [ errorForm, setErrorForm, updateAllErrors ] = useErrorForm();
+  //const [ errorForm, setErrorForm, updateAllErrors ] = useErrorForm();
   
-  console.log('errorForm');
-  console.log(errorForm);
   
   const location = useLocation<string>();
   const history = useHistory();
@@ -72,7 +70,6 @@ export const TaskForm = ({ bodyRef }: Props) => {
   
   const handleSubmitButton = () => {
     console.log('submiting...')
-    updateAllErrors(formState);
     console.log(hasError(formState));
     
     if (hasError(formState)) {
