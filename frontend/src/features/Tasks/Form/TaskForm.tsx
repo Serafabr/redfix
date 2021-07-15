@@ -28,6 +28,7 @@ import { ModalCleanTaskForm } from './modals/CleanTaskForm/CleanTaskForm';
 import { useErrorForm } from './data/useErrorForm';
 
 import { hasError } from './data/checkErrors';
+import { useHistory } from 'react-router-dom';
 
 type Props = {
   bodyRef: any,
@@ -49,6 +50,7 @@ export const TaskForm = ({ bodyRef }: Props) => {
   console.log(errorForm);
   
   const location = useLocation<string>();
+  const history = useHistory();
   
   const [ createTask, { data } ] = useMutation(CREATE_TASK);
   
@@ -79,6 +81,8 @@ export const TaskForm = ({ bodyRef }: Props) => {
     createTask({
       variables: createTaskVariables,
     });
+    
+    history.push('/tarefas');
   };
   
   const handleCancelButton = () => {

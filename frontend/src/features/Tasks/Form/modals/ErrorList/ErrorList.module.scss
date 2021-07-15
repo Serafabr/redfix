@@ -1,0 +1,25 @@
+@import "../../../../../style/variables";
+
+.ModalBox {
+  width: 380px;
+}
+
+.Title {
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 24px;
+  color: $gray_700;
+}
+
+.Subtitle {
+  margin: 10px 0;
+  
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 21px;
+  color: $gray_500;
+  
+  text-align: justify;
+}
