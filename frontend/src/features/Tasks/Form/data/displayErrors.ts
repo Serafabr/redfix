@@ -3,23 +3,16 @@ import { isDateStringValid } from "./dateFunctions";
 import { checkRequiredInput } from "./useErrorForm";
 import { TaskFormStateType } from "../_types";
 
-const inputName = {
-  task: 'tarefa',
-  place: 'localização',
-  description: 'descrição',
-  team: 'equipe',
-  category: 'categoria',
-  priority: 'prioridade',
-  status: 'status',
-  project: 'projeto',
-  startDate: 'inicio da execução',
-  limitDate: 'prazo final',
-  assets: 'ativos',
-}
+enum ErrorID { RequiredInput, NotValidDate };
+type ErrorCheck = {[key in ErrorID]: { function: Function, description: string }};
 
-const errorDescription = {
-  requiredInput: 'deve ser preenchido',
-  notValidDate: 'data inválida',
+const errorCheck: ErrorCheck = {
+  [ErrorID.RequiredInput]: { function: checkRequiredInput, description: 'campo obrigatório não preenchido'},
+  [ErrorID.NotValidDate]: { function: isDateStringValid, description: 'data inválida'},
+};
+
+const getError = (taskFormValue: any, inputName: string, errorCheckId: ErrorID) => {
+  return errorCheck[errorCheckId].function(taskFormValue) && { inputName, description: errorCheck[errorCheckId].description };
 }
 
 export const displayErrors = (taskForm: any) => {
@@ -38,22 +31,18 @@ export const displayErrors = (taskForm: any) => {
     assets
   } = taskForm;
   
-  const result = [];
-  
-  
-  
   const errors = {
-    task: checkRequiredInput(task),
-    place: checkRequiredInput(place),
-    description: checkRequiredInput(description),
-    team: checkRequiredInput(team),
-    category: checkRequiredInput(category),
-    priority: checkRequiredInput(priority),
-    status: checkRequiredInput(status),
+    task: getError(task, 'tarefa', ErrorID.RequiredInput),
+    place: getError(place, 'localização', ErrorID.RequiredInput),
+    description: getError(description, 'descrição', ErrorID.RequiredInput),
+    team: getError(team, 'equipe', ErrorID.RequiredInput),
+    category: getError(category, 'categoria', ErrorID.RequiredInput),
+    priority: getError(priority, 'prioridade', ErrorID.RequiredInput),
+    status: getError(status, 'status', ErrorID.RequiredInput),
     project: false,
-    startDate: !isDateStringValid(startDate),
-    limitDate: !isDateStringValid(limitDate),
-    assets: checkRequiredInput(assets),
+    startDate: getError(startDate, 'início da execução', ErrorID.NotValidDate),
+    limitDate: getError(limitDate, 'prazo final', ErrorID.NotValidDate),
+    assets: getError(assets, 'ativos', ErrorID.RequiredInput),
   }
   
   return errors;
