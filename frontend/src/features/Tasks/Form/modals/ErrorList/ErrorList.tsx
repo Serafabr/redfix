@@ -38,9 +38,17 @@ export const ErrorListModal = ({
     >
       <div style={{ minHeight: '130px' }}>
         <div className={style.Title}>
-          O formulário apresentou os erros detalhados abaixo:
+          O formulário apresentou os seguintes erros:
         </div>
         <ul className={style.Subtitle}>
+          <li>Tarefa: não preenchido</li>
+          <li>Descrição: não preenchido</li>
+          <li>Tarefa: não preenchido</li>
+          <li>Descrição: não preenchido</li>
+          <li>Tarefa: não preenchido</li>
+          <li>Descrição: não preenchido</li>
+          <li>Tarefa: não preenchido</li>
+          <li>Descrição: não preenchido</li>
           <li>Tarefa: não preenchido</li>
           <li>Descrição: não preenchido</li>
         </ul>

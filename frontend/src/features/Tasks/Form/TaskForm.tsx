@@ -29,6 +29,7 @@ import { useErrorForm } from './data/useErrorForm';
 
 import { hasError } from './data/checkErrors';
 import { useHistory } from 'react-router-dom';
+import { ErrorListModal } from './modals/ErrorList/ErrorList';
 
 type Props = {
   bodyRef: any,
@@ -39,6 +40,7 @@ export const TaskForm = ({ bodyRef }: Props) => {
   // Modals
   const [ isCancelModalOpen, setIsCancelModalOpen ] = useState<boolean>(false);
   const [ isCleanModalOpen, setIsCleanModalOpen ] = useState<boolean>(false);
+  const [ isErrorModalOpen, setIsErrorModalOpen ] = useState<boolean>(false);
   
   const { teamOptions, projectOptions, assetOptions } = useOptionsQuery();
   
@@ -74,6 +76,8 @@ export const TaskForm = ({ bodyRef }: Props) => {
     console.log(hasError(formState));
     
     if (hasError(formState)) {
+      bodyRef?.current?.scrollTo(0, 0);
+      setIsErrorModalOpen(true);
       return; 
     }
     
@@ -155,6 +159,10 @@ export const TaskForm = ({ bodyRef }: Props) => {
       <ModalCancelCreateTask 
         isOpen={isCancelModalOpen}
         setIsOpen={setIsCancelModalOpen}
+      />
+      <ErrorListModal 
+        isOpen={isErrorModalOpen}
+        setIsOpen={setIsErrorModalOpen}
       />
     </>
   )
