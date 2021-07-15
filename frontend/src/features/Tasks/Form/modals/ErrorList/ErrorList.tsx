@@ -3,6 +3,32 @@ import { Modal } from '../../../../../components/Modals';
 import style from './ErrorList.module.scss';
 
 import { ButtonType } from '../../../../../components/Buttons/_types';
+import { TaskFormStateType } from '../../_types';
+import { displayErrors } from '../../data/displayErrors';
+
+/*************************\
+ * Types
+\*************************/
+
+type Errors = { [key: string]: { [key: string]: string } | null }
+
+/*************************\
+ * Helper variables
+\*************************/
+
+const errorOrder = [
+  'task',
+  'place',
+  'description',
+  'team',
+  'category',
+  'priority',
+  'status',
+  'project',
+  'startDate',
+  'limitDate',
+  'assets',
+];
 
 /*************************\
  * PropTypes
@@ -11,6 +37,7 @@ import { ButtonType } from '../../../../../components/Buttons/_types';
 type Props = {
   isOpen: boolean,
   setIsOpen: (isOpen: boolean) => void,
+  taskForm: TaskFormStateType,
 };
 
 /*************************\
@@ -20,11 +47,25 @@ type Props = {
 export const ErrorListModal = ({
   isOpen,
   setIsOpen,
+  taskForm,
 }: Props) => {
+  
+  if (!isOpen) {
+    return null;
+  }
   
   const handleBackButton = () => {
     setIsOpen(false);
   }
+  
+  const errors: Errors = displayErrors(taskForm);
+  
+  console.log('errors');
+  console.log(errors);
+  
+  const displayErrorsElement = errorOrder.map((inputId: string) => (
+    errors[inputId] && (<li>{errors[inputId]?.inputName}: {errors[inputId]?.description}</li>)
+  ))
   
   return (
     <Modal
@@ -41,16 +82,7 @@ export const ErrorListModal = ({
           O formulário apresentou os seguintes erros:
         </div>
         <ul className={style.Subtitle}>
-          <li>Tarefa: não preenchido</li>
-          <li>Descrição: não preenchido</li>
-          <li>Tarefa: não preenchido</li>
-          <li>Descrição: não preenchido</li>
-          <li>Tarefa: não preenchido</li>
-          <li>Descrição: não preenchido</li>
-          <li>Tarefa: não preenchido</li>
-          <li>Descrição: não preenchido</li>
-          <li>Tarefa: não preenchido</li>
-          <li>Descrição: não preenchido</li>
+          {displayErrorsElement}
         </ul>
       </div>
     </Modal>

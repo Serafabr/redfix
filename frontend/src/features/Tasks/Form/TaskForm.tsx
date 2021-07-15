@@ -160,6 +160,7 @@ export const TaskForm = ({ bodyRef }: Props) => {
       <ErrorListModal 
         isOpen={isErrorModalOpen}
         setIsOpen={setIsErrorModalOpen}
+        taskForm={formState}
       />
     </>
   )
