@@ -12,6 +12,7 @@ import { Modal } from '../../components/Modals';
 import { Card } from '../../components/Cards';
 import { Quick } from '../../components/Icons';
 import { useState } from 'react';
+import { FullLoading } from '../../components/Loading';
 
 type DashProps = {
   location: {
@@ -51,6 +52,7 @@ export const Dashboard = ({
   
   return (
     <div>
+      <FullLoading />
       <Modal 
         isOpen={modal}
         setIsOpen={setModal}
