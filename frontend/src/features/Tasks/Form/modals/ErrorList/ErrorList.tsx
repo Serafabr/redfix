@@ -64,7 +64,7 @@ export const ErrorListModal = ({
   console.log(errors);
   
   const displayErrorsElement = errorOrder.map((inputId: string) => (
-    errors[inputId] && (<li>{errors[inputId]?.inputName}: {errors[inputId]?.description}</li>)
+    errors[inputId] && (<li><span className={style.ErrorInputName}>{errors[inputId]?.inputName}</span>: {errors[inputId]?.description}.</li>)
   ))
   
   return (
